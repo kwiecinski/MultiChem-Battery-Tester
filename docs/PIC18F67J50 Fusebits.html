@@ -1,0 +1,405 @@
+<!-- Version 2.40 -->
+<!-- Generated 04/07/2022 GMT -->
+
+<!--
+ Copyright © 2022, Microchip Technology Inc. and its subsidiaries ("Microchip")
+ All rights reserved.
+ 
+ This software is developed by Microchip Technology Inc. and its subsidiaries ("Microchip").
+ 
+ Redistribution and use in source and binary forms, with or without modification, are
+ permitted provided that the following conditions are met:
+ 
+     1. Redistributions of source code must retain the above copyright notice, this list of
+        conditions and the following disclaimer.
+ 
+     2. Redistributions in binary form must reproduce the above copyright notice, this list
+        of conditions and the following disclaimer in the documentation and/or other
+        materials provided with the distribution. Publication is not required when
+        this file is used in an embedded application.
+ 
+     3. Microchip's name may not be used to endorse or promote products derived from this
+        software without specific prior written permission.
+ 
+ THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+ PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<HTML>
+<HEAD>
+<TITLE>Microchip MPLAB XC8 C Compiler: 18F67J50 Support Information</TITLE>
+</HEAD>
+<BODY>
+<h2>18F67J50 Support Information</h2>
+<h3>XC8-CC #pragma config Usage</h3>
+<table bgcolor="lightgray" width="100%" cellpadding="10">
+<tbody>
+<th colspan="1">
+<div align="left"><tt>#pragma config &lt;setting&gt;=&lt;named value&gt;</tt></div>
+</th>
+<tr bgcolor="white">
+<td>For example:<br/><code>// Watchdog Timer Enable bit : WDT enabled<br/>// PLL Prescaler Selection bits : No prescale (4 MHz oscillator input drives PLL directly)<br/>// Stack Overflow/Underflow Reset Enable bit : Reset on stack overflow/underflow enabled<br/>// Extended Instruction Set Enable bit : Instruction set extension and Indexed Addressing mode enabled<br/>// Background Debugger Enable bit : Background debugger disabled; RB6 and RB7 configured as general purpose I/O pins<br/>#pragma config WDTEN = ON, PLLDIV = 1, STVREN = ON, XINST = ON, DEBUG = OFF</code></td>
+</tr>
+</tbody></table>
+<table bgcolor="lightgray" width="100%" cellpadding="10">
+<tbody>
+<th colspan="1">
+<div align="left"><tt>#pragma config &lt;setting&gt;=&lt;literal constant&gt;</tt></div>
+</th>
+<tr bgcolor="white">
+<td>For example:<br/><code>// Watchdog Timer Enable bit : WDT enabled<br/>// PLL Prescaler Selection bits : No prescale (4 MHz oscillator input drives PLL directly)<br/>// Stack Overflow/Underflow Reset Enable bit : Reset on stack overflow/underflow enabled<br/>// Extended Instruction Set Enable bit : Instruction set extension and Indexed Addressing mode enabled<br/>// Background Debugger Enable bit : Background debugger disabled; RB6 and RB7 configured as general purpose I/O pins<br/>#pragma config WDTEN = 0x1, PLLDIV = 0x7, STVREN = 0x1, XINST = 0x1, DEBUG = 0x1</code></td>
+</tr>
+</tbody></table>
+<table bgcolor="lightgray" width="100%" cellpadding="10">
+<tbody>
+<th colspan="1">
+<div align="left"><tt>#pragma config &lt;register&gt;=&lt;literal constant&gt;</tt></div>
+</th>
+<tr bgcolor="white">
+<td>For example:<br/><code>// Watchdog Timer Enable bit : WDT enabled<br/>// PLL Prescaler Selection bits : No prescale (4 MHz oscillator input drives PLL directly)<br/>// Stack Overflow/Underflow Reset Enable bit : Reset on stack overflow/underflow enabled<br/>// Extended Instruction Set Enable bit : Instruction set extension and Indexed Addressing mode enabled<br/>// Background Debugger Enable bit : Background debugger disabled; RB6 and RB7 configured as general purpose I/O pins<br/>#pragma config CONFIG1L = 0xEF</code></td>
+</tr>
+</tbody></table>
+<br/>
+<h3>PIC-AS config Usage</h3>
+<table bgcolor="lightgray" width="100%" cellpadding="10">
+<tbody>
+<th colspan="1">
+<div align="left"><tt>config "&lt;setting&gt;"="&lt;named value&gt;"</tt></div>
+</th>
+<tr bgcolor="white">
+<td>For example:<br/><code>; Watchdog Timer Enable bit : WDT enabled<br/>; PLL Prescaler Selection bits : No prescale (4 MHz oscillator input drives PLL directly)<br/>; Stack Overflow/Underflow Reset Enable bit : Reset on stack overflow/underflow enabled<br/>; Extended Instruction Set Enable bit : Instruction set extension and Indexed Addressing mode enabled<br/>; Background Debugger Enable bit : Background debugger disabled; RB6 and RB7 configured as general purpose I/O pins<br/>config "WDTEN" = "ON", "PLLDIV" = "1", "STVREN" = "ON", "XINST" = "ON", "DEBUG" = "OFF"</code></td>
+</tr>
+</tbody></table>
+<table bgcolor="lightgray" width="100%" cellpadding="10">
+<tbody>
+<th colspan="1">
+<div align="left"><tt>config "&lt;setting&gt;"=&lt;literal constant&gt;</tt></div>
+</th>
+<tr bgcolor="white">
+<td>For example:<br/><code>; Watchdog Timer Enable bit : WDT enabled<br/>; PLL Prescaler Selection bits : No prescale (4 MHz oscillator input drives PLL directly)<br/>; Stack Overflow/Underflow Reset Enable bit : Reset on stack overflow/underflow enabled<br/>; Extended Instruction Set Enable bit : Instruction set extension and Indexed Addressing mode enabled<br/>; Background Debugger Enable bit : Background debugger disabled; RB6 and RB7 configured as general purpose I/O pins<br/>config "WDTEN" = 0x1, "PLLDIV" = 0x7, "STVREN" = 0x1, "XINST" = 0x1, "DEBUG" = 0x1</code></td>
+</tr>
+</tbody></table>
+<table bgcolor="lightgray" width="100%" cellpadding="10">
+<tbody>
+<th colspan="1">
+<div align="left"><tt>config "&lt;register&gt;"=&lt;literal constant&gt;</tt></div>
+</th>
+<tr bgcolor="white">
+<td>For example:<br/><code>; Watchdog Timer Enable bit : WDT enabled<br/>; PLL Prescaler Selection bits : No prescale (4 MHz oscillator input drives PLL directly)<br/>; Stack Overflow/Underflow Reset Enable bit : Reset on stack overflow/underflow enabled<br/>; Extended Instruction Set Enable bit : Instruction set extension and Indexed Addressing mode enabled<br/>; Background Debugger Enable bit : Background debugger disabled; RB6 and RB7 configured as general purpose I/O pins<br/>config "CONFIG1L" = 0xEF</code></td>
+</tr>
+</tbody></table>
+<br/>
+<h3>Configuration Registers & Settings</h3>
+<table bgcolor="lightgray" width="100%" cellpadding="2">
+<tbody>
+<th colspan="2">
+<div align="left">Register: CONFIG1L @ 0x1FFF8</div>
+</th>
+<tr bgcolor="white">
+<td width="20%"><b><tt>WDTEN</tt></b></td>
+<td><b>Watchdog Timer Enable bit</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>ON</tt></td>
+<td>WDT enabled</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OFF</tt></td>
+<td>WDT disabled (control is placed on SWDTEN bit)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><b><tt>PLLDIV</tt></b></td>
+<td><b>PLL Prescaler Selection bits</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>1</tt></td>
+<td>No prescale (4 MHz oscillator input drives PLL directly)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>2</tt></td>
+<td>Divide by 2 (8 MHz oscillator input)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>3</tt></td>
+<td>Divide by 3 (12 MHz oscillator input)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>4</tt></td>
+<td>Divide by 4 (16 MHz oscillator input)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>5</tt></td>
+<td>Divide by 5 (20 MHz oscillator input)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>6</tt></td>
+<td>Divide by 6 (24 MHz oscillator input)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>10</tt></td>
+<td>Divide by 10 (40 MHz oscillator input)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>12</tt></td>
+<td>Divide by 12 (48 MHz oscillator input)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><b><tt>STVREN</tt></b></td>
+<td><b>Stack Overflow/Underflow Reset Enable bit</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>ON</tt></td>
+<td>Reset on stack overflow/underflow enabled</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OFF</tt></td>
+<td>Reset on stack overflow/underflow disabled</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><b><tt>XINST</tt></b></td>
+<td><b>Extended Instruction Set Enable bit</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>ON</tt></td>
+<td>Instruction set extension and Indexed Addressing mode enabled</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OFF</tt></td>
+<td>Instruction set extension and Indexed Addressing mode disabled (Legacy mode)</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><b><tt>DEBUG</tt></b></td>
+<td><b>Background Debugger Enable bit</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OFF</tt></td>
+<td>Background debugger disabled; RB6 and RB7 configured as general purpose I/O pins</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>ON</tt></td>
+<td>Background debugger enabled; RB6 and RB7 are dedicated to In-Circuit Debug</td>
+</tr>
+</tbody></table>
+<table bgcolor="lightgray" width="100%" cellpadding="2">
+<tbody>
+<th colspan="2">
+<div align="left">Register: CONFIG1H @ 0x1FFF9</div>
+</th>
+<tr bgcolor="white">
+<td width="20%"><b><tt>CPUDIV</tt></b></td>
+<td><b>CPU System Clock Postscaler</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OSC1</tt></td>
+<td>No CPU system clock divide</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OSC2_PLL2</tt></td>
+<td>CPU system clock divide by 2</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OSC3_PLL3</tt></td>
+<td>CPU system clock divide by 3</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OSC4_PLL6</tt></td>
+<td>CPU system clock divide by 6</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><b><tt>CP0</tt></b></td>
+<td><b>Code Protection bit</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OFF</tt></td>
+<td>Program memory is not code-protected</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>ON</tt></td>
+<td>Program memory is code-protected</td>
+</tr>
+</tbody></table>
+<table bgcolor="lightgray" width="100%" cellpadding="2">
+<tbody>
+<th colspan="2">
+<div align="left">Register: CONFIG2L @ 0x1FFFA</div>
+</th>
+<tr bgcolor="white">
+<td width="20%"><b><tt>FOSC</tt></b></td>
+<td><b>Oscillator Selection bits</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>ECPLL</tt></td>
+<td>EC Oscillator with PLL, CLKO on RA6, ECPLL used by USB</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>EC</tt></td>
+<td>EC Oscillator with CLKO on RA6, EC used by USB</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>HSPLL</tt></td>
+<td>HS oscillator, PLL enabled, HSPLL used by USB</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>HS</tt></td>
+<td>HS oscillator, HS used by USB</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>INTOSCPLLO</tt></td>
+<td>INTOSC with PLL enabled, CLKO on RA6 and Port function on RA7</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>INTOSCPLL</tt></td>
+<td>INTOSC with PLL enabled, Port function on RA6 and RA7</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>INTOSCO</tt></td>
+<td>INTOSC, CLKO on RA6 and Port function on RA7</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>INTOSC</tt></td>
+<td>INTOSC, Port function on RA6 and RA7</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><b><tt>FCMEN</tt></b></td>
+<td><b>Fail-Safe Clock Monitor Enable bit</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OFF</tt></td>
+<td>Fail-Safe Clock Monitor disabled</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>ON</tt></td>
+<td>Fail-Safe Clock Monitor enabled</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><b><tt>IESO</tt></b></td>
+<td><b>Two-Speed Start-up (Internal/External Oscillator Switchover) Control bit</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>OFF</tt></td>
+<td>Two-Speed Start-up disabled</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>ON</tt></td>
+<td>Two-Speed Start-up enabled</td>
+</tr>
+</tbody></table>
+<table bgcolor="lightgray" width="100%" cellpadding="2">
+<tbody>
+<th colspan="2">
+<div align="left">Register: CONFIG2H @ 0x1FFFB</div>
+</th>
+<tr bgcolor="white">
+<td width="20%"><b><tt>WDTPS</tt></b></td>
+<td><b>Watchdog Timer Postscaler Select bits</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>32768</tt></td>
+<td>1:32768</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>16384</tt></td>
+<td>1:16384</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>8192</tt></td>
+<td>1:8192</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>4096</tt></td>
+<td>1:4096</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>2048</tt></td>
+<td>1:2048</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>1024</tt></td>
+<td>1:1024</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>512</tt></td>
+<td>1:512</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>256</tt></td>
+<td>1:256</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>128</tt></td>
+<td>1:128</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>64</tt></td>
+<td>1:64</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>32</tt></td>
+<td>1:32</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>16</tt></td>
+<td>1:16</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>8</tt></td>
+<td>1:8</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>4</tt></td>
+<td>1:4</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>2</tt></td>
+<td>1:2</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>1</tt></td>
+<td>1:1</td>
+</tr>
+</tbody></table>
+<table bgcolor="lightgray" width="100%" cellpadding="2">
+<tbody>
+<th colspan="2">
+<div align="left">Register: CONFIG3L @ 0x1FFFC</div>
+</th>
+</tbody></table>
+<table bgcolor="lightgray" width="100%" cellpadding="2">
+<tbody>
+<th colspan="2">
+<div align="left">Register: CONFIG3H @ 0x1FFFD</div>
+</th>
+<tr bgcolor="white">
+<td width="20%"><b><tt>CCP2MX</tt></b></td>
+<td><b>ECCP2 MUX bit</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>DEFAULT</tt></td>
+<td>ECCP2/P2A is multiplexed with RC1</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>ALTERNATE</tt></td>
+<td>ECCP2/P2A is multiplexed with RE7</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><b><tt>MSSPMSK</tt></b></td>
+<td><b>MSSP Address Masking Mode Select bit</b></td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>MSK7</tt></td>
+<td>7-Bit Address Masking mode enable</td>
+</tr>
+<tr bgcolor="white">
+<td width="20%"><tt>MSK5</tt></td>
+<td>5-Bit Address Masking mode enable</td>
+</tr>
+</tbody></table>
+<br/>
+</BODY>
+</HTML>

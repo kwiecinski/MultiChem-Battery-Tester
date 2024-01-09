@@ -1,0 +1,4790 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"11 LCD-KS0108/KS0108.c
+[; ;LCD-KS0108/KS0108.c: 11: GLCD_t __GLCD;
+[c E5699 0 1 .. ]
+[n E5699 OperatingMode_t GLCD_Inverted GLCD_Non_Inverted  ]
+[c E5702 0 1 .. ]
+[n E5702 PrintMode_t GLCD_Overwrite GLCD_Merge  ]
+"66 LCD-KS0108/KS0108.h
+[; ;LCD-KS0108/KS0108.h: 66: {
+[s S630 `*uc 1 `uc 1 `uc 1 `uc 1 `E5702 1 `E5699 1 ]
+[n S630 . Name Width Height Lines Mode Invert ]
+"76
+[; ;LCD-KS0108/KS0108.h: 76: {
+[s S631 `uc 1 `uc 1 `E5699 1 `S630 1 ]
+[n S631 . X Y Mode Font ]
+"34 LCD-KS0108/KS0108.c
+[; ;LCD-KS0108/KS0108.c: 34: void GLCD_SendCommand(const uint8_t Command, enum Chip_t Chip)
+[c E5692 0 1 2 .. ]
+[n E5692 Chip_t Chip_1 Chip_2 Chip_All  ]
+"21
+[; ;LCD-KS0108/KS0108.c: 21: static void GLCD_WaitBusy(enum Chip_t Chip);
+[v _GLCD_WaitBusy `(v ~T0 @X0 0 sf1`E5692 ]
+"24
+[; ;LCD-KS0108/KS0108.c: 24: static void GLCD_SelectChip(enum Chip_t Chip);
+[v _GLCD_SelectChip `(v ~T0 @X0 0 sf1`E5692 ]
+"6439 C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6439: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"20 LCD-KS0108/KS0108.c
+[; ;LCD-KS0108/KS0108.c: 20: static void GLCD_Send(const uint8_t Data);
+[v _GLCD_Send `(v ~T0 @X0 0 sf1`Cuc ]
+"25
+[; ;LCD-KS0108/KS0108.c: 25: static void __GLCD_GotoX(const uint8_t X);
+[v ___GLCD_GotoX `(v ~T0 @X0 0 sf1`Cuc ]
+"7717 C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7717: extern volatile unsigned char TRISE __attribute__((address(0xF96)));
+[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
+"7495
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7495: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
+"95 LCD-KS0108/KS0108.h
+[; ;LCD-KS0108/KS0108.h: 95: void GLCD_GotoXY(const uint8_t X, const uint8_t Y);
+[v _GLCD_GotoXY `(v ~T0 @X0 0 ef2`Cuc`Cuc ]
+"26 LCD-KS0108/KS0108.c
+[; ;LCD-KS0108/KS0108.c: 26: static void __GLCD_GotoY(const uint8_t Y);
+[v ___GLCD_GotoY `(v ~T0 @X0 0 sf1`Cuc ]
+"23
+[; ;LCD-KS0108/KS0108.c: 23: static uint8_t GLCD_BufferRead(const uint8_t X, const uint8_t Y);
+[v _GLCD_BufferRead `(uc ~T0 @X0 0 sf2`Cuc`Cuc ]
+"105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"5574 C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 5574: extern volatile unsigned char PORTE __attribute__((address(0xF84)));
+[v _PORTE `Vuc ~T0 @X0 0 e@3972 ]
+"172 LCD-KS0108/KS0108.c
+[; ;LCD-KS0108/KS0108.c: 172:  GLCD_FillScreen(__GLCD.Mode == GLCD_Non_Inverted ? GLCD_White : GLCD_Black);
+[c E5705 0 255 .. ]
+[n E5705 Color_t GLCD_White GLCD_Black  ]
+"111 LCD-KS0108/KS0108.h
+[; ;LCD-KS0108/KS0108.h: 111: void GLCD_FillScreen(enum Color_t Color);
+[v _GLCD_FillScreen `(v ~T0 @X0 0 ef1`E5705 ]
+"22 LCD-KS0108/KS0108.c
+[; ;LCD-KS0108/KS0108.c: 22: static void GLCD_BufferWrite(const uint8_t X, const uint8_t Y, const uint8_t Data);
+[v _GLCD_BufferWrite `(v ~T0 @X0 0 sf3`Cuc`Cuc`Cuc ]
+"28
+[; ;LCD-KS0108/KS0108.c: 28: static void GLCD_DrawVLine(uint8_t Y1, uint8_t Y2, const uint8_t X, enum Color_t Color);
+[v _GLCD_DrawVLine `(v ~T0 @X0 0 sf4`uc`uc`Cuc`E5705 ]
+"27
+[; ;LCD-KS0108/KS0108.c: 27: static void GLCD_DrawHLine(uint8_t X1, uint8_t X2, const uint8_t Y, enum Color_t Color);
+[v _GLCD_DrawHLine `(v ~T0 @X0 0 sf4`uc`uc`Cuc`E5705 ]
+"29
+[; ;LCD-KS0108/KS0108.c: 29: static void Int2bcd(int32_t Value, char BCD[]);
+[v _Int2bcd `(v ~T0 @X0 0 sf2`l`*uc ]
+"6551 C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6551: extern volatile unsigned char LATE __attribute__((address(0xF8D)));
+[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
+[v F5889 `(v ~T0 @X0 1 tf ]
+"30 LCD-KS0108/KS0108.c
+[; ;LCD-KS0108/KS0108.c: 30: static __attribute__((inline)) void Pulse_En(void);
+[v _Pulse_En `TF5889 ~T0 @X0 0 s ]
+"54 C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
+[; <" PMSTAT equ 0F40h ;# ">
+"61
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 61: __asm("PMSTATL equ 0F40h");
+[; <" PMSTATL equ 0F40h ;# ">
+"112
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 112: __asm("PMSTATH equ 0F41h");
+[; <" PMSTATH equ 0F41h ;# ">
+"163
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 163: __asm("PMEN equ 0F42h");
+[; <" PMEN equ 0F42h ;# ">
+"170
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 170: __asm("PMEL equ 0F42h");
+[; <" PMEL equ 0F42h ;# ">
+"240
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 240: __asm("PMEH equ 0F43h");
+[; <" PMEH equ 0F43h ;# ">
+"310
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 310: __asm("PMDIN2 equ 0F44h");
+[; <" PMDIN2 equ 0F44h ;# ">
+"317
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 317: __asm("PMDIN2L equ 0F44h");
+[; <" PMDIN2L equ 0F44h ;# ">
+"324
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 324: __asm("PMDIN2H equ 0F45h");
+[; <" PMDIN2H equ 0F45h ;# ">
+"331
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 331: __asm("PMDOUT2 equ 0F46h");
+[; <" PMDOUT2 equ 0F46h ;# ">
+"338
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 338: __asm("PMDOUT2L equ 0F46h");
+[; <" PMDOUT2L equ 0F46h ;# ">
+"345
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 345: __asm("PMDOUT2H equ 0F47h");
+[; <" PMDOUT2H equ 0F47h ;# ">
+"352
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 352: __asm("PMMODE equ 0F48h");
+[; <" PMMODE equ 0F48h ;# ">
+"359
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 359: __asm("PMMODEL equ 0F48h");
+[; <" PMMODEL equ 0F48h ;# ">
+"441
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 441: __asm("PMMODEH equ 0F49h");
+[; <" PMMODEH equ 0F49h ;# ">
+"524
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 524: __asm("PMCON equ 0F4Ah");
+[; <" PMCON equ 0F4Ah ;# ">
+"531
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 531: __asm("PMCONL equ 0F4Ah");
+[; <" PMCONL equ 0F4Ah ;# ">
+"593
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 593: __asm("PMCONH equ 0F4Bh");
+[; <" PMCONH equ 0F4Bh ;# ">
+"650
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 650: __asm("UEP0 equ 0F4Ch");
+[; <" UEP0 equ 0F4Ch ;# ">
+"758
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 758: __asm("UEP1 equ 0F4Dh");
+[; <" UEP1 equ 0F4Dh ;# ">
+"866
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 866: __asm("UEP2 equ 0F4Eh");
+[; <" UEP2 equ 0F4Eh ;# ">
+"974
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 974: __asm("UEP3 equ 0F4Fh");
+[; <" UEP3 equ 0F4Fh ;# ">
+"1082
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1082: __asm("UEP4 equ 0F50h");
+[; <" UEP4 equ 0F50h ;# ">
+"1190
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1190: __asm("UEP5 equ 0F51h");
+[; <" UEP5 equ 0F51h ;# ">
+"1298
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1298: __asm("UEP6 equ 0F52h");
+[; <" UEP6 equ 0F52h ;# ">
+"1406
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1406: __asm("UEP7 equ 0F53h");
+[; <" UEP7 equ 0F53h ;# ">
+"1514
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1514: __asm("UEP8 equ 0F54h");
+[; <" UEP8 equ 0F54h ;# ">
+"1590
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1590: __asm("UEP9 equ 0F55h");
+[; <" UEP9 equ 0F55h ;# ">
+"1666
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1666: __asm("UEP10 equ 0F56h");
+[; <" UEP10 equ 0F56h ;# ">
+"1742
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1742: __asm("UEP11 equ 0F57h");
+[; <" UEP11 equ 0F57h ;# ">
+"1818
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1818: __asm("UEP12 equ 0F58h");
+[; <" UEP12 equ 0F58h ;# ">
+"1894
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1894: __asm("UEP13 equ 0F59h");
+[; <" UEP13 equ 0F59h ;# ">
+"1970
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 1970: __asm("UEP14 equ 0F5Ah");
+[; <" UEP14 equ 0F5Ah ;# ">
+"2046
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2046: __asm("UEP15 equ 0F5Bh");
+[; <" UEP15 equ 0F5Bh ;# ">
+"2122
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2122: __asm("UIE equ 0F5Ch");
+[; <" UIE equ 0F5Ch ;# ">
+"2178
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2178: __asm("UEIE equ 0F5Dh");
+[; <" UEIE equ 0F5Dh ;# ">
+"2229
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2229: __asm("UADDR equ 0F5Eh");
+[; <" UADDR equ 0F5Eh ;# ">
+"2293
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2293: __asm("UCFG equ 0F5Fh");
+[; <" UCFG equ 0F5Fh ;# ">
+"2372
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2372: __asm("UFRM equ 0F60h");
+[; <" UFRM equ 0F60h ;# ">
+"2379
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2379: __asm("UFRML equ 0F60h");
+[; <" UFRML equ 0F60h ;# ">
+"2457
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2457: __asm("UFRMH equ 0F61h");
+[; <" UFRMH equ 0F61h ;# ">
+"2497
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2497: __asm("UIR equ 0F62h");
+[; <" UIR equ 0F62h ;# ">
+"2553
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2553: __asm("UEIR equ 0F63h");
+[; <" UEIR equ 0F63h ;# ">
+"2604
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2604: __asm("USTAT equ 0F64h");
+[; <" USTAT equ 0F64h ;# ">
+"2664
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2664: __asm("UCON equ 0F65h");
+[; <" UCON equ 0F65h ;# ">
+"2715
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2715: __asm("PMDIN1 equ 0F66h");
+[; <" PMDIN1 equ 0F66h ;# ">
+"2722
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2722: __asm("PMDIN1L equ 0F66h");
+[; <" PMDIN1L equ 0F66h ;# ">
+"2729
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2729: __asm("PMDIN1H equ 0F67h");
+[; <" PMDIN1H equ 0F67h ;# ">
+"2736
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2736: __asm("PMADDR equ 0F68h");
+[; <" PMADDR equ 0F68h ;# ">
+"2741
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2741: __asm("PMDOUT1 equ 0F68h");
+[; <" PMDOUT1 equ 0F68h ;# ">
+"2748
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2748: __asm("PMADDRL equ 0F68h");
+[; <" PMADDRL equ 0F68h ;# ">
+"2755
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2755: __asm("PMDOUT1L equ 0F68h");
+[; <" PMDOUT1L equ 0F68h ;# ">
+"2762
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2762: __asm("PMADDRH equ 0F69h");
+[; <" PMADDRH equ 0F69h ;# ">
+"2794
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2794: __asm("PMDOUT1H equ 0F69h");
+[; <" PMDOUT1H equ 0F69h ;# ">
+"2801
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2801: __asm("CMSTAT equ 0F6Ah");
+[; <" CMSTAT equ 0F6Ah ;# ">
+"2806
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2806: __asm("CMSTATUS equ 0F6Ah");
+[; <" CMSTATUS equ 0F6Ah ;# ">
+"2851
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 2851: __asm("SSP2CON2 equ 0F6Bh");
+[; <" SSP2CON2 equ 0F6Bh ;# ">
+"3029
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3029: __asm("SSP2CON1 equ 0F6Ch");
+[; <" SSP2CON1 equ 0F6Ch ;# ">
+"3149
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3149: __asm("SSP2STAT equ 0F6Dh");
+[; <" SSP2STAT equ 0F6Dh ;# ">
+"3576
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3576: __asm("SSP2ADD equ 0F6Eh");
+[; <" SSP2ADD equ 0F6Eh ;# ">
+"3638
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3638: __asm("SSP2MSK equ 0F6Eh");
+[; <" SSP2MSK equ 0F6Eh ;# ">
+"3700
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3700: __asm("SSP2BUF equ 0F6Fh");
+[; <" SSP2BUF equ 0F6Fh ;# ">
+"3707
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3707: __asm("CCP5CON equ 0F70h");
+[; <" CCP5CON equ 0F70h ;# ">
+"3801
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3801: __asm("CCPR5 equ 0F71h");
+[; <" CCPR5 equ 0F71h ;# ">
+"3808
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3808: __asm("CCPR5L equ 0F71h");
+[; <" CCPR5L equ 0F71h ;# ">
+"3815
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3815: __asm("CCPR5H equ 0F72h");
+[; <" CCPR5H equ 0F72h ;# ">
+"3822
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3822: __asm("CCP4CON equ 0F73h");
+[; <" CCP4CON equ 0F73h ;# ">
+"3916
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3916: __asm("CCPR4 equ 0F74h");
+[; <" CCPR4 equ 0F74h ;# ">
+"3923
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3923: __asm("CCPR4L equ 0F74h");
+[; <" CCPR4L equ 0F74h ;# ">
+"3930
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3930: __asm("CCPR4H equ 0F75h");
+[; <" CCPR4H equ 0F75h ;# ">
+"3937
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 3937: __asm("T4CON equ 0F76h");
+[; <" T4CON equ 0F76h ;# ">
+"4008
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4008: __asm("PR4 equ 0F77h");
+[; <" PR4 equ 0F77h ;# ">
+"4015
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4015: __asm("CVRCON equ 0F77h");
+[; <" CVRCON equ 0F77h ;# ">
+"4094
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4094: __asm("TMR4 equ 0F78h");
+[; <" TMR4 equ 0F78h ;# ">
+"4101
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4101: __asm("T3CON equ 0F79h");
+[; <" T3CON equ 0F79h ;# ">
+"4222
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4222: __asm("TMR3 equ 0F7Ah");
+[; <" TMR3 equ 0F7Ah ;# ">
+"4229
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4229: __asm("TMR3L equ 0F7Ah");
+[; <" TMR3L equ 0F7Ah ;# ">
+"4236
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4236: __asm("TMR3H equ 0F7Bh");
+[; <" TMR3H equ 0F7Bh ;# ">
+"4243
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4243: __asm("BAUDCON2 equ 0F7Ch");
+[; <" BAUDCON2 equ 0F7Ch ;# ">
+"4387
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4387: __asm("SPBRGH2 equ 0F7Dh");
+[; <" SPBRGH2 equ 0F7Dh ;# ">
+"4394
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4394: __asm("BAUDCON1 equ 0F7Eh");
+[; <" BAUDCON1 equ 0F7Eh ;# ">
+"4399
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4399: __asm("BAUDCON equ 0F7Eh");
+[; <" BAUDCON equ 0F7Eh ;# ">
+"4403
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4403: __asm("BAUDCTL equ 0F7Eh");
+[; <" BAUDCTL equ 0F7Eh ;# ">
+"4901
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4901: __asm("SPBRGH1 equ 0F7Fh");
+[; <" SPBRGH1 equ 0F7Fh ;# ">
+"4906
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4906: __asm("SPBRGH equ 0F7Fh");
+[; <" SPBRGH equ 0F7Fh ;# ">
+"4913
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 4913: __asm("PORTA equ 0F80h");
+[; <" PORTA equ 0F80h ;# ">
+"5069
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 5069: __asm("PORTB equ 0F81h");
+[; <" PORTB equ 0F81h ;# ">
+"5246
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 5246: __asm("PORTC equ 0F82h");
+[; <" PORTC equ 0F82h ;# ">
+"5422
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 5422: __asm("PORTD equ 0F83h");
+[; <" PORTD equ 0F83h ;# ">
+"5576
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 5576: __asm("PORTE equ 0F84h");
+[; <" PORTE equ 0F84h ;# ">
+"5813
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 5813: __asm("PORTF equ 0F85h");
+[; <" PORTF equ 0F85h ;# ">
+"5947
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 5947: __asm("PORTG equ 0F86h");
+[; <" PORTG equ 0F86h ;# ">
+"6105
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6105: __asm("LATA equ 0F89h");
+[; <" LATA equ 0F89h ;# ">
+"6217
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6217: __asm("LATB equ 0F8Ah");
+[; <" LATB equ 0F8Ah ;# ">
+"6329
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6329: __asm("LATC equ 0F8Bh");
+[; <" LATC equ 0F8Bh ;# ">
+"6441
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6441: __asm("LATD equ 0F8Ch");
+[; <" LATD equ 0F8Ch ;# ">
+"6553
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6553: __asm("LATE equ 0F8Dh");
+[; <" LATE equ 0F8Dh ;# ">
+"6665
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6665: __asm("LATF equ 0F8Eh");
+[; <" LATF equ 0F8Eh ;# ">
+"6755
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6755: __asm("LATG equ 0F8Fh");
+[; <" LATG equ 0F8Fh ;# ">
+"6831
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6831: __asm("TRISA equ 0F92h");
+[; <" TRISA equ 0F92h ;# ">
+"6836
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 6836: __asm("DDRA equ 0F92h");
+[; <" DDRA equ 0F92h ;# ">
+"7053
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7053: __asm("TRISB equ 0F93h");
+[; <" TRISB equ 0F93h ;# ">
+"7058
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7058: __asm("DDRB equ 0F93h");
+[; <" DDRB equ 0F93h ;# ">
+"7275
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7275: __asm("TRISC equ 0F94h");
+[; <" TRISC equ 0F94h ;# ">
+"7280
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7280: __asm("DDRC equ 0F94h");
+[; <" DDRC equ 0F94h ;# ">
+"7497
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7497: __asm("TRISD equ 0F95h");
+[; <" TRISD equ 0F95h ;# ">
+"7502
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7502: __asm("DDRD equ 0F95h");
+[; <" DDRD equ 0F95h ;# ">
+"7719
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7719: __asm("TRISE equ 0F96h");
+[; <" TRISE equ 0F96h ;# ">
+"7724
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7724: __asm("DDRE equ 0F96h");
+[; <" DDRE equ 0F96h ;# ">
+"7941
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7941: __asm("TRISF equ 0F97h");
+[; <" TRISF equ 0F97h ;# ">
+"7946
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 7946: __asm("DDRF equ 0F97h");
+[; <" DDRF equ 0F97h ;# ">
+"8119
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8119: __asm("TRISG equ 0F98h");
+[; <" TRISG equ 0F98h ;# ">
+"8124
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8124: __asm("DDRG equ 0F98h");
+[; <" DDRG equ 0F98h ;# ">
+"8269
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8269: __asm("OSCTUNE equ 0F9Bh");
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"8331
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8331: __asm("RCSTA2 equ 0F9Ch");
+[; <" RCSTA2 equ 0F9Ch ;# ">
+"8509
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8509: __asm("PIE1 equ 0F9Dh");
+[; <" PIE1 equ 0F9Dh ;# ">
+"8601
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8601: __asm("PIR1 equ 0F9Eh");
+[; <" PIR1 equ 0F9Eh ;# ">
+"8693
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8693: __asm("IPR1 equ 0F9Fh");
+[; <" IPR1 equ 0F9Fh ;# ">
+"8785
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8785: __asm("PIE2 equ 0FA0h");
+[; <" PIE2 equ 0FA0h ;# ">
+"8865
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8865: __asm("PIR2 equ 0FA1h");
+[; <" PIR2 equ 0FA1h ;# ">
+"8945
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 8945: __asm("IPR2 equ 0FA2h");
+[; <" IPR2 equ 0FA2h ;# ">
+"9025
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9025: __asm("PIE3 equ 0FA3h");
+[; <" PIE3 equ 0FA3h ;# ">
+"9135
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9135: __asm("PIR3 equ 0FA4h");
+[; <" PIR3 equ 0FA4h ;# ">
+"9213
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9213: __asm("IPR3 equ 0FA5h");
+[; <" IPR3 equ 0FA5h ;# ">
+"9291
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9291: __asm("EECON1 equ 0FA6h");
+[; <" EECON1 equ 0FA6h ;# ">
+"9336
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9336: __asm("EECON2 equ 0FA7h");
+[; <" EECON2 equ 0FA7h ;# ">
+"9343
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9343: __asm("TXSTA2 equ 0FA8h");
+[; <" TXSTA2 equ 0FA8h ;# ">
+"9503
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9503: __asm("TXREG2 equ 0FA9h");
+[; <" TXREG2 equ 0FA9h ;# ">
+"9510
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9510: __asm("RCREG2 equ 0FAAh");
+[; <" RCREG2 equ 0FAAh ;# ">
+"9517
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9517: __asm("SPBRG2 equ 0FABh");
+[; <" SPBRG2 equ 0FABh ;# ">
+"9524
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9524: __asm("RCSTA1 equ 0FACh");
+[; <" RCSTA1 equ 0FACh ;# ">
+"9529
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9529: __asm("RCSTA equ 0FACh");
+[; <" RCSTA equ 0FACh ;# ">
+"9848
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9848: __asm("TXSTA1 equ 0FADh");
+[; <" TXSTA1 equ 0FADh ;# ">
+"9853
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 9853: __asm("TXSTA equ 0FADh");
+[; <" TXSTA equ 0FADh ;# ">
+"10136
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10136: __asm("TXREG1 equ 0FAEh");
+[; <" TXREG1 equ 0FAEh ;# ">
+"10141
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10141: __asm("TXREG equ 0FAEh");
+[; <" TXREG equ 0FAEh ;# ">
+"10148
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10148: __asm("RCREG1 equ 0FAFh");
+[; <" RCREG1 equ 0FAFh ;# ">
+"10153
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10153: __asm("RCREG equ 0FAFh");
+[; <" RCREG equ 0FAFh ;# ">
+"10160
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10160: __asm("SPBRG1 equ 0FB0h");
+[; <" SPBRG1 equ 0FB0h ;# ">
+"10165
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10165: __asm("SPBRG equ 0FB0h");
+[; <" SPBRG equ 0FB0h ;# ">
+"10172
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10172: __asm("ECCP3CON equ 0FB1h");
+[; <" ECCP3CON equ 0FB1h ;# ">
+"10177
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10177: __asm("CCP3CON equ 0FB1h");
+[; <" CCP3CON equ 0FB1h ;# ">
+"10364
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10364: __asm("CCPR3 equ 0FB2h");
+[; <" CCPR3 equ 0FB2h ;# ">
+"10371
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10371: __asm("CCPR3L equ 0FB2h");
+[; <" CCPR3L equ 0FB2h ;# ">
+"10378
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10378: __asm("CCPR3H equ 0FB3h");
+[; <" CCPR3H equ 0FB3h ;# ">
+"10385
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10385: __asm("ECCP3DEL equ 0FB4h");
+[; <" ECCP3DEL equ 0FB4h ;# ">
+"10505
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10505: __asm("ECCP3AS equ 0FB5h");
+[; <" ECCP3AS equ 0FB5h ;# ">
+"10637
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10637: __asm("ECCP2CON equ 0FB6h");
+[; <" ECCP2CON equ 0FB6h ;# ">
+"10642
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10642: __asm("CCP2CON equ 0FB6h");
+[; <" CCP2CON equ 0FB6h ;# ">
+"10829
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10829: __asm("CCPR2 equ 0FB7h");
+[; <" CCPR2 equ 0FB7h ;# ">
+"10836
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10836: __asm("CCPR2L equ 0FB7h");
+[; <" CCPR2L equ 0FB7h ;# ">
+"10843
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10843: __asm("CCPR2H equ 0FB8h");
+[; <" CCPR2H equ 0FB8h ;# ">
+"10850
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10850: __asm("ECCP2DEL equ 0FB9h");
+[; <" ECCP2DEL equ 0FB9h ;# ">
+"10970
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 10970: __asm("ECCP2AS equ 0FBAh");
+[; <" ECCP2AS equ 0FBAh ;# ">
+"11102
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11102: __asm("ECCP1CON equ 0FBBh");
+[; <" ECCP1CON equ 0FBBh ;# ">
+"11107
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11107: __asm("CCP1CON equ 0FBBh");
+[; <" CCP1CON equ 0FBBh ;# ">
+"11294
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11294: __asm("CCPR1 equ 0FBCh");
+[; <" CCPR1 equ 0FBCh ;# ">
+"11301
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11301: __asm("CCPR1L equ 0FBCh");
+[; <" CCPR1L equ 0FBCh ;# ">
+"11308
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11308: __asm("CCPR1H equ 0FBDh");
+[; <" CCPR1H equ 0FBDh ;# ">
+"11315
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11315: __asm("ECCP1DEL equ 0FBEh");
+[; <" ECCP1DEL equ 0FBEh ;# ">
+"11435
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11435: __asm("ECCP1AS equ 0FBFh");
+[; <" ECCP1AS equ 0FBFh ;# ">
+"11567
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11567: __asm("WDTCON equ 0FC0h");
+[; <" WDTCON equ 0FC0h ;# ">
+"11622
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11622: __asm("ADCON1 equ 0FC1h");
+[; <" ADCON1 equ 0FC1h ;# ">
+"11719
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11719: __asm("ANCON0 equ 0FC1h");
+[; <" ANCON0 equ 0FC1h ;# ">
+"11793
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11793: __asm("ADCON0 equ 0FC2h");
+[; <" ADCON0 equ 0FC2h ;# ">
+"11928
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 11928: __asm("ANCON1 equ 0FC2h");
+[; <" ANCON1 equ 0FC2h ;# ">
+"12001
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 12001: __asm("ADRES equ 0FC3h");
+[; <" ADRES equ 0FC3h ;# ">
+"12008
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 12008: __asm("ADRESL equ 0FC3h");
+[; <" ADRESL equ 0FC3h ;# ">
+"12015
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 12015: __asm("ADRESH equ 0FC4h");
+[; <" ADRESH equ 0FC4h ;# ">
+"12022
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 12022: __asm("SSP1CON2 equ 0FC5h");
+[; <" SSP1CON2 equ 0FC5h ;# ">
+"12027
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 12027: __asm("SSPCON2 equ 0FC5h");
+[; <" SSPCON2 equ 0FC5h ;# ">
+"12376
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 12376: __asm("SSP1CON1 equ 0FC6h");
+[; <" SSP1CON1 equ 0FC6h ;# ">
+"12381
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 12381: __asm("SSPCON1 equ 0FC6h");
+[; <" SSPCON1 equ 0FC6h ;# ">
+"12614
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 12614: __asm("SSP1STAT equ 0FC7h");
+[; <" SSP1STAT equ 0FC7h ;# ">
+"12619
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 12619: __asm("SSPSTAT equ 0FC7h");
+[; <" SSPSTAT equ 0FC7h ;# ">
+"13212
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13212: __asm("SSP1ADD equ 0FC8h");
+[; <" SSP1ADD equ 0FC8h ;# ">
+"13217
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13217: __asm("SSPADD equ 0FC8h");
+[; <" SSPADD equ 0FC8h ;# ">
+"13434
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13434: __asm("SSP1MSK equ 0FC8h");
+[; <" SSP1MSK equ 0FC8h ;# ">
+"13496
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13496: __asm("SSP1BUF equ 0FC9h");
+[; <" SSP1BUF equ 0FC9h ;# ">
+"13501
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13501: __asm("SSPBUF equ 0FC9h");
+[; <" SSPBUF equ 0FC9h ;# ">
+"13508
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13508: __asm("T2CON equ 0FCAh");
+[; <" T2CON equ 0FCAh ;# ">
+"13579
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13579: __asm("PR2 equ 0FCBh");
+[; <" PR2 equ 0FCBh ;# ">
+"13584
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13584: __asm("MEMCON equ 0FCBh");
+[; <" MEMCON equ 0FCBh ;# ">
+"13689
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13689: __asm("TMR2 equ 0FCCh");
+[; <" TMR2 equ 0FCCh ;# ">
+"13696
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13696: __asm("PADCFG1 equ 0FCCh");
+[; <" PADCFG1 equ 0FCCh ;# ">
+"13724
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13724: __asm("T1CON equ 0FCDh");
+[; <" T1CON equ 0FCDh ;# ">
+"13836
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13836: __asm("ODCON3 equ 0FCDh");
+[; <" ODCON3 equ 0FCDh ;# ">
+"13862
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13862: __asm("TMR1 equ 0FCEh");
+[; <" TMR1 equ 0FCEh ;# ">
+"13869
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13869: __asm("TMR1L equ 0FCEh");
+[; <" TMR1L equ 0FCEh ;# ">
+"13876
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13876: __asm("ODCON2 equ 0FCEh");
+[; <" ODCON2 equ 0FCEh ;# ">
+"13916
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13916: __asm("TMR1H equ 0FCFh");
+[; <" TMR1H equ 0FCFh ;# ">
+"13923
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13923: __asm("ODCON1 equ 0FCFh");
+[; <" ODCON1 equ 0FCFh ;# ">
+"13967
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 13967: __asm("RCON equ 0FD0h");
+[; <" RCON equ 0FD0h ;# ">
+"14115
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14115: __asm("CM2CON1 equ 0FD1h");
+[; <" CM2CON1 equ 0FD1h ;# ">
+"14120
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14120: __asm("CM2CON equ 0FD1h");
+[; <" CM2CON equ 0FD1h ;# ">
+"14429
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14429: __asm("CM1CON1 equ 0FD2h");
+[; <" CM1CON1 equ 0FD2h ;# ">
+"14434
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14434: __asm("CM1CON equ 0FD2h");
+[; <" CM1CON equ 0FD2h ;# ">
+"14751
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14751: __asm("OSCCON equ 0FD3h");
+[; <" OSCCON equ 0FD3h ;# ">
+"14823
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14823: __asm("REFOCON equ 0FD3h");
+[; <" REFOCON equ 0FD3h ;# ">
+"14888
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14888: __asm("T0CON equ 0FD5h");
+[; <" T0CON equ 0FD5h ;# ">
+"14964
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14964: __asm("TMR0 equ 0FD6h");
+[; <" TMR0 equ 0FD6h ;# ">
+"14971
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14971: __asm("TMR0L equ 0FD6h");
+[; <" TMR0L equ 0FD6h ;# ">
+"14978
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14978: __asm("TMR0H equ 0FD7h");
+[; <" TMR0H equ 0FD7h ;# ">
+"14985
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 14985: __asm("STATUS equ 0FD8h");
+[; <" STATUS equ 0FD8h ;# ">
+"15056
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15056: __asm("FSR2 equ 0FD9h");
+[; <" FSR2 equ 0FD9h ;# ">
+"15063
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15063: __asm("FSR2L equ 0FD9h");
+[; <" FSR2L equ 0FD9h ;# ">
+"15070
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15070: __asm("FSR2H equ 0FDAh");
+[; <" FSR2H equ 0FDAh ;# ">
+"15077
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15077: __asm("PLUSW2 equ 0FDBh");
+[; <" PLUSW2 equ 0FDBh ;# ">
+"15084
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15084: __asm("PREINC2 equ 0FDCh");
+[; <" PREINC2 equ 0FDCh ;# ">
+"15091
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15091: __asm("POSTDEC2 equ 0FDDh");
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"15098
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15098: __asm("POSTINC2 equ 0FDEh");
+[; <" POSTINC2 equ 0FDEh ;# ">
+"15105
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15105: __asm("INDF2 equ 0FDFh");
+[; <" INDF2 equ 0FDFh ;# ">
+"15112
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15112: __asm("BSR equ 0FE0h");
+[; <" BSR equ 0FE0h ;# ">
+"15119
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15119: __asm("FSR1 equ 0FE1h");
+[; <" FSR1 equ 0FE1h ;# ">
+"15126
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15126: __asm("FSR1L equ 0FE1h");
+[; <" FSR1L equ 0FE1h ;# ">
+"15133
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15133: __asm("FSR1H equ 0FE2h");
+[; <" FSR1H equ 0FE2h ;# ">
+"15140
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15140: __asm("PLUSW1 equ 0FE3h");
+[; <" PLUSW1 equ 0FE3h ;# ">
+"15147
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15147: __asm("PREINC1 equ 0FE4h");
+[; <" PREINC1 equ 0FE4h ;# ">
+"15154
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15154: __asm("POSTDEC1 equ 0FE5h");
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"15161
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15161: __asm("POSTINC1 equ 0FE6h");
+[; <" POSTINC1 equ 0FE6h ;# ">
+"15168
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15168: __asm("INDF1 equ 0FE7h");
+[; <" INDF1 equ 0FE7h ;# ">
+"15175
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15175: __asm("WREG equ 0FE8h");
+[; <" WREG equ 0FE8h ;# ">
+"15182
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15182: __asm("FSR0 equ 0FE9h");
+[; <" FSR0 equ 0FE9h ;# ">
+"15189
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15189: __asm("FSR0L equ 0FE9h");
+[; <" FSR0L equ 0FE9h ;# ">
+"15196
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15196: __asm("FSR0H equ 0FEAh");
+[; <" FSR0H equ 0FEAh ;# ">
+"15203
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15203: __asm("PLUSW0 equ 0FEBh");
+[; <" PLUSW0 equ 0FEBh ;# ">
+"15210
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15210: __asm("PREINC0 equ 0FECh");
+[; <" PREINC0 equ 0FECh ;# ">
+"15217
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15217: __asm("POSTDEC0 equ 0FEDh");
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"15224
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15224: __asm("POSTINC0 equ 0FEEh");
+[; <" POSTINC0 equ 0FEEh ;# ">
+"15231
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15231: __asm("INDF0 equ 0FEFh");
+[; <" INDF0 equ 0FEFh ;# ">
+"15238
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15238: __asm("INTCON3 equ 0FF0h");
+[; <" INTCON3 equ 0FF0h ;# ">
+"15350
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15350: __asm("INTCON2 equ 0FF1h");
+[; <" INTCON2 equ 0FF1h ;# ">
+"15443
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15443: __asm("INTCON equ 0FF2h");
+[; <" INTCON equ 0FF2h ;# ">
+"15560
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15560: __asm("PROD equ 0FF3h");
+[; <" PROD equ 0FF3h ;# ">
+"15567
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15567: __asm("PRODL equ 0FF3h");
+[; <" PRODL equ 0FF3h ;# ">
+"15574
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15574: __asm("PRODH equ 0FF4h");
+[; <" PRODH equ 0FF4h ;# ">
+"15581
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15581: __asm("TABLAT equ 0FF5h");
+[; <" TABLAT equ 0FF5h ;# ">
+"15590
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15590: __asm("TBLPTR equ 0FF6h");
+[; <" TBLPTR equ 0FF6h ;# ">
+"15597
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15597: __asm("TBLPTRL equ 0FF6h");
+[; <" TBLPTRL equ 0FF6h ;# ">
+"15604
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15604: __asm("TBLPTRH equ 0FF7h");
+[; <" TBLPTRH equ 0FF7h ;# ">
+"15611
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15611: __asm("TBLPTRU equ 0FF8h");
+[; <" TBLPTRU equ 0FF8h ;# ">
+"15620
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15620: __asm("PCLAT equ 0FF9h");
+[; <" PCLAT equ 0FF9h ;# ">
+"15627
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15627: __asm("PC equ 0FF9h");
+[; <" PC equ 0FF9h ;# ">
+"15634
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15634: __asm("PCL equ 0FF9h");
+[; <" PCL equ 0FF9h ;# ">
+"15641
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15641: __asm("PCLATH equ 0FFAh");
+[; <" PCLATH equ 0FFAh ;# ">
+"15648
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15648: __asm("PCLATU equ 0FFBh");
+[; <" PCLATU equ 0FFBh ;# ">
+"15655
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15655: __asm("STKPTR equ 0FFCh");
+[; <" STKPTR equ 0FFCh ;# ">
+"15761
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15761: __asm("TOS equ 0FFDh");
+[; <" TOS equ 0FFDh ;# ">
+"15768
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15768: __asm("TOSL equ 0FFDh");
+[; <" TOSL equ 0FFDh ;# ">
+"15775
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15775: __asm("TOSH equ 0FFEh");
+[; <" TOSH equ 0FFEh ;# ">
+"15782
+[; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.6.157/xc8\pic\include\proc\pic18f67j50.h: 15782: __asm("TOSU equ 0FFFh");
+[; <" TOSU equ 0FFFh ;# ">
+[v F5856 `uc ~T0 @X0 -> 8 `i t ]
+"9 LCD-KS0108/KS0108.c
+[; ;LCD-KS0108/KS0108.c: 9: uint8_t __GLCD_Buffer[128][64 / 8];
+[v ___GLCD_Buffer `F5856 ~T0 @X0 -> 128 `i e ]
+"11
+[; ;LCD-KS0108/KS0108.c: 11: GLCD_t __GLCD;
+[v ___GLCD `S631 ~T0 @X0 1 e ]
+"34
+[; ;LCD-KS0108/KS0108.c: 34: void GLCD_SendCommand(const uint8_t Command, enum Chip_t Chip)
+[v _GLCD_SendCommand `(v ~T0 @X0 1 ef2`Cuc`E5692 ]
+"35
+[; ;LCD-KS0108/KS0108.c: 35: {
+{
+[e :U _GLCD_SendCommand ]
+"34
+[; ;LCD-KS0108/KS0108.c: 34: void GLCD_SendCommand(const uint8_t Command, enum Chip_t Chip)
+[v _Command `Cuc ~T0 @X0 1 r1 ]
+[v _Chip `E5692 ~T0 @X0 1 r2 ]
+"35
+[; ;LCD-KS0108/KS0108.c: 35: {
+[f ]
+"37
+[; ;LCD-KS0108/KS0108.c: 37:  if (Chip != Chip_All)
+[e $ ! != -> _Chip `ui -> . `E5692 2 `ui 633  ]
+"38
+[; ;LCD-KS0108/KS0108.c: 38:  {
+{
+"39
+[; ;LCD-KS0108/KS0108.c: 39:   GLCD_WaitBusy(Chip);
+[e ( _GLCD_WaitBusy (1 _Chip ]
+"40
+[; ;LCD-KS0108/KS0108.c: 40:  }
+}
+[e $U 634  ]
+"41
+[; ;LCD-KS0108/KS0108.c: 41:  else
+[e :U 633 ]
+"42
+[; ;LCD-KS0108/KS0108.c: 42:  {
+{
+"43
+[; ;LCD-KS0108/KS0108.c: 43:   GLCD_WaitBusy(Chip_1);
+[e ( _GLCD_WaitBusy (1 . `E5692 0 ]
+"44
+[; ;LCD-KS0108/KS0108.c: 44:   GLCD_WaitBusy(Chip_2);
+[e ( _GLCD_WaitBusy (1 . `E5692 1 ]
+"45
+[; ;LCD-KS0108/KS0108.c: 45:  }
+}
+[e :U 634 ]
+"46
+[; ;LCD-KS0108/KS0108.c: 46:  GLCD_SelectChip(Chip);
+[e ( _GLCD_SelectChip (1 _Chip ]
+"48
+[; ;LCD-KS0108/KS0108.c: 48:  ( 0 ? ( ( (LATD) |= (1UL<<4) ) ) : ( ( (LATD) &= (~(1UL<<4)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"49
+[; ;LCD-KS0108/KS0108.c: 49:  ( 0 ? ( ( (LATD) |= (1UL<<3) ) ) : ( ( (LATD) &= (~(1UL<<3)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"52
+[; ;LCD-KS0108/KS0108.c: 52:  GLCD_Send(Command);
+[e ( _GLCD_Send (1 _Command ]
+"53
+[; ;LCD-KS0108/KS0108.c: 53: }
+[e :UE 632 ]
+}
+"55
+[; ;LCD-KS0108/KS0108.c: 55: void GLCD_SendData(const uint8_t Data, enum Chip_t Chip)
+[v _GLCD_SendData `(v ~T0 @X0 1 ef2`Cuc`E5692 ]
+"56
+[; ;LCD-KS0108/KS0108.c: 56: {
+{
+[e :U _GLCD_SendData ]
+"55
+[; ;LCD-KS0108/KS0108.c: 55: void GLCD_SendData(const uint8_t Data, enum Chip_t Chip)
+[v _Data `Cuc ~T0 @X0 1 r1 ]
+[v _Chip `E5692 ~T0 @X0 1 r2 ]
+"56
+[; ;LCD-KS0108/KS0108.c: 56: {
+[f ]
+"58
+[; ;LCD-KS0108/KS0108.c: 58:  if (Chip != Chip_All)
+[e $ ! != -> _Chip `ui -> . `E5692 2 `ui 636  ]
+"59
+[; ;LCD-KS0108/KS0108.c: 59:  {
+{
+"60
+[; ;LCD-KS0108/KS0108.c: 60:   GLCD_WaitBusy(Chip);
+[e ( _GLCD_WaitBusy (1 _Chip ]
+"61
+[; ;LCD-KS0108/KS0108.c: 61:  }
+}
+[e $U 637  ]
+"62
+[; ;LCD-KS0108/KS0108.c: 62:  else
+[e :U 636 ]
+"63
+[; ;LCD-KS0108/KS0108.c: 63:  {
+{
+"64
+[; ;LCD-KS0108/KS0108.c: 64:   GLCD_WaitBusy(Chip_1);
+[e ( _GLCD_WaitBusy (1 . `E5692 0 ]
+"65
+[; ;LCD-KS0108/KS0108.c: 65:   GLCD_WaitBusy(Chip_2);
+[e ( _GLCD_WaitBusy (1 . `E5692 1 ]
+"66
+[; ;LCD-KS0108/KS0108.c: 66:  }
+}
+[e :U 637 ]
+"67
+[; ;LCD-KS0108/KS0108.c: 67:  GLCD_SelectChip(Chip);
+[e ( _GLCD_SelectChip (1 _Chip ]
+"69
+[; ;LCD-KS0108/KS0108.c: 69:  ( !0 ? ( ( (LATD) |= (1UL<<4) ) ) : ( ( (LATD) &= (~(1UL<<4)) ) ) );
+[e ? ! != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"70
+[; ;LCD-KS0108/KS0108.c: 70:  ( 0 ? ( ( (LATD) |= (1UL<<3) ) ) : ( ( (LATD) &= (~(1UL<<3)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"73
+[; ;LCD-KS0108/KS0108.c: 73:  GLCD_Send(__GLCD.Mode == GLCD_Non_Inverted ? Data : ~Data);
+[e ( _GLCD_Send (1 -> ? == -> . ___GLCD 2 `ui -> . `E5699 1 `ui : -> _Data `i ~ -> _Data `i `uc ]
+"75
+[; ;LCD-KS0108/KS0108.c: 75:  __GLCD.X++;
+[e ++ . ___GLCD 0 -> -> 1 `i `uc ]
+"76
+[; ;LCD-KS0108/KS0108.c: 76:  if (__GLCD.X == (128 / 2))
+[e $ ! == -> . ___GLCD 0 `i / -> 128 `i -> 2 `i 638  ]
+"77
+[; ;LCD-KS0108/KS0108.c: 77:   __GLCD_GotoX(__GLCD.X);
+[e ( ___GLCD_GotoX (1 . ___GLCD 0 ]
+[e $U 639  ]
+"78
+[; ;LCD-KS0108/KS0108.c: 78:  else if (__GLCD.X >= 128)
+[e :U 638 ]
+[e $ ! >= -> . ___GLCD 0 `i -> 128 `i 640  ]
+"79
+[; ;LCD-KS0108/KS0108.c: 79:   __GLCD.X = 128 - 1;
+[e = . ___GLCD 0 -> - -> 128 `i -> 1 `i `uc ]
+[e :U 640 ]
+[e :U 639 ]
+"80
+[; ;LCD-KS0108/KS0108.c: 80: }
+[e :UE 635 ]
+}
+"82
+[; ;LCD-KS0108/KS0108.c: 82: void GLCD_Setup(void)
+[v _GLCD_Setup `(v ~T0 @X0 1 ef ]
+"83
+[; ;LCD-KS0108/KS0108.c: 83: {
+{
+[e :U _GLCD_Setup ]
+[f ]
+"85
+[; ;LCD-KS0108/KS0108.c: 85:  ( !1 ? ( ( (TRISE) |= (1UL<<0) ) ) : ( ( (TRISE) &= (~(1UL<<0)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 0 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 0 `i `Vuc `i ]
+"86
+[; ;LCD-KS0108/KS0108.c: 86:  ( !1 ? ( ( (TRISE) |= (1UL<<1) ) ) : ( ( (TRISE) &= (~(1UL<<1)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 1 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 1 `i `Vuc `i ]
+"87
+[; ;LCD-KS0108/KS0108.c: 87:  ( !1 ? ( ( (TRISE) |= (1UL<<2) ) ) : ( ( (TRISE) &= (~(1UL<<2)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 2 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 2 `i `Vuc `i ]
+"88
+[; ;LCD-KS0108/KS0108.c: 88:  ( !1 ? ( ( (TRISE) |= (1UL<<3) ) ) : ( ( (TRISE) &= (~(1UL<<3)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"89
+[; ;LCD-KS0108/KS0108.c: 89:  ( !1 ? ( ( (TRISE) |= (1UL<<4) ) ) : ( ( (TRISE) &= (~(1UL<<4)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"90
+[; ;LCD-KS0108/KS0108.c: 90:  ( !1 ? ( ( (TRISE) |= (1UL<<5) ) ) : ( ( (TRISE) &= (~(1UL<<5)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 5 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 5 `i `Vuc `i ]
+"91
+[; ;LCD-KS0108/KS0108.c: 91:  ( !1 ? ( ( (TRISE) |= (1UL<<6) ) ) : ( ( (TRISE) &= (~(1UL<<6)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 6 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 6 `i `Vuc `i ]
+"92
+[; ;LCD-KS0108/KS0108.c: 92:  ( !1 ? ( ( (TRISE) |= (1UL<<7) ) ) : ( ( (TRISE) &= (~(1UL<<7)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"96
+[; ;LCD-KS0108/KS0108.c: 96:  ( !1 ? ( ( (TRISD) |= (1UL<<0) ) ) : ( ( (TRISD) &= (~(1UL<<0)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISD -> << -> 1 `ul -> 0 `i `Vuc `i -> =& _TRISD -> ~ << -> 1 `ul -> 0 `i `Vuc `i ]
+"97
+[; ;LCD-KS0108/KS0108.c: 97:  ( !1 ? ( ( (TRISD) |= (1UL<<1) ) ) : ( ( (TRISD) &= (~(1UL<<1)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISD -> << -> 1 `ul -> 1 `i `Vuc `i -> =& _TRISD -> ~ << -> 1 `ul -> 1 `i `Vuc `i ]
+"98
+[; ;LCD-KS0108/KS0108.c: 98:  ( !1 ? ( ( (TRISD) |= (1UL<<4) ) ) : ( ( (TRISD) &= (~(1UL<<4)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISD -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _TRISD -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"99
+[; ;LCD-KS0108/KS0108.c: 99:  ( !1 ? ( ( (TRISD) |= (1UL<<7) ) ) : ( ( (TRISD) &= (~(1UL<<7)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _TRISD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"100
+[; ;LCD-KS0108/KS0108.c: 100:  ( !1 ? ( ( (TRISD) |= (1UL<<3) ) ) : ( ( (TRISD) &= (~(1UL<<3)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISD -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _TRISD -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"101
+[; ;LCD-KS0108/KS0108.c: 101:  ( !1 ? ( ( (TRISD) |= (1UL<<2) ) ) : ( ( (TRISD) &= (~(1UL<<2)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISD -> << -> 1 `ul -> 2 `i `Vuc `i -> =& _TRISD -> ~ << -> 1 `ul -> 2 `i `Vuc `i ]
+"103
+[; ;LCD-KS0108/KS0108.c: 103:  ( 0 ? ( ( (LATD) |= (1UL<<4) ) ) : ( ( (LATD) &= (~(1UL<<4)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"104
+[; ;LCD-KS0108/KS0108.c: 104:  ( 0 ? ( ( (LATD) |= (1UL<<3) ) ) : ( ( (LATD) &= (~(1UL<<3)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"105
+[; ;LCD-KS0108/KS0108.c: 105:  ( 0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"107
+[; ;LCD-KS0108/KS0108.c: 107:  ( 0 ? ( ( (LATD) |= (1UL<<2) ) ) : ( ( (LATD) &= (~(1UL<<2)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 2 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 2 `i `Vuc `i ]
+"108
+[; ;LCD-KS0108/KS0108.c: 108:  _delay((unsigned long)((5)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
+"109
+[; ;LCD-KS0108/KS0108.c: 109:  ( !0 ? ( ( (LATD) |= (1UL<<2) ) ) : ( ( (LATD) &= (~(1UL<<2)) ) ) );
+[e ? ! != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 2 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 2 `i `Vuc `i ]
+"110
+[; ;LCD-KS0108/KS0108.c: 110:  _delay((unsigned long)((50)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
+"113
+[; ;LCD-KS0108/KS0108.c: 113:  GLCD_SendCommand(0x3F, Chip_All);
+[e ( _GLCD_SendCommand (2 , -> -> 63 `i `uc . `E5692 2 ]
+"114
+[; ;LCD-KS0108/KS0108.c: 114:  GLCD_SendCommand(0xC0, Chip_All);
+[e ( _GLCD_SendCommand (2 , -> -> 192 `i `uc . `E5692 2 ]
+"117
+[; ;LCD-KS0108/KS0108.c: 117:  GLCD_GotoXY(0, 0);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"120
+[; ;LCD-KS0108/KS0108.c: 120:  __GLCD.Mode = GLCD_Non_Inverted;
+[e = . ___GLCD 2 . `E5699 1 ]
+"121
+[; ;LCD-KS0108/KS0108.c: 121:  __GLCD.X = __GLCD.Y = __GLCD.Font.Width = __GLCD.Font.Height = __GLCD.Font.Lines = 0;
+[e = . ___GLCD 0 = . ___GLCD 1 = . . ___GLCD 3 1 = . . ___GLCD 3 2 = . . ___GLCD 3 3 -> -> 0 `i `uc ]
+"122
+[; ;LCD-KS0108/KS0108.c: 122: }
+[e :UE 641 ]
+}
+"124
+[; ;LCD-KS0108/KS0108.c: 124: void GLCD_Render(void)
+[v _GLCD_Render `(v ~T0 @X0 1 ef ]
+"125
+[; ;LCD-KS0108/KS0108.c: 125: {
+{
+[e :U _GLCD_Render ]
+[f ]
+"126
+[; ;LCD-KS0108/KS0108.c: 126:  uint8_t i, j;
+[v _i `uc ~T0 @X0 1 a ]
+[v _j `uc ~T0 @X0 1 a ]
+"128
+[; ;LCD-KS0108/KS0108.c: 128:  for (j = 0 ; j < 64 ; j += 8)
+{
+[e = _j -> -> 0 `i `uc ]
+[e $ < -> _j `i -> 64 `i 643  ]
+[e $U 644  ]
+[e :U 643 ]
+"129
+[; ;LCD-KS0108/KS0108.c: 129:  {
+{
+"130
+[; ;LCD-KS0108/KS0108.c: 130:   __GLCD_GotoX(0);
+[e ( ___GLCD_GotoX (1 -> -> 0 `i `uc ]
+"131
+[; ;LCD-KS0108/KS0108.c: 131:   __GLCD_GotoY(j);
+[e ( ___GLCD_GotoY (1 _j ]
+"132
+[; ;LCD-KS0108/KS0108.c: 132:   for (i = 0 ; i < 128 ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 128 `i 646  ]
+[e $U 647  ]
+[e :U 646 ]
+"133
+[; ;LCD-KS0108/KS0108.c: 133:    GLCD_SendData(GLCD_BufferRead(i, __GLCD.Y), ((i < (128 / 2)) ? Chip_1 : Chip_2));
+[e ( _GLCD_SendData (2 , ( _GLCD_BufferRead (2 , _i . ___GLCD 1 -> ? < -> _i `i / -> 128 `i -> 2 `i : . `E5692 0 . `E5692 1 `E5692 ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 128 `i 646  ]
+[e :U 647 ]
+}
+"134
+[; ;LCD-KS0108/KS0108.c: 134:  }
+}
+[e =+ _j -> -> 8 `i `uc ]
+[e $ < -> _j `i -> 64 `i 643  ]
+[e :U 644 ]
+}
+"135
+[; ;LCD-KS0108/KS0108.c: 135: }
+[e :UE 642 ]
+}
+"137
+[; ;LCD-KS0108/KS0108.c: 137: void GLCD_InvertMode(void)
+[v _GLCD_InvertMode `(v ~T0 @X0 1 ef ]
+"138
+[; ;LCD-KS0108/KS0108.c: 138: {
+{
+[e :U _GLCD_InvertMode ]
+[f ]
+"139
+[; ;LCD-KS0108/KS0108.c: 139:  if (__GLCD.Mode == GLCD_Inverted)
+[e $ ! == -> . ___GLCD 2 `ui -> . `E5699 0 `ui 650  ]
+"140
+[; ;LCD-KS0108/KS0108.c: 140:   __GLCD.Mode = GLCD_Non_Inverted;
+[e = . ___GLCD 2 . `E5699 1 ]
+[e $U 651  ]
+"141
+[; ;LCD-KS0108/KS0108.c: 141:  else
+[e :U 650 ]
+"142
+[; ;LCD-KS0108/KS0108.c: 142:   __GLCD.Mode = GLCD_Inverted;
+[e = . ___GLCD 2 . `E5699 0 ]
+[e :U 651 ]
+"143
+[; ;LCD-KS0108/KS0108.c: 143: }
+[e :UE 649 ]
+}
+"145
+[; ;LCD-KS0108/KS0108.c: 145: void GLDC_ReadStatus(void)
+[v _GLDC_ReadStatus `(v ~T0 @X0 1 ef ]
+"146
+[; ;LCD-KS0108/KS0108.c: 146: {
+{
+[e :U _GLDC_ReadStatus ]
+[f ]
+"148
+[; ;LCD-KS0108/KS0108.c: 148:  GLCD_SelectChip(Chip_2);
+[e ( _GLCD_SelectChip (1 . `E5692 1 ]
+"149
+[; ;LCD-KS0108/KS0108.c: 149:  ( 1 ? ( ( (TRISE) |= (1UL<<7) ) ) : ( ( (TRISE) &= (~(1UL<<7)) ) ) );
+[e ? != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"150
+[; ;LCD-KS0108/KS0108.c: 150:     ( 1 ? ( ( (TRISE) |= (1UL<<4) ) ) : ( ( (TRISE) &= (~(1UL<<4)) ) ) );
+[e ? != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"151
+[; ;LCD-KS0108/KS0108.c: 151:     ( 1 ? ( ( (TRISE) |= (1UL<<5) ) ) : ( ( (TRISE) &= (~(1UL<<5)) ) ) );
+[e ? != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 5 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 5 `i `Vuc `i ]
+"153
+[; ;LCD-KS0108/KS0108.c: 153:  ( 0 ? ( ( (LATD) |= (1UL<<4) ) ) : ( ( (LATD) &= (~(1UL<<4)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"154
+[; ;LCD-KS0108/KS0108.c: 154:  ( !0 ? ( ( (LATD) |= (1UL<<3) ) ) : ( ( (LATD) &= (~(1UL<<3)) ) ) );
+[e ? ! != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"155
+[; ;LCD-KS0108/KS0108.c: 155:  ( 0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"156
+[; ;LCD-KS0108/KS0108.c: 156:  _delay((unsigned long)((10)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
+"158
+[; ;LCD-KS0108/KS0108.c: 158:  ( !0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
+[e ? ! != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"160
+[; ;LCD-KS0108/KS0108.c: 160:     printf("BUSY: %X \n\r",( ( ( (PORTE) & (1UL<<7) ? 1 : 0 ) ) ));
+[e ( _printf , (. :s 1C ? != & -> _PORTE `ul << -> 1 `ul -> 7 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i ]
+"161
+[; ;LCD-KS0108/KS0108.c: 161:     printf("RESET: %X \n\r",( ( ( (PORTE) & (1UL<<4) ? 1 : 0 ) ) ));
+[e ( _printf , (. :s 2C ? != & -> _PORTE `ul << -> 1 `ul -> 4 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i ]
+"162
+[; ;LCD-KS0108/KS0108.c: 162:     printf("ON/OFF: %X \n\r",( ( ( (PORTE) & (1UL<<5) ? 1 : 0 ) ) ));
+[e ( _printf , (. :s 3C ? != & -> _PORTE `ul << -> 1 `ul -> 5 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i ]
+"163
+[; ;LCD-KS0108/KS0108.c: 163:     ( 0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"164
+[; ;LCD-KS0108/KS0108.c: 164:  _delay((unsigned long)((10<<3)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> << -> 10 `i -> 3 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
+"165
+[; ;LCD-KS0108/KS0108.c: 165:  ( 0 ? ( ( (LATD) |= (1UL<<3) ) ) : ( ( (LATD) &= (~(1UL<<3)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"169
+[; ;LCD-KS0108/KS0108.c: 169: }
+[e :UE 652 ]
+}
+"170
+[; ;LCD-KS0108/KS0108.c: 170: void GLCD_Clear(void)
+[v _GLCD_Clear `(v ~T0 @X0 1 ef ]
+"171
+[; ;LCD-KS0108/KS0108.c: 171: {
+{
+[e :U _GLCD_Clear ]
+[f ]
+"172
+[; ;LCD-KS0108/KS0108.c: 172:  GLCD_FillScreen(__GLCD.Mode == GLCD_Non_Inverted ? GLCD_White : GLCD_Black);
+[e ( _GLCD_FillScreen (1 -> ? == -> . ___GLCD 2 `ui -> . `E5699 1 `ui : . `E5705 0 . `E5705 1 `E5705 ]
+"173
+[; ;LCD-KS0108/KS0108.c: 173: }
+[e :UE 653 ]
+}
+"175
+[; ;LCD-KS0108/KS0108.c: 175: void GLCD_ClearLine(const uint8_t Line)
+[v _GLCD_ClearLine `(v ~T0 @X0 1 ef1`Cuc ]
+"176
+[; ;LCD-KS0108/KS0108.c: 176: {
+{
+[e :U _GLCD_ClearLine ]
+"175
+[; ;LCD-KS0108/KS0108.c: 175: void GLCD_ClearLine(const uint8_t Line)
+[v _Line `Cuc ~T0 @X0 1 r1 ]
+"176
+[; ;LCD-KS0108/KS0108.c: 176: {
+[f ]
+"177
+[; ;LCD-KS0108/KS0108.c: 177:  if (Line < 64 / 8)
+[e $ ! < -> _Line `i / -> 64 `i -> 8 `i 655  ]
+"178
+[; ;LCD-KS0108/KS0108.c: 178:  {
+{
+"179
+[; ;LCD-KS0108/KS0108.c: 179:   uint8_t i, color;
+[v _i `uc ~T0 @X0 1 a ]
+[v _color `uc ~T0 @X0 1 a ]
+"180
+[; ;LCD-KS0108/KS0108.c: 180:   i = 0;
+[e = _i -> -> 0 `i `uc ]
+"181
+[; ;LCD-KS0108/KS0108.c: 181:   color = __GLCD.Mode == GLCD_Non_Inverted ? GLCD_White : GLCD_Black;
+[e = _color -> ? == -> . ___GLCD 2 `ui -> . `E5699 1 `ui : . `E5705 0 . `E5705 1 `uc ]
+"183
+[; ;LCD-KS0108/KS0108.c: 183:   GLCD_GotoXY(0, Line * 8);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> * -> _Line `i -> 8 `i `uc ]
+"184
+[; ;LCD-KS0108/KS0108.c: 184:   for (i = 0 ; i < 128 ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 128 `i 656  ]
+[e $U 657  ]
+[e :U 656 ]
+"185
+[; ;LCD-KS0108/KS0108.c: 185:    GLCD_BufferWrite(i, __GLCD.Y, color);
+[e ( _GLCD_BufferWrite (3 , , _i . ___GLCD 1 _color ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 128 `i 656  ]
+[e :U 657 ]
+}
+"186
+[; ;LCD-KS0108/KS0108.c: 186:  }
+}
+[e :U 655 ]
+"187
+[; ;LCD-KS0108/KS0108.c: 187: }
+[e :UE 654 ]
+}
+"189
+[; ;LCD-KS0108/KS0108.c: 189: void GLCD_GotoX(const uint8_t X)
+[v _GLCD_GotoX `(v ~T0 @X0 1 ef1`Cuc ]
+"190
+[; ;LCD-KS0108/KS0108.c: 190: {
+{
+[e :U _GLCD_GotoX ]
+"189
+[; ;LCD-KS0108/KS0108.c: 189: void GLCD_GotoX(const uint8_t X)
+[v _X `Cuc ~T0 @X0 1 r1 ]
+"190
+[; ;LCD-KS0108/KS0108.c: 190: {
+[f ]
+"191
+[; ;LCD-KS0108/KS0108.c: 191:  if (X < 128)
+[e $ ! < -> _X `i -> 128 `i 660  ]
+"192
+[; ;LCD-KS0108/KS0108.c: 192:   __GLCD.X = X;
+[e = . ___GLCD 0 _X ]
+[e :U 660 ]
+"193
+[; ;LCD-KS0108/KS0108.c: 193: }
+[e :UE 659 ]
+}
+"195
+[; ;LCD-KS0108/KS0108.c: 195: void GLCD_GotoY(const uint8_t Y)
+[v _GLCD_GotoY `(v ~T0 @X0 1 ef1`Cuc ]
+"196
+[; ;LCD-KS0108/KS0108.c: 196: {
+{
+[e :U _GLCD_GotoY ]
+"195
+[; ;LCD-KS0108/KS0108.c: 195: void GLCD_GotoY(const uint8_t Y)
+[v _Y `Cuc ~T0 @X0 1 r1 ]
+"196
+[; ;LCD-KS0108/KS0108.c: 196: {
+[f ]
+"197
+[; ;LCD-KS0108/KS0108.c: 197:  if (__GLCD.Y < 64)
+[e $ ! < -> . ___GLCD 1 `i -> 64 `i 662  ]
+"198
+[; ;LCD-KS0108/KS0108.c: 198:   __GLCD.Y = Y;
+[e = . ___GLCD 1 _Y ]
+[e :U 662 ]
+"199
+[; ;LCD-KS0108/KS0108.c: 199: }
+[e :UE 661 ]
+}
+"201
+[; ;LCD-KS0108/KS0108.c: 201: void GLCD_GotoXY(const uint8_t X, const uint8_t Y)
+[v _GLCD_GotoXY `(v ~T0 @X0 1 ef2`Cuc`Cuc ]
+"202
+[; ;LCD-KS0108/KS0108.c: 202: {
+{
+[e :U _GLCD_GotoXY ]
+"201
+[; ;LCD-KS0108/KS0108.c: 201: void GLCD_GotoXY(const uint8_t X, const uint8_t Y)
+[v _X `Cuc ~T0 @X0 1 r1 ]
+[v _Y `Cuc ~T0 @X0 1 r2 ]
+"202
+[; ;LCD-KS0108/KS0108.c: 202: {
+[f ]
+"203
+[; ;LCD-KS0108/KS0108.c: 203:  GLCD_GotoX(X);
+[e ( _GLCD_GotoX (1 _X ]
+"204
+[; ;LCD-KS0108/KS0108.c: 204:  GLCD_GotoY(Y);
+[e ( _GLCD_GotoY (1 _Y ]
+"205
+[; ;LCD-KS0108/KS0108.c: 205: }
+[e :UE 663 ]
+}
+"207
+[; ;LCD-KS0108/KS0108.c: 207: void GLCD_GotoLine(const uint8_t Line)
+[v _GLCD_GotoLine `(v ~T0 @X0 1 ef1`Cuc ]
+"208
+[; ;LCD-KS0108/KS0108.c: 208: {
+{
+[e :U _GLCD_GotoLine ]
+"207
+[; ;LCD-KS0108/KS0108.c: 207: void GLCD_GotoLine(const uint8_t Line)
+[v _Line `Cuc ~T0 @X0 1 r1 ]
+"208
+[; ;LCD-KS0108/KS0108.c: 208: {
+[f ]
+"209
+[; ;LCD-KS0108/KS0108.c: 209:  if (Line < 64 / 8)
+[e $ ! < -> _Line `i / -> 64 `i -> 8 `i 665  ]
+"210
+[; ;LCD-KS0108/KS0108.c: 210:   __GLCD.Y = Line * 8;
+[e = . ___GLCD 1 -> * -> _Line `i -> 8 `i `uc ]
+[e :U 665 ]
+"211
+[; ;LCD-KS0108/KS0108.c: 211: }
+[e :UE 664 ]
+}
+"213
+[; ;LCD-KS0108/KS0108.c: 213: uint8_t GLCD_GetX(void)
+[v _GLCD_GetX `(uc ~T0 @X0 1 ef ]
+"214
+[; ;LCD-KS0108/KS0108.c: 214: {
+{
+[e :U _GLCD_GetX ]
+[f ]
+"215
+[; ;LCD-KS0108/KS0108.c: 215:  return __GLCD.X;
+[e ) . ___GLCD 0 ]
+[e $UE 666  ]
+"216
+[; ;LCD-KS0108/KS0108.c: 216: }
+[e :UE 666 ]
+}
+"218
+[; ;LCD-KS0108/KS0108.c: 218: uint8_t GLCD_GetY(void)
+[v _GLCD_GetY `(uc ~T0 @X0 1 ef ]
+"219
+[; ;LCD-KS0108/KS0108.c: 219: {
+{
+[e :U _GLCD_GetY ]
+[f ]
+"220
+[; ;LCD-KS0108/KS0108.c: 220:  return __GLCD.Y;
+[e ) . ___GLCD 1 ]
+[e $UE 667  ]
+"221
+[; ;LCD-KS0108/KS0108.c: 221: }
+[e :UE 667 ]
+}
+"223
+[; ;LCD-KS0108/KS0108.c: 223: uint8_t GLCD_GetLine(void)
+[v _GLCD_GetLine `(uc ~T0 @X0 1 ef ]
+"224
+[; ;LCD-KS0108/KS0108.c: 224: {
+{
+[e :U _GLCD_GetLine ]
+[f ]
+"225
+[; ;LCD-KS0108/KS0108.c: 225:  return (__GLCD.Y / 8);
+[e ) -> / -> . ___GLCD 1 `i -> 8 `i `uc ]
+[e $UE 668  ]
+"226
+[; ;LCD-KS0108/KS0108.c: 226: }
+[e :UE 668 ]
+}
+"228
+[; ;LCD-KS0108/KS0108.c: 228: void GLCD_SetPixel(const uint8_t X, const uint8_t Y, enum Color_t Color)
+[v _GLCD_SetPixel `(v ~T0 @X0 1 ef3`Cuc`Cuc`E5705 ]
+"229
+[; ;LCD-KS0108/KS0108.c: 229: {
+{
+[e :U _GLCD_SetPixel ]
+"228
+[; ;LCD-KS0108/KS0108.c: 228: void GLCD_SetPixel(const uint8_t X, const uint8_t Y, enum Color_t Color)
+[v _X `Cuc ~T0 @X0 1 r1 ]
+[v _Y `Cuc ~T0 @X0 1 r2 ]
+[v _Color `E5705 ~T0 @X0 1 r3 ]
+"229
+[; ;LCD-KS0108/KS0108.c: 229: {
+[f ]
+"230
+[; ;LCD-KS0108/KS0108.c: 230:  uint8_t data = 0;
+[v _data `uc ~T0 @X0 1 a ]
+[e = _data -> -> 0 `i `uc ]
+"233
+[; ;LCD-KS0108/KS0108.c: 233:  GLCD_GotoXY(X, Y);
+[e ( _GLCD_GotoXY (2 , _X _Y ]
+"236
+[; ;LCD-KS0108/KS0108.c: 236:  data = GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 ]
+"239
+[; ;LCD-KS0108/KS0108.c: 239:  if (Color == GLCD_Black)
+[e $ ! == -> _Color `ui -> . `E5705 1 `ui 670  ]
+"240
+[; ;LCD-KS0108/KS0108.c: 240:   ( data |= (1UL<<Y % 8) );
+[e =| _data -> << -> 1 `ul % -> _Y `i -> 8 `i `uc ]
+[e $U 671  ]
+"241
+[; ;LCD-KS0108/KS0108.c: 241:  else
+[e :U 670 ]
+"242
+[; ;LCD-KS0108/KS0108.c: 242:   ( data &= (~(1UL<<Y % 8)) );
+[e =& _data -> ~ << -> 1 `ul % -> _Y `i -> 8 `i `uc ]
+[e :U 671 ]
+"245
+[; ;LCD-KS0108/KS0108.c: 245:  GLCD_BufferWrite(__GLCD.X, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , . ___GLCD 0 . ___GLCD 1 _data ]
+"246
+[; ;LCD-KS0108/KS0108.c: 246: }
+[e :UE 669 ]
+}
+"248
+[; ;LCD-KS0108/KS0108.c: 248: void GLCD_SetPixels(const uint8_t X1, uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color)
+[v _GLCD_SetPixels `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`E5705 ]
+"249
+[; ;LCD-KS0108/KS0108.c: 249: {
+{
+[e :U _GLCD_SetPixels ]
+"248
+[; ;LCD-KS0108/KS0108.c: 248: void GLCD_SetPixels(const uint8_t X1, uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color)
+[v _X1 `Cuc ~T0 @X0 1 r1 ]
+[v _Y1 `uc ~T0 @X0 1 r2 ]
+[v _X2 `Cuc ~T0 @X0 1 r3 ]
+[v _Y2 `Cuc ~T0 @X0 1 r4 ]
+[v _Color `E5705 ~T0 @X0 1 r5 ]
+"249
+[; ;LCD-KS0108/KS0108.c: 249: {
+[f ]
+"250
+[; ;LCD-KS0108/KS0108.c: 250:  if ((X1 < 128) && (X2 < 128) &&
+[e $ ! && && && < -> _X1 `i -> 128 `i < -> _X2 `i -> 128 `i < -> _Y1 `i -> 64 `i < -> _Y2 `i -> 64 `i 673  ]
+"252
+[; ;LCD-KS0108/KS0108.c: 252:  {
+{
+"253
+[; ;LCD-KS0108/KS0108.c: 253:   uint8_t height, width, offset, mask, h, i, data;
+[v _height `uc ~T0 @X0 1 a ]
+[v _width `uc ~T0 @X0 1 a ]
+[v _offset `uc ~T0 @X0 1 a ]
+[v _mask `uc ~T0 @X0 1 a ]
+[v _h `uc ~T0 @X0 1 a ]
+[v _i `uc ~T0 @X0 1 a ]
+[v _data `uc ~T0 @X0 1 a ]
+"254
+[; ;LCD-KS0108/KS0108.c: 254:   height = Y2 - Y1 + 1;
+[e = _height -> + - -> _Y2 `i -> _Y1 `i -> 1 `i `uc ]
+"255
+[; ;LCD-KS0108/KS0108.c: 255:   width = X2 - X1 + 1;
+[e = _width -> + - -> _X2 `i -> _X1 `i -> 1 `i `uc ]
+"256
+[; ;LCD-KS0108/KS0108.c: 256:   offset = Y1 % 8;
+[e = _offset -> % -> _Y1 `i -> 8 `i `uc ]
+"257
+[; ;LCD-KS0108/KS0108.c: 257:   Y1 -= offset;
+[e =- _Y1 -> _offset `uc ]
+"258
+[; ;LCD-KS0108/KS0108.c: 258:   mask = 0xFF;
+[e = _mask -> -> 255 `i `uc ]
+"259
+[; ;LCD-KS0108/KS0108.c: 259:   data = 0;
+[e = _data -> -> 0 `i `uc ]
+"262
+[; ;LCD-KS0108/KS0108.c: 262:   if (height <(8 - offset))
+[e $ ! < -> _height `i - -> 8 `i -> _offset `i 674  ]
+"263
+[; ;LCD-KS0108/KS0108.c: 263:   {
+{
+"264
+[; ;LCD-KS0108/KS0108.c: 264:    mask >>=(8 - height);
+[e =>> _mask -> - -> 8 `i -> _height `i `uc ]
+"265
+[; ;LCD-KS0108/KS0108.c: 265:    h = height;
+[e = _h _height ]
+"266
+[; ;LCD-KS0108/KS0108.c: 266:   }
+}
+[e $U 675  ]
+"267
+[; ;LCD-KS0108/KS0108.c: 267:   else
+[e :U 674 ]
+"268
+[; ;LCD-KS0108/KS0108.c: 268:    h = 8 - offset;
+[e = _h -> - -> 8 `i -> _offset `i `uc ]
+[e :U 675 ]
+"269
+[; ;LCD-KS0108/KS0108.c: 269:   mask <<= offset;
+[e =<< _mask -> _offset `uc ]
+"272
+[; ;LCD-KS0108/KS0108.c: 272:   GLCD_GotoXY(X1, Y1);
+[e ( _GLCD_GotoXY (2 , _X1 _Y1 ]
+"273
+[; ;LCD-KS0108/KS0108.c: 273:   for (i = 0 ; i < width ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 679  ]
+[e :U 676 ]
+"274
+[; ;LCD-KS0108/KS0108.c: 274:   {
+{
+"276
+[; ;LCD-KS0108/KS0108.c: 276:    data = GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 ]
+"278
+[; ;LCD-KS0108/KS0108.c: 278:    data = ((Color == GLCD_Black) ? (data | mask) : (data & ~mask));
+[e = _data -> ? == -> _Color `ui -> . `E5705 1 `ui : | -> _data `i -> _mask `i & -> _data `i ~ -> _mask `i `uc ]
+"280
+[; ;LCD-KS0108/KS0108.c: 280:    GLCD_BufferWrite(__GLCD.X++, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 _data ]
+"281
+[; ;LCD-KS0108/KS0108.c: 281:   }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 679 ]
+[e $ < -> _i `i -> _width `i 676  ]
+[e :U 677 ]
+}
+"284
+[; ;LCD-KS0108/KS0108.c: 284:   while ((h + 8) <= height)
+[e $U 680  ]
+[e :U 681 ]
+"285
+[; ;LCD-KS0108/KS0108.c: 285:   {
+{
+"286
+[; ;LCD-KS0108/KS0108.c: 286:    h += 8;
+[e =+ _h -> -> 8 `i `uc ]
+"287
+[; ;LCD-KS0108/KS0108.c: 287:    Y1 += 8;
+[e =+ _Y1 -> -> 8 `i `uc ]
+"288
+[; ;LCD-KS0108/KS0108.c: 288:    GLCD_GotoXY(X1, Y1);
+[e ( _GLCD_GotoXY (2 , _X1 _Y1 ]
+"289
+[; ;LCD-KS0108/KS0108.c: 289:    for (i = 0 ; i < width ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 686  ]
+[e :U 683 ]
+"290
+[; ;LCD-KS0108/KS0108.c: 290:     GLCD_BufferWrite(__GLCD.X++, __GLCD.Y, Color);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 -> _Color `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 686 ]
+[e $ < -> _i `i -> _width `i 683  ]
+[e :U 684 ]
+}
+"291
+[; ;LCD-KS0108/KS0108.c: 291:   }
+}
+[e :U 680 ]
+"284
+[; ;LCD-KS0108/KS0108.c: 284:   while ((h + 8) <= height)
+[e $ <= + -> _h `i -> 8 `i -> _height `i 681  ]
+[e :U 682 ]
+"294
+[; ;LCD-KS0108/KS0108.c: 294:   if (h < height)
+[e $ ! < -> _h `i -> _height `i 687  ]
+"295
+[; ;LCD-KS0108/KS0108.c: 295:   {
+{
+"296
+[; ;LCD-KS0108/KS0108.c: 296:    mask = ~(0xFF << (height - h));
+[e = _mask -> ~ << -> 255 `i - -> _height `i -> _h `i `uc ]
+"297
+[; ;LCD-KS0108/KS0108.c: 297:    GLCD_GotoXY(X1, Y1 + 8);
+[e ( _GLCD_GotoXY (2 , _X1 -> + -> _Y1 `i -> 8 `i `uc ]
+"298
+[; ;LCD-KS0108/KS0108.c: 298:    for (i = 0 ; i < width ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 691  ]
+[e :U 688 ]
+"299
+[; ;LCD-KS0108/KS0108.c: 299:    {
+{
+"301
+[; ;LCD-KS0108/KS0108.c: 301:     data = GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 ]
+"303
+[; ;LCD-KS0108/KS0108.c: 303:     data = ((Color == GLCD_Black) ? (data | mask) : (data & ~mask));
+[e = _data -> ? == -> _Color `ui -> . `E5705 1 `ui : | -> _data `i -> _mask `i & -> _data `i ~ -> _mask `i `uc ]
+"305
+[; ;LCD-KS0108/KS0108.c: 305:     GLCD_BufferWrite(__GLCD.X++, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 _data ]
+"306
+[; ;LCD-KS0108/KS0108.c: 306:    }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 691 ]
+[e $ < -> _i `i -> _width `i 688  ]
+[e :U 689 ]
+}
+"307
+[; ;LCD-KS0108/KS0108.c: 307:   }
+}
+[e :U 687 ]
+"308
+[; ;LCD-KS0108/KS0108.c: 308:  }
+}
+[e :U 673 ]
+"309
+[; ;LCD-KS0108/KS0108.c: 309: }
+[e :UE 672 ]
+}
+"311
+[; ;LCD-KS0108/KS0108.c: 311: void GLCD_DrawBitmap(const uint8_t *Bitmap, uint8_t Width, const uint8_t Height, enum PrintMode_t Mode)
+[v _GLCD_DrawBitmap `(v ~T0 @X0 1 ef4`*Cuc`uc`Cuc`E5702 ]
+"312
+[; ;LCD-KS0108/KS0108.c: 312: {
+{
+[e :U _GLCD_DrawBitmap ]
+"311
+[; ;LCD-KS0108/KS0108.c: 311: void GLCD_DrawBitmap(const uint8_t *Bitmap, uint8_t Width, const uint8_t Height, enum PrintMode_t Mode)
+[v _Bitmap `*Cuc ~T0 @X0 1 r1 ]
+[v _Width `uc ~T0 @X0 1 r2 ]
+[v _Height `Cuc ~T0 @X0 1 r3 ]
+[v _Mode `E5702 ~T0 @X0 1 r4 ]
+"312
+[; ;LCD-KS0108/KS0108.c: 312: {
+[f ]
+"313
+[; ;LCD-KS0108/KS0108.c: 313:  uint16_t lines, bmpRead, bmpReadPrev;
+[v _lines `us ~T0 @X0 1 a ]
+[v _bmpRead `us ~T0 @X0 1 a ]
+[v _bmpReadPrev `us ~T0 @X0 1 a ]
+"314
+[; ;LCD-KS0108/KS0108.c: 314:  uint8_t x, y, y2, i, j, overflow, data, dataPrev;
+[v _x `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+[v _y2 `uc ~T0 @X0 1 a ]
+[v _i `uc ~T0 @X0 1 a ]
+[v _j `uc ~T0 @X0 1 a ]
+[v _overflow `uc ~T0 @X0 1 a ]
+[v _data `uc ~T0 @X0 1 a ]
+[v _dataPrev `uc ~T0 @X0 1 a ]
+"315
+[; ;LCD-KS0108/KS0108.c: 315:  lines = bmpRead = bmpReadPrev = x = y = i = j = overflow = data = dataPrev = 0;
+[e = _lines = _bmpRead = _bmpReadPrev -> = _x = _y = _i = _j = _overflow = _data = _dataPrev -> -> 0 `i `uc `us ]
+"318
+[; ;LCD-KS0108/KS0108.c: 318:  x = __GLCD.X;
+[e = _x . ___GLCD 0 ]
+"319
+[; ;LCD-KS0108/KS0108.c: 319:  y = y2 = __GLCD.Y;
+[e = _y = _y2 . ___GLCD 1 ]
+"322
+[; ;LCD-KS0108/KS0108.c: 322:  data = __GLCD.X + Width;
+[e = _data -> + -> . ___GLCD 0 `i -> _Width `i `uc ]
+"324
+[; ;LCD-KS0108/KS0108.c: 324:  if (data >= 128)
+[e $ ! >= -> _data `i -> 128 `i 693  ]
+"325
+[; ;LCD-KS0108/KS0108.c: 325:   Width -= data - 128;
+[e =- _Width -> - -> _data `i -> 128 `i `uc ]
+[e :U 693 ]
+"328
+[; ;LCD-KS0108/KS0108.c: 328:  lines = (Height + 8 - 1) / 8;
+[e = _lines -> / - + -> _Height `i -> 8 `i -> 1 `i -> 8 `i `us ]
+"329
+[; ;LCD-KS0108/KS0108.c: 329:  data = __GLCD.Y / 8 + lines;
+[e = _data -> + -> / -> . ___GLCD 1 `i -> 8 `i `ui -> _lines `ui `uc ]
+"331
+[; ;LCD-KS0108/KS0108.c: 331:  if (data > 64 / 8)
+[e $ ! > -> _data `i / -> 64 `i -> 8 `i 694  ]
+"332
+[; ;LCD-KS0108/KS0108.c: 332:   lines -= data - 64 / 8;
+[e =- _lines -> - -> _data `i / -> 64 `i -> 8 `i `us ]
+[e :U 694 ]
+"335
+[; ;LCD-KS0108/KS0108.c: 335:  overflow = __GLCD.Y % 8;
+[e = _overflow -> % -> . ___GLCD 1 `i -> 8 `i `uc ]
+"339
+[; ;LCD-KS0108/KS0108.c: 339:  for (j = 0 ; j < lines ; j++)
+{
+[e = _j -> -> 0 `i `uc ]
+[e $U 698  ]
+[e :U 695 ]
+"340
+[; ;LCD-KS0108/KS0108.c: 340:  {
+{
+"342
+[; ;LCD-KS0108/KS0108.c: 342:   GLCD_GotoXY(x, y);
+[e ( _GLCD_GotoXY (2 , _x _y ]
+"345
+[; ;LCD-KS0108/KS0108.c: 345:   bmpRead = j * Width;
+[e = _bmpRead -> * -> _j `i -> _Width `i `us ]
+"346
+[; ;LCD-KS0108/KS0108.c: 346:   bmpReadPrev = bmpRead - Width;
+[e = _bmpReadPrev -> - -> _bmpRead `ui -> _Width `ui `us ]
+"349
+[; ;LCD-KS0108/KS0108.c: 349:   for (i = 0 ; i < Width ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 702  ]
+[e :U 699 ]
+"350
+[; ;LCD-KS0108/KS0108.c: 350:   {
+{
+"352
+[; ;LCD-KS0108/KS0108.c: 352:    data = (Bitmap[bmpRead++]);
+[e = _data *U + _Bitmap * -> ++ _bmpRead -> -> 1 `i `us `ux -> -> # *U _Bitmap `ui `ux ]
+"355
+[; ;LCD-KS0108/KS0108.c: 355:    data <<= overflow;
+[e =<< _data -> _overflow `uc ]
+"358
+[; ;LCD-KS0108/KS0108.c: 358:    if (j > 0)
+[e $ ! > -> _j `i -> 0 `i 703  ]
+"359
+[; ;LCD-KS0108/KS0108.c: 359:    {
+{
+"360
+[; ;LCD-KS0108/KS0108.c: 360:     dataPrev = &(Bitmap[bmpReadPrev++]);
+[e = _dataPrev -> &U *U + _Bitmap * -> ++ _bmpReadPrev -> -> 1 `i `us `ux -> -> # *U _Bitmap `ui `ux `uc ]
+"361
+[; ;LCD-KS0108/KS0108.c: 361:     dataPrev >>= 8 - overflow;
+[e =>> _dataPrev -> - -> 8 `i -> _overflow `i `uc ]
+"362
+[; ;LCD-KS0108/KS0108.c: 362:     data |= dataPrev;
+[e =| _data -> _dataPrev `uc ]
+"363
+[; ;LCD-KS0108/KS0108.c: 363:    }
+}
+[e :U 703 ]
+"365
+[; ;LCD-KS0108/KS0108.c: 365:    if (Mode == GLCD_Merge)
+[e $ ! == -> _Mode `ui -> . `E5702 1 `ui 704  ]
+"366
+[; ;LCD-KS0108/KS0108.c: 366:     data |= GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e =| _data -> ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 `uc ]
+[e :U 704 ]
+"369
+[; ;LCD-KS0108/KS0108.c: 369:    GLCD_BufferWrite(__GLCD.X++, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 _data ]
+"370
+[; ;LCD-KS0108/KS0108.c: 370:   }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 702 ]
+[e $ < -> _i `i -> _Width `i 699  ]
+[e :U 700 ]
+}
+"372
+[; ;LCD-KS0108/KS0108.c: 372:   if (__GLCD.Font.Mode == GLCD_Overwrite)
+[e $ ! == -> . . ___GLCD 3 4 `ui -> . `E5702 0 `ui 705  ]
+"373
+[; ;LCD-KS0108/KS0108.c: 373:    data = GLCD_White;
+[e = _data -> . `E5705 0 `uc ]
+[e $U 706  ]
+"374
+[; ;LCD-KS0108/KS0108.c: 374:   else
+[e :U 705 ]
+"375
+[; ;LCD-KS0108/KS0108.c: 375:    data = GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 ]
+[e :U 706 ]
+"376
+[; ;LCD-KS0108/KS0108.c: 376:   GLCD_BufferWrite(__GLCD.X, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , . ___GLCD 0 . ___GLCD 1 _data ]
+"379
+[; ;LCD-KS0108/KS0108.c: 379:   y += 8;
+[e =+ _y -> -> 8 `i `uc ]
+"380
+[; ;LCD-KS0108/KS0108.c: 380:  }
+}
+[e ++ _j -> -> 1 `i `uc ]
+[e :U 698 ]
+[e $ < -> _j `ui -> _lines `ui 695  ]
+[e :U 696 ]
+}
+"383
+[; ;LCD-KS0108/KS0108.c: 383:  if (lines > 1)
+[e $ ! > -> _lines `ui -> -> 1 `i `ui 707  ]
+"384
+[; ;LCD-KS0108/KS0108.c: 384:  {
+{
+"386
+[; ;LCD-KS0108/KS0108.c: 386:   GLCD_GotoXY(x, y);
+[e ( _GLCD_GotoXY (2 , _x _y ]
+"389
+[; ;LCD-KS0108/KS0108.c: 389:   bmpReadPrev = (j - 1) * Width;
+[e = _bmpReadPrev -> * - -> _j `i -> 1 `i -> _Width `i `us ]
+"392
+[; ;LCD-KS0108/KS0108.c: 392:   for (i = 0 ; i < Width ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 711  ]
+[e :U 708 ]
+"393
+[; ;LCD-KS0108/KS0108.c: 393:   {
+{
+"395
+[; ;LCD-KS0108/KS0108.c: 395:    data = GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 ]
+"398
+[; ;LCD-KS0108/KS0108.c: 398:    dataPrev = Bitmap[bmpReadPrev++];
+[e = _dataPrev *U + _Bitmap * -> ++ _bmpReadPrev -> -> 1 `i `us `ux -> -> # *U _Bitmap `ui `ux ]
+"399
+[; ;LCD-KS0108/KS0108.c: 399:    dataPrev >>= 8 - overflow;
+[e =>> _dataPrev -> - -> 8 `i -> _overflow `i `uc ]
+"400
+[; ;LCD-KS0108/KS0108.c: 400:    data |= dataPrev;
+[e =| _data -> _dataPrev `uc ]
+"403
+[; ;LCD-KS0108/KS0108.c: 403:    if (Mode == GLCD_Merge)
+[e $ ! == -> _Mode `ui -> . `E5702 1 `ui 712  ]
+"404
+[; ;LCD-KS0108/KS0108.c: 404:     data |= GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e =| _data -> ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 `uc ]
+[e :U 712 ]
+"407
+[; ;LCD-KS0108/KS0108.c: 407:    GLCD_BufferWrite(__GLCD.X++, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 _data ]
+"408
+[; ;LCD-KS0108/KS0108.c: 408:   }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 711 ]
+[e $ < -> _i `i -> _Width `i 708  ]
+[e :U 709 ]
+}
+"410
+[; ;LCD-KS0108/KS0108.c: 410:   if (__GLCD.Font.Mode == GLCD_Overwrite)
+[e $ ! == -> . . ___GLCD 3 4 `ui -> . `E5702 0 `ui 713  ]
+"411
+[; ;LCD-KS0108/KS0108.c: 411:    data = GLCD_White;
+[e = _data -> . `E5705 0 `uc ]
+[e $U 714  ]
+"412
+[; ;LCD-KS0108/KS0108.c: 412:   else if (__GLCD.Font.Mode == GLCD_Merge)
+[e :U 713 ]
+[e $ ! == -> . . ___GLCD 3 4 `ui -> . `E5702 1 `ui 715  ]
+"413
+[; ;LCD-KS0108/KS0108.c: 413:    data = GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 ]
+[e $U 716  ]
+"414
+[; ;LCD-KS0108/KS0108.c: 414:   else
+[e :U 715 ]
+"415
+[; ;LCD-KS0108/KS0108.c: 415:    data = ~GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data -> ~ -> ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 `i `uc ]
+[e :U 716 ]
+[e :U 714 ]
+"416
+[; ;LCD-KS0108/KS0108.c: 416:   GLCD_BufferWrite(__GLCD.X++, __GLCD.Y,data);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 _data ]
+"417
+[; ;LCD-KS0108/KS0108.c: 417:  }
+}
+[e :U 707 ]
+"420
+[; ;LCD-KS0108/KS0108.c: 420:  GLCD_GotoXY(GLCD_GetX(), y2);
+[e ( _GLCD_GotoXY (2 , ( _GLCD_GetX ..  _y2 ]
+"421
+[; ;LCD-KS0108/KS0108.c: 421: }
+[e :UE 692 ]
+}
+"423
+[; ;LCD-KS0108/KS0108.c: 423: void GLCD_DrawLine(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2, enum Color_t Color)
+[v _GLCD_DrawLine `(v ~T0 @X0 1 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
+"424
+[; ;LCD-KS0108/KS0108.c: 424: {
+{
+[e :U _GLCD_DrawLine ]
+"423
+[; ;LCD-KS0108/KS0108.c: 423: void GLCD_DrawLine(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2, enum Color_t Color)
+[v _X1 `uc ~T0 @X0 1 r1 ]
+[v _Y1 `uc ~T0 @X0 1 r2 ]
+[v _X2 `uc ~T0 @X0 1 r3 ]
+[v _Y2 `uc ~T0 @X0 1 r4 ]
+[v _Color `E5705 ~T0 @X0 1 r5 ]
+"424
+[; ;LCD-KS0108/KS0108.c: 424: {
+[f ]
+"425
+[; ;LCD-KS0108/KS0108.c: 425:  if ((X1 < 128) && (X2 < 128) &&
+[e $ ! && && && < -> _X1 `i -> 128 `i < -> _X2 `i -> 128 `i < -> _Y1 `i -> 64 `i < -> _Y2 `i -> 64 `i 718  ]
+"427
+[; ;LCD-KS0108/KS0108.c: 427:  {
+{
+"428
+[; ;LCD-KS0108/KS0108.c: 428:   if (X1 == X2)
+[e $ ! == -> _X1 `i -> _X2 `i 719  ]
+"429
+[; ;LCD-KS0108/KS0108.c: 429:    GLCD_DrawVLine(Y1, Y2, X1, Color);
+[e ( _GLCD_DrawVLine (4 , , , _Y1 _Y2 _X1 _Color ]
+[e $U 720  ]
+"430
+[; ;LCD-KS0108/KS0108.c: 430:   else if (Y1 == Y2)
+[e :U 719 ]
+[e $ ! == -> _Y1 `i -> _Y2 `i 721  ]
+"431
+[; ;LCD-KS0108/KS0108.c: 431:    GLCD_DrawHLine(X1, X2, Y1, Color);
+[e ( _GLCD_DrawHLine (4 , , , _X1 _X2 _Y1 _Color ]
+[e $U 722  ]
+"432
+[; ;LCD-KS0108/KS0108.c: 432:   else
+[e :U 721 ]
+"433
+[; ;LCD-KS0108/KS0108.c: 433:   {
+{
+"434
+[; ;LCD-KS0108/KS0108.c: 434:    uint8_t deltax, deltay, x, y, slope;
+[v _deltax `uc ~T0 @X0 1 a ]
+[v _deltay `uc ~T0 @X0 1 a ]
+[v _x `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+[v _slope `uc ~T0 @X0 1 a ]
+"435
+[; ;LCD-KS0108/KS0108.c: 435:    int8_t error, ystep;
+[v _error `c ~T0 @X0 1 a ]
+[v _ystep `c ~T0 @X0 1 a ]
+"436
+[; ;LCD-KS0108/KS0108.c: 436:    slope = ((((Y1 > Y2) ? (Y1 - Y2) : (Y2 - Y1)) > ((X1 > X2) ? (X1 - X2) : (X2 - X1))) ? 1 : 0);
+[e = _slope -> ? > ? > -> _Y1 `i -> _Y2 `i : - -> _Y1 `i -> _Y2 `i - -> _Y2 `i -> _Y1 `i ? > -> _X1 `i -> _X2 `i : - -> _X1 `i -> _X2 `i - -> _X2 `i -> _X1 `i : -> 1 `i -> 0 `i `uc ]
+"437
+[; ;LCD-KS0108/KS0108.c: 437:    if (slope)
+[e $ ! != -> _slope `i -> 0 `i 723  ]
+"438
+[; ;LCD-KS0108/KS0108.c: 438:    {
+{
+"440
+[; ;LCD-KS0108/KS0108.c: 440:     do{ uint8_t t = X1; X1 = Y1; Y1 = t; }while(0);
+[e :U 726 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _X1 ]
+[e = _X1 _Y1 ]
+[e = _Y1 _t ]
+}
+[e :U 725 ]
+"442
+[; ;LCD-KS0108/KS0108.c: 442:     do{ uint8_t t = X2; X2 = Y2; Y2 = t; }while(0);
+[e :U 729 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _X2 ]
+[e = _X2 _Y2 ]
+[e = _Y2 _t ]
+}
+[e :U 728 ]
+"443
+[; ;LCD-KS0108/KS0108.c: 443:    }
+}
+[e :U 723 ]
+"444
+[; ;LCD-KS0108/KS0108.c: 444:    if (X1 > X2)
+[e $ ! > -> _X1 `i -> _X2 `i 730  ]
+"445
+[; ;LCD-KS0108/KS0108.c: 445:    {
+{
+"447
+[; ;LCD-KS0108/KS0108.c: 447:     do{ uint8_t t = X1; X1 = X2; X2 = t; }while(0);
+[e :U 733 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _X1 ]
+[e = _X1 _X2 ]
+[e = _X2 _t ]
+}
+[e :U 732 ]
+"449
+[; ;LCD-KS0108/KS0108.c: 449:     do{ uint8_t t = Y1; Y1 = Y2; Y2 = t; }while(0);
+[e :U 736 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _Y1 ]
+[e = _Y1 _Y2 ]
+[e = _Y2 _t ]
+}
+[e :U 735 ]
+"450
+[; ;LCD-KS0108/KS0108.c: 450:    }
+}
+[e :U 730 ]
+"452
+[; ;LCD-KS0108/KS0108.c: 452:    deltax = X2 - X1;
+[e = _deltax -> - -> _X2 `i -> _X1 `i `uc ]
+"453
+[; ;LCD-KS0108/KS0108.c: 453:    deltay = ((Y2 > Y1) ? (Y2 - Y1) : (Y1 - Y2));
+[e = _deltay -> ? > -> _Y2 `i -> _Y1 `i : - -> _Y2 `i -> _Y1 `i - -> _Y1 `i -> _Y2 `i `uc ]
+"454
+[; ;LCD-KS0108/KS0108.c: 454:    error = deltax / 2;
+[e = _error -> / -> _deltax `i -> 2 `i `c ]
+"455
+[; ;LCD-KS0108/KS0108.c: 455:    y = Y1;
+[e = _y _Y1 ]
+"456
+[; ;LCD-KS0108/KS0108.c: 456:    ystep = ((Y1 < Y2) ? 1 : -1);
+[e = _ystep -> ? < -> _Y1 `i -> _Y2 `i : -> 1 `i -U -> 1 `i `c ]
+"458
+[; ;LCD-KS0108/KS0108.c: 458:    for (x=X1 ; x<=X2 ; x++)
+{
+[e = _x _X1 ]
+[e $U 740  ]
+[e :U 737 ]
+"459
+[; ;LCD-KS0108/KS0108.c: 459:    {
+{
+"460
+[; ;LCD-KS0108/KS0108.c: 460:     if (slope)
+[e $ ! != -> _slope `i -> 0 `i 741  ]
+"461
+[; ;LCD-KS0108/KS0108.c: 461:      GLCD_SetPixel(y, x, Color);
+[e ( _GLCD_SetPixel (3 , , _y _x _Color ]
+[e $U 742  ]
+"462
+[; ;LCD-KS0108/KS0108.c: 462:     else
+[e :U 741 ]
+"463
+[; ;LCD-KS0108/KS0108.c: 463:      GLCD_SetPixel(x, y, Color);
+[e ( _GLCD_SetPixel (3 , , _x _y _Color ]
+[e :U 742 ]
+"465
+[; ;LCD-KS0108/KS0108.c: 465:     error -= deltay;
+[e =- _error -> _deltay `c ]
+"466
+[; ;LCD-KS0108/KS0108.c: 466:     if (error < 0)
+[e $ ! < -> _error `i -> 0 `i 743  ]
+"467
+[; ;LCD-KS0108/KS0108.c: 467:     {
+{
+"468
+[; ;LCD-KS0108/KS0108.c: 468:      y = y + ystep;
+[e = _y -> + -> _y `i -> _ystep `i `uc ]
+"469
+[; ;LCD-KS0108/KS0108.c: 469:      error = error + deltax;
+[e = _error -> + -> _error `i -> _deltax `i `c ]
+"470
+[; ;LCD-KS0108/KS0108.c: 470:     }
+}
+[e :U 743 ]
+"471
+[; ;LCD-KS0108/KS0108.c: 471:    }
+}
+[e ++ _x -> -> 1 `i `uc ]
+[e :U 740 ]
+[e $ <= -> _x `i -> _X2 `i 737  ]
+[e :U 738 ]
+}
+"472
+[; ;LCD-KS0108/KS0108.c: 472:   }
+}
+[e :U 722 ]
+[e :U 720 ]
+"473
+[; ;LCD-KS0108/KS0108.c: 473:  }
+}
+[e :U 718 ]
+"474
+[; ;LCD-KS0108/KS0108.c: 474: }
+[e :UE 717 ]
+}
+"476
+[; ;LCD-KS0108/KS0108.c: 476: void GLCD_DrawRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color)
+[v _GLCD_DrawRectangle `(v ~T0 @X0 1 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
+"477
+[; ;LCD-KS0108/KS0108.c: 477: {
+{
+[e :U _GLCD_DrawRectangle ]
+"476
+[; ;LCD-KS0108/KS0108.c: 476: void GLCD_DrawRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color)
+[v _X1 `Cuc ~T0 @X0 1 r1 ]
+[v _Y1 `Cuc ~T0 @X0 1 r2 ]
+[v _X2 `Cuc ~T0 @X0 1 r3 ]
+[v _Y2 `Cuc ~T0 @X0 1 r4 ]
+[v _Color `E5705 ~T0 @X0 1 r5 ]
+"477
+[; ;LCD-KS0108/KS0108.c: 477: {
+[f ]
+"478
+[; ;LCD-KS0108/KS0108.c: 478:  if ((X1 < 128) && (X2 < 128) &&
+[e $ ! && && && < -> _X1 `i -> 128 `i < -> _X2 `i -> 128 `i < -> _Y1 `i -> 64 `i < -> _Y2 `i -> 64 `i 745  ]
+"480
+[; ;LCD-KS0108/KS0108.c: 480:  {
+{
+"481
+[; ;LCD-KS0108/KS0108.c: 481:   GLCD_DrawHLine(X1, X2, Y1, Color);
+[e ( _GLCD_DrawHLine (4 , , , _X1 _X2 _Y1 _Color ]
+"482
+[; ;LCD-KS0108/KS0108.c: 482:   GLCD_DrawHLine(X1, X2, Y2, Color);
+[e ( _GLCD_DrawHLine (4 , , , _X1 _X2 _Y2 _Color ]
+"483
+[; ;LCD-KS0108/KS0108.c: 483:   GLCD_DrawVLine(Y1, Y2, X1, Color);
+[e ( _GLCD_DrawVLine (4 , , , _Y1 _Y2 _X1 _Color ]
+"484
+[; ;LCD-KS0108/KS0108.c: 484:   GLCD_DrawVLine(Y1, Y2, X2, Color);
+[e ( _GLCD_DrawVLine (4 , , , _Y1 _Y2 _X2 _Color ]
+"485
+[; ;LCD-KS0108/KS0108.c: 485:  }
+}
+[e :U 745 ]
+"486
+[; ;LCD-KS0108/KS0108.c: 486: }
+[e :UE 744 ]
+}
+"488
+[; ;LCD-KS0108/KS0108.c: 488: void GLCD_DrawRoundRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, const uint8_t Radius, enum Color_t Color)
+[v _GLCD_DrawRoundRectangle `(v ~T0 @X0 1 ef6`Cuc`Cuc`Cuc`Cuc`Cuc`E5705 ]
+"489
+[; ;LCD-KS0108/KS0108.c: 489: {
+{
+[e :U _GLCD_DrawRoundRectangle ]
+"488
+[; ;LCD-KS0108/KS0108.c: 488: void GLCD_DrawRoundRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, const uint8_t Radius, enum Color_t Color)
+[v _X1 `Cuc ~T0 @X0 1 r1 ]
+[v _Y1 `Cuc ~T0 @X0 1 r2 ]
+[v _X2 `Cuc ~T0 @X0 1 r3 ]
+[v _Y2 `Cuc ~T0 @X0 1 r4 ]
+[v _Radius `Cuc ~T0 @X0 1 r5 ]
+[v _Color `E5705 ~T0 @X0 1 r6 ]
+"489
+[; ;LCD-KS0108/KS0108.c: 489: {
+[f ]
+"490
+[; ;LCD-KS0108/KS0108.c: 490:  if ((X1<128) && (X2<128) &&
+[e $ ! && && && < -> _X1 `i -> 128 `i < -> _X2 `i -> 128 `i < -> _Y1 `i -> 64 `i < -> _Y2 `i -> 64 `i 747  ]
+"492
+[; ;LCD-KS0108/KS0108.c: 492:  {
+{
+"494
+[; ;LCD-KS0108/KS0108.c: 494:   int16_t tSwitch = 3 - 2 * Radius;
+[v _tSwitch `s ~T0 @X0 1 a ]
+[e = _tSwitch -> - -> 3 `i * -> 2 `i -> _Radius `i `s ]
+"495
+[; ;LCD-KS0108/KS0108.c: 495:   uint8_t width, height, x, y;
+[v _width `uc ~T0 @X0 1 a ]
+[v _height `uc ~T0 @X0 1 a ]
+[v _x `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+"496
+[; ;LCD-KS0108/KS0108.c: 496:   width = X2-X1;
+[e = _width -> - -> _X2 `i -> _X1 `i `uc ]
+"497
+[; ;LCD-KS0108/KS0108.c: 497:   height = Y2-Y1;
+[e = _height -> - -> _Y2 `i -> _Y1 `i `uc ]
+"498
+[; ;LCD-KS0108/KS0108.c: 498:   x = 0;
+[e = _x -> -> 0 `i `uc ]
+"499
+[; ;LCD-KS0108/KS0108.c: 499:   y = Radius;
+[e = _y _Radius ]
+"502
+[; ;LCD-KS0108/KS0108.c: 502:   GLCD_DrawHLine(X1+Radius, X2-Radius, Y1, Color);
+[e ( _GLCD_DrawHLine (4 , , , -> + -> _X1 `i -> _Radius `i `uc -> - -> _X2 `i -> _Radius `i `uc _Y1 _Color ]
+"503
+[; ;LCD-KS0108/KS0108.c: 503:   GLCD_DrawHLine(X1+Radius, X2-Radius, Y2, Color);
+[e ( _GLCD_DrawHLine (4 , , , -> + -> _X1 `i -> _Radius `i `uc -> - -> _X2 `i -> _Radius `i `uc _Y2 _Color ]
+"504
+[; ;LCD-KS0108/KS0108.c: 504:   GLCD_DrawVLine(Y1+Radius, Y2-Radius, X1, Color);
+[e ( _GLCD_DrawVLine (4 , , , -> + -> _Y1 `i -> _Radius `i `uc -> - -> _Y2 `i -> _Radius `i `uc _X1 _Color ]
+"505
+[; ;LCD-KS0108/KS0108.c: 505:   GLCD_DrawVLine(Y1+Radius, Y2-Radius, X2, Color);
+[e ( _GLCD_DrawVLine (4 , , , -> + -> _Y1 `i -> _Radius `i `uc -> - -> _Y2 `i -> _Radius `i `uc _X2 _Color ]
+"507
+[; ;LCD-KS0108/KS0108.c: 507:   while (x <= y)
+[e $U 748  ]
+[e :U 749 ]
+"508
+[; ;LCD-KS0108/KS0108.c: 508:   {
+{
+"510
+[; ;LCD-KS0108/KS0108.c: 510:    GLCD_SetPixel(X1+Radius-x, Y1+Radius-y, Color);
+[e ( _GLCD_SetPixel (3 , , -> - + -> _X1 `i -> _Radius `i -> _x `i `uc -> - + -> _Y1 `i -> _Radius `i -> _y `i `uc _Color ]
+"511
+[; ;LCD-KS0108/KS0108.c: 511:    GLCD_SetPixel(X1+Radius-y, Y1+Radius-x, Color);
+[e ( _GLCD_SetPixel (3 , , -> - + -> _X1 `i -> _Radius `i -> _y `i `uc -> - + -> _Y1 `i -> _Radius `i -> _x `i `uc _Color ]
+"514
+[; ;LCD-KS0108/KS0108.c: 514:    GLCD_SetPixel(X1+width-Radius+x, Y1+Radius-y, Color);
+[e ( _GLCD_SetPixel (3 , , -> + - + -> _X1 `i -> _width `i -> _Radius `i -> _x `i `uc -> - + -> _Y1 `i -> _Radius `i -> _y `i `uc _Color ]
+"515
+[; ;LCD-KS0108/KS0108.c: 515:    GLCD_SetPixel(X1+width-Radius+y, Y1+Radius-x, Color);
+[e ( _GLCD_SetPixel (3 , , -> + - + -> _X1 `i -> _width `i -> _Radius `i -> _y `i `uc -> - + -> _Y1 `i -> _Radius `i -> _x `i `uc _Color ]
+"518
+[; ;LCD-KS0108/KS0108.c: 518:    GLCD_SetPixel(X1+Radius-x, Y1+height-Radius+y, Color);
+[e ( _GLCD_SetPixel (3 , , -> - + -> _X1 `i -> _Radius `i -> _x `i `uc -> + - + -> _Y1 `i -> _height `i -> _Radius `i -> _y `i `uc _Color ]
+"519
+[; ;LCD-KS0108/KS0108.c: 519:    GLCD_SetPixel(X1+Radius-y, Y1+height-Radius+x, Color);
+[e ( _GLCD_SetPixel (3 , , -> - + -> _X1 `i -> _Radius `i -> _y `i `uc -> + - + -> _Y1 `i -> _height `i -> _Radius `i -> _x `i `uc _Color ]
+"522
+[; ;LCD-KS0108/KS0108.c: 522:    GLCD_SetPixel(X1+width-Radius+x, Y1+height-Radius+y, Color);
+[e ( _GLCD_SetPixel (3 , , -> + - + -> _X1 `i -> _width `i -> _Radius `i -> _x `i `uc -> + - + -> _Y1 `i -> _height `i -> _Radius `i -> _y `i `uc _Color ]
+"523
+[; ;LCD-KS0108/KS0108.c: 523:    GLCD_SetPixel(X1+width-Radius+y, Y1+height-Radius+x, Color);
+[e ( _GLCD_SetPixel (3 , , -> + - + -> _X1 `i -> _width `i -> _Radius `i -> _y `i `uc -> + - + -> _Y1 `i -> _height `i -> _Radius `i -> _x `i `uc _Color ]
+"525
+[; ;LCD-KS0108/KS0108.c: 525:    if (tSwitch < 0)
+[e $ ! < -> _tSwitch `i -> 0 `i 751  ]
+"526
+[; ;LCD-KS0108/KS0108.c: 526:     tSwitch += 4 * x + 6;
+[e =+ _tSwitch -> + * -> 4 `i -> _x `i -> 6 `i `s ]
+[e $U 752  ]
+"527
+[; ;LCD-KS0108/KS0108.c: 527:    else
+[e :U 751 ]
+"528
+[; ;LCD-KS0108/KS0108.c: 528:    {
+{
+"529
+[; ;LCD-KS0108/KS0108.c: 529:     tSwitch += 4 * (x - y) + 10;
+[e =+ _tSwitch -> + * -> 4 `i - -> _x `i -> _y `i -> 10 `i `s ]
+"530
+[; ;LCD-KS0108/KS0108.c: 530:     y--;
+[e -- _y -> -> 1 `i `uc ]
+"531
+[; ;LCD-KS0108/KS0108.c: 531:    }
+}
+[e :U 752 ]
+"532
+[; ;LCD-KS0108/KS0108.c: 532:    x++;
+[e ++ _x -> -> 1 `i `uc ]
+"533
+[; ;LCD-KS0108/KS0108.c: 533:   }
+}
+[e :U 748 ]
+"507
+[; ;LCD-KS0108/KS0108.c: 507:   while (x <= y)
+[e $ <= -> _x `i -> _y `i 749  ]
+[e :U 750 ]
+"534
+[; ;LCD-KS0108/KS0108.c: 534:  }
+}
+[e :U 747 ]
+"535
+[; ;LCD-KS0108/KS0108.c: 535: }
+[e :UE 746 ]
+}
+"537
+[; ;LCD-KS0108/KS0108.c: 537: void GLCD_DrawTriangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, const uint8_t X3, const uint8_t Y3, enum Color_t Color)
+[v _GLCD_DrawTriangle `(v ~T0 @X0 1 ef7`Cuc`Cuc`Cuc`Cuc`Cuc`Cuc`E5705 ]
+"538
+[; ;LCD-KS0108/KS0108.c: 538: {
+{
+[e :U _GLCD_DrawTriangle ]
+"537
+[; ;LCD-KS0108/KS0108.c: 537: void GLCD_DrawTriangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, const uint8_t X3, const uint8_t Y3, enum Color_t Color)
+[v _X1 `Cuc ~T0 @X0 1 r1 ]
+[v _Y1 `Cuc ~T0 @X0 1 r2 ]
+[v _X2 `Cuc ~T0 @X0 1 r3 ]
+[v _Y2 `Cuc ~T0 @X0 1 r4 ]
+[v _X3 `Cuc ~T0 @X0 1 r5 ]
+[v _Y3 `Cuc ~T0 @X0 1 r6 ]
+[v _Color `E5705 ~T0 @X0 1 r7 ]
+"538
+[; ;LCD-KS0108/KS0108.c: 538: {
+[f ]
+"539
+[; ;LCD-KS0108/KS0108.c: 539:  if (((X1 < 128) && (X2 < 128) && (X3 < 128) &&
+[e $ ! && && && && && < -> _X1 `i -> 128 `i < -> _X2 `i -> 128 `i < -> _X3 `i -> 128 `i < -> _Y1 `i -> 64 `i < -> _Y2 `i -> 64 `i < -> _Y3 `i -> 64 `i 754  ]
+"541
+[; ;LCD-KS0108/KS0108.c: 541:  {
+{
+"542
+[; ;LCD-KS0108/KS0108.c: 542:   GLCD_DrawLine(X1, Y1, X2, Y2, Color);
+[e ( _GLCD_DrawLine (4 , , , , _X1 _Y1 _X2 _Y2 _Color ]
+"543
+[; ;LCD-KS0108/KS0108.c: 543:   GLCD_DrawLine(X2, Y2, X3, Y3, Color);
+[e ( _GLCD_DrawLine (4 , , , , _X2 _Y2 _X3 _Y3 _Color ]
+"544
+[; ;LCD-KS0108/KS0108.c: 544:   GLCD_DrawLine(X3, Y3, X1, Y1, Color);
+[e ( _GLCD_DrawLine (4 , , , , _X3 _Y3 _X1 _Y1 _Color ]
+"545
+[; ;LCD-KS0108/KS0108.c: 545:  }
+}
+[e :U 754 ]
+"546
+[; ;LCD-KS0108/KS0108.c: 546: };
+[e :UE 753 ]
+}
+"548
+[; ;LCD-KS0108/KS0108.c: 548: void GLCD_DrawCircle(const uint8_t CenterX, const uint8_t CenterY, const uint8_t Radius, enum Color_t Color)
+[v _GLCD_DrawCircle `(v ~T0 @X0 1 ef4`Cuc`Cuc`uc`E5705 ]
+"549
+[; ;LCD-KS0108/KS0108.c: 549: {
+{
+[e :U _GLCD_DrawCircle ]
+"548
+[; ;LCD-KS0108/KS0108.c: 548: void GLCD_DrawCircle(const uint8_t CenterX, const uint8_t CenterY, const uint8_t Radius, enum Color_t Color)
+[v _CenterX `Cuc ~T0 @X0 1 r1 ]
+[v _CenterY `Cuc ~T0 @X0 1 r2 ]
+[v _Radius `Cuc ~T0 @X0 1 r3 ]
+[v _Color `E5705 ~T0 @X0 1 r4 ]
+"549
+[; ;LCD-KS0108/KS0108.c: 549: {
+[f ]
+"550
+[; ;LCD-KS0108/KS0108.c: 550:  if (((CenterX + Radius) < 128) && ((CenterY + Radius) < 64))
+[e $ ! && < + -> _CenterX `i -> _Radius `i -> 128 `i < + -> _CenterY `i -> _Radius `i -> 64 `i 756  ]
+"551
+[; ;LCD-KS0108/KS0108.c: 551:  {
+{
+"552
+[; ;LCD-KS0108/KS0108.c: 552:   uint8_t x, y;
+[v _x `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+"553
+[; ;LCD-KS0108/KS0108.c: 553:   int16_t xChange, radiusError;
+[v _xChange `s ~T0 @X0 1 a ]
+[v _radiusError `s ~T0 @X0 1 a ]
+"554
+[; ;LCD-KS0108/KS0108.c: 554:   uint16_t yChange;
+[v _yChange `us ~T0 @X0 1 a ]
+"555
+[; ;LCD-KS0108/KS0108.c: 555:   x = Radius;
+[e = _x _Radius ]
+"556
+[; ;LCD-KS0108/KS0108.c: 556:   y = 0;
+[e = _y -> -> 0 `i `uc ]
+"557
+[; ;LCD-KS0108/KS0108.c: 557:   xChange = 1 - 2 * Radius;
+[e = _xChange -> - -> 1 `i * -> 2 `i -> _Radius `i `s ]
+"558
+[; ;LCD-KS0108/KS0108.c: 558:   yChange = 1;
+[e = _yChange -> -> 1 `i `us ]
+"559
+[; ;LCD-KS0108/KS0108.c: 559:   radiusError = 0;
+[e = _radiusError -> -> 0 `i `s ]
+"561
+[; ;LCD-KS0108/KS0108.c: 561:   while (x >= y)
+[e $U 757  ]
+[e :U 758 ]
+"562
+[; ;LCD-KS0108/KS0108.c: 562:   {
+{
+"563
+[; ;LCD-KS0108/KS0108.c: 563:    GLCD_SetPixel(CenterX+x, CenterY+y, Color);
+[e ( _GLCD_SetPixel (3 , , -> + -> _CenterX `i -> _x `i `uc -> + -> _CenterY `i -> _y `i `uc _Color ]
+"564
+[; ;LCD-KS0108/KS0108.c: 564:    GLCD_SetPixel(CenterX-x, CenterY+y, Color);
+[e ( _GLCD_SetPixel (3 , , -> - -> _CenterX `i -> _x `i `uc -> + -> _CenterY `i -> _y `i `uc _Color ]
+"565
+[; ;LCD-KS0108/KS0108.c: 565:    GLCD_SetPixel(CenterX-x, CenterY-y, Color);
+[e ( _GLCD_SetPixel (3 , , -> - -> _CenterX `i -> _x `i `uc -> - -> _CenterY `i -> _y `i `uc _Color ]
+"566
+[; ;LCD-KS0108/KS0108.c: 566:    GLCD_SetPixel(CenterX+x, CenterY-y, Color);
+[e ( _GLCD_SetPixel (3 , , -> + -> _CenterX `i -> _x `i `uc -> - -> _CenterY `i -> _y `i `uc _Color ]
+"567
+[; ;LCD-KS0108/KS0108.c: 567:    GLCD_SetPixel(CenterX+y, CenterY+x, Color);
+[e ( _GLCD_SetPixel (3 , , -> + -> _CenterX `i -> _y `i `uc -> + -> _CenterY `i -> _x `i `uc _Color ]
+"568
+[; ;LCD-KS0108/KS0108.c: 568:    GLCD_SetPixel(CenterX-y, CenterY+x, Color);
+[e ( _GLCD_SetPixel (3 , , -> - -> _CenterX `i -> _y `i `uc -> + -> _CenterY `i -> _x `i `uc _Color ]
+"569
+[; ;LCD-KS0108/KS0108.c: 569:    GLCD_SetPixel(CenterX-y, CenterY-x, Color);
+[e ( _GLCD_SetPixel (3 , , -> - -> _CenterX `i -> _y `i `uc -> - -> _CenterY `i -> _x `i `uc _Color ]
+"570
+[; ;LCD-KS0108/KS0108.c: 570:    GLCD_SetPixel(CenterX+y, CenterY-x, Color);
+[e ( _GLCD_SetPixel (3 , , -> + -> _CenterX `i -> _y `i `uc -> - -> _CenterY `i -> _x `i `uc _Color ]
+"571
+[; ;LCD-KS0108/KS0108.c: 571:    y++;
+[e ++ _y -> -> 1 `i `uc ]
+"572
+[; ;LCD-KS0108/KS0108.c: 572:    radiusError += yChange;
+[e =+ _radiusError -> _yChange `s ]
+"573
+[; ;LCD-KS0108/KS0108.c: 573:    yChange += 2;
+[e =+ _yChange -> -> 2 `i `us ]
+"574
+[; ;LCD-KS0108/KS0108.c: 574:    if ((2 * radiusError + xChange) > 0)
+[e $ ! > + * -> 2 `i -> _radiusError `i -> _xChange `i -> 0 `i 760  ]
+"575
+[; ;LCD-KS0108/KS0108.c: 575:    {
+{
+"576
+[; ;LCD-KS0108/KS0108.c: 576:     x--;
+[e -- _x -> -> 1 `i `uc ]
+"577
+[; ;LCD-KS0108/KS0108.c: 577:     radiusError += xChange;
+[e =+ _radiusError -> _xChange `s ]
+"578
+[; ;LCD-KS0108/KS0108.c: 578:     xChange += 2;
+[e =+ _xChange -> -> 2 `i `s ]
+"579
+[; ;LCD-KS0108/KS0108.c: 579:    }
+}
+[e :U 760 ]
+"580
+[; ;LCD-KS0108/KS0108.c: 580:   }
+}
+[e :U 757 ]
+"561
+[; ;LCD-KS0108/KS0108.c: 561:   while (x >= y)
+[e $ >= -> _x `i -> _y `i 758  ]
+[e :U 759 ]
+"581
+[; ;LCD-KS0108/KS0108.c: 581:  }
+}
+[e :U 756 ]
+"582
+[; ;LCD-KS0108/KS0108.c: 582: }
+[e :UE 755 ]
+}
+"584
+[; ;LCD-KS0108/KS0108.c: 584: void GLCD_FillScreen(enum Color_t Color)
+[v _GLCD_FillScreen `(v ~T0 @X0 1 ef1`E5705 ]
+"585
+[; ;LCD-KS0108/KS0108.c: 585: {
+{
+[e :U _GLCD_FillScreen ]
+"584
+[; ;LCD-KS0108/KS0108.c: 584: void GLCD_FillScreen(enum Color_t Color)
+[v _Color `E5705 ~T0 @X0 1 r1 ]
+"585
+[; ;LCD-KS0108/KS0108.c: 585: {
+[f ]
+"586
+[; ;LCD-KS0108/KS0108.c: 586:  uint8_t i, j;
+[v _i `uc ~T0 @X0 1 a ]
+[v _j `uc ~T0 @X0 1 a ]
+"588
+[; ;LCD-KS0108/KS0108.c: 588:  for (j = 0 ; j < 64 ; j += 8)
+{
+[e = _j -> -> 0 `i `uc ]
+[e $ < -> _j `i -> 64 `i 762  ]
+[e $U 763  ]
+[e :U 762 ]
+"589
+[; ;LCD-KS0108/KS0108.c: 589:   for (i = 0 ; i < 128 ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 128 `i 765  ]
+[e $U 766  ]
+[e :U 765 ]
+"590
+[; ;LCD-KS0108/KS0108.c: 590:    GLCD_BufferWrite(i, j, Color);
+[e ( _GLCD_BufferWrite (3 , , _i _j -> _Color `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 128 `i 765  ]
+[e :U 766 ]
+}
+[e =+ _j -> -> 8 `i `uc ]
+[e $ < -> _j `i -> 64 `i 762  ]
+[e :U 763 ]
+}
+"591
+[; ;LCD-KS0108/KS0108.c: 591: }
+[e :UE 761 ]
+}
+"593
+[; ;LCD-KS0108/KS0108.c: 593: void GLCD_FillRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color)
+[v _GLCD_FillRectangle `(v ~T0 @X0 1 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
+"594
+[; ;LCD-KS0108/KS0108.c: 594: {
+{
+[e :U _GLCD_FillRectangle ]
+"593
+[; ;LCD-KS0108/KS0108.c: 593: void GLCD_FillRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color)
+[v _X1 `Cuc ~T0 @X0 1 r1 ]
+[v _Y1 `Cuc ~T0 @X0 1 r2 ]
+[v _X2 `Cuc ~T0 @X0 1 r3 ]
+[v _Y2 `Cuc ~T0 @X0 1 r4 ]
+[v _Color `E5705 ~T0 @X0 1 r5 ]
+"594
+[; ;LCD-KS0108/KS0108.c: 594: {
+[f ]
+"595
+[; ;LCD-KS0108/KS0108.c: 595:  GLCD_SetPixels(X1, Y1, X2, Y2, Color);
+[e ( _GLCD_SetPixels (4 , , , , _X1 _Y1 _X2 _Y2 _Color ]
+"596
+[; ;LCD-KS0108/KS0108.c: 596: }
+[e :UE 768 ]
+}
+"598
+[; ;LCD-KS0108/KS0108.c: 598: void GLCD_FillRoundRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, const uint8_t Radius, enum Color_t Color)
+[v _GLCD_FillRoundRectangle `(v ~T0 @X0 1 ef6`Cuc`Cuc`Cuc`Cuc`Cuc`E5705 ]
+"599
+[; ;LCD-KS0108/KS0108.c: 599: {
+{
+[e :U _GLCD_FillRoundRectangle ]
+"598
+[; ;LCD-KS0108/KS0108.c: 598: void GLCD_FillRoundRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, const uint8_t Radius, enum Color_t Color)
+[v _X1 `Cuc ~T0 @X0 1 r1 ]
+[v _Y1 `Cuc ~T0 @X0 1 r2 ]
+[v _X2 `Cuc ~T0 @X0 1 r3 ]
+[v _Y2 `Cuc ~T0 @X0 1 r4 ]
+[v _Radius `Cuc ~T0 @X0 1 r5 ]
+[v _Color `E5705 ~T0 @X0 1 r6 ]
+"599
+[; ;LCD-KS0108/KS0108.c: 599: {
+[f ]
+"600
+[; ;LCD-KS0108/KS0108.c: 600:  if ((X1 < 128) && (X2 < 128) &&
+[e $ ! && && && < -> _X1 `i -> 128 `i < -> _X2 `i -> 128 `i < -> _Y1 `i -> 64 `i < -> _Y2 `i -> 64 `i 770  ]
+"602
+[; ;LCD-KS0108/KS0108.c: 602:  {
+{
+"604
+[; ;LCD-KS0108/KS0108.c: 604:   int16_t tSwitch = 3 - 2 * Radius;
+[v _tSwitch `s ~T0 @X0 1 a ]
+[e = _tSwitch -> - -> 3 `i * -> 2 `i -> _Radius `i `s ]
+"605
+[; ;LCD-KS0108/KS0108.c: 605:   uint8_t width, height, x, y;
+[v _width `uc ~T0 @X0 1 a ]
+[v _height `uc ~T0 @X0 1 a ]
+[v _x `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+"606
+[; ;LCD-KS0108/KS0108.c: 606:   width = X2 - X1;
+[e = _width -> - -> _X2 `i -> _X1 `i `uc ]
+"607
+[; ;LCD-KS0108/KS0108.c: 607:   height = Y2 - Y1;
+[e = _height -> - -> _Y2 `i -> _Y1 `i `uc ]
+"608
+[; ;LCD-KS0108/KS0108.c: 608:   x = 0;
+[e = _x -> -> 0 `i `uc ]
+"609
+[; ;LCD-KS0108/KS0108.c: 609:   y = Radius;
+[e = _y _Radius ]
+"612
+[; ;LCD-KS0108/KS0108.c: 612:   GLCD_FillRectangle(X1+Radius, Y1, X2 - Radius, Y2, Color);
+[e ( _GLCD_FillRectangle (4 , , , , -> + -> _X1 `i -> _Radius `i `uc _Y1 -> - -> _X2 `i -> _Radius `i `uc _Y2 _Color ]
+"614
+[; ;LCD-KS0108/KS0108.c: 614:   while (x <= y)
+[e $U 771  ]
+[e :U 772 ]
+"615
+[; ;LCD-KS0108/KS0108.c: 615:   {
+{
+"617
+[; ;LCD-KS0108/KS0108.c: 617:    GLCD_DrawLine(
+[e ( _GLCD_DrawLine (4 , , , , -> - + -> _X1 `i -> _Radius `i -> _x `i `uc -> - + -> _Y1 `i -> _Radius `i -> _y `i `uc -> - + -> _X1 `i -> _Radius `i -> _x `i `uc -> + - + -> _Y1 `i -> _height `i -> _Radius `i -> _y `i `uc _Color ]
+"621
+[; ;LCD-KS0108/KS0108.c: 621:    GLCD_DrawLine(
+[e ( _GLCD_DrawLine (4 , , , , -> - + -> _X1 `i -> _Radius `i -> _y `i `uc -> - + -> _Y1 `i -> _Radius `i -> _x `i `uc -> - + -> _X1 `i -> _Radius `i -> _y `i `uc -> + - + -> _Y1 `i -> _height `i -> _Radius `i -> _x `i `uc _Color ]
+"627
+[; ;LCD-KS0108/KS0108.c: 627:    GLCD_DrawLine(
+[e ( _GLCD_DrawLine (4 , , , , -> + - + -> _X1 `i -> _width `i -> _Radius `i -> _x `i `uc -> - + -> _Y1 `i -> _Radius `i -> _y `i `uc -> + - + -> _X1 `i -> _width `i -> _Radius `i -> _x `i `uc -> + - + -> _Y1 `i -> _height `i -> _Radius `i -> _y `i `uc _Color ]
+"631
+[; ;LCD-KS0108/KS0108.c: 631:    GLCD_DrawLine(
+[e ( _GLCD_DrawLine (4 , , , , -> + - + -> _X1 `i -> _width `i -> _Radius `i -> _y `i `uc -> - + -> _Y1 `i -> _Radius `i -> _x `i `uc -> + - + -> _X1 `i -> _width `i -> _Radius `i -> _y `i `uc -> + - + -> _Y1 `i -> _height `i -> _Radius `i -> _x `i `uc _Color ]
+"636
+[; ;LCD-KS0108/KS0108.c: 636:    if (tSwitch < 0)
+[e $ ! < -> _tSwitch `i -> 0 `i 774  ]
+"637
+[; ;LCD-KS0108/KS0108.c: 637:    {
+{
+"638
+[; ;LCD-KS0108/KS0108.c: 638:     tSwitch += 4 * x +6;
+[e =+ _tSwitch -> + * -> 4 `i -> _x `i -> 6 `i `s ]
+"639
+[; ;LCD-KS0108/KS0108.c: 639:    }
+}
+[e $U 775  ]
+"640
+[; ;LCD-KS0108/KS0108.c: 640:    else
+[e :U 774 ]
+"641
+[; ;LCD-KS0108/KS0108.c: 641:    {
+{
+"642
+[; ;LCD-KS0108/KS0108.c: 642:     tSwitch += 4 * (x - y) + 10;
+[e =+ _tSwitch -> + * -> 4 `i - -> _x `i -> _y `i -> 10 `i `s ]
+"643
+[; ;LCD-KS0108/KS0108.c: 643:     y--;
+[e -- _y -> -> 1 `i `uc ]
+"644
+[; ;LCD-KS0108/KS0108.c: 644:    }
+}
+[e :U 775 ]
+"645
+[; ;LCD-KS0108/KS0108.c: 645:    x++;
+[e ++ _x -> -> 1 `i `uc ]
+"646
+[; ;LCD-KS0108/KS0108.c: 646:   }
+}
+[e :U 771 ]
+"614
+[; ;LCD-KS0108/KS0108.c: 614:   while (x <= y)
+[e $ <= -> _x `i -> _y `i 772  ]
+[e :U 773 ]
+"647
+[; ;LCD-KS0108/KS0108.c: 647:  }
+}
+[e :U 770 ]
+"648
+[; ;LCD-KS0108/KS0108.c: 648: }
+[e :UE 769 ]
+}
+"650
+[; ;LCD-KS0108/KS0108.c: 650: void GLCD_FillTriangle(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t y2, uint8_t X3, uint8_t Y3, enum Color_t Color)
+[v _GLCD_FillTriangle `(v ~T0 @X0 1 ef7`uc`uc`uc`uc`uc`uc`E5705 ]
+"651
+[; ;LCD-KS0108/KS0108.c: 651: {
+{
+[e :U _GLCD_FillTriangle ]
+"650
+[; ;LCD-KS0108/KS0108.c: 650: void GLCD_FillTriangle(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t y2, uint8_t X3, uint8_t Y3, enum Color_t Color)
+[v _X1 `uc ~T0 @X0 1 r1 ]
+[v _Y1 `uc ~T0 @X0 1 r2 ]
+[v _X2 `uc ~T0 @X0 1 r3 ]
+[v _y2 `uc ~T0 @X0 1 r4 ]
+[v _X3 `uc ~T0 @X0 1 r5 ]
+[v _Y3 `uc ~T0 @X0 1 r6 ]
+[v _Color `E5705 ~T0 @X0 1 r7 ]
+"651
+[; ;LCD-KS0108/KS0108.c: 651: {
+[f ]
+"652
+[; ;LCD-KS0108/KS0108.c: 652:  if (((X1 < 128) && (X2 < 128) && (X3 < 128) &&
+[e $ ! && && && && && < -> _X1 `i -> 128 `i < -> _X2 `i -> 128 `i < -> _X3 `i -> 128 `i < -> _Y1 `i -> 64 `i < -> _y2 `i -> 64 `i < -> _Y3 `i -> 64 `i 777  ]
+"654
+[; ;LCD-KS0108/KS0108.c: 654:  {
+{
+"655
+[; ;LCD-KS0108/KS0108.c: 655:   uint8_t sl, sx1, sx2;
+[v _sl `uc ~T0 @X0 1 a ]
+[v _sx1 `uc ~T0 @X0 1 a ]
+[v _sx2 `uc ~T0 @X0 1 a ]
+"656
+[; ;LCD-KS0108/KS0108.c: 656:   double m1, m2, m3;
+[v _m1 `d ~T0 @X0 1 a ]
+[v _m2 `d ~T0 @X0 1 a ]
+[v _m3 `d ~T0 @X0 1 a ]
+"657
+[; ;LCD-KS0108/KS0108.c: 657:   sl = sx1 = sx2 = m1 = m2 = m3 = 0;
+[e = _sl = _sx1 = _sx2 -> = _m1 = _m2 = _m3 -> -> 0 `i `d `uc ]
+"659
+[; ;LCD-KS0108/KS0108.c: 659:   if (y2 > Y3)
+[e $ ! > -> _y2 `i -> _Y3 `i 778  ]
+"660
+[; ;LCD-KS0108/KS0108.c: 660:   {
+{
+"661
+[; ;LCD-KS0108/KS0108.c: 661:    do{ uint8_t t = X2; X2 = X3; X3 = t; }while(0);
+[e :U 781 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _X2 ]
+[e = _X2 _X3 ]
+[e = _X3 _t ]
+}
+[e :U 780 ]
+"662
+[; ;LCD-KS0108/KS0108.c: 662:    do{ uint8_t t = y2; y2 = Y3; Y3 = t; }while(0);
+[e :U 784 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _y2 ]
+[e = _y2 _Y3 ]
+[e = _Y3 _t ]
+}
+[e :U 783 ]
+"663
+[; ;LCD-KS0108/KS0108.c: 663:   }
+}
+[e :U 778 ]
+"664
+[; ;LCD-KS0108/KS0108.c: 664:   if (Y1 > y2)
+[e $ ! > -> _Y1 `i -> _y2 `i 785  ]
+"665
+[; ;LCD-KS0108/KS0108.c: 665:   {
+{
+"666
+[; ;LCD-KS0108/KS0108.c: 666:    do{ uint8_t t = X1; X1 = X2; X2 = t; }while(0);
+[e :U 788 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _X1 ]
+[e = _X1 _X2 ]
+[e = _X2 _t ]
+}
+[e :U 787 ]
+"667
+[; ;LCD-KS0108/KS0108.c: 667:    do{ uint8_t t = Y1; Y1 = y2; y2 = t; }while(0);
+[e :U 791 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _Y1 ]
+[e = _Y1 _y2 ]
+[e = _y2 _t ]
+}
+[e :U 790 ]
+"668
+[; ;LCD-KS0108/KS0108.c: 668:   }
+}
+[e :U 785 ]
+"669
+[; ;LCD-KS0108/KS0108.c: 669:   m1 = (double)(X1 - X2) / (Y1 - y2);
+[e = _m1 / -> - -> _X1 `i -> _X2 `i `d -> - -> _Y1 `i -> _y2 `i `d ]
+"670
+[; ;LCD-KS0108/KS0108.c: 670:   m2 = (double)(X2 - X3) / (y2 - Y3);
+[e = _m2 / -> - -> _X2 `i -> _X3 `i `d -> - -> _y2 `i -> _Y3 `i `d ]
+"671
+[; ;LCD-KS0108/KS0108.c: 671:   m3 = (double)(X3 - X1) / (Y3 - Y1);
+[e = _m3 / -> - -> _X3 `i -> _X1 `i `d -> - -> _Y3 `i -> _Y1 `i `d ]
+"672
+[; ;LCD-KS0108/KS0108.c: 672:   for(sl = Y1 ; sl <= y2 ; sl++)
+{
+[e = _sl _Y1 ]
+[e $U 795  ]
+[e :U 792 ]
+"673
+[; ;LCD-KS0108/KS0108.c: 673:   {
+{
+"674
+[; ;LCD-KS0108/KS0108.c: 674:    sx1= m1 * (sl - Y1) + X1;
+[e = _sx1 -> + * _m1 -> - -> _sl `i -> _Y1 `i `d -> -> _X1 `i `d `uc ]
+"675
+[; ;LCD-KS0108/KS0108.c: 675:    sx2= m3 * (sl - Y1) + X1;
+[e = _sx2 -> + * _m3 -> - -> _sl `i -> _Y1 `i `d -> -> _X1 `i `d `uc ]
+"676
+[; ;LCD-KS0108/KS0108.c: 676:    if (sx1> sx2)
+[e $ ! > -> _sx1 `i -> _sx2 `i 796  ]
+"677
+[; ;LCD-KS0108/KS0108.c: 677:    do{ uint8_t t = sx1; sx1 = sx2; sx2 = t; }while(0);
+[e :U 799 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _sx1 ]
+[e = _sx1 _sx2 ]
+[e = _sx2 _t ]
+}
+[e :U 798 ]
+[e :U 796 ]
+"678
+[; ;LCD-KS0108/KS0108.c: 678:    GLCD_DrawLine(sx1, sl, sx2, sl, Color);
+[e ( _GLCD_DrawLine (4 , , , , _sx1 _sl _sx2 _sl _Color ]
+"679
+[; ;LCD-KS0108/KS0108.c: 679:   }
+}
+[e ++ _sl -> -> 1 `i `uc ]
+[e :U 795 ]
+[e $ <= -> _sl `i -> _y2 `i 792  ]
+[e :U 793 ]
+}
+"680
+[; ;LCD-KS0108/KS0108.c: 680:   for (sl = y2 ; sl <= Y3 ; sl++)
+{
+[e = _sl _y2 ]
+[e $U 803  ]
+[e :U 800 ]
+"681
+[; ;LCD-KS0108/KS0108.c: 681:   {
+{
+"682
+[; ;LCD-KS0108/KS0108.c: 682:    sx1= m2 * (sl - Y3) + X3;
+[e = _sx1 -> + * _m2 -> - -> _sl `i -> _Y3 `i `d -> -> _X3 `i `d `uc ]
+"683
+[; ;LCD-KS0108/KS0108.c: 683:    sx2= m3 * (sl - Y1) + X1;
+[e = _sx2 -> + * _m3 -> - -> _sl `i -> _Y1 `i `d -> -> _X1 `i `d `uc ]
+"684
+[; ;LCD-KS0108/KS0108.c: 684:    if (sx1 > sx2)
+[e $ ! > -> _sx1 `i -> _sx2 `i 804  ]
+"685
+[; ;LCD-KS0108/KS0108.c: 685:     do{ uint8_t t = sx1; sx1 = sx2; sx2 = t; }while(0);
+[e :U 807 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _sx1 ]
+[e = _sx1 _sx2 ]
+[e = _sx2 _t ]
+}
+[e :U 806 ]
+[e :U 804 ]
+"686
+[; ;LCD-KS0108/KS0108.c: 686:    GLCD_DrawLine(sx1, sl, sx2, sl, Color);
+[e ( _GLCD_DrawLine (4 , , , , _sx1 _sl _sx2 _sl _Color ]
+"687
+[; ;LCD-KS0108/KS0108.c: 687:   }
+}
+[e ++ _sl -> -> 1 `i `uc ]
+[e :U 803 ]
+[e $ <= -> _sl `i -> _Y3 `i 800  ]
+[e :U 801 ]
+}
+"688
+[; ;LCD-KS0108/KS0108.c: 688:  }
+}
+[e :U 777 ]
+"689
+[; ;LCD-KS0108/KS0108.c: 689: }
+[e :UE 776 ]
+}
+"691
+[; ;LCD-KS0108/KS0108.c: 691: void GLCD_FillCircle(const uint8_t CenterX, const uint8_t CenterY, const uint8_t Radius, enum Color_t Color)
+[v _GLCD_FillCircle `(v ~T0 @X0 1 ef4`Cuc`Cuc`Cuc`E5705 ]
+"692
+[; ;LCD-KS0108/KS0108.c: 692: {
+{
+[e :U _GLCD_FillCircle ]
+"691
+[; ;LCD-KS0108/KS0108.c: 691: void GLCD_FillCircle(const uint8_t CenterX, const uint8_t CenterY, const uint8_t Radius, enum Color_t Color)
+[v _CenterX `Cuc ~T0 @X0 1 r1 ]
+[v _CenterY `Cuc ~T0 @X0 1 r2 ]
+[v _Radius `Cuc ~T0 @X0 1 r3 ]
+[v _Color `E5705 ~T0 @X0 1 r4 ]
+"692
+[; ;LCD-KS0108/KS0108.c: 692: {
+[f ]
+"693
+[; ;LCD-KS0108/KS0108.c: 693:  if (((CenterX + Radius) < 128) &&
+[e $ ! && < + -> _CenterX `i -> _Radius `i -> 128 `i < + -> _CenterY `i -> _Radius `i -> 64 `i 809  ]
+"695
+[; ;LCD-KS0108/KS0108.c: 695:  {
+{
+"696
+[; ;LCD-KS0108/KS0108.c: 696:   int8_t f, ddF_x, ddF_y;
+[v _f `c ~T0 @X0 1 a ]
+[v _ddF_x `c ~T0 @X0 1 a ]
+[v _ddF_y `c ~T0 @X0 1 a ]
+"697
+[; ;LCD-KS0108/KS0108.c: 697:   uint8_t x, y;
+[v _x `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+"698
+[; ;LCD-KS0108/KS0108.c: 698:   f = 1 - Radius;
+[e = _f -> - -> 1 `i -> _Radius `i `c ]
+"699
+[; ;LCD-KS0108/KS0108.c: 699:   ddF_x = 1;
+[e = _ddF_x -> -> 1 `i `c ]
+"700
+[; ;LCD-KS0108/KS0108.c: 700:   ddF_y = -2 * Radius;
+[e = _ddF_y -> * -U -> 2 `i -> _Radius `i `c ]
+"701
+[; ;LCD-KS0108/KS0108.c: 701:   x = 0;
+[e = _x -> -> 0 `i `uc ]
+"702
+[; ;LCD-KS0108/KS0108.c: 702:   y = Radius;
+[e = _y _Radius ]
+"706
+[; ;LCD-KS0108/KS0108.c: 706:   GLCD_DrawLine(CenterX, CenterY - Radius, CenterX, CenterY + Radius, Color);
+[e ( _GLCD_DrawLine (4 , , , , _CenterX -> - -> _CenterY `i -> _Radius `i `uc _CenterX -> + -> _CenterY `i -> _Radius `i `uc _Color ]
+"708
+[; ;LCD-KS0108/KS0108.c: 708:   while(x < y)
+[e $U 810  ]
+[e :U 811 ]
+"709
+[; ;LCD-KS0108/KS0108.c: 709:   {
+{
+"713
+[; ;LCD-KS0108/KS0108.c: 713:    if (f >= 0)
+[e $ ! >= -> _f `i -> 0 `i 813  ]
+"714
+[; ;LCD-KS0108/KS0108.c: 714:    {
+{
+"715
+[; ;LCD-KS0108/KS0108.c: 715:     y--;
+[e -- _y -> -> 1 `i `uc ]
+"716
+[; ;LCD-KS0108/KS0108.c: 716:     ddF_y += 2;
+[e =+ _ddF_y -> -> 2 `i `c ]
+"717
+[; ;LCD-KS0108/KS0108.c: 717:     f += ddF_y;
+[e =+ _f -> _ddF_y `c ]
+"718
+[; ;LCD-KS0108/KS0108.c: 718:    }
+}
+[e :U 813 ]
+"719
+[; ;LCD-KS0108/KS0108.c: 719:    x++;
+[e ++ _x -> -> 1 `i `uc ]
+"720
+[; ;LCD-KS0108/KS0108.c: 720:    ddF_x += 2;
+[e =+ _ddF_x -> -> 2 `i `c ]
+"721
+[; ;LCD-KS0108/KS0108.c: 721:    f += ddF_x;
+[e =+ _f -> _ddF_x `c ]
+"726
+[; ;LCD-KS0108/KS0108.c: 726:    GLCD_DrawVLine(CenterY + y, CenterY - y, CenterX + x, Color);
+[e ( _GLCD_DrawVLine (4 , , , -> + -> _CenterY `i -> _y `i `uc -> - -> _CenterY `i -> _y `i `uc -> + -> _CenterX `i -> _x `i `uc _Color ]
+"727
+[; ;LCD-KS0108/KS0108.c: 727:    GLCD_DrawVLine(CenterY + y, CenterY - y, CenterX - x, Color);
+[e ( _GLCD_DrawVLine (4 , , , -> + -> _CenterY `i -> _y `i `uc -> - -> _CenterY `i -> _y `i `uc -> - -> _CenterX `i -> _x `i `uc _Color ]
+"728
+[; ;LCD-KS0108/KS0108.c: 728:    GLCD_DrawVLine(CenterY + x, CenterY - x, CenterX + y, Color);
+[e ( _GLCD_DrawVLine (4 , , , -> + -> _CenterY `i -> _x `i `uc -> - -> _CenterY `i -> _x `i `uc -> + -> _CenterX `i -> _y `i `uc _Color ]
+"729
+[; ;LCD-KS0108/KS0108.c: 729:    GLCD_DrawVLine(CenterY + x, CenterY - x, CenterX - y, Color);
+[e ( _GLCD_DrawVLine (4 , , , -> + -> _CenterY `i -> _x `i `uc -> - -> _CenterY `i -> _x `i `uc -> - -> _CenterX `i -> _y `i `uc _Color ]
+"730
+[; ;LCD-KS0108/KS0108.c: 730:   }
+}
+[e :U 810 ]
+"708
+[; ;LCD-KS0108/KS0108.c: 708:   while(x < y)
+[e $ < -> _x `i -> _y `i 811  ]
+[e :U 812 ]
+"731
+[; ;LCD-KS0108/KS0108.c: 731:  }
+}
+[e :U 809 ]
+"732
+[; ;LCD-KS0108/KS0108.c: 732: }
+[e :UE 808 ]
+}
+"734
+[; ;LCD-KS0108/KS0108.c: 734: void GLCD_InvertRect(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2)
+[v _GLCD_InvertRect `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
+"735
+[; ;LCD-KS0108/KS0108.c: 735: {
+{
+[e :U _GLCD_InvertRect ]
+"734
+[; ;LCD-KS0108/KS0108.c: 734: void GLCD_InvertRect(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2)
+[v _X1 `uc ~T0 @X0 1 r1 ]
+[v _Y1 `uc ~T0 @X0 1 r2 ]
+[v _X2 `uc ~T0 @X0 1 r3 ]
+[v _Y2 `uc ~T0 @X0 1 r4 ]
+"735
+[; ;LCD-KS0108/KS0108.c: 735: {
+[f ]
+"736
+[; ;LCD-KS0108/KS0108.c: 736:  uint8_t width, height, offset, mask, h, i, data;
+[v _width `uc ~T0 @X0 1 a ]
+[v _height `uc ~T0 @X0 1 a ]
+[v _offset `uc ~T0 @X0 1 a ]
+[v _mask `uc ~T0 @X0 1 a ]
+[v _h `uc ~T0 @X0 1 a ]
+[v _i `uc ~T0 @X0 1 a ]
+[v _data `uc ~T0 @X0 1 a ]
+"738
+[; ;LCD-KS0108/KS0108.c: 738:  width = X2 - X1 + 1;
+[e = _width -> + - -> _X2 `i -> _X1 `i -> 1 `i `uc ]
+"739
+[; ;LCD-KS0108/KS0108.c: 739:  height = Y2 - Y1 + 1;
+[e = _height -> + - -> _Y2 `i -> _Y1 `i -> 1 `i `uc ]
+"740
+[; ;LCD-KS0108/KS0108.c: 740:  offset = Y1 % 8;
+[e = _offset -> % -> _Y1 `i -> 8 `i `uc ]
+"741
+[; ;LCD-KS0108/KS0108.c: 741:  Y1 -= offset;
+[e =- _Y1 -> _offset `uc ]
+"742
+[; ;LCD-KS0108/KS0108.c: 742:  mask = 0xFF;
+[e = _mask -> -> 255 `i `uc ]
+"743
+[; ;LCD-KS0108/KS0108.c: 743:  data = 0;
+[e = _data -> -> 0 `i `uc ]
+"746
+[; ;LCD-KS0108/KS0108.c: 746:  if (height < (8 - offset))
+[e $ ! < -> _height `i - -> 8 `i -> _offset `i 815  ]
+"747
+[; ;LCD-KS0108/KS0108.c: 747:  {
+{
+"748
+[; ;LCD-KS0108/KS0108.c: 748:   mask >>= (8 - height);
+[e =>> _mask -> - -> 8 `i -> _height `i `uc ]
+"749
+[; ;LCD-KS0108/KS0108.c: 749:   h = height;
+[e = _h _height ]
+"750
+[; ;LCD-KS0108/KS0108.c: 750:  }
+}
+[e $U 816  ]
+"751
+[; ;LCD-KS0108/KS0108.c: 751:  else
+[e :U 815 ]
+"752
+[; ;LCD-KS0108/KS0108.c: 752:   h = 8 - offset;
+[e = _h -> - -> 8 `i -> _offset `i `uc ]
+[e :U 816 ]
+"753
+[; ;LCD-KS0108/KS0108.c: 753:  mask <<= offset;
+[e =<< _mask -> _offset `uc ]
+"756
+[; ;LCD-KS0108/KS0108.c: 756:  GLCD_GotoXY(X1, Y1);
+[e ( _GLCD_GotoXY (2 , _X1 _Y1 ]
+"757
+[; ;LCD-KS0108/KS0108.c: 757:  for (i = 0 ; i < width ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 820  ]
+[e :U 817 ]
+"758
+[; ;LCD-KS0108/KS0108.c: 758:  {
+{
+"759
+[; ;LCD-KS0108/KS0108.c: 759:   data = GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 ]
+"760
+[; ;LCD-KS0108/KS0108.c: 760:   data = ((~data) & mask) | (data & (~mask));
+[e = _data -> | & ~ -> _data `i -> _mask `i & -> _data `i ~ -> _mask `i `uc ]
+"761
+[; ;LCD-KS0108/KS0108.c: 761:   GLCD_BufferWrite(__GLCD.X++, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 _data ]
+"762
+[; ;LCD-KS0108/KS0108.c: 762:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 820 ]
+[e $ < -> _i `i -> _width `i 817  ]
+[e :U 818 ]
+}
+"765
+[; ;LCD-KS0108/KS0108.c: 765:  while ((h + 8) <= height)
+[e $U 821  ]
+[e :U 822 ]
+"766
+[; ;LCD-KS0108/KS0108.c: 766:  {
+{
+"767
+[; ;LCD-KS0108/KS0108.c: 767:   h += 8;
+[e =+ _h -> -> 8 `i `uc ]
+"768
+[; ;LCD-KS0108/KS0108.c: 768:   Y1 += 8;
+[e =+ _Y1 -> -> 8 `i `uc ]
+"769
+[; ;LCD-KS0108/KS0108.c: 769:   GLCD_GotoXY(X1, Y1);
+[e ( _GLCD_GotoXY (2 , _X1 _Y1 ]
+"771
+[; ;LCD-KS0108/KS0108.c: 771:   for (i=0 ; i < width ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 827  ]
+[e :U 824 ]
+"772
+[; ;LCD-KS0108/KS0108.c: 772:   {
+{
+"773
+[; ;LCD-KS0108/KS0108.c: 773:    data = ~GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data -> ~ -> ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 `i `uc ]
+"774
+[; ;LCD-KS0108/KS0108.c: 774:    GLCD_BufferWrite(__GLCD.X++, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 _data ]
+"775
+[; ;LCD-KS0108/KS0108.c: 775:   }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 827 ]
+[e $ < -> _i `i -> _width `i 824  ]
+[e :U 825 ]
+}
+"776
+[; ;LCD-KS0108/KS0108.c: 776:  }
+}
+[e :U 821 ]
+"765
+[; ;LCD-KS0108/KS0108.c: 765:  while ((h + 8) <= height)
+[e $ <= + -> _h `i -> 8 `i -> _height `i 822  ]
+[e :U 823 ]
+"779
+[; ;LCD-KS0108/KS0108.c: 779:  if (h < height)
+[e $ ! < -> _h `i -> _height `i 828  ]
+"780
+[; ;LCD-KS0108/KS0108.c: 780:  {
+{
+"781
+[; ;LCD-KS0108/KS0108.c: 781:   mask = ~(0xFF<<(height - h));
+[e = _mask -> ~ << -> 255 `i - -> _height `i -> _h `i `uc ]
+"782
+[; ;LCD-KS0108/KS0108.c: 782:   GLCD_GotoXY(X1, (Y1 + 8));
+[e ( _GLCD_GotoXY (2 , _X1 -> + -> _Y1 `i -> 8 `i `uc ]
+"784
+[; ;LCD-KS0108/KS0108.c: 784:   for (i = 0 ; i < width ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 832  ]
+[e :U 829 ]
+"785
+[; ;LCD-KS0108/KS0108.c: 785:   {
+{
+"786
+[; ;LCD-KS0108/KS0108.c: 786:    data = GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 ]
+"787
+[; ;LCD-KS0108/KS0108.c: 787:    data = ((~data) & mask) | (data & (~mask));
+[e = _data -> | & ~ -> _data `i -> _mask `i & -> _data `i ~ -> _mask `i `uc ]
+"788
+[; ;LCD-KS0108/KS0108.c: 788:    GLCD_BufferWrite(__GLCD.X++, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 _data ]
+"789
+[; ;LCD-KS0108/KS0108.c: 789:   }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 832 ]
+[e $ < -> _i `i -> _width `i 829  ]
+[e :U 830 ]
+}
+"790
+[; ;LCD-KS0108/KS0108.c: 790:  }
+}
+[e :U 828 ]
+"791
+[; ;LCD-KS0108/KS0108.c: 791: }
+[e :UE 814 ]
+}
+"793
+[; ;LCD-KS0108/KS0108.c: 793: void GLCD_SetFont(const uint8_t *Name, const uint8_t Width, const uint8_t Height, enum PrintMode_t Mode, enum OperatingMode_t Invert)
+[v _GLCD_SetFont `(v ~T0 @X0 1 ef5`*Cuc`Cuc`Cuc`E5702`E5699 ]
+"794
+[; ;LCD-KS0108/KS0108.c: 794: {
+{
+[e :U _GLCD_SetFont ]
+"793
+[; ;LCD-KS0108/KS0108.c: 793: void GLCD_SetFont(const uint8_t *Name, const uint8_t Width, const uint8_t Height, enum PrintMode_t Mode, enum OperatingMode_t Invert)
+[v _Name `*Cuc ~T0 @X0 1 r1 ]
+[v _Width `Cuc ~T0 @X0 1 r2 ]
+[v _Height `Cuc ~T0 @X0 1 r3 ]
+[v _Mode `E5702 ~T0 @X0 1 r4 ]
+[v _Invert `E5699 ~T0 @X0 1 r5 ]
+"794
+[; ;LCD-KS0108/KS0108.c: 794: {
+[f ]
+"795
+[; ;LCD-KS0108/KS0108.c: 795:  if ((Width < 128) && (Height < 64) && ((Mode == GLCD_Overwrite) || (Mode == GLCD_Merge)))
+[e $ ! && && < -> _Width `i -> 128 `i < -> _Height `i -> 64 `i || == -> _Mode `ui -> . `E5702 0 `ui == -> _Mode `ui -> . `E5702 1 `ui 834  ]
+"796
+[; ;LCD-KS0108/KS0108.c: 796:  {
+{
+"798
+[; ;LCD-KS0108/KS0108.c: 798:   __GLCD.Font.Name = (uint8_t *)(Name);
+[e = . . ___GLCD 3 0 -> _Name `*uc ]
+"801
+[; ;LCD-KS0108/KS0108.c: 801:   __GLCD.Font.Width = Width;
+[e = . . ___GLCD 3 1 _Width ]
+"802
+[; ;LCD-KS0108/KS0108.c: 802:   __GLCD.Font.Height = Height;
+[e = . . ___GLCD 3 2 _Height ]
+"805
+[; ;LCD-KS0108/KS0108.c: 805:   __GLCD.Font.Lines = Height / 8 + (( (Height % 8) != 0) ? 1 : 0);
+[e = . . ___GLCD 3 3 -> + / -> _Height `i -> 8 `i ? != % -> _Height `i -> 8 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
+"808
+[; ;LCD-KS0108/KS0108.c: 808:   __GLCD.Font.Mode = Mode;
+[e = . . ___GLCD 3 4 _Mode ]
+"809
+[; ;LCD-KS0108/KS0108.c: 809:         __GLCD.Font.Invert = Invert;
+[e = . . ___GLCD 3 5 _Invert ]
+"810
+[; ;LCD-KS0108/KS0108.c: 810:  }
+}
+[e :U 834 ]
+"811
+[; ;LCD-KS0108/KS0108.c: 811: }
+[e :UE 833 ]
+}
+"813
+[; ;LCD-KS0108/KS0108.c: 813: uint8_t GLCD_GetWidthChar(const char Character)
+[v _GLCD_GetWidthChar `(uc ~T0 @X0 1 ef1`Cuc ]
+"814
+[; ;LCD-KS0108/KS0108.c: 814: {
+{
+[e :U _GLCD_GetWidthChar ]
+"813
+[; ;LCD-KS0108/KS0108.c: 813: uint8_t GLCD_GetWidthChar(const char Character)
+[v _Character `Cuc ~T0 @X0 1 r1 ]
+"814
+[; ;LCD-KS0108/KS0108.c: 814: {
+[f ]
+"815
+[; ;LCD-KS0108/KS0108.c: 815:  return ((__GLCD.Font.Name[(Character - 32) * (__GLCD.Font.Width * __GLCD.Font.Lines + 1)]));
+[e ) *U + . . ___GLCD 3 0 * -> * - -> _Character `i -> 32 `i + * -> . . ___GLCD 3 1 `i -> . . ___GLCD 3 3 `i -> 1 `i `x -> -> # *U . . ___GLCD 3 0 `i `x ]
+[e $UE 835  ]
+"816
+[; ;LCD-KS0108/KS0108.c: 816: }
+[e :UE 835 ]
+}
+"818
+[; ;LCD-KS0108/KS0108.c: 818: uint16_t GLCD_GetWidthString(const char *Text)
+[v _GLCD_GetWidthString `(us ~T0 @X0 1 ef1`*Cuc ]
+"819
+[; ;LCD-KS0108/KS0108.c: 819: {
+{
+[e :U _GLCD_GetWidthString ]
+"818
+[; ;LCD-KS0108/KS0108.c: 818: uint16_t GLCD_GetWidthString(const char *Text)
+[v _Text `*Cuc ~T0 @X0 1 r1 ]
+"819
+[; ;LCD-KS0108/KS0108.c: 819: {
+[f ]
+"820
+[; ;LCD-KS0108/KS0108.c: 820:  uint16_t width = 0;
+[v _width `us ~T0 @X0 1 a ]
+[e = _width -> -> 0 `i `us ]
+"822
+[; ;LCD-KS0108/KS0108.c: 822:  while (*Text)
+[e $U 837  ]
+[e :U 838 ]
+"823
+[; ;LCD-KS0108/KS0108.c: 823:  width += GLCD_GetWidthChar(*Text++);
+[e =+ _width -> ( _GLCD_GetWidthChar (1 *U ++ _Text * -> -> 1 `i `x -> -> # *U _Text `i `x `us ]
+[e :U 837 ]
+"822
+[; ;LCD-KS0108/KS0108.c: 822:  while (*Text)
+[e $ != -> *U _Text `i -> 0 `i 838  ]
+[e :U 839 ]
+"825
+[; ;LCD-KS0108/KS0108.c: 825:  return width;
+[e ) _width ]
+[e $UE 836  ]
+"826
+[; ;LCD-KS0108/KS0108.c: 826: }
+[e :UE 836 ]
+}
+"828
+[; ;LCD-KS0108/KS0108.c: 828: uint16_t GLCD_GetWidthString_P(const char *Text)
+[v _GLCD_GetWidthString_P `(us ~T0 @X0 1 ef1`*Cuc ]
+"829
+[; ;LCD-KS0108/KS0108.c: 829: {
+{
+[e :U _GLCD_GetWidthString_P ]
+"828
+[; ;LCD-KS0108/KS0108.c: 828: uint16_t GLCD_GetWidthString_P(const char *Text)
+[v _Text `*Cuc ~T0 @X0 1 r1 ]
+"829
+[; ;LCD-KS0108/KS0108.c: 829: {
+[f ]
+"830
+[; ;LCD-KS0108/KS0108.c: 830:  uint16_t width = 0;
+[v _width `us ~T0 @X0 1 a ]
+[e = _width -> -> 0 `i `us ]
+"831
+[; ;LCD-KS0108/KS0108.c: 831:  char r = Text++;
+[v _r `uc ~T0 @X0 1 a ]
+[e = _r -> ++ _Text * -> -> 1 `i `x -> -> # *U _Text `i `x `uc ]
+"832
+[; ;LCD-KS0108/KS0108.c: 832:  while (r)
+[e $U 841  ]
+[e :U 842 ]
+"833
+[; ;LCD-KS0108/KS0108.c: 833:  {
+{
+"834
+[; ;LCD-KS0108/KS0108.c: 834:   width += GLCD_GetWidthChar(r);
+[e =+ _width -> ( _GLCD_GetWidthChar (1 _r `us ]
+"835
+[; ;LCD-KS0108/KS0108.c: 835:   r = Text++;
+[e = _r -> ++ _Text * -> -> 1 `i `x -> -> # *U _Text `i `x `uc ]
+"836
+[; ;LCD-KS0108/KS0108.c: 836:  }
+}
+[e :U 841 ]
+"832
+[; ;LCD-KS0108/KS0108.c: 832:  while (r)
+[e $ != -> _r `i -> 0 `i 842  ]
+[e :U 843 ]
+"838
+[; ;LCD-KS0108/KS0108.c: 838:  return width;
+[e ) _width ]
+[e $UE 840  ]
+"839
+[; ;LCD-KS0108/KS0108.c: 839: }
+[e :UE 840 ]
+}
+"841
+[; ;LCD-KS0108/KS0108.c: 841: void printBinary(unsigned char data) {
+[v _printBinary `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _printBinary ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[f ]
+"842
+[; ;LCD-KS0108/KS0108.c: 842:     for (int i = 7; i >= 0; i--) {
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 7 `i ]
+[e $ >= _i -> 0 `i 845  ]
+[e $U 846  ]
+[e :U 845 ]
+{
+"843
+[; ;LCD-KS0108/KS0108.c: 843:         printf("%d", (data >> i) & 1);
+[e ( _printf , (. :s 4C & >> -> _data `i _i -> 1 `i ]
+"844
+[; ;LCD-KS0108/KS0108.c: 844:     }
+}
+[e -- _i -> 1 `i ]
+[e $ >= _i -> 0 `i 845  ]
+[e :U 846 ]
+}
+"845
+[; ;LCD-KS0108/KS0108.c: 845:     printf("\n\r");
+[e ( _printf :s 5C ]
+"846
+[; ;LCD-KS0108/KS0108.c: 846: }
+[e :UE 844 ]
+}
+"850
+[; ;LCD-KS0108/KS0108.c: 850: void GLCD_PrintChar(char Character)
+[v _GLCD_PrintChar `(v ~T0 @X0 1 ef1`uc ]
+"851
+[; ;LCD-KS0108/KS0108.c: 851: {
+{
+[e :U _GLCD_PrintChar ]
+"850
+[; ;LCD-KS0108/KS0108.c: 850: void GLCD_PrintChar(char Character)
+[v _Character `uc ~T0 @X0 1 r1 ]
+"851
+[; ;LCD-KS0108/KS0108.c: 851: {
+[f ]
+"853
+[; ;LCD-KS0108/KS0108.c: 853:     unsigned int fontStart, fontRead;
+[v _fontStart `ui ~T0 @X0 1 a ]
+[v _fontRead `ui ~T0 @X0 1 a ]
+"854
+[; ;LCD-KS0108/KS0108.c: 854:  unsigned char x, y, y2, i, j, width, lines, overflow, data, data_next;
+[v _x `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+[v _y2 `uc ~T0 @X0 1 a ]
+[v _i `uc ~T0 @X0 1 a ]
+[v _j `uc ~T0 @X0 1 a ]
+[v _width `uc ~T0 @X0 1 a ]
+[v _lines `uc ~T0 @X0 1 a ]
+[v _overflow `uc ~T0 @X0 1 a ]
+[v _data `uc ~T0 @X0 1 a ]
+[v _data_next `uc ~T0 @X0 1 a ]
+"855
+[; ;LCD-KS0108/KS0108.c: 855:  fontStart = fontRead = x = y = y2 = i = j = width = lines = overflow = data = data_next = 0;
+[e = _fontStart = _fontRead -> = _x = _y = _y2 = _i = _j = _width = _lines = _overflow = _data = _data_next -> -> 0 `i `uc `ui ]
+"865
+[; ;LCD-KS0108/KS0108.c: 865:  x = __GLCD.X;
+[e = _x . ___GLCD 0 ]
+"866
+[; ;LCD-KS0108/KS0108.c: 866:  y = y2 = __GLCD.Y;
+[e = _y = _y2 . ___GLCD 1 ]
+"869
+[; ;LCD-KS0108/KS0108.c: 869:  Character -= 32;
+[e =- _Character -> -> 32 `i `uc ]
+"872
+[; ;LCD-KS0108/KS0108.c: 872:  fontStart = Character * (__GLCD.Font.Width * __GLCD.Font.Lines + 1);
+[e = _fontStart -> * -> _Character `i + * -> . . ___GLCD 3 1 `i -> . . ___GLCD 3 3 `i -> 1 `i `ui ]
+"883
+[; ;LCD-KS0108/KS0108.c: 883:  width = __GLCD.Font.Name[fontStart++];
+[e = _width *U + . . ___GLCD 3 0 * -> ++ _fontStart -> -> 1 `i `ui `ux -> -> # *U . . ___GLCD 3 0 `ui `ux ]
+"885
+[; ;LCD-KS0108/KS0108.c: 885:  data = __GLCD.X + width;
+[e = _data -> + -> . ___GLCD 0 `i -> _width `i `uc ]
+"887
+[; ;LCD-KS0108/KS0108.c: 887:  if (data >= 128)
+[e $ ! >= -> _data `i -> 128 `i 849  ]
+"888
+[; ;LCD-KS0108/KS0108.c: 888:     {
+{
+"889
+[; ;LCD-KS0108/KS0108.c: 889:   width -= data-128;
+[e =- _width -> - -> _data `i -> 128 `i `uc ]
+"890
+[; ;LCD-KS0108/KS0108.c: 890:  }
+}
+[e :U 849 ]
+"913
+[; ;LCD-KS0108/KS0108.c: 913:     overflow = __GLCD.Y % 8;
+[e = _overflow -> % -> . ___GLCD 1 `i -> 8 `i `uc ]
+"915
+[; ;LCD-KS0108/KS0108.c: 915:     if ((overflow + __GLCD.Font.Height) > (__GLCD.Font.Lines * 8))
+[e $ ! > + -> _overflow `i -> . . ___GLCD 3 2 `i * -> . . ___GLCD 3 3 `i -> 8 `i 850  ]
+"916
+[; ;LCD-KS0108/KS0108.c: 916:     {
+{
+"917
+[; ;LCD-KS0108/KS0108.c: 917:         lines = __GLCD.Font.Lines + 1;
+[e = _lines -> + -> . . ___GLCD 3 3 `i -> 1 `i `uc ]
+"918
+[; ;LCD-KS0108/KS0108.c: 918:     }else
+}
+[e $U 851  ]
+[e :U 850 ]
+"919
+[; ;LCD-KS0108/KS0108.c: 919:     {
+{
+"920
+[; ;LCD-KS0108/KS0108.c: 920:         lines=__GLCD.Font.Lines;
+[e = _lines . . ___GLCD 3 3 ]
+"921
+[; ;LCD-KS0108/KS0108.c: 921:     }
+}
+[e :U 851 ]
+"924
+[; ;LCD-KS0108/KS0108.c: 924:  data = __GLCD.Y / 8 + lines;
+[e = _data -> + / -> . ___GLCD 1 `i -> 8 `i -> _lines `i `uc ]
+"926
+[; ;LCD-KS0108/KS0108.c: 926:  if (data > 64 / 8)
+[e $ ! > -> _data `i / -> 64 `i -> 8 `i 852  ]
+"927
+[; ;LCD-KS0108/KS0108.c: 927:     {
+{
+"928
+[; ;LCD-KS0108/KS0108.c: 928:   lines -= data - 64 / 8;
+[e =- _lines -> - -> _data `i / -> 64 `i -> 8 `i `uc ]
+"929
+[; ;LCD-KS0108/KS0108.c: 929:     }
+}
+[e :U 852 ]
+"940
+[; ;LCD-KS0108/KS0108.c: 940:     fontRead = fontStart;
+[e = _fontRead _fontStart ]
+"943
+[; ;LCD-KS0108/KS0108.c: 943:     for (j = 0 ; j < lines ; j++)
+{
+[e = _j -> -> 0 `i `uc ]
+[e $U 856  ]
+[e :U 853 ]
+"944
+[; ;LCD-KS0108/KS0108.c: 944:  {
+{
+"946
+[; ;LCD-KS0108/KS0108.c: 946:   GLCD_GotoXY(x, y);
+[e ( _GLCD_GotoXY (2 , _x _y ]
+"949
+[; ;LCD-KS0108/KS0108.c: 949:   for (i = 0 ; i < width ; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 860  ]
+[e :U 857 ]
+"950
+[; ;LCD-KS0108/KS0108.c: 950:   {
+{
+"951
+[; ;LCD-KS0108/KS0108.c: 951:             if (j == 0)
+[e $ ! == -> _j `i -> 0 `i 861  ]
+"952
+[; ;LCD-KS0108/KS0108.c: 952:             {
+{
+"953
+[; ;LCD-KS0108/KS0108.c: 953:                 if(__GLCD.Font.Invert == GLCD_Inverted)
+[e $ ! == -> . . ___GLCD 3 5 `ui -> . `E5699 0 `ui 862  ]
+"954
+[; ;LCD-KS0108/KS0108.c: 954:                 {
+{
+"955
+[; ;LCD-KS0108/KS0108.c: 955:                     data = ~(__GLCD.Font.Name[fontRead + __GLCD.Font.Lines*i]);
+[e = _data -> ~ -> *U + . . ___GLCD 3 0 * -> + _fontRead -> * -> . . ___GLCD 3 3 `i -> _i `i `ui `ux -> -> # *U . . ___GLCD 3 0 `ui `ux `i `uc ]
+"956
+[; ;LCD-KS0108/KS0108.c: 956:                 }else
+}
+[e $U 863  ]
+[e :U 862 ]
+"957
+[; ;LCD-KS0108/KS0108.c: 957:                 {
+{
+"958
+[; ;LCD-KS0108/KS0108.c: 958:                     data = (__GLCD.Font.Name[fontRead + __GLCD.Font.Lines*i]);
+[e = _data *U + . . ___GLCD 3 0 * -> + _fontRead -> * -> . . ___GLCD 3 3 `i -> _i `i `ui `ux -> -> # *U . . ___GLCD 3 0 `ui `ux ]
+"959
+[; ;LCD-KS0108/KS0108.c: 959:                 }
+}
+[e :U 863 ]
+"961
+[; ;LCD-KS0108/KS0108.c: 961:                 data <<= overflow;
+[e =<< _data -> _overflow `uc ]
+"963
+[; ;LCD-KS0108/KS0108.c: 963:                 if(__GLCD.Font.Invert == GLCD_Inverted)
+[e $ ! == -> . . ___GLCD 3 5 `ui -> . `E5699 0 `ui 864  ]
+"964
+[; ;LCD-KS0108/KS0108.c: 964:                 {
+{
+"965
+[; ;LCD-KS0108/KS0108.c: 965:                     data |= (0xFF >> (8-overflow));
+[e =| _data -> >> -> 255 `i - -> 8 `i -> _overflow `i `uc ]
+"966
+[; ;LCD-KS0108/KS0108.c: 966:                 }
+}
+[e :U 864 ]
+"968
+[; ;LCD-KS0108/KS0108.c: 968:             }else
+}
+[e $U 865  ]
+[e :U 861 ]
+"969
+[; ;LCD-KS0108/KS0108.c: 969:             {
+{
+"970
+[; ;LCD-KS0108/KS0108.c: 970:                 if(__GLCD.Font.Invert == GLCD_Inverted)
+[e $ ! == -> . . ___GLCD 3 5 `ui -> . `E5699 0 `ui 866  ]
+"971
+[; ;LCD-KS0108/KS0108.c: 971:                 {
+{
+"972
+[; ;LCD-KS0108/KS0108.c: 972:                     data = ~(__GLCD.Font.Name[fontRead + __GLCD.Font.Lines*i + j -1]);
+[e = _data -> ~ -> *U + . . ___GLCD 3 0 * -> - + + _fontRead -> * -> . . ___GLCD 3 3 `i -> _i `i `ui -> _j `ui -> -> 1 `i `ui `ux -> -> # *U . . ___GLCD 3 0 `ui `ux `i `uc ]
+"973
+[; ;LCD-KS0108/KS0108.c: 973:                 }else
+}
+[e $U 867  ]
+[e :U 866 ]
+"974
+[; ;LCD-KS0108/KS0108.c: 974:                 {
+{
+"975
+[; ;LCD-KS0108/KS0108.c: 975:                     data = (__GLCD.Font.Name[fontRead + __GLCD.Font.Lines*i + j -1]);
+[e = _data *U + . . ___GLCD 3 0 * -> - + + _fontRead -> * -> . . ___GLCD 3 3 `i -> _i `i `ui -> _j `ui -> -> 1 `i `ui `ux -> -> # *U . . ___GLCD 3 0 `ui `ux ]
+"976
+[; ;LCD-KS0108/KS0108.c: 976:                 }
+}
+[e :U 867 ]
+"978
+[; ;LCD-KS0108/KS0108.c: 978:                data >>= 8 - overflow;
+[e =>> _data -> - -> 8 `i -> _overflow `i `uc ]
+"982
+[; ;LCD-KS0108/KS0108.c: 982:                if(__GLCD.Font.Lines > 1)
+[e $ ! > -> . . ___GLCD 3 3 `i -> 1 `i 868  ]
+"983
+[; ;LCD-KS0108/KS0108.c: 983:                {
+{
+"984
+[; ;LCD-KS0108/KS0108.c: 984:                     if(__GLCD.Font.Invert == GLCD_Inverted)
+[e $ ! == -> . . ___GLCD 3 5 `ui -> . `E5699 0 `ui 869  ]
+"985
+[; ;LCD-KS0108/KS0108.c: 985:                     {
+{
+"986
+[; ;LCD-KS0108/KS0108.c: 986:                         data_next = ~(__GLCD.Font.Name[fontRead + __GLCD.Font.Lines*i + j]);
+[e = _data_next -> ~ -> *U + . . ___GLCD 3 0 * -> + + _fontRead -> * -> . . ___GLCD 3 3 `i -> _i `i `ui -> _j `ui `ux -> -> # *U . . ___GLCD 3 0 `ui `ux `i `uc ]
+"987
+[; ;LCD-KS0108/KS0108.c: 987:                     }else
+}
+[e $U 870  ]
+[e :U 869 ]
+"988
+[; ;LCD-KS0108/KS0108.c: 988:                     {
+{
+"989
+[; ;LCD-KS0108/KS0108.c: 989:                         data_next = (__GLCD.Font.Name[fontRead + __GLCD.Font.Lines*i + j]);
+[e = _data_next *U + . . ___GLCD 3 0 * -> + + _fontRead -> * -> . . ___GLCD 3 3 `i -> _i `i `ui -> _j `ui `ux -> -> # *U . . ___GLCD 3 0 `ui `ux ]
+"990
+[; ;LCD-KS0108/KS0108.c: 990:                     }
+}
+[e :U 870 ]
+"992
+[; ;LCD-KS0108/KS0108.c: 992:                     data_next <<= overflow;
+[e =<< _data_next -> _overflow `uc ]
+"993
+[; ;LCD-KS0108/KS0108.c: 993:                     data |= data_next;
+[e =| _data -> _data_next `uc ]
+"994
+[; ;LCD-KS0108/KS0108.c: 994:                }
+}
+[e :U 868 ]
+"997
+[; ;LCD-KS0108/KS0108.c: 997:                 if(__GLCD.Font.Invert == GLCD_Inverted && (j == (lines-1)) && overflow > 0)
+[e $ ! && && == -> . . ___GLCD 3 5 `ui -> . `E5699 0 `ui == -> _j `i - -> _lines `i -> 1 `i > -> _overflow `i -> 0 `i 871  ]
+"998
+[; ;LCD-KS0108/KS0108.c: 998:                 {
+{
+"999
+[; ;LCD-KS0108/KS0108.c: 999:                     data |= (255 << overflow);
+[e =| _data -> << -> 255 `i -> _overflow `i `uc ]
+"1000
+[; ;LCD-KS0108/KS0108.c: 1000:                 }
+}
+[e :U 871 ]
+"1002
+[; ;LCD-KS0108/KS0108.c: 1002:             }
+}
+[e :U 865 ]
+"1005
+[; ;LCD-KS0108/KS0108.c: 1005:    if (__GLCD.Font.Mode == GLCD_Merge)
+[e $ ! == -> . . ___GLCD 3 4 `ui -> . `E5702 1 `ui 872  ]
+"1006
+[; ;LCD-KS0108/KS0108.c: 1006:             {
+{
+"1007
+[; ;LCD-KS0108/KS0108.c: 1007:                 if(__GLCD.Font.Invert == GLCD_Inverted)
+[e $ ! == -> . . ___GLCD 3 5 `ui -> . `E5699 0 `ui 873  ]
+"1008
+[; ;LCD-KS0108/KS0108.c: 1008:                 {
+{
+"1009
+[; ;LCD-KS0108/KS0108.c: 1009:                    data &= GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e =& _data -> ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 `uc ]
+"1010
+[; ;LCD-KS0108/KS0108.c: 1010:                 }else
+}
+[e $U 874  ]
+[e :U 873 ]
+"1011
+[; ;LCD-KS0108/KS0108.c: 1011:                 {
+{
+"1012
+[; ;LCD-KS0108/KS0108.c: 1012:                     data |= GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e =| _data -> ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 `uc ]
+"1013
+[; ;LCD-KS0108/KS0108.c: 1013:                 }
+}
+[e :U 874 ]
+"1014
+[; ;LCD-KS0108/KS0108.c: 1014:             }
+}
+[e :U 872 ]
+"1017
+[; ;LCD-KS0108/KS0108.c: 1017:    GLCD_BufferWrite(__GLCD.X++, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , ++ . ___GLCD 0 -> -> 1 `i `uc . ___GLCD 1 _data ]
+"1019
+[; ;LCD-KS0108/KS0108.c: 1019:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 860 ]
+[e $ < -> _i `i -> _width `i 857  ]
+[e :U 858 ]
+}
+"1023
+[; ;LCD-KS0108/KS0108.c: 1023:   if (__GLCD.Font.Mode == GLCD_Overwrite)
+[e $ ! == -> . . ___GLCD 3 4 `ui -> . `E5702 0 `ui 875  ]
+"1024
+[; ;LCD-KS0108/KS0108.c: 1024:         {
+{
+"1025
+[; ;LCD-KS0108/KS0108.c: 1025:             if(__GLCD.Font.Invert == GLCD_Inverted)
+[e $ ! == -> . . ___GLCD 3 5 `ui -> . `E5699 0 `ui 876  ]
+"1026
+[; ;LCD-KS0108/KS0108.c: 1026:             {
+{
+"1027
+[; ;LCD-KS0108/KS0108.c: 1027:                 data = GLCD_Black;
+[e = _data -> . `E5705 1 `uc ]
+"1028
+[; ;LCD-KS0108/KS0108.c: 1028:             }else
+}
+[e $U 877  ]
+[e :U 876 ]
+"1029
+[; ;LCD-KS0108/KS0108.c: 1029:             {
+{
+"1030
+[; ;LCD-KS0108/KS0108.c: 1030:                 data = GLCD_White;
+[e = _data -> . `E5705 0 `uc ]
+"1031
+[; ;LCD-KS0108/KS0108.c: 1031:             }
+}
+[e :U 877 ]
+"1032
+[; ;LCD-KS0108/KS0108.c: 1032:         }
+}
+[e $U 878  ]
+"1033
+[; ;LCD-KS0108/KS0108.c: 1033:   else
+[e :U 875 ]
+"1034
+[; ;LCD-KS0108/KS0108.c: 1034:         {
+{
+"1035
+[; ;LCD-KS0108/KS0108.c: 1035:    data = GLCD_BufferRead(__GLCD.X, __GLCD.Y);
+[e = _data ( _GLCD_BufferRead (2 , . ___GLCD 0 . ___GLCD 1 ]
+"1036
+[; ;LCD-KS0108/KS0108.c: 1036:         }
+}
+[e :U 878 ]
+"1039
+[; ;LCD-KS0108/KS0108.c: 1039:   GLCD_BufferWrite(__GLCD.X, __GLCD.Y, data);
+[e ( _GLCD_BufferWrite (3 , , . ___GLCD 0 . ___GLCD 1 _data ]
+"1042
+[; ;LCD-KS0108/KS0108.c: 1042:   y += 8;
+[e =+ _y -> -> 8 `i `uc ]
+"1043
+[; ;LCD-KS0108/KS0108.c: 1043:  }
+}
+[e ++ _j -> -> 1 `i `uc ]
+[e :U 856 ]
+[e $ < -> _j `i -> _lines `i 853  ]
+[e :U 854 ]
+}
+"1045
+[; ;LCD-KS0108/KS0108.c: 1045:     GLCD_GotoXY(x + width + 1, y2);
+[e ( _GLCD_GotoXY (2 , -> + + -> _x `i -> _width `i -> 1 `i `uc _y2 ]
+"1046
+[; ;LCD-KS0108/KS0108.c: 1046: }
+[e :UE 848 ]
+}
+"1048
+[; ;LCD-KS0108/KS0108.c: 1048: void GLCD_PrintString(const char *Text)
+[v _GLCD_PrintString `(v ~T0 @X0 1 ef1`*Cuc ]
+"1049
+[; ;LCD-KS0108/KS0108.c: 1049: {
+{
+[e :U _GLCD_PrintString ]
+"1048
+[; ;LCD-KS0108/KS0108.c: 1048: void GLCD_PrintString(const char *Text)
+[v _Text `*Cuc ~T0 @X0 1 r1 ]
+"1049
+[; ;LCD-KS0108/KS0108.c: 1049: {
+[f ]
+"1050
+[; ;LCD-KS0108/KS0108.c: 1050:  while(*Text)
+[e $U 880  ]
+[e :U 881 ]
+"1051
+[; ;LCD-KS0108/KS0108.c: 1051:  {
+{
+"1052
+[; ;LCD-KS0108/KS0108.c: 1052:   if ((__GLCD.X + __GLCD.Font.Width) >= 128)
+[e $ ! >= + -> . ___GLCD 0 `i -> . . ___GLCD 3 1 `i -> 128 `i 883  ]
+"1053
+[; ;LCD-KS0108/KS0108.c: 1053:    break;
+[e $U 882  ]
+[e :U 883 ]
+"1055
+[; ;LCD-KS0108/KS0108.c: 1055:   GLCD_PrintChar(*Text++);
+[e ( _GLCD_PrintChar (1 *U ++ _Text * -> -> 1 `i `x -> -> # *U _Text `i `x ]
+"1056
+[; ;LCD-KS0108/KS0108.c: 1056:  }
+}
+[e :U 880 ]
+"1050
+[; ;LCD-KS0108/KS0108.c: 1050:  while(*Text)
+[e $ != -> *U _Text `i -> 0 `i 881  ]
+[e :U 882 ]
+"1057
+[; ;LCD-KS0108/KS0108.c: 1057: }
+[e :UE 879 ]
+}
+"1059
+[; ;LCD-KS0108/KS0108.c: 1059: void GLCD_PrintString_P(const char *Text)
+[v _GLCD_PrintString_P `(v ~T0 @X0 1 ef1`*Cuc ]
+"1060
+[; ;LCD-KS0108/KS0108.c: 1060: {
+{
+[e :U _GLCD_PrintString_P ]
+"1059
+[; ;LCD-KS0108/KS0108.c: 1059: void GLCD_PrintString_P(const char *Text)
+[v _Text `*Cuc ~T0 @X0 1 r1 ]
+"1060
+[; ;LCD-KS0108/KS0108.c: 1060: {
+[f ]
+"1061
+[; ;LCD-KS0108/KS0108.c: 1061:  char r = Text++;
+[v _r `uc ~T0 @X0 1 a ]
+[e = _r -> ++ _Text * -> -> 1 `i `x -> -> # *U _Text `i `x `uc ]
+"1062
+[; ;LCD-KS0108/KS0108.c: 1062:  while(r)
+[e $U 885  ]
+[e :U 886 ]
+"1063
+[; ;LCD-KS0108/KS0108.c: 1063:  {
+{
+"1064
+[; ;LCD-KS0108/KS0108.c: 1064:   if ((__GLCD.X + __GLCD.Font.Width) >= 128)
+[e $ ! >= + -> . ___GLCD 0 `i -> . . ___GLCD 3 1 `i -> 128 `i 888  ]
+"1065
+[; ;LCD-KS0108/KS0108.c: 1065:    break;
+[e $U 887  ]
+[e :U 888 ]
+"1067
+[; ;LCD-KS0108/KS0108.c: 1067:   GLCD_PrintChar(r);
+[e ( _GLCD_PrintChar (1 _r ]
+"1068
+[; ;LCD-KS0108/KS0108.c: 1068:   r = Text++;
+[e = _r -> ++ _Text * -> -> 1 `i `x -> -> # *U _Text `i `x `uc ]
+"1069
+[; ;LCD-KS0108/KS0108.c: 1069:  }
+}
+[e :U 885 ]
+"1062
+[; ;LCD-KS0108/KS0108.c: 1062:  while(r)
+[e $ != -> _r `i -> 0 `i 886  ]
+[e :U 887 ]
+"1070
+[; ;LCD-KS0108/KS0108.c: 1070: }
+[e :UE 884 ]
+}
+"1072
+[; ;LCD-KS0108/KS0108.c: 1072: void GLCD_PrintInteger(const int32_t Value)
+[v _GLCD_PrintInteger `(v ~T0 @X0 1 ef1`Cl ]
+"1073
+[; ;LCD-KS0108/KS0108.c: 1073: {
+{
+[e :U _GLCD_PrintInteger ]
+"1072
+[; ;LCD-KS0108/KS0108.c: 1072: void GLCD_PrintInteger(const int32_t Value)
+[v _Value `Cl ~T0 @X0 1 r1 ]
+"1073
+[; ;LCD-KS0108/KS0108.c: 1073: {
+[f ]
+"1074
+[; ;LCD-KS0108/KS0108.c: 1074:  if (Value == 0)
+[e $ ! == _Value -> -> 0 `i `l 890  ]
+"1075
+[; ;LCD-KS0108/KS0108.c: 1075:  {
+{
+"1076
+[; ;LCD-KS0108/KS0108.c: 1076:   GLCD_PrintChar('0');
+[e ( _GLCD_PrintChar (1 -> -> 48 `ui `uc ]
+"1077
+[; ;LCD-KS0108/KS0108.c: 1077:  }
+}
+[e $U 891  ]
+"1078
+[; ;LCD-KS0108/KS0108.c: 1078:  else if ((Value > (-1-0x7fffffff)) && (Value <= (0x7fffffff)))
+[e :U 890 ]
+[e $ ! && > _Value - -> -U -> 1 `i `l -> 2147483647 `l <= _Value -> 2147483647 `l 892  ]
+"1079
+[; ;LCD-KS0108/KS0108.c: 1079:  {
+{
+[v F6109 `uc ~T0 @X0 -> 12 `i s ]
+[i F6109
+:U ..
+"1081
+[; ;LCD-KS0108/KS0108.c: 1081:   char bcd[12] = { '\0' };
+-> -> 0 `ui `uc
+..
+]
+[v _bcd `uc ~T0 @X0 -> 12 `i a ]
+[e = _bcd F6109 ]
+"1084
+[; ;LCD-KS0108/KS0108.c: 1084:   Int2bcd(Value, bcd);
+[e ( _Int2bcd (2 , _Value &U _bcd ]
+"1087
+[; ;LCD-KS0108/KS0108.c: 1087:   GLCD_PrintString(bcd);
+[e ( _GLCD_PrintString (1 -> &U _bcd `*Cuc ]
+"1088
+[; ;LCD-KS0108/KS0108.c: 1088:  }
+}
+[e :U 892 ]
+[e :U 891 ]
+"1089
+[; ;LCD-KS0108/KS0108.c: 1089: }
+[e :UE 889 ]
+}
+"1091
+[; ;LCD-KS0108/KS0108.c: 1091: void GLCD_PrintDouble(double Value, const uint32_t Tens)
+[v _GLCD_PrintDouble `(v ~T0 @X0 1 ef2`d`Cul ]
+"1092
+[; ;LCD-KS0108/KS0108.c: 1092: {
+{
+[e :U _GLCD_PrintDouble ]
+"1091
+[; ;LCD-KS0108/KS0108.c: 1091: void GLCD_PrintDouble(double Value, const uint32_t Tens)
+[v _Value `d ~T0 @X0 1 r1 ]
+[v _Tens `Cul ~T0 @X0 1 r2 ]
+"1092
+[; ;LCD-KS0108/KS0108.c: 1092: {
+[f ]
+"1093
+[; ;LCD-KS0108/KS0108.c: 1093:  if (Value == 0)
+[e $ ! == _Value -> -> 0 `i `d 894  ]
+"1094
+[; ;LCD-KS0108/KS0108.c: 1094:  {
+{
+"1096
+[; ;LCD-KS0108/KS0108.c: 1096:   GLCD_PrintChar('0');
+[e ( _GLCD_PrintChar (1 -> -> 48 `ui `uc ]
+"1097
+[; ;LCD-KS0108/KS0108.c: 1097:   GLCD_PrintChar('.');
+[e ( _GLCD_PrintChar (1 -> -> 46 `ui `uc ]
+"1098
+[; ;LCD-KS0108/KS0108.c: 1098:   GLCD_PrintChar('0');
+[e ( _GLCD_PrintChar (1 -> -> 48 `ui `uc ]
+"1099
+[; ;LCD-KS0108/KS0108.c: 1099:  }
+}
+[e $U 895  ]
+"1100
+[; ;LCD-KS0108/KS0108.c: 1100:  else if ((Value >= (-2147483647)) && (Value < 2147483648))
+[e :U 894 ]
+[e $ ! && >= _Value -> -U -> 2147483647 `l `d < _Value -> -> 2147483648 `o `d 896  ]
+"1101
+[; ;LCD-KS0108/KS0108.c: 1101:  {
+{
+"1103
+[; ;LCD-KS0108/KS0108.c: 1103:   if (Value<0)
+[e $ ! < _Value -> -> 0 `i `d 897  ]
+"1104
+[; ;LCD-KS0108/KS0108.c: 1104:   {
+{
+"1105
+[; ;LCD-KS0108/KS0108.c: 1105:    Value = -Value;
+[e = _Value -U _Value ]
+"1106
+[; ;LCD-KS0108/KS0108.c: 1106:    GLCD_PrintChar('-');
+[e ( _GLCD_PrintChar (1 -> -> 45 `ui `uc ]
+"1107
+[; ;LCD-KS0108/KS0108.c: 1107:   }
+}
+[e :U 897 ]
+"1110
+[; ;LCD-KS0108/KS0108.c: 1110:   GLCD_PrintInteger(Value);
+[e ( _GLCD_PrintInteger (1 -> _Value `l ]
+"1113
+[; ;LCD-KS0108/KS0108.c: 1113:   GLCD_PrintChar('.');
+[e ( _GLCD_PrintChar (1 -> -> 46 `ui `uc ]
+"1116
+[; ;LCD-KS0108/KS0108.c: 1116:   GLCD_PrintInteger((Value - (uint32_t)(Value)) * Tens);
+[e ( _GLCD_PrintInteger (1 -> * - _Value -> -> _Value `ul `d -> _Tens `d `l ]
+"1117
+[; ;LCD-KS0108/KS0108.c: 1117:  }
+}
+[e :U 896 ]
+[e :U 895 ]
+"1118
+[; ;LCD-KS0108/KS0108.c: 1118: }
+[e :UE 893 ]
+}
+"1120
+[; ;LCD-KS0108/KS0108.c: 1120: static void GLCD_Send(const uint8_t Data)
+[v _GLCD_Send `(v ~T0 @X0 1 sf1`Cuc ]
+"1121
+[; ;LCD-KS0108/KS0108.c: 1121: {
+{
+[e :U _GLCD_Send ]
+"1120
+[; ;LCD-KS0108/KS0108.c: 1120: static void GLCD_Send(const uint8_t Data)
+[v _Data `Cuc ~T0 @X0 1 r1 ]
+"1121
+[; ;LCD-KS0108/KS0108.c: 1121: {
+[f ]
+"1123
+[; ;LCD-KS0108/KS0108.c: 1123:  ( ( Data & (1UL<<0) ? 1 : 0 ) ? ( ( (LATE) |= (1UL<<0) ) ) : ( ( (LATE) &= (~(1UL<<0)) ) ) );
+[e ? != ? != & -> _Data `ul << -> 1 `ul -> 0 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 0 `i : -> =| _LATE -> << -> 1 `ul -> 0 `i `Vuc `i -> =& _LATE -> ~ << -> 1 `ul -> 0 `i `Vuc `i ]
+"1124
+[; ;LCD-KS0108/KS0108.c: 1124:  ( ( Data & (1UL<<1) ? 1 : 0 ) ? ( ( (LATE) |= (1UL<<1) ) ) : ( ( (LATE) &= (~(1UL<<1)) ) ) );
+[e ? != ? != & -> _Data `ul << -> 1 `ul -> 1 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 0 `i : -> =| _LATE -> << -> 1 `ul -> 1 `i `Vuc `i -> =& _LATE -> ~ << -> 1 `ul -> 1 `i `Vuc `i ]
+"1125
+[; ;LCD-KS0108/KS0108.c: 1125:  ( ( Data & (1UL<<2) ? 1 : 0 ) ? ( ( (LATE) |= (1UL<<2) ) ) : ( ( (LATE) &= (~(1UL<<2)) ) ) );
+[e ? != ? != & -> _Data `ul << -> 1 `ul -> 2 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 0 `i : -> =| _LATE -> << -> 1 `ul -> 2 `i `Vuc `i -> =& _LATE -> ~ << -> 1 `ul -> 2 `i `Vuc `i ]
+"1126
+[; ;LCD-KS0108/KS0108.c: 1126:  ( ( Data & (1UL<<3) ? 1 : 0 ) ? ( ( (LATE) |= (1UL<<3) ) ) : ( ( (LATE) &= (~(1UL<<3)) ) ) );
+[e ? != ? != & -> _Data `ul << -> 1 `ul -> 3 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 0 `i : -> =| _LATE -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _LATE -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"1127
+[; ;LCD-KS0108/KS0108.c: 1127:  ( ( Data & (1UL<<4) ? 1 : 0 ) ? ( ( (LATE) |= (1UL<<4) ) ) : ( ( (LATE) &= (~(1UL<<4)) ) ) );
+[e ? != ? != & -> _Data `ul << -> 1 `ul -> 4 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 0 `i : -> =| _LATE -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _LATE -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"1128
+[; ;LCD-KS0108/KS0108.c: 1128:  ( ( Data & (1UL<<5) ? 1 : 0 ) ? ( ( (LATE) |= (1UL<<5) ) ) : ( ( (LATE) &= (~(1UL<<5)) ) ) );
+[e ? != ? != & -> _Data `ul << -> 1 `ul -> 5 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 0 `i : -> =| _LATE -> << -> 1 `ul -> 5 `i `Vuc `i -> =& _LATE -> ~ << -> 1 `ul -> 5 `i `Vuc `i ]
+"1129
+[; ;LCD-KS0108/KS0108.c: 1129:  ( ( Data & (1UL<<6) ? 1 : 0 ) ? ( ( (LATE) |= (1UL<<6) ) ) : ( ( (LATE) &= (~(1UL<<6)) ) ) );
+[e ? != ? != & -> _Data `ul << -> 1 `ul -> 6 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 0 `i : -> =| _LATE -> << -> 1 `ul -> 6 `i `Vuc `i -> =& _LATE -> ~ << -> 1 `ul -> 6 `i `Vuc `i ]
+"1130
+[; ;LCD-KS0108/KS0108.c: 1130:  ( ( Data & (1UL<<7) ? 1 : 0 ) ? ( ( (LATE) |= (1UL<<7) ) ) : ( ( (LATE) &= (~(1UL<<7)) ) ) );
+[e ? != ? != & -> _Data `ul << -> 1 `ul -> 7 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 0 `i : -> =| _LATE -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATE -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"1131
+[; ;LCD-KS0108/KS0108.c: 1131:  Pulse_En();
+[e ( _Pulse_En ..  ]
+"1132
+[; ;LCD-KS0108/KS0108.c: 1132: }
+[e :UE 898 ]
+}
+"1134
+[; ;LCD-KS0108/KS0108.c: 1134: static void GLCD_WaitBusy(enum Chip_t Chip)
+[v _GLCD_WaitBusy `(v ~T0 @X0 1 sf1`E5692 ]
+"1135
+[; ;LCD-KS0108/KS0108.c: 1135: {
+{
+[e :U _GLCD_WaitBusy ]
+"1134
+[; ;LCD-KS0108/KS0108.c: 1134: static void GLCD_WaitBusy(enum Chip_t Chip)
+[v _Chip `E5692 ~T0 @X0 1 r1 ]
+"1135
+[; ;LCD-KS0108/KS0108.c: 1135: {
+[f ]
+"1136
+[; ;LCD-KS0108/KS0108.c: 1136:  uint8_t status = 0;
+[v _status `uc ~T0 @X0 1 a ]
+[e = _status -> -> 0 `i `uc ]
+"1138
+[; ;LCD-KS0108/KS0108.c: 1138:  GLCD_SelectChip(Chip);
+[e ( _GLCD_SelectChip (1 _Chip ]
+"1141
+[; ;LCD-KS0108/KS0108.c: 1141:  ( 1 ? ( ( (TRISE) |= (1UL<<7) ) ) : ( ( (TRISE) &= (~(1UL<<7)) ) ) );
+[e ? != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"1143
+[; ;LCD-KS0108/KS0108.c: 1143:  ( 0 ? ( ( (LATD) |= (1UL<<4) ) ) : ( ( (LATD) &= (~(1UL<<4)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"1144
+[; ;LCD-KS0108/KS0108.c: 1144:  ( !0 ? ( ( (LATD) |= (1UL<<3) ) ) : ( ( (LATD) &= (~(1UL<<3)) ) ) );
+[e ? ! != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"1145
+[; ;LCD-KS0108/KS0108.c: 1145:  ( 0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"1146
+[; ;LCD-KS0108/KS0108.c: 1146:  _delay((unsigned long)((10)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
+"1149
+[; ;LCD-KS0108/KS0108.c: 1149:  do
+[e :U 902 ]
+"1150
+[; ;LCD-KS0108/KS0108.c: 1150:  {
+{
+"1151
+[; ;LCD-KS0108/KS0108.c: 1151:   ( !0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
+[e ? ! != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"1152
+[; ;LCD-KS0108/KS0108.c: 1152:   _delay((unsigned long)((10)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
+"1154
+[; ;LCD-KS0108/KS0108.c: 1154:   status = ( ( ( (PORTE) & (1UL<<7) ? 1 : 0 ) ) ) << 7;
+[e = _status -> << ? != & -> _PORTE `ul << -> 1 `ul -> 7 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 7 `i `uc ]
+"1156
+[; ;LCD-KS0108/KS0108.c: 1156:   ( 0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"1157
+[; ;LCD-KS0108/KS0108.c: 1157:   _delay((unsigned long)((10<<3)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> << -> 10 `i -> 3 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
+"1158
+[; ;LCD-KS0108/KS0108.c: 1158:  }
+}
+[e $ != ? != & -> _status `ul << -> 1 `ul -> 7 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i -> 0 `i 902  ]
+[e :U 901 ]
+"1161
+[; ;LCD-KS0108/KS0108.c: 1161:  ( 0 ? ( ( (LATD) |= (1UL<<3) ) ) : ( ( (LATD) &= (~(1UL<<3)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"1164
+[; ;LCD-KS0108/KS0108.c: 1164:  ( !1 ? ( ( (TRISE) |= (1UL<<7) ) ) : ( ( (TRISE) &= (~(1UL<<7)) ) ) );
+[e ? ! != -> 1 `i -> 0 `i : -> =| _TRISE -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _TRISE -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"1165
+[; ;LCD-KS0108/KS0108.c: 1165: }
+[e :UE 899 ]
+}
+"1167
+[; ;LCD-KS0108/KS0108.c: 1167: static void GLCD_BufferWrite(const uint8_t X, const uint8_t Y, const uint8_t Data)
+[v _GLCD_BufferWrite `(v ~T0 @X0 1 sf3`Cuc`Cuc`Cuc ]
+"1168
+[; ;LCD-KS0108/KS0108.c: 1168: {
+{
+[e :U _GLCD_BufferWrite ]
+"1167
+[; ;LCD-KS0108/KS0108.c: 1167: static void GLCD_BufferWrite(const uint8_t X, const uint8_t Y, const uint8_t Data)
+[v _X `Cuc ~T0 @X0 1 r1 ]
+[v _Y `Cuc ~T0 @X0 1 r2 ]
+[v _Data `Cuc ~T0 @X0 1 r3 ]
+"1168
+[; ;LCD-KS0108/KS0108.c: 1168: {
+[f ]
+"1170
+[; ;LCD-KS0108/KS0108.c: 1170:  __GLCD_Buffer[X][Y>>3] = Data;
+[e = *U + &U *U + &U ___GLCD_Buffer * -> _X `ux -> * -> # *U &U *U &U ___GLCD_Buffer `ui -> -> 8 `i `ui `ux * -> -> >> -> _Y `i -> 3 `i `ui `ux -> -> # *U &U *U + &U ___GLCD_Buffer * -> _X `ux -> * -> # *U &U *U &U ___GLCD_Buffer `ui -> -> 8 `i `ui `ux `ui `ux _Data ]
+"1171
+[; ;LCD-KS0108/KS0108.c: 1171: }
+[e :UE 903 ]
+}
+"1173
+[; ;LCD-KS0108/KS0108.c: 1173: static uint8_t GLCD_BufferRead(const uint8_t X, const uint8_t Y)
+[v _GLCD_BufferRead `(uc ~T0 @X0 1 sf2`Cuc`Cuc ]
+"1174
+[; ;LCD-KS0108/KS0108.c: 1174: {
+{
+[e :U _GLCD_BufferRead ]
+"1173
+[; ;LCD-KS0108/KS0108.c: 1173: static uint8_t GLCD_BufferRead(const uint8_t X, const uint8_t Y)
+[v _X `Cuc ~T0 @X0 1 r1 ]
+[v _Y `Cuc ~T0 @X0 1 r2 ]
+"1174
+[; ;LCD-KS0108/KS0108.c: 1174: {
+[f ]
+"1176
+[; ;LCD-KS0108/KS0108.c: 1176:  return (__GLCD_Buffer[X][Y>>3]);
+[e ) *U + &U *U + &U ___GLCD_Buffer * -> _X `ux -> * -> # *U &U *U &U ___GLCD_Buffer `ui -> -> 8 `i `ui `ux * -> -> >> -> _Y `i -> 3 `i `ui `ux -> -> # *U &U *U + &U ___GLCD_Buffer * -> _X `ux -> * -> # *U &U *U &U ___GLCD_Buffer `ui -> -> 8 `i `ui `ux `ui `ux ]
+[e $UE 904  ]
+"1177
+[; ;LCD-KS0108/KS0108.c: 1177: }
+[e :UE 904 ]
+}
+"1179
+[; ;LCD-KS0108/KS0108.c: 1179: static void GLCD_SelectChip(enum Chip_t Chip)
+[v _GLCD_SelectChip `(v ~T0 @X0 1 sf1`E5692 ]
+"1180
+[; ;LCD-KS0108/KS0108.c: 1180: {
+{
+[e :U _GLCD_SelectChip ]
+"1179
+[; ;LCD-KS0108/KS0108.c: 1179: static void GLCD_SelectChip(enum Chip_t Chip)
+[v _Chip `E5692 ~T0 @X0 1 r1 ]
+"1180
+[; ;LCD-KS0108/KS0108.c: 1180: {
+[f ]
+"1181
+[; ;LCD-KS0108/KS0108.c: 1181:  uint8_t on, off;
+[v _on `uc ~T0 @X0 1 a ]
+[v _off `uc ~T0 @X0 1 a ]
+"1184
+[; ;LCD-KS0108/KS0108.c: 1184:   on = 0;
+[e = _on -> -> 0 `i `uc ]
+"1185
+[; ;LCD-KS0108/KS0108.c: 1185:   off = 1;
+[e = _off -> -> 1 `i `uc ]
+"1191
+[; ;LCD-KS0108/KS0108.c: 1191:  if(Chip == Chip_1)
+[e $ ! == -> _Chip `ui -> . `E5692 0 `ui 906  ]
+"1192
+[; ;LCD-KS0108/KS0108.c: 1192:  {
+{
+"1193
+[; ;LCD-KS0108/KS0108.c: 1193:   ( off ? ( ( (LATD) |= (1UL<<1) ) ) : ( ( (LATD) &= (~(1UL<<1)) ) ) );
+[e ? != -> _off `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 1 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 1 `i `Vuc `i ]
+"1194
+[; ;LCD-KS0108/KS0108.c: 1194:   ( on ? ( ( (LATD) |= (1UL<<0) ) ) : ( ( (LATD) &= (~(1UL<<0)) ) ) );
+[e ? != -> _on `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 0 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 0 `i `Vuc `i ]
+"1195
+[; ;LCD-KS0108/KS0108.c: 1195:  }
+}
+[e $U 907  ]
+"1196
+[; ;LCD-KS0108/KS0108.c: 1196:  else if (Chip == Chip_2)
+[e :U 906 ]
+[e $ ! == -> _Chip `ui -> . `E5692 1 `ui 908  ]
+"1197
+[; ;LCD-KS0108/KS0108.c: 1197:  {
+{
+"1198
+[; ;LCD-KS0108/KS0108.c: 1198:   ( off ? ( ( (LATD) |= (1UL<<0) ) ) : ( ( (LATD) &= (~(1UL<<0)) ) ) );
+[e ? != -> _off `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 0 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 0 `i `Vuc `i ]
+"1199
+[; ;LCD-KS0108/KS0108.c: 1199:   ( on ? ( ( (LATD) |= (1UL<<1) ) ) : ( ( (LATD) &= (~(1UL<<1)) ) ) );
+[e ? != -> _on `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 1 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 1 `i `Vuc `i ]
+"1200
+[; ;LCD-KS0108/KS0108.c: 1200:  }
+}
+[e $U 909  ]
+"1201
+[; ;LCD-KS0108/KS0108.c: 1201:  else
+[e :U 908 ]
+"1202
+[; ;LCD-KS0108/KS0108.c: 1202:  {
+{
+"1203
+[; ;LCD-KS0108/KS0108.c: 1203:   ( on ? ( ( (LATD) |= (1UL<<0) ) ) : ( ( (LATD) &= (~(1UL<<0)) ) ) );
+[e ? != -> _on `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 0 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 0 `i `Vuc `i ]
+"1204
+[; ;LCD-KS0108/KS0108.c: 1204:   ( on ? ( ( (LATD) |= (1UL<<1) ) ) : ( ( (LATD) &= (~(1UL<<1)) ) ) );
+[e ? != -> _on `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 1 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 1 `i `Vuc `i ]
+"1205
+[; ;LCD-KS0108/KS0108.c: 1205:  }
+}
+[e :U 909 ]
+[e :U 907 ]
+"1206
+[; ;LCD-KS0108/KS0108.c: 1206: }
+[e :UE 905 ]
+}
+"1208
+[; ;LCD-KS0108/KS0108.c: 1208: static void __GLCD_GotoX(const uint8_t X)
+[v ___GLCD_GotoX `(v ~T0 @X0 1 sf1`Cuc ]
+"1209
+[; ;LCD-KS0108/KS0108.c: 1209: {
+{
+[e :U ___GLCD_GotoX ]
+"1208
+[; ;LCD-KS0108/KS0108.c: 1208: static void __GLCD_GotoX(const uint8_t X)
+[v _X `Cuc ~T0 @X0 1 r1 ]
+"1209
+[; ;LCD-KS0108/KS0108.c: 1209: {
+[f ]
+"1210
+[; ;LCD-KS0108/KS0108.c: 1210:  if (X < 128)
+[e $ ! < -> _X `i -> 128 `i 911  ]
+"1211
+[; ;LCD-KS0108/KS0108.c: 1211:  {
+{
+"1212
+[; ;LCD-KS0108/KS0108.c: 1212:   uint8_t chip, cmd;
+[v _chip `uc ~T0 @X0 1 a ]
+[v _cmd `uc ~T0 @X0 1 a ]
+"1215
+[; ;LCD-KS0108/KS0108.c: 1215:   chip = ((X < (128 / 2)) ? Chip_1 : Chip_2);
+[e = _chip -> ? < -> _X `i / -> 128 `i -> 2 `i : . `E5692 0 . `E5692 1 `uc ]
+"1216
+[; ;LCD-KS0108/KS0108.c: 1216:   cmd = ((chip == Chip_1) ? (0x40 | X) : (0x40 | (X - 128 / 2)));
+[e = _cmd -> ? == -> _chip `i -> . `E5692 0 `i : | -> 64 `i -> _X `i | -> 64 `i - -> _X `i / -> 128 `i -> 2 `i `uc ]
+"1219
+[; ;LCD-KS0108/KS0108.c: 1219:   __GLCD.X = X;
+[e = . ___GLCD 0 _X ]
+"1222
+[; ;LCD-KS0108/KS0108.c: 1222:   GLCD_SendCommand(cmd, chip);
+[e ( _GLCD_SendCommand (2 , _cmd -> _chip `E5692 ]
+"1223
+[; ;LCD-KS0108/KS0108.c: 1223:  }
+}
+[e :U 911 ]
+"1224
+[; ;LCD-KS0108/KS0108.c: 1224: }
+[e :UE 910 ]
+}
+"1226
+[; ;LCD-KS0108/KS0108.c: 1226: static void __GLCD_GotoY(const uint8_t Y)
+[v ___GLCD_GotoY `(v ~T0 @X0 1 sf1`Cuc ]
+"1227
+[; ;LCD-KS0108/KS0108.c: 1227: {
+{
+[e :U ___GLCD_GotoY ]
+"1226
+[; ;LCD-KS0108/KS0108.c: 1226: static void __GLCD_GotoY(const uint8_t Y)
+[v _Y `Cuc ~T0 @X0 1 r1 ]
+"1227
+[; ;LCD-KS0108/KS0108.c: 1227: {
+[f ]
+"1228
+[; ;LCD-KS0108/KS0108.c: 1228:  if (Y < 64)
+[e $ ! < -> _Y `i -> 64 `i 913  ]
+"1229
+[; ;LCD-KS0108/KS0108.c: 1229:  {
+{
+"1230
+[; ;LCD-KS0108/KS0108.c: 1230:   uint8_t cmd;
+[v _cmd `uc ~T0 @X0 1 a ]
+"1233
+[; ;LCD-KS0108/KS0108.c: 1233:   cmd = 0xB8 | (Y / 8);
+[e = _cmd -> | -> 184 `i / -> _Y `i -> 8 `i `uc ]
+"1236
+[; ;LCD-KS0108/KS0108.c: 1236:   __GLCD.Y = Y;
+[e = . ___GLCD 1 _Y ]
+"1239
+[; ;LCD-KS0108/KS0108.c: 1239:   GLCD_SendCommand(cmd, Chip_All);
+[e ( _GLCD_SendCommand (2 , _cmd . `E5692 2 ]
+"1240
+[; ;LCD-KS0108/KS0108.c: 1240:  }
+}
+[e :U 913 ]
+"1241
+[; ;LCD-KS0108/KS0108.c: 1241: }
+[e :UE 912 ]
+}
+"1243
+[; ;LCD-KS0108/KS0108.c: 1243: static void GLCD_DrawHLine(uint8_t X1, uint8_t X2, const uint8_t Y, enum Color_t Color)
+[v _GLCD_DrawHLine `(v ~T0 @X0 1 sf4`uc`uc`Cuc`E5705 ]
+"1244
+[; ;LCD-KS0108/KS0108.c: 1244: {
+{
+[e :U _GLCD_DrawHLine ]
+"1243
+[; ;LCD-KS0108/KS0108.c: 1243: static void GLCD_DrawHLine(uint8_t X1, uint8_t X2, const uint8_t Y, enum Color_t Color)
+[v _X1 `uc ~T0 @X0 1 r1 ]
+[v _X2 `uc ~T0 @X0 1 r2 ]
+[v _Y `Cuc ~T0 @X0 1 r3 ]
+[v _Color `E5705 ~T0 @X0 1 r4 ]
+"1244
+[; ;LCD-KS0108/KS0108.c: 1244: {
+[f ]
+"1245
+[; ;LCD-KS0108/KS0108.c: 1245:  if (X1 > X2)
+[e $ ! > -> _X1 `i -> _X2 `i 915  ]
+"1246
+[; ;LCD-KS0108/KS0108.c: 1246:   do{ uint8_t t = X1; X1 = X2; X2 = t; }while(0);
+[e :U 918 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _X1 ]
+[e = _X1 _X2 ]
+[e = _X2 _t ]
+}
+[e :U 917 ]
+[e :U 915 ]
+"1248
+[; ;LCD-KS0108/KS0108.c: 1248:  while (X1 <= X2)
+[e $U 919  ]
+[e :U 920 ]
+"1249
+[; ;LCD-KS0108/KS0108.c: 1249:  {
+{
+"1250
+[; ;LCD-KS0108/KS0108.c: 1250:   GLCD_SetPixel(X1, Y, Color);
+[e ( _GLCD_SetPixel (3 , , _X1 _Y _Color ]
+"1251
+[; ;LCD-KS0108/KS0108.c: 1251:   X1++;
+[e ++ _X1 -> -> 1 `i `uc ]
+"1252
+[; ;LCD-KS0108/KS0108.c: 1252:  }
+}
+[e :U 919 ]
+"1248
+[; ;LCD-KS0108/KS0108.c: 1248:  while (X1 <= X2)
+[e $ <= -> _X1 `i -> _X2 `i 920  ]
+[e :U 921 ]
+"1253
+[; ;LCD-KS0108/KS0108.c: 1253: }
+[e :UE 914 ]
+}
+"1255
+[; ;LCD-KS0108/KS0108.c: 1255: static void GLCD_DrawVLine(uint8_t Y1, uint8_t Y2, const uint8_t X, enum Color_t Color)
+[v _GLCD_DrawVLine `(v ~T0 @X0 1 sf4`uc`uc`Cuc`E5705 ]
+"1256
+[; ;LCD-KS0108/KS0108.c: 1256: {
+{
+[e :U _GLCD_DrawVLine ]
+"1255
+[; ;LCD-KS0108/KS0108.c: 1255: static void GLCD_DrawVLine(uint8_t Y1, uint8_t Y2, const uint8_t X, enum Color_t Color)
+[v _Y1 `uc ~T0 @X0 1 r1 ]
+[v _Y2 `uc ~T0 @X0 1 r2 ]
+[v _X `Cuc ~T0 @X0 1 r3 ]
+[v _Color `E5705 ~T0 @X0 1 r4 ]
+"1256
+[; ;LCD-KS0108/KS0108.c: 1256: {
+[f ]
+"1257
+[; ;LCD-KS0108/KS0108.c: 1257:  if (Y1 > Y2)
+[e $ ! > -> _Y1 `i -> _Y2 `i 923  ]
+"1258
+[; ;LCD-KS0108/KS0108.c: 1258:   do{ uint8_t t = Y1; Y1 = Y2; Y2 = t; }while(0);
+[e :U 926 ]
+{
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t _Y1 ]
+[e = _Y1 _Y2 ]
+[e = _Y2 _t ]
+}
+[e :U 925 ]
+[e :U 923 ]
+"1260
+[; ;LCD-KS0108/KS0108.c: 1260:  GLCD_SetPixels(X, Y1, X, Y2, Color);
+[e ( _GLCD_SetPixels (4 , , , , _X _Y1 _X _Y2 _Color ]
+"1261
+[; ;LCD-KS0108/KS0108.c: 1261: }
+[e :UE 922 ]
+}
+[v F6152 `(v ~T0 @X0 1 tf ]
+"1263
+[; ;LCD-KS0108/KS0108.c: 1263: static void Pulse_En(void)
+[v _Pulse_En `TF6152 ~T0 @X0 1 s ]
+"1264
+[; ;LCD-KS0108/KS0108.c: 1264: {
+{
+[e :U _Pulse_En ]
+[f ]
+"1265
+[; ;LCD-KS0108/KS0108.c: 1265:  ( !0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
+[e ? ! != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"1266
+[; ;LCD-KS0108/KS0108.c: 1266:  _delay((unsigned long)((10)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
+"1267
+[; ;LCD-KS0108/KS0108.c: 1267:  ( 0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
+[e ? != -> 0 `i -> 0 `i : -> =| _LATD -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _LATD -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"1268
+[; ;LCD-KS0108/KS0108.c: 1268:  _delay((unsigned long)((10)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
+"1269
+[; ;LCD-KS0108/KS0108.c: 1269: }
+[e :UE 927 ]
+}
+"1271
+[; ;LCD-KS0108/KS0108.c: 1271: static void Int2bcd(int32_t Value, char BCD[])
+[v _Int2bcd `(v ~T0 @X0 1 sf2`l`*uc ]
+"1272
+[; ;LCD-KS0108/KS0108.c: 1272: {
+{
+[e :U _Int2bcd ]
+"1271
+[; ;LCD-KS0108/KS0108.c: 1271: static void Int2bcd(int32_t Value, char BCD[])
+[v _Value `l ~T0 @X0 1 r1 ]
+[v _BCD `*uc ~T0 @X0 1 r2 ]
+"1272
+[; ;LCD-KS0108/KS0108.c: 1272: {
+[f ]
+"1273
+[; ;LCD-KS0108/KS0108.c: 1273:  uint8_t isNegative = 0;
+[v _isNegative `uc ~T0 @X0 1 a ]
+[e = _isNegative -> -> 0 `i `uc ]
+"1275
+[; ;LCD-KS0108/KS0108.c: 1275:  BCD[0] = BCD[1] = BCD[2] =
+[e = *U + _BCD * -> -> 0 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 1 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 2 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 3 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 4 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 5 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 6 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 7 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 8 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 9 `i `x -> -> # *U _BCD `i `x = *U + _BCD * -> -> 10 `i `x -> -> # *U _BCD `i `x -> -> 48 `ui `uc ]
+"1280
+[; ;LCD-KS0108/KS0108.c: 1280:  if (Value < 0)
+[e $ ! < _Value -> -> 0 `i `l 929  ]
+"1281
+[; ;LCD-KS0108/KS0108.c: 1281:  {
+{
+"1282
+[; ;LCD-KS0108/KS0108.c: 1282:   isNegative = 1;
+[e = _isNegative -> -> 1 `i `uc ]
+"1283
+[; ;LCD-KS0108/KS0108.c: 1283:   Value = -Value;
+[e = _Value -U _Value ]
+"1284
+[; ;LCD-KS0108/KS0108.c: 1284:  }
+}
+[e :U 929 ]
+"1286
+[; ;LCD-KS0108/KS0108.c: 1286:  while (Value > 1000000000)
+[e $U 930  ]
+[e :U 931 ]
+"1287
+[; ;LCD-KS0108/KS0108.c: 1287:  {
+{
+"1288
+[; ;LCD-KS0108/KS0108.c: 1288:   Value -= 1000000000;
+[e =- _Value -> 1000000000 `l ]
+"1289
+[; ;LCD-KS0108/KS0108.c: 1289:   BCD[1]++;
+[e ++ *U + _BCD * -> -> 1 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1290
+[; ;LCD-KS0108/KS0108.c: 1290:  }
+}
+[e :U 930 ]
+"1286
+[; ;LCD-KS0108/KS0108.c: 1286:  while (Value > 1000000000)
+[e $ > _Value -> 1000000000 `l 931  ]
+[e :U 932 ]
+"1292
+[; ;LCD-KS0108/KS0108.c: 1292:  while (Value >= 100000000)
+[e $U 933  ]
+[e :U 934 ]
+"1293
+[; ;LCD-KS0108/KS0108.c: 1293:  {
+{
+"1294
+[; ;LCD-KS0108/KS0108.c: 1294:   Value -= 100000000;
+[e =- _Value -> 100000000 `l ]
+"1295
+[; ;LCD-KS0108/KS0108.c: 1295:   BCD[2]++;
+[e ++ *U + _BCD * -> -> 2 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1296
+[; ;LCD-KS0108/KS0108.c: 1296:  }
+}
+[e :U 933 ]
+"1292
+[; ;LCD-KS0108/KS0108.c: 1292:  while (Value >= 100000000)
+[e $ >= _Value -> 100000000 `l 934  ]
+[e :U 935 ]
+"1298
+[; ;LCD-KS0108/KS0108.c: 1298:  while (Value >= 10000000)
+[e $U 936  ]
+[e :U 937 ]
+"1299
+[; ;LCD-KS0108/KS0108.c: 1299:  {
+{
+"1300
+[; ;LCD-KS0108/KS0108.c: 1300:   Value -= 10000000;
+[e =- _Value -> 10000000 `l ]
+"1301
+[; ;LCD-KS0108/KS0108.c: 1301:   BCD[3]++;
+[e ++ *U + _BCD * -> -> 3 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1302
+[; ;LCD-KS0108/KS0108.c: 1302:  }
+}
+[e :U 936 ]
+"1298
+[; ;LCD-KS0108/KS0108.c: 1298:  while (Value >= 10000000)
+[e $ >= _Value -> 10000000 `l 937  ]
+[e :U 938 ]
+"1304
+[; ;LCD-KS0108/KS0108.c: 1304:  while (Value >= 1000000)
+[e $U 939  ]
+[e :U 940 ]
+"1305
+[; ;LCD-KS0108/KS0108.c: 1305:  {
+{
+"1306
+[; ;LCD-KS0108/KS0108.c: 1306:   Value -= 1000000;
+[e =- _Value -> 1000000 `l ]
+"1307
+[; ;LCD-KS0108/KS0108.c: 1307:   BCD[4]++;
+[e ++ *U + _BCD * -> -> 4 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1308
+[; ;LCD-KS0108/KS0108.c: 1308:  }
+}
+[e :U 939 ]
+"1304
+[; ;LCD-KS0108/KS0108.c: 1304:  while (Value >= 1000000)
+[e $ >= _Value -> 1000000 `l 940  ]
+[e :U 941 ]
+"1310
+[; ;LCD-KS0108/KS0108.c: 1310:  while (Value >= 100000)
+[e $U 942  ]
+[e :U 943 ]
+"1311
+[; ;LCD-KS0108/KS0108.c: 1311:  {
+{
+"1312
+[; ;LCD-KS0108/KS0108.c: 1312:   Value -= 100000;
+[e =- _Value -> 100000 `l ]
+"1313
+[; ;LCD-KS0108/KS0108.c: 1313:   BCD[5]++;
+[e ++ *U + _BCD * -> -> 5 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1314
+[; ;LCD-KS0108/KS0108.c: 1314:  }
+}
+[e :U 942 ]
+"1310
+[; ;LCD-KS0108/KS0108.c: 1310:  while (Value >= 100000)
+[e $ >= _Value -> 100000 `l 943  ]
+[e :U 944 ]
+"1316
+[; ;LCD-KS0108/KS0108.c: 1316:  while (Value >= 10000)
+[e $U 945  ]
+[e :U 946 ]
+"1317
+[; ;LCD-KS0108/KS0108.c: 1317:  {
+{
+"1318
+[; ;LCD-KS0108/KS0108.c: 1318:   Value -= 10000;
+[e =- _Value -> -> 10000 `i `l ]
+"1319
+[; ;LCD-KS0108/KS0108.c: 1319:   BCD[6]++;
+[e ++ *U + _BCD * -> -> 6 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1320
+[; ;LCD-KS0108/KS0108.c: 1320:  }
+}
+[e :U 945 ]
+"1316
+[; ;LCD-KS0108/KS0108.c: 1316:  while (Value >= 10000)
+[e $ >= _Value -> -> 10000 `i `l 946  ]
+[e :U 947 ]
+"1322
+[; ;LCD-KS0108/KS0108.c: 1322:  while (Value >= 1000)
+[e $U 948  ]
+[e :U 949 ]
+"1323
+[; ;LCD-KS0108/KS0108.c: 1323:  {
+{
+"1324
+[; ;LCD-KS0108/KS0108.c: 1324:   Value -= 1000;
+[e =- _Value -> -> 1000 `i `l ]
+"1325
+[; ;LCD-KS0108/KS0108.c: 1325:   BCD[7]++;
+[e ++ *U + _BCD * -> -> 7 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1326
+[; ;LCD-KS0108/KS0108.c: 1326:  }
+}
+[e :U 948 ]
+"1322
+[; ;LCD-KS0108/KS0108.c: 1322:  while (Value >= 1000)
+[e $ >= _Value -> -> 1000 `i `l 949  ]
+[e :U 950 ]
+"1328
+[; ;LCD-KS0108/KS0108.c: 1328:  while (Value >= 100)
+[e $U 951  ]
+[e :U 952 ]
+"1329
+[; ;LCD-KS0108/KS0108.c: 1329:  {
+{
+"1330
+[; ;LCD-KS0108/KS0108.c: 1330:   Value -= 100;
+[e =- _Value -> -> 100 `i `l ]
+"1331
+[; ;LCD-KS0108/KS0108.c: 1331:   BCD[8]++;
+[e ++ *U + _BCD * -> -> 8 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1332
+[; ;LCD-KS0108/KS0108.c: 1332:  }
+}
+[e :U 951 ]
+"1328
+[; ;LCD-KS0108/KS0108.c: 1328:  while (Value >= 100)
+[e $ >= _Value -> -> 100 `i `l 952  ]
+[e :U 953 ]
+"1334
+[; ;LCD-KS0108/KS0108.c: 1334:  while (Value >= 10)
+[e $U 954  ]
+[e :U 955 ]
+"1335
+[; ;LCD-KS0108/KS0108.c: 1335:  {
+{
+"1336
+[; ;LCD-KS0108/KS0108.c: 1336:   Value -= 10;
+[e =- _Value -> -> 10 `i `l ]
+"1337
+[; ;LCD-KS0108/KS0108.c: 1337:   BCD[9]++;
+[e ++ *U + _BCD * -> -> 9 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1338
+[; ;LCD-KS0108/KS0108.c: 1338:  }
+}
+[e :U 954 ]
+"1334
+[; ;LCD-KS0108/KS0108.c: 1334:  while (Value >= 10)
+[e $ >= _Value -> -> 10 `i `l 955  ]
+[e :U 956 ]
+"1340
+[; ;LCD-KS0108/KS0108.c: 1340:  while (Value >= 1)
+[e $U 957  ]
+[e :U 958 ]
+"1341
+[; ;LCD-KS0108/KS0108.c: 1341:  {
+{
+"1342
+[; ;LCD-KS0108/KS0108.c: 1342:   Value -= 1;
+[e =- _Value -> -> 1 `i `l ]
+"1343
+[; ;LCD-KS0108/KS0108.c: 1343:   BCD[10]++;
+[e ++ *U + _BCD * -> -> 10 `i `x -> -> # *U _BCD `i `x -> -> 1 `i `uc ]
+"1344
+[; ;LCD-KS0108/KS0108.c: 1344:  }
+}
+[e :U 957 ]
+"1340
+[; ;LCD-KS0108/KS0108.c: 1340:  while (Value >= 1)
+[e $ >= _Value -> -> 1 `i `l 958  ]
+[e :U 959 ]
+"1346
+[; ;LCD-KS0108/KS0108.c: 1346:  uint8_t i = 0;
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+"1348
+[; ;LCD-KS0108/KS0108.c: 1348:  while (BCD[i] == '0')
+[e $U 960  ]
+[e :U 961 ]
+"1349
+[; ;LCD-KS0108/KS0108.c: 1349:  i++;
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 960 ]
+"1348
+[; ;LCD-KS0108/KS0108.c: 1348:  while (BCD[i] == '0')
+[e $ == -> *U + _BCD * -> _i `ux -> -> # *U _BCD `ui `ux `ui -> 48 `ui 961  ]
+[e :U 962 ]
+"1352
+[; ;LCD-KS0108/KS0108.c: 1352:  if (isNegative)
+[e $ ! != -> _isNegative `i -> 0 `i 963  ]
+"1353
+[; ;LCD-KS0108/KS0108.c: 1353:  {
+{
+"1354
+[; ;LCD-KS0108/KS0108.c: 1354:   i--;
+[e -- _i -> -> 1 `i `uc ]
+"1355
+[; ;LCD-KS0108/KS0108.c: 1355:   BCD[i] = '-';
+[e = *U + _BCD * -> _i `ux -> -> # *U _BCD `ui `ux -> -> 45 `ui `uc ]
+"1356
+[; ;LCD-KS0108/KS0108.c: 1356:  }
+}
+[e :U 963 ]
+"1359
+[; ;LCD-KS0108/KS0108.c: 1359:  uint8_t end = 10 - i;
+[v _end `uc ~T0 @X0 1 a ]
+[e = _end -> - -> 10 `i -> _i `i `uc ]
+"1360
+[; ;LCD-KS0108/KS0108.c: 1360:  uint8_t offset = i;
+[v _offset `uc ~T0 @X0 1 a ]
+[e = _offset _i ]
+"1361
+[; ;LCD-KS0108/KS0108.c: 1361:  i = 0;
+[e = _i -> -> 0 `i `uc ]
+"1362
+[; ;LCD-KS0108/KS0108.c: 1362:  while (i <= end)
+[e $U 964  ]
+[e :U 965 ]
+"1363
+[; ;LCD-KS0108/KS0108.c: 1363:  {
+{
+"1364
+[; ;LCD-KS0108/KS0108.c: 1364:   BCD[i] = BCD[i + offset];
+[e = *U + _BCD * -> _i `ux -> -> # *U _BCD `ui `ux *U + _BCD * -> + -> _i `i -> _offset `i `x -> -> # *U _BCD `i `x ]
+"1365
+[; ;LCD-KS0108/KS0108.c: 1365:   i++;
+[e ++ _i -> -> 1 `i `uc ]
+"1366
+[; ;LCD-KS0108/KS0108.c: 1366:  }
+}
+[e :U 964 ]
+"1362
+[; ;LCD-KS0108/KS0108.c: 1362:  while (i <= end)
+[e $ <= -> _i `i -> _end `i 965  ]
+[e :U 966 ]
+"1367
+[; ;LCD-KS0108/KS0108.c: 1367:  BCD[i] = '\0';
+[e = *U + _BCD * -> _i `ux -> -> # *U _BCD `ui `ux -> -> 0 `ui `uc ]
+"1368
+[; ;LCD-KS0108/KS0108.c: 1368: }
+[e :UE 928 ]
+}
+"1371
+[; ;LCD-KS0108/KS0108.c: 1371: void GLCD_Render_printf(void)
+[v _GLCD_Render_printf `(v ~T0 @X0 1 ef ]
+"1372
+[; ;LCD-KS0108/KS0108.c: 1372: {
+{
+[e :U _GLCD_Render_printf ]
+[f ]
+"1373
+[; ;LCD-KS0108/KS0108.c: 1373:  unsigned int i, j,temp;
+[v _i `ui ~T0 @X0 1 a ]
+[v _j `ui ~T0 @X0 1 a ]
+[v _temp `ui ~T0 @X0 1 a ]
+"1375
+[; ;LCD-KS0108/KS0108.c: 1375:  for (j = 0 ; j < 8 ; j += 8)
+{
+[e = _j -> -> 0 `i `ui ]
+[e $ < _j -> -> 8 `i `ui 968  ]
+[e $U 969  ]
+[e :U 968 ]
+"1376
+[; ;LCD-KS0108/KS0108.c: 1376:  {
+{
+"1380
+[; ;LCD-KS0108/KS0108.c: 1380:     for (int bit = 0; bit < 8; bit++)
+{
+[v _bit `i ~T0 @X0 1 a ]
+[e = _bit -> 0 `i ]
+[e $ < _bit -> 8 `i 971  ]
+[e $U 972  ]
+[e :U 971 ]
+"1381
+[; ;LCD-KS0108/KS0108.c: 1381:     {
+{
+"1383
+[; ;LCD-KS0108/KS0108.c: 1383:      for (i = 0 ; i < 32 ; i++)
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 32 `i `ui 974  ]
+[e $U 975  ]
+[e :U 974 ]
+"1384
+[; ;LCD-KS0108/KS0108.c: 1384:      {
+{
+"1385
+[; ;LCD-KS0108/KS0108.c: 1385:       temp = (GLCD_BufferRead(i, j) >> bit) & 0x01;
+[e = _temp -> & >> -> ( _GLCD_BufferRead (2 , -> _i `uc -> _j `uc `i _bit -> 1 `i `ui ]
+"1387
+[; ;LCD-KS0108/KS0108.c: 1387:       if(temp == 1)
+[e $ ! == _temp -> -> 1 `i `ui 977  ]
+"1388
+[; ;LCD-KS0108/KS0108.c: 1388:       {
+{
+"1389
+[; ;LCD-KS0108/KS0108.c: 1389:        printf("1 ");
+[e ( _printf :s 6C ]
+"1390
+[; ;LCD-KS0108/KS0108.c: 1390:       }else
+}
+[e $U 978  ]
+[e :U 977 ]
+"1391
+[; ;LCD-KS0108/KS0108.c: 1391:       {
+{
+"1392
+[; ;LCD-KS0108/KS0108.c: 1392:        printf(". ");
+[e ( _printf :s 7C ]
+"1393
+[; ;LCD-KS0108/KS0108.c: 1393:       }
+}
+[e :U 978 ]
+"1394
+[; ;LCD-KS0108/KS0108.c: 1394:      }
+}
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 32 `i `ui 974  ]
+[e :U 975 ]
+}
+"1395
+[; ;LCD-KS0108/KS0108.c: 1395:      printf("\n\r");
+[e ( _printf :s 8C ]
+"1396
+[; ;LCD-KS0108/KS0108.c: 1396:     }
+}
+[e ++ _bit -> 1 `i ]
+[e $ < _bit -> 8 `i 971  ]
+[e :U 972 ]
+}
+"1399
+[; ;LCD-KS0108/KS0108.c: 1399:   printf("\n\r");
+[e ( _printf :s 9C ]
+"1400
+[; ;LCD-KS0108/KS0108.c: 1400:  }
+}
+[e =+ _j -> -> 8 `i `ui ]
+[e $ < _j -> -> 8 `i `ui 968  ]
+[e :U 969 ]
+}
+"1401
+[; ;LCD-KS0108/KS0108.c: 1401: }
+[e :UE 967 ]
+}
+[p f _printf 10485888 ]
+[a 4C 37 100 0 ]
+[a 6C 49 32 0 ]
+[a 7C 46 32 0 ]
+[a 1C 66 85 83 89 58 32 37 88 32 10 13 0 ]
+[a 2C 82 69 83 69 84 58 32 37 88 32 10 13 0 ]
+[a 3C 79 78 47 79 70 70 58 32 37 88 32 10 13 0 ]
+[a 5C 10 13 0 ]
+[a 8C 10 13 0 ]
+[a 9C 10 13 0 ]
