@@ -27,14 +27,19 @@
  */
 
 // This is a guard condition so that contents of this file are not included
-// more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+// more than once. 
 
-#include <xc.h> // include processor files - each processor file is guarded.  
+
+ // include processor files - each processor file is guarded.  
+
+#ifndef INTERRUPTS_H
+#define	INTERRUPTS_H
+
+
+#include <xc.h>
 
 extern volatile uint8_t button_counter;
-
+void Init_Timer0();
 
 
 

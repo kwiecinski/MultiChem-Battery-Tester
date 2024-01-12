@@ -22,11 +22,12 @@
   * SOFTWARE.
 **/
 
-#include "button.h"
-#include "stdio.h"
+
+#include <stdio.h>
 #include "main.h"
 #include "LCD-KS0108/IO_Macros.h"
 #include "interrupts.h"
+#include "button.h"
 
 #define BTN_PROCESS_DEF        (10)
 #define BTN_DEBOUNCE_DEF       (20)
@@ -35,13 +36,10 @@
 #define BTN_DEBOUNCE_TIME      (this.debounce_time_ms / this.process_time_ms)
 #define BTN_LONG_PRESS_TIME(x) (this.instance[x].long_press_time_ms / this.process_time_ms)
 
-#define BUTTON_COUNT    2
+#define BUTTON_COUNT    5
 
 #define SW_RIGHT_GetValue 
 #define SW_LEFT_GetValue
-
-
-
 
 
 /////////// Functions for reading button state ////////////////
@@ -82,7 +80,7 @@ btn_instance_t instance[BUTTON_COUNT] =
       .long_press_time_ms = 1200,
       .port_read = ButtonLeft,
   },
-    {
+  {
       .long_press_time_ms = 1200,
       .port_read = ButtonUp,
   }, 
@@ -94,7 +92,7 @@ btn_instance_t instance[BUTTON_COUNT] =
       .long_press_time_ms = 1200,
       .port_read = ButtonOK,
   },
-};  
+};
 
       
 /////////// Callback functions for button pressing ////////////////
@@ -151,6 +149,7 @@ void Button_Update(void)
     {
 
       btn_state_t now_pressed = BTN_STATE_NONE;
+      
       now_pressed = ((this.instance[key].port_read)()==0 ? BTN_STATE_SHORT : BTN_STATE_NONE);
 
       if (BTN_STATE_SHORT == now_pressed)                 // Button pressed   

@@ -124,7 +124,7 @@ uint16_t GLCD_GetWidthString_P(const char *Text);
 void GLCD_PrintChar(char Character);
 void GLCD_PrintString(const char *Text);
 void GLCD_PrintString_P(const char *Text);
-void GLCD_PrintInteger(const int32_t Value);
+void GLCD_PrintInteger(int32_t Value);
 void GLCD_PrintDouble(double Value, const uint32_t Tens);
 
 void GLCD_Render_printf(void);

@@ -6,4 +6,7 @@ LCD-KS0108/KS0108_Settings.h  \
 peripherials/UART.h  \
 main.h  \
 settings.h  \
-menu.h 
+menu.h  \
+button.h  \
+LCD-KS0108/font5x8.h  \
+interrupts.h 

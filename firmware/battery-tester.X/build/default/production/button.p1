@@ -1,29 +1,51 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13577 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 13577: extern volatile unsigned char PR2 __attribute__((address(0xFCB)));
-[v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
-"10369
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 10369: extern volatile unsigned char CCPR3L __attribute__((address(0xFB2)));
-[v _CCPR3L `Vuc ~T0 @X0 0 e@4018 ]
-"10271
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 10271:     struct {
-[s S399 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S399 . CCP3M DC3B P3M ]
-"10276
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 10276:     struct {
-[s S400 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S400 . CCP3M0 CCP3M1 CCP3M2 CCP3M3 DC3B0 DC3B1 P3M0 P3M1 ]
-"10286
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 10286:     struct {
-[s S401 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S401 . . CCP3Y CCP3X ]
-"10270
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 10270: typedef union {
-[u S398 `S399 1 `S400 1 `S401 1 ]
-[n S398 . . . . ]
-"10292
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 10292: extern volatile CCP3CONbits_t CCP3CONbits __attribute__((address(0xFB1)));
-[v _CCP3CONbits `VS398 ~T0 @X0 0 e@4017 ]
+"5244 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 5244: extern volatile unsigned char PORTC __attribute__((address(0xF82)));
+[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
+"5945
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 5945: extern volatile unsigned char PORTG __attribute__((address(0xF86)));
+[v _PORTG `Vuc ~T0 @X0 0 e@3974 ]
+"176 ./button.h
+[; ;./button.h: 176:   struct {
+[s S631 :2 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S631 . act prew locked ]
+[v F5721 `(uc ~T0 @X0 0 t? ]
+"175
+[; ;./button.h: 175: typedef struct {
+[s S630 `S631 1 `uc 1 `us 1 `us 1 `*F5721 1 ]
+[n S630 . state lock_count long_count long_press_time_ms port_read ]
+[v F5751 `(uc ~T0 @X0 0 t? ]
+[v F5753 `(uc ~T0 @X0 0 t? ]
+[v F5755 `(uc ~T0 @X0 0 t? ]
+[v F5757 `(uc ~T0 @X0 0 t? ]
+[v F5759 `(uc ~T0 @X0 0 t? ]
+"106 button.c
+[; ;button.c: 106: static btn_init_t this =
+[c E5694 0 1 2 3 4 .. ]
+[n E5694 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
+[v F5729 `(v ~T0 @X0 0 tf1`E5694 ]
+[v F5732 `(v ~T0 @X0 0 tf1`E5694 ]
+[v F5735 `(v ~T0 @X0 0 tf1`E5694 ]
+"194 ./button.h
+[; ;./button.h: 194: typedef struct {
+[s S632 `*S630 1 `uc 1 `uc 1 `us 1 `*F5729 1 `*F5732 1 `*F5735 1 ]
+[n S632 . instance process_time_ms debounce_time_ms long_press_def_ms short_release long_release long_press ]
+"7273 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 7273: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"8117
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 8117: extern volatile unsigned char TRISG __attribute__((address(0xF98)));
+[v _TRISG `Vuc ~T0 @X0 0 e@3992 ]
+"133 button.c
+[; ;button.c: 133:     this.instance[i].state.prew = BTN_STATE_NONE;
+[c E5701 0 1 2 .. ]
+[n E5701 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
+"41 ./interrupts.h
+[; ;./interrupts.h: 41: extern volatile uint8_t button_counter;
+[v _button_counter `Vuc ~T0 @X0 0 e ]
+[v F5768 `(v ~T0 @X0 0 tf1`E5694 ]
+[v F5774 `(v ~T0 @X0 0 tf1`E5694 ]
+[v F5780 `(v ~T0 @X0 0 tf1`E5694 ]
 "54 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -803,42 +825,513 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CCP2MX  =  DEFAULT      ]
 "59
 [p x MSSPMSK  =  MSK5        ]
-"7 pwm.c
-[; ;pwm.c: 7: void setPWMDutyCycle(unsigned int pwm_dutycycle)
-[v _setPWMDutyCycle `(v ~T0 @X0 1 ef1`ui ]
-"8
-[; ;pwm.c: 8: {
+"47 button.c
+[; ;button.c: 47: uint8_t ButtonRight(void)
+[v _ButtonRight `(uc ~T0 @X0 1 ef ]
+"48
+[; ;button.c: 48: {
 {
-[e :U _setPWMDutyCycle ]
-"7
-[; ;pwm.c: 7: void setPWMDutyCycle(unsigned int pwm_dutycycle)
-[v _pwm_dutycycle `ui ~T0 @X0 1 r1 ]
-"8
-[; ;pwm.c: 8: {
+[e :U _ButtonRight ]
 [f ]
-"9
-[; ;pwm.c: 9:     uint8_t presc=1;
-[v _presc `uc ~T0 @X0 1 a ]
-[e = _presc -> -> 1 `i `uc ]
-"11
-[; ;pwm.c: 11:     float pwm_period = (PR2 + 1) * 4 * presc * (1 / 24000000);
-[v _pwm_period `f ~T0 @X0 1 a ]
-[e = _pwm_period -> * -> * * + -> _PR2 `i -> 1 `i -> 4 `i -> _presc `i `l / -> -> 1 `i `l -> 24000000 `l `f ]
-"13
-[; ;pwm.c: 13:     float pwm_dutycycle_period = (uint32_t)pwm_dutycycle * (1 / 24000000) * presc;
-[v _pwm_dutycycle_period `f ~T0 @X0 1 a ]
-[e = _pwm_dutycycle_period -> * * -> _pwm_dutycycle `ul -> / -> -> 1 `i `l -> 24000000 `l `ul -> _presc `ul `f ]
-"15
-[; ;pwm.c: 15:     uint16_t CCPR3L_DC3B_val = (uint16_t)((pwm_dutycycle_period * 100) / pwm_period);
-[v _CCPR3L_DC3B_val `us ~T0 @X0 1 a ]
-[e = _CCPR3L_DC3B_val -> / * _pwm_dutycycle_period -> -> 100 `i `f _pwm_period `us ]
-"18
-[; ;pwm.c: 18:     CCPR3L = (CCPR3L_DC3B_val >> 2);
-[e = _CCPR3L -> >> -> _CCPR3L_DC3B_val `ui -> 2 `i `uc ]
-"19
-[; ;pwm.c: 19:     CCP3CONbits.DC3B = (CCPR3L_DC3B_val & 0x03);
-[e = . . _CCP3CONbits 0 1 -> & -> _CCPR3L_DC3B_val `ui -> -> 3 `i `ui `uc ]
-"20
-[; ;pwm.c: 20: }
-[e :UE 630 ]
+"49
+[; ;button.c: 49:    return ( ( ( (PORTC) & (1UL<<7) ? 1 : 0 ) ) );
+[e ) -> ? != & -> _PORTC `ul << -> 1 `ul -> 7 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i `uc ]
+[e $UE 633  ]
+"50
+[; ;button.c: 50: }
+[e :UE 633 ]
+}
+"52
+[; ;button.c: 52: uint8_t ButtonLeft(void)
+[v _ButtonLeft `(uc ~T0 @X0 1 ef ]
+"53
+[; ;button.c: 53: {
+{
+[e :U _ButtonLeft ]
+[f ]
+"54
+[; ;button.c: 54:    return ( ( ( (PORTC) & (1UL<<6) ? 1 : 0 ) ) );
+[e ) -> ? != & -> _PORTC `ul << -> 1 `ul -> 6 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i `uc ]
+[e $UE 634  ]
+"55
+[; ;button.c: 55: }
+[e :UE 634 ]
+}
+"57
+[; ;button.c: 57: uint8_t ButtonUp(void)
+[v _ButtonUp `(uc ~T0 @X0 1 ef ]
+"58
+[; ;button.c: 58: {
+{
+[e :U _ButtonUp ]
+[f ]
+"59
+[; ;button.c: 59:    return ( ( ( (PORTG) & (1UL<<0) ? 1 : 0 ) ) );
+[e ) -> ? != & -> _PORTG `ul << -> 1 `ul -> 0 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i `uc ]
+[e $UE 635  ]
+"60
+[; ;button.c: 60: }
+[e :UE 635 ]
+}
+"62
+[; ;button.c: 62: uint8_t ButtonDown(void)
+[v _ButtonDown `(uc ~T0 @X0 1 ef ]
+"63
+[; ;button.c: 63: {
+{
+[e :U _ButtonDown ]
+[f ]
+"64
+[; ;button.c: 64:    return ( ( ( (PORTG) & (1UL<<4) ? 1 : 0 ) ) );
+[e ) -> ? != & -> _PORTG `ul << -> 1 `ul -> 4 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i `uc ]
+[e $UE 636  ]
+"65
+[; ;button.c: 65: }
+[e :UE 636 ]
+}
+"67
+[; ;button.c: 67: uint8_t ButtonOK(void)
+[v _ButtonOK `(uc ~T0 @X0 1 ef ]
+"68
+[; ;button.c: 68: {
+{
+[e :U _ButtonOK ]
+[f ]
+"69
+[; ;button.c: 69:    return ( ( ( (PORTG) & (1UL<<3) ? 1 : 0 ) ) );
+[e ) -> ? != & -> _PORTG `ul << -> 1 `ul -> 3 `i -> -> -> 0 `i `l `ul : -> 1 `i -> 0 `i `uc ]
+[e $UE 637  ]
+"70
+[; ;button.c: 70: }
+[e :UE 637 ]
+}
+"73
+[; ;button.c: 73: btn_instance_t instance[5] =
+[v _instance `S630 ~T0 @X0 -> 5 `i e ]
+[i _instance
+:U ..
+:U ..
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+-> -> 0 `i `uc
+-> -> 0 `i `us
+-> -> 1200 `i `us
+-> &U _ButtonRight `*F5751
+..
+:U ..
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+-> -> 0 `i `uc
+-> -> 0 `i `us
+-> -> 1200 `i `us
+-> &U _ButtonLeft `*F5753
+..
+:U ..
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+-> -> 0 `i `uc
+-> -> 0 `i `us
+-> -> 1200 `i `us
+-> &U _ButtonUp `*F5755
+..
+:U ..
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+-> -> 0 `i `uc
+-> -> 0 `i `us
+-> -> 1200 `i `us
+-> &U _ButtonDown `*F5757
+..
+:U ..
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+-> -> 0 `i `uc
+-> -> 0 `i `us
+-> -> 1200 `i `us
+-> &U _ButtonOK `*F5759
+..
+..
+]
+"106
+[; ;button.c: 106: static btn_init_t this =
+[v _this `S632 ~T0 @X0 1 s ]
+[i _this
+:U ..
+:U ..
+&U *U + &U _instance * -> -> -> 0 `i `ui `ux -> -> # *U &U _instance `ui `ux
+-> -> 10 `i `uc
+-> -> 20 `i `uc
+..
+..
+]
+"116
+[; ;button.c: 116: void Button_Init(void)
+[v _Button_Init `(v ~T0 @X0 1 ef ]
+"117
+[; ;button.c: 117: {
+{
+[e :U _Button_Init ]
+[f ]
+"118
+[; ;button.c: 118:     ( 1 ? ( ( (TRISC) |= (1UL<<6) ) ) : ( ( (TRISC) &= (~(1UL<<6)) ) ) );
+[e ? != -> 1 `i -> 0 `i : -> =| _TRISC -> << -> 1 `ul -> 6 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `ul -> 6 `i `Vuc `i ]
+"119
+[; ;button.c: 119:     ( 1 ? ( ( (TRISC) |= (1UL<<7) ) ) : ( ( (TRISC) &= (~(1UL<<7)) ) ) );
+[e ? != -> 1 `i -> 0 `i : -> =| _TRISC -> << -> 1 `ul -> 7 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `ul -> 7 `i `Vuc `i ]
+"120
+[; ;button.c: 120:     ( 1 ? ( ( (TRISG) |= (1UL<<0) ) ) : ( ( (TRISG) &= (~(1UL<<0)) ) ) );
+[e ? != -> 1 `i -> 0 `i : -> =| _TRISG -> << -> 1 `ul -> 0 `i `Vuc `i -> =& _TRISG -> ~ << -> 1 `ul -> 0 `i `Vuc `i ]
+"121
+[; ;button.c: 121:     ( 1 ? ( ( (TRISG) |= (1UL<<4) ) ) : ( ( (TRISG) &= (~(1UL<<4)) ) ) );
+[e ? != -> 1 `i -> 0 `i : -> =| _TRISG -> << -> 1 `ul -> 4 `i `Vuc `i -> =& _TRISG -> ~ << -> 1 `ul -> 4 `i `Vuc `i ]
+"122
+[; ;button.c: 122:     ( 1 ? ( ( (TRISG) |= (1UL<<3) ) ) : ( ( (TRISG) &= (~(1UL<<3)) ) ) );
+[e ? != -> 1 `i -> 0 `i : -> =| _TRISG -> << -> 1 `ul -> 3 `i `Vuc `i -> =& _TRISG -> ~ << -> 1 `ul -> 3 `i `Vuc `i ]
+"126
+[; ;button.c: 126:   this.process_time_ms = (this.process_time_ms) ? this.process_time_ms : (10);
+[e = . _this 1 -> ? != -> . _this 1 `i -> 0 `i : -> . _this 1 `i -> 10 `i `uc ]
+"127
+[; ;button.c: 127:   this.debounce_time_ms = (this.debounce_time_ms) ? this.debounce_time_ms : (20);
+[e = . _this 2 -> ? != -> . _this 2 `i -> 0 `i : -> . _this 2 `i -> 20 `i `uc ]
+"128
+[; ;button.c: 128:   this.long_press_def_ms = (this.long_press_def_ms) ? this.long_press_def_ms : (1000);
+[e = . _this 3 -> ? != -> . _this 3 `ui -> -> 0 `i `ui : -> . _this 3 `ui -> -> 1000 `i `ui `us ]
+"130
+[; ;button.c: 130:   for(uint8_t i = 0; i < 5; i++)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 5 `i 639  ]
+[e $U 640  ]
+[e :U 639 ]
+"131
+[; ;button.c: 131:   {
+{
+"132
+[; ;button.c: 132:     this.instance[i].state.locked = 0;
+[e = . . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 0 2 -> -> 0 `i `uc ]
+"133
+[; ;button.c: 133:     this.instance[i].state.prew = BTN_STATE_NONE;
+[e = . . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 0 1 -> . `E5701 0 `uc ]
+"134
+[; ;button.c: 134:     this.instance[i].long_count = 0;
+[e = . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 2 -> -> 0 `i `us ]
+"135
+[; ;button.c: 135:     this.instance[i].lock_count = 0;
+[e = . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 1 -> -> 0 `i `uc ]
+"136
+[; ;button.c: 136:     this.instance[i].long_press_time_ms = (this.instance[i].long_press_time_ms) ? this.instance[i].long_press_time_ms : this.long_press_def_ms;
+[e = . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 3 -> ? != -> . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 3 `ui -> -> 0 `i `ui : -> . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 3 `ui -> . _this 3 `ui `us ]
+"137
+[; ;button.c: 137:   }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 5 `i 639  ]
+[e :U 640 ]
+}
+"138
+[; ;button.c: 138: }
+[e :UE 638 ]
+}
+"141
+[; ;button.c: 141: void Button_Update(void)
+[v _Button_Update `(v ~T0 @X0 1 ef ]
+"142
+[; ;button.c: 142: {
+{
+[e :U _Button_Update ]
+[f ]
+"143
+[; ;button.c: 143:   uint8_t key = 0;
+[v _key `uc ~T0 @X0 1 a ]
+[e = _key -> -> 0 `i `uc ]
+"146
+[; ;button.c: 146:   if(button_counter>=10)
+[e $ ! >= -> _button_counter `i -> 10 `i 643  ]
+"147
+[; ;button.c: 147:   {
+{
+"148
+[; ;button.c: 148:     while(key < 5)
+[e $U 644  ]
+[e :U 645 ]
+"149
+[; ;button.c: 149:     {
+{
+"151
+[; ;button.c: 151:       btn_state_t now_pressed = BTN_STATE_NONE;
+[v _now_pressed `E5701 ~T0 @X0 1 a ]
+[e = _now_pressed . `E5701 0 ]
+"152
+[; ;button.c: 152:       now_pressed = ((this.instance[key].port_read)()==0 ? BTN_STATE_SHORT : BTN_STATE_NONE);
+[e = _now_pressed -> ? == -> ( *U . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 4 ..  `i -> 0 `i : . `E5701 1 . `E5701 0 `E5701 ]
+"154
+[; ;button.c: 154:       if (BTN_STATE_SHORT == now_pressed)
+[e $ ! == -> . `E5701 1 `ui -> _now_pressed `ui 647  ]
+"155
+[; ;button.c: 155:       {
+{
+"156
+[; ;button.c: 156:         if (!this.instance[key].state.locked)
+[e $ ! ! != -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 2 `i -> 0 `i 648  ]
+"157
+[; ;button.c: 157:         {
+{
+"158
+[; ;button.c: 158:           if (++this.instance[key].lock_count >= (this.debounce_time_ms / this.process_time_ms))
+[e $ ! >= -> =+ . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 1 -> -> 1 `i `uc `i / -> . _this 2 `i -> . _this 1 `i 649  ]
+"159
+[; ;button.c: 159:           {
+{
+"160
+[; ;button.c: 160:             this.instance[key].state.locked = 1;
+[e = . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 2 -> -> 1 `i `uc ]
+"161
+[; ;button.c: 161:           }
+}
+[e :U 649 ]
+"162
+[; ;button.c: 162:         }
+}
+[e :U 648 ]
+"164
+[; ;button.c: 164:         if ((this.instance[key].state.locked) &&
+[e $ ! && != -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 2 `i -> 0 `i == -> . `E5701 1 `i -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 1 `i 650  ]
+"166
+[; ;button.c: 166:         {
+{
+"167
+[; ;button.c: 167:           if (++this.instance[key].long_count >= (this.instance[key].long_press_time_ms / this.process_time_ms))
+[e $ ! >= -> =+ . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 2 -> -> 1 `i `us `ui / -> . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 3 `ui -> . _this 1 `ui 651  ]
+"168
+[; ;button.c: 168:           {
+{
+"169
+[; ;button.c: 169:             this.instance[key].state.act = BTN_STATE_LONG;
+[e = . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 -> . `E5701 2 `uc ]
+"170
+[; ;button.c: 170:             if (((void*)0) != this.long_press) this.long_press(key);
+[e $ ! != -> -> -> 0 `i `*v `*F5768 . _this 6 652  ]
+[e ( *U . _this 6 (1 -> _key `E5694 ]
+[e :U 652 ]
+"171
+[; ;button.c: 171:           }
+}
+[e :U 651 ]
+"172
+[; ;button.c: 172:         }
+}
+[e :U 650 ]
+"173
+[; ;button.c: 173:         this.instance[key].state.prew = now_pressed;
+[e = . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 1 -> _now_pressed `uc ]
+"174
+[; ;button.c: 174:       }
+}
+[e $U 653  ]
+"175
+[; ;button.c: 175:       else if (BTN_STATE_NONE == now_pressed)
+[e :U 647 ]
+[e $ ! == -> . `E5701 0 `ui -> _now_pressed `ui 654  ]
+"176
+[; ;button.c: 176:       {
+{
+"177
+[; ;button.c: 177:         if (this.instance[key].state.locked)
+[e $ ! != -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 2 `i -> 0 `i 655  ]
+"178
+[; ;button.c: 178:         {
+{
+"179
+[; ;button.c: 179:           if (this.instance[key].lock_count)
+[e $ ! != -> . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 1 `i -> 0 `i 656  ]
+"180
+[; ;button.c: 180:           {
+{
+"181
+[; ;button.c: 181:             this.instance[key].lock_count--;
+[e -- . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 1 -> -> 1 `i `uc ]
+"182
+[; ;button.c: 182:           }
+}
+[e $U 657  ]
+"183
+[; ;button.c: 183:           else
+[e :U 656 ]
+"184
+[; ;button.c: 184:           {
+{
+"185
+[; ;button.c: 185:             this.instance[key].state.locked = 0;
+[e = . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 2 -> -> 0 `i `uc ]
+"186
+[; ;button.c: 186:             if (this.instance[key].long_count < (this.instance[key].long_press_time_ms / this.process_time_ms))
+[e $ ! < -> . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 2 `ui / -> . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 3 `ui -> . _this 1 `ui 658  ]
+"187
+[; ;button.c: 187:             {
+{
+"188
+[; ;button.c: 188:               if (0 == this.instance[key].lock_count)
+[e $ ! == -> 0 `i -> . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 1 `i 659  ]
+"189
+[; ;button.c: 189:               {
+{
+"190
+[; ;button.c: 190:                 this.instance[key].state.act = BTN_STATE_SHORT;
+[e = . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 -> . `E5701 1 `uc ]
+"191
+[; ;button.c: 191:                 if (((void*)0) != this.short_release) this.short_release(key);
+[e $ ! != -> -> -> 0 `i `*v `*F5774 . _this 4 660  ]
+[e ( *U . _this 4 (1 -> _key `E5694 ]
+[e :U 660 ]
+"192
+[; ;button.c: 192:               }
+}
+[e :U 659 ]
+"193
+[; ;button.c: 193:             }
+}
+[e $U 661  ]
+"194
+[; ;button.c: 194:             else
+[e :U 658 ]
+"195
+[; ;button.c: 195:             {
+{
+"196
+[; ;button.c: 196:               if (BTN_STATE_LONG == this.instance[key].state.act)
+[e $ ! == -> . `E5701 2 `i -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 `i 662  ]
+"197
+[; ;button.c: 197:               {
+{
+"198
+[; ;button.c: 198:                 if (((void*)0) != this.long_release) this.long_release(key);
+[e $ ! != -> -> -> 0 `i `*v `*F5780 . _this 5 663  ]
+[e ( *U . _this 5 (1 -> _key `E5694 ]
+[e :U 663 ]
+"199
+[; ;button.c: 199:               }
+}
+[e :U 662 ]
+"200
+[; ;button.c: 200:             }
+}
+[e :U 661 ]
+"201
+[; ;button.c: 201:           }
+}
+[e :U 657 ]
+"202
+[; ;button.c: 202:         }
+}
+[e $U 664  ]
+"203
+[; ;button.c: 203:         else
+[e :U 655 ]
+"204
+[; ;button.c: 204:         {
+{
+"205
+[; ;button.c: 205:           this.instance[key].long_count = 0;
+[e = . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 2 -> -> 0 `i `us ]
+"206
+[; ;button.c: 206:         }
+}
+[e :U 664 ]
+"207
+[; ;button.c: 207:       }
+}
+[e :U 654 ]
+[e :U 653 ]
+"208
+[; ;button.c: 208:       key++;
+[e ++ _key -> -> 1 `i `uc ]
+"209
+[; ;button.c: 209:     }
+}
+[e :U 644 ]
+"148
+[; ;button.c: 148:     while(key < 5)
+[e $ < -> _key `i -> 5 `i 645  ]
+[e :U 646 ]
+"210
+[; ;button.c: 210:       button_counter=0;
+[e = _button_counter -> -> 0 `i `uc ]
+"211
+[; ;button.c: 211:   }
+}
+[e :U 643 ]
+"212
+[; ;button.c: 212: }
+[e :UE 642 ]
+}
+"214
+[; ;button.c: 214: btn_state_t Button_EventGet(uint8_t key)
+[v _Button_EventGet `(E5701 ~T0 @X0 1 ef1`uc ]
+"215
+[; ;button.c: 215: {
+{
+[e :U _Button_EventGet ]
+"214
+[; ;button.c: 214: btn_state_t Button_EventGet(uint8_t key)
+[v _key `uc ~T0 @X0 1 r1 ]
+"215
+[; ;button.c: 215: {
+[f ]
+"216
+[; ;button.c: 216:   if (key >= 5) return 0;
+[e $ ! >= -> _key `i -> 5 `i 666  ]
+[e ) -> -> 0 `i `E5701 ]
+[e $UE 665  ]
+[e :U 666 ]
+"217
+[; ;button.c: 217:   return this.instance[key].state.act;
+[e ) -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 `E5701 ]
+[e $UE 665  ]
+"219
+[; ;button.c: 219: }
+[e :UE 665 ]
+}
+"221
+[; ;button.c: 221: void Button_Event_Reset(void)
+[v _Button_Event_Reset `(v ~T0 @X0 1 ef ]
+"222
+[; ;button.c: 222: {
+{
+[e :U _Button_Event_Reset ]
+[f ]
+"223
+[; ;button.c: 223:     this.instance[0].state.act = 0;
+[e = . . *U + . _this 0 * -> -> 0 `i `x -> -> # *U . _this 0 `i `x 0 0 -> -> 0 `i `uc ]
+"224
+[; ;button.c: 224:     this.instance[1].state.act = 0;
+[e = . . *U + . _this 0 * -> -> 1 `i `x -> -> # *U . _this 0 `i `x 0 0 -> -> 0 `i `uc ]
+"227
+[; ;button.c: 227: }
+[e :UE 667 ]
 }

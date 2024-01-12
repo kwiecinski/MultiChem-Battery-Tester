@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Buck-converter.X
+PROJECTNAME=battery-tester.X
 
 # Active Configuration
 DEFAULTCONF=default

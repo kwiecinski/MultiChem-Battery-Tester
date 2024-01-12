@@ -293,7 +293,7 @@ void GLCD_SetPixels(const uint8_t X1, uint8_t Y1, const uint8_t X2, const uint8_
 		//Fractional rows at the bottom of the region
 		if (h < height)
 		{
-			mask = ~(0xFF << (height - h));
+			mask = ~((uint8_t)0xFF << (height - h));
 			GLCD_GotoXY(X1, Y1 + __GLCD_Screen_Line_Height);
 			for (i = 0 ; i < width ; i++)
 			{
@@ -326,7 +326,7 @@ void GLCD_DrawBitmap(const uint8_t *Bitmap, uint8_t Width, const uint8_t Height,
 	
 	//#3 - Read height - Second two bytes - Convert to lines
 	lines = (Height + __GLCD_Screen_Line_Height - 1) / __GLCD_Screen_Line_Height;	//lines = Ceiling(A/B) = (A+B-1)/B
-	data = __GLCD.Y / __GLCD_Screen_Line_Height + lines;							//"data" is used temporarily
+	data = __GLCD.Y / (uint8_t)__GLCD_Screen_Line_Height + lines;							//"data" is used temporarily
 	//If bitmap exceed screen bounds, reduce
 	if (data > __GLCD_Screen_Lines)
 		lines -= data - __GLCD_Screen_Lines;
@@ -1069,7 +1069,7 @@ void GLCD_PrintString_P(const char *Text)
 	}
 }
 
-void GLCD_PrintInteger(const int32_t Value)
+void GLCD_PrintInteger(int32_t Value)
 {
 	if (Value == 0)
 	{

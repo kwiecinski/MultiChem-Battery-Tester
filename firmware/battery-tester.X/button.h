@@ -174,8 +174,8 @@ typedef void (*btn_ev_cb_t)(buttons btn_code);
  */
 typedef struct {
   struct {
-    btn_state_t  act  : 2;     // actual button state
-    btn_state_t  prew : 2;     // previeus button state
+    uint8_t  act  : 2;     // actual button state
+    uint8_t  prew : 2;     // previeus button state
     uint8_t      locked : 1;   // debounce button lock
   } state;
 
@@ -231,8 +231,6 @@ void Button_Update(void);
   */
 btn_state_t Button_EventGet(uint8_t key);
 void Button_Event_Reset(void);
-
-
 void Button_ShortRelease(buttons btnCode);
 
 

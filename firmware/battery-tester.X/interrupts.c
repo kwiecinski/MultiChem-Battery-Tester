@@ -1,5 +1,9 @@
-#include <xc.h>
+
 #include "interrupts.h"
+
+
+volatile uint8_t button_counter;
+
 // Function to initialize Timer0
 void Init_Timer0() 
 {
@@ -31,12 +35,14 @@ void Init_Timer0()
  }
 
 // Interrupt Service Routine for Timer0 overflow
-void __interrupt() ISR() {
+void __interrupt() ISR() 
+{
     // Check if Timer0 overflowed
-    if (INTCONbits.TMR0IF) {
+    if (INTCONbits.TMR0IF) 
+    {
 
        //TMR0 overflow = Fosc/(4*prescaler*desired frequency)
-        TMR0 = 0xFF-750;
+        TMR0 = 0xFFFF-750;
 
         //Code to be executed evry desired time
         
