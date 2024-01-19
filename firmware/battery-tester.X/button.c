@@ -147,7 +147,6 @@ void Button_Update(void)
   {
     while(key < BUTTON_COUNT)
     {
-
       btn_state_t now_pressed = BTN_STATE_NONE;
       
       now_pressed = ((this.instance[key].port_read)()==0 ? BTN_STATE_SHORT : BTN_STATE_NONE);
@@ -223,7 +222,10 @@ void Button_Event_Reset(void)
 {
     this.instance[0].state.act = 0;
     this.instance[1].state.act = 0;
-    
+    this.instance[2].state.act = 0;
+    this.instance[3].state.act = 0;
+    this.instance[4].state.act = 0;
+
  
 }
 

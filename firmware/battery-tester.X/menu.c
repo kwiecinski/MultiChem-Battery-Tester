@@ -19,6 +19,16 @@ enum battery_number
     battery_2
 };
 
+enum select_menu_start
+{
+    menu,
+    start
+};
+
+void change_start_menu(void)
+{
+    
+}
 
 void batState(uint8_t state, uint8_t  battery_number )
 {

@@ -29,46 +29,50 @@ void main(void)
     Init_Timer0();
     LATAbits.LA6=1;
     mainMenu();
-    uint8_t inc=0,i=0, inca=0;
-    
-    GLCD_SetFont(Font5x8, 5, 8, GLCD_Overwrite, GLCD_Non_Inverted);
-    GLCD_GotoXY(100, 0);
-    GLCD_PrintInteger(inc);
-    GLCD_Render();
-    
+    uint8_t menu_change=0;
     while (1) 
-    { 
-        
-        if(button_counter>250)
-        {
-            button_counter=0;
-                    
-            i++;
-            if(i>3)
-            {
-                i=0;
-                GLCD_GotoXY(100, 0);
-                GLCD_PrintInteger(inc++);
-                GLCD_Render();
-            }
-        }
-        
-        
-        
-         
+    {            
         Button_Update();
-        /*
         if(Button_EventGet(OK_SW))
         {
              Button_Event_Reset();
-            
-            GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-            GLCD_GotoXY(110, 0);
-            GLCD_PrintInteger(inca++);
-            GLCD_Render();
              
-        }
-         * */
-         
+             
+             if(menu_change)
+             {
+                GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
+                GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+                GLCD_GotoXY(2, 54);
+                GLCD_PrintString("START");
+
+                GLCD_FillRectangle(35, 51, 61, 63, GLCD_White);
+                GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
+                GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+                GLCD_GotoXY(37, 54);
+                GLCD_PrintString("MENU");
+
+                GLCD_Render();
+                menu_change=0;
+             }else{
+    
+                            menu_change=1;
+                            
+                GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
+                GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);
+                GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+                GLCD_GotoXY(2, 54);
+                GLCD_PrintString("START");
+
+
+                GLCD_FillRectangle(35, 51, 61, 63, GLCD_Black);
+                GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+                GLCD_GotoXY(37, 54);
+                GLCD_PrintString("MENU");
+                GLCD_Render();
+             }
+             
+             
+             
+        }     
     }
 }

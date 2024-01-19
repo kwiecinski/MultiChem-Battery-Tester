@@ -2,7 +2,7 @@
 #include "interrupts.h"
 
 
-volatile uint8_t button_counter;
+volatile uint16_t button_counter;
 
 // Function to initialize Timer0
 void Init_Timer0() 
@@ -40,7 +40,6 @@ void __interrupt() ISR()
     // Check if Timer0 overflowed
     if (INTCONbits.TMR0IF) 
     {
-
        //TMR0 overflow = Fosc/(4*prescaler*desired frequency)
         TMR0 = 0xFFFF-750;
 
