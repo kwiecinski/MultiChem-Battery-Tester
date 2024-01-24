@@ -6,6 +6,17 @@
 #include "LCD-KS0108/Tahoma11x13.h"
 #include "LCD-KS0108/Tekton_Pro_Ext27x28.h"
 
+typedef struct 
+{
+uint8_t set_cycle, current_cycle, temp;
+uint16_t batt_set_voltage, batt_set_current, batt_capacitance,
+         batt_actual_voltage, batt_actual_current;
+uint32_t time;
+
+char text[15];
+
+}BattParameters;
+
 enum state 
 {
     state_charging,
@@ -38,7 +49,6 @@ void batState(uint8_t state, uint8_t  battery_number )
             case battery_2:      GLCD_GotoXY(102,2); break;
         }
     
-    
         switch(state)
         {
             case state_charging:     GLCD_PrintString("CHRG"); break;
@@ -48,6 +58,42 @@ void batState(uint8_t state, uint8_t  battery_number )
 }
 
 
+void VoltageDisplay (BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "Vol:%u.%02u/%u.%02uV", batparam_ptr->batt_set_voltage/100, batparam_ptr->batt_set_voltage%100, batparam_ptr->batt_actual_voltage/100, batparam_ptr->batt_actual_voltage%100);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+void CurrentDisplay (BattParameters *batparam_ptr)
+{    
+    sprintf(batparam_ptr->text, "Cur:%04u/%04umA", batparam_ptr->batt_set_current,  batparam_ptr->batt_actual_current);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+void CapacitanceDisplay (BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "Cap:%04umAh", batparam_ptr->batt_capacitance);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+void CycleDisplay (BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "Cycle:%u/%u", batparam_ptr->current_cycle,batparam_ptr->set_cycle);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+void TimeDisplay (BattParameters *batparam_ptr)
+{
+    sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->time/3600),(unsigned int)((batparam_ptr->time%3600)/60),(unsigned int)(batparam_ptr->time%60));
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+
+void TempDisplay (BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->temp);
+    GLCD_PrintString(batparam_ptr->text); 
+}
 
 void TwoBatMenu(void)
 {
@@ -114,20 +160,31 @@ void TwoBatMenu(void)
 }
 
 
-void mainMenu(void) 
+void OneBatMenu(void) 
 {
 
-    const char voltage[] = "Vol:3,35/4,22V";
-    const char current[] = "Cur:1050/1100mA";
-    const char capacity[] = "Cap:1540mAh"; //Capacity Level
+    BattParameters bat_param;
+    
+    bat_param.batt_actual_current=1234;
+    bat_param.batt_actual_voltage=418;
+    bat_param.batt_capacitance=1526;
+    bat_param.batt_set_current=1200;
+    bat_param.batt_set_voltage=425;
+    bat_param.temp=32;
+    bat_param.time=35681;
+    bat_param.current_cycle=3;
+    bat_param.set_cycle=4;
+
+            
     const char cycle[] = "Cycle:2/4";
-   const char temp[] = "Temp:35C";
+    const char temp[] = "Temp:35C";
     const char time[] = "Time:1h35m";
+    
+    
     GLCD_Clear();
-   
- GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
  
- 
+    
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
     batState(state_idle, battery_1);
    
 
@@ -147,19 +204,19 @@ void mainMenu(void)
     
     
     GLCD_GotoXY(0, 13);
-    GLCD_PrintString(voltage);
+    VoltageDisplay(&bat_param);
     GLCD_GotoXY(0, 22);
-    GLCD_PrintString(current);
+    CurrentDisplay(&bat_param);
     GLCD_GotoXY(0, 31);
-    GLCD_PrintString(capacity);
+    CapacitanceDisplay(&bat_param);
     GLCD_GotoXY(0, 40);
-    GLCD_PrintString(cycle);
+    CycleDisplay(&bat_param);
     GLCD_GotoXY(68, 31);
-    GLCD_PrintString(time);
+    TimeDisplay(&bat_param);
     GLCD_GotoXY(68, 40);
-    GLCD_PrintString(temp);
+    TempDisplay(&bat_param);
     
-       GLCD_DrawLine(66, 31, 66, 47, GLCD_Black);
+    GLCD_DrawLine(66, 31, 66, 47, GLCD_Black);
        
        
     GLCD_Render();

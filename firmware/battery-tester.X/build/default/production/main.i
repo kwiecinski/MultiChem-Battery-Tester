@@ -9553,9 +9553,9 @@ void setupPWM(void);
 void delay_ms(unsigned int milliseconds);
 # 13 "main.c" 2
 
-# 1 "./menu.h" 1
-# 15 "./menu.h"
-void mainMenu(void);
+# 1 "./menu_definitions.h" 1
+# 15 "./menu_definitions.h"
+void OneBatMenu(void);
 # 14 "main.c" 2
 
 # 1 "./button.h" 1
@@ -9759,7 +9759,7 @@ void main(void)
     Button_Init();
     Init_Timer0();
     LATAbits.LA6=1;
-    mainMenu();
+    OneBatMenu();
     uint8_t menu_change=0;
     while (1)
     {
@@ -9786,7 +9786,7 @@ void main(void)
                 menu_change=0;
              }else{
 
-                            menu_change=1;
+               menu_change=1;
 
                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
                 GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);

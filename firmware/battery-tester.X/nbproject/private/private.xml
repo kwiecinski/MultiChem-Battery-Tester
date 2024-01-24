@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/button.c</file>
-            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu.c</file>
-            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/settings.c</file>
-            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/interrupts.h</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.h</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.c</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.c</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/main.c</file>
-            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/interrupts.c</file>
         </group>
     </open-files>
 </project-private>

@@ -11,7 +11,7 @@
 #include "peripherials/UART.h"
 #include "main.h"
 #include "settings.h"
-#include "menu.h"
+#include "menu_definitions.h"
 #include "button.h"
 #include "LCD-KS0108/font5x8.h"
 #include "interrupts.h"
@@ -28,7 +28,7 @@ void main(void)
     Button_Init();
     Init_Timer0();
     LATAbits.LA6=1;
-    mainMenu();
+    OneBatMenu();
     uint8_t menu_change=0;
     while (1) 
     {            
@@ -55,7 +55,7 @@ void main(void)
                 menu_change=0;
              }else{
     
-                            menu_change=1;
+               menu_change=1;
                             
                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
                 GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);
