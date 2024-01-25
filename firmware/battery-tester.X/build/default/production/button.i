@@ -9430,6 +9430,8 @@ unsigned char __t3rd16on(void);
 # 1 "./interrupts.h" 1
 # 41 "./interrupts.h"
 extern volatile uint16_t button_counter;
+extern volatile uint32_t time;
+
 void Init_Timer0();
 # 29 "button.c" 2
 

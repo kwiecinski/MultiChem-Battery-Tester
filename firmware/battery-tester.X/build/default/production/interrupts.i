@@ -9253,12 +9253,17 @@ unsigned char __t3rd16on(void);
 
 
 extern volatile uint16_t button_counter;
+extern volatile uint32_t time;
+
 void Init_Timer0();
 # 2 "interrupts.c" 2
 
 
 
 volatile uint16_t button_counter;
+volatile uint32_t time;
+
+
 
 
 void Init_Timer0()
@@ -9270,7 +9275,7 @@ void Init_Timer0()
     T0CONbits.PSA = 0;
 
     T0CONbits.T0PS = 0b010;
-# 32 "interrupts.c"
+# 35 "interrupts.c"
     INTCONbits.TMR0IE = 1;
 
 
@@ -9279,6 +9284,8 @@ void Init_Timer0()
 
 void __attribute__((picinterrupt(("")))) ISR()
 {
+    static uint16_t counter_second;
+
 
     if (INTCONbits.TMR0IF)
     {
@@ -9286,8 +9293,13 @@ void __attribute__((picinterrupt(("")))) ISR()
         TMR0 = 0xFFFF-750;
 
 
-
         button_counter++;
+        counter_second++;
+        if(counter_second >= 1000)
+        {
+            counter_second=0;
+            time++;
+        }
 
 
         INTCONbits.TMR0IF = 0;

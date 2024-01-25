@@ -21,8 +21,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "214 ./button.h
 [; ;./button.h: 214: void Button_Init(void);
 [v _Button_Init `(v ~T0 @X0 0 ef ]
-"42 ./interrupts.h
-[; ;./interrupts.h: 42: void Init_Timer0();
+"44 ./interrupts.h
+[; ;./interrupts.h: 44: void Init_Timer0();
 [v _Init_Timer0 `(v ~T0 @X0 0 e? ]
 "6109 C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6109:     struct {
@@ -46,14 +46,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./button.h: 224: void Button_Update(void);
 [v _Button_Update `(v ~T0 @X0 0 ef ]
 "36 main.c
-[; ;main.c: 36:         if(Button_EventGet(OK_SW))
+[; ;main.c: 36:         if (Button_EventGet(OK_SW))
 [c E5875 0 1 2 .. ]
 [n E5875 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
 "232 ./button.h
 [; ;./button.h: 232: btn_state_t Button_EventGet(uint8_t key);
 [v _Button_EventGet `(E5875 ~T0 @X0 0 ef1`uc ]
 "36 main.c
-[; ;main.c: 36:         if(Button_EventGet(OK_SW))
+[; ;main.c: 36:         if (Button_EventGet(OK_SW))
 [c E5868 0 1 2 3 4 .. ]
 [n E5868 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
 "233 ./button.h
@@ -1502,19 +1502,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 35:         Button_Update();
 [e ( _Button_Update ..  ]
 "36
-[; ;main.c: 36:         if(Button_EventGet(OK_SW))
+[; ;main.c: 36:         if (Button_EventGet(OK_SW))
 [e $ ! != -> ( _Button_EventGet (1 -> . `E5868 4 `uc `ui -> -> 0 `i `ui 639  ]
 "37
 [; ;main.c: 37:         {
 {
 "38
-[; ;main.c: 38:              Button_Event_Reset();
+[; ;main.c: 38:             Button_Event_Reset();
 [e ( _Button_Event_Reset ..  ]
 "41
-[; ;main.c: 41:              if(menu_change)
+[; ;main.c: 41:             if (menu_change)
 [e $ ! != -> _menu_change `i -> 0 `i 640  ]
 "42
-[; ;main.c: 42:              {
+[; ;main.c: 42:             {
 {
 "43
 [; ;main.c: 43:                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
@@ -1547,63 +1547,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 54:                 GLCD_Render();
 [e ( _GLCD_Render ..  ]
 "55
-[; ;main.c: 55:                 menu_change=0;
+[; ;main.c: 55:                 menu_change = 0;
 [e = _menu_change -> -> 0 `i `uc ]
 "56
-[; ;main.c: 56:              }else{
+[; ;main.c: 56:             } else
 }
 [e $U 641  ]
 [e :U 640 ]
+"57
+[; ;main.c: 57:             {
 {
-"58
-[; ;main.c: 58:                menu_change=1;
+"59
+[; ;main.c: 59:                 menu_change = 1;
 [e = _menu_change -> -> 1 `i `uc ]
-"60
-[; ;main.c: 60:                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 0 ]
 "61
-[; ;main.c: 61:                 GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+[; ;main.c: 61:                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 0 ]
 "62
-[; ;main.c: 62:                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+[; ;main.c: 62:                 GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 1 ]
 "63
-[; ;main.c: 63:                 GLCD_GotoXY(2, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
+[; ;main.c: 63:                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "64
-[; ;main.c: 64:                 GLCD_PrintString("START");
+[; ;main.c: 64:                 GLCD_GotoXY(2, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
+"65
+[; ;main.c: 65:                 GLCD_PrintString("START");
 [e ( _GLCD_PrintString (1 :s 3C ]
-"67
-[; ;main.c: 67:                 GLCD_FillRectangle(35, 51, 61, 63, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
 "68
-[; ;main.c: 68:                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+[; ;main.c: 68:                 GLCD_FillRectangle(35, 51, 61, 63, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
 "69
-[; ;main.c: 69:                 GLCD_GotoXY(37, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
+[; ;main.c: 69:                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
 "70
-[; ;main.c: 70:                 GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 4C ]
+[; ;main.c: 70:                 GLCD_GotoXY(37, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
 "71
-[; ;main.c: 71:                 GLCD_Render();
-[e ( _GLCD_Render ..  ]
+[; ;main.c: 71:                 GLCD_PrintString("MENU");
+[e ( _GLCD_PrintString (1 :s 4C ]
 "72
-[; ;main.c: 72:              }
+[; ;main.c: 72:                 GLCD_Render();
+[e ( _GLCD_Render ..  ]
+"73
+[; ;main.c: 73:             }
 }
 [e :U 641 ]
-"76
-[; ;main.c: 76:         }
+"74
+[; ;main.c: 74:         }
 }
 [e :U 639 ]
-"77
-[; ;main.c: 77:     }
+"75
+[; ;main.c: 75:     }
 }
 [e :U 636 ]
 [e $U 637  ]
 [e :U 638 ]
-"78
-[; ;main.c: 78: }
+"76
+[; ;main.c: 76: }
 [e :UE 635 ]
 }
 [a 2C 77 69 78 85 0 ]

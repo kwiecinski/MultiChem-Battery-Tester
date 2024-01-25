@@ -794,65 +794,90 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5 interrupts.c
 [; ;interrupts.c: 5: volatile uint16_t button_counter;
 [v _button_counter `Vus ~T0 @X0 1 e ]
-"8
-[; ;interrupts.c: 8: void Init_Timer0()
+"6
+[; ;interrupts.c: 6: volatile uint32_t time;
+[v _time `Vul ~T0 @X0 1 e ]
+"11
+[; ;interrupts.c: 11: void Init_Timer0()
 [v _Init_Timer0 `(v ~T0 @X0 1 ef ]
-"9
-[; ;interrupts.c: 9: {
+"12
+[; ;interrupts.c: 12: {
 {
 [e :U _Init_Timer0 ]
 [f ]
-"11
-[; ;interrupts.c: 11:     T0CONbits.TMR0ON = 1;
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"12
-[; ;interrupts.c: 12:     T0CONbits.T08BIT = 0;
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-"13
-[; ;interrupts.c: 13:     T0CONbits.T0CS = 0;
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
 "14
-[; ;interrupts.c: 14:     T0CONbits.PSA = 0;
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+[; ;interrupts.c: 14:     T0CONbits.TMR0ON = 1;
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+"15
+[; ;interrupts.c: 15:     T0CONbits.T08BIT = 0;
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
 "16
-[; ;interrupts.c: 16:     T0CONbits.T0PS = 0b010;
+[; ;interrupts.c: 16:     T0CONbits.T0CS = 0;
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+"17
+[; ;interrupts.c: 17:     T0CONbits.PSA = 0;
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+"19
+[; ;interrupts.c: 19:     T0CONbits.T0PS = 0b010;
 [e = . . _T0CONbits 0 0 -> -> 2 `i `uc ]
-"32
-[; ;interrupts.c: 32:     INTCONbits.TMR0IE = 1;
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
 "35
-[; ;interrupts.c: 35:  }
+[; ;interrupts.c: 35:     INTCONbits.TMR0IE = 1;
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+"38
+[; ;interrupts.c: 38:  }
 [e :UE 628 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"38
-[; ;interrupts.c: 38: void __attribute__((picinterrupt(("")))) ISR()
+"41
+[; ;interrupts.c: 41: void __attribute__((picinterrupt(("")))) ISR()
 [v _ISR `(v ~T109 @X0 1 ef ]
-"39
-[; ;interrupts.c: 39: {
+"42
+[; ;interrupts.c: 42: {
 {
 [e :U _ISR ]
 [f ]
-"41
-[; ;interrupts.c: 41:     if (INTCONbits.TMR0IF)
+"43
+[; ;interrupts.c: 43:     static uint16_t counter_second;
+[v F5381 `us ~T0 @X0 1 s counter_second ]
+"46
+[; ;interrupts.c: 46:     if (INTCONbits.TMR0IF)
 [e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 630  ]
-"42
-[; ;interrupts.c: 42:     {
+"47
+[; ;interrupts.c: 47:     {
 {
-"44
-[; ;interrupts.c: 44:         TMR0 = 0xFFFF-750;
+"49
+[; ;interrupts.c: 49:         TMR0 = 0xFFFF-750;
 [e = _TMR0 -> - -> 65535 `ui -> -> 750 `i `ui `us ]
-"48
-[; ;interrupts.c: 48:         button_counter++;
-[e ++ _button_counter -> -> 1 `i `Vus ]
-"51
-[; ;interrupts.c: 51:         INTCONbits.TMR0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "52
-[; ;interrupts.c: 52:     }
+[; ;interrupts.c: 52:         button_counter++;
+[e ++ _button_counter -> -> 1 `i `Vus ]
+"53
+[; ;interrupts.c: 53:         counter_second++;
+[e ++ F5381 -> -> 1 `i `us ]
+"54
+[; ;interrupts.c: 54:         if(counter_second >= 1000)
+[e $ ! >= -> F5381 `ui -> -> 1000 `i `ui 631  ]
+"55
+[; ;interrupts.c: 55:         {
+{
+"56
+[; ;interrupts.c: 56:             counter_second=0;
+[e = F5381 -> -> 0 `i `us ]
+"57
+[; ;interrupts.c: 57:             time++;
+[e ++ _time -> -> 1 `i `Vul ]
+"58
+[; ;interrupts.c: 58:         }
+}
+[e :U 631 ]
+"61
+[; ;interrupts.c: 61:         INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"62
+[; ;interrupts.c: 62:     }
 }
 [e :U 630 ]
-"53
-[; ;interrupts.c: 53: }
+"63
+[; ;interrupts.c: 63: }
 [e :UE 629 ]
 }

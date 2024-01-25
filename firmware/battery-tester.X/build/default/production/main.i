@@ -9743,6 +9743,8 @@ const uint8_t Font5x8[] =
 # 1 "./interrupts.h" 1
 # 41 "./interrupts.h"
 extern volatile uint16_t button_counter;
+extern volatile uint32_t time;
+
 void Init_Timer0();
 # 17 "main.c" 2
 
@@ -9764,13 +9766,13 @@ void main(void)
     while (1)
     {
         Button_Update();
-        if(Button_EventGet(OK_SW))
+        if (Button_EventGet(OK_SW))
         {
-             Button_Event_Reset();
+            Button_Event_Reset();
 
 
-             if(menu_change)
-             {
+            if (menu_change)
+            {
                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
                 GLCD_GotoXY(2, 54);
@@ -9783,10 +9785,11 @@ void main(void)
                 GLCD_PrintString("MENU");
 
                 GLCD_Render();
-                menu_change=0;
-             }else{
+                menu_change = 0;
+            } else
+            {
 
-               menu_change=1;
+                menu_change = 1;
 
                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
                 GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);
@@ -9800,10 +9803,7 @@ void main(void)
                 GLCD_GotoXY(37, 54);
                 GLCD_PrintString("MENU");
                 GLCD_Render();
-             }
-
-
-
+            }
         }
     }
 }

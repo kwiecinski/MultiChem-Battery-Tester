@@ -7,6 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "menu_definitions.c" 2
+# 38 "menu_definitions.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9246,7 +9247,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 2 3
-# 1 "menu_definitions.c" 2
+# 38 "menu_definitions.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
@@ -9392,7 +9393,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 2 "menu_definitions.c" 2
+# 39 "menu_definitions.c" 2
 
 
 # 1 "./LCD-KS0108/KS0108.h" 1
@@ -9496,7 +9497,7 @@ void GLCD_PrintInteger(int32_t Value);
 void GLCD_PrintDouble(double Value, const uint32_t Tens);
 
 void GLCD_Render_printf(void);
-# 4 "menu_definitions.c" 2
+# 41 "menu_definitions.c" 2
 
 # 1 "./LCD-KS0108/font5x8.h" 1
 
@@ -9604,7 +9605,7 @@ const uint8_t Font5x8[] =
  0x05, 0x04, 0x02, 0x04, 0x08, 0x04,
  0x05, 0x00, 0x7F, 0x41, 0x7F, 0x00
 };
-# 5 "menu_definitions.c" 2
+# 42 "menu_definitions.c" 2
 
 # 1 "./LCD-KS0108/Tahoma11x13.h" 1
 
@@ -9712,7 +9713,7 @@ const uint8_t Tahoma11x13[] =
         0x08, 0x00, 0x00, 0x60, 0x00, 0x10, 0x00, 0x10, 0x00, 0x20, 0x00, 0x40, 0x00, 0x40, 0x00, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x03, 0xFF, 0x03, 0x01, 0x02, 0xFF, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
-# 6 "menu_definitions.c" 2
+# 43 "menu_definitions.c" 2
 
 # 1 "./LCD-KS0108/Tekton_Pro_Ext27x28.h" 1
 
@@ -9820,15 +9821,19 @@ const uint8_t Tekton_Pro_Ext27x28[] =
         0x0D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0xE0, 0x01, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x60, 0x00, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x78, 0x00, 0x00, 0x00, 0x38, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x08, 0x00, 0x00, 0x00, 0x00, 0xFE, 0xFF, 0x1F, 0x00, 0xFE, 0xFF, 0x1F, 0x00, 0x02, 0x00, 0x10, 0x00, 0x02, 0x00, 0x10, 0x00, 0x02, 0x00, 0x10, 0x00, 0xFE, 0xFF, 0x1F, 0x00, 0xFE, 0xFF, 0x1F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
         };
-# 7 "menu_definitions.c" 2
+# 44 "menu_definitions.c" 2
 
 
 typedef struct
 {
-uint8_t set_cycle, current_cycle, temp;
-uint16_t batt_set_voltage, batt_set_current, batt_capacitance,
-         batt_actual_voltage, batt_actual_current;
-uint32_t time;
+uint8_t set_cycle, current_cycle, temp, bat_chem, bat_storage_precentage, bat_max_temp, bat_actual_temp;
+uint16_t batt_set_voltage, batt_set_current, batt_actual_voltage, batt_actual_current,
+        batt_set_trickle_voltage, bat_set_trickle_current,
+        batt_set_min_discharge_voltage,
+
+        batt_capacitance;
+
+uint32_t set_time;
 
 char text[15];
 
@@ -9853,10 +9858,20 @@ enum select_menu_start
     start
 };
 
-void change_start_menu(void)
+enum select_batt_chemistry
 {
+    liion,
+    pb,
+    nimh
+};
 
-}
+enum mode
+{
+    charging,
+    charging_discharging,
+    charging_discharging_storage
+};
+
 
 void batState(uint8_t state, uint8_t battery_number )
 {
@@ -9901,7 +9916,7 @@ void CycleDisplay (BattParameters *batparam_ptr)
 
 void TimeDisplay (BattParameters *batparam_ptr)
 {
-    sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->time/3600),(unsigned int)((batparam_ptr->time%3600)/60),(unsigned int)(batparam_ptr->time%60));
+    sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->set_time/3600),(unsigned int)((batparam_ptr->set_time%3600)/60),(unsigned int)(batparam_ptr->set_time%60));
     GLCD_PrintString(batparam_ptr->text);
 }
 
@@ -9988,14 +10003,9 @@ void OneBatMenu(void)
     bat_param.batt_set_current=1200;
     bat_param.batt_set_voltage=425;
     bat_param.temp=32;
-    bat_param.time=35681;
+    bat_param.set_time=35681;
     bat_param.current_cycle=3;
     bat_param.set_cycle=4;
-
-
-    const char cycle[] = "Cycle:2/4";
-    const char temp[] = "Temp:35C";
-    const char time[] = "Time:1h35m";
 
 
     GLCD_Clear();
@@ -10028,18 +10038,35 @@ void OneBatMenu(void)
     CapacitanceDisplay(&bat_param);
     GLCD_GotoXY(0, 40);
     CycleDisplay(&bat_param);
-    GLCD_GotoXY(68, 31);
+    GLCD_GotoXY(74, 0);
     TimeDisplay(&bat_param);
-    GLCD_GotoXY(68, 40);
+    GLCD_GotoXY(78, 40);
     TempDisplay(&bat_param);
 
-    GLCD_DrawLine(66, 31, 66, 47, GLCD_Black);
+
 
 
     GLCD_Render();
 }
 
+void OneBatParamChargeMenu(void)
+{
+    GLCD_Clear();
 
+    GLCD_GotoXY(2, 2);
+    GLCD_PrintString("BAT 1");
+    GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+
+    GLCD_GotoXY(35,2);
+    GLCD_PrintString("Options 1");
+
+
+
+    GLCD_Render();
+
+
+
+}
 
 
 void Test_function (void)

@@ -3,11 +3,14 @@
 
 
 volatile uint16_t button_counter;
+volatile uint32_t time;
+
+
 
 // Function to initialize Timer0
 void Init_Timer0() 
 {
-   
+    //Internal clock frequency: 24MHz
     T0CONbits.TMR0ON = 1;   //Enables Timer0 
     T0CONbits.T08BIT = 0;   //Timer0 is configured as an 16-bit timer/counter
     T0CONbits.T0CS = 0;     //Internal instruction cycle clock (CLKO)
@@ -37,6 +40,8 @@ void Init_Timer0()
 // Interrupt Service Routine for Timer0 overflow
 void __interrupt() ISR() 
 {
+    static uint16_t counter_second;
+    
     // Check if Timer0 overflowed
     if (INTCONbits.TMR0IF) 
     {
@@ -44,8 +49,13 @@ void __interrupt() ISR()
         TMR0 = 0xFFFF-750;
 
         //Code to be executed evry desired time
-        
         button_counter++;
+        counter_second++;
+        if(counter_second >= 1000)
+        {
+            counter_second=0;
+            time++; 
+        }    
 
         // Clear Timer0 overflow flag
         INTCONbits.TMR0IF = 0;

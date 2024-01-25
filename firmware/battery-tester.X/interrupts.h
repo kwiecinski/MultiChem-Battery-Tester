@@ -39,6 +39,8 @@
 #include <xc.h>
 
 extern volatile uint16_t button_counter;
+extern volatile uint32_t time;
+
 void Init_Timer0();
 
 

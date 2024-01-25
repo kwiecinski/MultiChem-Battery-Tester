@@ -1,3 +1,40 @@
+      /*****MENU MAP*****
+     ********************
+     * ---Options 1
+     * Batt Chem: Li-Ion / PB / NiMh
+     * Cell Count: 1
+     * Mode: Only Charging / Chrg/Disc / Chrg/Disc/Stor
+     * Cycles: 3
+
+     
+     *---Options 2
+     * Vol: 4,22 
+     * TrickleVol: 2,8V
+     * TrickeCurr: 10mA
+     * MinDiscVol: 2,80V  
+     * StorCap:70% 
+  
+     *---Options 3
+     * Max Time: 00h00m
+     * MaxTemp:50C 
+     * 
+     * 
+    
+     *---Cycle 1/2 Options
+     * ChrgCur 1: 1000mA
+     * DiscCur 1: 1000mA
+     * ChrgCur 2: 1000mA/%
+     * DiscCur 2: 1000mA/%
+     
+     *---Cycle 3/4 Options
+     * ChrgCur 3: 1000mA/%
+     * DiscCur 3: 1000mA/%
+     * ChrgCur 4: 1000mA/%
+     * DiscCur 5: 1000mA/%
+     
+    */
+
+
 #include <xc.h>
 #include <stdio.h>
 
@@ -8,10 +45,14 @@
 
 typedef struct 
 {
-uint8_t set_cycle, current_cycle, temp;
-uint16_t batt_set_voltage, batt_set_current, batt_capacitance,
-         batt_actual_voltage, batt_actual_current;
-uint32_t time;
+uint8_t set_cycle, current_cycle, temp, bat_chem, bat_storage_precentage, bat_max_temp, bat_actual_temp;
+uint16_t batt_set_voltage, batt_set_current, batt_actual_voltage, batt_actual_current,
+        batt_set_trickle_voltage, bat_set_trickle_current,
+        batt_set_min_discharge_voltage,
+        
+        batt_capacitance;
+         
+uint32_t set_time;
 
 char text[15];
 
@@ -36,10 +77,20 @@ enum select_menu_start
     start
 };
 
-void change_start_menu(void)
+enum select_batt_chemistry
 {
-    
-}
+    liion,
+    pb,
+    nimh
+};
+
+enum mode
+{
+    charging,
+    charging_discharging,
+    charging_discharging_storage
+};
+
 
 void batState(uint8_t state, uint8_t  battery_number )
 {
@@ -84,7 +135,7 @@ void CycleDisplay (BattParameters *batparam_ptr)
 
 void TimeDisplay (BattParameters *batparam_ptr)
 {
-    sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->time/3600),(unsigned int)((batparam_ptr->time%3600)/60),(unsigned int)(batparam_ptr->time%60));
+    sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->set_time/3600),(unsigned int)((batparam_ptr->set_time%3600)/60),(unsigned int)(batparam_ptr->set_time%60));
     GLCD_PrintString(batparam_ptr->text); 
 }
 
@@ -93,6 +144,17 @@ void TempDisplay (BattParameters *batparam_ptr)
 { 
     sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->temp);
     GLCD_PrintString(batparam_ptr->text); 
+}
+
+void ChemistryDisplay(uint8_t state)
+{
+    
+            switch(state)
+        {
+            case state_charging:     GLCD_PrintString("CHRG"); break;
+            case state_discharging:  GLCD_PrintString("DISC"); break;
+            case state_idle:         GLCD_PrintString("IDLE"); break;
+        }
 }
 
 void TwoBatMenu(void)
@@ -171,16 +233,11 @@ void OneBatMenu(void)
     bat_param.batt_set_current=1200;
     bat_param.batt_set_voltage=425;
     bat_param.temp=32;
-    bat_param.time=35681;
+    bat_param.set_time=35681;
     bat_param.current_cycle=3;
     bat_param.set_cycle=4;
 
-            
-    const char cycle[] = "Cycle:2/4";
-    const char temp[] = "Temp:35C";
-    const char time[] = "Time:1h35m";
-    
-    
+                
     GLCD_Clear();
  
     
@@ -211,18 +268,35 @@ void OneBatMenu(void)
     CapacitanceDisplay(&bat_param);
     GLCD_GotoXY(0, 40);
     CycleDisplay(&bat_param);
-    GLCD_GotoXY(68, 31);
+    GLCD_GotoXY(74, 0);
     TimeDisplay(&bat_param);
-    GLCD_GotoXY(68, 40);
+    GLCD_GotoXY(78, 40);
     TempDisplay(&bat_param);
     
-    GLCD_DrawLine(66, 31, 66, 47, GLCD_Black);
+    //GLCD_DrawLine(66, 31, 66, 47, GLCD_Black);
        
        
     GLCD_Render();
 }
 
-
+void OneBatParamChargeMenu(void)
+{
+    GLCD_Clear();
+    
+    GLCD_GotoXY(2, 2);
+    GLCD_PrintString("BAT 1");
+    GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+  
+    GLCD_GotoXY(35,2); 
+    GLCD_PrintString("Options 1");
+    
+    
+    
+    GLCD_Render();
+    
+ 
+    
+}
 
 
 void Test_function (void)
