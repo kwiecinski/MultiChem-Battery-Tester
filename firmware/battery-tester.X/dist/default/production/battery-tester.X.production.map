@@ -3,14 +3,14 @@ Microchip MPLAB XC8 Compiler V2.40
 Linker command line:
 
 -W5 \
-  --edf=C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\dat\20230817221043_en.msgs \
+  --edf=C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\dat\20230817221043_en.msgs \
   -cn -h+dist/default/production\battery-tester.X.production.sym \
   --cmf=dist/default/production\battery-tester.X.production.cmf -z \
-  -Q18F67J50 -oC:\Users\RaD\AppData\Local\Temp\xcAs6j0.4 \
+  -Q18F67J50 -oC:\Users\LPC-user\AppData\Local\Temp\xcAs5rg.4 \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/battery-tester.X.production.map \
-  --md=C:\Users\RaD\AppData\Local\Temp\xcAs6j0.dat -E1 -ver=XC8 Compiler \
-  --acfsm=1493 -ACODE=00h-01FFF7h -ACONST=00h-01FFF7h \
+  --md=C:\Users\LPC-user\AppData\Local\Temp\xcAs5rg.dat -E1 \
+  -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFF7h -ACONST=00h-01FFF7h \
   -ASMALLCONST=01000h-010FFhx495,01FF00h-01FFF7h \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFF7h -ACOMRAM=01h-05Fh \
   -AABS1=00h-0F3Fh -ABIGRAM=01h-0F3Fh \
@@ -29,7 +29,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\RaD\AppData\Local\Temp\xcAs6j0.o \
+  C:\Users\LPC-user\AppData\Local\Temp\xcAs5rg.o \
   dist/default/production\battery-tester.X.production.o 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Machine type is 18F67J50
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\RaD\AppData\Local\Temp\xcAs6j0.o
+C:\Users\LPC-user\AppData\Local\Temp\xcAs5rg.o
                 config                            1FFF8    1FFF8        6        0       4
                 init                                 5A       5A        4        4       0
                 reset_vec                             0        0        4        0       0
@@ -47,7 +47,7 @@ dist/default/production\battery-tester.X.production.o
                 intcode                               8        8       52        4       0
                 config                            1FFF8    1FFF8        6        0       4
                 temp                                 5F       5F        1        1       1
-                mediumconst                        CB4C     CB4C     34B4     65A6       0
+                mediumconst                        CB16     CB16     34EA     658B       0
                 text70                            12966    12966       38     8000       0
                 text69                            12692    12692       50     8000       0
                 text68                            111E2    111E2      1C2     8000       0
@@ -215,7 +215,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   SMALLCONST     
 
         CLASS   MEDIUMCONST    
-                mediumconst                        CB4C     CB4C     34B4         0
+                mediumconst                        CB16     CB16     34EA         0
 
         CLASS   COMRAM         
                 temp                                 5F       5F        1         1
@@ -290,7 +290,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackBANK0                    000060  000097  0000F7        60       1  BANK0   
                 dataBANK1                      000100  00002D  00012D       100       1  BANK1   
                 bssBIGRAM                      00012D  000400  00052D       12D       1  BIGRAM  
-                mediumconst                    00CB4C  0034B4  010000      65A6       0  MEDIUMCO
+                mediumconst                    00CB16  0034EA  010000      658B       0  MEDIUMCO
                 text45                         010000  002A31  012A31      8000       0  CODE    
                 text43                         012A32  0001A3  012BD5      9519       0  CODE    
                 text5                          012BD6  000024  012BFA      95EB       0  CODE    
@@ -315,23 +315,23 @@ UNUSED ADDRESS RANGES
                          0052D-00F3F             A13
         BIGSFR           00F40-00FFF              C0
         CODE             00004-00007               4
-                         0005E-0CB4B            CAEE
+                         0005E-0CB15            CAB8
                          12A31-12A31               1
                          12BD5-12BD5               1
                          12BFA-1FFF7            D3FE
         CONST            00004-00007               4
-                         0005E-0CB4B            CAEE
+                         0005E-0CB15            CAB8
                          12A31-12A31               1
                          12BD5-12BD5               1
                          12BFA-1FFF7            D3FE
-        MEDIUMCONST      01000-0CB4B            BB4C
+        MEDIUMCONST      01000-0CB15            BB16
                          12A31-12A31               1
                          12BD5-12BD5               1
                          12BFA-1FFF7            D3FE
         RAM              000F7-000FF               9
                          0052D-00F3F             100
         SFR              00F40-00FFF              20
-        SMALLCONST       01000-0CB4B             100
+        SMALLCONST       01000-0CB15             100
                          12A31-12A31               1
                          12BD5-12BD5               1
                          12BFA-1FFF7             100
@@ -440,10 +440,10 @@ ISR@counter_second              bssBANK0      000C4
 OneBatMenu@bat_param            cstackBANK0   0007B
 TempDisplay@batparam_ptr        cstackBANK0   00079
 TimeDisplay@batparam_ptr        cstackBANK0   00079
-TwoBatMenu@F5911                mediumconst   0CB6C
-TwoBatMenu@F5913                mediumconst   0CB62
-TwoBatMenu@F5915                mediumconst   0CB4D
-TwoBatMenu@F5917                mediumconst   0CB58
+TwoBatMenu@F5920                mediumconst   0CB36
+TwoBatMenu@F5922                mediumconst   0CB2C
+TwoBatMenu@F5924                mediumconst   0CB17
+TwoBatMenu@F5926                mediumconst   0CB22
 UART_SendChar@data              cstackCOMRAM  00001
 VoltageDisplay@batparam_ptr     cstackBANK0   00079
 _ButtonDown                     text64        12B32
@@ -464,7 +464,7 @@ _CCPR3L                         (abs)         00FB2
 _CapacitanceDisplay             text29        127F8
 _CurrentDisplay                 text28        12598
 _CycleDisplay                   text27        12542
-_Font5x8                        mediumconst   0FCF6
+_Font5x8                        mediumconst   0FCC0
 _GLCD_BufferRead                text49        129D2
 _GLCD_BufferWrite               text48        1299E
 _GLCD_Clear                     text25        12A84
@@ -520,8 +520,8 @@ _TRISG                          (abs)         00F98
 _TRISGbits                      (abs)         00F98
 _TXREG2                         (abs)         00FA9
 _TXSTA2bits                     (abs)         00FA8
-_Tahoma11x13                    mediumconst   0F456
-_Tekton_Pro_Ext27x28            mediumconst   0CB76
+_Tahoma11x13                    mediumconst   0F420
+_Tekton_Pro_Ext27x28            mediumconst   0CB40
 _TempDisplay                    text13        12770
 _TimeDisplay                    text10        116C2
 _UART_SendChar                  text38        12AF4
@@ -728,7 +728,7 @@ __Lintret                       intret        00000
 __Lintsave_regs                 intsave_regs  00000
 __Lirdata                       irdata        00000
 __Ljflash_buffer                jflash_buffer 1F800
-__Lmediumconst                  mediumconst   0CB4C
+__Lmediumconst                  mediumconst   0CB16
 __LnvFARRAM                     nvFARRAM      00000
 __Lnvbit                        nvbit         00000
 __Lnvrram                       nvrram        00000
@@ -887,10 +887,10 @@ ___wmul@multiplier              cstackCOMRAM  00001
 ___wmul@product                 cstackCOMRAM  00005
 __accesstop                     (abs)         00060
 __activetblptr                  (abs)         00003
-__end_ofTwoBatMenu@F5911        mediumconst   0CB76
-__end_ofTwoBatMenu@F5913        mediumconst   0CB6C
-__end_ofTwoBatMenu@F5915        mediumconst   0CB58
-__end_ofTwoBatMenu@F5917        mediumconst   0CB62
+__end_ofTwoBatMenu@F5920        mediumconst   0CB40
+__end_ofTwoBatMenu@F5922        mediumconst   0CB36
+__end_ofTwoBatMenu@F5924        mediumconst   0CB22
+__end_ofTwoBatMenu@F5926        mediumconst   0CB2C
 __end_of_ButtonDown             text64        12B46
 __end_of_ButtonLeft             text65        12B5A
 __end_of_ButtonOK               text63        12B32
@@ -903,7 +903,7 @@ __end_of_Button_Update          text60        108E8
 __end_of_CapacitanceDisplay     text29        1283A
 __end_of_CurrentDisplay         text28        125EE
 __end_of_CycleDisplay           text27        12598
-__end_of_Font5x8                mediumconst   0FF36
+__end_of_Font5x8                mediumconst   0FF00
 __end_of_GLCD_BufferRead        text49        12A04
 __end_of_GLCD_BufferWrite       text48        129D2
 __end_of_GLCD_Clear             text25        12AA8
@@ -931,8 +931,8 @@ __end_of_ISR                    intcode       0005A
 __end_of_Init_Timer0            text50        12B1E
 __end_of_OneBatMenu             text6         111E2
 __end_of_Pulse_En               text56        12BA6
-__end_of_Tahoma11x13            mediumconst   0FCF6
-__end_of_Tekton_Pro_Ext27x28    mediumconst   0F456
+__end_of_Tahoma11x13            mediumconst   0FCC0
+__end_of_Tekton_Pro_Ext27x28    mediumconst   0F420
 __end_of_TempDisplay            text13        127B4
 __end_of_TimeDisplay            text10        117C0
 __end_of_UART_SendChar          text38        12B0A
@@ -968,7 +968,7 @@ __end_of_utoa                   text33        11020
 __end_of_vfpfcnvrt              text32        10BB8
 __end_of_vfprintf               text31        12692
 __initialization                cinit         1235C
-__mediumconst                   mediumconst   0CB4C
+__mediumconst                   mediumconst   0CB16
 __pbssBANK0                     bssBANK0      000A6
 __pbssBIGRAM                    bssBIGRAM     0012D
 __pbssCOMRAM                    bssCOMRAM     0005E
@@ -980,7 +980,7 @@ __pdataBANK1                    dataBANK1     00100
 __pidataBANK0                   idataBANK0    12BC6
 __pidataBANK1                   idataBANK1    12A04
 __pintcode                      intcode       00008
-__pmediumconst                  mediumconst   0CB4C
+__pmediumconst                  mediumconst   0CB16
 __ptext0                        text0         113A4
 __ptext1                        text1         12BA6
 __ptext10                       text10        116C2
@@ -1064,7 +1064,7 @@ _fputs                          text35        127B4
 _instance                       dataBANK1     00100
 _isdigit                        text43        12A32
 _isspace                        text42        1272A
-_isspace$2173                   cstackCOMRAM  00005
+_isspace$2191                   cstackCOMRAM  00005
 _main                           text0         113A4
 _pad                            text34        11D4A
 _prec                           bssBANK0      000C2
@@ -1274,14 +1274,14 @@ C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lomod.c
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lomod.c estimated size: 208
 
 shared
-		TwoBatMenu@F5911		MEDIUMCONST    	CB6C	0000	10
-		TwoBatMenu@F5913		MEDIUMCONST    	CB62	0000	10
-		TwoBatMenu@F5915		MEDIUMCONST    	CB4D	0000	11
-		TwoBatMenu@F5917		MEDIUMCONST    	CB58	0000	10
+		TwoBatMenu@F5920		MEDIUMCONST    	CB36	0000	10
+		TwoBatMenu@F5922		MEDIUMCONST    	CB2C	0000	10
+		TwoBatMenu@F5924		MEDIUMCONST    	CB17	0000	11
+		TwoBatMenu@F5926		MEDIUMCONST    	CB22	0000	10
 		__initialization		CODE           	1235C	0000	98
-		_Tekton_Pro_Ext27x28		MEDIUMCONST    	CB76	0000	10464
-		_Font5x8       		MEDIUMCONST    	FCF6	0000	576
-		_Tahoma11x13   		MEDIUMCONST    	F456	0000	2208
+		_Tekton_Pro_Ext27x28		MEDIUMCONST    	CB40	0000	10464
+		_Font5x8       		MEDIUMCONST    	FCC0	0000	576
+		_Tahoma11x13   		MEDIUMCONST    	F420	0000	2208
 
 shared estimated size: 13387
 
