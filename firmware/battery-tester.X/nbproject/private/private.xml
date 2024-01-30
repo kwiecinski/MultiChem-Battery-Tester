@@ -5,8 +5,11 @@
         <group>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/button.c</file>
+            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.c</file>
+            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.h</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/main.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/button.h</file>
+            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.h</file>
         </group>
     </open-files>
 </project-private>

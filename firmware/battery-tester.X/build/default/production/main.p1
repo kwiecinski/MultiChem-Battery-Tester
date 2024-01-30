@@ -40,53 +40,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6130: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
 [v _LATAbits `VS249 ~T0 @X0 0 e@3977 ]
 "15 ./menu_definitions.h
-[; ;./menu_definitions.h: 15: void OneBatMenu(void);
-[v _OneBatMenu `(v ~T0 @X0 0 ef ]
-"224 ./button.h
-[; ;./button.h: 224: void Button_Update(void);
-[v _Button_Update `(v ~T0 @X0 0 ef ]
-"36 main.c
-[; ;main.c: 36:         if (Button_EventGet(OK_SW))
-[c E5875 0 1 2 .. ]
-[n E5875 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
-"232 ./button.h
-[; ;./button.h: 232: btn_state_t Button_EventGet(uint8_t key);
-[v _Button_EventGet `(E5875 ~T0 @X0 0 ef1`uc ]
-"36 main.c
-[; ;main.c: 36:         if (Button_EventGet(OK_SW))
-[c E5868 0 1 2 3 4 .. ]
-[n E5868 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
-"233 ./button.h
-[; ;./button.h: 233: void Button_Event_Reset(void);
-[v _Button_Event_Reset `(v ~T0 @X0 0 ef ]
-"43 main.c
-[; ;main.c: 43:                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
-[c E5705 0 255 .. ]
-[n E5705 Color_t GLCD_White GLCD_Black  ]
-"112 ./LCD-KS0108/KS0108.h
-[; ;./LCD-KS0108/KS0108.h: 112: void GLCD_FillRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color);
-[v _GLCD_FillRectangle `(v ~T0 @X0 0 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
-"44 main.c
-[; ;main.c: 44:                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[c E5702 0 1 .. ]
-[n E5702 PrintMode_t GLCD_Overwrite GLCD_Merge  ]
-[c E5699 0 1 .. ]
-[n E5699 OperatingMode_t GLCD_Inverted GLCD_Non_Inverted  ]
-"120 ./LCD-KS0108/KS0108.h
-[; ;./LCD-KS0108/KS0108.h: 120: void GLCD_SetFont(const uint8_t *Name, const uint8_t Width, const uint8_t Height, enum PrintMode_t Mode, enum OperatingMode_t Invert);
-[v _GLCD_SetFont `(v ~T0 @X0 0 ef5`*Cuc`Cuc`Cuc`E5702`E5699 ]
-"95
-[; ;./LCD-KS0108/KS0108.h: 95: void GLCD_GotoXY(const uint8_t X, const uint8_t Y);
-[v _GLCD_GotoXY `(v ~T0 @X0 0 ef2`Cuc`Cuc ]
-"125
-[; ;./LCD-KS0108/KS0108.h: 125: void GLCD_PrintString(const char *Text);
-[v _GLCD_PrintString `(v ~T0 @X0 0 ef1`*Cuc ]
-"106
-[; ;./LCD-KS0108/KS0108.h: 106: void GLCD_DrawRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color);
-[v _GLCD_DrawRectangle `(v ~T0 @X0 0 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
-"88
-[; ;./LCD-KS0108/KS0108.h: 88: void GLCD_Render(void);
-[v _GLCD_Render `(v ~T0 @X0 0 ef ]
+[; ;./menu_definitions.h: 15: {
+[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
+[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance set_time text ]
+"70
+[; ;./menu_definitions.h: 70: void InitBattParameters(BattParameters *bat_param);
+[v _InitBattParameters `(v ~T0 @X0 0 ef1`*S632 ]
+"71
+[; ;./menu_definitions.h: 71: void SingleBat_Menu(BattParameters *bat_param);
+[v _SingleBat_Menu `(v ~T0 @X0 0 ef1`*S632 ]
+"11 ./menu_navigation.h
+[; ;./menu_navigation.h: 11: void Menu(BattParameters *bat_param);
+[v _Menu `(v ~T0 @X0 0 ef1`*S632 ]
 "54 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -1450,165 +1415,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"20 main.c
-[; ;main.c: 20: void main(void)
+"21 main.c
+[; ;main.c: 21: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"21
-[; ;main.c: 21: {
+"22
+[; ;main.c: 22: {
 {
 [e :U _main ]
 [f ]
-"22
-[; ;main.c: 22:     setupPorts();
-[e ( _setupPorts ..  ]
 "23
-[; ;main.c: 23:     setupInterrupts();
-[e ( _setupInterrupts ..  ]
+[; ;main.c: 23:     setupPorts();
+[e ( _setupPorts ..  ]
 "24
-[; ;main.c: 24:     GLCD_Setup();
-[e ( _GLCD_Setup ..  ]
+[; ;main.c: 24:     setupInterrupts();
+[e ( _setupInterrupts ..  ]
 "25
-[; ;main.c: 25:     setupUART();
-[e ( _setupUART ..  ]
+[; ;main.c: 25:     GLCD_Setup();
+[e ( _GLCD_Setup ..  ]
 "26
-[; ;main.c: 26:     setupClock();
-[e ( _setupClock ..  ]
+[; ;main.c: 26:     setupUART();
+[e ( _setupUART ..  ]
 "27
-[; ;main.c: 27:     setupPWM();
-[e ( _setupPWM ..  ]
+[; ;main.c: 27:     setupClock();
+[e ( _setupClock ..  ]
 "28
-[; ;main.c: 28:     Button_Init();
-[e ( _Button_Init ..  ]
+[; ;main.c: 28:     setupPWM();
+[e ( _setupPWM ..  ]
 "29
-[; ;main.c: 29:     Init_Timer0();
-[e ( _Init_Timer0 ..  ]
+[; ;main.c: 29:     Button_Init();
+[e ( _Button_Init ..  ]
 "30
-[; ;main.c: 30:     LATAbits.LA6=1;
-[e = . . _LATAbits 1 6 -> -> 1 `i `uc ]
+[; ;main.c: 30:     Init_Timer0();
+[e ( _Init_Timer0 ..  ]
 "31
-[; ;main.c: 31:     OneBatMenu();
-[e ( _OneBatMenu ..  ]
-"32
-[; ;main.c: 32:     uint8_t menu_change=0;
-[v _menu_change `uc ~T0 @X0 1 a ]
-[e = _menu_change -> -> 0 `i `uc ]
+[; ;main.c: 31:     LATAbits.LA6=1;
+[e = . . _LATAbits 1 6 -> -> 1 `i `uc ]
 "33
-[; ;main.c: 33:     while (1)
-[e :U 637 ]
+[; ;main.c: 33:     BattParameters bat_param;
+[v _bat_param `S632 ~T0 @X0 1 a ]
 "34
-[; ;main.c: 34:     {
-{
+[; ;main.c: 34:     InitBattParameters(&bat_param);
+[e ( _InitBattParameters (1 &U _bat_param ]
 "35
-[; ;main.c: 35:         Button_Update();
-[e ( _Button_Update ..  ]
-"36
-[; ;main.c: 36:         if (Button_EventGet(OK_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5868 4 `uc `ui -> -> 0 `i `ui 639  ]
+[; ;main.c: 35:     SingleBat_Menu(&bat_param);
+[e ( _SingleBat_Menu (1 &U _bat_param ]
 "37
-[; ;main.c: 37:         {
-{
-"38
-[; ;main.c: 38:             Button_Event_Reset();
-[e ( _Button_Event_Reset ..  ]
-"41
-[; ;main.c: 41:             if (menu_change)
-[e $ ! != -> _menu_change `i -> 0 `i 640  ]
-"42
-[; ;main.c: 42:             {
-{
-"43
-[; ;main.c: 43:                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"44
-[; ;main.c: 44:                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"45
-[; ;main.c: 45:                 GLCD_GotoXY(2, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"46
-[; ;main.c: 46:                 GLCD_PrintString("START");
-[e ( _GLCD_PrintString (1 :s 1C ]
-"48
-[; ;main.c: 48:                 GLCD_FillRectangle(35, 51, 61, 63, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"49
-[; ;main.c: 49:                 GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"50
-[; ;main.c: 50:                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"51
-[; ;main.c: 51:                 GLCD_GotoXY(37, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
-"52
-[; ;main.c: 52:                 GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 2C ]
-"54
-[; ;main.c: 54:                 GLCD_Render();
-[e ( _GLCD_Render ..  ]
-"55
-[; ;main.c: 55:                 menu_change = 0;
-[e = _menu_change -> -> 0 `i `uc ]
-"56
-[; ;main.c: 56:             } else
-}
-[e $U 641  ]
-[e :U 640 ]
-"57
-[; ;main.c: 57:             {
-{
-"59
-[; ;main.c: 59:                 menu_change = 1;
-[e = _menu_change -> -> 1 `i `uc ]
-"61
-[; ;main.c: 61:                 GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"62
-[; ;main.c: 62:                 GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"63
-[; ;main.c: 63:                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"64
-[; ;main.c: 64:                 GLCD_GotoXY(2, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"65
-[; ;main.c: 65:                 GLCD_PrintString("START");
-[e ( _GLCD_PrintString (1 :s 3C ]
-"68
-[; ;main.c: 68:                 GLCD_FillRectangle(35, 51, 61, 63, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"69
-[; ;main.c: 69:                 GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"70
-[; ;main.c: 70:                 GLCD_GotoXY(37, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
-"71
-[; ;main.c: 71:                 GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 4C ]
-"72
-[; ;main.c: 72:                 GLCD_Render();
-[e ( _GLCD_Render ..  ]
-"73
-[; ;main.c: 73:             }
-}
-[e :U 641 ]
-"74
-[; ;main.c: 74:         }
-}
-[e :U 639 ]
-"75
-[; ;main.c: 75:     }
-}
-[e :U 636 ]
-[e $U 637  ]
+[; ;main.c: 37:     while (1)
 [e :U 638 ]
-"76
-[; ;main.c: 76: }
-[e :UE 635 ]
+"38
+[; ;main.c: 38:     {
+{
+"39
+[; ;main.c: 39:         Menu(&bat_param);
+[e ( _Menu (1 &U _bat_param ]
+"40
+[; ;main.c: 40:     }
 }
-[a 2C 77 69 78 85 0 ]
-[a 4C 77 69 78 85 0 ]
-[a 1C 83 84 65 82 84 0 ]
-[a 3C 83 84 65 82 84 0 ]
+[e :U 637 ]
+[e $U 638  ]
+[e :U 639 ]
+"41
+[; ;main.c: 41: }
+[e :UE 636 ]
+}

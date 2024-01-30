@@ -23,33 +23,6 @@ Chip_All 2
 GLCD_White 0
 GLCD_Black 255
 ]
-"36 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
-[e E5875 . `uc
-BTN_STATE_NONE 0
-BTN_STATE_SHORT 1
-BTN_STATE_LONG 2
-]
-[e E5868 . `uc
-LEFT_SW 0
-RIGHT_SW 1
-UP_SW 2
-DOWN_SW 3
-OK_SW 4
-]
-"43
-[e E5705 Color_t `uc
-GLCD_White 0
-GLCD_Black 255
-]
-"44
-[e E5702 PrintMode_t `uc
-GLCD_Overwrite 0
-GLCD_Merge 1
-]
-[e E5699 OperatingMode_t `uc
-GLCD_Inverted 0
-GLCD_Non_Inverted 1
-]
 "106 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
 [e E5695 . `uc
 LEFT_SW 0
@@ -64,30 +37,30 @@ BTN_STATE_NONE 0
 BTN_STATE_SHORT 1
 BTN_STATE_LONG 2
 ]
-"107 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
-[e E5881 battery_number `uc
+"54 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+[e E5882 battery_number `uc
 battery_1 0
 battery_2 1
 ]
-"114
-[e E5877 state `uc
+"61
+[e E5878 state `uc
 state_charging 0
 state_discharging 1
 state_idle 2
 ]
-"124
-[e E5887 select_batt_chemistry `uc
+"71
+[e E5888 select_batt_chemistry `uc
 liion 0
 pb 1
 nimh 2
 ]
-"135
-[e E5891 mode `uc
+"82
+[e E5892 mode `uc
 charging 0
 charging_discharging 1
 charging_discharging_storage 2
 ]
-"198
+"141
 [e E5702 PrintMode_t `uc
 GLCD_Overwrite 0
 GLCD_Merge 1
@@ -96,10 +69,42 @@ GLCD_Merge 1
 GLCD_Inverted 0
 GLCD_Non_Inverted 1
 ]
-"204
+"147
 [e E5705 Color_t `uc
 GLCD_White 0
 GLCD_Black 255
+]
+"21 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+[e E5909 . `uc
+BTN_STATE_NONE 0
+BTN_STATE_SHORT 1
+BTN_STATE_LONG 2
+]
+[e E5902 . `uc
+LEFT_SW 0
+RIGHT_SW 1
+UP_SW 2
+DOWN_SW 3
+OK_SW 4
+]
+"27
+[e E5885 select_menu_start `uc
+menu 0
+start 1
+]
+"47
+[e E5705 Color_t `uc
+GLCD_White 0
+GLCD_Black 255
+]
+"48
+[e E5702 PrintMode_t `uc
+GLCD_Overwrite 0
+GLCD_Merge 1
+]
+[e E5699 OperatingMode_t `uc
+GLCD_Inverted 0
+GLCD_Non_Inverted 1
 ]
 "47 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
 [v _ButtonRight ButtonRight `(uc  1 e 1 0 ]
@@ -116,7 +121,7 @@ GLCD_Black 255
 "141
 [v _Button_Update Button_Update `(v  1 e 1 0 ]
 "214
-[v _Button_EventGet Button_EventGet `(E5875  1 e 1 0 ]
+[v _Button_EventGet Button_EventGet `(E5702  1 e 1 0 ]
 "221
 [v _Button_Event_Reset Button_Event_Reset `(v  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\__lldiv.c
@@ -257,24 +262,38 @@ GLCD_Black 255
 [v _Pulse_En Pulse_En `T(v  1 s 1 Pulse_En ]
 "1271
 [v _Int2bcd Int2bcd `(v  1 s 1 Int2bcd ]
-"20 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
+"21 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"101 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"48 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _batState batState `(v  1 e 1 0 ]
-"138
+"64
+[v _ChemistryDisplay ChemistryDisplay `(v  1 e 1 0 ]
+"74
+[v _ChargerMode ChargerMode `(v  1 e 1 0 ]
+"85
 [v _VoltageDisplay VoltageDisplay `(v  1 e 1 0 ]
-"144
+"91
 [v _CurrentDisplay CurrentDisplay `(v  1 e 1 0 ]
-"150
+"97
+[v _CelCount CelCount `(v  1 e 1 0 ]
+"103
 [v _CapacitanceDisplay CapacitanceDisplay `(v  1 e 1 0 ]
-"156
+"109
 [v _CycleDisplay CycleDisplay `(v  1 e 1 0 ]
-"162
+"114
+[v _CycleSet CycleSet `(v  1 e 1 0 ]
+"119
 [v _TimeDisplay TimeDisplay `(v  1 e 1 0 ]
-"169
+"125
 [v _TempDisplay TempDisplay `(v  1 e 1 0 ]
-"179
-[v _OneBatMenu OneBatMenu `(v  1 e 1 0 ]
+"136
+[v _SingleBat_Menu SingleBat_Menu `(v  1 e 1 0 ]
+"331
+[v _InitBattParameters InitBattParameters `(v  1 e 1 0 ]
+"15 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+[v _Menu Menu `(v  1 e 1 0 ]
+"42
+[v _DisplayMenuOption DisplayMenuOption `(v  1 e 1 0 ]
 "4 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
 [v _UART_SendChar UART_SendChar `(v  1 e 1 0 ]
 "10
@@ -295,16 +314,16 @@ GLCD_Black 255
 [v _Tahoma11x13 Tahoma11x13 `C[2208]uc  1 e 2208 0 ]
 "7 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X/LCD-KS0108/Tekton_Pro_Ext27x28.h
 [v _Tekton_Pro_Ext27x28 Tekton_Pro_Ext27x28 `C[10464]uc  1 e 10464 0 ]
-[s S1190 . 1 `uc 1 act 1 0 :2:0 
+[s S1193 . 1 `uc 1 act 1 0 :2:0 
 `uc 1 prew 1 0 :2:2 
 `uc 1 locked 1 0 :1:4 
 ]
 "73 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
-[s S1195 . 9 `S1190 1 state 1 0 `uc 1 lock_count 1 1 `us 1 long_count 2 2 `us 1 long_press_time_ms 2 4 `*.38(uc 1 port_read 3 6 ]
-[v _instance instance `[5]S1195  1 e 45 0 ]
+[s S1198 . 9 `S1193 1 state 1 0 `uc 1 lock_count 1 1 `us 1 long_count 2 2 `us 1 long_press_time_ms 2 4 `*.38(uc 1 port_read 3 6 ]
+[v _instance instance `[5]S1198  1 e 45 0 ]
 "106
-[s S1215 . 15 `*.39S1195 1 instance 2 0 `uc 1 process_time_ms 1 2 `uc 1 debounce_time_ms 1 3 `us 1 long_press_def_ms 2 4 `*.38(v 1 short_release 3 6 `*.38(v 1 long_release 3 9 `*.38(v 1 long_press 3 12 ]
-[v _this this `S1215  1 s 15 this ]
+[s S1218 . 15 `*.39S1198 1 instance 2 0 `uc 1 process_time_ms 1 2 `uc 1 debounce_time_ms 1 3 `us 1 long_press_def_ms 2 4 `*.38(v 1 short_release 3 6 `*.38(v 1 long_release 3 9 `*.38(v 1 long_press 3 12 ]
+[v _this this `S1218  1 s 15 this ]
 "5244 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "5574
@@ -336,7 +355,7 @@ GLCD_Black 255
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "6551
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-[s S976 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S979 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -346,7 +365,7 @@ GLCD_Black 255
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "6861
-[s S985 . 1 `uc 1 RA0 1 0 :1:0 
+[s S988 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -355,13 +374,13 @@ GLCD_Black 255
 `uc 1 RA6 1 0 :1:6 
 `uc 1 RA7 1 0 :1:7 
 ]
-[u S994 . 1 `S976 1 . 1 0 `S985 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES994  1 e 1 @3986 ]
+[u S997 . 1 `S979 1 . 1 0 `S988 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES997  1 e 1 @3986 ]
 "7273
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "7495
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S936 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S939 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -371,7 +390,7 @@ GLCD_Black 255
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "7527
-[s S945 . 1 `uc 1 RD0 1 0 :1:0 
+[s S948 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -380,28 +399,28 @@ GLCD_Black 255
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-[u S954 . 1 `S936 1 . 1 0 `S945 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES954  1 e 1 @3989 ]
+[u S957 . 1 `S939 1 . 1 0 `S948 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES957  1 e 1 @3989 ]
 "7717
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
 "8117
 [v _TRISG TRISG `VEuc  1 e 1 @3992 ]
-[s S730 . 1 `uc 1 TRISG0 1 0 :1:0 
+[s S733 . 1 `uc 1 TRISG0 1 0 :1:0 
 `uc 1 TRISG1 1 0 :1:1 
 `uc 1 TRISG2 1 0 :1:2 
 `uc 1 TRISG3 1 0 :1:3 
 `uc 1 TRISG4 1 0 :1:4 
 ]
 "8143
-[s S736 . 1 `uc 1 RG0 1 0 :1:0 
+[s S739 . 1 `uc 1 RG0 1 0 :1:0 
 `uc 1 RG1 1 0 :1:1 
 `uc 1 RG2 1 0 :1:2 
 `uc 1 RG3 1 0 :1:3 
 `uc 1 RG4 1 0 :1:4 
 ]
-[u S742 . 1 `S730 1 . 1 0 `S736 1 . 1 0 ]
-[v _TRISGbits TRISGbits `VES742  1 e 1 @3992 ]
-[s S915 . 1 `uc 1 TUN0 1 0 :1:0 
+[u S745 . 1 `S733 1 . 1 0 `S739 1 . 1 0 ]
+[v _TRISGbits TRISGbits `VES745  1 e 1 @3992 ]
+[s S918 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
@@ -411,9 +430,9 @@ GLCD_Black 255
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "8284
-[u S924 . 1 `S915 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES924  1 e 1 @3995 ]
-[s S799 . 1 `uc 1 RX9D 1 0 :1:0 
+[u S927 . 1 `S918 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES927  1 e 1 @3995 ]
+[s S802 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -423,20 +442,20 @@ GLCD_Black 255
 `uc 1 SPEN 1 0 :1:7 
 ]
 "8382
-[s S808 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S811 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S812 . 1 `uc 1 . 1 0 :6:0 
+[s S815 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RC8 1 0 :1:6 
 ]
-[s S815 . 1 `uc 1 . 1 0 :6:0 
+[s S818 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S818 . 1 `uc 1 . 1 0 :6:0 
+[s S821 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S821 . 1 `uc 1 RX9D2 1 0 :1:0 
+[s S824 . 1 `uc 1 RX9D2 1 0 :1:0 
 `uc 1 OERR2 1 0 :1:1 
 `uc 1 FERR2 1 0 :1:2 
 `uc 1 ADDEN2 1 0 :1:3 
@@ -445,15 +464,15 @@ GLCD_Black 255
 `uc 1 RX92 1 0 :1:6 
 `uc 1 SPEN2 1 0 :1:7 
 ]
-[s S830 . 1 `uc 1 RCD82 1 0 :1:0 
+[s S833 . 1 `uc 1 RCD82 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC8_92 1 0 :1:6 
 ]
-[s S834 . 1 `uc 1 . 1 0 :6:0 
+[s S837 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC92 1 0 :1:6 
 ]
-[u S837 . 1 `S799 1 . 1 0 `S808 1 . 1 0 `S812 1 . 1 0 `S815 1 . 1 0 `S818 1 . 1 0 `S821 1 . 1 0 `S830 1 . 1 0 `S834 1 . 1 0 ]
-[v _RCSTA2bits RCSTA2bits `VES837  1 e 1 @3996 ]
+[u S840 . 1 `S802 1 . 1 0 `S811 1 . 1 0 `S815 1 . 1 0 `S818 1 . 1 0 `S821 1 . 1 0 `S824 1 . 1 0 `S833 1 . 1 0 `S837 1 . 1 0 ]
+[v _RCSTA2bits RCSTA2bits `VES840  1 e 1 @3996 ]
 [s S458 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
@@ -515,12 +534,12 @@ GLCD_Black 255
 [v _CCP3CONbits CCP3CONbits `VES565  1 e 1 @4017 ]
 "10369
 [v _CCPR3L CCPR3L `VEuc  1 e 1 @4018 ]
-[s S1065 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S1068 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "13527
-[s S1069 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S1072 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -528,27 +547,27 @@ GLCD_Black 255
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S1077 . 1 `S1065 1 . 1 0 `S1069 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1077  1 e 1 @4042 ]
+[u S1080 . 1 `S1068 1 . 1 0 `S1072 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1080  1 e 1 @4042 ]
 "13577
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
-[s S885 . 1 `uc 1 SCS 1 0 :2:0 
+[s S888 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "14771
-[s S891 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S894 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S898 . 1 `S885 1 . 1 0 `S891 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES898  1 e 1 @4051 ]
-[s S1289 . 1 `uc 1 T0PS 1 0 :3:0 
+[u S901 . 1 `S888 1 . 1 0 `S894 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES901  1 e 1 @4051 ]
+[s S1292 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -556,16 +575,16 @@ GLCD_Black 255
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "14907
-[s S1296 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1299 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
-[u S1301 . 1 `S1289 1 . 1 0 `S1296 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES1301  1 e 1 @4053 ]
+[u S1304 . 1 `S1292 1 . 1 0 `S1299 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES1304  1 e 1 @4053 ]
 "14962
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
-[s S1016 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S1019 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -575,7 +594,7 @@ GLCD_Black 255
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "15473
-[s S1025 . 1 `uc 1 . 1 0 :1:0 
+[s S1028 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -584,12 +603,12 @@ GLCD_Black 255
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1034 . 1 `uc 1 . 1 0 :6:0 
+[s S1037 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1038 . 1 `S1016 1 . 1 0 `S1025 1 . 1 0 `S1034 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1038  1 e 1 @4082 ]
+[u S1041 . 1 `S1019 1 . 1 0 `S1028 1 . 1 0 `S1037 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1041  1 e 1 @4082 ]
 "99 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
 [v _prec prec `i  1 s 2 prec ]
 [v _width width `i  1 s 2 width ]
@@ -607,12 +626,13 @@ GLCD_Black 255
 "11
 [s S37 . 10 `uc 1 X 1 0 `uc 1 Y 1 1 `E5699 1 Mode 1 2 `S30 1 Font 7 3 ]
 [v ___GLCD __GLCD `S37  1 e 10 0 ]
-"20 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
+"21 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"32
-[v main@menu_change menu_change `uc  1 a 1 69 ]
-"76
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+"33
+[v main@bat_param bat_param `S665  1 a 53 31 ]
+"41
 } 0
 "7 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\settings.c
 [v _setupUART setupUART `(v  1 e 1 0 ]
@@ -639,29 +659,28 @@ GLCD_Black 255
 {
 "26
 } 0
-"179 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
-[v _OneBatMenu OneBatMenu `(v  1 e 1 0 ]
+"136 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+[v _SingleBat_Menu SingleBat_Menu `(v  1 e 1 0 ]
 {
-[s S1385 . 42 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 temp 1 2 `uc 1 bat_chem 1 3 `uc 1 bat_storage_precentage 1 4 `uc 1 bat_max_temp 1 5 `uc 1 bat_actual_temp 1 6 `us 1 batt_set_voltage 2 7 `us 1 batt_set_current 2 9 `us 1 batt_actual_voltage 2 11 `us 1 batt_actual_current 2 13 `us 1 batt_set_trickle_voltage 2 15 `us 1 bat_set_trickle_current 2 17 `us 1 batt_set_min_discharge_voltage 2 19 `us 1 batt_capacitance 2 21 `ul 1 set_time 4 23 `[15]uc 1 text 15 27 ]
-"182
-[v OneBatMenu@bat_param bat_param `S1385  1 a 42 27 ]
-"234
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v SingleBat_Menu@bat_param bat_param `*.39S665  1 p 2 29 ]
+"177
 } 0
-"101
+"48
 [v _batState batState `(v  1 e 1 0 ]
 {
 [v batState@state state `uc  1 a 1 wreg ]
 [v batState@state state `uc  1 a 1 wreg ]
 [v batState@battery_number battery_number `uc  1 p 1 33 ]
 [v batState@state state `uc  1 a 1 36 ]
-"115
+"62
 } 0
-"138
+"85
 [v _VoltageDisplay VoltageDisplay `(v  1 e 1 0 ]
 {
-[s S1385 . 42 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 temp 1 2 `uc 1 bat_chem 1 3 `uc 1 bat_storage_precentage 1 4 `uc 1 bat_max_temp 1 5 `uc 1 bat_actual_temp 1 6 `us 1 batt_set_voltage 2 7 `us 1 batt_set_current 2 9 `us 1 batt_actual_voltage 2 11 `us 1 batt_actual_current 2 13 `us 1 batt_set_trickle_voltage 2 15 `us 1 bat_set_trickle_current 2 17 `us 1 batt_set_min_discharge_voltage 2 19 `us 1 batt_capacitance 2 21 `ul 1 set_time 4 23 `[15]uc 1 text 15 27 ]
-[v VoltageDisplay@batparam_ptr batparam_ptr `*.39S1385  1 p 2 25 ]
-"142
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v VoltageDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
+"89
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
@@ -673,12 +692,12 @@ GLCD_Black 255
 [v ___lwmod@divisor divisor `ui  1 p 2 2 ]
 "25
 } 0
-"162 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"119 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _TimeDisplay TimeDisplay `(v  1 e 1 0 ]
 {
-[s S1385 . 42 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 temp 1 2 `uc 1 bat_chem 1 3 `uc 1 bat_storage_precentage 1 4 `uc 1 bat_max_temp 1 5 `uc 1 bat_actual_temp 1 6 `us 1 batt_set_voltage 2 7 `us 1 batt_set_current 2 9 `us 1 batt_actual_voltage 2 11 `us 1 batt_actual_current 2 13 `us 1 batt_set_trickle_voltage 2 15 `us 1 bat_set_trickle_current 2 17 `us 1 batt_set_min_discharge_voltage 2 19 `us 1 batt_capacitance 2 21 `ul 1 set_time 4 23 `[15]uc 1 text 15 27 ]
-[v TimeDisplay@batparam_ptr batparam_ptr `*.39S1385  1 p 2 25 ]
-"166
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v TimeDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
+"123
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
@@ -702,12 +721,224 @@ GLCD_Black 255
 [v ___lldiv@divisor divisor `ul  1 p 4 13 ]
 "30
 } 0
-"169 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"125 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _TempDisplay TempDisplay `(v  1 e 1 0 ]
 {
-[s S1385 . 42 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 temp 1 2 `uc 1 bat_chem 1 3 `uc 1 bat_storage_precentage 1 4 `uc 1 bat_max_temp 1 5 `uc 1 bat_actual_temp 1 6 `us 1 batt_set_voltage 2 7 `us 1 batt_set_current 2 9 `us 1 batt_actual_voltage 2 11 `us 1 batt_actual_current 2 13 `us 1 batt_set_trickle_voltage 2 15 `us 1 bat_set_trickle_current 2 17 `us 1 batt_set_min_discharge_voltage 2 19 `us 1 batt_capacitance 2 21 `ul 1 set_time 4 23 `[15]uc 1 text 15 27 ]
-[v TempDisplay@batparam_ptr batparam_ptr `*.39S1385  1 p 2 25 ]
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v TempDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
+"129
+} 0
+"170 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+[v _GLCD_Clear GLCD_Clear `(v  1 e 1 0 ]
+{
 "173
+} 0
+"584
+[v _GLCD_FillScreen GLCD_FillScreen `(v  1 e 1 0 ]
+{
+[v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
+"586
+[v GLCD_FillScreen@j j `uc  1 a 1 8 ]
+[v GLCD_FillScreen@i i `uc  1 a 1 7 ]
+"584
+[v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
+"588
+[v GLCD_FillScreen@Color Color `E5705  1 a 1 6 ]
+"591
+} 0
+"109 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+[v _CycleDisplay CycleDisplay `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v CycleDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
+"113
+} 0
+"91
+[v _CurrentDisplay CurrentDisplay `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v CurrentDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
+"95
+} 0
+"103
+[v _CapacitanceDisplay CapacitanceDisplay `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v CapacitanceDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
+"107
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[u S2229 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+"13
+[s S2232 _IO_FILE 11 `S2229 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S2232  1 a 11 14 ]
+"12
+[v sprintf@ap ap `[1]*.39v  1 a 2 12 ]
+"9
+[v sprintf@s s `*.39uc  1 p 2 0 ]
+[v sprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
+"23
+} 0
+"1520 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+"1523
+[v vfprintf@cfmt cfmt `*.32uc  1 a 2 89 ]
+[s S2264 _IO_FILE 0 ]
+"1520
+[v vfprintf@fp fp `*.39S2264  1 p 2 83 ]
+[v vfprintf@fmt fmt `*.32Cuc  1 p 2 85 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 87 ]
+"1543
+} 0
+"1007
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[u S2277 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+"1016
+[v vfpfcnvrt@convarg convarg `S2277  1 a 8 71 ]
+"1009
+[v vfpfcnvrt@cp cp `*.32uc  1 a 2 81 ]
+"1010
+[v vfpfcnvrt@done done `i  1 a 2 79 ]
+[s S2264 _IO_FILE 0 ]
+"1007
+[v vfpfcnvrt@fp fp `*.39S2264  1 p 2 61 ]
+[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 63 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 65 ]
+"1517
+} 0
+"894
+[v _utoa utoa `(v  1 s 1 utoa ]
+{
+"897
+[v utoa@n n `uo  1 a 8 51 ]
+"896
+[v utoa@i i `i  1 a 2 59 ]
+[v utoa@w w `i  1 a 2 49 ]
+[v utoa@p p `i  1 a 2 47 ]
+[s S2264 _IO_FILE 0 ]
+"894
+[v utoa@fp fp `*.39S2264  1 p 2 29 ]
+[v utoa@d d `uo  1 p 8 31 ]
+"926
+} 0
+"133
+[v _pad pad `(v  1 s 1 pad ]
+{
+"135
+[v pad@w w `i  1 a 2 27 ]
+[v pad@i i `i  1 a 2 25 ]
+[s S2264 _IO_FILE 0 ]
+"133
+[v pad@fp fp `*.39S2264  1 p 2 18 ]
+[v pad@buf buf `*.39uc  1 p 2 20 ]
+[v pad@p p `i  1 p 2 22 ]
+"164
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+"11
+[v fputs@i i `i  1 a 2 16 ]
+"10
+[v fputs@c c `uc  1 a 1 15 ]
+"8
+[v fputs@s s `*.39Cuc  1 p 2 11 ]
+[u S2229 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2232 _IO_FILE 11 `S2229 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S2232  1 p 2 13 ]
+"19
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 2 ]
+[u S2229 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2232 _IO_FILE 11 `S2229 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S2232  1 p 2 4 ]
+"24
+} 0
+"10 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@txData txData `uc  1 a 1 wreg ]
+[v putch@txData txData `uc  1 a 1 wreg ]
+"12
+[v putch@txData txData `uc  1 a 1 1 ]
+"13
+} 0
+"4
+[v _UART_SendChar UART_SendChar `(v  1 e 1 0 ]
+{
+[v UART_SendChar@data data `uc  1 a 1 wreg ]
+[v UART_SendChar@data data `uc  1 a 1 wreg ]
+[v UART_SendChar@data data `uc  1 a 1 0 ]
+"8
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lomod.c
+[v ___lomod __lomod `(uo  1 e 8 0 ]
+{
+"12
+[v ___lomod@counter counter `uc  1 a 1 16 ]
+"9
+[v ___lomod@dividend dividend `uo  1 p 8 0 ]
+[v ___lomod@divisor divisor `uo  1 p 8 8 ]
+"27
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lodiv.c
+[v ___lodiv __lodiv `(uo  1 e 8 0 ]
+{
+"12
+[v ___lodiv@quotient quotient `uo  1 a 8 16 ]
+"13
+[v ___lodiv@counter counter `uc  1 a 1 24 ]
+"9
+[v ___lodiv@dividend dividend `uo  1 p 8 0 ]
+[v ___lodiv@divisor divisor `uo  1 p 8 8 ]
+"32
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+{
+"6
+[v atoi@n n `i  1 a 2 13 ]
+[v atoi@neg neg `i  1 a 2 11 ]
+"4
+[v atoi@s s `*.32Cuc  1 p 2 6 ]
+"16
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\isspace.c
+[v _isspace isspace `(i  1 e 2 0 ]
+{
+[v isspace@c c `i  1 p 2 0 ]
+"8
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\isdigit.c
+[v _isdigit isdigit `(i  1 e 2 0 ]
+{
+[v isdigit@c c `i  1 p 2 0 ]
+"8
+} 0
+"15 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+[v _Menu Menu `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v Menu@bat_param bat_param `*.39S665  1 p 2 38 ]
+"18
+[v Menu@menu_change menu_change `uc  1 s 1 menu_change ]
+"38
+} 0
+"42
+[v _DisplayMenuOption DisplayMenuOption `(v  1 e 1 0 ]
+{
+[v DisplayMenuOption@option option `uc  1 a 1 wreg ]
+[v DisplayMenuOption@option option `uc  1 a 1 wreg ]
+"45
+[v DisplayMenuOption@option option `uc  1 a 1 37 ]
+"76
 } 0
 "793 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_SetFont GLCD_SetFont `(v  1 e 1 0 ]
@@ -762,7 +993,60 @@ GLCD_Black 255
 [v ___GLCD_GotoX@X X `Cuc  1 a 1 13 ]
 "1224
 } 0
-"593
+"1048
+[v _GLCD_PrintString GLCD_PrintString `(v  1 e 1 0 ]
+{
+[v GLCD_PrintString@Text Text `*.34Cuc  1 p 2 29 ]
+"1057
+} 0
+"850
+[v _GLCD_PrintChar GLCD_PrintChar `(v  1 e 1 0 ]
+{
+[v GLCD_PrintChar@Character Character `uc  1 a 1 wreg ]
+"853
+[v GLCD_PrintChar@fontRead fontRead `ui  1 a 2 23 ]
+[v GLCD_PrintChar@fontStart fontStart `ui  1 a 2 19 ]
+"854
+[v GLCD_PrintChar@data data `uc  1 a 1 28 ]
+[v GLCD_PrintChar@j j `uc  1 a 1 27 ]
+[v GLCD_PrintChar@i i `uc  1 a 1 26 ]
+[v GLCD_PrintChar@overflow overflow `uc  1 a 1 25 ]
+[v GLCD_PrintChar@lines lines `uc  1 a 1 22 ]
+[v GLCD_PrintChar@width width `uc  1 a 1 21 ]
+[v GLCD_PrintChar@x x `uc  1 a 1 18 ]
+[v GLCD_PrintChar@data_next data_next `uc  1 a 1 17 ]
+[v GLCD_PrintChar@y y `uc  1 a 1 16 ]
+[v GLCD_PrintChar@y2 y2 `uc  1 a 1 15 ]
+"850
+[v GLCD_PrintChar@Character Character `uc  1 a 1 wreg ]
+"855
+[v GLCD_PrintChar@Character Character `uc  1 a 1 14 ]
+"1046
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 0 ]
+[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+"41
+} 0
+"593 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_FillRectangle GLCD_FillRectangle `(v  1 e 1 0 ]
 {
 [v GLCD_FillRectangle@X1 X1 `Cuc  1 a 1 wreg ]
@@ -853,254 +1137,7 @@ GLCD_Black 255
 [v GLCD_SetPixel@X X `Cuc  1 a 1 10 ]
 "246
 } 0
-"170
-[v _GLCD_Clear GLCD_Clear `(v  1 e 1 0 ]
-{
-"173
-} 0
-"584
-[v _GLCD_FillScreen GLCD_FillScreen `(v  1 e 1 0 ]
-{
-[v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
-"586
-[v GLCD_FillScreen@j j `uc  1 a 1 8 ]
-[v GLCD_FillScreen@i i `uc  1 a 1 7 ]
-"584
-[v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
-"588
-[v GLCD_FillScreen@Color Color `E5705  1 a 1 6 ]
-"591
-} 0
-"156 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
-[v _CycleDisplay CycleDisplay `(v  1 e 1 0 ]
-{
-[s S1385 . 42 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 temp 1 2 `uc 1 bat_chem 1 3 `uc 1 bat_storage_precentage 1 4 `uc 1 bat_max_temp 1 5 `uc 1 bat_actual_temp 1 6 `us 1 batt_set_voltage 2 7 `us 1 batt_set_current 2 9 `us 1 batt_actual_voltage 2 11 `us 1 batt_actual_current 2 13 `us 1 batt_set_trickle_voltage 2 15 `us 1 bat_set_trickle_current 2 17 `us 1 batt_set_min_discharge_voltage 2 19 `us 1 batt_capacitance 2 21 `ul 1 set_time 4 23 `[15]uc 1 text 15 27 ]
-[v CycleDisplay@batparam_ptr batparam_ptr `*.39S1385  1 p 2 25 ]
-"160
-} 0
-"144
-[v _CurrentDisplay CurrentDisplay `(v  1 e 1 0 ]
-{
-[s S1385 . 42 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 temp 1 2 `uc 1 bat_chem 1 3 `uc 1 bat_storage_precentage 1 4 `uc 1 bat_max_temp 1 5 `uc 1 bat_actual_temp 1 6 `us 1 batt_set_voltage 2 7 `us 1 batt_set_current 2 9 `us 1 batt_actual_voltage 2 11 `us 1 batt_actual_current 2 13 `us 1 batt_set_trickle_voltage 2 15 `us 1 bat_set_trickle_current 2 17 `us 1 batt_set_min_discharge_voltage 2 19 `us 1 batt_capacitance 2 21 `ul 1 set_time 4 23 `[15]uc 1 text 15 27 ]
-[v CurrentDisplay@batparam_ptr batparam_ptr `*.39S1385  1 p 2 25 ]
-"148
-} 0
-"150
-[v _CapacitanceDisplay CapacitanceDisplay `(v  1 e 1 0 ]
-{
-[s S1385 . 42 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 temp 1 2 `uc 1 bat_chem 1 3 `uc 1 bat_storage_precentage 1 4 `uc 1 bat_max_temp 1 5 `uc 1 bat_actual_temp 1 6 `us 1 batt_set_voltage 2 7 `us 1 batt_set_current 2 9 `us 1 batt_actual_voltage 2 11 `us 1 batt_actual_current 2 13 `us 1 batt_set_trickle_voltage 2 15 `us 1 bat_set_trickle_current 2 17 `us 1 batt_set_min_discharge_voltage 2 19 `us 1 batt_capacitance 2 21 `ul 1 set_time 4 23 `[15]uc 1 text 15 27 ]
-[v CapacitanceDisplay@batparam_ptr batparam_ptr `*.39S1385  1 p 2 25 ]
-"154
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-{
-[u S2060 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-"13
-[s S2063 _IO_FILE 11 `S2060 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S2063  1 a 11 14 ]
-"12
-[v sprintf@ap ap `[1]*.39v  1 a 2 12 ]
-"9
-[v sprintf@s s `*.39uc  1 p 2 0 ]
-[v sprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
-"23
-} 0
-"1520 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-{
-"1523
-[v vfprintf@cfmt cfmt `*.32uc  1 a 2 89 ]
-[s S2095 _IO_FILE 0 ]
-"1520
-[v vfprintf@fp fp `*.39S2095  1 p 2 83 ]
-[v vfprintf@fmt fmt `*.32Cuc  1 p 2 85 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 87 ]
-"1543
-} 0
-"1007
-[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
-{
-[u S2108 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
-"1016
-[v vfpfcnvrt@convarg convarg `S2108  1 a 8 71 ]
-"1009
-[v vfpfcnvrt@cp cp `*.32uc  1 a 2 81 ]
-"1010
-[v vfpfcnvrt@done done `i  1 a 2 79 ]
-[s S2095 _IO_FILE 0 ]
-"1007
-[v vfpfcnvrt@fp fp `*.39S2095  1 p 2 61 ]
-[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 63 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 65 ]
-"1517
-} 0
-"894
-[v _utoa utoa `(v  1 s 1 utoa ]
-{
-"897
-[v utoa@n n `uo  1 a 8 51 ]
-"896
-[v utoa@i i `i  1 a 2 59 ]
-[v utoa@w w `i  1 a 2 49 ]
-[v utoa@p p `i  1 a 2 47 ]
-[s S2095 _IO_FILE 0 ]
-"894
-[v utoa@fp fp `*.39S2095  1 p 2 29 ]
-[v utoa@d d `uo  1 p 8 31 ]
-"926
-} 0
-"133
-[v _pad pad `(v  1 s 1 pad ]
-{
-"135
-[v pad@w w `i  1 a 2 27 ]
-[v pad@i i `i  1 a 2 25 ]
-[s S2095 _IO_FILE 0 ]
-"133
-[v pad@fp fp `*.39S2095  1 p 2 18 ]
-[v pad@buf buf `*.39uc  1 p 2 20 ]
-[v pad@p p `i  1 p 2 22 ]
-"164
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-{
-"11
-[v fputs@i i `i  1 a 2 16 ]
-"10
-[v fputs@c c `uc  1 a 1 15 ]
-"8
-[v fputs@s s `*.39Cuc  1 p 2 11 ]
-[u S2060 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2063 _IO_FILE 11 `S2060 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S2063  1 p 2 13 ]
-"19
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 2 ]
-[u S2060 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2063 _IO_FILE 11 `S2060 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S2063  1 p 2 4 ]
-"24
-} 0
-"10 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-[v putch@txData txData `uc  1 a 1 wreg ]
-[v putch@txData txData `uc  1 a 1 wreg ]
-"12
-[v putch@txData txData `uc  1 a 1 1 ]
-"13
-} 0
-"4
-[v _UART_SendChar UART_SendChar `(v  1 e 1 0 ]
-{
-[v UART_SendChar@data data `uc  1 a 1 wreg ]
-[v UART_SendChar@data data `uc  1 a 1 wreg ]
-[v UART_SendChar@data data `uc  1 a 1 0 ]
-"8
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lomod.c
-[v ___lomod __lomod `(uo  1 e 8 0 ]
-{
-"12
-[v ___lomod@counter counter `uc  1 a 1 16 ]
-"9
-[v ___lomod@dividend dividend `uo  1 p 8 0 ]
-[v ___lomod@divisor divisor `uo  1 p 8 8 ]
-"27
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lodiv.c
-[v ___lodiv __lodiv `(uo  1 e 8 0 ]
-{
-"12
-[v ___lodiv@quotient quotient `uo  1 a 8 16 ]
-"13
-[v ___lodiv@counter counter `uc  1 a 1 24 ]
-"9
-[v ___lodiv@dividend dividend `uo  1 p 8 0 ]
-[v ___lodiv@divisor divisor `uo  1 p 8 8 ]
-"32
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\atoi.c
-[v _atoi atoi `(i  1 e 2 0 ]
-{
-"6
-[v atoi@n n `i  1 a 2 13 ]
-[v atoi@neg neg `i  1 a 2 11 ]
-"4
-[v atoi@s s `*.32Cuc  1 p 2 6 ]
-"16
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\isspace.c
-[v _isspace isspace `(i  1 e 2 0 ]
-{
-[v isspace@c c `i  1 p 2 0 ]
-"8
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\isdigit.c
-[v _isdigit isdigit `(i  1 e 2 0 ]
-{
-[v isdigit@c c `i  1 p 2 0 ]
-"8
-} 0
-"1048 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-[v _GLCD_PrintString GLCD_PrintString `(v  1 e 1 0 ]
-{
-[v GLCD_PrintString@Text Text `*.34Cuc  1 p 2 29 ]
-"1057
-} 0
-"850
-[v _GLCD_PrintChar GLCD_PrintChar `(v  1 e 1 0 ]
-{
-[v GLCD_PrintChar@Character Character `uc  1 a 1 wreg ]
-"853
-[v GLCD_PrintChar@fontRead fontRead `ui  1 a 2 23 ]
-[v GLCD_PrintChar@fontStart fontStart `ui  1 a 2 19 ]
-"854
-[v GLCD_PrintChar@data data `uc  1 a 1 28 ]
-[v GLCD_PrintChar@j j `uc  1 a 1 27 ]
-[v GLCD_PrintChar@i i `uc  1 a 1 26 ]
-[v GLCD_PrintChar@overflow overflow `uc  1 a 1 25 ]
-[v GLCD_PrintChar@lines lines `uc  1 a 1 22 ]
-[v GLCD_PrintChar@width width `uc  1 a 1 21 ]
-[v GLCD_PrintChar@x x `uc  1 a 1 18 ]
-[v GLCD_PrintChar@data_next data_next `uc  1 a 1 17 ]
-[v GLCD_PrintChar@y y `uc  1 a 1 16 ]
-[v GLCD_PrintChar@y2 y2 `uc  1 a 1 15 ]
-"850
-[v GLCD_PrintChar@Character Character `uc  1 a 1 wreg ]
-"855
-[v GLCD_PrintChar@Character Character `uc  1 a 1 14 ]
-"1046
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"10
-[v ___awdiv@quotient quotient `i  1 a 2 6 ]
-"11
-[v ___awdiv@sign sign `uc  1 a 1 5 ]
-[v ___awdiv@counter counter `uc  1 a 1 4 ]
-"7
-[v ___awdiv@dividend dividend `i  1 p 2 0 ]
-[v ___awdiv@divisor divisor `i  1 p 2 2 ]
-"41
-} 0
-"1167 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+"1167
 [v _GLCD_BufferWrite GLCD_BufferWrite `(v  1 s 1 GLCD_BufferWrite ]
 {
 [v GLCD_BufferWrite@X X `Cuc  1 a 1 wreg ]
@@ -1121,10 +1158,92 @@ GLCD_Black 255
 [v GLCD_BufferRead@X X `Cuc  1 a 1 4 ]
 "1177
 } 0
+"141 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
+[v _Button_Update Button_Update `(v  1 e 1 0 ]
+{
+"150
+[v Button_Update@now_pressed now_pressed `E5702  1 a 1 17 ]
+"143
+[v Button_Update@key key `uc  1 a 1 18 ]
+"212
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
+"7
+[v ___lwdiv@dividend dividend `ui  1 p 2 0 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
+"30
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+{
+[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
+"6
+[v ___lbdiv@quotient quotient `uc  1 a 1 3 ]
+"7
+[v ___lbdiv@counter counter `uc  1 a 1 2 ]
+"4
+[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
+[v ___lbdiv@divisor divisor `uc  1 p 1 0 ]
+"9
+[v ___lbdiv@dividend dividend `uc  1 a 1 1 ]
+"26
+} 0
+"67 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
+[v _ButtonOK ButtonOK `(uc  1 e 1 0 ]
+{
+"70
+} 0
+"62
+[v _ButtonDown ButtonDown `(uc  1 e 1 0 ]
+{
+"65
+} 0
+"52
+[v _ButtonLeft ButtonLeft `(uc  1 e 1 0 ]
+{
+"55
+} 0
+"47
+[v _ButtonRight ButtonRight `(uc  1 e 1 0 ]
+{
+"50
+} 0
+"57
+[v _ButtonUp ButtonUp `(uc  1 e 1 0 ]
+{
+"60
+} 0
+"221
+[v _Button_Event_Reset Button_Event_Reset `(v  1 e 1 0 ]
+{
+"230
+} 0
+"214
+[v _Button_EventGet Button_EventGet `(E5702  1 e 1 0 ]
+{
+[v Button_EventGet@key key `uc  1 a 1 wreg ]
+[v Button_EventGet@key key `uc  1 a 1 wreg ]
+"216
+[v Button_EventGet@key key `uc  1 a 1 2 ]
+"219
+} 0
 "11 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\interrupts.c
 [v _Init_Timer0 Init_Timer0 `(v  1 e 1 0 ]
 {
 "38
+} 0
+"331 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+[v _InitBattParameters InitBattParameters `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v InitBattParameters@bat_param bat_param `*.39S665  1 p 2 0 ]
+"350
 } 0
 "82 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_Setup GLCD_Setup `(v  1 e 1 0 ]
@@ -1206,87 +1325,12 @@ GLCD_Black 255
 [v GLCD_GotoX@X X `Cuc  1 a 1 0 ]
 "193
 } 0
-"141 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
-[v _Button_Update Button_Update `(v  1 e 1 0 ]
-{
-"150
-[v Button_Update@now_pressed now_pressed `E5702  1 a 1 17 ]
-"143
-[v Button_Update@key key `uc  1 a 1 18 ]
-"212
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
-"11
-[v ___lwdiv@counter counter `uc  1 a 1 6 ]
-"7
-[v ___lwdiv@dividend dividend `ui  1 p 2 0 ]
-[v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
-"30
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lbdiv.c
-[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
-{
-[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
-"6
-[v ___lbdiv@quotient quotient `uc  1 a 1 3 ]
-"7
-[v ___lbdiv@counter counter `uc  1 a 1 2 ]
-"4
-[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
-[v ___lbdiv@divisor divisor `uc  1 p 1 0 ]
-"9
-[v ___lbdiv@dividend dividend `uc  1 a 1 1 ]
-"26
-} 0
-"67 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
-[v _ButtonOK ButtonOK `(uc  1 e 1 0 ]
-{
-"70
-} 0
-"62
-[v _ButtonDown ButtonDown `(uc  1 e 1 0 ]
-{
-"65
-} 0
-"52
-[v _ButtonLeft ButtonLeft `(uc  1 e 1 0 ]
-{
-"55
-} 0
-"47
-[v _ButtonRight ButtonRight `(uc  1 e 1 0 ]
-{
-"50
-} 0
-"57
-[v _ButtonUp ButtonUp `(uc  1 e 1 0 ]
-{
-"60
-} 0
-"116
+"116 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
 [v _Button_Init Button_Init `(v  1 e 1 0 ]
 {
 "130
 [v Button_Init@i i `uc  1 a 1 14 ]
 "138
-} 0
-"221
-[v _Button_Event_Reset Button_Event_Reset `(v  1 e 1 0 ]
-{
-"230
-} 0
-"214
-[v _Button_EventGet Button_EventGet `(E5875  1 e 1 0 ]
-{
-[v Button_EventGet@key key `uc  1 a 1 wreg ]
-[v Button_EventGet@key key `uc  1 a 1 wreg ]
-"216
-[v Button_EventGet@key key `uc  1 a 1 2 ]
-"219
 } 0
 "41 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\interrupts.c
 [v _ISR ISR `IIH(v  1 e 1 0 ]

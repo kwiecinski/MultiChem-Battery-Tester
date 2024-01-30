@@ -9554,9 +9554,71 @@ void delay_ms(unsigned int milliseconds);
 # 13 "main.c" 2
 
 # 1 "./menu_definitions.h" 1
-# 15 "./menu_definitions.h"
-void OneBatMenu(void);
+# 14 "./menu_definitions.h"
+typedef struct
+{
+
+    uint8_t set_cycle, current_cycle,
+            bat_actual_temp, bat_max_temp,
+            bat_chem, bat_storage_precentage, selected_mode, cell_count;
+
+
+    uint16_t batt_set_voltage, batt_set_current,
+            batt_actual_voltage, batt_actual_current,
+            batt_set_trickle_voltage, bat_set_trickle_current,
+            batt_set_min_discharge_voltage,
+            batt_capacitance;
+
+    uint32_t set_time;
+
+    char text[25];
+
+}BattParameters;
+
+
+enum state
+{
+    state_charging,
+    state_discharging,
+    state_idle
+};
+
+enum battery_number
+{
+    battery_1,
+    battery_2
+};
+
+enum select_menu_start
+{
+    menu,
+    start
+};
+
+enum select_batt_chemistry
+{
+    liion,
+    pb,
+    nimh
+};
+
+enum mode
+{
+    charging,
+    charging_discharging,
+    charging_discharging_storage
+};
+
+
+
+void InitBattParameters(BattParameters *bat_param);
+void SingleBat_Menu(BattParameters *bat_param);
 # 14 "main.c" 2
+
+# 1 "./menu_navigation.h" 1
+# 11 "./menu_navigation.h"
+void Menu(BattParameters *bat_param);
+# 15 "main.c" 2
 
 # 1 "./button.h" 1
 # 135 "./button.h"
@@ -9630,7 +9692,7 @@ void Button_Update(void);
 btn_state_t Button_EventGet(uint8_t key);
 void Button_Event_Reset(void);
 void Button_ShortRelease(buttons btnCode);
-# 15 "main.c" 2
+# 16 "main.c" 2
 
 # 1 "./LCD-KS0108/font5x8.h" 1
 
@@ -9738,7 +9800,7 @@ const uint8_t Font5x8[] =
  0x05, 0x04, 0x02, 0x04, 0x08, 0x04,
  0x05, 0x00, 0x7F, 0x41, 0x7F, 0x00
 };
-# 16 "main.c" 2
+# 17 "main.c" 2
 
 # 1 "./interrupts.h" 1
 # 41 "./interrupts.h"
@@ -9746,7 +9808,7 @@ extern volatile uint16_t button_counter;
 extern volatile uint32_t time;
 
 void Init_Timer0();
-# 17 "main.c" 2
+# 18 "main.c" 2
 
 
 
@@ -9761,49 +9823,13 @@ void main(void)
     Button_Init();
     Init_Timer0();
     LATAbits.LA6=1;
-    OneBatMenu();
-    uint8_t menu_change=0;
+
+    BattParameters bat_param;
+    InitBattParameters(&bat_param);
+    SingleBat_Menu(&bat_param);
+
     while (1)
     {
-        Button_Update();
-        if (Button_EventGet(OK_SW))
-        {
-            Button_Event_Reset();
-
-
-            if (menu_change)
-            {
-                GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
-                GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-                GLCD_GotoXY(2, 54);
-                GLCD_PrintString("START");
-
-                GLCD_FillRectangle(35, 51, 61, 63, GLCD_White);
-                GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
-                GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-                GLCD_GotoXY(37, 54);
-                GLCD_PrintString("MENU");
-
-                GLCD_Render();
-                menu_change = 0;
-            } else
-            {
-
-                menu_change = 1;
-
-                GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
-                GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);
-                GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-                GLCD_GotoXY(2, 54);
-                GLCD_PrintString("START");
-
-
-                GLCD_FillRectangle(35, 51, 61, 63, GLCD_Black);
-                GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-                GLCD_GotoXY(37, 54);
-                GLCD_PrintString("MENU");
-                GLCD_Render();
-            }
-        }
+        Menu(&bat_param);
     }
 }

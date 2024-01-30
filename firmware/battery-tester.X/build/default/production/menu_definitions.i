@@ -9823,25 +9823,27 @@ const uint8_t Tekton_Pro_Ext27x28[] =
         };
 # 44 "menu_definitions.c" 2
 
-
-
-
-
+# 1 "./menu_definitions.h" 1
+# 14 "./menu_definitions.h"
 typedef struct
 {
-uint8_t set_cycle, current_cycle, temp, bat_chem, bat_storage_precentage, bat_max_temp, bat_actual_temp;
-uint16_t batt_set_voltage, batt_set_current, batt_actual_voltage, batt_actual_current,
-        batt_set_trickle_voltage, bat_set_trickle_current,
-        batt_set_min_discharge_voltage,
 
-        batt_capacitance;
+    uint8_t set_cycle, current_cycle,
+            bat_actual_temp, bat_max_temp,
+            bat_chem, bat_storage_precentage, selected_mode, cell_count;
 
-uint32_t set_time;
 
-char text[15];
+    uint16_t batt_set_voltage, batt_set_current,
+            batt_actual_voltage, batt_actual_current,
+            batt_set_trickle_voltage, bat_set_trickle_current,
+            batt_set_min_discharge_voltage,
+            batt_capacitance;
+
+    uint32_t set_time;
+
+    char text[25];
 
 }BattParameters;
-
 
 
 enum state
@@ -9879,6 +9881,16 @@ enum mode
 
 
 
+void InitBattParameters(BattParameters *bat_param);
+void SingleBat_Menu(BattParameters *bat_param);
+# 45 "menu_definitions.c" 2
+
+# 1 "./menu_navigation.h" 1
+# 11 "./menu_navigation.h"
+void Menu(BattParameters *bat_param);
+# 46 "menu_definitions.c" 2
+
+
 void batState(uint8_t state, uint8_t battery_number )
 {
         switch(battery_number)
@@ -9895,9 +9907,9 @@ void batState(uint8_t state, uint8_t battery_number )
         }
 }
 
-void ChemistryDisplay(uint8_t chem_type)
+void ChemistryDisplay(BattParameters *bat_param)
 {
-        switch(chem_type)
+        switch(bat_param->bat_chem)
         {
             case liion: GLCD_PrintString("Li-Ion"); break;
             case pb: GLCD_PrintString("PB"); break;
@@ -9905,10 +9917,10 @@ void ChemistryDisplay(uint8_t chem_type)
         }
 }
 
-void ChargerMode(uint8_t charge_mode)
+void ChargerMode(BattParameters *bat_param)
 {
 
-        switch(charge_mode)
+        switch(bat_param->selected_mode)
         {
             case charging: GLCD_PrintString("Charging"); break;
             case charging_discharging: GLCD_PrintString("Charg/Disch"); break;
@@ -9928,6 +9940,12 @@ void CurrentDisplay (BattParameters *batparam_ptr)
     GLCD_PrintString(batparam_ptr->text);
 }
 
+void CelCount (BattParameters *batparam_ptr)
+{
+    sprintf(batparam_ptr->text, "Cell Count:%u", batparam_ptr->cell_count);
+    GLCD_PrintString(batparam_ptr->text);
+}
+
 void CapacitanceDisplay (BattParameters *batparam_ptr)
 {
     sprintf(batparam_ptr->text, "Cap:%04umAh", batparam_ptr->batt_capacitance);
@@ -9939,17 +9957,20 @@ void CycleDisplay (BattParameters *batparam_ptr)
     sprintf(batparam_ptr->text, "Cycle:%u/%u", batparam_ptr->current_cycle,batparam_ptr->set_cycle);
     GLCD_PrintString(batparam_ptr->text);
 }
-
+void CycleSet (BattParameters *batparam_ptr)
+{
+    sprintf(batparam_ptr->text, "Cycle:%u",batparam_ptr->set_cycle);
+    GLCD_PrintString(batparam_ptr->text);
+}
 void TimeDisplay (BattParameters *batparam_ptr)
 {
     sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->set_time/3600),(unsigned int)((batparam_ptr->set_time%3600)/60),(unsigned int)(batparam_ptr->set_time%60));
     GLCD_PrintString(batparam_ptr->text);
 }
 
-
 void TempDisplay (BattParameters *batparam_ptr)
 {
-    sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->temp);
+    sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->bat_actual_temp);
     GLCD_PrintString(batparam_ptr->text);
 }
 
@@ -9957,22 +9978,9 @@ void TempDisplay (BattParameters *batparam_ptr)
 
 
 
-void SingleBat_Menu(void)
+
+void SingleBat_Menu(BattParameters *bat_param)
 {
-
-    BattParameters bat_param;
-
-    bat_param.batt_actual_current=1234;
-    bat_param.batt_actual_voltage=418;
-    bat_param.batt_capacitance=1526;
-    bat_param.batt_set_current=1200;
-    bat_param.batt_set_voltage=425;
-    bat_param.temp=32;
-    bat_param.set_time=35681;
-    bat_param.current_cycle=3;
-    bat_param.set_cycle=4;
-
-
     GLCD_Clear();
 
 
@@ -9996,17 +10004,17 @@ void SingleBat_Menu(void)
 
 
     GLCD_GotoXY(0, 13);
-    VoltageDisplay(&bat_param);
+    VoltageDisplay(bat_param);
     GLCD_GotoXY(0, 22);
-    CurrentDisplay(&bat_param);
+    CurrentDisplay(bat_param);
     GLCD_GotoXY(0, 31);
-    CapacitanceDisplay(&bat_param);
+    CapacitanceDisplay(bat_param);
     GLCD_GotoXY(0, 40);
-    CycleDisplay(&bat_param);
+    CycleDisplay(bat_param);
     GLCD_GotoXY(74, 0);
-    TimeDisplay(&bat_param);
+    TimeDisplay(bat_param);
     GLCD_GotoXY(78, 40);
-    TempDisplay(&bat_param);
+    TempDisplay(bat_param);
 
 
 
@@ -10014,9 +10022,9 @@ void SingleBat_Menu(void)
     GLCD_Render();
 }
 
-void Options1_Menu(void)
+void Options1_Menu(BattParameters *bat_param)
 {
-# 247 "menu_definitions.c"
+# 190 "menu_definitions.c"
     GLCD_Clear();
 
 
@@ -10028,13 +10036,13 @@ void Options1_Menu(void)
     GLCD_PrintString("Options 1");
 
     GLCD_GotoXY(0, 13);
-    ChemistryDisplay()
+    ChemistryDisplay(bat_param);
     GLCD_GotoXY(0, 22);
-    CurrentDisplay(&bat_param);
+    CelCount(bat_param);
     GLCD_GotoXY(0, 31);
-    CapacitanceDisplay(&bat_param);
+    ChargerMode(bat_param);
     GLCD_GotoXY(0, 40);
-
+    CycleSet(bat_param);
 
 
     GLCD_Render();
@@ -10155,4 +10163,26 @@ void TwoBatMenu(void)
 
     batState(state_idle, battery_1);
     batState(state_idle, battery_2);
+}
+
+
+void InitBattParameters (BattParameters *bat_param)
+{
+        bat_param->set_cycle = 1;
+        bat_param->current_cycle = 1;
+        bat_param->bat_actual_temp = 20;
+        bat_param->bat_max_temp = 35;
+        bat_param->bat_chem = liion;
+        bat_param->bat_storage_precentage = 70;
+        bat_param->selected_mode = charging_discharging;
+        bat_param->cell_count = 1;
+
+        bat_param->batt_set_voltage = 420;
+        bat_param->batt_set_current = 1000;
+        bat_param->batt_actual_voltage = 370;
+        bat_param->batt_actual_current = 430;
+        bat_param->batt_set_trickle_voltage = 270;
+        bat_param->bat_set_trickle_current = 30;
+        bat_param->batt_set_min_discharge_voltage = 270;
+        bat_param->batt_capacitance = 1000;
 }
