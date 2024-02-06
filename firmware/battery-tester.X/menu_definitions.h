@@ -69,6 +69,6 @@ enum mode
 
 void InitBattParameters(BattParameters *bat_param);
 void SingleBat_Menu(BattParameters *bat_param);
-
+void Options1_Menu(BattParameters *bat_param);
 #endif	/* MENU_H */
 

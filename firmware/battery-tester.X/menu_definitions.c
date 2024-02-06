@@ -65,9 +65,9 @@ void ChemistryDisplay(BattParameters *bat_param)
 {
         switch(bat_param->bat_chem)
         {
-            case liion:     GLCD_PrintString("Li-Ion"); break;
-            case pb:        GLCD_PrintString("PB"); break;
-            case nimh:      GLCD_PrintString("Ni-MH"); break;
+            case liion:     GLCD_PrintString("Batt type: Li-Ion"); break;
+            case pb:        GLCD_PrintString("Batt type: PB"); break;
+            case nimh:      GLCD_PrintString("Batt type: Ni-MH"); break;
         }
 }
 
@@ -76,9 +76,9 @@ void ChargerMode(BattParameters *bat_param)
     
         switch(bat_param->selected_mode)
         {
-            case charging:                          GLCD_PrintString("Charging"); break;
-            case charging_discharging:              GLCD_PrintString("Charg/Disch"); break;
-            case charging_discharging_storage:      GLCD_PrintString("Charg/Disch/Stor"); break;
+            case charging:                          GLCD_PrintString("Mode: Charging"); break;
+            case charging_discharging:              GLCD_PrintString("Mode: Charg/Disch"); break;
+            case charging_discharging_storage:      GLCD_PrintString("Mode: Charg/Disch/Stor"); break;
         }
 }
 /////////////////////////////////////////////////////////////////////////////////
@@ -189,7 +189,7 @@ void Options1_Menu(BattParameters *bat_param)
          
     GLCD_Clear();
     
-    
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
     GLCD_GotoXY(2, 2);
     GLCD_PrintString("BAT 1");
     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
@@ -205,8 +205,7 @@ void Options1_Menu(BattParameters *bat_param)
     ChargerMode(bat_param);     //Mode: Only Charging / Chrg/Disc / Chrg/Disc/Stor
     GLCD_GotoXY(0, 40);
     CycleSet(bat_param);       //Cycles: 1-4
-    
-    
+ 
     GLCD_Render(); 
 }
 

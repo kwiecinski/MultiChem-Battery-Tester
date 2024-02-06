@@ -74,30 +74,40 @@ GLCD_Non_Inverted 1
 GLCD_White 0
 GLCD_Black 255
 ]
-"21 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
-[e E5909 . `uc
+"32 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+[e E5885 select_menu_start `uc
+menu 0
+start 1
+]
+[e E5958 menu_type `uc
+main_menu 0
+settings1 1
+settings2 2
+]
+"35
+[e E5911 . `uc
 BTN_STATE_NONE 0
 BTN_STATE_SHORT 1
 BTN_STATE_LONG 2
 ]
-[e E5902 . `uc
+[e E5904 . `uc
 LEFT_SW 0
 RIGHT_SW 1
 UP_SW 2
 DOWN_SW 3
 OK_SW 4
 ]
-"27
-[e E5885 select_menu_start `uc
-menu 0
-start 1
+"54
+[e E5955 settings1_navigation `uc
+next 0
+save_exit 1
 ]
-"47
+"90
 [e E5705 Color_t `uc
 GLCD_White 0
 GLCD_Black 255
 ]
-"48
+"91
 [e E5702 PrintMode_t `uc
 GLCD_Overwrite 0
 GLCD_Merge 1
@@ -288,12 +298,16 @@ GLCD_Non_Inverted 1
 [v _TempDisplay TempDisplay `(v  1 e 1 0 ]
 "136
 [v _SingleBat_Menu SingleBat_Menu `(v  1 e 1 0 ]
-"331
+"179
+[v _Options1_Menu Options1_Menu `(v  1 e 1 0 ]
+"330
 [v _InitBattParameters InitBattParameters `(v  1 e 1 0 ]
-"15 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"29 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Menu Menu `(v  1 e 1 0 ]
-"42
-[v _DisplayMenuOption DisplayMenuOption `(v  1 e 1 0 ]
+"86
+[v _Handle_Setting1_MenuNavigation Handle_Setting1_MenuNavigation `(v  1 e 1 0 ]
+"122
+[v _Handle_Main_MenuNavigation Handle_Main_MenuNavigation `(v  1 e 1 0 ]
 "4 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
 [v _UART_SendChar UART_SendChar `(v  1 e 1 0 ]
 "10
@@ -663,7 +677,7 @@ GLCD_Non_Inverted 1
 [v _SingleBat_Menu SingleBat_Menu `(v  1 e 1 0 ]
 {
 [s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
-[v SingleBat_Menu@bat_param bat_param `*.39S665  1 p 2 29 ]
+[v SingleBat_Menu@bat_param bat_param `*.39S665  1 p 2 27 ]
 "177
 } 0
 "48
@@ -728,25 +742,7 @@ GLCD_Non_Inverted 1
 [v TempDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
 "129
 } 0
-"170 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-[v _GLCD_Clear GLCD_Clear `(v  1 e 1 0 ]
-{
-"173
-} 0
-"584
-[v _GLCD_FillScreen GLCD_FillScreen `(v  1 e 1 0 ]
-{
-[v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
-"586
-[v GLCD_FillScreen@j j `uc  1 a 1 8 ]
-[v GLCD_FillScreen@i i `uc  1 a 1 7 ]
-"584
-[v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
-"588
-[v GLCD_FillScreen@Color Color `E5705  1 a 1 6 ]
-"591
-} 0
-"109 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"109
 [v _CycleDisplay CycleDisplay `(v  1 e 1 0 ]
 {
 [s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
@@ -767,13 +763,76 @@ GLCD_Non_Inverted 1
 [v CapacitanceDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
 "107
 } 0
+"29 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+[v _Menu Menu `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v Menu@bat_param bat_param `*.39S665  1 p 2 29 ]
+"32
+[v Menu@menu_change menu_change `uc  1 s 1 menu_change ]
+[v Menu@menu_type menu_type `uc  1 s 1 menu_type ]
+"83
+} 0
+"179 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+[v _Options1_Menu Options1_Menu `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v Options1_Menu@bat_param bat_param `*.39S665  1 p 2 27 ]
+"210
+} 0
+"170 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+[v _GLCD_Clear GLCD_Clear `(v  1 e 1 0 ]
+{
+"173
+} 0
+"584
+[v _GLCD_FillScreen GLCD_FillScreen `(v  1 e 1 0 ]
+{
+[v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
+"586
+[v GLCD_FillScreen@j j `uc  1 a 1 8 ]
+[v GLCD_FillScreen@i i `uc  1 a 1 7 ]
+"584
+[v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
+"588
+[v GLCD_FillScreen@Color Color `E5705  1 a 1 6 ]
+"591
+} 0
+"114 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+[v _CycleSet CycleSet `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v CycleSet@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
+"118
+} 0
+"64
+[v _ChemistryDisplay ChemistryDisplay `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v ChemistryDisplay@bat_param bat_param `*.39S665  1 p 2 33 ]
+"72
+} 0
+"74
+[v _ChargerMode ChargerMode `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v ChargerMode@bat_param bat_param `*.39S665  1 p 2 33 ]
+"83
+} 0
+"97
+[v _CelCount CelCount `(v  1 e 1 0 ]
+{
+[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
+[v CelCount@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
+"101
+} 0
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S2229 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S2250 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S2232 _IO_FILE 11 `S2229 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S2232  1 a 11 14 ]
+[s S2253 _IO_FILE 11 `S2250 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S2253  1 a 11 14 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 12 ]
 "9
@@ -786,9 +845,9 @@ GLCD_Non_Inverted 1
 {
 "1523
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 89 ]
-[s S2264 _IO_FILE 0 ]
+[s S2285 _IO_FILE 0 ]
 "1520
-[v vfprintf@fp fp `*.39S2264  1 p 2 83 ]
+[v vfprintf@fp fp `*.39S2285  1 p 2 83 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 85 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 87 ]
 "1543
@@ -796,16 +855,16 @@ GLCD_Non_Inverted 1
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S2277 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+[u S2298 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
 "1016
-[v vfpfcnvrt@convarg convarg `S2277  1 a 8 71 ]
+[v vfpfcnvrt@convarg convarg `S2298  1 a 8 71 ]
 "1009
 [v vfpfcnvrt@cp cp `*.32uc  1 a 2 81 ]
 "1010
 [v vfpfcnvrt@done done `i  1 a 2 79 ]
-[s S2264 _IO_FILE 0 ]
+[s S2285 _IO_FILE 0 ]
 "1007
-[v vfpfcnvrt@fp fp `*.39S2264  1 p 2 61 ]
+[v vfpfcnvrt@fp fp `*.39S2285  1 p 2 61 ]
 [v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 63 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 65 ]
 "1517
@@ -819,9 +878,9 @@ GLCD_Non_Inverted 1
 [v utoa@i i `i  1 a 2 59 ]
 [v utoa@w w `i  1 a 2 49 ]
 [v utoa@p p `i  1 a 2 47 ]
-[s S2264 _IO_FILE 0 ]
+[s S2285 _IO_FILE 0 ]
 "894
-[v utoa@fp fp `*.39S2264  1 p 2 29 ]
+[v utoa@fp fp `*.39S2285  1 p 2 29 ]
 [v utoa@d d `uo  1 p 8 31 ]
 "926
 } 0
@@ -831,9 +890,9 @@ GLCD_Non_Inverted 1
 "135
 [v pad@w w `i  1 a 2 27 ]
 [v pad@i i `i  1 a 2 25 ]
-[s S2264 _IO_FILE 0 ]
+[s S2285 _IO_FILE 0 ]
 "133
-[v pad@fp fp `*.39S2264  1 p 2 18 ]
+[v pad@fp fp `*.39S2285  1 p 2 18 ]
 [v pad@buf buf `*.39uc  1 p 2 20 ]
 [v pad@p p `i  1 p 2 22 ]
 "164
@@ -847,18 +906,18 @@ GLCD_Non_Inverted 1
 [v fputs@c c `uc  1 a 1 15 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 11 ]
-[u S2229 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2232 _IO_FILE 11 `S2229 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S2232  1 p 2 13 ]
+[u S2250 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2253 _IO_FILE 11 `S2250 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S2253  1 p 2 13 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 2 ]
-[u S2229 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2232 _IO_FILE 11 `S2229 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S2232  1 p 2 4 ]
+[u S2250 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2253 _IO_FILE 11 `S2250 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S2253  1 p 2 4 ]
 "24
 } 0
 "10 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
@@ -922,23 +981,23 @@ GLCD_Non_Inverted 1
 [v isdigit@c c `i  1 p 2 0 ]
 "8
 } 0
-"15 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
-[v _Menu Menu `(v  1 e 1 0 ]
+"86 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+[v _Handle_Setting1_MenuNavigation Handle_Setting1_MenuNavigation `(v  1 e 1 0 ]
 {
-[s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
-[v Menu@bat_param bat_param `*.39S665  1 p 2 38 ]
-"18
-[v Menu@menu_change menu_change `uc  1 s 1 menu_change ]
-"38
+[v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
+[v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
+"88
+[v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 37 ]
+"119
 } 0
-"42
-[v _DisplayMenuOption DisplayMenuOption `(v  1 e 1 0 ]
+"122
+[v _Handle_Main_MenuNavigation Handle_Main_MenuNavigation `(v  1 e 1 0 ]
 {
-[v DisplayMenuOption@option option `uc  1 a 1 wreg ]
-[v DisplayMenuOption@option option `uc  1 a 1 wreg ]
-"45
-[v DisplayMenuOption@option option `uc  1 a 1 37 ]
-"76
+[v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
+[v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
+"125
+[v Handle_Main_MenuNavigation@option option `uc  1 a 1 37 ]
+"156
 } 0
 "793 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_SetFont GLCD_SetFont `(v  1 e 1 0 ]
@@ -1238,12 +1297,12 @@ GLCD_Non_Inverted 1
 {
 "38
 } 0
-"331 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"330 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _InitBattParameters InitBattParameters `(v  1 e 1 0 ]
 {
 [s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
 [v InitBattParameters@bat_param bat_param `*.39S665  1 p 2 0 ]
-"350
+"349
 } 0
 "82 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_Setup GLCD_Setup `(v  1 e 1 0 ]
