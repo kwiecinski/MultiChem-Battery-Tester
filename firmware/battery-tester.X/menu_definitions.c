@@ -128,6 +128,29 @@ void TempDisplay (BattParameters *batparam_ptr)
     GLCD_PrintString(batparam_ptr->text); 
 }
 
+void TrickleVoltage(BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "TrickleVol:%02uV", batparam_ptr->batt_set_trickle_voltage);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+void TrickleCurrent(BattParameters *batparam_ptr)
+{     
+    sprintf(batparam_ptr->text, "TrickleCur:%umA", batparam_ptr->bat_set_trickle_current);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+void SetCellVotage(BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "MinDiscVol:%u.%02uV", batparam_ptr->batt_set_voltage/100, batparam_ptr->batt_set_voltage%100);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+void MinimumDischargeVoltage(BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "MinDiscVol:%u.%02uV", batparam_ptr->batt_set_min_discharge_voltage/100, batparam_ptr->batt_set_min_discharge_voltage%100);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////
 
 
@@ -175,6 +198,42 @@ void SingleBat_Menu(BattParameters *bat_param)
        
     GLCD_Render();
 }
+
+void Options2_Menu(BattParameters *bat_param)
+{
+    
+     /*
+     *---Options 2
+     * Vol: 4,22 
+     * TrickleVol: 2,8V
+     * TrickeCurr: 10mA
+     * MinDiscVol: 2,80V  
+
+     */  
+    
+    GLCD_Clear();
+    
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_GotoXY(2, 2);
+    GLCD_PrintString("BAT 1");
+    GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+  
+    GLCD_GotoXY(35,2); 
+    GLCD_PrintString("Options 2");
+    
+    GLCD_GotoXY(0, 13);
+    SetCellVotage(bat_param);           //Vol: 
+    GLCD_GotoXY(0, 22);
+    TrickleVoltage(bat_param);          //TrickleVol:
+    GLCD_GotoXY(0, 31);
+    TrickleCurrent(bat_param);          //TrickeCurr: 
+    GLCD_GotoXY(0, 40);
+    MinimumDischargeVoltage(bat_param); //MinDiscVol:
+ 
+    GLCD_Render(); 
+}
+
+
 
 void Options1_Menu(BattParameters *bat_param)
 {

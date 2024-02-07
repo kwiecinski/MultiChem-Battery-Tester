@@ -9614,6 +9614,7 @@ enum mode
 void InitBattParameters(BattParameters *bat_param);
 void SingleBat_Menu(BattParameters *bat_param);
 void Options1_Menu(BattParameters *bat_param);
+void Options2_Menu(BattParameters *bat_param);
 # 14 "main.c" 2
 
 # 1 "./menu_navigation.h" 1

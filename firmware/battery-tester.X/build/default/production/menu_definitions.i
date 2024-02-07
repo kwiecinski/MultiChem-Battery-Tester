@@ -9884,6 +9884,7 @@ enum mode
 void InitBattParameters(BattParameters *bat_param);
 void SingleBat_Menu(BattParameters *bat_param);
 void Options1_Menu(BattParameters *bat_param);
+void Options2_Menu(BattParameters *bat_param);
 # 45 "menu_definitions.c" 2
 
 # 1 "./menu_navigation.h" 1
@@ -9975,6 +9976,29 @@ void TempDisplay (BattParameters *batparam_ptr)
     GLCD_PrintString(batparam_ptr->text);
 }
 
+void TrickleVoltage(BattParameters *batparam_ptr)
+{
+    sprintf(batparam_ptr->text, "TrickleVol:%02uV", batparam_ptr->batt_set_trickle_voltage);
+    GLCD_PrintString(batparam_ptr->text);
+}
+void TrickleCurrent(BattParameters *batparam_ptr)
+{
+    sprintf(batparam_ptr->text, "TrickleCur:%umA", batparam_ptr->bat_set_trickle_current);
+    GLCD_PrintString(batparam_ptr->text);
+}
+void SetCellVotage(BattParameters *batparam_ptr)
+{
+    sprintf(batparam_ptr->text, "MinDiscVol:%u.%02uV", batparam_ptr->batt_set_voltage/100, batparam_ptr->batt_set_voltage%100);
+    GLCD_PrintString(batparam_ptr->text);
+}
+
+void MinimumDischargeVoltage(BattParameters *batparam_ptr)
+{
+    sprintf(batparam_ptr->text, "MinDiscVol:%u.%02uV", batparam_ptr->batt_set_min_discharge_voltage/100, batparam_ptr->batt_set_min_discharge_voltage%100);
+    GLCD_PrintString(batparam_ptr->text);
+}
+
+
 
 
 
@@ -10023,9 +10047,36 @@ void SingleBat_Menu(BattParameters *bat_param)
     GLCD_Render();
 }
 
+void Options2_Menu(BattParameters *bat_param)
+{
+# 214 "menu_definitions.c"
+    GLCD_Clear();
+
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_GotoXY(2, 2);
+    GLCD_PrintString("BAT 1");
+    GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+
+    GLCD_GotoXY(35,2);
+    GLCD_PrintString("Options 2");
+
+    GLCD_GotoXY(0, 13);
+    SetCellVotage(bat_param);
+    GLCD_GotoXY(0, 22);
+    TrickleVoltage(bat_param);
+    GLCD_GotoXY(0, 31);
+    TrickleCurrent(bat_param);
+    GLCD_GotoXY(0, 40);
+    MinimumDischargeVoltage(bat_param);
+
+    GLCD_Render();
+}
+
+
+
 void Options1_Menu(BattParameters *bat_param)
 {
-# 190 "menu_definitions.c"
+# 249 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
