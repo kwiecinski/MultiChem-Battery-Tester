@@ -90,7 +90,7 @@ void VoltageDisplay (BattParameters *batparam_ptr)
 
 void CurrentDisplay (BattParameters *batparam_ptr)
 {    
-    sprintf(batparam_ptr->text, "Cur:%04u/%04umA", batparam_ptr->batt_set_current,  batparam_ptr->batt_actual_current);
+    sprintf(batparam_ptr->text, "Cur:%u/%umA", batparam_ptr->batt_set_current,  batparam_ptr->batt_actual_current);
     GLCD_PrintString(batparam_ptr->text); 
 }
 
@@ -169,7 +169,7 @@ void SingleBat_Menu(BattParameters *bat_param)
     GLCD_PrintString("BAT 1");
     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
  
-   
+   /*
     GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
     GLCD_GotoXY(2, 54);
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
@@ -178,7 +178,7 @@ void SingleBat_Menu(BattParameters *bat_param)
     GLCD_GotoXY(37, 54);
     GLCD_PrintString("MENU");
     GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
-    
+    */
     
     GLCD_GotoXY(0, 13);
     VoltageDisplay(bat_param);

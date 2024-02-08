@@ -47,15 +47,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "106 ./LCD-KS0108/KS0108.h
 [; ;./LCD-KS0108/KS0108.h: 106: void GLCD_DrawRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color);
 [v _GLCD_DrawRectangle `(v ~T0 @X0 0 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
-"112
-[; ;./LCD-KS0108/KS0108.h: 112: void GLCD_FillRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color);
-[v _GLCD_FillRectangle `(v ~T0 @X0 0 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
 "88
 [; ;./LCD-KS0108/KS0108.h: 88: void GLCD_Render(void);
 [v _GLCD_Render `(v ~T0 @X0 0 ef ]
 "105
 [; ;./LCD-KS0108/KS0108.h: 105: void GLCD_DrawLine(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color);
 [v _GLCD_DrawLine `(v ~T0 @X0 0 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
+"112
+[; ;./LCD-KS0108/KS0108.h: 112: void GLCD_FillRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color);
+[v _GLCD_FillRectangle `(v ~T0 @X0 0 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
 "54 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -14285,7 +14285,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_definitions.c: 92: {
 [f ]
 "93
-[; ;menu_definitions.c: 93:     sprintf(batparam_ptr->text, "Cur:%04u/%04umA", batparam_ptr->batt_set_current, batparam_ptr->batt_actual_current);
+[; ;menu_definitions.c: 93:     sprintf(batparam_ptr->text, "Cur:%u/%umA", batparam_ptr->batt_set_current, batparam_ptr->batt_actual_current);
 [e ( _sprintf (1 , , (. , &U . *U _batparam_ptr 17 :s 11C -> . *U _batparam_ptr 9 `ui -> . *U _batparam_ptr 11 `ui ]
 "94
 [; ;menu_definitions.c: 94:     GLCD_PrintString(batparam_ptr->text);
@@ -14555,30 +14555,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "170
 [; ;menu_definitions.c: 170:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
-"173
-[; ;menu_definitions.c: 173:     GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"174
-[; ;menu_definitions.c: 174:     GLCD_GotoXY(2, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"175
-[; ;menu_definitions.c: 175:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"176
-[; ;menu_definitions.c: 176:     GLCD_PrintString("START");
-[e ( _GLCD_PrintString (1 :s 23C ]
-"177
-[; ;menu_definitions.c: 177:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"178
-[; ;menu_definitions.c: 178:     GLCD_GotoXY(37, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
-"179
-[; ;menu_definitions.c: 179:     GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 24C ]
-"180
-[; ;menu_definitions.c: 180:     GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
 "183
 [; ;menu_definitions.c: 183:     GLCD_GotoXY(0, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
@@ -14646,7 +14622,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
 "218
 [; ;menu_definitions.c: 218:     GLCD_PrintString("BAT 1");
-[e ( _GLCD_PrintString (1 :s 25C ]
+[e ( _GLCD_PrintString (1 :s 23C ]
 "219
 [; ;menu_definitions.c: 219:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
@@ -14655,7 +14631,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
 "222
 [; ;menu_definitions.c: 222:     GLCD_PrintString("Options 2");
-[e ( _GLCD_PrintString (1 :s 26C ]
+[e ( _GLCD_PrintString (1 :s 24C ]
 "224
 [; ;menu_definitions.c: 224:     GLCD_GotoXY(0, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
@@ -14711,7 +14687,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
 "253
 [; ;menu_definitions.c: 253:     GLCD_PrintString("BAT 1");
-[e ( _GLCD_PrintString (1 :s 27C ]
+[e ( _GLCD_PrintString (1 :s 25C ]
 "254
 [; ;menu_definitions.c: 254:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
@@ -14720,7 +14696,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
 "257
 [; ;menu_definitions.c: 257:     GLCD_PrintString("Options 1");
-[e ( _GLCD_PrintString (1 :s 28C ]
+[e ( _GLCD_PrintString (1 :s 26C ]
 "259
 [; ;menu_definitions.c: 259:     GLCD_GotoXY(0, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
@@ -14795,13 +14771,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_SetFont (4 , , , , &U _Tahoma11x13 -> -> 11 `i `uc -> -> 13 `i `uc . `E5702 1 . `E5699 0 ]
 "285
 [; ;menu_definitions.c: 285:     GLCD_PrintString("P");
-[e ( _GLCD_PrintString (1 :s 29C ]
+[e ( _GLCD_PrintString (1 :s 27C ]
 "286
 [; ;menu_definitions.c: 286:     GLCD_GotoXY(12, 4);
 [e ( _GLCD_GotoXY (2 , -> -> 12 `i `uc -> -> 4 `i `uc ]
 "287
 [; ;menu_definitions.c: 287:     GLCD_PrintString("P");
-[e ( _GLCD_PrintString (1 :s 30C ]
+[e ( _GLCD_PrintString (1 :s 28C ]
 "288
 [; ;menu_definitions.c: 288:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
@@ -14810,13 +14786,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> -> 23 `i `uc -> -> 4 `i `uc ]
 "290
 [; ;menu_definitions.c: 290:     GLCD_PrintString("U");
-[e ( _GLCD_PrintString (1 :s 31C ]
+[e ( _GLCD_PrintString (1 :s 29C ]
 "291
 [; ;menu_definitions.c: 291:     GLCD_GotoXY(32, 0);
 [e ( _GLCD_GotoXY (2 , -> -> 32 `i `uc -> -> 0 `i `uc ]
 "292
 [; ;menu_definitions.c: 292:     GLCD_PrintString("K");
-[e ( _GLCD_PrintString (1 :s 32C ]
+[e ( _GLCD_PrintString (1 :s 30C ]
 "293
 [; ;menu_definitions.c: 293:     GLCD_SetFont(Tahoma11x13, 11, 13, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Tahoma11x13 -> -> 11 `i `uc -> -> 13 `i `uc . `E5702 1 . `E5699 1 ]
@@ -14825,7 +14801,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> -> 105 `i `uc -> -> 0 `i `uc ]
 "295
 [; ;menu_definitions.c: 295:     GLCD_PrintString("P");
-[e ( _GLCD_PrintString (1 :s 33C ]
+[e ( _GLCD_PrintString (1 :s 31C ]
 "298
 [; ;menu_definitions.c: 298:     GLCD_GotoXY(65, 33);
 [e ( _GLCD_GotoXY (2 , -> -> 65 `i `uc -> -> 33 `i `uc ]
@@ -14834,7 +14810,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_SetFont (4 , , , , &U _Tahoma11x13 -> -> 11 `i `uc -> -> 13 `i `uc . `E5702 1 . `E5699 1 ]
 "300
 [; ;menu_definitions.c: 300:     GLCD_PrintString("TEST");
-[e ( _GLCD_PrintString (1 :s 34C ]
+[e ( _GLCD_PrintString (1 :s 32C ]
 "301
 [; ;menu_definitions.c: 301:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
@@ -14849,13 +14825,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_SetFont (4 , , , , &U _Tekton_Pro_Ext27x28 -> -> 27 `i `uc -> -> 28 `i `uc . `E5702 1 . `E5699 0 ]
 "308
 [; ;menu_definitions.c: 308:     GLCD_PrintString("N");
-[e ( _GLCD_PrintString (1 :s 35C ]
+[e ( _GLCD_PrintString (1 :s 33C ]
 "309
 [; ;menu_definitions.c: 309:     GLCD_GotoXY(28, 29);
 [e ( _GLCD_GotoXY (2 , -> -> 28 `i `uc -> -> 29 `i `uc ]
 "310
 [; ;menu_definitions.c: 310:     GLCD_PrintString("R");
-[e ( _GLCD_PrintString (1 :s 36C ]
+[e ( _GLCD_PrintString (1 :s 34C ]
 "311
 [; ;menu_definitions.c: 311:     GLCD_SetFont(Tekton_Pro_Ext27x28, 27, 28, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Tekton_Pro_Ext27x28 -> -> 27 `i `uc -> -> 28 `i `uc . `E5702 1 . `E5699 1 ]
@@ -14864,13 +14840,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> -> 60 `i `uc -> -> 0 `i `uc ]
 "313
 [; ;menu_definitions.c: 313:     GLCD_PrintString("W]");
-[e ( _GLCD_PrintString (1 :s 37C ]
+[e ( _GLCD_PrintString (1 :s 35C ]
 "315
 [; ;menu_definitions.c: 315:     GLCD_GotoXY(100, 4 * 8);
 [e ( _GLCD_GotoXY (2 , -> -> 100 `i `uc -> * -> 4 `i -> 8 `i `uc ]
 "316
 [; ;menu_definitions.c: 316:     GLCD_PrintString("N");
-[e ( _GLCD_PrintString (1 :s 38C ]
+[e ( _GLCD_PrintString (1 :s 36C ]
 "319
 [; ;menu_definitions.c: 319:     GLCD_Render();
 [e ( _GLCD_Render ..  ]
@@ -14971,7 +14947,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "335
 [; ;menu_definitions.c: 335:     GLCD_PrintString("BAT 1");
-[e ( _GLCD_PrintString (1 :s 39C ]
+[e ( _GLCD_PrintString (1 :s 37C ]
 "336
 [; ;menu_definitions.c: 336:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
@@ -14983,7 +14959,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 2 `i `uc ]
 "340
 [; ;menu_definitions.c: 340:     GLCD_PrintString("BAT 2");
-[e ( _GLCD_PrintString (1 :s 40C ]
+[e ( _GLCD_PrintString (1 :s 38C ]
 "341
 [; ;menu_definitions.c: 341:     GLCD_DrawRectangle(65, 0, 98, 10, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 65 `i `uc -> -> 0 `i `uc -> -> 98 `i `uc -> -> 10 `i `uc . `E5705 1 ]
@@ -15022,7 +14998,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
 "357
 [; ;menu_definitions.c: 357:     GLCD_PrintString("START");
-[e ( _GLCD_PrintString (1 :s 41C ]
+[e ( _GLCD_PrintString (1 :s 39C ]
 "358
 [; ;menu_definitions.c: 358:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
@@ -15031,7 +15007,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
 "363
 [; ;menu_definitions.c: 363:     GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 42C ]
+[e ( _GLCD_PrintString (1 :s 40C ]
 "364
 [; ;menu_definitions.c: 364:     GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
@@ -15064,7 +15040,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> + -> 2 `i -> 66 `i `uc -> -> 54 `i `uc ]
 "376
 [; ;menu_definitions.c: 376:     GLCD_PrintString("START");
-[e ( _GLCD_PrintString (1 :s 43C ]
+[e ( _GLCD_PrintString (1 :s 41C ]
 "378
 [; ;menu_definitions.c: 378:     GLCD_DrawRectangle(66, 51, 32 + 66, 63, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 66 `i `uc -> -> 51 `i `uc -> + -> 32 `i -> 66 `i `uc -> -> 63 `i `uc . `E5705 1 ]
@@ -15073,7 +15049,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_GotoXY (2 , -> + -> 37 `i -> 66 `i `uc -> -> 54 `i `uc ]
 "380
 [; ;menu_definitions.c: 380:     GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 44C ]
+[e ( _GLCD_PrintString (1 :s 42C ]
 "381
 [; ;menu_definitions.c: 381:     GLCD_DrawRectangle(35 + 66, 51, 61 + 66, 63, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> + -> 35 `i -> 66 `i `uc -> -> 51 `i `uc -> + -> 61 `i -> 66 `i `uc -> -> 63 `i `uc . `E5705 1 ]
@@ -15162,38 +15138,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 8C 77 111 100 101 58 32 67 104 97 114 103 47 68 105 115 99 104 0 ]
 [a 13C 67 97 112 58 37 48 52 117 109 65 104 0 ]
 [a 7C 77 111 100 101 58 32 67 104 97 114 103 105 110 103 0 ]
-[a 37C 87 93 0 ]
+[a 35C 87 93 0 ]
 [a 18C 84 114 105 99 107 108 101 86 111 108 58 37 48 50 117 86 0 ]
 [a 20C 77 105 110 68 105 115 99 86 111 108 58 37 117 46 37 48 50 117 86 0 ]
 [a 21C 77 105 110 68 105 115 99 86 111 108 58 37 117 46 37 48 50 117 86 0 ]
 [a 10C 86 111 108 58 37 117 46 37 48 50 117 47 37 117 46 37 48 50 117 86 0 ]
-[a 24C 77 69 78 85 0 ]
+[a 40C 77 69 78 85 0 ]
 [a 42C 77 69 78 85 0 ]
-[a 44C 77 69 78 85 0 ]
-[a 31C 85 0 ]
-[a 34C 84 69 83 84 0 ]
-[a 23C 83 84 65 82 84 0 ]
+[a 29C 85 0 ]
+[a 32C 84 69 83 84 0 ]
+[a 39C 83 84 65 82 84 0 ]
 [a 41C 83 84 65 82 84 0 ]
-[a 43C 83 84 65 82 84 0 ]
-[a 36C 82 0 ]
-[a 29C 80 0 ]
-[a 30C 80 0 ]
-[a 33C 80 0 ]
-[a 35C 78 0 ]
-[a 38C 78 0 ]
-[a 32C 75 0 ]
+[a 34C 82 0 ]
+[a 27C 80 0 ]
+[a 28C 80 0 ]
+[a 31C 80 0 ]
+[a 33C 78 0 ]
+[a 36C 78 0 ]
+[a 30C 75 0 ]
 [a 6C 66 97 116 116 32 116 121 112 101 58 32 78 105 45 77 72 0 ]
 [a 1C 67 72 82 71 0 ]
 [a 3C 73 68 76 69 0 ]
 [a 17C 84 101 109 112 58 37 48 50 117 67 0 ]
 [a 2C 68 73 83 67 0 ]
 [a 5C 66 97 116 116 32 116 121 112 101 58 32 80 66 0 ]
-[a 11C 67 117 114 58 37 48 52 117 47 37 48 52 117 109 65 0 ]
 [a 19C 84 114 105 99 107 108 101 67 117 114 58 37 117 109 65 0 ]
-[a 26C 79 112 116 105 111 110 115 32 50 0 ]
-[a 40C 66 65 84 32 50 0 ]
-[a 28C 79 112 116 105 111 110 115 32 49 0 ]
+[a 11C 67 117 114 58 37 117 47 37 117 109 65 0 ]
+[a 24C 79 112 116 105 111 110 115 32 50 0 ]
+[a 38C 66 65 84 32 50 0 ]
+[a 26C 79 112 116 105 111 110 115 32 49 0 ]
 [a 22C 66 65 84 32 49 0 ]
+[a 23C 66 65 84 32 49 0 ]
 [a 25C 66 65 84 32 49 0 ]
-[a 27C 66 65 84 32 49 0 ]
-[a 39C 66 65 84 32 49 0 ]
+[a 37C 66 65 84 32 49 0 ]

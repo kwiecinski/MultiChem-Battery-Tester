@@ -74,7 +74,7 @@ GLCD_Non_Inverted 1
 GLCD_White 0
 GLCD_Black 255
 ]
-"35 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"36 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [e E5885 select_menu_start `uc
 menu 0
 start 1
@@ -84,8 +84,9 @@ main_menu 0
 settings1 1
 settings2 2
 settings3 3
+settings4 4
 ]
-"38
+"39
 [e E5913 . `uc
 BTN_STATE_NONE 0
 BTN_STATE_SHORT 1
@@ -98,18 +99,18 @@ UP_SW 2
 DOWN_SW 3
 OK_SW 4
 ]
-"60
+"62
 [e E5957 settings1_navigation `uc
 next 0
 back 1
 save_exit 2
 ]
-"143
+"206
 [e E5705 Color_t `uc
 GLCD_White 0
 GLCD_Black 255
 ]
-"144
+"207
 [e E5702 PrintMode_t `uc
 GLCD_Overwrite 0
 GLCD_Merge 1
@@ -314,13 +315,13 @@ GLCD_Non_Inverted 1
 [v _Options1_Menu Options1_Menu `(v  1 e 1 0 ]
 "389
 [v _InitBattParameters InitBattParameters `(v  1 e 1 0 ]
-"32 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"33 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Menu Menu `(v  1 e 1 0 ]
-"139
+"202
 [v _Handle_Setting23_MenuNavigation Handle_Setting23_MenuNavigation `(v  1 e 1 0 ]
-"205
+"268
 [v _Handle_Setting1_MenuNavigation Handle_Setting1_MenuNavigation `(v  1 e 1 0 ]
-"239
+"302
 [v _Handle_Main_MenuNavigation Handle_Main_MenuNavigation `(v  1 e 1 0 ]
 "4 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
 [v _UART_SendChar UART_SendChar `(v  1 e 1 0 ]
@@ -687,16 +688,17 @@ GLCD_Non_Inverted 1
 {
 "26
 } 0
-"32 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"33 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Menu Menu `(v  1 e 1 0 ]
 {
 [s S665 . 53 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `us 1 batt_set_voltage 2 8 `us 1 batt_set_current 2 10 `us 1 batt_actual_voltage 2 12 `us 1 batt_actual_current 2 14 `us 1 batt_set_trickle_voltage 2 16 `us 1 bat_set_trickle_current 2 18 `us 1 batt_set_min_discharge_voltage 2 20 `us 1 batt_capacitance 2 22 `ul 1 set_time 4 24 `[25]uc 1 text 25 28 ]
 [v Menu@bat_param bat_param `*.39S665  1 p 2 29 ]
-"35
+"36
 [v Menu@menu_change menu_change `uc  1 s 1 menu_change ]
 [v Menu@menu_type menu_type `uc  1 s 1 menu_type ]
 [v Menu@menu_selection menu_selection `uc  1 s 1 menu_selection ]
-"136
+[v Menu@menu_init menu_init `uc  1 s 1 menu_init ]
+"199
 } 0
 "159 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _SingleBat_Menu SingleBat_Menu `(v  1 e 1 0 ]
@@ -1031,32 +1033,32 @@ GLCD_Non_Inverted 1
 [v isdigit@c c `i  1 p 2 0 ]
 "8
 } 0
-"139 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"202 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Handle_Setting23_MenuNavigation Handle_Setting23_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 wreg ]
-"141
+"204
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 37 ]
-"203
+"266
 } 0
-"205
+"268
 [v _Handle_Setting1_MenuNavigation Handle_Setting1_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
-"207
+"270
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 37 ]
-"236
+"299
 } 0
-"239
+"302
 [v _Handle_Main_MenuNavigation Handle_Main_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
-"242
+"305
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 37 ]
-"272
+"335
 } 0
 "793 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_SetFont GLCD_SetFont `(v  1 e 1 0 ]
