@@ -22,26 +22,26 @@ enum menu_type
     settings1,
     settings2,
     settings3,
-    settings4
+    settings4,
+    settings5
         
 };
 
 void Handle_Main_MenuNavigation(uint8_t option);
 void Handle_Setting1_MenuNavigation(uint8_t option);
 void Handle_Setting23_MenuNavigation(uint8_t option);
+void Handle_Setting5_MenuNavigation(uint8_t option);
 
 void Menu(BattParameters *bat_param)
 {
     
-    static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0;
+    static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0, menu_pos=0;
           
     Button_Update();
     if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0) 
     {
         menu_init=1;
-      
-
-       
+        
         if(menu_type==main_menu)
         {
             if (menu_change == start) 
@@ -72,50 +72,62 @@ void Menu(BattParameters *bat_param)
                 menu_change = save_exit;
                 menu_selection=next;
             }  
-        }else if(menu_type==settings2)
+        }else if(menu_type==settings2 || menu_type==settings3 || menu_type==settings4)
         {
+            
+                if(Button_EventGet(LEFT_SW))
+                {
+                     menu_pos--;
+                }else
+                {
+                     menu_pos++;
+                }
+            
+                if(menu_pos==0)
+                {
+                    menu_pos = 3;
+                }else if(menu_pos==4)
+                {
+                    menu_pos = 1; 
+                }else if(menu_pos>4)
+                {
+                    menu_pos=2;
+                }
+                
+            switch(menu_pos)
+            {
+                case 1: menu_change = back;         break;
+                case 2: menu_change = next;         break;
+                case 3: menu_change = save_exit;    break;
+            }
             
             if (menu_change == back) 
             {
-                Handle_Setting23_MenuNavigation(menu_change);
-                menu_change = next;
+                Handle_Setting23_MenuNavigation(menu_change); 
                 menu_selection=back;
-                if(Button_EventGet(LEFT_SW))
-                {
-                     menu_change = save_exit;
-                }else
-                {
-                     menu_change = next;
-                }
-
             }else if (menu_change == next) 
             {
                 Handle_Setting23_MenuNavigation(menu_change);
-                menu_selection=next;
-                
-                if(Button_EventGet(LEFT_SW))
-                {
-                     menu_change = back;
-                }else
-                {
-                     menu_change = save_exit;
-                }
-                
+                menu_selection=next;   
             }else if (menu_change == save_exit) 
             {
                 Handle_Setting23_MenuNavigation(menu_change);
                 menu_selection= save_exit;
-                
-                if(Button_EventGet(LEFT_SW))
-                {
-                     menu_change = next;
-                }else
-                {
-                     menu_change = back;
-                }
+            }  
+        } else if(menu_type==settings5)
+        {
+         
+            if (menu_change != save_exit) 
+            {
+                Handle_Setting5_MenuNavigation(back); 
+                menu_selection=save_exit;  
+            }else if (menu_change == save_exit) 
+            {
+                Handle_Setting5_MenuNavigation(menu_change);
+                menu_selection= back;
             }  
         } 
-          Button_Event_Reset();
+        Button_Event_Reset();
     }  
     
     if (Button_EventGet(OK_SW)) 
@@ -156,10 +168,11 @@ void Menu(BattParameters *bat_param)
         {
             if(menu_selection==next)
             {
-                //Options2_Menu(bat_param);
+                Options3_Menu(bat_param);
                 menu_type = settings3;
                 menu_change = next;
                 menu_init=0;
+                 menu_pos=2;
                 
                 
             }else if(menu_selection==back)
@@ -168,6 +181,7 @@ void Menu(BattParameters *bat_param)
                 menu_change = next;
                 Options1_Menu(bat_param);
                 menu_init=0;
+                 menu_pos=1;
             }
             else if(menu_selection==save_exit)
             {
@@ -177,22 +191,81 @@ void Menu(BattParameters *bat_param)
                 menu_init=0;
             }
     /////SETTINGS 3////////////////////////////////////////////////////
-            else if(menu_type==settings3)
+        }else if(menu_type==settings3)
+        {
+            if(menu_selection==next)
             {
-                if(menu_selection==next)
-                {
-                    //Options2_Menu(bat_param);
-                    //Handle_Setting23_MenuNavigation(next);
-                    menu_type = settings4;
-
-                }else if(menu_selection==back)
-                {
-
-                }
-                else if(menu_selection==save_exit)
-                {
-
-                }
+                Options4_Menu(bat_param);
+                menu_type = settings4;
+                menu_change = next;
+                menu_init=0;
+                menu_pos=2;
+                
+                
+            }else if(menu_selection==back)
+            {
+                menu_type = settings2;
+                menu_change = next;
+                Options2_Menu(bat_param);
+                menu_init=0;
+                 menu_pos=1;
+            }
+            else if(menu_selection==save_exit)
+            {
+                menu_type = main_menu;
+                menu_change = start;
+                SingleBat_Menu(bat_param);
+                menu_init=0;
+            }
+            
+            
+/////SETTINGS 4////////////////////////////////////////////////////
+        }else if(menu_type==settings4)
+        {
+            if(menu_selection==next)
+            {
+                Options5_Menu(bat_param);
+                menu_type = settings5;
+                menu_change = next;
+                menu_init=0;
+                menu_pos=2;
+                
+                
+            }else if(menu_selection==back)
+            {
+                menu_type = settings3;
+                menu_change = next;
+                Options3_Menu(bat_param);
+                menu_init=0;
+                menu_pos=1;
+            }
+            else if(menu_selection==save_exit)
+            {
+                menu_type = main_menu;
+                menu_change = start;
+                SingleBat_Menu(bat_param);
+                menu_init=0;
+            }
+            
+/////SETTINGS 5////////////////////////////////////////////////////
+        }else if(menu_type==settings5)
+        {
+           
+            
+            if(menu_selection==back)
+            {
+                menu_type = settings4;
+                menu_change = save_exit;
+                Options4_Menu(bat_param);
+                menu_init=0;
+                menu_pos=1;
+            }
+            else if(menu_selection==save_exit)
+            {
+                menu_type = main_menu;
+                menu_change = start;
+                SingleBat_Menu(bat_param);
+                menu_init=0;
             }
         }
     } 
@@ -297,6 +370,40 @@ void Handle_Setting1_MenuNavigation(uint8_t option)
     
     GLCD_Render();
 }
+
+void Handle_Setting5_MenuNavigation(uint8_t option)
+{     
+    if (option == next) 
+    {
+        GLCD_FillRectangle(0, 51, 26, 63, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+        GLCD_GotoXY(2, 54);
+        GLCD_PrintString("BACK");
+
+        GLCD_FillRectangle(29, 51, 86, 63, GLCD_White);
+        GLCD_DrawRectangle(29, 51, 86, 63, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+        GLCD_GotoXY(31, 54);
+        GLCD_PrintString("SAVE&EXIT");
+        
+    }else if (option == save_exit) 
+    {
+        GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
+        GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+        GLCD_GotoXY(2, 54);
+        GLCD_PrintString("BACK");
+
+
+        GLCD_FillRectangle(29, 51, 86, 63, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+        GLCD_GotoXY(31, 54);
+        GLCD_PrintString("SAVE&EXIT");
+    }  
+    
+    GLCD_Render();
+}
+
 
 
 void Handle_Main_MenuNavigation(uint8_t option)

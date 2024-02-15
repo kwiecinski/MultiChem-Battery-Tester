@@ -367,6 +367,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1317:   }
 }
 [e :U 37 ]
+"1501
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1501:         if ((*fmt)[0] == '%') {
+[e $ ! == -> *U + *U _fmt * -> -> 0 `i `x -> -> # *U *U _fmt `i `x `ui -> 37 `ui 41  ]
+{
+"1502
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1502:             ++*fmt;
+[e =+ *U _fmt * -> -> 1 `i `x -> -> # *U *U _fmt `i `x ]
+"1503
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1503:             fputc((int)'%', fp);
+[e ( _fputc (2 , -> -> 37 `ui `i _fp ]
+"1504
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1504:             return (void) 1;
+[e ) -> -> 1 `i `v ]
+[e $UE 21  ]
+"1505
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1505:         }
+}
+[e :U 41 ]
 "1509
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1509:         ++*fmt;
 [e =+ *U _fmt * -> -> 1 `i `x -> -> # *U *U _fmt `i `x ]
@@ -415,8 +433,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _cfmt -> _fmt `*uc ]
 "1529
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1529:     while (*cfmt) {
-[e $U 42  ]
-[e :U 43 ]
+[e $U 43  ]
+[e :U 44 ]
 {
 "1533
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1533:    vfpfcnvrt(fp, &cfmt, ap);
@@ -424,16 +442,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1534
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1534:     }
 }
-[e :U 42 ]
+[e :U 43 ]
 "1529
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1529:     while (*cfmt) {
-[e $ != -> *U _cfmt `i -> 0 `i 43  ]
-[e :U 44 ]
+[e $ != -> *U _cfmt `i -> 0 `i 44  ]
+[e :U 45 ]
 "1538
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1538:  return 0;
 [e ) -> 0 `i ]
-[e $UE 41  ]
+[e $UE 42  ]
 "1543
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c: 1543: }
-[e :UE 41 ]
+[e :UE 42 ]
 }

@@ -82,6 +82,97 @@ void ChargerMode(BattParameters *bat_param)
         }
 }
 /////////////////////////////////////////////////////////////////////////////////
+
+/*-----------------------------------------------------------------------------*/
+void SetChargingCurrent_1(BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "ChrgCur 1:%umA", batparam_ptr->charge_current_1);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+void SetDischargingCurrent_1(BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "DiscCur 1:%umA", batparam_ptr->charge_current_1);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+
+void SetChargingCurrent_2(BattParameters *batparam_ptr, uint8_t display_type)
+{ 
+    if(display_type == display_in_mA)
+    {
+        sprintf(batparam_ptr->text, "ChrgCur 2:%umA", batparam_ptr->charge_current_2);
+    }else if(display_type == display_in_percentage)
+    {
+        sprintf(batparam_ptr->text, "ChrgCur 2:%u%%", batparam_ptr->charge_current_2_percent);
+    }
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+void SetChargingCurrent_3(BattParameters *batparam_ptr, uint8_t display_type)
+{ 
+    if(display_type == display_in_mA)
+    {
+        sprintf(batparam_ptr->text, "ChrgCur 3:%umA", batparam_ptr->charge_current_3);
+    }else if(display_type == display_in_percentage)
+    {
+        sprintf(batparam_ptr->text, "ChrgCur 3:%u%%", batparam_ptr->charge_current_3_percent);
+    }
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+
+void SetChargingCurrent_4 (BattParameters *batparam_ptr, uint8_t display_type)
+{ 
+    if(display_type == display_in_mA)
+    {
+        sprintf(batparam_ptr->text, "ChrgCur 4:%umA", batparam_ptr->charge_current_4);
+    }else if(display_type == display_in_percentage)
+    {
+        sprintf(batparam_ptr->text, "ChrgCur 4:%u%%", batparam_ptr->charge_current_4_percent);
+    }
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+
+void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t display_type)
+{ 
+    if(display_type == display_in_mA)
+    {
+        sprintf(batparam_ptr->text, "DiscCur 2:%umA", batparam_ptr->discharge_current_2);
+    }else if(display_type == display_in_percentage)
+    {
+        sprintf(batparam_ptr->text, "DiscCur 2:%u%%", batparam_ptr->discharge_current_2_percent);
+    }
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t display_type)
+{ 
+    if(display_type == display_in_mA)
+    {
+        sprintf(batparam_ptr->text, "DiscCur 3:%umA", batparam_ptr->discharge_current_3);
+    }else if(display_type == display_in_percentage)
+    {
+        sprintf(batparam_ptr->text, "DiscCur 3:%u%%", batparam_ptr->discharge_current_3_percent);
+    }
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+
+void SetDischargingCurrent_4 (BattParameters *batparam_ptr, uint8_t display_type)
+{ 
+    if(display_type == display_in_mA)
+    {
+        sprintf(batparam_ptr->text, "DiscCur 4:%umA", batparam_ptr->discharge_current_4);
+    }else if(display_type == display_in_percentage)
+    {
+        sprintf(batparam_ptr->text, "DiscCur 4:%u%%", batparam_ptr->discharge_current_4_percent);
+    }
+    GLCD_PrintString(batparam_ptr->text); 
+}
+
+/*-----------------------------------------------------------------------------*/
+
 void VoltageDisplay (BattParameters *batparam_ptr)
 { 
     sprintf(batparam_ptr->text, "Vol:%u.%02u/%u.%02uV", batparam_ptr->batt_set_voltage/100, batparam_ptr->batt_set_voltage%100, batparam_ptr->batt_actual_voltage/100, batparam_ptr->batt_actual_voltage%100);
@@ -93,7 +184,7 @@ void CurrentDisplay (BattParameters *batparam_ptr)
     sprintf(batparam_ptr->text, "Cur:%u/%umA", batparam_ptr->batt_set_current,  batparam_ptr->batt_actual_current);
     GLCD_PrintString(batparam_ptr->text); 
 }
-
+/*-----------------------------------------------------------------------------*/
 void CelCount (BattParameters *batparam_ptr)
 { 
     sprintf(batparam_ptr->text, "Cell Count:%u", batparam_ptr->cell_count);
@@ -116,18 +207,31 @@ void CycleSet (BattParameters *batparam_ptr)
     sprintf(batparam_ptr->text, "Cycle:%u",batparam_ptr->set_cycle);
     GLCD_PrintString(batparam_ptr->text); 
 }
+/*-----------------------------------------------------------------------------*/
 void TimeDisplay (BattParameters *batparam_ptr)
 {
-    sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->set_time/3600),(unsigned int)((batparam_ptr->set_time%3600)/60),(unsigned int)(batparam_ptr->set_time%60));
+    sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->current_time/3600),(unsigned int)((batparam_ptr->current_time%3600)/60),(unsigned int)(batparam_ptr->current_time%60));
     GLCD_PrintString(batparam_ptr->text); 
 }
 
+void SetMaxTime (BattParameters *batparam_ptr)
+{
+    sprintf(batparam_ptr->text, "Max Time: %02uh%02um", (unsigned int)(batparam_ptr->set_time/3600),(unsigned int)((batparam_ptr->set_time%3600)/60));
+    GLCD_PrintString(batparam_ptr->text); 
+}
+/*-----------------------------------------------------------------------------*/
 void TempDisplay (BattParameters *batparam_ptr)
 { 
     sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->bat_actual_temp);
     GLCD_PrintString(batparam_ptr->text); 
 }
 
+void SetTemp(BattParameters *batparam_ptr)
+{ 
+    sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->bat_max_temp);
+    GLCD_PrintString(batparam_ptr->text); 
+}
+/*-----------------------------------------------------------------------------*/
 void TrickleVoltage(BattParameters *batparam_ptr)
 { 
     sprintf(batparam_ptr->text, "TrickleVol:%02uV", batparam_ptr->batt_set_trickle_voltage);
@@ -143,7 +247,6 @@ void SetCellVotage(BattParameters *batparam_ptr)
     sprintf(batparam_ptr->text, "MinDiscVol:%u.%02uV", batparam_ptr->batt_set_voltage/100, batparam_ptr->batt_set_voltage%100);
     GLCD_PrintString(batparam_ptr->text); 
 }
-
 void MinimumDischargeVoltage(BattParameters *batparam_ptr)
 { 
     sprintf(batparam_ptr->text, "MinDiscVol:%u.%02uV", batparam_ptr->batt_set_min_discharge_voltage/100, batparam_ptr->batt_set_min_discharge_voltage%100);
@@ -198,6 +301,105 @@ void SingleBat_Menu(BattParameters *bat_param)
        
     GLCD_Render();
 }
+
+void Options5_Menu(BattParameters *bat_param)
+{
+    
+     /*
+     *---Cycle 1/2 Options
+     * ChrgCur 1: 1000mA
+     * DiscCur 1: 1000mA
+     * ChrgCur 2: 1000mA/%
+     * DiscCur 2: 1000mA/%
+     
+     */  
+    
+    GLCD_Clear();
+    
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_GotoXY(2, 2);
+    GLCD_PrintString("BAT 1");
+    GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+  
+    GLCD_GotoXY(35,2); 
+    GLCD_PrintString("Options 5");
+    
+    GLCD_GotoXY(0, 13);
+    SetChargingCurrent_3(bat_param, display_in_mA);     //ChrgCur 3: 
+    GLCD_GotoXY(0, 22);
+    SetDischargingCurrent_3(bat_param, display_in_mA);  //DiscCur 3:
+    GLCD_GotoXY(0, 31);
+    SetChargingCurrent_4(bat_param, display_in_mA);     //ChrgCur 4:
+    GLCD_GotoXY(0, 40);
+    SetDischargingCurrent_4(bat_param, display_in_mA);  //DiscCur 4:
+ 
+    GLCD_Render(); 
+}
+
+void Options4_Menu(BattParameters *bat_param)
+{
+    
+     /*
+     *---Cycle 1/2 Options
+     * ChrgCur 1: 1000mA
+     * DiscCur 1: 1000mA
+     * ChrgCur 2: 1000mA/%
+     * DiscCur 2: 1000mA/%
+     
+     */  
+    
+    GLCD_Clear();
+    
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_GotoXY(2, 2);
+    GLCD_PrintString("BAT 1");
+    GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+  
+    GLCD_GotoXY(35,2); 
+    GLCD_PrintString("Options 4");
+    
+    GLCD_GotoXY(0, 13);
+    SetChargingCurrent_1(bat_param);                    //ChrgCur 1: 
+    GLCD_GotoXY(0, 22);
+    SetDischargingCurrent_1(bat_param);                 //DiscCur 1:
+    GLCD_GotoXY(0, 31);
+    SetChargingCurrent_2(bat_param, display_in_mA);     //ChrgCur 2:
+    GLCD_GotoXY(0, 40);
+    SetDischargingCurrent_2(bat_param, display_in_mA);  //DiscCur 2:
+ 
+    GLCD_Render(); 
+}
+
+
+void Options3_Menu(BattParameters *bat_param)
+{
+    
+   /*---Options 3
+     * Max Time: 00h00m
+     * MaxTemp:50C 
+     * 
+     *
+    */  
+    
+    GLCD_Clear();
+    
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_GotoXY(2, 2);
+    GLCD_PrintString("BAT 1");
+    GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+  
+    GLCD_GotoXY(35,2); 
+    GLCD_PrintString("Options 3");
+    
+    GLCD_GotoXY(0, 13);
+    SetMaxTime(bat_param);           //Max Time: 00h00m 
+    GLCD_GotoXY(0, 22);
+    SetTemp(bat_param);          //MaxTemp:50C 
+ 
+    GLCD_Render(); 
+}
+
+
 
 void Options2_Menu(BattParameters *bat_param)
 {
@@ -397,6 +599,10 @@ void InitBattParameters (BattParameters *bat_param)
         bat_param->selected_mode = charging_discharging;
         bat_param->cell_count = 1;
         
+        bat_param->charge_current_1=1234;
+        bat_param->charge_current_1=2234;
+        bat_param->charge_current_1=3234;
+        bat_param->charge_current_1=4234;
         bat_param->batt_set_voltage = 420;
         bat_param->batt_set_current = 1000;
         bat_param->batt_actual_voltage = 370;

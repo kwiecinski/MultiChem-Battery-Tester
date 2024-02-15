@@ -1,62 +1,74 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"15 ./menu_definitions.h
-[; ;./menu_definitions.h: 15: {
-[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance set_time text ]
-"36 menu_navigation.c
-[; ;menu_navigation.c: 36:     static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0;
-[c E5885 0 1 .. ]
-[n E5885 select_menu_start menu start  ]
-[c E5961 0 1 2 3 4 .. ]
-[n E5961 menu_type main_menu settings1 settings2 settings3 settings4  ]
+"16 ./menu_definitions.h
+[; ;./menu_definitions.h: 16: {
+[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `ul 1 `uc -> 25 `i ]
+[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent discharge_current_2_percent charge_current_3_percent discharge_current_3_percent charge_current_4_percent discharge_current_4_percent batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 current_time set_time text ]
+"38 menu_navigation.c
+[; ;menu_navigation.c: 38:     static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0, menu_pos=0;
+[c E5900 0 1 .. ]
+[n E5900 select_menu_start menu start  ]
+[c E5982 0 1 2 3 4 5 .. ]
+[n E5982 menu_type main_menu settings1 settings2 settings3 settings4 settings5  ]
 "224 ./button.h
 [; ;./button.h: 224: void Button_Update(void);
 [v _Button_Update `(v ~T0 @X0 0 ef ]
-"39 menu_navigation.c
-[; ;menu_navigation.c: 39:     if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0)
-[c E5913 0 1 2 .. ]
-[n E5913 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
+"41 menu_navigation.c
+[; ;menu_navigation.c: 41:     if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0)
+[c E5934 0 1 2 .. ]
+[n E5934 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
 "232 ./button.h
 [; ;./button.h: 232: btn_state_t Button_EventGet(uint8_t key);
-[v _Button_EventGet `(E5913 ~T0 @X0 0 ef1`uc ]
-"39 menu_navigation.c
-[; ;menu_navigation.c: 39:     if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0)
-[c E5906 0 1 2 3 4 .. ]
-[n E5906 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
-"29
-[; ;menu_navigation.c: 29: void Handle_Main_MenuNavigation(uint8_t option);
+[v _Button_EventGet `(E5934 ~T0 @X0 0 ef1`uc ]
+"41 menu_navigation.c
+[; ;menu_navigation.c: 41:     if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0)
+[c E5927 0 1 2 3 4 .. ]
+[n E5927 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
+"30
+[; ;menu_navigation.c: 30: void Handle_Main_MenuNavigation(uint8_t option);
 [v _Handle_Main_MenuNavigation `(v ~T0 @X0 0 ef1`uc ]
 "62
 [; ;menu_navigation.c: 62:             if (menu_change == save_exit)
-[c E5957 0 1 2 .. ]
-[n E5957 settings1_navigation next back save_exit  ]
-"30
-[; ;menu_navigation.c: 30: void Handle_Setting1_MenuNavigation(uint8_t option);
-[v _Handle_Setting1_MenuNavigation `(v ~T0 @X0 0 ef1`uc ]
+[c E5978 0 1 2 .. ]
+[n E5978 settings1_navigation next back save_exit  ]
 "31
-[; ;menu_navigation.c: 31: void Handle_Setting23_MenuNavigation(uint8_t option);
+[; ;menu_navigation.c: 31: void Handle_Setting1_MenuNavigation(uint8_t option);
+[v _Handle_Setting1_MenuNavigation `(v ~T0 @X0 0 ef1`uc ]
+"32
+[; ;menu_navigation.c: 32: void Handle_Setting23_MenuNavigation(uint8_t option);
 [v _Handle_Setting23_MenuNavigation `(v ~T0 @X0 0 ef1`uc ]
+"33
+[; ;menu_navigation.c: 33: void Handle_Setting5_MenuNavigation(uint8_t option);
+[v _Handle_Setting5_MenuNavigation `(v ~T0 @X0 0 ef1`uc ]
 "233 ./button.h
 [; ;./button.h: 233: void Button_Event_Reset(void);
 [v _Button_Event_Reset `(v ~T0 @X0 0 ef ]
-"72 ./menu_definitions.h
-[; ;./menu_definitions.h: 72: void Options1_Menu(BattParameters *bat_param);
+"81 ./menu_definitions.h
+[; ;./menu_definitions.h: 81: void Options1_Menu(BattParameters *bat_param);
 [v _Options1_Menu `(v ~T0 @X0 0 ef1`*S632 ]
-"73
-[; ;./menu_definitions.h: 73: void Options2_Menu(BattParameters *bat_param);
+"82
+[; ;./menu_definitions.h: 82: void Options2_Menu(BattParameters *bat_param);
 [v _Options2_Menu `(v ~T0 @X0 0 ef1`*S632 ]
-"71
-[; ;./menu_definitions.h: 71: void SingleBat_Menu(BattParameters *bat_param);
+"80
+[; ;./menu_definitions.h: 80: void SingleBat_Menu(BattParameters *bat_param);
 [v _SingleBat_Menu `(v ~T0 @X0 0 ef1`*S632 ]
-"206 menu_navigation.c
-[; ;menu_navigation.c: 206:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_Black);
+"83
+[; ;./menu_definitions.h: 83: void Options3_Menu(BattParameters *bat_param);
+[v _Options3_Menu `(v ~T0 @X0 0 ef1`*S632 ]
+"84
+[; ;./menu_definitions.h: 84: void Options4_Menu(BattParameters *bat_param);
+[v _Options4_Menu `(v ~T0 @X0 0 ef1`*S632 ]
+"85
+[; ;./menu_definitions.h: 85: void Options5_Menu(BattParameters *bat_param);
+[v _Options5_Menu `(v ~T0 @X0 0 ef1`*S632 ]
+"279 menu_navigation.c
+[; ;menu_navigation.c: 279:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_Black);
 [c E5705 0 255 .. ]
 [n E5705 Color_t GLCD_White GLCD_Black  ]
 "112 ./LCD-KS0108/KS0108.h
 [; ;./LCD-KS0108/KS0108.h: 112: void GLCD_FillRectangle(const uint8_t X1, const uint8_t Y1, const uint8_t X2, const uint8_t Y2, enum Color_t Color);
 [v _GLCD_FillRectangle `(v ~T0 @X0 0 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
-"207 menu_navigation.c
-[; ;menu_navigation.c: 207:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+"280 menu_navigation.c
+[; ;menu_navigation.c: 280:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [c E5702 0 1 .. ]
 [n E5702 PrintMode_t GLCD_Overwrite GLCD_Merge  ]
 [c E5699 0 1 .. ]
@@ -14098,85 +14110,89 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"33 menu_navigation.c
-[; ;menu_navigation.c: 33: void Menu(BattParameters *bat_param)
+"35 menu_navigation.c
+[; ;menu_navigation.c: 35: void Menu(BattParameters *bat_param)
 [v _Menu `(v ~T0 @X0 1 ef1`*S632 ]
-"34
-[; ;menu_navigation.c: 34: {
+"36
+[; ;menu_navigation.c: 36: {
 {
 [e :U _Menu ]
-"33
-[; ;menu_navigation.c: 33: void Menu(BattParameters *bat_param)
+"35
+[; ;menu_navigation.c: 35: void Menu(BattParameters *bat_param)
 [v _bat_param `*S632 ~T0 @X0 1 r1 ]
-"34
-[; ;menu_navigation.c: 34: {
-[f ]
 "36
-[; ;menu_navigation.c: 36:     static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0;
-[v F5975 `uc ~T0 @X0 1 s menu_change ]
-[i F5975
--> . `E5885 1 `uc
+[; ;menu_navigation.c: 36: {
+[f ]
+"38
+[; ;menu_navigation.c: 38:     static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0, menu_pos=0;
+[v F5999 `uc ~T0 @X0 1 s menu_change ]
+[i F5999
+-> . `E5900 1 `uc
 ]
-[v F5976 `uc ~T0 @X0 1 s menu_type ]
-[i F5976
--> . `E5961 0 `uc
+[v F6000 `uc ~T0 @X0 1 s menu_type ]
+[i F6000
+-> . `E5982 0 `uc
 ]
-[v F5977 `uc ~T0 @X0 1 s menu_selection ]
-[v F5978 `uc ~T0 @X0 1 s menu_init ]
-[i F5978
+[v F6001 `uc ~T0 @X0 1 s menu_selection ]
+[v F6002 `uc ~T0 @X0 1 s menu_init ]
+[i F6002
 -> -> 0 `i `uc
 ]
-"38
-[; ;menu_navigation.c: 38:     Button_Update();
-[e ( _Button_Update ..  ]
-"39
-[; ;menu_navigation.c: 39:     if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0)
-[e $ ! || || != -> ( _Button_EventGet (1 -> . `E5906 0 `uc `ui -> -> 0 `i `ui != -> ( _Button_EventGet (1 -> . `E5906 1 `uc `ui -> -> 0 `i `ui == -> F5978 `i -> 0 `i 637  ]
+[v F6003 `uc ~T0 @X0 1 s menu_pos ]
+[i F6003
+-> -> 0 `i `uc
+]
 "40
-[; ;menu_navigation.c: 40:     {
-{
+[; ;menu_navigation.c: 40:     Button_Update();
+[e ( _Button_Update ..  ]
 "41
-[; ;menu_navigation.c: 41:         menu_init=1;
-[e = F5978 -> -> 1 `i `uc ]
+[; ;menu_navigation.c: 41:     if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0)
+[e $ ! || || != -> ( _Button_EventGet (1 -> . `E5927 0 `uc `ui -> -> 0 `i `ui != -> ( _Button_EventGet (1 -> . `E5927 1 `uc `ui -> -> 0 `i `ui == -> F6002 `i -> 0 `i 637  ]
+"42
+[; ;menu_navigation.c: 42:     {
+{
+"43
+[; ;menu_navigation.c: 43:         menu_init=1;
+[e = F6002 -> -> 1 `i `uc ]
 "45
 [; ;menu_navigation.c: 45:         if(menu_type==main_menu)
-[e $ ! == -> F5976 `i -> . `E5961 0 `i 638  ]
+[e $ ! == -> F6000 `i -> . `E5982 0 `i 638  ]
 "46
 [; ;menu_navigation.c: 46:         {
 {
 "47
 [; ;menu_navigation.c: 47:             if (menu_change == start)
-[e $ ! == -> F5975 `i -> . `E5885 1 `i 639  ]
+[e $ ! == -> F5999 `i -> . `E5900 1 `i 639  ]
 "48
 [; ;menu_navigation.c: 48:             {
 {
 "49
 [; ;menu_navigation.c: 49:                 Handle_Main_MenuNavigation(menu_change);
-[e ( _Handle_Main_MenuNavigation (1 F5975 ]
+[e ( _Handle_Main_MenuNavigation (1 F5999 ]
 "50
 [; ;menu_navigation.c: 50:                 menu_change = menu;
-[e = F5975 -> . `E5885 0 `uc ]
+[e = F5999 -> . `E5900 0 `uc ]
 "51
 [; ;menu_navigation.c: 51:                 menu_selection=start;
-[e = F5977 -> . `E5885 1 `uc ]
+[e = F6001 -> . `E5900 1 `uc ]
 "53
 [; ;menu_navigation.c: 53:             }else if (menu_change == menu)
 }
 [e $U 640  ]
 [e :U 639 ]
-[e $ ! == -> F5975 `i -> . `E5885 0 `i 641  ]
+[e $ ! == -> F5999 `i -> . `E5900 0 `i 641  ]
 "54
 [; ;menu_navigation.c: 54:             {
 {
 "55
 [; ;menu_navigation.c: 55:                 Handle_Main_MenuNavigation(menu_change);
-[e ( _Handle_Main_MenuNavigation (1 F5975 ]
+[e ( _Handle_Main_MenuNavigation (1 F5999 ]
 "56
 [; ;menu_navigation.c: 56:                 menu_change = start;
-[e = F5975 -> . `E5885 1 `uc ]
+[e = F5999 -> . `E5900 1 `uc ]
 "57
 [; ;menu_navigation.c: 57:                 menu_selection=menu;
-[e = F5977 -> . `E5885 0 `uc ]
+[e = F6001 -> . `E5900 0 `uc ]
 "58
 [; ;menu_navigation.c: 58:             }
 }
@@ -14187,800 +14203,1148 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 642  ]
 [e :U 638 ]
-[e $ ! == -> F5976 `i -> . `E5961 1 `i 643  ]
+[e $ ! == -> F6000 `i -> . `E5982 1 `i 643  ]
 "60
 [; ;menu_navigation.c: 60:         {
 {
 "62
 [; ;menu_navigation.c: 62:             if (menu_change == save_exit)
-[e $ ! == -> F5975 `i -> . `E5957 2 `i 644  ]
+[e $ ! == -> F5999 `i -> . `E5978 2 `i 644  ]
 "63
 [; ;menu_navigation.c: 63:             {
 {
 "64
 [; ;menu_navigation.c: 64:                 Handle_Setting1_MenuNavigation(menu_change);
-[e ( _Handle_Setting1_MenuNavigation (1 F5975 ]
+[e ( _Handle_Setting1_MenuNavigation (1 F5999 ]
 "65
 [; ;menu_navigation.c: 65:                 menu_change = next;
-[e = F5975 -> . `E5957 0 `uc ]
+[e = F5999 -> . `E5978 0 `uc ]
 "66
 [; ;menu_navigation.c: 66:                 if(Button_EventGet(LEFT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5906 0 `uc `ui -> -> 0 `i `ui 645  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5927 0 `uc `ui -> -> 0 `i `ui 645  ]
 "67
 [; ;menu_navigation.c: 67:                 menu_selection=save_exit;
-[e = F5977 -> . `E5957 2 `uc ]
+[e = F6001 -> . `E5978 2 `uc ]
 [e :U 645 ]
 "69
 [; ;menu_navigation.c: 69:             }else if (menu_change == next)
 }
 [e $U 646  ]
 [e :U 644 ]
-[e $ ! == -> F5975 `i -> . `E5957 0 `i 647  ]
+[e $ ! == -> F5999 `i -> . `E5978 0 `i 647  ]
 "70
 [; ;menu_navigation.c: 70:             {
 {
 "71
 [; ;menu_navigation.c: 71:                 Handle_Setting1_MenuNavigation(menu_change);
-[e ( _Handle_Setting1_MenuNavigation (1 F5975 ]
+[e ( _Handle_Setting1_MenuNavigation (1 F5999 ]
 "72
 [; ;menu_navigation.c: 72:                 menu_change = save_exit;
-[e = F5975 -> . `E5957 2 `uc ]
+[e = F5999 -> . `E5978 2 `uc ]
 "73
 [; ;menu_navigation.c: 73:                 menu_selection=next;
-[e = F5977 -> . `E5957 0 `uc ]
+[e = F6001 -> . `E5978 0 `uc ]
 "74
 [; ;menu_navigation.c: 74:             }
 }
 [e :U 647 ]
 [e :U 646 ]
 "75
-[; ;menu_navigation.c: 75:         }else if(menu_type==settings2)
+[; ;menu_navigation.c: 75:         }else if(menu_type==settings2 || menu_type==settings3 || menu_type==settings4)
 }
 [e $U 648  ]
 [e :U 643 ]
-[e $ ! == -> F5976 `i -> . `E5961 2 `i 649  ]
+[e $ ! || || == -> F6000 `i -> . `E5982 2 `i == -> F6000 `i -> . `E5982 3 `i == -> F6000 `i -> . `E5982 4 `i 649  ]
 "76
 [; ;menu_navigation.c: 76:         {
 {
 "78
-[; ;menu_navigation.c: 78:             if (menu_change == back)
-[e $ ! == -> F5975 `i -> . `E5957 1 `i 650  ]
+[; ;menu_navigation.c: 78:                 if(Button_EventGet(LEFT_SW))
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5927 0 `uc `ui -> -> 0 `i `ui 650  ]
 "79
-[; ;menu_navigation.c: 79:             {
+[; ;menu_navigation.c: 79:                 {
 {
 "80
-[; ;menu_navigation.c: 80:                 Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F5975 ]
+[; ;menu_navigation.c: 80:                      menu_pos--;
+[e -- F6003 -> -> 1 `i `uc ]
 "81
-[; ;menu_navigation.c: 81:                 menu_change = next;
-[e = F5975 -> . `E5957 0 `uc ]
-"82
-[; ;menu_navigation.c: 82:                 menu_selection=back;
-[e = F5977 -> . `E5957 1 `uc ]
-"83
-[; ;menu_navigation.c: 83:                 if(Button_EventGet(LEFT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5906 0 `uc `ui -> -> 0 `i `ui 651  ]
-"84
-[; ;menu_navigation.c: 84:                 {
-{
-"85
-[; ;menu_navigation.c: 85:                      menu_change = save_exit;
-[e = F5975 -> . `E5957 2 `uc ]
-"86
-[; ;menu_navigation.c: 86:                 }else
+[; ;menu_navigation.c: 81:                 }else
 }
-[e $U 652  ]
+[e $U 651  ]
+[e :U 650 ]
+"82
+[; ;menu_navigation.c: 82:                 {
+{
+"83
+[; ;menu_navigation.c: 83:                      menu_pos++;
+[e ++ F6003 -> -> 1 `i `uc ]
+"84
+[; ;menu_navigation.c: 84:                 }
+}
 [e :U 651 ]
+"86
+[; ;menu_navigation.c: 86:                 if(menu_pos==0)
+[e $ ! == -> F6003 `i -> 0 `i 652  ]
 "87
 [; ;menu_navigation.c: 87:                 {
 {
 "88
-[; ;menu_navigation.c: 88:                      menu_change = next;
-[e = F5975 -> . `E5957 0 `uc ]
+[; ;menu_navigation.c: 88:                     menu_pos = 3;
+[e = F6003 -> -> 3 `i `uc ]
 "89
-[; ;menu_navigation.c: 89:                 }
-}
-[e :U 652 ]
-"91
-[; ;menu_navigation.c: 91:             }else if (menu_change == next)
+[; ;menu_navigation.c: 89:                 }else if(menu_pos==4)
 }
 [e $U 653  ]
-[e :U 650 ]
-[e $ ! == -> F5975 `i -> . `E5957 0 `i 654  ]
+[e :U 652 ]
+[e $ ! == -> F6003 `i -> 4 `i 654  ]
+"90
+[; ;menu_navigation.c: 90:                 {
+{
+"91
+[; ;menu_navigation.c: 91:                     menu_pos = 1;
+[e = F6003 -> -> 1 `i `uc ]
 "92
-[; ;menu_navigation.c: 92:             {
-{
-"93
-[; ;menu_navigation.c: 93:                 Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F5975 ]
-"94
-[; ;menu_navigation.c: 94:                 menu_selection=next;
-[e = F5977 -> . `E5957 0 `uc ]
-"96
-[; ;menu_navigation.c: 96:                 if(Button_EventGet(LEFT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5906 0 `uc `ui -> -> 0 `i `ui 655  ]
-"97
-[; ;menu_navigation.c: 97:                 {
-{
-"98
-[; ;menu_navigation.c: 98:                      menu_change = back;
-[e = F5975 -> . `E5957 1 `uc ]
-"99
-[; ;menu_navigation.c: 99:                 }else
+[; ;menu_navigation.c: 92:                 }else if(menu_pos>4)
 }
-[e $U 656  ]
-[e :U 655 ]
-"100
-[; ;menu_navigation.c: 100:                 {
+[e $U 655  ]
+[e :U 654 ]
+[e $ ! > -> F6003 `i -> 4 `i 656  ]
+"93
+[; ;menu_navigation.c: 93:                 {
 {
-"101
-[; ;menu_navigation.c: 101:                      menu_change = save_exit;
-[e = F5975 -> . `E5957 2 `uc ]
-"102
-[; ;menu_navigation.c: 102:                 }
+"94
+[; ;menu_navigation.c: 94:                     menu_pos=2;
+[e = F6003 -> -> 2 `i `uc ]
+"95
+[; ;menu_navigation.c: 95:                 }
 }
 [e :U 656 ]
-"104
-[; ;menu_navigation.c: 104:             }else if (menu_change == save_exit)
+[e :U 655 ]
+[e :U 653 ]
+"97
+[; ;menu_navigation.c: 97:             switch(menu_pos)
+[e $U 658  ]
+"98
+[; ;menu_navigation.c: 98:             {
+{
+"99
+[; ;menu_navigation.c: 99:                 case 1: menu_change = back; break;
+[e :U 659 ]
+[e = F5999 -> . `E5978 1 `uc ]
+[e $U 657  ]
+"100
+[; ;menu_navigation.c: 100:                 case 2: menu_change = next; break;
+[e :U 660 ]
+[e = F5999 -> . `E5978 0 `uc ]
+[e $U 657  ]
+"101
+[; ;menu_navigation.c: 101:                 case 3: menu_change = save_exit; break;
+[e :U 661 ]
+[e = F5999 -> . `E5978 2 `uc ]
+[e $U 657  ]
+"102
+[; ;menu_navigation.c: 102:             }
 }
 [e $U 657  ]
-[e :U 654 ]
-[e $ ! == -> F5975 `i -> . `E5957 2 `i 658  ]
+[e :U 658 ]
+[e [\ -> F6003 `i , $ -> 1 `i 659
+ , $ -> 2 `i 660
+ , $ -> 3 `i 661
+ 657 ]
+[e :U 657 ]
+"104
+[; ;menu_navigation.c: 104:             if (menu_change == back)
+[e $ ! == -> F5999 `i -> . `E5978 1 `i 662  ]
 "105
 [; ;menu_navigation.c: 105:             {
 {
 "106
 [; ;menu_navigation.c: 106:                 Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F5975 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F5999 ]
 "107
-[; ;menu_navigation.c: 107:                 menu_selection= save_exit;
-[e = F5977 -> . `E5957 2 `uc ]
-"109
-[; ;menu_navigation.c: 109:                 if(Button_EventGet(LEFT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5906 0 `uc `ui -> -> 0 `i `ui 659  ]
-"110
-[; ;menu_navigation.c: 110:                 {
-{
-"111
-[; ;menu_navigation.c: 111:                      menu_change = next;
-[e = F5975 -> . `E5957 0 `uc ]
-"112
-[; ;menu_navigation.c: 112:                 }else
+[; ;menu_navigation.c: 107:                 menu_selection=back;
+[e = F6001 -> . `E5978 1 `uc ]
+"108
+[; ;menu_navigation.c: 108:             }else if (menu_change == next)
 }
-[e $U 660  ]
-[e :U 659 ]
+[e $U 663  ]
+[e :U 662 ]
+[e $ ! == -> F5999 `i -> . `E5978 0 `i 664  ]
+"109
+[; ;menu_navigation.c: 109:             {
+{
+"110
+[; ;menu_navigation.c: 110:                 Handle_Setting23_MenuNavigation(menu_change);
+[e ( _Handle_Setting23_MenuNavigation (1 F5999 ]
+"111
+[; ;menu_navigation.c: 111:                 menu_selection=next;
+[e = F6001 -> . `E5978 0 `uc ]
+"112
+[; ;menu_navigation.c: 112:             }else if (menu_change == save_exit)
+}
+[e $U 665  ]
+[e :U 664 ]
+[e $ ! == -> F5999 `i -> . `E5978 2 `i 666  ]
 "113
-[; ;menu_navigation.c: 113:                 {
+[; ;menu_navigation.c: 113:             {
 {
 "114
-[; ;menu_navigation.c: 114:                      menu_change = back;
-[e = F5975 -> . `E5957 1 `uc ]
+[; ;menu_navigation.c: 114:                 Handle_Setting23_MenuNavigation(menu_change);
+[e ( _Handle_Setting23_MenuNavigation (1 F5999 ]
 "115
-[; ;menu_navigation.c: 115:                 }
-}
-[e :U 660 ]
+[; ;menu_navigation.c: 115:                 menu_selection= save_exit;
+[e = F6001 -> . `E5978 2 `uc ]
 "116
 [; ;menu_navigation.c: 116:             }
 }
-[e :U 658 ]
-[e :U 657 ]
-[e :U 653 ]
-"117
-[; ;menu_navigation.c: 117:         }
-}
-[e :U 649 ]
-[e :U 648 ]
-[e :U 642 ]
-"118
-[; ;menu_navigation.c: 118:           Button_Event_Reset();
-[e ( _Button_Event_Reset ..  ]
-"119
-[; ;menu_navigation.c: 119:     }
-}
-[e :U 637 ]
-"121
-[; ;menu_navigation.c: 121:     if (Button_EventGet(OK_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5906 4 `uc `ui -> -> 0 `i `ui 661  ]
-"122
-[; ;menu_navigation.c: 122:     {
-{
-"123
-[; ;menu_navigation.c: 123:         Button_Event_Reset();
-[e ( _Button_Event_Reset ..  ]
-"125
-[; ;menu_navigation.c: 125:         if(menu_type==main_menu)
-[e $ ! == -> F5976 `i -> . `E5961 0 `i 662  ]
-"126
-[; ;menu_navigation.c: 126:         {
-{
-"127
-[; ;menu_navigation.c: 127:             if(menu_selection==menu)
-[e $ ! == -> F5977 `i -> . `E5885 0 `i 663  ]
-"128
-[; ;menu_navigation.c: 128:             {
-{
-"129
-[; ;menu_navigation.c: 129:                 menu_type = settings1;
-[e = F5976 -> . `E5961 1 `uc ]
-"130
-[; ;menu_navigation.c: 130:                 menu_change = menu;
-[e = F5975 -> . `E5885 0 `uc ]
-"131
-[; ;menu_navigation.c: 131:                 Options1_Menu(bat_param);
-[e ( _Options1_Menu (1 _bat_param ]
-"132
-[; ;menu_navigation.c: 132:                 menu_init=0;
-[e = F5978 -> -> 0 `i `uc ]
-"133
-[; ;menu_navigation.c: 133:             }
-}
+[e :U 666 ]
+[e :U 665 ]
 [e :U 663 ]
-"135
-[; ;menu_navigation.c: 135:         }else if(menu_type==settings1)
-}
-[e $U 664  ]
-[e :U 662 ]
-[e $ ! == -> F5976 `i -> . `E5961 1 `i 665  ]
-"136
-[; ;menu_navigation.c: 136:         {
-{
-"137
-[; ;menu_navigation.c: 137:             if(menu_selection==next)
-[e $ ! == -> F5977 `i -> . `E5957 0 `i 666  ]
-"138
-[; ;menu_navigation.c: 138:             {
-{
-"139
-[; ;menu_navigation.c: 139:                 menu_type = settings2;
-[e = F5976 -> . `E5961 2 `uc ]
-"140
-[; ;menu_navigation.c: 140:                 menu_change = next;
-[e = F5975 -> . `E5957 0 `uc ]
-"141
-[; ;menu_navigation.c: 141:                 menu_init=0;
-[e = F5978 -> -> 0 `i `uc ]
-"142
-[; ;menu_navigation.c: 142:                 Options2_Menu(bat_param);
-[e ( _Options2_Menu (1 _bat_param ]
-"145
-[; ;menu_navigation.c: 145:             }else if(menu_selection==save_exit)
+"117
+[; ;menu_navigation.c: 117:         } else if(menu_type==settings5)
 }
 [e $U 667  ]
-[e :U 666 ]
-[e $ ! == -> F5977 `i -> . `E5957 2 `i 668  ]
-"146
-[; ;menu_navigation.c: 146:             {
+[e :U 649 ]
+[e $ ! == -> F6000 `i -> . `E5982 5 `i 668  ]
+"118
+[; ;menu_navigation.c: 118:         {
 {
-"147
-[; ;menu_navigation.c: 147:                 menu_type = main_menu;
-[e = F5976 -> . `E5961 0 `uc ]
-"148
-[; ;menu_navigation.c: 148:                 menu_change = start;
-[e = F5975 -> . `E5885 1 `uc ]
-"149
-[; ;menu_navigation.c: 149:                 SingleBat_Menu(bat_param);
-[e ( _SingleBat_Menu (1 _bat_param ]
-"150
-[; ;menu_navigation.c: 150:                 menu_init=0;
-[e = F5978 -> -> 0 `i `uc ]
-"153
-[; ;menu_navigation.c: 153:             }
+"120
+[; ;menu_navigation.c: 120:             if (menu_change != save_exit)
+[e $ ! != -> F5999 `i -> . `E5978 2 `i 669  ]
+"121
+[; ;menu_navigation.c: 121:             {
+{
+"122
+[; ;menu_navigation.c: 122:                 Handle_Setting5_MenuNavigation(back);
+[e ( _Handle_Setting5_MenuNavigation (1 -> . `E5978 1 `uc ]
+"123
+[; ;menu_navigation.c: 123:                 menu_selection=save_exit;
+[e = F6001 -> . `E5978 2 `uc ]
+"124
+[; ;menu_navigation.c: 124:             }else if (menu_change == save_exit)
+}
+[e $U 670  ]
+[e :U 669 ]
+[e $ ! == -> F5999 `i -> . `E5978 2 `i 671  ]
+"125
+[; ;menu_navigation.c: 125:             {
+{
+"126
+[; ;menu_navigation.c: 126:                 Handle_Setting5_MenuNavigation(menu_change);
+[e ( _Handle_Setting5_MenuNavigation (1 F5999 ]
+"127
+[; ;menu_navigation.c: 127:                 menu_selection= back;
+[e = F6001 -> . `E5978 1 `uc ]
+"128
+[; ;menu_navigation.c: 128:             }
+}
+[e :U 671 ]
+[e :U 670 ]
+"129
+[; ;menu_navigation.c: 129:         }
 }
 [e :U 668 ]
 [e :U 667 ]
-"155
-[; ;menu_navigation.c: 155:         }else if(menu_type==settings2)
+[e :U 648 ]
+[e :U 642 ]
+"130
+[; ;menu_navigation.c: 130:         Button_Event_Reset();
+[e ( _Button_Event_Reset ..  ]
+"131
+[; ;menu_navigation.c: 131:     }
 }
-[e $U 669  ]
-[e :U 665 ]
-[e $ ! == -> F5976 `i -> . `E5961 2 `i 670  ]
-"156
-[; ;menu_navigation.c: 156:         {
+[e :U 637 ]
+"133
+[; ;menu_navigation.c: 133:     if (Button_EventGet(OK_SW))
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5927 4 `uc `ui -> -> 0 `i `ui 672  ]
+"134
+[; ;menu_navigation.c: 134:     {
 {
+"135
+[; ;menu_navigation.c: 135:         Button_Event_Reset();
+[e ( _Button_Event_Reset ..  ]
+"137
+[; ;menu_navigation.c: 137:         if(menu_type==main_menu)
+[e $ ! == -> F6000 `i -> . `E5982 0 `i 673  ]
+"138
+[; ;menu_navigation.c: 138:         {
+{
+"139
+[; ;menu_navigation.c: 139:             if(menu_selection==menu)
+[e $ ! == -> F6001 `i -> . `E5900 0 `i 674  ]
+"140
+[; ;menu_navigation.c: 140:             {
+{
+"141
+[; ;menu_navigation.c: 141:                 menu_type = settings1;
+[e = F6000 -> . `E5982 1 `uc ]
+"142
+[; ;menu_navigation.c: 142:                 menu_change = menu;
+[e = F5999 -> . `E5900 0 `uc ]
+"143
+[; ;menu_navigation.c: 143:                 Options1_Menu(bat_param);
+[e ( _Options1_Menu (1 _bat_param ]
+"144
+[; ;menu_navigation.c: 144:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"145
+[; ;menu_navigation.c: 145:             }
+}
+[e :U 674 ]
+"147
+[; ;menu_navigation.c: 147:         }else if(menu_type==settings1)
+}
+[e $U 675  ]
+[e :U 673 ]
+[e $ ! == -> F6000 `i -> . `E5982 1 `i 676  ]
+"148
+[; ;menu_navigation.c: 148:         {
+{
+"149
+[; ;menu_navigation.c: 149:             if(menu_selection==next)
+[e $ ! == -> F6001 `i -> . `E5978 0 `i 677  ]
+"150
+[; ;menu_navigation.c: 150:             {
+{
+"151
+[; ;menu_navigation.c: 151:                 menu_type = settings2;
+[e = F6000 -> . `E5982 2 `uc ]
+"152
+[; ;menu_navigation.c: 152:                 menu_change = next;
+[e = F5999 -> . `E5978 0 `uc ]
+"153
+[; ;menu_navigation.c: 153:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"154
+[; ;menu_navigation.c: 154:                 Options2_Menu(bat_param);
+[e ( _Options2_Menu (1 _bat_param ]
 "157
-[; ;menu_navigation.c: 157:             if(menu_selection==next)
-[e $ ! == -> F5977 `i -> . `E5957 0 `i 671  ]
+[; ;menu_navigation.c: 157:             }else if(menu_selection==save_exit)
+}
+[e $U 678  ]
+[e :U 677 ]
+[e $ ! == -> F6001 `i -> . `E5978 2 `i 679  ]
 "158
 [; ;menu_navigation.c: 158:             {
 {
+"159
+[; ;menu_navigation.c: 159:                 menu_type = main_menu;
+[e = F6000 -> . `E5982 0 `uc ]
 "160
-[; ;menu_navigation.c: 160:                 menu_type = settings3;
-[e = F5976 -> . `E5961 3 `uc ]
+[; ;menu_navigation.c: 160:                 menu_change = start;
+[e = F5999 -> . `E5900 1 `uc ]
 "161
-[; ;menu_navigation.c: 161:                 menu_change = next;
-[e = F5975 -> . `E5957 0 `uc ]
+[; ;menu_navigation.c: 161:                 SingleBat_Menu(bat_param);
+[e ( _SingleBat_Menu (1 _bat_param ]
 "162
 [; ;menu_navigation.c: 162:                 menu_init=0;
-[e = F5978 -> -> 0 `i `uc ]
+[e = F6002 -> -> 0 `i `uc ]
 "165
-[; ;menu_navigation.c: 165:             }else if(menu_selection==back)
+[; ;menu_navigation.c: 165:             }
 }
-[e $U 672  ]
-[e :U 671 ]
-[e $ ! == -> F5977 `i -> . `E5957 1 `i 673  ]
-"166
-[; ;menu_navigation.c: 166:             {
-{
-"167
-[; ;menu_navigation.c: 167:                 menu_type = settings1;
-[e = F5976 -> . `E5961 1 `uc ]
-"168
-[; ;menu_navigation.c: 168:                 menu_change = next;
-[e = F5975 -> . `E5957 0 `uc ]
-"169
-[; ;menu_navigation.c: 169:                 Options1_Menu(bat_param);
-[e ( _Options1_Menu (1 _bat_param ]
-"170
-[; ;menu_navigation.c: 170:                 menu_init=0;
-[e = F5978 -> -> 0 `i `uc ]
-"171
-[; ;menu_navigation.c: 171:             }
-}
-[e $U 674  ]
-"172
-[; ;menu_navigation.c: 172:             else if(menu_selection==save_exit)
-[e :U 673 ]
-[e $ ! == -> F5977 `i -> . `E5957 2 `i 675  ]
-"173
-[; ;menu_navigation.c: 173:             {
-{
-"174
-[; ;menu_navigation.c: 174:                 menu_type = main_menu;
-[e = F5976 -> . `E5961 0 `uc ]
-"175
-[; ;menu_navigation.c: 175:                 menu_change = start;
-[e = F5975 -> . `E5885 1 `uc ]
-"176
-[; ;menu_navigation.c: 176:                 SingleBat_Menu(bat_param);
-[e ( _SingleBat_Menu (1 _bat_param ]
-"177
-[; ;menu_navigation.c: 177:                 menu_init=0;
-[e = F5978 -> -> 0 `i `uc ]
-"178
-[; ;menu_navigation.c: 178:             }
-}
-[e $U 676  ]
-"180
-[; ;menu_navigation.c: 180:             else if(menu_type==settings3)
-[e :U 675 ]
-[e $ ! == -> F5976 `i -> . `E5961 3 `i 677  ]
-"181
-[; ;menu_navigation.c: 181:             {
-{
-"182
-[; ;menu_navigation.c: 182:                 if(menu_selection==next)
-[e $ ! == -> F5977 `i -> . `E5957 0 `i 678  ]
-"183
-[; ;menu_navigation.c: 183:                 {
-{
-"186
-[; ;menu_navigation.c: 186:                     menu_type = settings4;
-[e = F5976 -> . `E5961 4 `uc ]
-"188
-[; ;menu_navigation.c: 188:                 }else if(menu_selection==back)
-}
-[e $U 679  ]
-[e :U 678 ]
-[e $ ! == -> F5977 `i -> . `E5957 1 `i 680  ]
-"189
-[; ;menu_navigation.c: 189:                 {
-{
-"191
-[; ;menu_navigation.c: 191:                 }
-}
-[e $U 681  ]
-"192
-[; ;menu_navigation.c: 192:                 else if(menu_selection==save_exit)
-[e :U 680 ]
-[e $ ! == -> F5977 `i -> . `E5957 2 `i 682  ]
-"193
-[; ;menu_navigation.c: 193:                 {
-{
-"195
-[; ;menu_navigation.c: 195:                 }
-}
-[e :U 682 ]
-[e :U 681 ]
 [e :U 679 ]
-"196
-[; ;menu_navigation.c: 196:             }
+[e :U 678 ]
+"167
+[; ;menu_navigation.c: 167:         }else if(menu_type==settings2)
 }
-[e :U 677 ]
+[e $U 680  ]
 [e :U 676 ]
-[e :U 674 ]
-[e :U 672 ]
-"197
-[; ;menu_navigation.c: 197:         }
-}
-[e :U 670 ]
-[e :U 669 ]
-[e :U 664 ]
-"198
-[; ;menu_navigation.c: 198:     }
-}
-[e :U 661 ]
-"199
-[; ;menu_navigation.c: 199: }
-[e :UE 636 ]
-}
-"202
-[; ;menu_navigation.c: 202: void Handle_Setting23_MenuNavigation(uint8_t option)
-[v _Handle_Setting23_MenuNavigation `(v ~T0 @X0 1 ef1`uc ]
-"203
-[; ;menu_navigation.c: 203: {
+[e $ ! == -> F6000 `i -> . `E5982 2 `i 681  ]
+"168
+[; ;menu_navigation.c: 168:         {
 {
-[e :U _Handle_Setting23_MenuNavigation ]
-"202
-[; ;menu_navigation.c: 202: void Handle_Setting23_MenuNavigation(uint8_t option)
-[v _option `uc ~T0 @X0 1 r1 ]
-"203
-[; ;menu_navigation.c: 203: {
-[f ]
-"204
-[; ;menu_navigation.c: 204:     if (option == back)
-[e $ ! == -> _option `i -> . `E5957 1 `i 684  ]
-"205
-[; ;menu_navigation.c: 205:     {
+"169
+[; ;menu_navigation.c: 169:             if(menu_selection==next)
+[e $ ! == -> F6001 `i -> . `E5978 0 `i 682  ]
+"170
+[; ;menu_navigation.c: 170:             {
 {
-"206
-[; ;menu_navigation.c: 206:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"207
-[; ;menu_navigation.c: 207:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"208
-[; ;menu_navigation.c: 208:         GLCD_GotoXY(2, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"209
-[; ;menu_navigation.c: 209:         GLCD_PrintString("BACK");
-[e ( _GLCD_PrintString (1 :s 1C ]
-"211
-[; ;menu_navigation.c: 211:         GLCD_FillRectangle(29, 51, 29+26, 63, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"212
-[; ;menu_navigation.c: 212:         GLCD_DrawRectangle(29, 51, 29+26, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"213
-[; ;menu_navigation.c: 213:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"214
-[; ;menu_navigation.c: 214:         GLCD_GotoXY(2+29, 54);
-[e ( _GLCD_GotoXY (2 , -> + -> 2 `i -> 29 `i `uc -> -> 54 `i `uc ]
-"215
-[; ;menu_navigation.c: 215:         GLCD_PrintString("NEXT");
-[e ( _GLCD_PrintString (1 :s 2C ]
-"217
-[; ;menu_navigation.c: 217:         GLCD_FillRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"218
-[; ;menu_navigation.c: 218:         GLCD_DrawRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"219
-[; ;menu_navigation.c: 219:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"220
-[; ;menu_navigation.c: 220:         GLCD_GotoXY(29+26+5, 54);
-[e ( _GLCD_GotoXY (2 , -> + + -> 29 `i -> 26 `i -> 5 `i `uc -> -> 54 `i `uc ]
-"221
-[; ;menu_navigation.c: 221:         GLCD_PrintString("SAVE&EXIT");
-[e ( _GLCD_PrintString (1 :s 3C ]
-"223
-[; ;menu_navigation.c: 223:     }else if (option == next)
+"171
+[; ;menu_navigation.c: 171:                 Options3_Menu(bat_param);
+[e ( _Options3_Menu (1 _bat_param ]
+"172
+[; ;menu_navigation.c: 172:                 menu_type = settings3;
+[e = F6000 -> . `E5982 3 `uc ]
+"173
+[; ;menu_navigation.c: 173:                 menu_change = next;
+[e = F5999 -> . `E5978 0 `uc ]
+"174
+[; ;menu_navigation.c: 174:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"175
+[; ;menu_navigation.c: 175:                  menu_pos=2;
+[e = F6003 -> -> 2 `i `uc ]
+"178
+[; ;menu_navigation.c: 178:             }else if(menu_selection==back)
+}
+[e $U 683  ]
+[e :U 682 ]
+[e $ ! == -> F6001 `i -> . `E5978 1 `i 684  ]
+"179
+[; ;menu_navigation.c: 179:             {
+{
+"180
+[; ;menu_navigation.c: 180:                 menu_type = settings1;
+[e = F6000 -> . `E5982 1 `uc ]
+"181
+[; ;menu_navigation.c: 181:                 menu_change = next;
+[e = F5999 -> . `E5978 0 `uc ]
+"182
+[; ;menu_navigation.c: 182:                 Options1_Menu(bat_param);
+[e ( _Options1_Menu (1 _bat_param ]
+"183
+[; ;menu_navigation.c: 183:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"184
+[; ;menu_navigation.c: 184:                  menu_pos=1;
+[e = F6003 -> -> 1 `i `uc ]
+"185
+[; ;menu_navigation.c: 185:             }
 }
 [e $U 685  ]
+"186
+[; ;menu_navigation.c: 186:             else if(menu_selection==save_exit)
 [e :U 684 ]
-[e $ ! == -> _option `i -> . `E5957 0 `i 686  ]
-"224
-[; ;menu_navigation.c: 224:     {
+[e $ ! == -> F6001 `i -> . `E5978 2 `i 686  ]
+"187
+[; ;menu_navigation.c: 187:             {
 {
-"225
-[; ;menu_navigation.c: 225:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"226
-[; ;menu_navigation.c: 226:         GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"227
-[; ;menu_navigation.c: 227:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"228
-[; ;menu_navigation.c: 228:         GLCD_GotoXY(2, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"229
-[; ;menu_navigation.c: 229:         GLCD_PrintString("BACK");
-[e ( _GLCD_PrintString (1 :s 4C ]
-"232
-[; ;menu_navigation.c: 232:         GLCD_FillRectangle(29, 51, 29+26, 63, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"233
-[; ;menu_navigation.c: 233:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"234
-[; ;menu_navigation.c: 234:         GLCD_GotoXY(2+29, 54);
-[e ( _GLCD_GotoXY (2 , -> + -> 2 `i -> 29 `i `uc -> -> 54 `i `uc ]
-"235
-[; ;menu_navigation.c: 235:         GLCD_PrintString("NEXT");
-[e ( _GLCD_PrintString (1 :s 5C ]
-"237
-[; ;menu_navigation.c: 237:         GLCD_FillRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"238
-[; ;menu_navigation.c: 238:         GLCD_DrawRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"239
-[; ;menu_navigation.c: 239:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"240
-[; ;menu_navigation.c: 240:         GLCD_GotoXY(29+26+5, 54);
-[e ( _GLCD_GotoXY (2 , -> + + -> 29 `i -> 26 `i -> 5 `i `uc -> -> 54 `i `uc ]
-"241
-[; ;menu_navigation.c: 241:         GLCD_PrintString("SAVE&EXIT");
-[e ( _GLCD_PrintString (1 :s 6C ]
-"244
-[; ;menu_navigation.c: 244:     }else if (option == save_exit)
+"188
+[; ;menu_navigation.c: 188:                 menu_type = main_menu;
+[e = F6000 -> . `E5982 0 `uc ]
+"189
+[; ;menu_navigation.c: 189:                 menu_change = start;
+[e = F5999 -> . `E5900 1 `uc ]
+"190
+[; ;menu_navigation.c: 190:                 SingleBat_Menu(bat_param);
+[e ( _SingleBat_Menu (1 _bat_param ]
+"191
+[; ;menu_navigation.c: 191:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"192
+[; ;menu_navigation.c: 192:             }
+}
+[e :U 686 ]
+[e :U 685 ]
+[e :U 683 ]
+"194
+[; ;menu_navigation.c: 194:         }else if(menu_type==settings3)
 }
 [e $U 687  ]
-[e :U 686 ]
-[e $ ! == -> _option `i -> . `E5957 2 `i 688  ]
-"245
-[; ;menu_navigation.c: 245:     {
+[e :U 681 ]
+[e $ ! == -> F6000 `i -> . `E5982 3 `i 688  ]
+"195
+[; ;menu_navigation.c: 195:         {
 {
-"247
-[; ;menu_navigation.c: 247:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"248
-[; ;menu_navigation.c: 248:         GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"249
-[; ;menu_navigation.c: 249:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"250
-[; ;menu_navigation.c: 250:         GLCD_GotoXY(2, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"251
-[; ;menu_navigation.c: 251:         GLCD_PrintString("BACK");
-[e ( _GLCD_PrintString (1 :s 7C ]
-"253
-[; ;menu_navigation.c: 253:         GLCD_FillRectangle(29, 51, 29+26, 63, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"254
-[; ;menu_navigation.c: 254:         GLCD_DrawRectangle(29, 51, 29+26, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"255
-[; ;menu_navigation.c: 255:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"256
-[; ;menu_navigation.c: 256:         GLCD_GotoXY(2+29, 54);
-[e ( _GLCD_GotoXY (2 , -> + -> 2 `i -> 29 `i `uc -> -> 54 `i `uc ]
-"257
-[; ;menu_navigation.c: 257:         GLCD_PrintString("NEXT");
-[e ( _GLCD_PrintString (1 :s 8C ]
-"259
-[; ;menu_navigation.c: 259:         GLCD_FillRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"260
-[; ;menu_navigation.c: 260:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"261
-[; ;menu_navigation.c: 261:         GLCD_GotoXY(29+26+5, 54);
-[e ( _GLCD_GotoXY (2 , -> + + -> 29 `i -> 26 `i -> 5 `i `uc -> -> 54 `i `uc ]
-"262
-[; ;menu_navigation.c: 262:         GLCD_PrintString("SAVE&EXIT");
-[e ( _GLCD_PrintString (1 :s 9C ]
-"263
-[; ;menu_navigation.c: 263:     }
+"196
+[; ;menu_navigation.c: 196:             if(menu_selection==next)
+[e $ ! == -> F6001 `i -> . `E5978 0 `i 689  ]
+"197
+[; ;menu_navigation.c: 197:             {
+{
+"198
+[; ;menu_navigation.c: 198:                 Options4_Menu(bat_param);
+[e ( _Options4_Menu (1 _bat_param ]
+"199
+[; ;menu_navigation.c: 199:                 menu_type = settings4;
+[e = F6000 -> . `E5982 4 `uc ]
+"200
+[; ;menu_navigation.c: 200:                 menu_change = next;
+[e = F5999 -> . `E5978 0 `uc ]
+"201
+[; ;menu_navigation.c: 201:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"202
+[; ;menu_navigation.c: 202:                 menu_pos=2;
+[e = F6003 -> -> 2 `i `uc ]
+"205
+[; ;menu_navigation.c: 205:             }else if(menu_selection==back)
 }
+[e $U 690  ]
+[e :U 689 ]
+[e $ ! == -> F6001 `i -> . `E5978 1 `i 691  ]
+"206
+[; ;menu_navigation.c: 206:             {
+{
+"207
+[; ;menu_navigation.c: 207:                 menu_type = settings2;
+[e = F6000 -> . `E5982 2 `uc ]
+"208
+[; ;menu_navigation.c: 208:                 menu_change = next;
+[e = F5999 -> . `E5978 0 `uc ]
+"209
+[; ;menu_navigation.c: 209:                 Options2_Menu(bat_param);
+[e ( _Options2_Menu (1 _bat_param ]
+"210
+[; ;menu_navigation.c: 210:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"211
+[; ;menu_navigation.c: 211:                  menu_pos=1;
+[e = F6003 -> -> 1 `i `uc ]
+"212
+[; ;menu_navigation.c: 212:             }
+}
+[e $U 692  ]
+"213
+[; ;menu_navigation.c: 213:             else if(menu_selection==save_exit)
+[e :U 691 ]
+[e $ ! == -> F6001 `i -> . `E5978 2 `i 693  ]
+"214
+[; ;menu_navigation.c: 214:             {
+{
+"215
+[; ;menu_navigation.c: 215:                 menu_type = main_menu;
+[e = F6000 -> . `E5982 0 `uc ]
+"216
+[; ;menu_navigation.c: 216:                 menu_change = start;
+[e = F5999 -> . `E5900 1 `uc ]
+"217
+[; ;menu_navigation.c: 217:                 SingleBat_Menu(bat_param);
+[e ( _SingleBat_Menu (1 _bat_param ]
+"218
+[; ;menu_navigation.c: 218:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"219
+[; ;menu_navigation.c: 219:             }
+}
+[e :U 693 ]
+[e :U 692 ]
+[e :U 690 ]
+"223
+[; ;menu_navigation.c: 223:         }else if(menu_type==settings4)
+}
+[e $U 694  ]
 [e :U 688 ]
-[e :U 687 ]
-[e :U 685 ]
-"265
-[; ;menu_navigation.c: 265:     GLCD_Render();
-[e ( _GLCD_Render ..  ]
-"266
-[; ;menu_navigation.c: 266: }
-[e :UE 683 ]
+[e $ ! == -> F6000 `i -> . `E5982 4 `i 695  ]
+"224
+[; ;menu_navigation.c: 224:         {
+{
+"225
+[; ;menu_navigation.c: 225:             if(menu_selection==next)
+[e $ ! == -> F6001 `i -> . `E5978 0 `i 696  ]
+"226
+[; ;menu_navigation.c: 226:             {
+{
+"227
+[; ;menu_navigation.c: 227:                 Options5_Menu(bat_param);
+[e ( _Options5_Menu (1 _bat_param ]
+"228
+[; ;menu_navigation.c: 228:                 menu_type = settings5;
+[e = F6000 -> . `E5982 5 `uc ]
+"229
+[; ;menu_navigation.c: 229:                 menu_change = next;
+[e = F5999 -> . `E5978 0 `uc ]
+"230
+[; ;menu_navigation.c: 230:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"231
+[; ;menu_navigation.c: 231:                 menu_pos=2;
+[e = F6003 -> -> 2 `i `uc ]
+"234
+[; ;menu_navigation.c: 234:             }else if(menu_selection==back)
 }
+[e $U 697  ]
+[e :U 696 ]
+[e $ ! == -> F6001 `i -> . `E5978 1 `i 698  ]
+"235
+[; ;menu_navigation.c: 235:             {
+{
+"236
+[; ;menu_navigation.c: 236:                 menu_type = settings3;
+[e = F6000 -> . `E5982 3 `uc ]
+"237
+[; ;menu_navigation.c: 237:                 menu_change = next;
+[e = F5999 -> . `E5978 0 `uc ]
+"238
+[; ;menu_navigation.c: 238:                 Options3_Menu(bat_param);
+[e ( _Options3_Menu (1 _bat_param ]
+"239
+[; ;menu_navigation.c: 239:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"240
+[; ;menu_navigation.c: 240:                 menu_pos=1;
+[e = F6003 -> -> 1 `i `uc ]
+"241
+[; ;menu_navigation.c: 241:             }
+}
+[e $U 699  ]
+"242
+[; ;menu_navigation.c: 242:             else if(menu_selection==save_exit)
+[e :U 698 ]
+[e $ ! == -> F6001 `i -> . `E5978 2 `i 700  ]
+"243
+[; ;menu_navigation.c: 243:             {
+{
+"244
+[; ;menu_navigation.c: 244:                 menu_type = main_menu;
+[e = F6000 -> . `E5982 0 `uc ]
+"245
+[; ;menu_navigation.c: 245:                 menu_change = start;
+[e = F5999 -> . `E5900 1 `uc ]
+"246
+[; ;menu_navigation.c: 246:                 SingleBat_Menu(bat_param);
+[e ( _SingleBat_Menu (1 _bat_param ]
+"247
+[; ;menu_navigation.c: 247:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"248
+[; ;menu_navigation.c: 248:             }
+}
+[e :U 700 ]
+[e :U 699 ]
+[e :U 697 ]
+"251
+[; ;menu_navigation.c: 251:         }else if(menu_type==settings5)
+}
+[e $U 701  ]
+[e :U 695 ]
+[e $ ! == -> F6000 `i -> . `E5982 5 `i 702  ]
+"252
+[; ;menu_navigation.c: 252:         {
+{
+"255
+[; ;menu_navigation.c: 255:             if(menu_selection==back)
+[e $ ! == -> F6001 `i -> . `E5978 1 `i 703  ]
+"256
+[; ;menu_navigation.c: 256:             {
+{
+"257
+[; ;menu_navigation.c: 257:                 menu_type = settings4;
+[e = F6000 -> . `E5982 4 `uc ]
+"258
+[; ;menu_navigation.c: 258:                 menu_change = save_exit;
+[e = F5999 -> . `E5978 2 `uc ]
+"259
+[; ;menu_navigation.c: 259:                 Options4_Menu(bat_param);
+[e ( _Options4_Menu (1 _bat_param ]
+"260
+[; ;menu_navigation.c: 260:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
+"261
+[; ;menu_navigation.c: 261:                 menu_pos=1;
+[e = F6003 -> -> 1 `i `uc ]
+"262
+[; ;menu_navigation.c: 262:             }
+}
+[e $U 704  ]
+"263
+[; ;menu_navigation.c: 263:             else if(menu_selection==save_exit)
+[e :U 703 ]
+[e $ ! == -> F6001 `i -> . `E5978 2 `i 705  ]
+"264
+[; ;menu_navigation.c: 264:             {
+{
+"265
+[; ;menu_navigation.c: 265:                 menu_type = main_menu;
+[e = F6000 -> . `E5982 0 `uc ]
+"266
+[; ;menu_navigation.c: 266:                 menu_change = start;
+[e = F5999 -> . `E5900 1 `uc ]
+"267
+[; ;menu_navigation.c: 267:                 SingleBat_Menu(bat_param);
+[e ( _SingleBat_Menu (1 _bat_param ]
 "268
-[; ;menu_navigation.c: 268: void Handle_Setting1_MenuNavigation(uint8_t option)
-[v _Handle_Setting1_MenuNavigation `(v ~T0 @X0 1 ef1`uc ]
+[; ;menu_navigation.c: 268:                 menu_init=0;
+[e = F6002 -> -> 0 `i `uc ]
 "269
-[; ;menu_navigation.c: 269: {
+[; ;menu_navigation.c: 269:             }
+}
+[e :U 705 ]
+[e :U 704 ]
+"270
+[; ;menu_navigation.c: 270:         }
+}
+[e :U 702 ]
+[e :U 701 ]
+[e :U 694 ]
+[e :U 687 ]
+[e :U 680 ]
+[e :U 675 ]
+"271
+[; ;menu_navigation.c: 271:     }
+}
+[e :U 672 ]
+"272
+[; ;menu_navigation.c: 272: }
+[e :UE 636 ]
+}
+"275
+[; ;menu_navigation.c: 275: void Handle_Setting23_MenuNavigation(uint8_t option)
+[v _Handle_Setting23_MenuNavigation `(v ~T0 @X0 1 ef1`uc ]
+"276
+[; ;menu_navigation.c: 276: {
+{
+[e :U _Handle_Setting23_MenuNavigation ]
+"275
+[; ;menu_navigation.c: 275: void Handle_Setting23_MenuNavigation(uint8_t option)
+[v _option `uc ~T0 @X0 1 r1 ]
+"276
+[; ;menu_navigation.c: 276: {
+[f ]
+"277
+[; ;menu_navigation.c: 277:     if (option == back)
+[e $ ! == -> _option `i -> . `E5978 1 `i 707  ]
+"278
+[; ;menu_navigation.c: 278:     {
+{
+"279
+[; ;menu_navigation.c: 279:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"280
+[; ;menu_navigation.c: 280:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+"281
+[; ;menu_navigation.c: 281:         GLCD_GotoXY(2, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
+"282
+[; ;menu_navigation.c: 282:         GLCD_PrintString("BACK");
+[e ( _GLCD_PrintString (1 :s 1C ]
+"284
+[; ;menu_navigation.c: 284:         GLCD_FillRectangle(29, 51, 29+26, 63, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
+"285
+[; ;menu_navigation.c: 285:         GLCD_DrawRectangle(29, 51, 29+26, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"286
+[; ;menu_navigation.c: 286:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"287
+[; ;menu_navigation.c: 287:         GLCD_GotoXY(2+29, 54);
+[e ( _GLCD_GotoXY (2 , -> + -> 2 `i -> 29 `i `uc -> -> 54 `i `uc ]
+"288
+[; ;menu_navigation.c: 288:         GLCD_PrintString("NEXT");
+[e ( _GLCD_PrintString (1 :s 2C ]
+"290
+[; ;menu_navigation.c: 290:         GLCD_FillRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 0 ]
+"291
+[; ;menu_navigation.c: 291:         GLCD_DrawRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"292
+[; ;menu_navigation.c: 292:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"293
+[; ;menu_navigation.c: 293:         GLCD_GotoXY(29+26+5, 54);
+[e ( _GLCD_GotoXY (2 , -> + + -> 29 `i -> 26 `i -> 5 `i `uc -> -> 54 `i `uc ]
+"294
+[; ;menu_navigation.c: 294:         GLCD_PrintString("SAVE&EXIT");
+[e ( _GLCD_PrintString (1 :s 3C ]
+"296
+[; ;menu_navigation.c: 296:     }else if (option == next)
+}
+[e $U 708  ]
+[e :U 707 ]
+[e $ ! == -> _option `i -> . `E5978 0 `i 709  ]
+"297
+[; ;menu_navigation.c: 297:     {
+{
+"298
+[; ;menu_navigation.c: 298:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
+"299
+[; ;menu_navigation.c: 299:         GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"300
+[; ;menu_navigation.c: 300:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"301
+[; ;menu_navigation.c: 301:         GLCD_GotoXY(2, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
+"302
+[; ;menu_navigation.c: 302:         GLCD_PrintString("BACK");
+[e ( _GLCD_PrintString (1 :s 4C ]
+"305
+[; ;menu_navigation.c: 305:         GLCD_FillRectangle(29, 51, 29+26, 63, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"306
+[; ;menu_navigation.c: 306:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+"307
+[; ;menu_navigation.c: 307:         GLCD_GotoXY(2+29, 54);
+[e ( _GLCD_GotoXY (2 , -> + -> 2 `i -> 29 `i `uc -> -> 54 `i `uc ]
+"308
+[; ;menu_navigation.c: 308:         GLCD_PrintString("NEXT");
+[e ( _GLCD_PrintString (1 :s 5C ]
+"310
+[; ;menu_navigation.c: 310:         GLCD_FillRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 0 ]
+"311
+[; ;menu_navigation.c: 311:         GLCD_DrawRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"312
+[; ;menu_navigation.c: 312:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"313
+[; ;menu_navigation.c: 313:         GLCD_GotoXY(29+26+5, 54);
+[e ( _GLCD_GotoXY (2 , -> + + -> 29 `i -> 26 `i -> 5 `i `uc -> -> 54 `i `uc ]
+"314
+[; ;menu_navigation.c: 314:         GLCD_PrintString("SAVE&EXIT");
+[e ( _GLCD_PrintString (1 :s 6C ]
+"317
+[; ;menu_navigation.c: 317:     }else if (option == save_exit)
+}
+[e $U 710  ]
+[e :U 709 ]
+[e $ ! == -> _option `i -> . `E5978 2 `i 711  ]
+"318
+[; ;menu_navigation.c: 318:     {
+{
+"320
+[; ;menu_navigation.c: 320:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
+"321
+[; ;menu_navigation.c: 321:         GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"322
+[; ;menu_navigation.c: 322:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"323
+[; ;menu_navigation.c: 323:         GLCD_GotoXY(2, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
+"324
+[; ;menu_navigation.c: 324:         GLCD_PrintString("BACK");
+[e ( _GLCD_PrintString (1 :s 7C ]
+"326
+[; ;menu_navigation.c: 326:         GLCD_FillRectangle(29, 51, 29+26, 63, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
+"327
+[; ;menu_navigation.c: 327:         GLCD_DrawRectangle(29, 51, 29+26, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> + -> 29 `i -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"328
+[; ;menu_navigation.c: 328:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"329
+[; ;menu_navigation.c: 329:         GLCD_GotoXY(2+29, 54);
+[e ( _GLCD_GotoXY (2 , -> + -> 2 `i -> 29 `i `uc -> -> 54 `i `uc ]
+"330
+[; ;menu_navigation.c: 330:         GLCD_PrintString("NEXT");
+[e ( _GLCD_PrintString (1 :s 8C ]
+"332
+[; ;menu_navigation.c: 332:         GLCD_FillRectangle(29+26+3, 51, 29+26+3+57, 63, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> + + -> 29 `i -> 26 `i -> 3 `i `uc -> -> 51 `i `uc -> + + + -> 29 `i -> 26 `i -> 3 `i -> 57 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"333
+[; ;menu_navigation.c: 333:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+"334
+[; ;menu_navigation.c: 334:         GLCD_GotoXY(29+26+5, 54);
+[e ( _GLCD_GotoXY (2 , -> + + -> 29 `i -> 26 `i -> 5 `i `uc -> -> 54 `i `uc ]
+"335
+[; ;menu_navigation.c: 335:         GLCD_PrintString("SAVE&EXIT");
+[e ( _GLCD_PrintString (1 :s 9C ]
+"336
+[; ;menu_navigation.c: 336:     }
+}
+[e :U 711 ]
+[e :U 710 ]
+[e :U 708 ]
+"338
+[; ;menu_navigation.c: 338:     GLCD_Render();
+[e ( _GLCD_Render ..  ]
+"339
+[; ;menu_navigation.c: 339: }
+[e :UE 706 ]
+}
+"341
+[; ;menu_navigation.c: 341: void Handle_Setting1_MenuNavigation(uint8_t option)
+[v _Handle_Setting1_MenuNavigation `(v ~T0 @X0 1 ef1`uc ]
+"342
+[; ;menu_navigation.c: 342: {
 {
 [e :U _Handle_Setting1_MenuNavigation ]
-"268
-[; ;menu_navigation.c: 268: void Handle_Setting1_MenuNavigation(uint8_t option)
+"341
+[; ;menu_navigation.c: 341: void Handle_Setting1_MenuNavigation(uint8_t option)
 [v _option `uc ~T0 @X0 1 r1 ]
-"269
-[; ;menu_navigation.c: 269: {
+"342
+[; ;menu_navigation.c: 342: {
 [f ]
-"270
-[; ;menu_navigation.c: 270:     if (option == next)
-[e $ ! == -> _option `i -> . `E5957 0 `i 690  ]
-"271
-[; ;menu_navigation.c: 271:     {
+"343
+[; ;menu_navigation.c: 343:     if (option == next)
+[e $ ! == -> _option `i -> . `E5978 0 `i 713  ]
+"344
+[; ;menu_navigation.c: 344:     {
 {
-"272
-[; ;menu_navigation.c: 272:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_Black);
+"345
+[; ;menu_navigation.c: 345:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_Black);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"273
-[; ;menu_navigation.c: 273:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+"346
+[; ;menu_navigation.c: 346:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"274
-[; ;menu_navigation.c: 274:         GLCD_GotoXY(2, 54);
+"347
+[; ;menu_navigation.c: 347:         GLCD_GotoXY(2, 54);
 [e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"275
-[; ;menu_navigation.c: 275:         GLCD_PrintString("NEXT");
+"348
+[; ;menu_navigation.c: 348:         GLCD_PrintString("NEXT");
 [e ( _GLCD_PrintString (1 :s 10C ]
-"277
-[; ;menu_navigation.c: 277:         GLCD_FillRectangle(29, 51, 86, 63, GLCD_White);
+"350
+[; ;menu_navigation.c: 350:         GLCD_FillRectangle(29, 51, 86, 63, GLCD_White);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> -> 86 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"278
-[; ;menu_navigation.c: 278:         GLCD_DrawRectangle(29, 51, 86, 63, GLCD_Black);
+"351
+[; ;menu_navigation.c: 351:         GLCD_DrawRectangle(29, 51, 86, 63, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> -> 86 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"279
-[; ;menu_navigation.c: 279:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"352
+[; ;menu_navigation.c: 352:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"280
-[; ;menu_navigation.c: 280:         GLCD_GotoXY(31, 54);
+"353
+[; ;menu_navigation.c: 353:         GLCD_GotoXY(31, 54);
 [e ( _GLCD_GotoXY (2 , -> -> 31 `i `uc -> -> 54 `i `uc ]
-"281
-[; ;menu_navigation.c: 281:         GLCD_PrintString("SAVE&EXIT");
+"354
+[; ;menu_navigation.c: 354:         GLCD_PrintString("SAVE&EXIT");
 [e ( _GLCD_PrintString (1 :s 11C ]
-"283
-[; ;menu_navigation.c: 283:     }else if (option == save_exit)
+"356
+[; ;menu_navigation.c: 356:     }else if (option == save_exit)
 }
-[e $U 691  ]
-[e :U 690 ]
-[e $ ! == -> _option `i -> . `E5957 2 `i 692  ]
-"284
-[; ;menu_navigation.c: 284:     {
+[e $U 714  ]
+[e :U 713 ]
+[e $ ! == -> _option `i -> . `E5978 2 `i 715  ]
+"357
+[; ;menu_navigation.c: 357:     {
 {
-"285
-[; ;menu_navigation.c: 285:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
+"358
+[; ;menu_navigation.c: 358:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"286
-[; ;menu_navigation.c: 286:         GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
+"359
+[; ;menu_navigation.c: 359:         GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"287
-[; ;menu_navigation.c: 287:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"360
+[; ;menu_navigation.c: 360:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"288
-[; ;menu_navigation.c: 288:         GLCD_GotoXY(2, 54);
+"361
+[; ;menu_navigation.c: 361:         GLCD_GotoXY(2, 54);
 [e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"289
-[; ;menu_navigation.c: 289:         GLCD_PrintString("NEXT");
+"362
+[; ;menu_navigation.c: 362:         GLCD_PrintString("NEXT");
 [e ( _GLCD_PrintString (1 :s 12C ]
-"292
-[; ;menu_navigation.c: 292:         GLCD_FillRectangle(29, 51, 86, 63, GLCD_Black);
+"365
+[; ;menu_navigation.c: 365:         GLCD_FillRectangle(29, 51, 86, 63, GLCD_Black);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> -> 86 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"293
-[; ;menu_navigation.c: 293:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+"366
+[; ;menu_navigation.c: 366:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"294
-[; ;menu_navigation.c: 294:         GLCD_GotoXY(31, 54);
+"367
+[; ;menu_navigation.c: 367:         GLCD_GotoXY(31, 54);
 [e ( _GLCD_GotoXY (2 , -> -> 31 `i `uc -> -> 54 `i `uc ]
-"295
-[; ;menu_navigation.c: 295:         GLCD_PrintString("SAVE&EXIT");
+"368
+[; ;menu_navigation.c: 368:         GLCD_PrintString("SAVE&EXIT");
 [e ( _GLCD_PrintString (1 :s 13C ]
-"296
-[; ;menu_navigation.c: 296:     }
+"369
+[; ;menu_navigation.c: 369:     }
 }
-[e :U 692 ]
-[e :U 691 ]
-"298
-[; ;menu_navigation.c: 298:     GLCD_Render();
+[e :U 715 ]
+[e :U 714 ]
+"371
+[; ;menu_navigation.c: 371:     GLCD_Render();
 [e ( _GLCD_Render ..  ]
-"299
-[; ;menu_navigation.c: 299: }
-[e :UE 689 ]
+"372
+[; ;menu_navigation.c: 372: }
+[e :UE 712 ]
 }
-"302
-[; ;menu_navigation.c: 302: void Handle_Main_MenuNavigation(uint8_t option)
+"374
+[; ;menu_navigation.c: 374: void Handle_Setting5_MenuNavigation(uint8_t option)
+[v _Handle_Setting5_MenuNavigation `(v ~T0 @X0 1 ef1`uc ]
+"375
+[; ;menu_navigation.c: 375: {
+{
+[e :U _Handle_Setting5_MenuNavigation ]
+"374
+[; ;menu_navigation.c: 374: void Handle_Setting5_MenuNavigation(uint8_t option)
+[v _option `uc ~T0 @X0 1 r1 ]
+"375
+[; ;menu_navigation.c: 375: {
+[f ]
+"376
+[; ;menu_navigation.c: 376:     if (option == next)
+[e $ ! == -> _option `i -> . `E5978 0 `i 717  ]
+"377
+[; ;menu_navigation.c: 377:     {
+{
+"378
+[; ;menu_navigation.c: 378:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"379
+[; ;menu_navigation.c: 379:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+"380
+[; ;menu_navigation.c: 380:         GLCD_GotoXY(2, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
+"381
+[; ;menu_navigation.c: 381:         GLCD_PrintString("BACK");
+[e ( _GLCD_PrintString (1 :s 14C ]
+"383
+[; ;menu_navigation.c: 383:         GLCD_FillRectangle(29, 51, 86, 63, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> -> 86 `i `uc -> -> 63 `i `uc . `E5705 0 ]
+"384
+[; ;menu_navigation.c: 384:         GLCD_DrawRectangle(29, 51, 86, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> -> 86 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"385
+[; ;menu_navigation.c: 385:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"386
+[; ;menu_navigation.c: 386:         GLCD_GotoXY(31, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 31 `i `uc -> -> 54 `i `uc ]
+"387
+[; ;menu_navigation.c: 387:         GLCD_PrintString("SAVE&EXIT");
+[e ( _GLCD_PrintString (1 :s 15C ]
+"389
+[; ;menu_navigation.c: 389:     }else if (option == save_exit)
+}
+[e $U 718  ]
+[e :U 717 ]
+[e $ ! == -> _option `i -> . `E5978 2 `i 719  ]
+"390
+[; ;menu_navigation.c: 390:     {
+{
+"391
+[; ;menu_navigation.c: 391:         GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 0 ]
+"392
+[; ;menu_navigation.c: 392:         GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 26 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"393
+[; ;menu_navigation.c: 393:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"394
+[; ;menu_navigation.c: 394:         GLCD_GotoXY(2, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
+"395
+[; ;menu_navigation.c: 395:         GLCD_PrintString("BACK");
+[e ( _GLCD_PrintString (1 :s 16C ]
+"398
+[; ;menu_navigation.c: 398:         GLCD_FillRectangle(29, 51, 86, 63, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 29 `i `uc -> -> 51 `i `uc -> -> 86 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"399
+[; ;menu_navigation.c: 399:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+"400
+[; ;menu_navigation.c: 400:         GLCD_GotoXY(31, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 31 `i `uc -> -> 54 `i `uc ]
+"401
+[; ;menu_navigation.c: 401:         GLCD_PrintString("SAVE&EXIT");
+[e ( _GLCD_PrintString (1 :s 17C ]
+"402
+[; ;menu_navigation.c: 402:     }
+}
+[e :U 719 ]
+[e :U 718 ]
+"404
+[; ;menu_navigation.c: 404:     GLCD_Render();
+[e ( _GLCD_Render ..  ]
+"405
+[; ;menu_navigation.c: 405: }
+[e :UE 716 ]
+}
+"409
+[; ;menu_navigation.c: 409: void Handle_Main_MenuNavigation(uint8_t option)
 [v _Handle_Main_MenuNavigation `(v ~T0 @X0 1 ef1`uc ]
-"303
-[; ;menu_navigation.c: 303: {
+"410
+[; ;menu_navigation.c: 410: {
 {
 [e :U _Handle_Main_MenuNavigation ]
-"302
-[; ;menu_navigation.c: 302: void Handle_Main_MenuNavigation(uint8_t option)
+"409
+[; ;menu_navigation.c: 409: void Handle_Main_MenuNavigation(uint8_t option)
 [v _option `uc ~T0 @X0 1 r1 ]
-"303
-[; ;menu_navigation.c: 303: {
+"410
+[; ;menu_navigation.c: 410: {
 [f ]
-"305
-[; ;menu_navigation.c: 305:     if (option == start)
-[e $ ! == -> _option `i -> . `E5885 1 `i 694  ]
-"306
-[; ;menu_navigation.c: 306:     {
+"412
+[; ;menu_navigation.c: 412:     if (option == start)
+[e $ ! == -> _option `i -> . `E5900 1 `i 721  ]
+"413
+[; ;menu_navigation.c: 413:     {
 {
-"307
-[; ;menu_navigation.c: 307:         GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
+"414
+[; ;menu_navigation.c: 414:         GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"308
-[; ;menu_navigation.c: 308:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+"415
+[; ;menu_navigation.c: 415:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"309
-[; ;menu_navigation.c: 309:         GLCD_GotoXY(2, 54);
+"416
+[; ;menu_navigation.c: 416:         GLCD_GotoXY(2, 54);
 [e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"310
-[; ;menu_navigation.c: 310:         GLCD_PrintString("START");
-[e ( _GLCD_PrintString (1 :s 14C ]
-"312
-[; ;menu_navigation.c: 312:         GLCD_FillRectangle(35, 51, 61, 63, GLCD_White);
+"417
+[; ;menu_navigation.c: 417:         GLCD_PrintString("START");
+[e ( _GLCD_PrintString (1 :s 18C ]
+"419
+[; ;menu_navigation.c: 419:         GLCD_FillRectangle(35, 51, 61, 63, GLCD_White);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"313
-[; ;menu_navigation.c: 313:         GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
+"420
+[; ;menu_navigation.c: 420:         GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"314
-[; ;menu_navigation.c: 314:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"421
+[; ;menu_navigation.c: 421:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"315
-[; ;menu_navigation.c: 315:         GLCD_GotoXY(37, 54);
+"422
+[; ;menu_navigation.c: 422:         GLCD_GotoXY(37, 54);
 [e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
-"316
-[; ;menu_navigation.c: 316:         GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 15C ]
-"318
-[; ;menu_navigation.c: 318:     } else if (option == menu)
+"423
+[; ;menu_navigation.c: 423:         GLCD_PrintString("MENU");
+[e ( _GLCD_PrintString (1 :s 19C ]
+"425
+[; ;menu_navigation.c: 425:     } else if (option == menu)
 }
-[e $U 695  ]
-[e :U 694 ]
-[e $ ! == -> _option `i -> . `E5885 0 `i 696  ]
-"319
-[; ;menu_navigation.c: 319:     {
+[e $U 722  ]
+[e :U 721 ]
+[e $ ! == -> _option `i -> . `E5900 0 `i 723  ]
+"426
+[; ;menu_navigation.c: 426:     {
 {
-"321
-[; ;menu_navigation.c: 321:         GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
+"428
+[; ;menu_navigation.c: 428:         GLCD_FillRectangle(0, 51, 32, 63, GLCD_White);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 0 ]
-"322
-[; ;menu_navigation.c: 322:         GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);
+"429
+[; ;menu_navigation.c: 429:         GLCD_DrawRectangle(0, 51, 32, 63, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"323
-[; ;menu_navigation.c: 323:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"430
+[; ;menu_navigation.c: 430:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"324
-[; ;menu_navigation.c: 324:         GLCD_GotoXY(2, 54);
+"431
+[; ;menu_navigation.c: 431:         GLCD_GotoXY(2, 54);
 [e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"325
-[; ;menu_navigation.c: 325:         GLCD_PrintString("START");
-[e ( _GLCD_PrintString (1 :s 16C ]
-"328
-[; ;menu_navigation.c: 328:         GLCD_FillRectangle(35, 51, 61, 63, GLCD_Black);
+"432
+[; ;menu_navigation.c: 432:         GLCD_PrintString("START");
+[e ( _GLCD_PrintString (1 :s 20C ]
+"435
+[; ;menu_navigation.c: 435:         GLCD_FillRectangle(35, 51, 61, 63, GLCD_Black);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"329
-[; ;menu_navigation.c: 329:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+"436
+[; ;menu_navigation.c: 436:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"330
-[; ;menu_navigation.c: 330:         GLCD_GotoXY(37, 54);
+"437
+[; ;menu_navigation.c: 437:         GLCD_GotoXY(37, 54);
 [e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
-"331
-[; ;menu_navigation.c: 331:         GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 17C ]
-"332
-[; ;menu_navigation.c: 332:     }
+"438
+[; ;menu_navigation.c: 438:         GLCD_PrintString("MENU");
+[e ( _GLCD_PrintString (1 :s 21C ]
+"439
+[; ;menu_navigation.c: 439:     }
 }
-[e :U 696 ]
-[e :U 695 ]
-"334
-[; ;menu_navigation.c: 334:     GLCD_Render();
+[e :U 723 ]
+[e :U 722 ]
+"441
+[; ;menu_navigation.c: 441:     GLCD_Render();
 [e ( _GLCD_Render ..  ]
-"335
-[; ;menu_navigation.c: 335: }
-[e :UE 693 ]
+"442
+[; ;menu_navigation.c: 442: }
+[e :UE 720 ]
 }
-[a 15C 77 69 78 85 0 ]
-[a 17C 77 69 78 85 0 ]
+[a 19C 77 69 78 85 0 ]
+[a 21C 77 69 78 85 0 ]
 [a 2C 78 69 88 84 0 ]
 [a 5C 78 69 88 84 0 ]
 [a 8C 78 69 88 84 0 ]
 [a 10C 78 69 88 84 0 ]
 [a 12C 78 69 88 84 0 ]
-[a 14C 83 84 65 82 84 0 ]
-[a 16C 83 84 65 82 84 0 ]
+[a 18C 83 84 65 82 84 0 ]
+[a 20C 83 84 65 82 84 0 ]
 [a 3C 83 65 86 69 38 69 88 73 84 0 ]
 [a 6C 83 65 86 69 38 69 88 73 84 0 ]
 [a 9C 83 65 86 69 38 69 88 73 84 0 ]
 [a 11C 83 65 86 69 38 69 88 73 84 0 ]
 [a 13C 83 65 86 69 38 69 88 73 84 0 ]
+[a 15C 83 65 86 69 38 69 88 73 84 0 ]
+[a 17C 83 65 86 69 38 69 88 73 84 0 ]
 [a 1C 66 65 67 75 0 ]
 [a 4C 66 65 67 75 0 ]
 [a 7C 66 65 67 75 0 ]
+[a 14C 66 65 67 75 0 ]
+[a 16C 66 65 67 75 0 ]

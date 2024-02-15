@@ -39,15 +39,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6130
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6130: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
 [v _LATAbits `VS249 ~T0 @X0 0 e@3977 ]
-"15 ./menu_definitions.h
-[; ;./menu_definitions.h: 15: {
-[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance set_time text ]
-"70
-[; ;./menu_definitions.h: 70: void InitBattParameters(BattParameters *bat_param);
+"16 ./menu_definitions.h
+[; ;./menu_definitions.h: 16: {
+[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `ul 1 `uc -> 25 `i ]
+[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent discharge_current_2_percent charge_current_3_percent discharge_current_3_percent charge_current_4_percent discharge_current_4_percent batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 current_time set_time text ]
+"79
+[; ;./menu_definitions.h: 79: void InitBattParameters(BattParameters *bat_param);
 [v _InitBattParameters `(v ~T0 @X0 0 ef1`*S632 ]
-"71
-[; ;./menu_definitions.h: 71: void SingleBat_Menu(BattParameters *bat_param);
+"80
+[; ;./menu_definitions.h: 80: void SingleBat_Menu(BattParameters *bat_param);
 [v _SingleBat_Menu `(v ~T0 @X0 0 ef1`*S632 ]
 "11 ./menu_navigation.h
 [; ;./menu_navigation.h: 11: void Menu(BattParameters *bat_param);

@@ -9554,22 +9554,30 @@ void delay_ms(unsigned int milliseconds);
 # 13 "main.c" 2
 
 # 1 "./menu_definitions.h" 1
-# 14 "./menu_definitions.h"
+# 15 "./menu_definitions.h"
 typedef struct
 {
 
     uint8_t set_cycle, current_cycle,
             bat_actual_temp, bat_max_temp,
-            bat_chem, bat_storage_precentage, selected_mode, cell_count;
+            bat_chem, bat_storage_precentage, selected_mode, cell_count,
+            charge_current_2_percent, discharge_current_2_percent,
+            charge_current_3_percent, discharge_current_3_percent,
+            charge_current_4_percent, discharge_current_4_percent;
 
 
     uint16_t batt_set_voltage, batt_set_current,
             batt_actual_voltage, batt_actual_current,
             batt_set_trickle_voltage, bat_set_trickle_current,
             batt_set_min_discharge_voltage,
-            batt_capacitance;
+            batt_capacitance,
+            charge_current_1, discharge_current_1,
+            charge_current_2, discharge_current_2,
+            charge_current_3, discharge_current_3,
+            charge_current_4, discharge_current_4;
 
-    uint32_t set_time;
+
+    uint32_t current_time, set_time;
 
     char text[25];
 
@@ -9615,6 +9623,9 @@ void InitBattParameters(BattParameters *bat_param);
 void SingleBat_Menu(BattParameters *bat_param);
 void Options1_Menu(BattParameters *bat_param);
 void Options2_Menu(BattParameters *bat_param);
+void Options3_Menu(BattParameters *bat_param);
+void Options4_Menu(BattParameters *bat_param);
+void Options5_Menu(BattParameters *bat_param);
 # 14 "main.c" 2
 
 # 1 "./menu_navigation.h" 1
