@@ -12,6 +12,10 @@
 #define display_in_mA 1
 #define display_in_percentage 0
 
+#define set_mode_edit 1
+#define set_mode_display 0
+
+
 typedef struct 
 {
 
@@ -83,5 +87,7 @@ void Options2_Menu(BattParameters *bat_param);
 void Options3_Menu(BattParameters *bat_param);
 void Options4_Menu(BattParameters *bat_param);
 void Options5_Menu(BattParameters *bat_param);
-
+void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode);
+void CellCount(BattParameters *batparam_ptr, uint8_t set_mode);
+void ChargerMode(BattParameters *bat_param, uint8_t set_mode);
 #endif	/* MENU_H */

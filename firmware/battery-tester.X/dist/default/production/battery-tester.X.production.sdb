@@ -48,19 +48,7 @@ state_charging 0
 state_discharging 1
 state_idle 2
 ]
-"71
-[e E5903 select_batt_chemistry `uc
-liion 0
-pb 1
-nimh 2
-]
-"82
-[e E5907 mode `uc
-charging 0
-charging_discharging 1
-charging_discharging_storage 2
-]
-"267
+"67
 [e E5702 PrintMode_t `uc
 GLCD_Overwrite 0
 GLCD_Merge 1
@@ -69,17 +57,29 @@ GLCD_Merge 1
 GLCD_Inverted 0
 GLCD_Non_Inverted 1
 ]
-"273
+"72
 [e E5705 Color_t `uc
 GLCD_White 0
 GLCD_Black 255
 ]
-"38 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"88
+[e E5903 select_batt_chemistry `uc
+liion 0
+pb 1
+nimh 2
+]
+"116
+[e E5907 mode `uc
+charging 0
+charging_discharging 1
+charging_discharging_storage 2
+]
+"42 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [e E5900 select_menu_start `uc
 menu 0
 start 1
 ]
-[e E5982 menu_type `uc
+[e E5995 menu_type `uc
 main_menu 0
 settings1 1
 settings2 2
@@ -87,31 +87,47 @@ settings3 3
 settings4 4
 settings5 5
 ]
-"41
-[e E5934 . `uc
+"46
+[e E5943 . `uc
 BTN_STATE_NONE 0
 BTN_STATE_SHORT 1
 BTN_STATE_LONG 2
 ]
-[e E5927 . `uc
+[e E5936 . `uc
 LEFT_SW 0
 RIGHT_SW 1
 UP_SW 2
 DOWN_SW 3
 OK_SW 4
 ]
-"62
-[e E5978 settings1_navigation `uc
+"76
+[e E5903 select_batt_chemistry `uc
+liion 0
+pb 1
+nimh 2
+]
+"77
+[e E5907 mode `uc
+charging 0
+charging_discharging 1
+charging_discharging_storage 2
+]
+"132
+[e E5987 settings1_navigation `uc
 next 0
 back 1
 save_exit 2
+param_1 3
+param_2 4
+param_3 5
+param_4 6
 ]
-"279
+"344
 [e E5705 Color_t `uc
 GLCD_White 0
 GLCD_Black 255
 ]
-"280
+"345
 [e E5702 PrintMode_t `uc
 GLCD_Overwrite 0
 GLCD_Merge 1
@@ -282,75 +298,75 @@ GLCD_Non_Inverted 1
 [v _batState batState `(v  1 e 1 0 ]
 "64
 [v _ChemistryDisplay ChemistryDisplay `(v  1 e 1 0 ]
-"74
+"91
 [v _ChargerMode ChargerMode `(v  1 e 1 0 ]
-"87
+"121
 [v _SetChargingCurrent_1 SetChargingCurrent_1 `(v  1 e 1 0 ]
-"92
+"126
 [v _SetDischargingCurrent_1 SetDischargingCurrent_1 `(v  1 e 1 0 ]
-"99
+"133
 [v _SetChargingCurrent_2 SetChargingCurrent_2 `(v  1 e 1 0 ]
-"111
+"145
 [v _SetChargingCurrent_3 SetChargingCurrent_3 `(v  1 e 1 0 ]
-"124
+"158
 [v _SetChargingCurrent_4 SetChargingCurrent_4 `(v  1 e 1 0 ]
-"137
+"171
 [v _SetDischargingCurrent_2 SetDischargingCurrent_2 `(v  1 e 1 0 ]
-"149
+"183
 [v _SetDischargingCurrent_3 SetDischargingCurrent_3 `(v  1 e 1 0 ]
-"162
+"196
 [v _SetDischargingCurrent_4 SetDischargingCurrent_4 `(v  1 e 1 0 ]
-"176
+"210
 [v _VoltageDisplay VoltageDisplay `(v  1 e 1 0 ]
-"182
+"216
 [v _CurrentDisplay CurrentDisplay `(v  1 e 1 0 ]
-"188
-[v _CelCount CelCount `(v  1 e 1 0 ]
-"194
+"222
+[v _CellCount CellCount `(v  1 e 1 0 ]
+"248
 [v _CapacitanceDisplay CapacitanceDisplay `(v  1 e 1 0 ]
-"200
+"254
 [v _CycleDisplay CycleDisplay `(v  1 e 1 0 ]
-"205
+"259
 [v _CycleSet CycleSet `(v  1 e 1 0 ]
-"211
+"265
 [v _TimeDisplay TimeDisplay `(v  1 e 1 0 ]
-"217
+"271
 [v _SetMaxTime SetMaxTime `(v  1 e 1 0 ]
-"223
+"277
 [v _TempDisplay TempDisplay `(v  1 e 1 0 ]
-"229
+"283
 [v _SetTemp SetTemp `(v  1 e 1 0 ]
-"235
+"289
 [v _TrickleVoltage TrickleVoltage `(v  1 e 1 0 ]
-"240
+"294
 [v _TrickleCurrent TrickleCurrent `(v  1 e 1 0 ]
-"245
+"299
 [v _SetCellVotage SetCellVotage `(v  1 e 1 0 ]
-"250
+"304
 [v _MinimumDischargeVoltage MinimumDischargeVoltage `(v  1 e 1 0 ]
-"262
+"316
 [v _SingleBat_Menu SingleBat_Menu `(v  1 e 1 0 ]
-"305
+"359
 [v _Options5_Menu Options5_Menu `(v  1 e 1 0 ]
-"339
+"393
 [v _Options4_Menu Options4_Menu `(v  1 e 1 0 ]
-"374
+"428
 [v _Options3_Menu Options3_Menu `(v  1 e 1 0 ]
-"404
+"458
 [v _Options2_Menu Options2_Menu `(v  1 e 1 0 ]
-"440
+"494
 [v _Options1_Menu Options1_Menu `(v  1 e 1 0 ]
-"591
+"642
 [v _InitBattParameters InitBattParameters `(v  1 e 1 0 ]
-"35 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"39 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Menu Menu `(v  1 e 1 0 ]
-"275
+"340
 [v _Handle_Setting23_MenuNavigation Handle_Setting23_MenuNavigation `(v  1 e 1 0 ]
-"341
+"406
 [v _Handle_Setting1_MenuNavigation Handle_Setting1_MenuNavigation `(v  1 e 1 0 ]
-"374
+"457
 [v _Handle_Setting5_MenuNavigation Handle_Setting5_MenuNavigation `(v  1 e 1 0 ]
-"409
+"492
 [v _Handle_Main_MenuNavigation Handle_Main_MenuNavigation `(v  1 e 1 0 ]
 "4 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
 [v _UART_SendChar UART_SendChar `(v  1 e 1 0 ]
@@ -717,25 +733,26 @@ GLCD_Non_Inverted 1
 {
 "26
 } 0
-"35 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"39 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Menu Menu `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v Menu@bat_param bat_param `*.39S665  1 p 2 30 ]
-"38
+"42
 [v Menu@menu_change menu_change `uc  1 s 1 menu_change ]
 [v Menu@menu_type menu_type `uc  1 s 1 menu_type ]
 [v Menu@menu_selection menu_selection `uc  1 s 1 menu_selection ]
 [v Menu@menu_init menu_init `uc  1 s 1 menu_init ]
 [v Menu@menu_pos menu_pos `uc  1 s 1 menu_pos ]
-"272
+[v Menu@param_pos param_pos `uc  1 s 1 param_pos ]
+"337
 } 0
-"262 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"316 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _SingleBat_Menu SingleBat_Menu `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SingleBat_Menu@bat_param bat_param `*.39S665  1 p 2 27 ]
-"303
+"357
 } 0
 "48
 [v _batState batState `(v  1 e 1 0 ]
@@ -746,144 +763,144 @@ GLCD_Non_Inverted 1
 [v batState@state state `uc  1 a 1 36 ]
 "62
 } 0
-"176
+"210
 [v _VoltageDisplay VoltageDisplay `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v VoltageDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"180
+"214
 } 0
-"211
+"265
 [v _TimeDisplay TimeDisplay `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v TimeDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"215
+"269
 } 0
-"223
+"277
 [v _TempDisplay TempDisplay `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v TempDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"227
+"281
 } 0
-"200
+"254
 [v _CycleDisplay CycleDisplay `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v CycleDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"204
+"258
 } 0
-"182
+"216
 [v _CurrentDisplay CurrentDisplay `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v CurrentDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"186
+"220
 } 0
-"194
+"248
 [v _CapacitanceDisplay CapacitanceDisplay `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v CapacitanceDisplay@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"198
+"252
 } 0
-"305
+"359
 [v _Options5_Menu Options5_Menu `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v Options5_Menu@bat_param bat_param `*.39S665  1 p 2 28 ]
-"337
+"391
 } 0
-"162
+"196
 [v _SetDischargingCurrent_4 SetDischargingCurrent_4 `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetDischargingCurrent_4@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
 [v SetDischargingCurrent_4@display_type display_type `uc  1 p 1 27 ]
-"172
+"206
 } 0
-"149
+"183
 [v _SetDischargingCurrent_3 SetDischargingCurrent_3 `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetDischargingCurrent_3@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
 [v SetDischargingCurrent_3@display_type display_type `uc  1 p 1 27 ]
-"159
+"193
 } 0
-"124
+"158
 [v _SetChargingCurrent_4 SetChargingCurrent_4 `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetChargingCurrent_4@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
 [v SetChargingCurrent_4@display_type display_type `uc  1 p 1 27 ]
-"134
+"168
 } 0
-"111
+"145
 [v _SetChargingCurrent_3 SetChargingCurrent_3 `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetChargingCurrent_3@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
 [v SetChargingCurrent_3@display_type display_type `uc  1 p 1 27 ]
-"121
+"155
 } 0
-"339
+"393
 [v _Options4_Menu Options4_Menu `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v Options4_Menu@bat_param bat_param `*.39S665  1 p 2 28 ]
-"371
+"425
 } 0
-"137
+"171
 [v _SetDischargingCurrent_2 SetDischargingCurrent_2 `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetDischargingCurrent_2@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
 [v SetDischargingCurrent_2@display_type display_type `uc  1 p 1 27 ]
-"147
+"181
 } 0
-"92
+"126
 [v _SetDischargingCurrent_1 SetDischargingCurrent_1 `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetDischargingCurrent_1@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"96
+"130
 } 0
-"99
+"133
 [v _SetChargingCurrent_2 SetChargingCurrent_2 `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetChargingCurrent_2@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
 [v SetChargingCurrent_2@display_type display_type `uc  1 p 1 27 ]
-"109
+"143
 } 0
-"87
+"121
 [v _SetChargingCurrent_1 SetChargingCurrent_1 `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetChargingCurrent_1@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"91
+"125
 } 0
-"374
+"428
 [v _Options3_Menu Options3_Menu `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v Options3_Menu@bat_param bat_param `*.39S665  1 p 2 27 ]
-"400
+"454
 } 0
-"229
+"283
 [v _SetTemp SetTemp `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetTemp@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"233
+"287
 } 0
-"217
+"271
 [v _SetMaxTime SetMaxTime `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetMaxTime@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"221
+"275
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
@@ -907,40 +924,40 @@ GLCD_Non_Inverted 1
 [v ___lldiv@divisor divisor `ul  1 p 4 13 ]
 "30
 } 0
-"404 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"458 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _Options2_Menu Options2_Menu `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v Options2_Menu@bat_param bat_param `*.39S665  1 p 2 27 ]
-"436
+"490
 } 0
-"235
+"289
 [v _TrickleVoltage TrickleVoltage `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v TrickleVoltage@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"239
+"293
 } 0
-"240
+"294
 [v _TrickleCurrent TrickleCurrent `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v TrickleCurrent@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"244
+"298
 } 0
-"245
+"299
 [v _SetCellVotage SetCellVotage `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v SetCellVotage@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"249
+"303
 } 0
-"250
+"304
 [v _MinimumDischargeVoltage MinimumDischargeVoltage `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v MinimumDischargeVoltage@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"254
+"308
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
@@ -952,12 +969,12 @@ GLCD_Non_Inverted 1
 [v ___lwmod@divisor divisor `ui  1 p 2 2 ]
 "25
 } 0
-"440 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"494 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _Options1_Menu Options1_Menu `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
-[v Options1_Menu@bat_param bat_param `*.39S665  1 p 2 27 ]
-"471
+[v Options1_Menu@bat_param bat_param `*.39S665  1 p 2 28 ]
+"522
 } 0
 "170 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_Clear GLCD_Clear `(v  1 e 1 0 ]
@@ -977,41 +994,44 @@ GLCD_Non_Inverted 1
 [v GLCD_FillScreen@Color Color `E5705  1 a 1 6 ]
 "591
 } 0
-"205 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"259 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _CycleSet CycleSet `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v CycleSet@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"209
+"263
 } 0
 "64
 [v _ChemistryDisplay ChemistryDisplay `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v ChemistryDisplay@bat_param bat_param `*.39S665  1 p 2 33 ]
-"72
+[v ChemistryDisplay@set_mode set_mode `uc  1 p 1 35 ]
+"89
 } 0
-"74
+"91
 [v _ChargerMode ChargerMode `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v ChargerMode@bat_param bat_param `*.39S665  1 p 2 33 ]
-"83
+[v ChargerMode@set_mode set_mode `uc  1 p 1 35 ]
+"117
 } 0
-"188
-[v _CelCount CelCount `(v  1 e 1 0 ]
+"222
+[v _CellCount CellCount `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
-[v CelCount@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
-"192
+[v CellCount@batparam_ptr batparam_ptr `*.39S665  1 p 2 25 ]
+[v CellCount@set_mode set_mode `uc  1 p 1 27 ]
+"246
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S3062 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S3119 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S3065 _IO_FILE 11 `S3062 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S3065  1 a 11 14 ]
+[s S3122 _IO_FILE 11 `S3119 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S3122  1 a 11 14 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 12 ]
 "9
@@ -1024,9 +1044,9 @@ GLCD_Non_Inverted 1
 {
 "1523
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 89 ]
-[s S3097 _IO_FILE 0 ]
+[s S3154 _IO_FILE 0 ]
 "1520
-[v vfprintf@fp fp `*.39S3097  1 p 2 83 ]
+[v vfprintf@fp fp `*.39S3154  1 p 2 83 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 85 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 87 ]
 "1543
@@ -1034,16 +1054,16 @@ GLCD_Non_Inverted 1
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S3110 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+[u S3167 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
 "1016
-[v vfpfcnvrt@convarg convarg `S3110  1 a 8 71 ]
+[v vfpfcnvrt@convarg convarg `S3167  1 a 8 71 ]
 "1009
 [v vfpfcnvrt@cp cp `*.32uc  1 a 2 81 ]
 "1010
 [v vfpfcnvrt@done done `i  1 a 2 79 ]
-[s S3097 _IO_FILE 0 ]
+[s S3154 _IO_FILE 0 ]
 "1007
-[v vfpfcnvrt@fp fp `*.39S3097  1 p 2 61 ]
+[v vfpfcnvrt@fp fp `*.39S3154  1 p 2 61 ]
 [v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 63 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 65 ]
 "1517
@@ -1057,9 +1077,9 @@ GLCD_Non_Inverted 1
 [v utoa@i i `i  1 a 2 59 ]
 [v utoa@w w `i  1 a 2 49 ]
 [v utoa@p p `i  1 a 2 47 ]
-[s S3097 _IO_FILE 0 ]
+[s S3154 _IO_FILE 0 ]
 "894
-[v utoa@fp fp `*.39S3097  1 p 2 29 ]
+[v utoa@fp fp `*.39S3154  1 p 2 29 ]
 [v utoa@d d `uo  1 p 8 31 ]
 "926
 } 0
@@ -1069,9 +1089,9 @@ GLCD_Non_Inverted 1
 "135
 [v pad@w w `i  1 a 2 27 ]
 [v pad@i i `i  1 a 2 25 ]
-[s S3097 _IO_FILE 0 ]
+[s S3154 _IO_FILE 0 ]
 "133
-[v pad@fp fp `*.39S3097  1 p 2 18 ]
+[v pad@fp fp `*.39S3154  1 p 2 18 ]
 [v pad@buf buf `*.39uc  1 p 2 20 ]
 [v pad@p p `i  1 p 2 22 ]
 "164
@@ -1085,18 +1105,18 @@ GLCD_Non_Inverted 1
 [v fputs@c c `uc  1 a 1 15 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 11 ]
-[u S3062 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S3065 _IO_FILE 11 `S3062 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S3065  1 p 2 13 ]
+[u S3119 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S3122 _IO_FILE 11 `S3119 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S3122  1 p 2 13 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 2 ]
-[u S3062 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S3065 _IO_FILE 11 `S3062 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S3065  1 p 2 4 ]
+[u S3119 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S3122 _IO_FILE 11 `S3119 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S3122  1 p 2 4 ]
 "24
 } 0
 "10 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
@@ -1160,41 +1180,41 @@ GLCD_Non_Inverted 1
 [v isdigit@c c `i  1 p 2 0 ]
 "8
 } 0
-"374 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"457 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Handle_Setting5_MenuNavigation Handle_Setting5_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 wreg ]
-"376
+"459
 [v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 37 ]
-"405
+"488
 } 0
-"275
+"340
 [v _Handle_Setting23_MenuNavigation Handle_Setting23_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 wreg ]
-"277
+"342
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 37 ]
-"339
+"404
 } 0
-"341
+"406
 [v _Handle_Setting1_MenuNavigation Handle_Setting1_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
-"343
+"408
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 37 ]
-"372
+"455
 } 0
-"409
+"492
 [v _Handle_Main_MenuNavigation Handle_Main_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
-"412
+"495
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 37 ]
-"442
+"525
 } 0
 "793 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_SetFont GLCD_SetFont `(v  1 e 1 0 ]
@@ -1494,12 +1514,12 @@ GLCD_Non_Inverted 1
 {
 "38
 } 0
-"591 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
+"642 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _InitBattParameters InitBattParameters `(v  1 e 1 0 ]
 {
 [s S665 . 79 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 discharge_current_2_percent 1 9 `uc 1 charge_current_3_percent 1 10 `uc 1 discharge_current_3_percent 1 11 `uc 1 charge_current_4_percent 1 12 `uc 1 discharge_current_4_percent 1 13 `us 1 batt_set_voltage 2 14 `us 1 batt_set_current 2 16 `us 1 batt_actual_voltage 2 18 `us 1 batt_actual_current 2 20 `us 1 batt_set_trickle_voltage 2 22 `us 1 bat_set_trickle_current 2 24 `us 1 batt_set_min_discharge_voltage 2 26 `us 1 batt_capacitance 2 28 `us 1 charge_current_1 2 30 `us 1 discharge_current_1 2 32 `us 1 charge_current_2 2 34 `us 1 discharge_current_2 2 36 `us 1 charge_current_3 2 38 `us 1 discharge_current_3 2 40 `us 1 charge_current_4 2 42 `us 1 discharge_current_4 2 44 `ul 1 current_time 4 46 `ul 1 set_time 4 50 `[25]uc 1 text 25 54 ]
 [v InitBattParameters@bat_param bat_param `*.39S665  1 p 2 0 ]
-"614
+"665
 } 0
 "82 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_Setup GLCD_Setup `(v  1 e 1 0 ]

@@ -9554,7 +9554,7 @@ void delay_ms(unsigned int milliseconds);
 # 13 "main.c" 2
 
 # 1 "./menu_definitions.h" 1
-# 15 "./menu_definitions.h"
+# 19 "./menu_definitions.h"
 typedef struct
 {
 
@@ -9626,6 +9626,9 @@ void Options2_Menu(BattParameters *bat_param);
 void Options3_Menu(BattParameters *bat_param);
 void Options4_Menu(BattParameters *bat_param);
 void Options5_Menu(BattParameters *bat_param);
+void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode);
+void CellCount(BattParameters *batparam_ptr, uint8_t set_mode);
+void ChargerMode(BattParameters *bat_param, uint8_t set_mode);
 # 14 "main.c" 2
 
 # 1 "./menu_navigation.h" 1
