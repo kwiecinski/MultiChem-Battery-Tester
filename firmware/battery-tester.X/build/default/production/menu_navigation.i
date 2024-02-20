@@ -9898,6 +9898,7 @@ void Options5_Menu(BattParameters *bat_param);
 void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode);
 void CellCount(BattParameters *batparam_ptr, uint8_t set_mode);
 void ChargerMode(BattParameters *bat_param, uint8_t set_mode);
+void CycleSet(BattParameters *batparam_ptr, uint8_t set_mode);
 # 8 "menu_navigation.c" 2
 
 # 1 "./menu_navigation.h" 1
@@ -9985,10 +9986,17 @@ enum settings1_navigation
     next,
     back,
     save_exit,
+};
+
+enum settings_horizontal_navigation
+{
+    start_navigation,
     param_1,
     param_2,
     param_3,
-    param_4
+    param_4,
+    menu_start_next,
+    end_navigation
 };
 
 enum menu_type
@@ -10006,11 +10014,11 @@ void Handle_Main_MenuNavigation(uint8_t option);
 void Handle_Setting1_MenuNavigation(uint8_t option);
 void Handle_Setting23_MenuNavigation(uint8_t option);
 void Handle_Setting5_MenuNavigation(uint8_t option);
-
+# 117 "menu_navigation.c"
 void Menu(BattParameters *bat_param)
 {
 
-    static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0, menu_pos=0, param_pos=1;
+    static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0, menu_pos=0, param_pos=menu_start_next, switch_param;
 
     Button_Update();
 
@@ -10027,59 +10035,33 @@ void Menu(BattParameters *bat_param)
                  param_pos--;
             }
 
-            if( param_pos==0)
+            if(param_pos==start_navigation)
             {
-                 param_pos = 4;
+                 param_pos = menu_start_next;
 
-            }else if(param_pos==5)
+            }else if(param_pos>=end_navigation)
             {
-                 param_pos = 1;
-
-            }else if(param_pos>6)
-            {
-                 param_pos=1;
+                 param_pos = param_1;
             }
 
-
-            if(param_pos == 1)
+            if(param_pos == param_1)
             {
-                bat_param->cell_count = 1;
-                  bat_param->bat_chem = liion;
-                  bat_param->selected_mode = charging;
-                  ChemistryDisplay(bat_param, 1);
-                  CellCount(bat_param, 1);
-                  ChargerMode(bat_param, 1);
-            }else if (param_pos == 2)
-            {
-                bat_param->cell_count = 2;
-                 bat_param->bat_chem = pb;
-                 bat_param->selected_mode = charging_discharging;
-                 ChemistryDisplay(bat_param, 1);
-                 CellCount(bat_param, 1);
-                  ChargerMode(bat_param, 1);
-            }else if (param_pos == 3)
-            {
-                bat_param->cell_count = 3;
-                bat_param->bat_chem = nimh;
-                bat_param->selected_mode = charging_discharging_storage;
+                Handle_Setting1_MenuNavigation(param_1);
                 ChemistryDisplay(bat_param, 1);
-                CellCount(bat_param, 1);
-                ChargerMode(bat_param, 1);
-            }else if (param_pos == 4)
+            }else if(param_pos == menu_start_next)
             {
-                bat_param->cell_count = 4;
-                ChemistryDisplay(bat_param, 0);
-                CellCount(bat_param, 0);
-                ChargerMode(bat_param, 0);
+                 ChemistryDisplay(bat_param, 0);
+                Handle_Setting1_MenuNavigation(menu_change);
             }
+
 
             GLCD_Render();
-              Button_Event_Reset();
+            Button_Event_Reset();
         }
     }
 
 
-    if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0)
+    if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0 )
     {
         menu_init=1;
 
@@ -10099,19 +10081,54 @@ void Menu(BattParameters *bat_param)
             }
         }else if(menu_type==settings1)
         {
-
-            if (menu_change == save_exit)
+            if(param_pos == menu_start_next)
             {
-                Handle_Setting1_MenuNavigation(menu_change);
-                menu_change = next;
-                menu_selection=save_exit;
 
-            }else if (menu_change == next)
+                if (menu_change == save_exit)
+                {
+                    Handle_Setting1_MenuNavigation(menu_change);
+                    menu_change = next;
+                    menu_selection=save_exit;
+
+                }else if (menu_change == next)
+                {
+                    Handle_Setting1_MenuNavigation(menu_change);
+                    menu_change = save_exit;
+                    menu_selection=next;
+                }
+            }else if(param_pos == param_1)
             {
-                Handle_Setting1_MenuNavigation(menu_change);
-                menu_change = save_exit;
-                menu_selection=next;
+
+                if(Button_EventGet(RIGHT_SW))
+                {
+                     switch_param++;
+                }else if(Button_EventGet(LEFT_SW))
+                {
+                     switch_param--;
+                }
+
+                if(switch_param==0)
+                {
+                     switch_param = 3;
+
+                }else if(switch_param>=4)
+                {
+                     switch_param = 1;
+                }
+
+
+                switch(switch_param)
+                {
+                    case 1: bat_param->bat_chem = liion; break;
+                    case 2: bat_param->bat_chem = pb; break;
+                    case 3: bat_param->bat_chem = nimh; break;
+                }
+
+
+                ChemistryDisplay(bat_param, 1);
             }
+
+
         }else if(menu_type==settings2 || menu_type==settings3 || menu_type==settings4)
         {
 

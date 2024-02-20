@@ -45,7 +45,7 @@
 #include "menu_definitions.h"
 #include "menu_navigation.h"
 
-void batState(uint8_t state, uint8_t  battery_number )
+void batState(uint8_t state, uint8_t  battery_number)
 {
         switch(battery_number)
         {
@@ -86,34 +86,37 @@ void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode)
             case pb:        GLCD_PrintString("PB");         break;
             case nimh:      GLCD_PrintString("Ni-MH");      break;
         }
+        
+          GLCD_Render();
 }
 
 void ChargerMode(BattParameters *bat_param, uint8_t set_mode)
 {
     
-        GLCD_GotoXY(0, 31);
+    GLCD_GotoXY(0, 31);
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_PrintString("Mode:");
+
+    if(set_mode == set_mode_edit)
+    {
+        GLCD_FillRectangle(30, 30, 127, 39, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+
+    }else if(set_mode == set_mode_display)
+    {    
+        GLCD_FillRectangle(30, 30, 127, 39, GLCD_White);
         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-        GLCD_PrintString("Mode:");
-        
-        if(set_mode == set_mode_edit)
-        {
-            GLCD_FillRectangle(30, 30, 127, 39, GLCD_Black);
-            GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-        
-        }else if(set_mode == set_mode_display)
-        {    
-            GLCD_FillRectangle(30, 30, 127, 39, GLCD_White);
-            GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-        }
-        
-        
-        GLCD_GotoXY(31, 31);
-        switch(bat_param->selected_mode)
-        {
-            case charging:                          GLCD_PrintString("Charging"); break;
-            case charging_discharging:              GLCD_PrintString("Charg/Disch"); break;
-            case charging_discharging_storage:      GLCD_PrintString("Charg/Disch/Stor"); break;
-        }
+    }
+
+
+    GLCD_GotoXY(31, 31);
+    switch(bat_param->selected_mode)
+    {
+        case charging:                          GLCD_PrintString("Charging"); break;
+        case charging_discharging:              GLCD_PrintString("Charg/Disch"); break;
+        case charging_discharging_storage:      GLCD_PrintString("Charg/Disch/Stor"); break;
+    }
+  
 }
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -221,28 +224,24 @@ void CurrentDisplay (BattParameters *batparam_ptr)
 /*-----------------------------------------------------------------------------*/
 void CellCount(BattParameters *batparam_ptr, uint8_t set_mode)
 { 
-    
-    
-        GLCD_GotoXY(0, 22);
+    GLCD_GotoXY(0, 22);
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_PrintString("Cell Count:");
+
+    if(set_mode == set_mode_edit)
+    {
+        GLCD_FillRectangle(66, 21, 72, 29, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+
+    }else if(set_mode == set_mode_display)
+    {    
+        GLCD_FillRectangle(66, 21, 72, 29, GLCD_White);
         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-        GLCD_PrintString("Cell Count:");
-        
-        if(set_mode == set_mode_edit)
-        {
-            GLCD_FillRectangle(66, 21, 72, 29, GLCD_Black);
-            GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-        
-        }else if(set_mode == set_mode_display)
-        {    
-            GLCD_FillRectangle(66, 21, 72, 29, GLCD_White);
-            GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-        }
-        
-        GLCD_GotoXY(67, 22);
-        sprintf(batparam_ptr->text, "%u", batparam_ptr->cell_count);
-        GLCD_PrintString(batparam_ptr->text); 
-    
-    
+    }
+
+    GLCD_GotoXY(67, 22);
+    sprintf(batparam_ptr->text, "%u", batparam_ptr->cell_count);
+    GLCD_PrintString(batparam_ptr->text); 
 }
 
 void CapacitanceDisplay (BattParameters *batparam_ptr)
@@ -256,10 +255,28 @@ void CycleDisplay (BattParameters *batparam_ptr)
     sprintf(batparam_ptr->text, "Cycle:%u/%u", batparam_ptr->current_cycle,batparam_ptr->set_cycle);
     GLCD_PrintString(batparam_ptr->text); 
 }
-void CycleSet (BattParameters *batparam_ptr)
+void CycleSet(BattParameters *batparam_ptr, uint8_t set_mode)
 { 
-    sprintf(batparam_ptr->text, "Cycle:%u",batparam_ptr->set_cycle);
-    GLCD_PrintString(batparam_ptr->text); 
+    
+    GLCD_GotoXY(0, 40);
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_PrintString("Cycle:");
+
+    if(set_mode == set_mode_edit)
+    {
+        GLCD_FillRectangle(35, 39, 41, 48, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+
+    }else if(set_mode == set_mode_display)
+    {    
+        GLCD_FillRectangle(35, 39, 41, 48, GLCD_White);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    }
+
+    GLCD_GotoXY(36, 40);
+    sprintf(batparam_ptr->text, "%u",batparam_ptr->set_cycle);
+    GLCD_PrintString(batparam_ptr->text);
+    
 }
 /*-----------------------------------------------------------------------------*/
 void TimeDisplay (BattParameters *batparam_ptr)
@@ -515,8 +532,7 @@ void Options1_Menu(BattParameters *bat_param)
     ChemistryDisplay(bat_param,set_mode_display);          //Batt Chem: Li-Ion / PB / NiMh
     CellCount(bat_param, set_mode_display);      //Cell Count: 1/2/3/4
     ChargerMode(bat_param, set_mode_display);     //Mode: Only Charging / Chrg/Disc / Chrg/Disc/Stor
-    GLCD_GotoXY(0, 40);
-    CycleSet(bat_param);       //Cycles: 1-4
+    CycleSet(bat_param, set_mode_display);       //Cycles: 1-4
  
     GLCD_Render(); 
 }
