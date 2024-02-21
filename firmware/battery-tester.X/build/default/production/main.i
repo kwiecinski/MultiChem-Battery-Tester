@@ -9630,6 +9630,7 @@ void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode);
 void CellCount(BattParameters *batparam_ptr, uint8_t set_mode);
 void ChargerMode(BattParameters *bat_param, uint8_t set_mode);
 void CycleSet(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode);
 # 14 "main.c" 2
 
 # 1 "./menu_navigation.h" 1

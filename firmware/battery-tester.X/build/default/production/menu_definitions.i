@@ -9900,6 +9900,10 @@ void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode);
 void CellCount(BattParameters *batparam_ptr, uint8_t set_mode);
 void ChargerMode(BattParameters *bat_param, uint8_t set_mode);
 void CycleSet(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode);
+void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
+void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode);
+void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
 # 45 "menu_definitions.c" 2
 
 # 1 "./menu_navigation.h" 1
@@ -9950,7 +9954,7 @@ void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode)
             case nimh: GLCD_PrintString("Ni-MH"); break;
         }
 
-          GLCD_Render();
+
 }
 
 void ChargerMode(BattParameters *bat_param, uint8_t set_mode)
@@ -9962,12 +9966,12 @@ void ChargerMode(BattParameters *bat_param, uint8_t set_mode)
 
     if(set_mode == 1)
     {
-        GLCD_FillRectangle(30, 30, 127, 39, GLCD_Black);
+        GLCD_FillRectangle(30, 30, 127, 38, GLCD_Black);
         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 
     }else if(set_mode == 0)
     {
-        GLCD_FillRectangle(30, 30, 127, 39, GLCD_White);
+        GLCD_FillRectangle(30, 30, 127, 38, GLCD_White);
         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
     }
 
@@ -10166,24 +10170,88 @@ void SetTemp(BattParameters *batparam_ptr)
     GLCD_PrintString(batparam_ptr->text);
 }
 
-void TrickleVoltage(BattParameters *batparam_ptr)
+void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
 {
-    sprintf(batparam_ptr->text, "TrickleVol:%u.%02uV", batparam_ptr->batt_set_trickle_voltage/100, batparam_ptr->batt_set_trickle_voltage%100);
+        GLCD_GotoXY(0, 31);
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_PrintString("TrickleVol:");
+
+    if(set_mode == 1)
+    {
+        GLCD_FillRectangle(66, 30, 97, 38, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+
+    }else if(set_mode == 0)
+    {
+        GLCD_FillRectangle(66, 30, 97, 38, GLCD_White);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    }
+
+    GLCD_GotoXY(67, 31);
+    sprintf(batparam_ptr->text, "%u.%02uV", batparam_ptr->batt_set_trickle_voltage/100, batparam_ptr->batt_set_trickle_voltage%100);
     GLCD_PrintString(batparam_ptr->text);
 }
-void TrickleCurrent(BattParameters *batparam_ptr)
+void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode)
 {
-    sprintf(batparam_ptr->text, "TrickleCur:%umA", batparam_ptr->bat_set_trickle_current);
+        GLCD_GotoXY(0, 40);
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_PrintString("TrickleCur:");
+
+    if(set_mode == 1)
+    {
+        GLCD_FillRectangle(66, 39, 97, 48, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+
+    }else if(set_mode == 0)
+    {
+        GLCD_FillRectangle(66, 39, 97, 48, GLCD_White);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    }
+
+    GLCD_GotoXY(67, 40);
+    sprintf(batparam_ptr->text, "%umA", batparam_ptr->bat_set_trickle_current);
     GLCD_PrintString(batparam_ptr->text);
 }
-void SetCellVotage(BattParameters *batparam_ptr)
+void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode)
 {
-    sprintf(batparam_ptr->text, "Cell Volta:%u.%02uV", batparam_ptr->batt_set_voltage/100, batparam_ptr->batt_set_voltage%100);
+    GLCD_GotoXY(0, 13);
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_PrintString("Cell Volta:");
+
+    if(set_mode == 1)
+    {
+        GLCD_FillRectangle(66, 12, 97, 20, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+
+    }else if(set_mode == 0)
+    {
+        GLCD_FillRectangle(66, 12, 97, 20, GLCD_White);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    }
+
+    GLCD_GotoXY(67, 13);
+    sprintf(batparam_ptr->text, "%u.%02uV", batparam_ptr->batt_set_voltage/100, batparam_ptr->batt_set_voltage%100);
     GLCD_PrintString(batparam_ptr->text);
 }
-void MinimumDischargeVoltage(BattParameters *batparam_ptr)
+void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
 {
-    sprintf(batparam_ptr->text, "MinDiscVol:%u.%02uV", batparam_ptr->batt_set_min_discharge_voltage/100, batparam_ptr->batt_set_min_discharge_voltage%100);
+        GLCD_GotoXY(0, 22);
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_PrintString("MinDiscVol:");
+
+    if(set_mode == 1)
+    {
+        GLCD_FillRectangle(66, 21, 97, 29, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+
+    }else if(set_mode == 0)
+    {
+        GLCD_FillRectangle(66, 21, 97, 29, GLCD_White);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    }
+
+    GLCD_GotoXY(67, 22);
+    sprintf(batparam_ptr->text, "%u.%02uV", batparam_ptr->batt_set_min_discharge_voltage/100, batparam_ptr->batt_set_min_discharge_voltage%100);
     GLCD_PrintString(batparam_ptr->text);
 }
 
@@ -10205,7 +10273,7 @@ void SingleBat_Menu(BattParameters *bat_param)
     GLCD_GotoXY(2, 2);
     GLCD_PrintString("BAT 1");
     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
-# 357 "menu_definitions.c"
+# 421 "menu_definitions.c"
     GLCD_GotoXY(0, 13);
     VoltageDisplay(bat_param);
     GLCD_GotoXY(0, 22);
@@ -10222,12 +10290,12 @@ void SingleBat_Menu(BattParameters *bat_param)
 
 
 
-    GLCD_Render();
+   ;
 }
 
 void Options5_Menu(BattParameters *bat_param)
 {
-# 388 "menu_definitions.c"
+# 452 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10247,12 +10315,12 @@ void Options5_Menu(BattParameters *bat_param)
     GLCD_GotoXY(0, 40);
     SetDischargingCurrent_4(bat_param, 1);
 
-    GLCD_Render();
+
 }
 
 void Options4_Menu(BattParameters *bat_param)
 {
-# 422 "menu_definitions.c"
+# 486 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10272,13 +10340,13 @@ void Options4_Menu(BattParameters *bat_param)
     GLCD_GotoXY(0, 40);
     SetDischargingCurrent_2(bat_param, 1);
 
-    GLCD_Render();
+
 }
 
 
 void Options3_Menu(BattParameters *bat_param)
 {
-# 455 "menu_definitions.c"
+# 519 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10294,14 +10362,13 @@ void Options3_Menu(BattParameters *bat_param)
     GLCD_GotoXY(0, 22);
     SetTemp(bat_param);
 
-    GLCD_Render();
 }
 
 
 
 void Options2_Menu(BattParameters *bat_param)
 {
-# 487 "menu_definitions.c"
+# 548 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10312,23 +10379,15 @@ void Options2_Menu(BattParameters *bat_param)
     GLCD_GotoXY(35,2);
     GLCD_PrintString("Options 2");
 
-    GLCD_GotoXY(0, 13);
-    SetCellVotage(bat_param);
-    GLCD_GotoXY(0, 22);
-    MinimumDischargeVoltage(bat_param);
-    GLCD_GotoXY(0, 31);
-    TrickleVoltage(bat_param);
-    GLCD_GotoXY(0, 40);
-    TrickleCurrent(bat_param);
-
-    GLCD_Render();
+    SetCellVotage(bat_param,0);
+    MinimumDischargeVoltage(bat_param, 0);
+    TrickleVoltage(bat_param, 0);
+    TrickleCurrent(bat_param, 0);
 }
-
-
 
 void Options1_Menu(BattParameters *bat_param)
 {
-# 522 "menu_definitions.c"
+# 575 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10343,8 +10402,6 @@ void Options1_Menu(BattParameters *bat_param)
     CellCount(bat_param, 0);
     ChargerMode(bat_param, 0);
     CycleSet(bat_param, 0);
-
-    GLCD_Render();
 }
 
 

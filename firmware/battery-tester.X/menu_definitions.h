@@ -91,4 +91,8 @@ void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode);
 void CellCount(BattParameters *batparam_ptr, uint8_t set_mode);
 void ChargerMode(BattParameters *bat_param, uint8_t set_mode);
 void CycleSet(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode);
+void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
+void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode);
+void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
 #endif	/* MENU_H */
