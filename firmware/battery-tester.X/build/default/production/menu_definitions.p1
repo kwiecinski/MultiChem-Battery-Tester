@@ -14840,908 +14840,992 @@ Version 4.0 HI-TECH Software Intermediate Code
 "259
 [; ;menu_definitions.c: 259: {
 [f ]
-"261
-[; ;menu_definitions.c: 261:     GLCD_GotoXY(0, 40);
+"260
+[; ;menu_definitions.c: 260:     GLCD_GotoXY(0, 40);
 [e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
-"262
-[; ;menu_definitions.c: 262:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"261
+[; ;menu_definitions.c: 261:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"263
-[; ;menu_definitions.c: 263:     GLCD_PrintString("Cycle:");
+"262
+[; ;menu_definitions.c: 262:     GLCD_PrintString("Cycle:");
 [e ( _GLCD_PrintString (1 :s 32C ]
-"265
-[; ;menu_definitions.c: 265:     if(set_mode == 1)
+"264
+[; ;menu_definitions.c: 264:     if(set_mode == 1)
 [e $ ! == -> _set_mode `i -> 1 `i 696  ]
-"266
-[; ;menu_definitions.c: 266:     {
+"265
+[; ;menu_definitions.c: 265:     {
 {
-"267
-[; ;menu_definitions.c: 267:         GLCD_FillRectangle(35, 39, 41, 48, GLCD_Black);
+"266
+[; ;menu_definitions.c: 266:         GLCD_FillRectangle(35, 39, 41, 48, GLCD_Black);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 35 `i `uc -> -> 39 `i `uc -> -> 41 `i `uc -> -> 48 `i `uc . `E5705 1 ]
-"268
-[; ;menu_definitions.c: 268:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+"267
+[; ;menu_definitions.c: 267:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"270
-[; ;menu_definitions.c: 270:     }else if(set_mode == 0)
+"269
+[; ;menu_definitions.c: 269:     }else if(set_mode == 0)
 }
 [e $U 697  ]
 [e :U 696 ]
 [e $ ! == -> _set_mode `i -> 0 `i 698  ]
-"271
-[; ;menu_definitions.c: 271:     {
+"270
+[; ;menu_definitions.c: 270:     {
 {
-"272
-[; ;menu_definitions.c: 272:         GLCD_FillRectangle(35, 39, 41, 48, GLCD_White);
+"271
+[; ;menu_definitions.c: 271:         GLCD_FillRectangle(35, 39, 41, 48, GLCD_White);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 35 `i `uc -> -> 39 `i `uc -> -> 41 `i `uc -> -> 48 `i `uc . `E5705 0 ]
-"273
-[; ;menu_definitions.c: 273:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"272
+[; ;menu_definitions.c: 272:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"274
-[; ;menu_definitions.c: 274:     }
+"273
+[; ;menu_definitions.c: 273:     }
 }
 [e :U 698 ]
 [e :U 697 ]
-"276
-[; ;menu_definitions.c: 276:     GLCD_GotoXY(36, 40);
+"275
+[; ;menu_definitions.c: 275:     GLCD_GotoXY(36, 40);
 [e ( _GLCD_GotoXY (2 , -> -> 36 `i `uc -> -> 40 `i `uc ]
-"277
-[; ;menu_definitions.c: 277:     sprintf(batparam_ptr->text, "%u",batparam_ptr->set_cycle);
+"276
+[; ;menu_definitions.c: 276:     sprintf(batparam_ptr->text, "%u",batparam_ptr->set_cycle);
 [e ( _sprintf (1 , (. , &U . *U _batparam_ptr 32 :s 33C -> . *U _batparam_ptr 0 `i ]
-"278
-[; ;menu_definitions.c: 278:     GLCD_PrintString(batparam_ptr->text);
+"277
+[; ;menu_definitions.c: 277:     GLCD_PrintString(batparam_ptr->text);
 [e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
-"280
-[; ;menu_definitions.c: 280: }
+"278
+[; ;menu_definitions.c: 278: }
 [e :UE 695 ]
 }
-"282
-[; ;menu_definitions.c: 282: void TimeDisplay (BattParameters *batparam_ptr)
+"280
+[; ;menu_definitions.c: 280: void TimeDisplay (BattParameters *batparam_ptr)
 [v _TimeDisplay `(v ~T0 @X0 1 ef1`*S632 ]
-"283
-[; ;menu_definitions.c: 283: {
+"281
+[; ;menu_definitions.c: 281: {
 {
 [e :U _TimeDisplay ]
-"282
-[; ;menu_definitions.c: 282: void TimeDisplay (BattParameters *batparam_ptr)
+"280
+[; ;menu_definitions.c: 280: void TimeDisplay (BattParameters *batparam_ptr)
 [v _batparam_ptr `*S632 ~T0 @X0 1 r1 ]
-"283
-[; ;menu_definitions.c: 283: {
+"281
+[; ;menu_definitions.c: 281: {
 [f ]
-"284
-[; ;menu_definitions.c: 284:     sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->current_time/3600),(unsigned int)((batparam_ptr->current_time%3600)/60),(unsigned int)(batparam_ptr->current_time%60));
+"282
+[; ;menu_definitions.c: 282:     sprintf(batparam_ptr->text, "%02uh%02um%02us", (unsigned int)(batparam_ptr->current_time/3600),(unsigned int)((batparam_ptr->current_time%3600)/60),(unsigned int)(batparam_ptr->current_time%60));
 [e ( _sprintf (1 , , , (. , &U . *U _batparam_ptr 32 :s 34C -> / . *U _batparam_ptr 30 -> -> -> 3600 `i `l `ul `ui -> / % . *U _batparam_ptr 30 -> -> -> 3600 `i `l `ul -> -> -> 60 `i `l `ul `ui -> % . *U _batparam_ptr 30 -> -> -> 60 `i `l `ul `ui ]
-"285
-[; ;menu_definitions.c: 285:     GLCD_PrintString(batparam_ptr->text);
+"283
+[; ;menu_definitions.c: 283:     GLCD_PrintString(batparam_ptr->text);
 [e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
-"286
-[; ;menu_definitions.c: 286: }
+"284
+[; ;menu_definitions.c: 284: }
 [e :UE 699 ]
 }
-"288
-[; ;menu_definitions.c: 288: void SetMaxTime (BattParameters *batparam_ptr)
-[v _SetMaxTime `(v ~T0 @X0 1 ef1`*S632 ]
-"289
-[; ;menu_definitions.c: 289: {
+"286
+[; ;menu_definitions.c: 286: void SetMaxTime (BattParameters *batparam_ptr, uint8_t set_mode)
+[v _SetMaxTime `(v ~T0 @X0 1 ef2`*S632`uc ]
+"287
+[; ;menu_definitions.c: 287: {
 {
 [e :U _SetMaxTime ]
-"288
-[; ;menu_definitions.c: 288: void SetMaxTime (BattParameters *batparam_ptr)
+"286
+[; ;menu_definitions.c: 286: void SetMaxTime (BattParameters *batparam_ptr, uint8_t set_mode)
 [v _batparam_ptr `*S632 ~T0 @X0 1 r1 ]
-"289
-[; ;menu_definitions.c: 289: {
+[v _set_mode `uc ~T0 @X0 1 r2 ]
+"287
+[; ;menu_definitions.c: 287: {
 [f ]
+"288
+[; ;menu_definitions.c: 288:       GLCD_GotoXY(0, 13);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
+"289
+[; ;menu_definitions.c: 289:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "290
-[; ;menu_definitions.c: 290:     sprintf(batparam_ptr->text, "Max Time: %02uh%02um", (unsigned int)(batparam_ptr->set_time/3600),(unsigned int)((batparam_ptr->set_time%3600)/60));
-[e ( _sprintf (1 , , (. , &U . *U _batparam_ptr 32 :s 35C -> / . *U _batparam_ptr 31 -> -> -> 3600 `i `l `ul `ui -> / % . *U _batparam_ptr 31 -> -> -> 3600 `i `l `ul -> -> -> 60 `i `l `ul `ui ]
-"291
-[; ;menu_definitions.c: 291:     GLCD_PrintString(batparam_ptr->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
+[; ;menu_definitions.c: 290:     GLCD_PrintString("Max Time:");
+[e ( _GLCD_PrintString (1 :s 35C ]
 "292
-[; ;menu_definitions.c: 292: }
+[; ;menu_definitions.c: 292:     if(set_mode == 1)
+[e $ ! == -> _set_mode `i -> 1 `i 701  ]
+"293
+[; ;menu_definitions.c: 293:     {
+{
+"294
+[; ;menu_definitions.c: 294:         GLCD_FillRectangle(54, 12, 90, 20, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 54 `i `uc -> -> 12 `i `uc -> -> 90 `i `uc -> -> 20 `i `uc . `E5705 1 ]
+"295
+[; ;menu_definitions.c: 295:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+"297
+[; ;menu_definitions.c: 297:     }else if(set_mode == 0)
+}
+[e $U 702  ]
+[e :U 701 ]
+[e $ ! == -> _set_mode `i -> 0 `i 703  ]
+"298
+[; ;menu_definitions.c: 298:     {
+{
+"299
+[; ;menu_definitions.c: 299:         GLCD_FillRectangle(54, 12, 90, 20, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 54 `i `uc -> -> 12 `i `uc -> -> 90 `i `uc -> -> 20 `i `uc . `E5705 0 ]
+"300
+[; ;menu_definitions.c: 300:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"301
+[; ;menu_definitions.c: 301:     }
+}
+[e :U 703 ]
+[e :U 702 ]
+"303
+[; ;menu_definitions.c: 303:     GLCD_GotoXY(54, 13);
+[e ( _GLCD_GotoXY (2 , -> -> 54 `i `uc -> -> 13 `i `uc ]
+"304
+[; ;menu_definitions.c: 304:     sprintf(batparam_ptr->text, "%02uh%02um", (unsigned int)(batparam_ptr->set_time/3600),(unsigned int)((batparam_ptr->set_time%3600)/60));
+[e ( _sprintf (1 , , (. , &U . *U _batparam_ptr 32 :s 36C -> / . *U _batparam_ptr 31 -> -> -> 3600 `i `l `ul `ui -> / % . *U _batparam_ptr 31 -> -> -> 3600 `i `l `ul -> -> -> 60 `i `l `ul `ui ]
+"305
+[; ;menu_definitions.c: 305:     GLCD_PrintString(batparam_ptr->text);
+[e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
+"306
+[; ;menu_definitions.c: 306: }
 [e :UE 700 ]
 }
-"294
-[; ;menu_definitions.c: 294: void TempDisplay (BattParameters *batparam_ptr)
+"308
+[; ;menu_definitions.c: 308: void TempDisplay (BattParameters *batparam_ptr)
 [v _TempDisplay `(v ~T0 @X0 1 ef1`*S632 ]
-"295
-[; ;menu_definitions.c: 295: {
+"309
+[; ;menu_definitions.c: 309: {
 {
 [e :U _TempDisplay ]
-"294
-[; ;menu_definitions.c: 294: void TempDisplay (BattParameters *batparam_ptr)
+"308
+[; ;menu_definitions.c: 308: void TempDisplay (BattParameters *batparam_ptr)
 [v _batparam_ptr `*S632 ~T0 @X0 1 r1 ]
-"295
-[; ;menu_definitions.c: 295: {
+"309
+[; ;menu_definitions.c: 309: {
 [f ]
-"296
-[; ;menu_definitions.c: 296:     sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->bat_actual_temp);
-[e ( _sprintf (1 , (. , &U . *U _batparam_ptr 32 :s 36C -> . *U _batparam_ptr 2 `i ]
-"297
-[; ;menu_definitions.c: 297:     GLCD_PrintString(batparam_ptr->text);
+"310
+[; ;menu_definitions.c: 310:     sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->bat_actual_temp);
+[e ( _sprintf (1 , (. , &U . *U _batparam_ptr 32 :s 37C -> . *U _batparam_ptr 2 `i ]
+"311
+[; ;menu_definitions.c: 311:     GLCD_PrintString(batparam_ptr->text);
 [e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
-"298
-[; ;menu_definitions.c: 298: }
-[e :UE 701 ]
+"312
+[; ;menu_definitions.c: 312: }
+[e :UE 704 ]
 }
-"300
-[; ;menu_definitions.c: 300: void SetTemp(BattParameters *batparam_ptr)
-[v _SetTemp `(v ~T0 @X0 1 ef1`*S632 ]
-"301
-[; ;menu_definitions.c: 301: {
+"314
+[; ;menu_definitions.c: 314: void SetTemp(BattParameters *batparam_ptr, uint8_t set_mode)
+[v _SetTemp `(v ~T0 @X0 1 ef2`*S632`uc ]
+"315
+[; ;menu_definitions.c: 315: {
 {
 [e :U _SetTemp ]
-"300
-[; ;menu_definitions.c: 300: void SetTemp(BattParameters *batparam_ptr)
+"314
+[; ;menu_definitions.c: 314: void SetTemp(BattParameters *batparam_ptr, uint8_t set_mode)
 [v _batparam_ptr `*S632 ~T0 @X0 1 r1 ]
-"301
-[; ;menu_definitions.c: 301: {
+[v _set_mode `uc ~T0 @X0 1 r2 ]
+"315
+[; ;menu_definitions.c: 315: {
 [f ]
-"302
-[; ;menu_definitions.c: 302:     sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->bat_max_temp);
-[e ( _sprintf (1 , (. , &U . *U _batparam_ptr 32 :s 37C -> . *U _batparam_ptr 3 `i ]
-"303
-[; ;menu_definitions.c: 303:     GLCD_PrintString(batparam_ptr->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
-"304
-[; ;menu_definitions.c: 304: }
-[e :UE 702 ]
+"316
+[; ;menu_definitions.c: 316:     GLCD_GotoXY(0, 22);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
+"317
+[; ;menu_definitions.c: 317:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"318
+[; ;menu_definitions.c: 318:     GLCD_PrintString("Temp:");
+[e ( _GLCD_PrintString (1 :s 38C ]
+"320
+[; ;menu_definitions.c: 320:     if(set_mode == 1)
+[e $ ! == -> _set_mode `i -> 1 `i 706  ]
+"321
+[; ;menu_definitions.c: 321:     {
+{
+"322
+[; ;menu_definitions.c: 322:         GLCD_FillRectangle(30, 21,54, 29, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 30 `i `uc -> -> 21 `i `uc -> -> 54 `i `uc -> -> 29 `i `uc . `E5705 1 ]
+"323
+[; ;menu_definitions.c: 323:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+"325
+[; ;menu_definitions.c: 325:     }else if(set_mode == 0)
 }
-"306
-[; ;menu_definitions.c: 306: void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
+[e $U 707  ]
+[e :U 706 ]
+[e $ ! == -> _set_mode `i -> 0 `i 708  ]
+"326
+[; ;menu_definitions.c: 326:     {
+{
+"327
+[; ;menu_definitions.c: 327:         GLCD_FillRectangle(30, 21, 54, 29, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 30 `i `uc -> -> 21 `i `uc -> -> 54 `i `uc -> -> 29 `i `uc . `E5705 0 ]
+"328
+[; ;menu_definitions.c: 328:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"329
+[; ;menu_definitions.c: 329:     }
+}
+[e :U 708 ]
+[e :U 707 ]
+"331
+[; ;menu_definitions.c: 331:     GLCD_GotoXY(30, 22);
+[e ( _GLCD_GotoXY (2 , -> -> 30 `i `uc -> -> 22 `i `uc ]
+"332
+[; ;menu_definitions.c: 332:     sprintf(batparam_ptr->text, "%u", batparam_ptr->cell_count);
+[e ( _sprintf (1 , (. , &U . *U _batparam_ptr 32 :s 39C -> . *U _batparam_ptr 7 `i ]
+"333
+[; ;menu_definitions.c: 333:     GLCD_PrintString(batparam_ptr->text);
+[e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
+"334
+[; ;menu_definitions.c: 334: }
+[e :UE 705 ]
+}
+"336
+[; ;menu_definitions.c: 336: void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
 [v _TrickleVoltage `(v ~T0 @X0 1 ef2`*S632`uc ]
-"307
-[; ;menu_definitions.c: 307: {
+"337
+[; ;menu_definitions.c: 337: {
 {
 [e :U _TrickleVoltage ]
-"306
-[; ;menu_definitions.c: 306: void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
+"336
+[; ;menu_definitions.c: 336: void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
 [v _batparam_ptr `*S632 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
-"307
-[; ;menu_definitions.c: 307: {
+"337
+[; ;menu_definitions.c: 337: {
 [f ]
-"308
-[; ;menu_definitions.c: 308:         GLCD_GotoXY(0, 31);
+"338
+[; ;menu_definitions.c: 338:         GLCD_GotoXY(0, 31);
 [e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 31 `i `uc ]
-"309
-[; ;menu_definitions.c: 309:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"339
+[; ;menu_definitions.c: 339:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"310
-[; ;menu_definitions.c: 310:     GLCD_PrintString("TrickleVol:");
-[e ( _GLCD_PrintString (1 :s 38C ]
-"312
-[; ;menu_definitions.c: 312:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 704  ]
-"313
-[; ;menu_definitions.c: 313:     {
+"340
+[; ;menu_definitions.c: 340:     GLCD_PrintString("TrickleVol:");
+[e ( _GLCD_PrintString (1 :s 40C ]
+"342
+[; ;menu_definitions.c: 342:     if(set_mode == 1)
+[e $ ! == -> _set_mode `i -> 1 `i 710  ]
+"343
+[; ;menu_definitions.c: 343:     {
 {
-"314
-[; ;menu_definitions.c: 314:         GLCD_FillRectangle(66, 30, 97, 38, GLCD_Black);
+"344
+[; ;menu_definitions.c: 344:         GLCD_FillRectangle(66, 30, 97, 38, GLCD_Black);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 30 `i `uc -> -> 97 `i `uc -> -> 38 `i `uc . `E5705 1 ]
-"315
-[; ;menu_definitions.c: 315:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+"345
+[; ;menu_definitions.c: 345:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"317
-[; ;menu_definitions.c: 317:     }else if(set_mode == 0)
+"347
+[; ;menu_definitions.c: 347:     }else if(set_mode == 0)
 }
-[e $U 705  ]
-[e :U 704 ]
-[e $ ! == -> _set_mode `i -> 0 `i 706  ]
-"318
-[; ;menu_definitions.c: 318:     {
+[e $U 711  ]
+[e :U 710 ]
+[e $ ! == -> _set_mode `i -> 0 `i 712  ]
+"348
+[; ;menu_definitions.c: 348:     {
 {
-"319
-[; ;menu_definitions.c: 319:         GLCD_FillRectangle(66, 30, 97, 38, GLCD_White);
+"349
+[; ;menu_definitions.c: 349:         GLCD_FillRectangle(66, 30, 97, 38, GLCD_White);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 30 `i `uc -> -> 97 `i `uc -> -> 38 `i `uc . `E5705 0 ]
-"320
-[; ;menu_definitions.c: 320:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"350
+[; ;menu_definitions.c: 350:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"321
-[; ;menu_definitions.c: 321:     }
+"351
+[; ;menu_definitions.c: 351:     }
 }
-[e :U 706 ]
-[e :U 705 ]
-"323
-[; ;menu_definitions.c: 323:     GLCD_GotoXY(67, 31);
+[e :U 712 ]
+[e :U 711 ]
+"353
+[; ;menu_definitions.c: 353:     GLCD_GotoXY(67, 31);
 [e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 31 `i `uc ]
-"324
-[; ;menu_definitions.c: 324:     sprintf(batparam_ptr->text, "%u.%02uV", batparam_ptr->batt_set_trickle_voltage/100, batparam_ptr->batt_set_trickle_voltage%100);
-[e ( _sprintf (1 , , (. , &U . *U _batparam_ptr 32 :s 39C / -> . *U _batparam_ptr 18 `ui -> -> 100 `i `ui % -> . *U _batparam_ptr 18 `ui -> -> 100 `i `ui ]
-"325
-[; ;menu_definitions.c: 325:     GLCD_PrintString(batparam_ptr->text);
+"354
+[; ;menu_definitions.c: 354:     sprintf(batparam_ptr->text, "%u.%02uV", batparam_ptr->batt_set_trickle_voltage/100, batparam_ptr->batt_set_trickle_voltage%100);
+[e ( _sprintf (1 , , (. , &U . *U _batparam_ptr 32 :s 41C / -> . *U _batparam_ptr 18 `ui -> -> 100 `i `ui % -> . *U _batparam_ptr 18 `ui -> -> 100 `i `ui ]
+"355
+[; ;menu_definitions.c: 355:     GLCD_PrintString(batparam_ptr->text);
 [e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
-"326
-[; ;menu_definitions.c: 326: }
-[e :UE 703 ]
+"356
+[; ;menu_definitions.c: 356: }
+[e :UE 709 ]
 }
-"327
-[; ;menu_definitions.c: 327: void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode)
+"357
+[; ;menu_definitions.c: 357: void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode)
 [v _TrickleCurrent `(v ~T0 @X0 1 ef2`*S632`uc ]
-"328
-[; ;menu_definitions.c: 328: {
+"358
+[; ;menu_definitions.c: 358: {
 {
 [e :U _TrickleCurrent ]
-"327
-[; ;menu_definitions.c: 327: void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode)
+"357
+[; ;menu_definitions.c: 357: void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode)
 [v _batparam_ptr `*S632 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
-"328
-[; ;menu_definitions.c: 328: {
+"358
+[; ;menu_definitions.c: 358: {
 [f ]
-"329
-[; ;menu_definitions.c: 329:         GLCD_GotoXY(0, 40);
+"359
+[; ;menu_definitions.c: 359:         GLCD_GotoXY(0, 40);
 [e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
-"330
-[; ;menu_definitions.c: 330:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"360
+[; ;menu_definitions.c: 360:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"331
-[; ;menu_definitions.c: 331:     GLCD_PrintString("TrickleCur:");
-[e ( _GLCD_PrintString (1 :s 40C ]
-"333
-[; ;menu_definitions.c: 333:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 708  ]
-"334
-[; ;menu_definitions.c: 334:     {
+"361
+[; ;menu_definitions.c: 361:     GLCD_PrintString("TrickleCur:");
+[e ( _GLCD_PrintString (1 :s 42C ]
+"363
+[; ;menu_definitions.c: 363:     if(set_mode == 1)
+[e $ ! == -> _set_mode `i -> 1 `i 714  ]
+"364
+[; ;menu_definitions.c: 364:     {
 {
-"335
-[; ;menu_definitions.c: 335:         GLCD_FillRectangle(66, 39, 97, 48, GLCD_Black);
+"365
+[; ;menu_definitions.c: 365:         GLCD_FillRectangle(66, 39, 97, 48, GLCD_Black);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 39 `i `uc -> -> 97 `i `uc -> -> 48 `i `uc . `E5705 1 ]
-"336
-[; ;menu_definitions.c: 336:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+"366
+[; ;menu_definitions.c: 366:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"338
-[; ;menu_definitions.c: 338:     }else if(set_mode == 0)
+"368
+[; ;menu_definitions.c: 368:     }else if(set_mode == 0)
 }
-[e $U 709  ]
-[e :U 708 ]
-[e $ ! == -> _set_mode `i -> 0 `i 710  ]
-"339
-[; ;menu_definitions.c: 339:     {
+[e $U 715  ]
+[e :U 714 ]
+[e $ ! == -> _set_mode `i -> 0 `i 716  ]
+"369
+[; ;menu_definitions.c: 369:     {
 {
-"340
-[; ;menu_definitions.c: 340:         GLCD_FillRectangle(66, 39, 97, 48, GLCD_White);
+"370
+[; ;menu_definitions.c: 370:         GLCD_FillRectangle(66, 39, 97, 48, GLCD_White);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 39 `i `uc -> -> 97 `i `uc -> -> 48 `i `uc . `E5705 0 ]
-"341
-[; ;menu_definitions.c: 341:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"371
+[; ;menu_definitions.c: 371:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"342
-[; ;menu_definitions.c: 342:     }
+"372
+[; ;menu_definitions.c: 372:     }
 }
-[e :U 710 ]
-[e :U 709 ]
-"344
-[; ;menu_definitions.c: 344:     GLCD_GotoXY(67, 40);
+[e :U 716 ]
+[e :U 715 ]
+"374
+[; ;menu_definitions.c: 374:     GLCD_GotoXY(67, 40);
 [e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 40 `i `uc ]
-"345
-[; ;menu_definitions.c: 345:     sprintf(batparam_ptr->text, "%umA", batparam_ptr->bat_set_trickle_current);
-[e ( _sprintf (1 , (. , &U . *U _batparam_ptr 32 :s 41C -> . *U _batparam_ptr 19 `ui ]
-"346
-[; ;menu_definitions.c: 346:     GLCD_PrintString(batparam_ptr->text);
+"375
+[; ;menu_definitions.c: 375:     sprintf(batparam_ptr->text, "%umA", batparam_ptr->bat_set_trickle_current);
+[e ( _sprintf (1 , (. , &U . *U _batparam_ptr 32 :s 43C -> . *U _batparam_ptr 19 `ui ]
+"376
+[; ;menu_definitions.c: 376:     GLCD_PrintString(batparam_ptr->text);
 [e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
-"347
-[; ;menu_definitions.c: 347: }
-[e :UE 707 ]
+"377
+[; ;menu_definitions.c: 377: }
+[e :UE 713 ]
 }
-"348
-[; ;menu_definitions.c: 348: void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode)
+"378
+[; ;menu_definitions.c: 378: void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode)
 [v _SetCellVotage `(v ~T0 @X0 1 ef2`*S632`uc ]
-"349
-[; ;menu_definitions.c: 349: {
+"379
+[; ;menu_definitions.c: 379: {
 {
 [e :U _SetCellVotage ]
-"348
-[; ;menu_definitions.c: 348: void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode)
+"378
+[; ;menu_definitions.c: 378: void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode)
 [v _batparam_ptr `*S632 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
-"349
-[; ;menu_definitions.c: 349: {
+"379
+[; ;menu_definitions.c: 379: {
 [f ]
-"350
-[; ;menu_definitions.c: 350:     GLCD_GotoXY(0, 13);
+"380
+[; ;menu_definitions.c: 380:     GLCD_GotoXY(0, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
-"351
-[; ;menu_definitions.c: 351:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"381
+[; ;menu_definitions.c: 381:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"352
-[; ;menu_definitions.c: 352:     GLCD_PrintString("Cell Volta:");
-[e ( _GLCD_PrintString (1 :s 42C ]
-"354
-[; ;menu_definitions.c: 354:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 712  ]
-"355
-[; ;menu_definitions.c: 355:     {
+"382
+[; ;menu_definitions.c: 382:     GLCD_PrintString("Cell Volta:");
+[e ( _GLCD_PrintString (1 :s 44C ]
+"384
+[; ;menu_definitions.c: 384:     if(set_mode == 1)
+[e $ ! == -> _set_mode `i -> 1 `i 718  ]
+"385
+[; ;menu_definitions.c: 385:     {
 {
-"356
-[; ;menu_definitions.c: 356:         GLCD_FillRectangle(66, 12, 97, 20, GLCD_Black);
+"386
+[; ;menu_definitions.c: 386:         GLCD_FillRectangle(66, 12, 97, 20, GLCD_Black);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 12 `i `uc -> -> 97 `i `uc -> -> 20 `i `uc . `E5705 1 ]
-"357
-[; ;menu_definitions.c: 357:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+"387
+[; ;menu_definitions.c: 387:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"359
-[; ;menu_definitions.c: 359:     }else if(set_mode == 0)
+"389
+[; ;menu_definitions.c: 389:     }else if(set_mode == 0)
 }
-[e $U 713  ]
-[e :U 712 ]
-[e $ ! == -> _set_mode `i -> 0 `i 714  ]
-"360
-[; ;menu_definitions.c: 360:     {
+[e $U 719  ]
+[e :U 718 ]
+[e $ ! == -> _set_mode `i -> 0 `i 720  ]
+"390
+[; ;menu_definitions.c: 390:     {
 {
-"361
-[; ;menu_definitions.c: 361:         GLCD_FillRectangle(66, 12, 97, 20, GLCD_White);
+"391
+[; ;menu_definitions.c: 391:         GLCD_FillRectangle(66, 12, 97, 20, GLCD_White);
 [e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 12 `i `uc -> -> 97 `i `uc -> -> 20 `i `uc . `E5705 0 ]
-"362
-[; ;menu_definitions.c: 362:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"392
+[; ;menu_definitions.c: 392:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"363
-[; ;menu_definitions.c: 363:     }
+"393
+[; ;menu_definitions.c: 393:     }
 }
-[e :U 714 ]
-[e :U 713 ]
-"365
-[; ;menu_definitions.c: 365:     GLCD_GotoXY(67, 13);
+[e :U 720 ]
+[e :U 719 ]
+"395
+[; ;menu_definitions.c: 395:     GLCD_GotoXY(67, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 13 `i `uc ]
-"366
-[; ;menu_definitions.c: 366:     sprintf(batparam_ptr->text, "%u.%02uV", batparam_ptr->batt_set_voltage/100, batparam_ptr->batt_set_voltage%100);
-[e ( _sprintf (1 , , (. , &U . *U _batparam_ptr 32 :s 43C / -> . *U _batparam_ptr 14 `ui -> -> 100 `i `ui % -> . *U _batparam_ptr 14 `ui -> -> 100 `i `ui ]
-"367
-[; ;menu_definitions.c: 367:     GLCD_PrintString(batparam_ptr->text);
+"396
+[; ;menu_definitions.c: 396:     sprintf(batparam_ptr->text, "%u.%02uV", batparam_ptr->batt_set_voltage/100, batparam_ptr->batt_set_voltage%100);
+[e ( _sprintf (1 , , (. , &U . *U _batparam_ptr 32 :s 45C / -> . *U _batparam_ptr 14 `ui -> -> 100 `i `ui % -> . *U _batparam_ptr 14 `ui -> -> 100 `i `ui ]
+"397
+[; ;menu_definitions.c: 397:     GLCD_PrintString(batparam_ptr->text);
 [e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
-"368
-[; ;menu_definitions.c: 368: }
-[e :UE 711 ]
+"398
+[; ;menu_definitions.c: 398: }
+[e :UE 717 ]
 }
-"369
-[; ;menu_definitions.c: 369: void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
+"399
+[; ;menu_definitions.c: 399: void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
 [v _MinimumDischargeVoltage `(v ~T0 @X0 1 ef2`*S632`uc ]
-"370
-[; ;menu_definitions.c: 370: {
+"400
+[; ;menu_definitions.c: 400: {
 {
 [e :U _MinimumDischargeVoltage ]
-"369
-[; ;menu_definitions.c: 369: void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
+"399
+[; ;menu_definitions.c: 399: void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
 [v _batparam_ptr `*S632 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
-"370
-[; ;menu_definitions.c: 370: {
+"400
+[; ;menu_definitions.c: 400: {
 [f ]
-"371
-[; ;menu_definitions.c: 371:         GLCD_GotoXY(0, 22);
+"401
+[; ;menu_definitions.c: 401:         GLCD_GotoXY(0, 22);
 [e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
-"372
-[; ;menu_definitions.c: 372:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"373
-[; ;menu_definitions.c: 373:     GLCD_PrintString("MinDiscVol:");
-[e ( _GLCD_PrintString (1 :s 44C ]
-"375
-[; ;menu_definitions.c: 375:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 716  ]
-"376
-[; ;menu_definitions.c: 376:     {
-{
-"377
-[; ;menu_definitions.c: 377:         GLCD_FillRectangle(66, 21, 97, 29, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 21 `i `uc -> -> 97 `i `uc -> -> 29 `i `uc . `E5705 1 ]
-"378
-[; ;menu_definitions.c: 378:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"380
-[; ;menu_definitions.c: 380:     }else if(set_mode == 0)
-}
-[e $U 717  ]
-[e :U 716 ]
-[e $ ! == -> _set_mode `i -> 0 `i 718  ]
-"381
-[; ;menu_definitions.c: 381:     {
-{
-"382
-[; ;menu_definitions.c: 382:         GLCD_FillRectangle(66, 21, 97, 29, GLCD_White);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 21 `i `uc -> -> 97 `i `uc -> -> 29 `i `uc . `E5705 0 ]
-"383
-[; ;menu_definitions.c: 383:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"384
-[; ;menu_definitions.c: 384:     }
-}
-[e :U 718 ]
-[e :U 717 ]
-"386
-[; ;menu_definitions.c: 386:     GLCD_GotoXY(67, 22);
-[e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 22 `i `uc ]
-"387
-[; ;menu_definitions.c: 387:     sprintf(batparam_ptr->text, "%u.%02uV", batparam_ptr->batt_set_min_discharge_voltage/100, batparam_ptr->batt_set_min_discharge_voltage%100);
-[e ( _sprintf (1 , , (. , &U . *U _batparam_ptr 32 :s 45C / -> . *U _batparam_ptr 20 `ui -> -> 100 `i `ui % -> . *U _batparam_ptr 20 `ui -> -> 100 `i `ui ]
-"388
-[; ;menu_definitions.c: 388:     GLCD_PrintString(batparam_ptr->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
-"389
-[; ;menu_definitions.c: 389: }
-[e :UE 715 ]
-}
-"397
-[; ;menu_definitions.c: 397: void SingleBat_Menu(BattParameters *bat_param)
-[v _SingleBat_Menu `(v ~T0 @X0 1 ef1`*S632 ]
-"398
-[; ;menu_definitions.c: 398: {
-{
-[e :U _SingleBat_Menu ]
-"397
-[; ;menu_definitions.c: 397: void SingleBat_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
-"398
-[; ;menu_definitions.c: 398: {
-[f ]
-"399
-[; ;menu_definitions.c: 399:     GLCD_Clear();
-[e ( _GLCD_Clear ..  ]
 "402
 [; ;menu_definitions.c: 402:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "403
-[; ;menu_definitions.c: 403:     batState(state_idle, battery_1);
-[e ( _batState (2 , -> . `E5893 2 `uc -> . `E5897 0 `uc ]
-"406
-[; ;menu_definitions.c: 406:     GLCD_GotoXY(2, 2);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"407
-[; ;menu_definitions.c: 407:     GLCD_PrintString("BAT 1");
+[; ;menu_definitions.c: 403:     GLCD_PrintString("MinDiscVol:");
 [e ( _GLCD_PrintString (1 :s 46C ]
+"405
+[; ;menu_definitions.c: 405:     if(set_mode == 1)
+[e $ ! == -> _set_mode `i -> 1 `i 722  ]
+"406
+[; ;menu_definitions.c: 406:     {
+{
+"407
+[; ;menu_definitions.c: 407:         GLCD_FillRectangle(66, 21, 97, 29, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 21 `i `uc -> -> 97 `i `uc -> -> 29 `i `uc . `E5705 1 ]
 "408
-[; ;menu_definitions.c: 408:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
-"421
-[; ;menu_definitions.c: 421:     GLCD_GotoXY(0, 13);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
-"422
-[; ;menu_definitions.c: 422:     VoltageDisplay(bat_param);
-[e ( _VoltageDisplay (1 _bat_param ]
-"423
-[; ;menu_definitions.c: 423:     GLCD_GotoXY(0, 22);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
-"424
-[; ;menu_definitions.c: 424:     CurrentDisplay(bat_param);
-[e ( _CurrentDisplay (1 _bat_param ]
-"425
-[; ;menu_definitions.c: 425:     GLCD_GotoXY(0, 31);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 31 `i `uc ]
-"426
-[; ;menu_definitions.c: 426:     CapacitanceDisplay(bat_param);
-[e ( _CapacitanceDisplay (1 _bat_param ]
-"427
-[; ;menu_definitions.c: 427:     GLCD_GotoXY(0, 40);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
-"428
-[; ;menu_definitions.c: 428:     CycleDisplay(bat_param);
-[e ( _CycleDisplay (1 _bat_param ]
-"429
-[; ;menu_definitions.c: 429:     GLCD_GotoXY(74, 0);
-[e ( _GLCD_GotoXY (2 , -> -> 74 `i `uc -> -> 0 `i `uc ]
-"430
-[; ;menu_definitions.c: 430:     TimeDisplay(bat_param);
-[e ( _TimeDisplay (1 _bat_param ]
-"431
-[; ;menu_definitions.c: 431:     GLCD_GotoXY(78, 40);
-[e ( _GLCD_GotoXY (2 , -> -> 78 `i `uc -> -> 40 `i `uc ]
-"432
-[; ;menu_definitions.c: 432:     TempDisplay(bat_param);
-[e ( _TempDisplay (1 _bat_param ]
-"438
-[; ;menu_definitions.c: 438: }
-[e :UE 719 ]
+[; ;menu_definitions.c: 408:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+"410
+[; ;menu_definitions.c: 410:     }else if(set_mode == 0)
 }
-"440
-[; ;menu_definitions.c: 440: void Options5_Menu(BattParameters *bat_param)
-[v _Options5_Menu `(v ~T0 @X0 1 ef1`*S632 ]
-"441
-[; ;menu_definitions.c: 441: {
+[e $U 723  ]
+[e :U 722 ]
+[e $ ! == -> _set_mode `i -> 0 `i 724  ]
+"411
+[; ;menu_definitions.c: 411:     {
 {
-[e :U _Options5_Menu ]
-"440
-[; ;menu_definitions.c: 440: void Options5_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
-"441
-[; ;menu_definitions.c: 441: {
-[f ]
-"452
-[; ;menu_definitions.c: 452:     GLCD_Clear();
-[e ( _GLCD_Clear ..  ]
-"454
-[; ;menu_definitions.c: 454:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"412
+[; ;menu_definitions.c: 412:         GLCD_FillRectangle(66, 21, 97, 29, GLCD_White);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 66 `i `uc -> -> 21 `i `uc -> -> 97 `i `uc -> -> 29 `i `uc . `E5705 0 ]
+"413
+[; ;menu_definitions.c: 413:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"455
-[; ;menu_definitions.c: 455:     GLCD_GotoXY(2, 2);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"456
-[; ;menu_definitions.c: 456:     GLCD_PrintString("BAT 1");
-[e ( _GLCD_PrintString (1 :s 47C ]
-"457
-[; ;menu_definitions.c: 457:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
-"459
-[; ;menu_definitions.c: 459:     GLCD_GotoXY(35,2);
-[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
-"460
-[; ;menu_definitions.c: 460:     GLCD_PrintString("Options 5");
-[e ( _GLCD_PrintString (1 :s 48C ]
-"462
-[; ;menu_definitions.c: 462:     GLCD_GotoXY(0, 13);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
-"463
-[; ;menu_definitions.c: 463:     SetChargingCurrent_3(bat_param, 1);
-[e ( _SetChargingCurrent_3 (2 , _bat_param -> -> 1 `i `uc ]
-"464
-[; ;menu_definitions.c: 464:     GLCD_GotoXY(0, 22);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
-"465
-[; ;menu_definitions.c: 465:     SetDischargingCurrent_3(bat_param, 1);
-[e ( _SetDischargingCurrent_3 (2 , _bat_param -> -> 1 `i `uc ]
-"466
-[; ;menu_definitions.c: 466:     GLCD_GotoXY(0, 31);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 31 `i `uc ]
-"467
-[; ;menu_definitions.c: 467:     SetChargingCurrent_4(bat_param, 1);
-[e ( _SetChargingCurrent_4 (2 , _bat_param -> -> 1 `i `uc ]
-"468
-[; ;menu_definitions.c: 468:     GLCD_GotoXY(0, 40);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
-"469
-[; ;menu_definitions.c: 469:     SetDischargingCurrent_4(bat_param, 1);
-[e ( _SetDischargingCurrent_4 (2 , _bat_param -> -> 1 `i `uc ]
-"472
-[; ;menu_definitions.c: 472: }
-[e :UE 720 ]
+"414
+[; ;menu_definitions.c: 414:     }
 }
-"474
-[; ;menu_definitions.c: 474: void Options4_Menu(BattParameters *bat_param)
-[v _Options4_Menu `(v ~T0 @X0 1 ef1`*S632 ]
-"475
-[; ;menu_definitions.c: 475: {
-{
-[e :U _Options4_Menu ]
-"474
-[; ;menu_definitions.c: 474: void Options4_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
-"475
-[; ;menu_definitions.c: 475: {
-[f ]
-"486
-[; ;menu_definitions.c: 486:     GLCD_Clear();
-[e ( _GLCD_Clear ..  ]
-"488
-[; ;menu_definitions.c: 488:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"489
-[; ;menu_definitions.c: 489:     GLCD_GotoXY(2, 2);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"490
-[; ;menu_definitions.c: 490:     GLCD_PrintString("BAT 1");
-[e ( _GLCD_PrintString (1 :s 49C ]
-"491
-[; ;menu_definitions.c: 491:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
-"493
-[; ;menu_definitions.c: 493:     GLCD_GotoXY(35,2);
-[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
-"494
-[; ;menu_definitions.c: 494:     GLCD_PrintString("Options 4");
-[e ( _GLCD_PrintString (1 :s 50C ]
-"496
-[; ;menu_definitions.c: 496:     GLCD_GotoXY(0, 13);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
-"497
-[; ;menu_definitions.c: 497:     SetChargingCurrent_1(bat_param);
-[e ( _SetChargingCurrent_1 (1 _bat_param ]
-"498
-[; ;menu_definitions.c: 498:     GLCD_GotoXY(0, 22);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
-"499
-[; ;menu_definitions.c: 499:     SetDischargingCurrent_1(bat_param);
-[e ( _SetDischargingCurrent_1 (1 _bat_param ]
-"500
-[; ;menu_definitions.c: 500:     GLCD_GotoXY(0, 31);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 31 `i `uc ]
-"501
-[; ;menu_definitions.c: 501:     SetChargingCurrent_2(bat_param, 1);
-[e ( _SetChargingCurrent_2 (2 , _bat_param -> -> 1 `i `uc ]
-"502
-[; ;menu_definitions.c: 502:     GLCD_GotoXY(0, 40);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
-"503
-[; ;menu_definitions.c: 503:     SetDischargingCurrent_2(bat_param, 1);
-[e ( _SetDischargingCurrent_2 (2 , _bat_param -> -> 1 `i `uc ]
-"506
-[; ;menu_definitions.c: 506: }
+[e :U 724 ]
+[e :U 723 ]
+"416
+[; ;menu_definitions.c: 416:     GLCD_GotoXY(67, 22);
+[e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 22 `i `uc ]
+"417
+[; ;menu_definitions.c: 417:     sprintf(batparam_ptr->text, "%u.%02uV", batparam_ptr->batt_set_min_discharge_voltage/100, batparam_ptr->batt_set_min_discharge_voltage%100);
+[e ( _sprintf (1 , , (. , &U . *U _batparam_ptr 32 :s 47C / -> . *U _batparam_ptr 20 `ui -> -> 100 `i `ui % -> . *U _batparam_ptr 20 `ui -> -> 100 `i `ui ]
+"418
+[; ;menu_definitions.c: 418:     GLCD_PrintString(batparam_ptr->text);
+[e ( _GLCD_PrintString (1 -> &U . *U _batparam_ptr 32 `*Cuc ]
+"419
+[; ;menu_definitions.c: 419: }
 [e :UE 721 ]
 }
-"509
-[; ;menu_definitions.c: 509: void Options3_Menu(BattParameters *bat_param)
+"427
+[; ;menu_definitions.c: 427: void SingleBat_Menu(BattParameters *bat_param)
+[v _SingleBat_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+"428
+[; ;menu_definitions.c: 428: {
+{
+[e :U _SingleBat_Menu ]
+"427
+[; ;menu_definitions.c: 427: void SingleBat_Menu(BattParameters *bat_param)
+[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+"428
+[; ;menu_definitions.c: 428: {
+[f ]
+"429
+[; ;menu_definitions.c: 429:     GLCD_Clear();
+[e ( _GLCD_Clear ..  ]
+"432
+[; ;menu_definitions.c: 432:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"433
+[; ;menu_definitions.c: 433:     batState(state_idle, battery_1);
+[e ( _batState (2 , -> . `E5893 2 `uc -> . `E5897 0 `uc ]
+"436
+[; ;menu_definitions.c: 436:     GLCD_GotoXY(2, 2);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"437
+[; ;menu_definitions.c: 437:     GLCD_PrintString("BAT 1");
+[e ( _GLCD_PrintString (1 :s 48C ]
+"438
+[; ;menu_definitions.c: 438:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
+"451
+[; ;menu_definitions.c: 451:     GLCD_GotoXY(0, 13);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
+"452
+[; ;menu_definitions.c: 452:     VoltageDisplay(bat_param);
+[e ( _VoltageDisplay (1 _bat_param ]
+"453
+[; ;menu_definitions.c: 453:     GLCD_GotoXY(0, 22);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
+"454
+[; ;menu_definitions.c: 454:     CurrentDisplay(bat_param);
+[e ( _CurrentDisplay (1 _bat_param ]
+"455
+[; ;menu_definitions.c: 455:     GLCD_GotoXY(0, 31);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 31 `i `uc ]
+"456
+[; ;menu_definitions.c: 456:     CapacitanceDisplay(bat_param);
+[e ( _CapacitanceDisplay (1 _bat_param ]
+"457
+[; ;menu_definitions.c: 457:     GLCD_GotoXY(0, 40);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
+"458
+[; ;menu_definitions.c: 458:     CycleDisplay(bat_param);
+[e ( _CycleDisplay (1 _bat_param ]
+"459
+[; ;menu_definitions.c: 459:     GLCD_GotoXY(74, 0);
+[e ( _GLCD_GotoXY (2 , -> -> 74 `i `uc -> -> 0 `i `uc ]
+"460
+[; ;menu_definitions.c: 460:     TimeDisplay(bat_param);
+[e ( _TimeDisplay (1 _bat_param ]
+"461
+[; ;menu_definitions.c: 461:     GLCD_GotoXY(78, 40);
+[e ( _GLCD_GotoXY (2 , -> -> 78 `i `uc -> -> 40 `i `uc ]
+"462
+[; ;menu_definitions.c: 462:     TempDisplay(bat_param);
+[e ( _TempDisplay (1 _bat_param ]
+"468
+[; ;menu_definitions.c: 468: }
+[e :UE 725 ]
+}
+"470
+[; ;menu_definitions.c: 470: void Options5_Menu(BattParameters *bat_param)
+[v _Options5_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+"471
+[; ;menu_definitions.c: 471: {
+{
+[e :U _Options5_Menu ]
+"470
+[; ;menu_definitions.c: 470: void Options5_Menu(BattParameters *bat_param)
+[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+"471
+[; ;menu_definitions.c: 471: {
+[f ]
+"482
+[; ;menu_definitions.c: 482:     GLCD_Clear();
+[e ( _GLCD_Clear ..  ]
+"484
+[; ;menu_definitions.c: 484:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"485
+[; ;menu_definitions.c: 485:     GLCD_GotoXY(2, 2);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"486
+[; ;menu_definitions.c: 486:     GLCD_PrintString("BAT 1");
+[e ( _GLCD_PrintString (1 :s 49C ]
+"487
+[; ;menu_definitions.c: 487:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
+"489
+[; ;menu_definitions.c: 489:     GLCD_GotoXY(35,2);
+[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
+"490
+[; ;menu_definitions.c: 490:     GLCD_PrintString("Options 5");
+[e ( _GLCD_PrintString (1 :s 50C ]
+"492
+[; ;menu_definitions.c: 492:     GLCD_GotoXY(0, 13);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
+"493
+[; ;menu_definitions.c: 493:     SetChargingCurrent_3(bat_param, 1);
+[e ( _SetChargingCurrent_3 (2 , _bat_param -> -> 1 `i `uc ]
+"494
+[; ;menu_definitions.c: 494:     GLCD_GotoXY(0, 22);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
+"495
+[; ;menu_definitions.c: 495:     SetDischargingCurrent_3(bat_param, 1);
+[e ( _SetDischargingCurrent_3 (2 , _bat_param -> -> 1 `i `uc ]
+"496
+[; ;menu_definitions.c: 496:     GLCD_GotoXY(0, 31);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 31 `i `uc ]
+"497
+[; ;menu_definitions.c: 497:     SetChargingCurrent_4(bat_param, 1);
+[e ( _SetChargingCurrent_4 (2 , _bat_param -> -> 1 `i `uc ]
+"498
+[; ;menu_definitions.c: 498:     GLCD_GotoXY(0, 40);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
+"499
+[; ;menu_definitions.c: 499:     SetDischargingCurrent_4(bat_param, 1);
+[e ( _SetDischargingCurrent_4 (2 , _bat_param -> -> 1 `i `uc ]
+"502
+[; ;menu_definitions.c: 502: }
+[e :UE 726 ]
+}
+"504
+[; ;menu_definitions.c: 504: void Options4_Menu(BattParameters *bat_param)
+[v _Options4_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+"505
+[; ;menu_definitions.c: 505: {
+{
+[e :U _Options4_Menu ]
+"504
+[; ;menu_definitions.c: 504: void Options4_Menu(BattParameters *bat_param)
+[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+"505
+[; ;menu_definitions.c: 505: {
+[f ]
+"516
+[; ;menu_definitions.c: 516:     GLCD_Clear();
+[e ( _GLCD_Clear ..  ]
+"518
+[; ;menu_definitions.c: 518:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"519
+[; ;menu_definitions.c: 519:     GLCD_GotoXY(2, 2);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"520
+[; ;menu_definitions.c: 520:     GLCD_PrintString("BAT 1");
+[e ( _GLCD_PrintString (1 :s 51C ]
+"521
+[; ;menu_definitions.c: 521:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
+"523
+[; ;menu_definitions.c: 523:     GLCD_GotoXY(35,2);
+[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
+"524
+[; ;menu_definitions.c: 524:     GLCD_PrintString("Options 4");
+[e ( _GLCD_PrintString (1 :s 52C ]
+"526
+[; ;menu_definitions.c: 526:     GLCD_GotoXY(0, 13);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
+"527
+[; ;menu_definitions.c: 527:     SetChargingCurrent_1(bat_param);
+[e ( _SetChargingCurrent_1 (1 _bat_param ]
+"528
+[; ;menu_definitions.c: 528:     GLCD_GotoXY(0, 22);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
+"529
+[; ;menu_definitions.c: 529:     SetDischargingCurrent_1(bat_param);
+[e ( _SetDischargingCurrent_1 (1 _bat_param ]
+"530
+[; ;menu_definitions.c: 530:     GLCD_GotoXY(0, 31);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 31 `i `uc ]
+"531
+[; ;menu_definitions.c: 531:     SetChargingCurrent_2(bat_param, 1);
+[e ( _SetChargingCurrent_2 (2 , _bat_param -> -> 1 `i `uc ]
+"532
+[; ;menu_definitions.c: 532:     GLCD_GotoXY(0, 40);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
+"533
+[; ;menu_definitions.c: 533:     SetDischargingCurrent_2(bat_param, 1);
+[e ( _SetDischargingCurrent_2 (2 , _bat_param -> -> 1 `i `uc ]
+"536
+[; ;menu_definitions.c: 536: }
+[e :UE 727 ]
+}
+"539
+[; ;menu_definitions.c: 539: void Options3_Menu(BattParameters *bat_param)
 [v _Options3_Menu `(v ~T0 @X0 1 ef1`*S632 ]
-"510
-[; ;menu_definitions.c: 510: {
+"540
+[; ;menu_definitions.c: 540: {
 {
 [e :U _Options3_Menu ]
-"509
-[; ;menu_definitions.c: 509: void Options3_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
-"510
-[; ;menu_definitions.c: 510: {
-[f ]
-"519
-[; ;menu_definitions.c: 519:     GLCD_Clear();
-[e ( _GLCD_Clear ..  ]
-"521
-[; ;menu_definitions.c: 521:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"522
-[; ;menu_definitions.c: 522:     GLCD_GotoXY(2, 2);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"523
-[; ;menu_definitions.c: 523:     GLCD_PrintString("BAT 1");
-[e ( _GLCD_PrintString (1 :s 51C ]
-"524
-[; ;menu_definitions.c: 524:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
-"526
-[; ;menu_definitions.c: 526:     GLCD_GotoXY(35,2);
-[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
-"527
-[; ;menu_definitions.c: 527:     GLCD_PrintString("Options 3");
-[e ( _GLCD_PrintString (1 :s 52C ]
-"529
-[; ;menu_definitions.c: 529:     GLCD_GotoXY(0, 13);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
-"530
-[; ;menu_definitions.c: 530:     SetMaxTime(bat_param);
-[e ( _SetMaxTime (1 _bat_param ]
-"531
-[; ;menu_definitions.c: 531:     GLCD_GotoXY(0, 22);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
-"532
-[; ;menu_definitions.c: 532:     SetTemp(bat_param);
-[e ( _SetTemp (1 _bat_param ]
-"534
-[; ;menu_definitions.c: 534: }
-[e :UE 722 ]
-}
-"538
-[; ;menu_definitions.c: 538: void Options2_Menu(BattParameters *bat_param)
-[v _Options2_Menu `(v ~T0 @X0 1 ef1`*S632 ]
 "539
-[; ;menu_definitions.c: 539: {
-{
-[e :U _Options2_Menu ]
-"538
-[; ;menu_definitions.c: 538: void Options2_Menu(BattParameters *bat_param)
+[; ;menu_definitions.c: 539: void Options3_Menu(BattParameters *bat_param)
 [v _bat_param `*S632 ~T0 @X0 1 r1 ]
-"539
-[; ;menu_definitions.c: 539: {
+"540
+[; ;menu_definitions.c: 540: {
 [f ]
-"548
-[; ;menu_definitions.c: 548:     GLCD_Clear();
+"549
+[; ;menu_definitions.c: 549:     GLCD_Clear();
 [e ( _GLCD_Clear ..  ]
-"550
-[; ;menu_definitions.c: 550:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "551
-[; ;menu_definitions.c: 551:     GLCD_GotoXY(2, 2);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+[; ;menu_definitions.c: 551:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "552
-[; ;menu_definitions.c: 552:     GLCD_PrintString("BAT 1");
-[e ( _GLCD_PrintString (1 :s 53C ]
+[; ;menu_definitions.c: 552:     GLCD_GotoXY(2, 2);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
 "553
-[; ;menu_definitions.c: 553:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+[; ;menu_definitions.c: 553:     GLCD_PrintString("BAT 1");
+[e ( _GLCD_PrintString (1 :s 53C ]
+"554
+[; ;menu_definitions.c: 554:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
-"555
-[; ;menu_definitions.c: 555:     GLCD_GotoXY(35,2);
-[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
 "556
-[; ;menu_definitions.c: 556:     GLCD_PrintString("Options 2");
+[; ;menu_definitions.c: 556:     GLCD_GotoXY(35,2);
+[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
+"557
+[; ;menu_definitions.c: 557:     GLCD_PrintString("Options 3");
 [e ( _GLCD_PrintString (1 :s 54C ]
-"558
-[; ;menu_definitions.c: 558:     SetCellVotage(bat_param,0);
-[e ( _SetCellVotage (2 , _bat_param -> -> 0 `i `uc ]
 "559
-[; ;menu_definitions.c: 559:     MinimumDischargeVoltage(bat_param, 0);
-[e ( _MinimumDischargeVoltage (2 , _bat_param -> -> 0 `i `uc ]
+[; ;menu_definitions.c: 559:     SetMaxTime(bat_param, 0);
+[e ( _SetMaxTime (2 , _bat_param -> -> 0 `i `uc ]
 "560
-[; ;menu_definitions.c: 560:     TrickleVoltage(bat_param, 0);
-[e ( _TrickleVoltage (2 , _bat_param -> -> 0 `i `uc ]
-"561
-[; ;menu_definitions.c: 561:     TrickleCurrent(bat_param, 0);
-[e ( _TrickleCurrent (2 , _bat_param -> -> 0 `i `uc ]
+[; ;menu_definitions.c: 560:     SetTemp(bat_param, 0);
+[e ( _SetTemp (2 , _bat_param -> -> 0 `i `uc ]
 "562
 [; ;menu_definitions.c: 562: }
-[e :UE 723 ]
+[e :UE 728 ]
 }
-"564
-[; ;menu_definitions.c: 564: void Options1_Menu(BattParameters *bat_param)
-[v _Options1_Menu `(v ~T0 @X0 1 ef1`*S632 ]
-"565
-[; ;menu_definitions.c: 565: {
+"566
+[; ;menu_definitions.c: 566: void Options2_Menu(BattParameters *bat_param)
+[v _Options2_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+"567
+[; ;menu_definitions.c: 567: {
 {
-[e :U _Options1_Menu ]
-"564
-[; ;menu_definitions.c: 564: void Options1_Menu(BattParameters *bat_param)
+[e :U _Options2_Menu ]
+"566
+[; ;menu_definitions.c: 566: void Options2_Menu(BattParameters *bat_param)
 [v _bat_param `*S632 ~T0 @X0 1 r1 ]
-"565
-[; ;menu_definitions.c: 565: {
+"567
+[; ;menu_definitions.c: 567: {
 [f ]
-"575
-[; ;menu_definitions.c: 575:     GLCD_Clear();
+"576
+[; ;menu_definitions.c: 576:     GLCD_Clear();
 [e ( _GLCD_Clear ..  ]
-"577
-[; ;menu_definitions.c: 577:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "578
-[; ;menu_definitions.c: 578:     GLCD_GotoXY(2, 2);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+[; ;menu_definitions.c: 578:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "579
-[; ;menu_definitions.c: 579:     GLCD_PrintString("BAT 1");
-[e ( _GLCD_PrintString (1 :s 55C ]
+[; ;menu_definitions.c: 579:     GLCD_GotoXY(2, 2);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
 "580
-[; ;menu_definitions.c: 580:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+[; ;menu_definitions.c: 580:     GLCD_PrintString("BAT 1");
+[e ( _GLCD_PrintString (1 :s 55C ]
+"581
+[; ;menu_definitions.c: 581:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
 [e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
-"582
-[; ;menu_definitions.c: 582:     GLCD_GotoXY(35,2);
-[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
 "583
-[; ;menu_definitions.c: 583:     GLCD_PrintString("Options 1");
+[; ;menu_definitions.c: 583:     GLCD_GotoXY(35,2);
+[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
+"584
+[; ;menu_definitions.c: 584:     GLCD_PrintString("Options 2");
 [e ( _GLCD_PrintString (1 :s 56C ]
-"585
-[; ;menu_definitions.c: 585:     ChemistryDisplay(bat_param,0);
-[e ( _ChemistryDisplay (2 , _bat_param -> -> 0 `i `uc ]
 "586
-[; ;menu_definitions.c: 586:     CellCount(bat_param, 0);
-[e ( _CellCount (2 , _bat_param -> -> 0 `i `uc ]
+[; ;menu_definitions.c: 586:     SetCellVotage(bat_param,0);
+[e ( _SetCellVotage (2 , _bat_param -> -> 0 `i `uc ]
 "587
-[; ;menu_definitions.c: 587:     ChargerMode(bat_param, 0);
-[e ( _ChargerMode (2 , _bat_param -> -> 0 `i `uc ]
+[; ;menu_definitions.c: 587:     MinimumDischargeVoltage(bat_param, 0);
+[e ( _MinimumDischargeVoltage (2 , _bat_param -> -> 0 `i `uc ]
 "588
-[; ;menu_definitions.c: 588:     CycleSet(bat_param, 0);
-[e ( _CycleSet (2 , _bat_param -> -> 0 `i `uc ]
+[; ;menu_definitions.c: 588:     TrickleVoltage(bat_param, 0);
+[e ( _TrickleVoltage (2 , _bat_param -> -> 0 `i `uc ]
 "589
-[; ;menu_definitions.c: 589: }
-[e :UE 724 ]
+[; ;menu_definitions.c: 589:     TrickleCurrent(bat_param, 0);
+[e ( _TrickleCurrent (2 , _bat_param -> -> 0 `i `uc ]
+"590
+[; ;menu_definitions.c: 590: }
+[e :UE 729 ]
 }
 "592
-[; ;menu_definitions.c: 592: void Test_function (void)
-[v _Test_function `(v ~T0 @X0 1 ef ]
+[; ;menu_definitions.c: 592: void Options1_Menu(BattParameters *bat_param)
+[v _Options1_Menu `(v ~T0 @X0 1 ef1`*S632 ]
 "593
 [; ;menu_definitions.c: 593: {
 {
+[e :U _Options1_Menu ]
+"592
+[; ;menu_definitions.c: 592: void Options1_Menu(BattParameters *bat_param)
+[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+"593
+[; ;menu_definitions.c: 593: {
+[f ]
+"603
+[; ;menu_definitions.c: 603:     GLCD_Clear();
+[e ( _GLCD_Clear ..  ]
+"605
+[; ;menu_definitions.c: 605:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"606
+[; ;menu_definitions.c: 606:     GLCD_GotoXY(2, 2);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"607
+[; ;menu_definitions.c: 607:     GLCD_PrintString("BAT 1");
+[e ( _GLCD_PrintString (1 :s 57C ]
+"608
+[; ;menu_definitions.c: 608:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
+"610
+[; ;menu_definitions.c: 610:     GLCD_GotoXY(35,2);
+[e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
+"611
+[; ;menu_definitions.c: 611:     GLCD_PrintString("Options 1");
+[e ( _GLCD_PrintString (1 :s 58C ]
+"613
+[; ;menu_definitions.c: 613:     ChemistryDisplay(bat_param,0);
+[e ( _ChemistryDisplay (2 , _bat_param -> -> 0 `i `uc ]
+"614
+[; ;menu_definitions.c: 614:     CellCount(bat_param, 0);
+[e ( _CellCount (2 , _bat_param -> -> 0 `i `uc ]
+"615
+[; ;menu_definitions.c: 615:     ChargerMode(bat_param, 0);
+[e ( _ChargerMode (2 , _bat_param -> -> 0 `i `uc ]
+"616
+[; ;menu_definitions.c: 616:     CycleSet(bat_param, 0);
+[e ( _CycleSet (2 , _bat_param -> -> 0 `i `uc ]
+"617
+[; ;menu_definitions.c: 617: }
+[e :UE 730 ]
+}
+"620
+[; ;menu_definitions.c: 620: void Test_function (void)
+[v _Test_function `(v ~T0 @X0 1 ef ]
+"621
+[; ;menu_definitions.c: 621: {
+{
 [e :U _Test_function ]
 [f ]
-"594
-[; ;menu_definitions.c: 594:          GLCD_Clear();
+"622
+[; ;menu_definitions.c: 622:          GLCD_Clear();
 [e ( _GLCD_Clear ..  ]
-"596
-[; ;menu_definitions.c: 596:      for(uint8_t i=1; i<=8; i++)
+"624
+[; ;menu_definitions.c: 624:      for(uint8_t i=1; i<=8; i++)
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 8 `i 726  ]
-[e $U 727  ]
-[e :U 726 ]
-"597
-[; ;menu_definitions.c: 597:      {
+[e $ <= -> _i `i -> 8 `i 732  ]
+[e $U 733  ]
+[e :U 732 ]
+"625
+[; ;menu_definitions.c: 625:      {
 {
-"598
-[; ;menu_definitions.c: 598:          GLCD_DrawLine(0, 8*i, 127,8*i, GLCD_Black);
+"626
+[; ;menu_definitions.c: 626:          GLCD_DrawLine(0, 8*i, 127,8*i, GLCD_Black);
 [e ( _GLCD_DrawLine (4 , , , , -> -> 0 `i `uc -> * -> 8 `i -> _i `i `uc -> -> 127 `i `uc -> * -> 8 `i -> _i `i `uc . `E5705 1 ]
-"599
-[; ;menu_definitions.c: 599:      }
+"627
+[; ;menu_definitions.c: 627:      }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 8 `i 726  ]
-[e :U 727 ]
+[e $ <= -> _i `i -> 8 `i 732  ]
+[e :U 733 ]
 }
-"602
-[; ;menu_definitions.c: 602:     GLCD_FillRectangle(0, 0, 50, 63, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 50 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"603
-[; ;menu_definitions.c: 603:     GLCD_GotoXY(0, 0);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"604
-[; ;menu_definitions.c: 604:     GLCD_SetFont(Tahoma11x13, 11, 13, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Tahoma11x13 -> -> 11 `i `uc -> -> 13 `i `uc . `E5702 1 . `E5699 0 ]
-"605
-[; ;menu_definitions.c: 605:     GLCD_PrintString("P");
-[e ( _GLCD_PrintString (1 :s 57C ]
-"606
-[; ;menu_definitions.c: 606:     GLCD_GotoXY(12, 4);
-[e ( _GLCD_GotoXY (2 , -> -> 12 `i `uc -> -> 4 `i `uc ]
-"607
-[; ;menu_definitions.c: 607:     GLCD_PrintString("P");
-[e ( _GLCD_PrintString (1 :s 58C ]
-"608
-[; ;menu_definitions.c: 608:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"609
-[; ;menu_definitions.c: 609:     GLCD_GotoXY(23, 4);
-[e ( _GLCD_GotoXY (2 , -> -> 23 `i `uc -> -> 4 `i `uc ]
-"610
-[; ;menu_definitions.c: 610:     GLCD_PrintString("U");
-[e ( _GLCD_PrintString (1 :s 59C ]
-"611
-[; ;menu_definitions.c: 611:     GLCD_GotoXY(32, 0);
-[e ( _GLCD_GotoXY (2 , -> -> 32 `i `uc -> -> 0 `i `uc ]
-"612
-[; ;menu_definitions.c: 612:     GLCD_PrintString("K");
-[e ( _GLCD_PrintString (1 :s 60C ]
-"613
-[; ;menu_definitions.c: 613:     GLCD_SetFont(Tahoma11x13, 11, 13, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Tahoma11x13 -> -> 11 `i `uc -> -> 13 `i `uc . `E5702 1 . `E5699 1 ]
-"614
-[; ;menu_definitions.c: 614:     GLCD_GotoXY(105, 0);
-[e ( _GLCD_GotoXY (2 , -> -> 105 `i `uc -> -> 0 `i `uc ]
-"615
-[; ;menu_definitions.c: 615:     GLCD_PrintString("P");
-[e ( _GLCD_PrintString (1 :s 61C ]
-"618
-[; ;menu_definitions.c: 618:     GLCD_GotoXY(65, 33);
-[e ( _GLCD_GotoXY (2 , -> -> 65 `i `uc -> -> 33 `i `uc ]
-"619
-[; ;menu_definitions.c: 619:     GLCD_SetFont(Tahoma11x13, 11, 13, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Tahoma11x13 -> -> 11 `i `uc -> -> 13 `i `uc . `E5702 1 . `E5699 1 ]
-"620
-[; ;menu_definitions.c: 620:     GLCD_PrintString("TEST");
-[e ( _GLCD_PrintString (1 :s 62C ]
-"621
-[; ;menu_definitions.c: 621:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"622
-[; ;menu_definitions.c: 622:     GLCD_GotoXY(65, 55);
-[e ( _GLCD_GotoXY (2 , -> -> 65 `i `uc -> -> 55 `i `uc ]
-"626
-[; ;menu_definitions.c: 626:     GLCD_GotoXY(0, 25);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 25 `i `uc ]
-"627
-[; ;menu_definitions.c: 627:     GLCD_SetFont(Tekton_Pro_Ext27x28, 27, 28, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Tekton_Pro_Ext27x28 -> -> 27 `i `uc -> -> 28 `i `uc . `E5702 1 . `E5699 0 ]
-"628
-[; ;menu_definitions.c: 628:     GLCD_PrintString("N");
-[e ( _GLCD_PrintString (1 :s 63C ]
-"629
-[; ;menu_definitions.c: 629:     GLCD_GotoXY(28, 29);
-[e ( _GLCD_GotoXY (2 , -> -> 28 `i `uc -> -> 29 `i `uc ]
 "630
-[; ;menu_definitions.c: 630:     GLCD_PrintString("R");
-[e ( _GLCD_PrintString (1 :s 64C ]
+[; ;menu_definitions.c: 630:     GLCD_FillRectangle(0, 0, 50, 63, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 50 `i `uc -> -> 63 `i `uc . `E5705 1 ]
 "631
-[; ;menu_definitions.c: 631:     GLCD_SetFont(Tekton_Pro_Ext27x28, 27, 28, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Tekton_Pro_Ext27x28 -> -> 27 `i `uc -> -> 28 `i `uc . `E5702 1 . `E5699 1 ]
+[; ;menu_definitions.c: 631:     GLCD_GotoXY(0, 0);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "632
-[; ;menu_definitions.c: 632:     GLCD_GotoXY(60, 0);
-[e ( _GLCD_GotoXY (2 , -> -> 60 `i `uc -> -> 0 `i `uc ]
+[; ;menu_definitions.c: 632:     GLCD_SetFont(Tahoma11x13, 11, 13, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Tahoma11x13 -> -> 11 `i `uc -> -> 13 `i `uc . `E5702 1 . `E5699 0 ]
 "633
-[; ;menu_definitions.c: 633:     GLCD_PrintString("W]");
-[e ( _GLCD_PrintString (1 :s 65C ]
+[; ;menu_definitions.c: 633:     GLCD_PrintString("P");
+[e ( _GLCD_PrintString (1 :s 59C ]
+"634
+[; ;menu_definitions.c: 634:     GLCD_GotoXY(12, 4);
+[e ( _GLCD_GotoXY (2 , -> -> 12 `i `uc -> -> 4 `i `uc ]
 "635
-[; ;menu_definitions.c: 635:     GLCD_GotoXY(100, 4 * 8);
-[e ( _GLCD_GotoXY (2 , -> -> 100 `i `uc -> * -> 4 `i -> 8 `i `uc ]
+[; ;menu_definitions.c: 635:     GLCD_PrintString("P");
+[e ( _GLCD_PrintString (1 :s 60C ]
 "636
-[; ;menu_definitions.c: 636:     GLCD_PrintString("N");
-[e ( _GLCD_PrintString (1 :s 66C ]
+[; ;menu_definitions.c: 636:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
+"637
+[; ;menu_definitions.c: 637:     GLCD_GotoXY(23, 4);
+[e ( _GLCD_GotoXY (2 , -> -> 23 `i `uc -> -> 4 `i `uc ]
+"638
+[; ;menu_definitions.c: 638:     GLCD_PrintString("U");
+[e ( _GLCD_PrintString (1 :s 61C ]
 "639
-[; ;menu_definitions.c: 639:     GLCD_Render();
-[e ( _GLCD_Render ..  ]
+[; ;menu_definitions.c: 639:     GLCD_GotoXY(32, 0);
+[e ( _GLCD_GotoXY (2 , -> -> 32 `i `uc -> -> 0 `i `uc ]
+"640
+[; ;menu_definitions.c: 640:     GLCD_PrintString("K");
+[e ( _GLCD_PrintString (1 :s 62C ]
 "641
-[; ;menu_definitions.c: 641: }
-[e :UE 725 ]
+[; ;menu_definitions.c: 641:     GLCD_SetFont(Tahoma11x13, 11, 13, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Tahoma11x13 -> -> 11 `i `uc -> -> 13 `i `uc . `E5702 1 . `E5699 1 ]
+"642
+[; ;menu_definitions.c: 642:     GLCD_GotoXY(105, 0);
+[e ( _GLCD_GotoXY (2 , -> -> 105 `i `uc -> -> 0 `i `uc ]
+"643
+[; ;menu_definitions.c: 643:     GLCD_PrintString("P");
+[e ( _GLCD_PrintString (1 :s 63C ]
+"646
+[; ;menu_definitions.c: 646:     GLCD_GotoXY(65, 33);
+[e ( _GLCD_GotoXY (2 , -> -> 65 `i `uc -> -> 33 `i `uc ]
+"647
+[; ;menu_definitions.c: 647:     GLCD_SetFont(Tahoma11x13, 11, 13, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Tahoma11x13 -> -> 11 `i `uc -> -> 13 `i `uc . `E5702 1 . `E5699 1 ]
+"648
+[; ;menu_definitions.c: 648:     GLCD_PrintString("TEST");
+[e ( _GLCD_PrintString (1 :s 64C ]
+"649
+[; ;menu_definitions.c: 649:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
+"650
+[; ;menu_definitions.c: 650:     GLCD_GotoXY(65, 55);
+[e ( _GLCD_GotoXY (2 , -> -> 65 `i `uc -> -> 55 `i `uc ]
+"654
+[; ;menu_definitions.c: 654:     GLCD_GotoXY(0, 25);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 25 `i `uc ]
+"655
+[; ;menu_definitions.c: 655:     GLCD_SetFont(Tekton_Pro_Ext27x28, 27, 28, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Tekton_Pro_Ext27x28 -> -> 27 `i `uc -> -> 28 `i `uc . `E5702 1 . `E5699 0 ]
+"656
+[; ;menu_definitions.c: 656:     GLCD_PrintString("N");
+[e ( _GLCD_PrintString (1 :s 65C ]
+"657
+[; ;menu_definitions.c: 657:     GLCD_GotoXY(28, 29);
+[e ( _GLCD_GotoXY (2 , -> -> 28 `i `uc -> -> 29 `i `uc ]
+"658
+[; ;menu_definitions.c: 658:     GLCD_PrintString("R");
+[e ( _GLCD_PrintString (1 :s 66C ]
+"659
+[; ;menu_definitions.c: 659:     GLCD_SetFont(Tekton_Pro_Ext27x28, 27, 28, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Tekton_Pro_Ext27x28 -> -> 27 `i `uc -> -> 28 `i `uc . `E5702 1 . `E5699 1 ]
+"660
+[; ;menu_definitions.c: 660:     GLCD_GotoXY(60, 0);
+[e ( _GLCD_GotoXY (2 , -> -> 60 `i `uc -> -> 0 `i `uc ]
+"661
+[; ;menu_definitions.c: 661:     GLCD_PrintString("W]");
+[e ( _GLCD_PrintString (1 :s 67C ]
+"663
+[; ;menu_definitions.c: 663:     GLCD_GotoXY(100, 4 * 8);
+[e ( _GLCD_GotoXY (2 , -> -> 100 `i `uc -> * -> 4 `i -> 8 `i `uc ]
+"664
+[; ;menu_definitions.c: 664:     GLCD_PrintString("N");
+[e ( _GLCD_PrintString (1 :s 68C ]
+"667
+[; ;menu_definitions.c: 667:     GLCD_Render();
+[e ( _GLCD_Render ..  ]
+"669
+[; ;menu_definitions.c: 669: }
+[e :UE 731 ]
 }
-"644
-[; ;menu_definitions.c: 644: void TwoBatMenu(void)
+"672
+[; ;menu_definitions.c: 672: void TwoBatMenu(void)
 [v _TwoBatMenu `(v ~T0 @X0 1 ef ]
-"645
-[; ;menu_definitions.c: 645: {
+"673
+[; ;menu_definitions.c: 673: {
 {
 [e :U _TwoBatMenu ]
 [f ]
-[v F6031 `Cuc ~T0 @X0 -> 10 `i s ]
-[i F6031
+[v F6039 `Cuc ~T0 @X0 -> 10 `i s ]
+[i F6039
 :U ..
-"646
-[; ;menu_definitions.c: 646:     const char voltage[] = "Vol:3,35V";
+"674
+[; ;menu_definitions.c: 674:     const char voltage[] = "Vol:3,35V";
 -> 86 `c
 -> 111 `c
 -> 108 `c
@@ -15755,12 +15839,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _voltage `Cuc ~T0 @X0 -> 10 `i a ]
-[e = _voltage F6031 ]
-[v F6033 `Cuc ~T0 @X0 -> 10 `i s ]
-[i F6033
+[e = _voltage F6039 ]
+[v F6041 `Cuc ~T0 @X0 -> 10 `i s ]
+[i F6041
 :U ..
-"647
-[; ;menu_definitions.c: 647:     const char current[] = "Cur:230mA";
+"675
+[; ;menu_definitions.c: 675:     const char current[] = "Cur:230mA";
 -> 67 `c
 -> 117 `c
 -> 114 `c
@@ -15774,12 +15858,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _current `Cuc ~T0 @X0 -> 10 `i a ]
-[e = _current F6033 ]
-[v F6035 `Cuc ~T0 @X0 -> 11 `i s ]
-[i F6035
+[e = _current F6041 ]
+[v F6043 `Cuc ~T0 @X0 -> 11 `i s ]
+[i F6043
 :U ..
-"648
-[; ;menu_definitions.c: 648:     const char capacity[] = "Cap:540mAh";
+"676
+[; ;menu_definitions.c: 676:     const char capacity[] = "Cap:540mAh";
 -> 67 `c
 -> 97 `c
 -> 112 `c
@@ -15794,12 +15878,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _capacity `Cuc ~T0 @X0 -> 11 `i a ]
-[e = _capacity F6035 ]
-[v F6037 `Cuc ~T0 @X0 -> 10 `i s ]
-[i F6037
+[e = _capacity F6043 ]
+[v F6045 `Cuc ~T0 @X0 -> 10 `i s ]
+[i F6045
 :U ..
-"649
-[; ;menu_definitions.c: 649:     const char cycle[] = "Cycle:2/4";
+"677
+[; ;menu_definitions.c: 677:     const char cycle[] = "Cycle:2/4";
 -> 67 `c
 -> 121 `c
 -> 99 `c
@@ -15813,241 +15897,241 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _cycle `Cuc ~T0 @X0 -> 10 `i a ]
-[e = _cycle F6037 ]
-"651
-[; ;menu_definitions.c: 651:      GLCD_GotoXY(2, 2);
+[e = _cycle F6045 ]
+"679
+[; ;menu_definitions.c: 679:      GLCD_GotoXY(2, 2);
 [e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"653
-[; ;menu_definitions.c: 653:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+"681
+[; ;menu_definitions.c: 681:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"655
-[; ;menu_definitions.c: 655:     GLCD_PrintString("BAT 1");
-[e ( _GLCD_PrintString (1 :s 67C ]
-"656
-[; ;menu_definitions.c: 656:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
-"658
-[; ;menu_definitions.c: 658:     GLCD_DrawLine(63, 0, 63, 63, GLCD_Black);
-[e ( _GLCD_DrawLine (4 , , , , -> -> 63 `i `uc -> -> 0 `i `uc -> -> 63 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"659
-[; ;menu_definitions.c: 659:     GLCD_GotoXY(67, 2);
-[e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 2 `i `uc ]
-"660
-[; ;menu_definitions.c: 660:     GLCD_PrintString("BAT 2");
-[e ( _GLCD_PrintString (1 :s 68C ]
-"661
-[; ;menu_definitions.c: 661:     GLCD_DrawRectangle(65, 0, 98, 10, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 65 `i `uc -> -> 0 `i `uc -> -> 98 `i `uc -> -> 10 `i `uc . `E5705 1 ]
-"663
-[; ;menu_definitions.c: 663:     GLCD_GotoXY(0, 13);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
-"664
-[; ;menu_definitions.c: 664:     GLCD_PrintString(voltage);
-[e ( _GLCD_PrintString (1 &U _voltage ]
-"665
-[; ;menu_definitions.c: 665:     GLCD_GotoXY(0, 22);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
-"666
-[; ;menu_definitions.c: 666:     GLCD_PrintString(current);
-[e ( _GLCD_PrintString (1 &U _current ]
-"667
-[; ;menu_definitions.c: 667:     GLCD_GotoXY(0, 31);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 31 `i `uc ]
-"668
-[; ;menu_definitions.c: 668:     GLCD_PrintString(capacity);
-[e ( _GLCD_PrintString (1 &U _capacity ]
-"669
-[; ;menu_definitions.c: 669:     GLCD_GotoXY(0, 40);
-[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
-"670
-[; ;menu_definitions.c: 670:     GLCD_PrintString(cycle);
-[e ( _GLCD_PrintString (1 &U _cycle ]
-"674
-[; ;menu_definitions.c: 674:     GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
-[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"675
-[; ;menu_definitions.c: 675:     GLCD_GotoXY(2, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
-"676
-[; ;menu_definitions.c: 676:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
-"677
-[; ;menu_definitions.c: 677:     GLCD_PrintString("START");
-[e ( _GLCD_PrintString (1 :s 69C ]
-"678
-[; ;menu_definitions.c: 678:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
-"682
-[; ;menu_definitions.c: 682:     GLCD_GotoXY(37, 54);
-[e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
 "683
-[; ;menu_definitions.c: 683:     GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 70C ]
+[; ;menu_definitions.c: 683:     GLCD_PrintString("BAT 1");
+[e ( _GLCD_PrintString (1 :s 69C ]
 "684
-[; ;menu_definitions.c: 684:     GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+[; ;menu_definitions.c: 684:     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 31 `i `uc -> -> 10 `i `uc . `E5705 1 ]
+"686
+[; ;menu_definitions.c: 686:     GLCD_DrawLine(63, 0, 63, 63, GLCD_Black);
+[e ( _GLCD_DrawLine (4 , , , , -> -> 63 `i `uc -> -> 0 `i `uc -> -> 63 `i `uc -> -> 63 `i `uc . `E5705 1 ]
 "687
-[; ;menu_definitions.c: 687:     GLCD_GotoXY(66, 13);
-[e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 13 `i `uc ]
+[; ;menu_definitions.c: 687:     GLCD_GotoXY(67, 2);
+[e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 2 `i `uc ]
 "688
-[; ;menu_definitions.c: 688:     GLCD_PrintString(voltage);
-[e ( _GLCD_PrintString (1 &U _voltage ]
+[; ;menu_definitions.c: 688:     GLCD_PrintString("BAT 2");
+[e ( _GLCD_PrintString (1 :s 70C ]
 "689
-[; ;menu_definitions.c: 689:     GLCD_GotoXY(66, 22);
-[e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 22 `i `uc ]
-"690
-[; ;menu_definitions.c: 690:     GLCD_PrintString(current);
-[e ( _GLCD_PrintString (1 &U _current ]
+[; ;menu_definitions.c: 689:     GLCD_DrawRectangle(65, 0, 98, 10, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 65 `i `uc -> -> 0 `i `uc -> -> 98 `i `uc -> -> 10 `i `uc . `E5705 1 ]
 "691
-[; ;menu_definitions.c: 691:     GLCD_GotoXY(66, 31);
-[e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 31 `i `uc ]
+[; ;menu_definitions.c: 691:     GLCD_GotoXY(0, 13);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 13 `i `uc ]
 "692
-[; ;menu_definitions.c: 692:     GLCD_PrintString(capacity);
-[e ( _GLCD_PrintString (1 &U _capacity ]
+[; ;menu_definitions.c: 692:     GLCD_PrintString(voltage);
+[e ( _GLCD_PrintString (1 &U _voltage ]
 "693
-[; ;menu_definitions.c: 693:     GLCD_GotoXY(66, 40);
-[e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 40 `i `uc ]
+[; ;menu_definitions.c: 693:     GLCD_GotoXY(0, 22);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 22 `i `uc ]
 "694
-[; ;menu_definitions.c: 694:     GLCD_PrintString(cycle);
-[e ( _GLCD_PrintString (1 &U _cycle ]
+[; ;menu_definitions.c: 694:     GLCD_PrintString(current);
+[e ( _GLCD_PrintString (1 &U _current ]
 "695
-[; ;menu_definitions.c: 695:     GLCD_GotoXY(2 + 66, 54);
-[e ( _GLCD_GotoXY (2 , -> + -> 2 `i -> 66 `i `uc -> -> 54 `i `uc ]
+[; ;menu_definitions.c: 695:     GLCD_GotoXY(0, 31);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 31 `i `uc ]
 "696
-[; ;menu_definitions.c: 696:     GLCD_PrintString("START");
-[e ( _GLCD_PrintString (1 :s 71C ]
+[; ;menu_definitions.c: 696:     GLCD_PrintString(capacity);
+[e ( _GLCD_PrintString (1 &U _capacity ]
+"697
+[; ;menu_definitions.c: 697:     GLCD_GotoXY(0, 40);
+[e ( _GLCD_GotoXY (2 , -> -> 0 `i `uc -> -> 40 `i `uc ]
 "698
-[; ;menu_definitions.c: 698:     GLCD_DrawRectangle(66, 51, 32 + 66, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> -> 66 `i `uc -> -> 51 `i `uc -> + -> 32 `i -> 66 `i `uc -> -> 63 `i `uc . `E5705 1 ]
-"699
-[; ;menu_definitions.c: 699:     GLCD_GotoXY(37 + 66, 54);
-[e ( _GLCD_GotoXY (2 , -> + -> 37 `i -> 66 `i `uc -> -> 54 `i `uc ]
-"700
-[; ;menu_definitions.c: 700:     GLCD_PrintString("MENU");
-[e ( _GLCD_PrintString (1 :s 72C ]
-"701
-[; ;menu_definitions.c: 701:     GLCD_DrawRectangle(35 + 66, 51, 61 + 66, 63, GLCD_Black);
-[e ( _GLCD_DrawRectangle (4 , , , , -> + -> 35 `i -> 66 `i `uc -> -> 51 `i `uc -> + -> 61 `i -> 66 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+[; ;menu_definitions.c: 698:     GLCD_PrintString(cycle);
+[e ( _GLCD_PrintString (1 &U _cycle ]
+"702
+[; ;menu_definitions.c: 702:     GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
+[e ( _GLCD_FillRectangle (4 , , , , -> -> 0 `i `uc -> -> 51 `i `uc -> -> 32 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"703
+[; ;menu_definitions.c: 703:     GLCD_GotoXY(2, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 54 `i `uc ]
 "704
-[; ;menu_definitions.c: 704:     batState(state_idle, battery_1);
-[e ( _batState (2 , -> . `E5893 2 `uc -> . `E5897 0 `uc ]
+[; ;menu_definitions.c: 704:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 0 ]
 "705
-[; ;menu_definitions.c: 705:     batState(state_idle, battery_2);
-[e ( _batState (2 , -> . `E5893 2 `uc -> . `E5897 1 `uc ]
+[; ;menu_definitions.c: 705:     GLCD_PrintString("START");
+[e ( _GLCD_PrintString (1 :s 71C ]
 "706
-[; ;menu_definitions.c: 706: }
-[e :UE 729 ]
-}
-"709
-[; ;menu_definitions.c: 709: void InitBattParameters (BattParameters *bat_param)
-[v _InitBattParameters `(v ~T0 @X0 1 ef1`*S632 ]
+[; ;menu_definitions.c: 706:     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+[e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "710
-[; ;menu_definitions.c: 710: {
+[; ;menu_definitions.c: 710:     GLCD_GotoXY(37, 54);
+[e ( _GLCD_GotoXY (2 , -> -> 37 `i `uc -> -> 54 `i `uc ]
+"711
+[; ;menu_definitions.c: 711:     GLCD_PrintString("MENU");
+[e ( _GLCD_PrintString (1 :s 72C ]
+"712
+[; ;menu_definitions.c: 712:     GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 35 `i `uc -> -> 51 `i `uc -> -> 61 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"715
+[; ;menu_definitions.c: 715:     GLCD_GotoXY(66, 13);
+[e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 13 `i `uc ]
+"716
+[; ;menu_definitions.c: 716:     GLCD_PrintString(voltage);
+[e ( _GLCD_PrintString (1 &U _voltage ]
+"717
+[; ;menu_definitions.c: 717:     GLCD_GotoXY(66, 22);
+[e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 22 `i `uc ]
+"718
+[; ;menu_definitions.c: 718:     GLCD_PrintString(current);
+[e ( _GLCD_PrintString (1 &U _current ]
+"719
+[; ;menu_definitions.c: 719:     GLCD_GotoXY(66, 31);
+[e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 31 `i `uc ]
+"720
+[; ;menu_definitions.c: 720:     GLCD_PrintString(capacity);
+[e ( _GLCD_PrintString (1 &U _capacity ]
+"721
+[; ;menu_definitions.c: 721:     GLCD_GotoXY(66, 40);
+[e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 40 `i `uc ]
+"722
+[; ;menu_definitions.c: 722:     GLCD_PrintString(cycle);
+[e ( _GLCD_PrintString (1 &U _cycle ]
+"723
+[; ;menu_definitions.c: 723:     GLCD_GotoXY(2 + 66, 54);
+[e ( _GLCD_GotoXY (2 , -> + -> 2 `i -> 66 `i `uc -> -> 54 `i `uc ]
+"724
+[; ;menu_definitions.c: 724:     GLCD_PrintString("START");
+[e ( _GLCD_PrintString (1 :s 73C ]
+"726
+[; ;menu_definitions.c: 726:     GLCD_DrawRectangle(66, 51, 32 + 66, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> -> 66 `i `uc -> -> 51 `i `uc -> + -> 32 `i -> 66 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"727
+[; ;menu_definitions.c: 727:     GLCD_GotoXY(37 + 66, 54);
+[e ( _GLCD_GotoXY (2 , -> + -> 37 `i -> 66 `i `uc -> -> 54 `i `uc ]
+"728
+[; ;menu_definitions.c: 728:     GLCD_PrintString("MENU");
+[e ( _GLCD_PrintString (1 :s 74C ]
+"729
+[; ;menu_definitions.c: 729:     GLCD_DrawRectangle(35 + 66, 51, 61 + 66, 63, GLCD_Black);
+[e ( _GLCD_DrawRectangle (4 , , , , -> + -> 35 `i -> 66 `i `uc -> -> 51 `i `uc -> + -> 61 `i -> 66 `i `uc -> -> 63 `i `uc . `E5705 1 ]
+"732
+[; ;menu_definitions.c: 732:     batState(state_idle, battery_1);
+[e ( _batState (2 , -> . `E5893 2 `uc -> . `E5897 0 `uc ]
+"733
+[; ;menu_definitions.c: 733:     batState(state_idle, battery_2);
+[e ( _batState (2 , -> . `E5893 2 `uc -> . `E5897 1 `uc ]
+"734
+[; ;menu_definitions.c: 734: }
+[e :UE 735 ]
+}
+"737
+[; ;menu_definitions.c: 737: void InitBattParameters (BattParameters *bat_param)
+[v _InitBattParameters `(v ~T0 @X0 1 ef1`*S632 ]
+"738
+[; ;menu_definitions.c: 738: {
 {
 [e :U _InitBattParameters ]
-"709
-[; ;menu_definitions.c: 709: void InitBattParameters (BattParameters *bat_param)
+"737
+[; ;menu_definitions.c: 737: void InitBattParameters (BattParameters *bat_param)
 [v _bat_param `*S632 ~T0 @X0 1 r1 ]
-"710
-[; ;menu_definitions.c: 710: {
+"738
+[; ;menu_definitions.c: 738: {
 [f ]
-"711
-[; ;menu_definitions.c: 711:         bat_param->set_cycle = 1;
+"739
+[; ;menu_definitions.c: 739:         bat_param->set_cycle = 1;
 [e = . *U _bat_param 0 -> -> 1 `i `uc ]
-"712
-[; ;menu_definitions.c: 712:         bat_param->current_cycle = 1;
+"740
+[; ;menu_definitions.c: 740:         bat_param->current_cycle = 1;
 [e = . *U _bat_param 1 -> -> 1 `i `uc ]
-"713
-[; ;menu_definitions.c: 713:         bat_param->bat_actual_temp = 20;
+"741
+[; ;menu_definitions.c: 741:         bat_param->bat_actual_temp = 20;
 [e = . *U _bat_param 2 -> -> 20 `i `uc ]
-"714
-[; ;menu_definitions.c: 714:         bat_param->bat_max_temp = 35;
+"742
+[; ;menu_definitions.c: 742:         bat_param->bat_max_temp = 35;
 [e = . *U _bat_param 3 -> -> 35 `i `uc ]
-"715
-[; ;menu_definitions.c: 715:         bat_param->bat_chem = liion;
+"743
+[; ;menu_definitions.c: 743:         bat_param->bat_chem = liion;
 [e = . *U _bat_param 4 -> . `E5903 0 `uc ]
-"716
-[; ;menu_definitions.c: 716:         bat_param->bat_storage_precentage = 70;
+"744
+[; ;menu_definitions.c: 744:         bat_param->bat_storage_precentage = 70;
 [e = . *U _bat_param 5 -> -> 70 `i `uc ]
-"717
-[; ;menu_definitions.c: 717:         bat_param->selected_mode = charging_discharging;
+"745
+[; ;menu_definitions.c: 745:         bat_param->selected_mode = charging_discharging;
 [e = . *U _bat_param 6 -> . `E5907 1 `uc ]
-"718
-[; ;menu_definitions.c: 718:         bat_param->cell_count = 1;
+"746
+[; ;menu_definitions.c: 746:         bat_param->cell_count = 1;
 [e = . *U _bat_param 7 -> -> 1 `i `uc ]
-"720
-[; ;menu_definitions.c: 720:         bat_param->charge_current_1=1234;
+"748
+[; ;menu_definitions.c: 748:         bat_param->charge_current_1=1234;
 [e = . *U _bat_param 22 -> -> 1234 `i `us ]
-"721
-[; ;menu_definitions.c: 721:         bat_param->charge_current_1=2234;
+"749
+[; ;menu_definitions.c: 749:         bat_param->charge_current_1=2234;
 [e = . *U _bat_param 22 -> -> 2234 `i `us ]
-"722
-[; ;menu_definitions.c: 722:         bat_param->charge_current_1=3234;
+"750
+[; ;menu_definitions.c: 750:         bat_param->charge_current_1=3234;
 [e = . *U _bat_param 22 -> -> 3234 `i `us ]
-"723
-[; ;menu_definitions.c: 723:         bat_param->charge_current_1=4234;
+"751
+[; ;menu_definitions.c: 751:         bat_param->charge_current_1=4234;
 [e = . *U _bat_param 22 -> -> 4234 `i `us ]
-"724
-[; ;menu_definitions.c: 724:         bat_param->batt_set_voltage = 420;
+"752
+[; ;menu_definitions.c: 752:         bat_param->batt_set_voltage = 420;
 [e = . *U _bat_param 14 -> -> 420 `i `us ]
-"725
-[; ;menu_definitions.c: 725:         bat_param->batt_set_current = 1000;
+"753
+[; ;menu_definitions.c: 753:         bat_param->batt_set_current = 1000;
 [e = . *U _bat_param 15 -> -> 1000 `i `us ]
-"726
-[; ;menu_definitions.c: 726:         bat_param->batt_actual_voltage = 370;
+"754
+[; ;menu_definitions.c: 754:         bat_param->batt_actual_voltage = 370;
 [e = . *U _bat_param 16 -> -> 370 `i `us ]
-"727
-[; ;menu_definitions.c: 727:         bat_param->batt_actual_current = 430;
+"755
+[; ;menu_definitions.c: 755:         bat_param->batt_actual_current = 430;
 [e = . *U _bat_param 17 -> -> 430 `i `us ]
-"728
-[; ;menu_definitions.c: 728:         bat_param->batt_set_trickle_voltage = 270;
+"756
+[; ;menu_definitions.c: 756:         bat_param->batt_set_trickle_voltage = 270;
 [e = . *U _bat_param 18 -> -> 270 `i `us ]
-"729
-[; ;menu_definitions.c: 729:         bat_param->bat_set_trickle_current = 30;
+"757
+[; ;menu_definitions.c: 757:         bat_param->bat_set_trickle_current = 30;
 [e = . *U _bat_param 19 -> -> 30 `i `us ]
-"730
-[; ;menu_definitions.c: 730:         bat_param->batt_set_min_discharge_voltage = 270;
+"758
+[; ;menu_definitions.c: 758:         bat_param->batt_set_min_discharge_voltage = 270;
 [e = . *U _bat_param 20 -> -> 270 `i `us ]
-"731
-[; ;menu_definitions.c: 731:         bat_param->batt_capacitance = 1000;
+"759
+[; ;menu_definitions.c: 759:         bat_param->batt_capacitance = 1000;
 [e = . *U _bat_param 21 -> -> 1000 `i `us ]
-"732
-[; ;menu_definitions.c: 732: }
-[e :UE 730 ]
+"760
+[; ;menu_definitions.c: 760: }
+[e :UE 736 ]
 }
 [p f _sprintf 9470980 ]
 [a 31C 67 121 99 108 101 58 37 117 47 37 117 0 ]
 [a 29C 37 117 0 ]
 [a 33C 37 117 0 ]
+[a 39C 37 117 0 ]
 [a 34C 37 48 50 117 104 37 48 50 117 109 37 48 50 117 115 0 ]
 [a 11C 67 104 97 114 103 47 68 105 115 99 104 47 83 116 111 114 0 ]
 [a 5C 76 105 45 73 111 110 0 ]
-[a 35C 77 97 120 32 84 105 109 101 58 32 37 48 50 117 104 37 48 50 117 109 0 ]
+[a 36C 37 48 50 117 104 37 48 50 117 109 0 ]
 [a 10C 67 104 97 114 103 47 68 105 115 99 104 0 ]
 [a 30C 67 97 112 58 37 48 52 117 109 65 104 0 ]
 [a 9C 67 104 97 114 103 105 110 103 0 ]
-[a 65C 87 93 0 ]
+[a 67C 87 93 0 ]
 [a 26C 86 111 108 58 37 117 46 37 48 50 117 47 37 117 46 37 48 50 117 86 0 ]
-[a 39C 37 117 46 37 48 50 117 86 0 ]
-[a 43C 37 117 46 37 48 50 117 86 0 ]
+[a 41C 37 117 46 37 48 50 117 86 0 ]
 [a 45C 37 117 46 37 48 50 117 86 0 ]
-[a 70C 77 69 78 85 0 ]
+[a 47C 37 117 46 37 48 50 117 86 0 ]
 [a 72C 77 69 78 85 0 ]
-[a 59C 85 0 ]
-[a 62C 84 69 83 84 0 ]
-[a 69C 83 84 65 82 84 0 ]
+[a 74C 77 69 78 85 0 ]
+[a 61C 85 0 ]
+[a 64C 84 69 83 84 0 ]
 [a 71C 83 84 65 82 84 0 ]
-[a 64C 82 0 ]
-[a 57C 80 0 ]
-[a 58C 80 0 ]
-[a 61C 80 0 ]
-[a 63C 78 0 ]
-[a 66C 78 0 ]
-[a 60C 75 0 ]
+[a 73C 83 84 65 82 84 0 ]
+[a 66C 82 0 ]
+[a 59C 80 0 ]
+[a 60C 80 0 ]
+[a 63C 80 0 ]
+[a 65C 78 0 ]
+[a 68C 78 0 ]
+[a 62C 75 0 ]
 [a 7C 78 105 45 77 72 0 ]
 [a 1C 67 72 82 71 0 ]
 [a 3C 73 68 76 69 0 ]
-[a 36C 84 101 109 112 58 37 48 50 117 67 0 ]
 [a 37C 84 101 109 112 58 37 48 50 117 67 0 ]
 [a 2C 68 73 83 67 0 ]
 [a 6C 80 66 0 ]
@@ -16060,28 +16144,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 12C 67 104 114 103 67 117 114 32 49 58 37 117 109 65 0 ]
 [a 13C 68 105 115 99 67 117 114 32 49 58 37 117 109 65 0 ]
 [a 27C 67 117 114 58 37 117 47 37 117 109 65 0 ]
-[a 41C 37 117 109 65 0 ]
+[a 43C 37 117 109 65 0 ]
 [a 28C 67 101 108 108 32 67 111 117 110 116 58 0 ]
-[a 40C 84 114 105 99 107 108 101 67 117 114 58 0 ]
-[a 38C 84 114 105 99 107 108 101 86 111 108 58 0 ]
-[a 44C 77 105 110 68 105 115 99 86 111 108 58 0 ]
+[a 42C 84 114 105 99 107 108 101 67 117 114 58 0 ]
+[a 38C 84 101 109 112 58 0 ]
+[a 40C 84 114 105 99 107 108 101 86 111 108 58 0 ]
+[a 46C 77 105 110 68 105 115 99 86 111 108 58 0 ]
 [a 4C 66 97 116 116 32 116 121 112 101 58 0 ]
+[a 35C 77 97 120 32 84 105 109 101 58 0 ]
 [a 32C 67 121 99 108 101 58 0 ]
 [a 8C 77 111 100 101 58 0 ]
-[a 42C 67 101 108 108 32 86 111 108 116 97 58 0 ]
-[a 48C 79 112 116 105 111 110 115 32 53 0 ]
-[a 50C 79 112 116 105 111 110 115 32 52 0 ]
-[a 52C 79 112 116 105 111 110 115 32 51 0 ]
-[a 54C 79 112 116 105 111 110 115 32 50 0 ]
-[a 68C 66 65 84 32 50 0 ]
-[a 56C 79 112 116 105 111 110 115 32 49 0 ]
-[a 46C 66 65 84 32 49 0 ]
-[a 47C 66 65 84 32 49 0 ]
+[a 44C 67 101 108 108 32 86 111 108 116 97 58 0 ]
+[a 50C 79 112 116 105 111 110 115 32 53 0 ]
+[a 52C 79 112 116 105 111 110 115 32 52 0 ]
+[a 54C 79 112 116 105 111 110 115 32 51 0 ]
+[a 56C 79 112 116 105 111 110 115 32 50 0 ]
+[a 70C 66 65 84 32 50 0 ]
+[a 58C 79 112 116 105 111 110 115 32 49 0 ]
+[a 48C 66 65 84 32 49 0 ]
 [a 49C 66 65 84 32 49 0 ]
 [a 51C 66 65 84 32 49 0 ]
 [a 53C 66 65 84 32 49 0 ]
 [a 55C 66 65 84 32 49 0 ]
-[a 67C 66 65 84 32 49 0 ]
+[a 57C 66 65 84 32 49 0 ]
+[a 69C 66 65 84 32 49 0 ]
 [a 19C 67 104 114 103 67 117 114 32 52 58 37 117 37 37 0 ]
 [a 25C 68 105 115 99 67 117 114 32 52 58 37 117 37 37 0 ]
 [a 17C 67 104 114 103 67 117 114 32 51 58 37 117 37 37 0 ]

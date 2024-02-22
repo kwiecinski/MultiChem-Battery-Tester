@@ -95,4 +95,7 @@ void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode);
 void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
 void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode);
 void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetMaxTime (BattParameters *batparam_ptr, uint8_t set_mode);
+void SetTemp(BattParameters *batparam_ptr, uint8_t set_mode);
+
 #endif	/* MENU_H */

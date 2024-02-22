@@ -256,8 +256,7 @@ void CycleDisplay (BattParameters *batparam_ptr)
     GLCD_PrintString(batparam_ptr->text); 
 }
 void CycleSet(BattParameters *batparam_ptr, uint8_t set_mode)
-{ 
-    
+{   
     GLCD_GotoXY(0, 40);
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
     GLCD_PrintString("Cycle:");
@@ -275,8 +274,7 @@ void CycleSet(BattParameters *batparam_ptr, uint8_t set_mode)
 
     GLCD_GotoXY(36, 40);
     sprintf(batparam_ptr->text, "%u",batparam_ptr->set_cycle);
-    GLCD_PrintString(batparam_ptr->text);
-    
+    GLCD_PrintString(batparam_ptr->text); 
 }
 /*-----------------------------------------------------------------------------*/
 void TimeDisplay (BattParameters *batparam_ptr)
@@ -285,9 +283,25 @@ void TimeDisplay (BattParameters *batparam_ptr)
     GLCD_PrintString(batparam_ptr->text); 
 }
 
-void SetMaxTime (BattParameters *batparam_ptr)
+void SetMaxTime (BattParameters *batparam_ptr, uint8_t set_mode)
 {
-    sprintf(batparam_ptr->text, "Max Time: %02uh%02um", (unsigned int)(batparam_ptr->set_time/3600),(unsigned int)((batparam_ptr->set_time%3600)/60));
+      GLCD_GotoXY(0, 13);
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_PrintString("Max Time:");
+
+    if(set_mode == set_mode_edit)
+    {
+        GLCD_FillRectangle(54, 12, 90, 20, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+
+    }else if(set_mode == set_mode_display)
+    {    
+        GLCD_FillRectangle(54, 12, 90, 20, GLCD_White);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    }
+
+    GLCD_GotoXY(54, 13);
+    sprintf(batparam_ptr->text, "%02uh%02um", (unsigned int)(batparam_ptr->set_time/3600),(unsigned int)((batparam_ptr->set_time%3600)/60));
     GLCD_PrintString(batparam_ptr->text); 
 }
 /*-----------------------------------------------------------------------------*/
@@ -297,10 +311,26 @@ void TempDisplay (BattParameters *batparam_ptr)
     GLCD_PrintString(batparam_ptr->text); 
 }
 
-void SetTemp(BattParameters *batparam_ptr)
+void SetTemp(BattParameters *batparam_ptr, uint8_t set_mode)
 { 
-    sprintf(batparam_ptr->text, "Temp:%02uC", batparam_ptr->bat_max_temp);
-    GLCD_PrintString(batparam_ptr->text); 
+    GLCD_GotoXY(0, 22);
+    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    GLCD_PrintString("Temp:");
+
+    if(set_mode == set_mode_edit)
+    {
+        GLCD_FillRectangle(30, 21,54, 29, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+
+    }else if(set_mode == set_mode_display)
+    {    
+        GLCD_FillRectangle(30, 21, 54, 29, GLCD_White);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+    }
+
+    GLCD_GotoXY(30, 22);
+    sprintf(batparam_ptr->text, "%u", batparam_ptr->cell_count);
+    GLCD_PrintString(batparam_ptr->text);  
 }
 /*-----------------------------------------------------------------------------*/
 void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode)
@@ -525,11 +555,9 @@ void Options3_Menu(BattParameters *bat_param)
   
     GLCD_GotoXY(35,2); 
     GLCD_PrintString("Options 3");
-    
-    GLCD_GotoXY(0, 13);
-    SetMaxTime(bat_param);           //Max Time: 00h00m 
-    GLCD_GotoXY(0, 22);
-    SetTemp(bat_param);          //MaxTemp:50C 
+ 
+    SetMaxTime(bat_param, set_mode_display);           //Max Time: 00h00m 
+    SetTemp(bat_param, set_mode_display);          //MaxTemp:50C 
   
 }
 

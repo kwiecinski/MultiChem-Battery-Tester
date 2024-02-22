@@ -9903,6 +9903,8 @@ void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode);
 void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
 void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode);
 void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetMaxTime (BattParameters *batparam_ptr, uint8_t set_mode);
+void SetTemp(BattParameters *batparam_ptr, uint8_t set_mode);
 # 8 "menu_navigation.c" 2
 
 # 1 "./menu_navigation.h" 1
@@ -9983,7 +9985,7 @@ btn_state_t Button_EventGet(uint8_t key);
 void Button_Event_Reset(void);
 void Button_ShortRelease(buttons btnCode);
 # 10 "menu_navigation.c" 2
-# 23 "menu_navigation.c"
+# 27 "menu_navigation.c"
 enum settings1_navigation
 {
     next,
@@ -10017,7 +10019,7 @@ void Handle_Main_MenuNavigation(uint8_t option);
 void Handle_Setting1_MenuNavigation(uint8_t option);
 void Handle_Setting23_MenuNavigation(uint8_t option);
 void Handle_Setting5_MenuNavigation(uint8_t option);
-# 128 "menu_navigation.c"
+# 132 "menu_navigation.c"
 void Menu(BattParameters *bat_param)
 {
 
@@ -10142,10 +10144,46 @@ void Menu(BattParameters *bat_param)
                 TrickleVoltage(bat_param, 0);
                 Handle_Setting23_MenuNavigation(menu_selection);
             }
-        }
+        }else if(menu_type==settings3)
+        {
 
+                         if(Button_EventGet(UP_SW))
+            {
+                 param_pos--;
+            }else if(Button_EventGet(DOWN_SW))
+            {
+                 param_pos++;
+            }
+
+            if(param_pos==start_navigation)
+            {
+                 param_pos = menu_start_next;
+
+            }else if(param_pos>=end_navigation-2)
+            {
+                 param_pos = param_1;
+            }
+
+            if(param_pos == param_1)
+            {
+                SetMaxTime (bat_param, 1);
+                SetTemp(bat_param, 0);
+                Handle_Setting23_MenuNavigation(param_1);
+            }else if(param_pos == param_2)
+            {
+                SetMaxTime (bat_param, 0);
+                SetTemp(bat_param, 1);
+                Handle_Setting23_MenuNavigation(param_1);
+            }else if(param_pos == menu_start_next)
+            {
+                SetMaxTime (bat_param, 0);
+                SetTemp(bat_param, 0);
+                Handle_Setting23_MenuNavigation(menu_selection);
+            }
+        }
         GLCD_Render();
         Button_Event_Reset();
+
     }
 
 
@@ -10436,7 +10474,8 @@ void Menu(BattParameters *bat_param)
 
         }else if(menu_type==settings3)
         {
-
+            if(param_pos == menu_start_next)
+            {
                 if(Button_EventGet(LEFT_SW))
                 {
                      menu_pos--;
@@ -10456,25 +10495,71 @@ void Menu(BattParameters *bat_param)
                     menu_pos=2;
                 }
 
-            switch(menu_pos)
-            {
-                case 1: menu_change = back; break;
-                case 2: menu_change = next; break;
-                case 3: menu_change = save_exit; break;
-            }
+                switch(menu_pos)
+                {
+                    case 1: menu_change = back; break;
+                    case 2: menu_change = next; break;
+                    case 3: menu_change = save_exit; break;
+                }
 
-            if (menu_change == back)
+                if (menu_change == back)
+                {
+                    Handle_Setting23_MenuNavigation(menu_change);
+                    menu_selection=back;
+                }else if (menu_change == next)
+                {
+                    Handle_Setting23_MenuNavigation(menu_change);
+                    menu_selection=next;
+                }else if (menu_change == save_exit)
+                {
+                    Handle_Setting23_MenuNavigation(menu_change);
+                    menu_selection= save_exit;
+                }
+
+
+            }else if(param_pos == param_1)
             {
-                Handle_Setting23_MenuNavigation(menu_change);
-                menu_selection=back;
-            }else if (menu_change == next)
+
+                if(Button_EventGet(RIGHT_SW))
+                {
+                    bat_param->set_time=bat_param->set_time+5;
+                }else if(Button_EventGet(LEFT_SW))
+                {
+                    bat_param->set_time=bat_param->set_time-5;
+                }
+
+                if(bat_param->set_time<60 -30)
+                {
+                    bat_param->set_time = 60*48;
+
+                }else if(bat_param->set_time>60*48 +30)
+                {
+                    bat_param->set_time = 60;
+                }
+
+                 SetMaxTime(bat_param, 1);
+            }else if(param_pos == param_2)
             {
-                Handle_Setting23_MenuNavigation(menu_change);
-                menu_selection=next;
-            }else if (menu_change == save_exit)
-            {
-                Handle_Setting23_MenuNavigation(menu_change);
-                menu_selection= save_exit;
+
+                if(Button_EventGet(RIGHT_SW))
+                {
+                    bat_param->bat_max_temp=bat_param->bat_max_temp+5;
+                }else if(Button_EventGet(LEFT_SW))
+                {
+                    bat_param->bat_max_temp=bat_param->bat_max_temp-5;
+                }
+
+                if(bat_param->bat_max_temp<5 -1)
+                {
+                    bat_param->bat_max_temp = 45;
+
+                }else if(bat_param->bat_max_temp>45 +1)
+                {
+                    bat_param->bat_max_temp = 5;
+                }
+
+                 SetTemp(bat_param, 1);
+
             }
 
         }else if(menu_type==settings4)
