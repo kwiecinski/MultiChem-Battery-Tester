@@ -8,10 +8,6 @@
 #ifndef MENU_H
 #define	MENU_H
 
-
-#define display_in_mA 1
-#define display_in_percentage 0
-
 #define set_mode_edit 1
 #define set_mode_display 0
 
@@ -24,7 +20,8 @@ typedef struct
             bat_chem, bat_storage_precentage,  selected_mode, cell_count,
             charge_current_2_percent, discharge_current_2_percent,
             charge_current_3_percent, discharge_current_3_percent,
-            charge_current_4_percent, discharge_current_4_percent;
+            charge_current_4_percent, discharge_current_4_percent,
+            precent_current_flags;
 
 
     uint16_t batt_set_voltage, batt_set_current, 
@@ -35,10 +32,11 @@ typedef struct
             charge_current_1, discharge_current_1,
             charge_current_2, discharge_current_2,
             charge_current_3, discharge_current_3,
-            charge_current_4, discharge_current_4;
+            charge_current_4, discharge_current_4,
+            set_time;
 
 
-    uint32_t current_time, set_time;
+    uint32_t current_time;
 
     char text[25];
 
@@ -97,5 +95,12 @@ void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode);
 void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetMaxTime (BattParameters *batparam_ptr, uint8_t set_mode);
 void SetTemp(BattParameters *batparam_ptr, uint8_t set_mode);
-
+void SetChargingCurrent_1(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetChargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetChargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetChargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetDischargingCurrent_1(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
 #endif	/* MENU_H */

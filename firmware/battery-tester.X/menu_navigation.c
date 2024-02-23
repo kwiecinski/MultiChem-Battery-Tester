@@ -24,11 +24,18 @@
 #define MAX_TIME            60*48
 #define MIN_TIME            60
 
+#define MAX_CHARGE_CURRENT      3000
+#define MAX_DISCHARGE_CURRENT   3000
+#define MIN_CHARGE_CURRENT      100
+#define MIN_DISCHARGE_CURRENT   100
+
+
 enum settings1_navigation
 {
     next,
     back,
     save_exit,
+    disable_start_next_menu
 };
 
 enum settings_horizontal_navigation
@@ -39,7 +46,8 @@ enum settings_horizontal_navigation
     param_3,
     param_4,
     menu_start_next,
-    end_navigation
+    end_navigation,
+       
 };
 
 enum menu_type
@@ -132,7 +140,8 @@ void Handle_Setting5_MenuNavigation(uint8_t option);
 void Menu(BattParameters *bat_param)
 {
     
-    static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0, menu_pos=0, param_pos=menu_start_next, switch_param;
+    static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0, 
+                   menu_pos=0, param_pos=menu_start_next, switch_param;
           
     Button_Update();
     
@@ -160,7 +169,7 @@ void Menu(BattParameters *bat_param)
             
             if(param_pos == param_1)
             {
-                Handle_Setting1_MenuNavigation(param_1);
+                Handle_Setting1_MenuNavigation(disable_start_next_menu);
                 ChemistryDisplay(bat_param, set_mode_edit);
                 CellCount(bat_param, set_mode_display);
                 ChargerMode(bat_param, set_mode_display);
@@ -168,7 +177,7 @@ void Menu(BattParameters *bat_param)
                 
             }else if(param_pos == param_2)
             {
-                Handle_Setting1_MenuNavigation(param_1);
+                Handle_Setting1_MenuNavigation(disable_start_next_menu);
                 ChemistryDisplay(bat_param, set_mode_display);
                 CellCount(bat_param, set_mode_edit);
                 ChargerMode(bat_param, set_mode_display);
@@ -176,7 +185,7 @@ void Menu(BattParameters *bat_param)
                 
             }else if(param_pos == param_3)
             {
-                Handle_Setting1_MenuNavigation(param_1);
+                Handle_Setting1_MenuNavigation(disable_start_next_menu);
                 ChemistryDisplay(bat_param, set_mode_display);
                 CellCount(bat_param, set_mode_display);
                 ChargerMode(bat_param, set_mode_edit);
@@ -184,7 +193,7 @@ void Menu(BattParameters *bat_param)
                 
             }else if(param_pos == param_4)
             {
-                Handle_Setting1_MenuNavigation(param_1);
+                Handle_Setting1_MenuNavigation(disable_start_next_menu);
                 ChemistryDisplay(bat_param, set_mode_display);
                 CellCount(bat_param, set_mode_display);
                 ChargerMode(bat_param, set_mode_display);
@@ -223,28 +232,28 @@ void Menu(BattParameters *bat_param)
                 MinimumDischargeVoltage(bat_param, set_mode_display);
                 TrickleCurrent(bat_param, set_mode_display);
                 TrickleVoltage(bat_param, set_mode_display);
-                Handle_Setting23_MenuNavigation(param_1);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
             }else if(param_pos == param_2)
             {
                 SetCellVotage(bat_param, set_mode_display);
                 MinimumDischargeVoltage(bat_param, set_mode_edit);
                 TrickleCurrent(bat_param, set_mode_display);
                 TrickleVoltage(bat_param, set_mode_display);
-                Handle_Setting23_MenuNavigation(param_1);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
             }else if(param_pos == param_3)
             {
                 SetCellVotage(bat_param, set_mode_display);
                 MinimumDischargeVoltage(bat_param, set_mode_display);
                 TrickleCurrent(bat_param, set_mode_display);
                 TrickleVoltage(bat_param, set_mode_edit);
-                Handle_Setting23_MenuNavigation(param_1);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
             }else if(param_pos == param_4)
             {
                 SetCellVotage(bat_param, set_mode_display);
                 MinimumDischargeVoltage(bat_param, set_mode_display);
                 TrickleCurrent(bat_param, set_mode_edit);
                 TrickleVoltage(bat_param, set_mode_display);
-                Handle_Setting23_MenuNavigation(param_1);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
             }else if(param_pos == menu_start_next)
             {
                 SetCellVotage(bat_param, set_mode_display);
@@ -256,7 +265,7 @@ void Menu(BattParameters *bat_param)
         }else if(menu_type==settings3)
         {
             
-                         if(Button_EventGet(UP_SW))
+            if(Button_EventGet(UP_SW))
             {
                  param_pos--;
             }else if(Button_EventGet(DOWN_SW))
@@ -264,11 +273,20 @@ void Menu(BattParameters *bat_param)
                  param_pos++;
             }
             
+            if(param_pos == param_3)
+            {
+                param_pos = menu_start_next;
+            }else if(param_pos == param_4)
+            {
+                param_pos = param_2; 
+            }
+            
+            
             if(param_pos==start_navigation)
             {
                  param_pos = menu_start_next;  
                  
-            }else if(param_pos>=end_navigation-2)
+            }else if(param_pos>=end_navigation)
             {
                  param_pos = param_1;  
             }
@@ -277,18 +295,78 @@ void Menu(BattParameters *bat_param)
             {
                 SetMaxTime (bat_param, set_mode_edit);
                 SetTemp(bat_param, set_mode_display);
-                Handle_Setting23_MenuNavigation(param_1);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
             }else if(param_pos == param_2)
             {
                 SetMaxTime (bat_param, set_mode_display);
                 SetTemp(bat_param, set_mode_edit);
-                Handle_Setting23_MenuNavigation(param_1);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
             }else if(param_pos == menu_start_next)
             {
                 SetMaxTime (bat_param, set_mode_display);
                 SetTemp(bat_param, set_mode_display);
                 Handle_Setting23_MenuNavigation(menu_selection);
             }     
+        }else if(menu_type==settings4)
+        {
+            
+            if(Button_EventGet(UP_SW))
+            {
+                 param_pos--;
+            }else if(Button_EventGet(DOWN_SW))
+            {
+                 param_pos++;
+            }
+
+            if(param_pos==start_navigation)
+            {
+                 param_pos = menu_start_next;  
+                 
+            }else if(param_pos>=end_navigation)
+            {
+                 param_pos = param_1;  
+            }
+                         
+            if(param_pos == param_1)
+            {
+                SetChargingCurrent_1(bat_param, set_mode_edit);
+                SetDischargingCurrent_1(bat_param, set_mode_display);
+                SetChargingCurrent_2(bat_param, set_mode_display);
+                SetDischargingCurrent_2(bat_param, set_mode_display);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
+                
+            }else if(param_pos == param_2)
+            {
+                SetChargingCurrent_1(bat_param, set_mode_display);
+                SetDischargingCurrent_1(bat_param, set_mode_edit);
+                SetChargingCurrent_2(bat_param, set_mode_display);
+                SetDischargingCurrent_2(bat_param, set_mode_display);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
+                
+            }else if(param_pos == param_3)
+            {
+                SetChargingCurrent_1(bat_param, set_mode_display);
+                SetDischargingCurrent_1(bat_param, set_mode_display);
+                SetChargingCurrent_2(bat_param, set_mode_edit);
+                SetDischargingCurrent_2(bat_param, set_mode_display);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
+                
+            }else if(param_pos == param_4)
+            {
+                SetChargingCurrent_1(bat_param, set_mode_display);
+                SetDischargingCurrent_1(bat_param, set_mode_display);
+                SetChargingCurrent_2(bat_param, set_mode_display);
+                SetDischargingCurrent_2(bat_param, set_mode_edit);
+                Handle_Setting23_MenuNavigation(disable_start_next_menu);
+                
+            }else if(param_pos == menu_start_next)
+            {
+                SetChargingCurrent_1(bat_param, set_mode_display);
+                SetDischargingCurrent_1(bat_param, set_mode_display);
+                SetChargingCurrent_2(bat_param, set_mode_display);
+                SetDischargingCurrent_2(bat_param, set_mode_display);
+                Handle_Setting23_MenuNavigation(menu_selection);
+            }    
         }
         GLCD_Render();
         Button_Event_Reset();  
@@ -631,17 +709,17 @@ void Menu(BattParameters *bat_param)
             
                 if(Button_EventGet(RIGHT_SW))
                 {
-                    bat_param->set_time=bat_param->set_time+5;
+                    bat_param->set_time=bat_param->set_time+30;
                 }else if(Button_EventGet(LEFT_SW))
                 {
-                    bat_param->set_time=bat_param->set_time-5;
+                    bat_param->set_time=bat_param->set_time-30;
                 }
 
-                if(bat_param->set_time<MIN_TIME-30)
+                if(bat_param->set_time<MIN_TIME)
                 {
                     bat_param->set_time = MAX_TIME;  
 
-                }else if(bat_param->set_time>MAX_TIME+30)
+                }else if(bat_param->set_time>MAX_TIME)
                 {
                     bat_param->set_time = MIN_TIME;  
                 }
@@ -672,7 +750,9 @@ void Menu(BattParameters *bat_param)
             }
       /************************************************************************/
         }else if(menu_type==settings4)
-        {
+        { 
+            if(param_pos == menu_start_next)
+            {
             
                 if(Button_EventGet(LEFT_SW))
                 {
@@ -693,26 +773,49 @@ void Menu(BattParameters *bat_param)
                     menu_pos=2;
                 }
                 
-            switch(menu_pos)
-            {
-                case 1: menu_change = back;         break;
-                case 2: menu_change = next;         break;
-                case 3: menu_change = save_exit;    break;
+                switch(menu_pos)
+                {
+                    case 1: menu_change = back;         break;
+                    case 2: menu_change = next;         break;
+                    case 3: menu_change = save_exit;    break;
+                }
+
+                if (menu_change == back) 
+                {
+                    Handle_Setting23_MenuNavigation(menu_change); 
+                    menu_selection=back;
+                }else if (menu_change == next) 
+                {
+                    Handle_Setting23_MenuNavigation(menu_change);
+                    menu_selection=next;   
+                }else if (menu_change == save_exit) 
+                {
+                    Handle_Setting23_MenuNavigation(menu_change);
+                    menu_selection= save_exit;
+                } 
             }
-            
-            if (menu_change == back) 
+
+            if(param_pos == param_1)
             {
-                Handle_Setting23_MenuNavigation(menu_change); 
-                menu_selection=back;
-            }else if (menu_change == next) 
-            {
-                Handle_Setting23_MenuNavigation(menu_change);
-                menu_selection=next;   
-            }else if (menu_change == save_exit) 
-            {
-                Handle_Setting23_MenuNavigation(menu_change);
-                menu_selection= save_exit;
-            }  
+                if(Button_EventGet(RIGHT_SW))
+                {
+                    bat_param->charge_current_1=bat_param->charge_current_1+100;
+                }else if(Button_EventGet(LEFT_SW))
+                {
+                    bat_param->charge_current_1=bat_param->charge_current_1-100;
+                }
+
+                if(bat_param->charge_current_1<MIN_CHARGE_CURRENT)
+                {
+                    bat_param->charge_current_1 = MAX_CHARGE_CURRENT;  
+
+                }else if(bat_param->charge_current_1>MAX_CHARGE_CURRENT)
+                {
+                    bat_param->charge_current_1 = MIN_CHARGE_CURRENT;  
+                }
+                
+                 SetChargingCurrent_1(bat_param, set_mode_edit);
+            }
       /************************************************************************/
         }else if(menu_type==settings5)
         {
@@ -825,28 +928,62 @@ void Menu(BattParameters *bat_param)
 /////SETTINGS 4////////////////////////////////////////////////////
         }else if(menu_type==settings4)
         {
-            if(menu_selection==next)
+            if(param_pos == menu_start_next)
             {
-                Options5_Menu(bat_param);
-                menu_type = settings5;
-                menu_init=0;
-                menu_change = save_exit;
+                if(menu_selection==next )
+                {
+                    Options5_Menu(bat_param);
+                    menu_type = settings5;
+                    menu_init=0;
+                    menu_change = save_exit;
+
+
+                }else if(menu_selection==back)
+                {
+                    menu_type = settings3;
+                    Options3_Menu(bat_param);
+                    menu_init=0;
+                    menu_pos=1;
+                }
+                else if(menu_selection==save_exit)
+                {
+                    menu_type = main_menu;
+                    SingleBat_Menu(bat_param);
+                    menu_change = start;
+                    menu_init=0;
+                }
+            }else if(param_pos == param_3)
+            {
+                if(CHECK_CHRG2_CURRENT_SET)
+                {
+                    SET_CHRG2_PRECENT;
+                }else
+                {
+                    SET_CHRG2_CURRENT;
+                }
+                
+                SetChargingCurrent_2(bat_param, set_mode_edit);
                 
                 
-            }else if(menu_selection==back)
+            }else if(param_pos == param_4)
             {
-                menu_type = settings3;
-                Options3_Menu(bat_param);
-                menu_init=0;
-                menu_pos=1;
+               
+                if(CHECK_DISCHRG2_CURRENT_SET)
+                {
+                    SET_DISCHRG2_PRECENT;
+                }else
+                {
+                    SET_DISCHRG2_CURRENT;
+                }
+                SetDischargingCurrent_2(bat_param, set_mode_edit);
+                
             }
-            else if(menu_selection==save_exit)
-            {
-                menu_type = main_menu;
-                SingleBat_Menu(bat_param);
-                menu_change = start;
-                menu_init=0;
-            }
+        
+        
+        
+        
+            
+            
             
 /////SETTINGS 5////////////////////////////////////////////////////
         }else if(menu_type==settings5)
@@ -935,7 +1072,7 @@ void Handle_Setting23_MenuNavigation(uint8_t option)
         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
         GLCD_GotoXY(29+26+5, 54);
         GLCD_PrintString("SAVE&EXIT");
-    }else if (option == param_1) 
+    }else if (option == disable_start_next_menu) 
     {
 
         GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
@@ -988,7 +1125,7 @@ void Handle_Setting1_MenuNavigation(uint8_t option)
         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
         GLCD_GotoXY(31, 54);
         GLCD_PrintString("SAVE&EXIT");
-    }else if (option == param_1)
+    }else if (option == disable_start_next_menu)
     {
         GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
         GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
