@@ -41,13 +41,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _LATAbits `VS249 ~T0 @X0 0 e@3977 ]
 "16 ./menu_definitions.h
 [; ;./menu_definitions.h: 16: {
-[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent discharge_current_2_percent charge_current_3_percent discharge_current_3_percent charge_current_4_percent discharge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 set_time current_time text ]
-"81
-[; ;./menu_definitions.h: 81: void InitBattParameters(BattParameters *bat_param);
+[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
+[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_time current_time text ]
+"84
+[; ;./menu_definitions.h: 84: void InitBattParameters(BattParameters *bat_param);
 [v _InitBattParameters `(v ~T0 @X0 0 ef1`*S632 ]
-"82
-[; ;./menu_definitions.h: 82: void SingleBat_Menu(BattParameters *bat_param);
+"85
+[; ;./menu_definitions.h: 85: void SingleBat_Menu(BattParameters *bat_param);
 [v _SingleBat_Menu `(v ~T0 @X0 0 ef1`*S632 ]
 "40 ./menu_navigation.h
 [; ;./menu_navigation.h: 40: void Menu(BattParameters *bat_param);

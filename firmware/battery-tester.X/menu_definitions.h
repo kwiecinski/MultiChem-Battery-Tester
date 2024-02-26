@@ -18,9 +18,9 @@ typedef struct
     uint8_t set_cycle, current_cycle, 
             bat_actual_temp, bat_max_temp,
             bat_chem, bat_storage_precentage,  selected_mode, cell_count,
-            charge_current_2_percent, discharge_current_2_percent,
-            charge_current_3_percent, discharge_current_3_percent,
-            charge_current_4_percent, discharge_current_4_percent,
+            charge_current_2_percent, 
+            charge_current_3_percent, 
+            charge_current_4_percent, 
             precent_current_flags;
 
 
@@ -33,6 +33,9 @@ typedef struct
             charge_current_2, discharge_current_2,
             charge_current_3, discharge_current_3,
             charge_current_4, discharge_current_4,
+            discharge_current_4_percent,
+            discharge_current_3_percent,
+            discharge_current_2_percent,
             set_time;
 
 

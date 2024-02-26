@@ -9830,9 +9830,9 @@ typedef struct
     uint8_t set_cycle, current_cycle,
             bat_actual_temp, bat_max_temp,
             bat_chem, bat_storage_precentage, selected_mode, cell_count,
-            charge_current_2_percent, discharge_current_2_percent,
-            charge_current_3_percent, discharge_current_3_percent,
-            charge_current_4_percent, discharge_current_4_percent,
+            charge_current_2_percent,
+            charge_current_3_percent,
+            charge_current_4_percent,
             precent_current_flags;
 
 
@@ -9845,6 +9845,9 @@ typedef struct
             charge_current_2, discharge_current_2,
             charge_current_3, discharge_current_3,
             charge_current_4, discharge_current_4,
+            discharge_current_4_percent,
+            discharge_current_3_percent,
+            discharge_current_2_percent,
             set_time;
 
 
@@ -9995,7 +9998,7 @@ btn_state_t Button_EventGet(uint8_t key);
 void Button_Event_Reset(void);
 void Button_ShortRelease(buttons btnCode);
 # 10 "menu_navigation.c" 2
-# 33 "menu_navigation.c"
+# 38 "menu_navigation.c"
 enum settings1_navigation
 {
     next,
@@ -10031,12 +10034,13 @@ void Handle_Main_MenuNavigation(uint8_t option);
 void Handle_Setting1_MenuNavigation(uint8_t option);
 void Handle_Setting23_MenuNavigation(uint8_t option);
 void Handle_Setting5_MenuNavigation(uint8_t option);
-# 140 "menu_navigation.c"
+# 145 "menu_navigation.c"
 void Menu(BattParameters *bat_param)
 {
 
     static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0,
                    menu_pos=0, param_pos=menu_start_next, switch_param;
+    uint16_t val;
 
     Button_Update();
 
@@ -10261,6 +10265,67 @@ void Menu(BattParameters *bat_param)
                 SetChargingCurrent_2(bat_param, 0);
                 SetDischargingCurrent_2(bat_param, 0);
                 Handle_Setting23_MenuNavigation(menu_selection);
+            }
+        }
+        else if(menu_type==settings5)
+        {
+
+            if(Button_EventGet(UP_SW))
+            {
+                 param_pos--;
+            }else if(Button_EventGet(DOWN_SW))
+            {
+                 param_pos++;
+            }
+
+            if(param_pos==start_navigation)
+            {
+                 param_pos = menu_start_next;
+
+            }else if(param_pos>=end_navigation)
+            {
+                 param_pos = param_1;
+            }
+
+            if(param_pos == param_1)
+            {
+                SetChargingCurrent_3(bat_param, 1);
+                SetDischargingCurrent_3(bat_param, 0);
+                SetChargingCurrent_4(bat_param, 0);
+                SetDischargingCurrent_4(bat_param, 0);
+                Handle_Setting5_MenuNavigation(disable_start_next_menu);
+
+            }else if(param_pos == param_2)
+            {
+                SetChargingCurrent_3(bat_param, 0);
+                SetDischargingCurrent_3(bat_param, 1);
+                SetChargingCurrent_4(bat_param, 0);
+                SetDischargingCurrent_4(bat_param, 0);
+                Handle_Setting5_MenuNavigation(disable_start_next_menu);
+
+            }else if(param_pos == param_3)
+            {
+                SetChargingCurrent_3(bat_param, 0);
+                SetDischargingCurrent_3(bat_param, 0);
+                SetChargingCurrent_4(bat_param, 1);
+                SetDischargingCurrent_4(bat_param, 0);
+                Handle_Setting5_MenuNavigation(disable_start_next_menu);
+
+            }else if(param_pos == param_4)
+            {
+                SetChargingCurrent_3(bat_param, 0);
+                SetDischargingCurrent_3(bat_param, 0);
+                SetChargingCurrent_4(bat_param, 0);
+                SetDischargingCurrent_4(bat_param, 1);
+                Handle_Setting5_MenuNavigation(disable_start_next_menu);
+
+            }else if(param_pos == menu_start_next)
+            {
+                SetChargingCurrent_3(bat_param, 0);
+                SetDischargingCurrent_3(bat_param, 0);
+                SetChargingCurrent_4(bat_param, 0);
+                SetDischargingCurrent_4(bat_param, 0);
+                Handle_Setting5_MenuNavigation(menu_selection);
             }
         }
         GLCD_Render();
@@ -10692,24 +10757,195 @@ void Menu(BattParameters *bat_param)
 
             if(param_pos == param_1)
             {
-                if(Button_EventGet(RIGHT_SW))
+
+                if(bat_param->charge_current_1>=1000)
                 {
-                    bat_param->charge_current_1=bat_param->charge_current_1+100;
-                }else if(Button_EventGet(LEFT_SW))
+                    val=100;
+                }else if(bat_param->charge_current_1>=100)
                 {
-                    bat_param->charge_current_1=bat_param->charge_current_1-100;
+                    val=50;
+                }else if(bat_param->charge_current_1<100)
+                {
+                    val=10;
                 }
 
-                if(bat_param->charge_current_1<100)
+
+                if(Button_EventGet(RIGHT_SW))
+                {
+                    bat_param->charge_current_1=bat_param->charge_current_1+val;
+                }else if(Button_EventGet(LEFT_SW))
+                {
+                    bat_param->charge_current_1=bat_param->charge_current_1-val;
+                }
+
+                if(bat_param->charge_current_1<10)
                 {
                     bat_param->charge_current_1 = 3000;
 
                 }else if(bat_param->charge_current_1>3000)
                 {
-                    bat_param->charge_current_1 = 100;
+                    bat_param->charge_current_1 = 10;
                 }
 
                  SetChargingCurrent_1(bat_param, 1);
+            }
+
+            if(param_pos == param_2)
+            {
+
+                if(bat_param->discharge_current_1>=1000)
+                {
+                    val=100;
+                }else if(bat_param->discharge_current_1>=100)
+                {
+                    val=50;
+                }else if(bat_param->discharge_current_1<100)
+                {
+                    val=10;
+                }
+
+
+                if(Button_EventGet(RIGHT_SW))
+                {
+                    bat_param->discharge_current_1=bat_param->discharge_current_1+val;
+                }else if(Button_EventGet(LEFT_SW))
+                {
+                    bat_param->discharge_current_1=bat_param->discharge_current_1-val;
+                }
+
+                if(bat_param->discharge_current_1<10)
+                {
+                    bat_param->discharge_current_1 = 3000;
+
+                }else if(bat_param->discharge_current_1>3000)
+                {
+                    bat_param->discharge_current_1 = 10;
+                }
+
+                 SetDischargingCurrent_1(bat_param, 1);
+            }
+            if(param_pos == param_3)
+            {
+                if(bat_param->precent_current_flags & (1 << 0))
+                {
+                     if(bat_param->charge_current_2>=1000)
+                    {
+                        val=100;
+                    }else if(bat_param->charge_current_2>=100)
+                    {
+                        val=50;
+                    }else
+                    {
+                        val=10;
+                    }
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->charge_current_2=bat_param->charge_current_2+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->charge_current_2=bat_param->charge_current_2-val;
+                    }
+
+                    if(bat_param->charge_current_2<10)
+                    {
+                        bat_param->charge_current_2 = 3000;
+
+                    }else if(bat_param->charge_current_2>3000)
+                    {
+                        bat_param->charge_current_2 = 10;
+                    }
+                }else
+                {
+                    if(bat_param->charge_current_2_percent>=50)
+                    {
+                        val=10;
+                    }else if(bat_param->charge_current_2_percent>=10)
+                    {
+                        val=5;
+                    }else
+                    {
+                        val=1;
+                    }
+
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->charge_current_2_percent=bat_param->charge_current_2_percent+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->charge_current_2_percent=bat_param->charge_current_2_percent-val;
+                    }
+
+                    if(bat_param->charge_current_2_percent<1)
+                    {
+                        bat_param->charge_current_2_percent = 100;
+
+                    }else if(bat_param->charge_current_2_percent>100)
+                    {
+                        bat_param->charge_current_2_percent = 1;
+                    }
+                }
+                SetChargingCurrent_2(bat_param, 1);
+            } if(param_pos == param_4)
+            {
+                if(bat_param->precent_current_flags & (1 << 1))
+                {
+                     if(bat_param->discharge_current_2>=1000)
+                    {
+                        val=100;
+                    }else if(bat_param->discharge_current_2>=100)
+                    {
+                        val=50;
+                    }else
+                    {
+                        val=10;
+                    }
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->discharge_current_2=bat_param->discharge_current_2+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->discharge_current_2=bat_param->discharge_current_2-val;
+                    }
+
+                    if(bat_param->discharge_current_2<10)
+                    {
+                        bat_param->discharge_current_2 = 3000;
+
+                    }else if(bat_param->discharge_current_2>3000)
+                    {
+                        bat_param->discharge_current_2 = 10;
+                    }
+                }else
+                {
+                    if(bat_param->discharge_current_2_percent>=50)
+                    {
+                        val=10;
+                    }else if(bat_param->discharge_current_2_percent>=10)
+                    {
+                        val=5;
+                    }else
+                    {
+                        val=1;
+                    }
+
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->discharge_current_2_percent=bat_param->discharge_current_2_percent+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->discharge_current_2_percent=bat_param->discharge_current_2_percent-val;
+                    }
+
+                    if(bat_param->discharge_current_2_percent<5)
+                    {
+                        bat_param->discharge_current_2_percent = 300;
+
+                    }else if(bat_param->discharge_current_2_percent>300)
+                    {
+                        bat_param->discharge_current_2_percent = 5;
+                    }
+                }
+                SetDischargingCurrent_2(bat_param, 1);
             }
 
         }else if(menu_type==settings5)
@@ -10873,7 +11109,7 @@ void Menu(BattParameters *bat_param)
                 SetDischargingCurrent_2(bat_param, 1);
 
             }
-# 989 "menu_navigation.c"
+# 1227 "menu_navigation.c"
         }else if(menu_type==settings5)
         {
             if(menu_selection==back)
@@ -11056,6 +11292,19 @@ void Handle_Setting5_MenuNavigation(uint8_t option)
 
         GLCD_FillRectangle(29, 51, 86, 63, GLCD_Black);
         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
+        GLCD_GotoXY(31, 54);
+        GLCD_PrintString("SAVE&EXIT");
+    }else if (option == disable_start_next_menu)
+    {
+        GLCD_FillRectangle(0, 51, 26, 63, GLCD_White);
+        GLCD_DrawRectangle(0, 51, 26, 63, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
+        GLCD_GotoXY(2, 54);
+        GLCD_PrintString("BACK");
+
+        GLCD_FillRectangle(29, 51, 86, 63, GLCD_White);
+        GLCD_DrawRectangle(29, 51, 86, 63, GLCD_Black);
+        GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
         GLCD_GotoXY(31, 54);
         GLCD_PrintString("SAVE&EXIT");
     }
