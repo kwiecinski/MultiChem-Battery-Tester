@@ -129,12 +129,12 @@ charging 0
 charging_discharging 1
 charging_discharging_storage 2
 ]
-"1256
+"1553
 [e E5705 Color_t `uc
 GLCD_White 0
 GLCD_Black 255
 ]
-"1257
+"1554
 [e E5702 PrintMode_t `uc
 GLCD_Overwrite 0
 GLCD_Merge 1
@@ -367,13 +367,13 @@ GLCD_Non_Inverted 1
 [v _InitBattParameters InitBattParameters `(v  1 e 1 0 ]
 "145 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Menu Menu `(v  1 e 1 0 ]
-"1252
+"1549
 [v _Handle_Setting23_MenuNavigation Handle_Setting23_MenuNavigation `(v  1 e 1 0 ]
-"1338
+"1635
 [v _Handle_Setting1_MenuNavigation Handle_Setting1_MenuNavigation `(v  1 e 1 0 ]
-"1383
+"1680
 [v _Handle_Setting5_MenuNavigation Handle_Setting5_MenuNavigation `(v  1 e 1 0 ]
-"1431
+"1728
 [v _Handle_Main_MenuNavigation Handle_Main_MenuNavigation `(v  1 e 1 0 ]
 "4 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
 [v _UART_SendChar UART_SendChar `(v  1 e 1 0 ]
@@ -757,7 +757,7 @@ GLCD_Non_Inverted 1
 [v Menu@menu_pos menu_pos `uc  1 s 1 menu_pos ]
 [v Menu@param_pos param_pos `uc  1 s 1 param_pos ]
 [v Menu@switch_param switch_param `uc  1 s 1 switch_param ]
-"1249
+"1546
 } 0
 "557 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _SingleBat_Menu SingleBat_Menu `(v  1 e 1 0 ]
@@ -1201,41 +1201,41 @@ GLCD_Non_Inverted 1
 [v isdigit@c c `i  1 p 2 0 ]
 "8
 } 0
-"1383 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
+"1680 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Handle_Setting5_MenuNavigation Handle_Setting5_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 wreg ]
-"1385
+"1682
 [v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 37 ]
-"1427
+"1724
 } 0
-"1252
+"1549
 [v _Handle_Setting23_MenuNavigation Handle_Setting23_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 wreg ]
-"1254
+"1551
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 37 ]
-"1336
+"1633
 } 0
-"1338
+"1635
 [v _Handle_Setting1_MenuNavigation Handle_Setting1_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
-"1340
+"1637
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 37 ]
-"1381
+"1678
 } 0
-"1431
+"1728
 [v _Handle_Main_MenuNavigation Handle_Main_MenuNavigation `(v  1 e 1 0 ]
 {
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
-"1433
+"1730
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 37 ]
-"1461
+"1758
 } 0
 "793 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_SetFont GLCD_SetFont `(v  1 e 1 0 ]

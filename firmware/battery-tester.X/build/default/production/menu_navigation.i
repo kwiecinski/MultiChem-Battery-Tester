@@ -10950,21 +10950,268 @@ void Menu(BattParameters *bat_param)
 
         }else if(menu_type==settings5)
         {
+            if(param_pos == menu_start_next)
+            {
+                if (menu_change == back)
+                {
+                    Handle_Setting5_MenuNavigation(menu_change);
+                    menu_selection=back;
+                    menu_change = save_exit;
+                }else if (menu_change == save_exit)
+                {
+                    Handle_Setting5_MenuNavigation(menu_change);
+                    menu_selection = save_exit;
+                    menu_change = back;
+                }
+            }
+            if(param_pos == param_1)
+            {
+                if(bat_param->precent_current_flags & (1 << 2))
+                {
+                     if(bat_param->charge_current_3>=1000)
+                    {
+                        val=100;
+                    }else if(bat_param->charge_current_3>=100)
+                    {
+                        val=50;
+                    }else
+                    {
+                        val=10;
+                    }
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->charge_current_3=bat_param->charge_current_3+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->charge_current_3=bat_param->charge_current_3-val;
+                    }
 
-            if (menu_change == back)
+                    if(bat_param->charge_current_3<10)
+                    {
+                        bat_param->charge_current_3 = 3000;
+
+                    }else if(bat_param->charge_current_3>3000)
+                    {
+                        bat_param->charge_current_3 = 10;
+                    }
+                }else
+                {
+                    if(bat_param->charge_current_3_percent>=50)
+                    {
+                        val=10;
+                    }else if(bat_param->charge_current_3_percent>=10)
+                    {
+                        val=5;
+                    }else
+                    {
+                        val=1;
+                    }
+
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->charge_current_3_percent=bat_param->charge_current_3_percent+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->charge_current_3_percent=bat_param->charge_current_3_percent-val;
+                    }
+
+                    if(bat_param->charge_current_3_percent<1)
+                    {
+                        bat_param->charge_current_3_percent = 100;
+
+                    }else if(bat_param->charge_current_3_percent>100)
+                    {
+                        bat_param->charge_current_3_percent = 1;
+                    }
+                }
+                SetChargingCurrent_3(bat_param, 1);
+            } if(param_pos == param_2)
             {
-                Handle_Setting5_MenuNavigation(menu_change);
-                menu_selection=back;
-                menu_change = save_exit;
-            }else if (menu_change == save_exit)
+                if(bat_param->precent_current_flags & (1 << 3))
+                {
+                     if(bat_param->discharge_current_3>=1000)
+                    {
+                        val=100;
+                    }else if(bat_param->discharge_current_3>=100)
+                    {
+                        val=50;
+                    }else
+                    {
+                        val=10;
+                    }
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->discharge_current_3=bat_param->discharge_current_3+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->discharge_current_3=bat_param->discharge_current_3-val;
+                    }
+
+                    if(bat_param->discharge_current_3<10)
+                    {
+                        bat_param->discharge_current_3 = 3000;
+
+                    }else if(bat_param->discharge_current_3>3000)
+                    {
+                        bat_param->discharge_current_3 = 10;
+                    }
+                }else
+                {
+                    if(bat_param->discharge_current_3_percent>=50)
+                    {
+                        val=10;
+                    }else if(bat_param->discharge_current_3_percent>=10)
+                    {
+                        val=5;
+                    }else
+                    {
+                        val=1;
+                    }
+
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->discharge_current_3_percent=bat_param->discharge_current_3_percent+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->discharge_current_3_percent=bat_param->discharge_current_3_percent-val;
+                    }
+
+                    if(bat_param->discharge_current_3_percent<5)
+                    {
+                        bat_param->discharge_current_3_percent = 300;
+
+                    }else if(bat_param->discharge_current_3_percent>300)
+                    {
+                        bat_param->discharge_current_3_percent = 5;
+                    }
+                }
+                SetDischargingCurrent_3(bat_param, 1);
+            }
+            if(param_pos == param_3)
             {
-                Handle_Setting5_MenuNavigation(menu_change);
-                menu_selection = save_exit;
-                menu_change = back;
+                if(bat_param->precent_current_flags & (1 << 4))
+                {
+                     if(bat_param->charge_current_4>=1000)
+                    {
+                        val=100;
+                    }else if(bat_param->charge_current_4>=100)
+                    {
+                        val=50;
+                    }else
+                    {
+                        val=10;
+                    }
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->charge_current_4=bat_param->charge_current_4+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->charge_current_4=bat_param->charge_current_4-val;
+                    }
+
+                    if(bat_param->charge_current_4<10)
+                    {
+                        bat_param->charge_current_4 = 3000;
+
+                    }else if(bat_param->charge_current_4>3000)
+                    {
+                        bat_param->charge_current_4 = 10;
+                    }
+                }else
+                {
+                    if(bat_param->charge_current_4_percent>=50)
+                    {
+                        val=10;
+                    }else if(bat_param->charge_current_4_percent>=10)
+                    {
+                        val=5;
+                    }else
+                    {
+                        val=1;
+                    }
+
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->charge_current_4_percent=bat_param->charge_current_4_percent+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->charge_current_4_percent=bat_param->charge_current_4_percent-val;
+                    }
+
+                    if(bat_param->charge_current_4_percent<1)
+                    {
+                        bat_param->charge_current_4_percent = 100;
+
+                    }else if(bat_param->charge_current_4_percent>100)
+                    {
+                        bat_param->charge_current_4_percent = 1;
+                    }
+                }
+                SetChargingCurrent_4(bat_param, 1);
+            }if(param_pos == param_4)
+            {
+                if(bat_param->precent_current_flags & (1 << 5))
+                {
+                     if(bat_param->discharge_current_4>=1000)
+                    {
+                        val=100;
+                    }else if(bat_param->discharge_current_4>=100)
+                    {
+                        val=50;
+                    }else
+                    {
+                        val=10;
+                    }
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->discharge_current_4=bat_param->discharge_current_4+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->discharge_current_4=bat_param->discharge_current_4-val;
+                    }
+
+                    if(bat_param->discharge_current_4<10)
+                    {
+                        bat_param->discharge_current_4 = 3000;
+
+                    }else if(bat_param->discharge_current_4>3000)
+                    {
+                        bat_param->discharge_current_4 = 10;
+                    }
+                }else
+                {
+                    if(bat_param->discharge_current_4_percent>=50)
+                    {
+                        val=10;
+                    }else if(bat_param->discharge_current_4_percent>=10)
+                    {
+                        val=5;
+                    }else
+                    {
+                        val=1;
+                    }
+
+                    if(Button_EventGet(RIGHT_SW))
+                    {
+                        bat_param->discharge_current_4_percent=bat_param->discharge_current_4_percent+val;
+                    }else if(Button_EventGet(LEFT_SW))
+                    {
+                        bat_param->discharge_current_4_percent=bat_param->discharge_current_4_percent-val;
+                    }
+
+                    if(bat_param->discharge_current_4_percent<5)
+                    {
+                        bat_param->discharge_current_4_percent = 300;
+
+                    }else if(bat_param->discharge_current_4_percent>300)
+                    {
+                        bat_param->discharge_current_4_percent = 5;
+                    }
+                }
+
+                SetDischargingCurrent_4(bat_param, 1);
             }
         }
-
-
         GLCD_Render();
         Button_Event_Reset();
     }
@@ -11109,29 +11356,79 @@ void Menu(BattParameters *bat_param)
                 SetDischargingCurrent_2(bat_param, 1);
 
             }
-# 1227 "menu_navigation.c"
+# 1474 "menu_navigation.c"
         }else if(menu_type==settings5)
         {
-            if(menu_selection==back)
+            if(param_pos == menu_start_next)
             {
-                menu_type = settings4;
-                menu_change = save_exit;
-                Options4_Menu(bat_param);
-                menu_init=0;
-                menu_pos=1;
-            }
-            else if(menu_selection==save_exit)
+                if(menu_selection==back)
+                {
+                    menu_type = settings4;
+                    menu_change = save_exit;
+                    Options4_Menu(bat_param);
+                    menu_init=0;
+                    menu_pos=1;
+                }
+                else if(menu_selection==save_exit)
+                {
+                    menu_type = main_menu;
+                    menu_change = start;
+                    SingleBat_Menu(bat_param);
+                    menu_init=0;
+                }
+            }else if(param_pos == param_1)
             {
-                menu_type = main_menu;
-                menu_change = start;
-                SingleBat_Menu(bat_param);
-                menu_init=0;
+                if(bat_param->precent_current_flags & (1 << 2))
+                {
+                    bat_param->precent_current_flags &= ~(1 << 2);;
+                }else
+                {
+                    bat_param->precent_current_flags |= (1 << 2);;
+                }
+
+                SetChargingCurrent_3(bat_param, 1);
+
+
+            }else if(param_pos == param_2)
+            {
+
+                if(bat_param->precent_current_flags & (1 << 3))
+                {
+                    bat_param->precent_current_flags &= ~(1 << 3);;
+                }else
+                {
+                    bat_param->precent_current_flags |= (1 << 3);;
+                }
+                SetDischargingCurrent_3(bat_param, 1);
+
+            }else if(param_pos == param_3)
+            {
+                if(bat_param->precent_current_flags & (1 << 4))
+                {
+                    bat_param->precent_current_flags &= ~(1 << 4);;
+                }else
+                {
+                    bat_param->precent_current_flags |= (1 << 4);;
+                }
+
+                SetChargingCurrent_4(bat_param, 1);
+
+
+            }else if(param_pos == param_4)
+            {
+
+                if(bat_param->precent_current_flags & (1 << 5))
+                {
+                    bat_param->precent_current_flags &= ~(1 << 5);;
+                }else
+                {
+                    bat_param->precent_current_flags |= (1 << 5);;
+                }
+                SetDischargingCurrent_4(bat_param, 1);
             }
         }
           GLCD_Render();
     }
-
-
 }
 
 
