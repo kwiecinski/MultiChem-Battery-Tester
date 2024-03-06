@@ -28,7 +28,6 @@ void main(void)
     setupPWM();
     Button_Init();
     Init_Timer0();
-    LATAbits.LA6=1;
   
     BattParameters bat_param;
     InitBattParameters(&bat_param);

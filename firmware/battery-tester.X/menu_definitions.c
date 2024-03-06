@@ -376,7 +376,14 @@ void CellCount(BattParameters *bat_param, uint8_t set_mode)
 
 void CapacitanceDisplay (BattParameters *bat_param)
 { 
-    sprintf(bat_param->text, "Cap:%04umAh", bat_param->batt_capacitance);
+     
+    switch(bat_param->set_cycle)
+    {
+        case 1:     sprintf(bat_param->text, "Cap:%04umAh", bat_param->batt_capacitance_cycle1);  break;
+        case 2:     sprintf(bat_param->text, "Cap:%04u/%04umAh", bat_param->batt_capacitance_cycle1,bat_param->batt_capacitance_cycle2);  break;
+        case 3:     sprintf(bat_param->text, "C:%04u/%04u/%04umAh", bat_param->batt_capacitance_cycle1,bat_param->batt_capacitance_cycle2,bat_param->batt_capacitance_cycle3);     break;
+        case 4:     sprintf(bat_param->text, "C:%04u/%04u/%04u/%04u", bat_param->batt_capacitance_cycle1,bat_param->batt_capacitance_cycle2,bat_param->batt_capacitance_cycle3,bat_param->batt_capacitance_cycle4);     break;
+    }
     GLCD_PrintString(bat_param->text); 
 }
 
@@ -567,17 +574,6 @@ void SingleBat_Menu(BattParameters *bat_param)
     GLCD_PrintString("BAT 1");
     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
  
-   /*
-    GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
-    GLCD_GotoXY(2, 54);
-    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-    GLCD_PrintString("START");
-    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-    GLCD_GotoXY(37, 54);
-    GLCD_PrintString("MENU");
-    GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
-    */
-    
     GLCD_GotoXY(0, 13);
     VoltageDisplay(bat_param);
     GLCD_GotoXY(0, 22);
@@ -591,10 +587,6 @@ void SingleBat_Menu(BattParameters *bat_param)
     GLCD_GotoXY(78, 40);
     TempDisplay(bat_param);
     
-    //GLCD_DrawLine(66, 31, 66, 47, GLCD_Black);
-       
-       
-   ;
 }
 
 void Options5_Menu(BattParameters *bat_param)
@@ -882,6 +874,6 @@ void InitBattParameters (BattParameters *bat_param)
         bat_param->batt_set_trickle_voltage = 270;
         bat_param->bat_set_trickle_current = 30;
         bat_param->batt_set_min_discharge_voltage = 270;
-        bat_param->batt_capacitance = 1000;
+        bat_param->batt_capacitance_cycle1 = 1000;
 }
 

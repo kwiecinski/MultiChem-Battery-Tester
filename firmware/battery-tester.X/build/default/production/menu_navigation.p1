@@ -1,39 +1,39 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "16 ./menu_definitions.h
 [; ;./menu_definitions.h: 16: {
-[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_time current_time text ]
+[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
+[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_time current_time text ]
 "148 menu_navigation.c
 [; ;menu_navigation.c: 148:     static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0,
-[c E5901 0 1 .. ]
-[n E5901 select_menu_start menu start  ]
-[c E6046 0 1 2 3 4 5 .. ]
-[n E6046 menu_type main_menu settings1 settings2 settings3 settings4 settings5  ]
+[c E5904 0 1 .. ]
+[n E5904 select_menu_start menu start  ]
+[c E6049 0 1 2 3 4 5 .. ]
+[n E6049 menu_type main_menu settings1 settings2 settings3 settings4 settings5  ]
 "149
 [; ;menu_navigation.c: 149:                    menu_pos=0, param_pos=menu_start_next, switch_param;
-[c E6038 0 1 2 3 4 5 6 .. ]
-[n E6038 settings_horizontal_navigation start_navigation param_1 param_2 param_3 param_4 menu_start_next end_navigation  ]
+[c E6041 0 1 2 3 4 5 6 .. ]
+[n E6041 settings_horizontal_navigation start_navigation param_1 param_2 param_3 param_4 menu_start_next end_navigation  ]
 "224 ./button.h
 [; ;./button.h: 224: void Button_Update(void);
 [v _Button_Update `(v ~T0 @X0 0 ef ]
 "154 menu_navigation.c
 [; ;menu_navigation.c: 154:     if (Button_EventGet(UP_SW) || Button_EventGet(DOWN_SW))
-[c E5989 0 1 2 .. ]
-[n E5989 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
+[c E5992 0 1 2 .. ]
+[n E5992 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
 "232 ./button.h
 [; ;./button.h: 232: btn_state_t Button_EventGet(uint8_t key);
-[v _Button_EventGet `(E5989 ~T0 @X0 0 ef1`uc ]
+[v _Button_EventGet `(E5992 ~T0 @X0 0 ef1`uc ]
 "154 menu_navigation.c
 [; ;menu_navigation.c: 154:     if (Button_EventGet(UP_SW) || Button_EventGet(DOWN_SW))
-[c E5982 0 1 2 3 4 .. ]
-[n E5982 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
+[c E5985 0 1 2 3 4 .. ]
+[n E5985 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
 "70
 [; ;menu_navigation.c: 70: void Handle_Setting1_MenuNavigation(uint8_t option);
 [v _Handle_Setting1_MenuNavigation `(v ~T0 @X0 0 ef1`uc ]
 "178
 [; ;menu_navigation.c: 178:                 Handle_Setting1_MenuNavigation(disable_start_next_menu);
-[c E6033 0 1 2 3 .. ]
-[n E6033 settings1_navigation next back save_exit disable_start_next_menu  ]
+[c E6036 0 1 2 3 .. ]
+[n E6036 settings1_navigation next back save_exit disable_start_next_menu  ]
 "91 ./menu_definitions.h
 [; ;./menu_definitions.h: 91: void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode);
 [v _ChemistryDisplay `(v ~T0 @X0 0 ef2`*S632`uc ]
@@ -105,12 +105,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Handle_Main_MenuNavigation `(v ~T0 @X0 0 ef1`uc ]
 "489
 [; ;menu_navigation.c: 489:                 }
-[c E5904 0 1 2 .. ]
-[n E5904 select_batt_chemistry liion pb nimh  ]
+[c E5907 0 1 2 .. ]
+[n E5907 select_batt_chemistry liion pb nimh  ]
 "548
 [; ;menu_navigation.c: 548:                 }
-[c E5908 0 1 2 .. ]
-[n E5908 mode charging charging_discharging charging_discharging_storage  ]
+[c E5911 0 1 2 .. ]
+[n E5911 mode charging charging_discharging charging_discharging_storage  ]
 "86 ./menu_definitions.h
 [; ;./menu_definitions.h: 86: void Options1_Menu(BattParameters *bat_param);
 [v _Options1_Menu `(v ~T0 @X0 0 ef1`*S632 ]
@@ -14191,30 +14191,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "148
 [; ;menu_navigation.c: 148:     static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0,
-[v F6063 `uc ~T0 @X0 1 s menu_change ]
-[i F6063
--> . `E5901 1 `uc
-]
-[v F6064 `uc ~T0 @X0 1 s menu_type ]
-[i F6064
--> . `E6046 0 `uc
-]
-[v F6065 `uc ~T0 @X0 1 s menu_selection ]
-[v F6066 `uc ~T0 @X0 1 s menu_init ]
+[v F6066 `uc ~T0 @X0 1 s menu_change ]
 [i F6066
+-> . `E5904 1 `uc
+]
+[v F6067 `uc ~T0 @X0 1 s menu_type ]
+[i F6067
+-> . `E6049 0 `uc
+]
+[v F6068 `uc ~T0 @X0 1 s menu_selection ]
+[v F6069 `uc ~T0 @X0 1 s menu_init ]
+[i F6069
 -> -> 0 `i `uc
 ]
 "149
 [; ;menu_navigation.c: 149:                    menu_pos=0, param_pos=menu_start_next, switch_param;
-[v F6067 `uc ~T0 @X0 1 s menu_pos ]
-[i F6067
+[v F6070 `uc ~T0 @X0 1 s menu_pos ]
+[i F6070
 -> -> 0 `i `uc
 ]
-[v F6068 `uc ~T0 @X0 1 s param_pos ]
-[i F6068
--> . `E6038 5 `uc
+[v F6071 `uc ~T0 @X0 1 s param_pos ]
+[i F6071
+-> . `E6041 5 `uc
 ]
-[v F6069 `uc ~T0 @X0 1 s switch_param ]
+[v F6072 `uc ~T0 @X0 1 s switch_param ]
 "150
 [; ;menu_navigation.c: 150:     uint16_t val;
 [v _val `us ~T0 @X0 1 a ]
@@ -14223,37 +14223,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Button_Update ..  ]
 "154
 [; ;menu_navigation.c: 154:     if (Button_EventGet(UP_SW) || Button_EventGet(DOWN_SW))
-[e $ ! || != -> ( _Button_EventGet (1 -> . `E5982 2 `uc `ui -> -> 0 `i `ui != -> ( _Button_EventGet (1 -> . `E5982 3 `uc `ui -> -> 0 `i `ui 637  ]
+[e $ ! || != -> ( _Button_EventGet (1 -> . `E5985 2 `uc `ui -> -> 0 `i `ui != -> ( _Button_EventGet (1 -> . `E5985 3 `uc `ui -> -> 0 `i `ui 637  ]
 "155
 [; ;menu_navigation.c: 155:     {
 {
 "156
 [; ;menu_navigation.c: 156:         if(menu_type==settings1)
-[e $ ! == -> F6064 `i -> . `E6046 1 `i 638  ]
+[e $ ! == -> F6067 `i -> . `E6049 1 `i 638  ]
 "157
 [; ;menu_navigation.c: 157:         {
 {
 "159
 [; ;menu_navigation.c: 159:             if(Button_EventGet(UP_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 2 `uc `ui -> -> 0 `i `ui 639  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 2 `uc `ui -> -> 0 `i `ui 639  ]
 "160
 [; ;menu_navigation.c: 160:             {
 {
 "161
 [; ;menu_navigation.c: 161:                  param_pos--;
-[e -- F6068 -> -> 1 `i `uc ]
+[e -- F6071 -> -> 1 `i `uc ]
 "162
 [; ;menu_navigation.c: 162:             }else if(Button_EventGet(DOWN_SW))
 }
 [e $U 640  ]
 [e :U 639 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 3 `uc `ui -> -> 0 `i `ui 641  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 3 `uc `ui -> -> 0 `i `ui 641  ]
 "163
 [; ;menu_navigation.c: 163:             {
 {
 "164
 [; ;menu_navigation.c: 164:                  param_pos++;
-[e ++ F6068 -> -> 1 `i `uc ]
+[e ++ F6071 -> -> 1 `i `uc ]
 "165
 [; ;menu_navigation.c: 165:             }
 }
@@ -14261,25 +14261,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 640 ]
 "167
 [; ;menu_navigation.c: 167:             if(param_pos==start_navigation)
-[e $ ! == -> F6068 `i -> . `E6038 0 `i 642  ]
+[e $ ! == -> F6071 `i -> . `E6041 0 `i 642  ]
 "168
 [; ;menu_navigation.c: 168:             {
 {
 "169
 [; ;menu_navigation.c: 169:                  param_pos = menu_start_next;
-[e = F6068 -> . `E6038 5 `uc ]
+[e = F6071 -> . `E6041 5 `uc ]
 "171
 [; ;menu_navigation.c: 171:             }else if(param_pos>=end_navigation)
 }
 [e $U 643  ]
 [e :U 642 ]
-[e $ ! >= -> F6068 `i -> . `E6038 6 `i 644  ]
+[e $ ! >= -> F6071 `i -> . `E6041 6 `i 644  ]
 "172
 [; ;menu_navigation.c: 172:             {
 {
 "173
 [; ;menu_navigation.c: 173:                  param_pos = param_1;
-[e = F6068 -> . `E6038 1 `uc ]
+[e = F6071 -> . `E6041 1 `uc ]
 "174
 [; ;menu_navigation.c: 174:             }
 }
@@ -14287,13 +14287,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 643 ]
 "176
 [; ;menu_navigation.c: 176:             if(param_pos == param_1)
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 645  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 645  ]
 "177
 [; ;menu_navigation.c: 177:             {
 {
 "178
 [; ;menu_navigation.c: 178:                 Handle_Setting1_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting1_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting1_MenuNavigation (1 -> . `E6036 3 `uc ]
 "179
 [; ;menu_navigation.c: 179:                 ChemistryDisplay(bat_param, 1);
 [e ( _ChemistryDisplay (2 , _bat_param -> -> 1 `i `uc ]
@@ -14311,13 +14311,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 646  ]
 [e :U 645 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 647  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 647  ]
 "185
 [; ;menu_navigation.c: 185:             {
 {
 "186
 [; ;menu_navigation.c: 186:                 Handle_Setting1_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting1_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting1_MenuNavigation (1 -> . `E6036 3 `uc ]
 "187
 [; ;menu_navigation.c: 187:                 ChemistryDisplay(bat_param, 0);
 [e ( _ChemistryDisplay (2 , _bat_param -> -> 0 `i `uc ]
@@ -14335,13 +14335,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 648  ]
 [e :U 647 ]
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 649  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 649  ]
 "193
 [; ;menu_navigation.c: 193:             {
 {
 "194
 [; ;menu_navigation.c: 194:                 Handle_Setting1_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting1_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting1_MenuNavigation (1 -> . `E6036 3 `uc ]
 "195
 [; ;menu_navigation.c: 195:                 ChemistryDisplay(bat_param, 0);
 [e ( _ChemistryDisplay (2 , _bat_param -> -> 0 `i `uc ]
@@ -14359,13 +14359,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 650  ]
 [e :U 649 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 651  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 651  ]
 "201
 [; ;menu_navigation.c: 201:             {
 {
 "202
 [; ;menu_navigation.c: 202:                 Handle_Setting1_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting1_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting1_MenuNavigation (1 -> . `E6036 3 `uc ]
 "203
 [; ;menu_navigation.c: 203:                 ChemistryDisplay(bat_param, 0);
 [e ( _ChemistryDisplay (2 , _bat_param -> -> 0 `i `uc ]
@@ -14383,7 +14383,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 652  ]
 [e :U 651 ]
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 653  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 653  ]
 "209
 [; ;menu_navigation.c: 209:             {
 {
@@ -14395,7 +14395,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _CellCount (2 , _bat_param -> -> 0 `i `uc ]
 "212
 [; ;menu_navigation.c: 212:                 Handle_Setting1_MenuNavigation(menu_selection);
-[e ( _Handle_Setting1_MenuNavigation (1 F6065 ]
+[e ( _Handle_Setting1_MenuNavigation (1 F6068 ]
 "213
 [; ;menu_navigation.c: 213:                 ChargerMode(bat_param, 0);
 [e ( _ChargerMode (2 , _bat_param -> -> 0 `i `uc ]
@@ -14415,31 +14415,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 654  ]
 [e :U 638 ]
-[e $ ! == -> F6064 `i -> . `E6046 2 `i 655  ]
+[e $ ! == -> F6067 `i -> . `E6049 2 `i 655  ]
 "217
 [; ;menu_navigation.c: 217:         {
 {
 "218
 [; ;menu_navigation.c: 218:              if(Button_EventGet(UP_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 2 `uc `ui -> -> 0 `i `ui 656  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 2 `uc `ui -> -> 0 `i `ui 656  ]
 "219
 [; ;menu_navigation.c: 219:             {
 {
 "220
 [; ;menu_navigation.c: 220:                  param_pos--;
-[e -- F6068 -> -> 1 `i `uc ]
+[e -- F6071 -> -> 1 `i `uc ]
 "221
 [; ;menu_navigation.c: 221:             }else if(Button_EventGet(DOWN_SW))
 }
 [e $U 657  ]
 [e :U 656 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 3 `uc `ui -> -> 0 `i `ui 658  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 3 `uc `ui -> -> 0 `i `ui 658  ]
 "222
 [; ;menu_navigation.c: 222:             {
 {
 "223
 [; ;menu_navigation.c: 223:                  param_pos++;
-[e ++ F6068 -> -> 1 `i `uc ]
+[e ++ F6071 -> -> 1 `i `uc ]
 "224
 [; ;menu_navigation.c: 224:             }
 }
@@ -14447,25 +14447,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 657 ]
 "226
 [; ;menu_navigation.c: 226:             if(param_pos==start_navigation)
-[e $ ! == -> F6068 `i -> . `E6038 0 `i 659  ]
+[e $ ! == -> F6071 `i -> . `E6041 0 `i 659  ]
 "227
 [; ;menu_navigation.c: 227:             {
 {
 "228
 [; ;menu_navigation.c: 228:                  param_pos = menu_start_next;
-[e = F6068 -> . `E6038 5 `uc ]
+[e = F6071 -> . `E6041 5 `uc ]
 "230
 [; ;menu_navigation.c: 230:             }else if(param_pos>=end_navigation)
 }
 [e $U 660  ]
 [e :U 659 ]
-[e $ ! >= -> F6068 `i -> . `E6038 6 `i 661  ]
+[e $ ! >= -> F6071 `i -> . `E6041 6 `i 661  ]
 "231
 [; ;menu_navigation.c: 231:             {
 {
 "232
 [; ;menu_navigation.c: 232:                  param_pos = param_1;
-[e = F6068 -> . `E6038 1 `uc ]
+[e = F6071 -> . `E6041 1 `uc ]
 "233
 [; ;menu_navigation.c: 233:             }
 }
@@ -14473,7 +14473,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 660 ]
 "235
 [; ;menu_navigation.c: 235:             if(param_pos == param_1)
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 662  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 662  ]
 "236
 [; ;menu_navigation.c: 236:             {
 {
@@ -14491,13 +14491,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TrickleVoltage (2 , _bat_param -> -> 0 `i `uc ]
 "241
 [; ;menu_navigation.c: 241:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "242
 [; ;menu_navigation.c: 242:             }else if(param_pos == param_2)
 }
 [e $U 663  ]
 [e :U 662 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 664  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 664  ]
 "243
 [; ;menu_navigation.c: 243:             {
 {
@@ -14515,13 +14515,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TrickleVoltage (2 , _bat_param -> -> 0 `i `uc ]
 "248
 [; ;menu_navigation.c: 248:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "249
 [; ;menu_navigation.c: 249:             }else if(param_pos == param_3)
 }
 [e $U 665  ]
 [e :U 664 ]
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 666  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 666  ]
 "250
 [; ;menu_navigation.c: 250:             {
 {
@@ -14539,13 +14539,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TrickleVoltage (2 , _bat_param -> -> 1 `i `uc ]
 "255
 [; ;menu_navigation.c: 255:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "256
 [; ;menu_navigation.c: 256:             }else if(param_pos == param_4)
 }
 [e $U 667  ]
 [e :U 666 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 668  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 668  ]
 "257
 [; ;menu_navigation.c: 257:             {
 {
@@ -14563,13 +14563,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TrickleVoltage (2 , _bat_param -> -> 0 `i `uc ]
 "262
 [; ;menu_navigation.c: 262:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "263
 [; ;menu_navigation.c: 263:             }else if(param_pos == menu_start_next)
 }
 [e $U 669  ]
 [e :U 668 ]
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 670  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 670  ]
 "264
 [; ;menu_navigation.c: 264:             {
 {
@@ -14587,7 +14587,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TrickleVoltage (2 , _bat_param -> -> 0 `i `uc ]
 "269
 [; ;menu_navigation.c: 269:                 Handle_Setting23_MenuNavigation(menu_selection);
-[e ( _Handle_Setting23_MenuNavigation (1 F6065 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6068 ]
 "270
 [; ;menu_navigation.c: 270:             }
 }
@@ -14601,31 +14601,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 671  ]
 [e :U 655 ]
-[e $ ! == -> F6064 `i -> . `E6046 3 `i 672  ]
+[e $ ! == -> F6067 `i -> . `E6049 3 `i 672  ]
 "272
 [; ;menu_navigation.c: 272:         {
 {
 "274
 [; ;menu_navigation.c: 274:             if(Button_EventGet(UP_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 2 `uc `ui -> -> 0 `i `ui 673  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 2 `uc `ui -> -> 0 `i `ui 673  ]
 "275
 [; ;menu_navigation.c: 275:             {
 {
 "276
 [; ;menu_navigation.c: 276:                  param_pos--;
-[e -- F6068 -> -> 1 `i `uc ]
+[e -- F6071 -> -> 1 `i `uc ]
 "277
 [; ;menu_navigation.c: 277:             }else if(Button_EventGet(DOWN_SW))
 }
 [e $U 674  ]
 [e :U 673 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 3 `uc `ui -> -> 0 `i `ui 675  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 3 `uc `ui -> -> 0 `i `ui 675  ]
 "278
 [; ;menu_navigation.c: 278:             {
 {
 "279
 [; ;menu_navigation.c: 279:                  param_pos++;
-[e ++ F6068 -> -> 1 `i `uc ]
+[e ++ F6071 -> -> 1 `i `uc ]
 "280
 [; ;menu_navigation.c: 280:             }
 }
@@ -14633,25 +14633,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 674 ]
 "282
 [; ;menu_navigation.c: 282:             if(param_pos == param_3)
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 676  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 676  ]
 "283
 [; ;menu_navigation.c: 283:             {
 {
 "284
 [; ;menu_navigation.c: 284:                 param_pos = menu_start_next;
-[e = F6068 -> . `E6038 5 `uc ]
+[e = F6071 -> . `E6041 5 `uc ]
 "285
 [; ;menu_navigation.c: 285:             }else if(param_pos == param_4)
 }
 [e $U 677  ]
 [e :U 676 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 678  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 678  ]
 "286
 [; ;menu_navigation.c: 286:             {
 {
 "287
 [; ;menu_navigation.c: 287:                 param_pos = param_2;
-[e = F6068 -> . `E6038 2 `uc ]
+[e = F6071 -> . `E6041 2 `uc ]
 "288
 [; ;menu_navigation.c: 288:             }
 }
@@ -14659,25 +14659,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 677 ]
 "291
 [; ;menu_navigation.c: 291:             if(param_pos==start_navigation)
-[e $ ! == -> F6068 `i -> . `E6038 0 `i 679  ]
+[e $ ! == -> F6071 `i -> . `E6041 0 `i 679  ]
 "292
 [; ;menu_navigation.c: 292:             {
 {
 "293
 [; ;menu_navigation.c: 293:                  param_pos = menu_start_next;
-[e = F6068 -> . `E6038 5 `uc ]
+[e = F6071 -> . `E6041 5 `uc ]
 "295
 [; ;menu_navigation.c: 295:             }else if(param_pos>=end_navigation)
 }
 [e $U 680  ]
 [e :U 679 ]
-[e $ ! >= -> F6068 `i -> . `E6038 6 `i 681  ]
+[e $ ! >= -> F6071 `i -> . `E6041 6 `i 681  ]
 "296
 [; ;menu_navigation.c: 296:             {
 {
 "297
 [; ;menu_navigation.c: 297:                  param_pos = param_1;
-[e = F6068 -> . `E6038 1 `uc ]
+[e = F6071 -> . `E6041 1 `uc ]
 "298
 [; ;menu_navigation.c: 298:             }
 }
@@ -14685,7 +14685,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 680 ]
 "300
 [; ;menu_navigation.c: 300:             if(param_pos == param_1)
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 682  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 682  ]
 "301
 [; ;menu_navigation.c: 301:             {
 {
@@ -14697,13 +14697,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetTemp (2 , _bat_param -> -> 0 `i `uc ]
 "304
 [; ;menu_navigation.c: 304:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "305
 [; ;menu_navigation.c: 305:             }else if(param_pos == param_2)
 }
 [e $U 683  ]
 [e :U 682 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 684  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 684  ]
 "306
 [; ;menu_navigation.c: 306:             {
 {
@@ -14715,13 +14715,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetTemp (2 , _bat_param -> -> 1 `i `uc ]
 "309
 [; ;menu_navigation.c: 309:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "310
 [; ;menu_navigation.c: 310:             }else if(param_pos == menu_start_next)
 }
 [e $U 685  ]
 [e :U 684 ]
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 686  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 686  ]
 "311
 [; ;menu_navigation.c: 311:             {
 {
@@ -14733,7 +14733,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetTemp (2 , _bat_param -> -> 0 `i `uc ]
 "314
 [; ;menu_navigation.c: 314:                 Handle_Setting23_MenuNavigation(menu_selection);
-[e ( _Handle_Setting23_MenuNavigation (1 F6065 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6068 ]
 "315
 [; ;menu_navigation.c: 315:             }
 }
@@ -14745,31 +14745,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 687  ]
 [e :U 672 ]
-[e $ ! == -> F6064 `i -> . `E6046 4 `i 688  ]
+[e $ ! == -> F6067 `i -> . `E6049 4 `i 688  ]
 "317
 [; ;menu_navigation.c: 317:         {
 {
 "319
 [; ;menu_navigation.c: 319:             if(Button_EventGet(UP_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 2 `uc `ui -> -> 0 `i `ui 689  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 2 `uc `ui -> -> 0 `i `ui 689  ]
 "320
 [; ;menu_navigation.c: 320:             {
 {
 "321
 [; ;menu_navigation.c: 321:                  param_pos--;
-[e -- F6068 -> -> 1 `i `uc ]
+[e -- F6071 -> -> 1 `i `uc ]
 "322
 [; ;menu_navigation.c: 322:             }else if(Button_EventGet(DOWN_SW))
 }
 [e $U 690  ]
 [e :U 689 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 3 `uc `ui -> -> 0 `i `ui 691  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 3 `uc `ui -> -> 0 `i `ui 691  ]
 "323
 [; ;menu_navigation.c: 323:             {
 {
 "324
 [; ;menu_navigation.c: 324:                  param_pos++;
-[e ++ F6068 -> -> 1 `i `uc ]
+[e ++ F6071 -> -> 1 `i `uc ]
 "325
 [; ;menu_navigation.c: 325:             }
 }
@@ -14777,25 +14777,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 690 ]
 "327
 [; ;menu_navigation.c: 327:             if(param_pos==start_navigation)
-[e $ ! == -> F6068 `i -> . `E6038 0 `i 692  ]
+[e $ ! == -> F6071 `i -> . `E6041 0 `i 692  ]
 "328
 [; ;menu_navigation.c: 328:             {
 {
 "329
 [; ;menu_navigation.c: 329:                  param_pos = menu_start_next;
-[e = F6068 -> . `E6038 5 `uc ]
+[e = F6071 -> . `E6041 5 `uc ]
 "331
 [; ;menu_navigation.c: 331:             }else if(param_pos>=end_navigation)
 }
 [e $U 693  ]
 [e :U 692 ]
-[e $ ! >= -> F6068 `i -> . `E6038 6 `i 694  ]
+[e $ ! >= -> F6071 `i -> . `E6041 6 `i 694  ]
 "332
 [; ;menu_navigation.c: 332:             {
 {
 "333
 [; ;menu_navigation.c: 333:                  param_pos = param_1;
-[e = F6068 -> . `E6038 1 `uc ]
+[e = F6071 -> . `E6041 1 `uc ]
 "334
 [; ;menu_navigation.c: 334:             }
 }
@@ -14803,7 +14803,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 693 ]
 "336
 [; ;menu_navigation.c: 336:             if(param_pos == param_1)
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 695  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 695  ]
 "337
 [; ;menu_navigation.c: 337:             {
 {
@@ -14821,13 +14821,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_2 (2 , _bat_param -> -> 0 `i `uc ]
 "342
 [; ;menu_navigation.c: 342:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "344
 [; ;menu_navigation.c: 344:             }else if(param_pos == param_2)
 }
 [e $U 696  ]
 [e :U 695 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 697  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 697  ]
 "345
 [; ;menu_navigation.c: 345:             {
 {
@@ -14845,13 +14845,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_2 (2 , _bat_param -> -> 0 `i `uc ]
 "350
 [; ;menu_navigation.c: 350:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "352
 [; ;menu_navigation.c: 352:             }else if(param_pos == param_3)
 }
 [e $U 698  ]
 [e :U 697 ]
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 699  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 699  ]
 "353
 [; ;menu_navigation.c: 353:             {
 {
@@ -14869,13 +14869,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_2 (2 , _bat_param -> -> 0 `i `uc ]
 "358
 [; ;menu_navigation.c: 358:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "360
 [; ;menu_navigation.c: 360:             }else if(param_pos == param_4)
 }
 [e $U 700  ]
 [e :U 699 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 701  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 701  ]
 "361
 [; ;menu_navigation.c: 361:             {
 {
@@ -14893,13 +14893,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_2 (2 , _bat_param -> -> 1 `i `uc ]
 "366
 [; ;menu_navigation.c: 366:                 Handle_Setting23_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting23_MenuNavigation (1 -> . `E6036 3 `uc ]
 "368
 [; ;menu_navigation.c: 368:             }else if(param_pos == menu_start_next)
 }
 [e $U 702  ]
 [e :U 701 ]
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 703  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 703  ]
 "369
 [; ;menu_navigation.c: 369:             {
 {
@@ -14917,7 +14917,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_2 (2 , _bat_param -> -> 0 `i `uc ]
 "374
 [; ;menu_navigation.c: 374:                 Handle_Setting23_MenuNavigation(menu_selection);
-[e ( _Handle_Setting23_MenuNavigation (1 F6065 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6068 ]
 "375
 [; ;menu_navigation.c: 375:             }
 }
@@ -14933,31 +14933,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "377
 [; ;menu_navigation.c: 377:         else if(menu_type==settings5)
 [e :U 688 ]
-[e $ ! == -> F6064 `i -> . `E6046 5 `i 705  ]
+[e $ ! == -> F6067 `i -> . `E6049 5 `i 705  ]
 "378
 [; ;menu_navigation.c: 378:         {
 {
 "380
 [; ;menu_navigation.c: 380:             if(Button_EventGet(UP_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 2 `uc `ui -> -> 0 `i `ui 706  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 2 `uc `ui -> -> 0 `i `ui 706  ]
 "381
 [; ;menu_navigation.c: 381:             {
 {
 "382
 [; ;menu_navigation.c: 382:                  param_pos--;
-[e -- F6068 -> -> 1 `i `uc ]
+[e -- F6071 -> -> 1 `i `uc ]
 "383
 [; ;menu_navigation.c: 383:             }else if(Button_EventGet(DOWN_SW))
 }
 [e $U 707  ]
 [e :U 706 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 3 `uc `ui -> -> 0 `i `ui 708  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 3 `uc `ui -> -> 0 `i `ui 708  ]
 "384
 [; ;menu_navigation.c: 384:             {
 {
 "385
 [; ;menu_navigation.c: 385:                  param_pos++;
-[e ++ F6068 -> -> 1 `i `uc ]
+[e ++ F6071 -> -> 1 `i `uc ]
 "386
 [; ;menu_navigation.c: 386:             }
 }
@@ -14965,25 +14965,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 707 ]
 "388
 [; ;menu_navigation.c: 388:             if(param_pos==start_navigation)
-[e $ ! == -> F6068 `i -> . `E6038 0 `i 709  ]
+[e $ ! == -> F6071 `i -> . `E6041 0 `i 709  ]
 "389
 [; ;menu_navigation.c: 389:             {
 {
 "390
 [; ;menu_navigation.c: 390:                  param_pos = menu_start_next;
-[e = F6068 -> . `E6038 5 `uc ]
+[e = F6071 -> . `E6041 5 `uc ]
 "392
 [; ;menu_navigation.c: 392:             }else if(param_pos>=end_navigation)
 }
 [e $U 710  ]
 [e :U 709 ]
-[e $ ! >= -> F6068 `i -> . `E6038 6 `i 711  ]
+[e $ ! >= -> F6071 `i -> . `E6041 6 `i 711  ]
 "393
 [; ;menu_navigation.c: 393:             {
 {
 "394
 [; ;menu_navigation.c: 394:                  param_pos = param_1;
-[e = F6068 -> . `E6038 1 `uc ]
+[e = F6071 -> . `E6041 1 `uc ]
 "395
 [; ;menu_navigation.c: 395:             }
 }
@@ -14991,7 +14991,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 710 ]
 "397
 [; ;menu_navigation.c: 397:             if(param_pos == param_1)
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 712  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 712  ]
 "398
 [; ;menu_navigation.c: 398:             {
 {
@@ -15009,13 +15009,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_4 (2 , _bat_param -> -> 0 `i `uc ]
 "403
 [; ;menu_navigation.c: 403:                 Handle_Setting5_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting5_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting5_MenuNavigation (1 -> . `E6036 3 `uc ]
 "405
 [; ;menu_navigation.c: 405:             }else if(param_pos == param_2)
 }
 [e $U 713  ]
 [e :U 712 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 714  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 714  ]
 "406
 [; ;menu_navigation.c: 406:             {
 {
@@ -15033,13 +15033,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_4 (2 , _bat_param -> -> 0 `i `uc ]
 "411
 [; ;menu_navigation.c: 411:                 Handle_Setting5_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting5_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting5_MenuNavigation (1 -> . `E6036 3 `uc ]
 "413
 [; ;menu_navigation.c: 413:             }else if(param_pos == param_3)
 }
 [e $U 715  ]
 [e :U 714 ]
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 716  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 716  ]
 "414
 [; ;menu_navigation.c: 414:             {
 {
@@ -15057,13 +15057,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_4 (2 , _bat_param -> -> 0 `i `uc ]
 "419
 [; ;menu_navigation.c: 419:                 Handle_Setting5_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting5_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting5_MenuNavigation (1 -> . `E6036 3 `uc ]
 "421
 [; ;menu_navigation.c: 421:             }else if(param_pos == param_4)
 }
 [e $U 717  ]
 [e :U 716 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 718  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 718  ]
 "422
 [; ;menu_navigation.c: 422:             {
 {
@@ -15081,13 +15081,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_4 (2 , _bat_param -> -> 1 `i `uc ]
 "427
 [; ;menu_navigation.c: 427:                 Handle_Setting5_MenuNavigation(disable_start_next_menu);
-[e ( _Handle_Setting5_MenuNavigation (1 -> . `E6033 3 `uc ]
+[e ( _Handle_Setting5_MenuNavigation (1 -> . `E6036 3 `uc ]
 "429
 [; ;menu_navigation.c: 429:             }else if(param_pos == menu_start_next)
 }
 [e $U 719  ]
 [e :U 718 ]
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 720  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 720  ]
 "430
 [; ;menu_navigation.c: 430:             {
 {
@@ -15105,7 +15105,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_4 (2 , _bat_param -> -> 0 `i `uc ]
 "435
 [; ;menu_navigation.c: 435:                 Handle_Setting5_MenuNavigation(menu_selection);
-[e ( _Handle_Setting5_MenuNavigation (1 F6065 ]
+[e ( _Handle_Setting5_MenuNavigation (1 F6068 ]
 "436
 [; ;menu_navigation.c: 436:             }
 }
@@ -15134,52 +15134,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 637 ]
 "444
 [; ;menu_navigation.c: 444:     if (Button_EventGet(LEFT_SW) || Button_EventGet(RIGHT_SW) || menu_init==0 )
-[e $ ! || || != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui == -> F6066 `i -> 0 `i 721  ]
+[e $ ! || || != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui == -> F6069 `i -> 0 `i 721  ]
 "445
 [; ;menu_navigation.c: 445:     {
 {
 "446
 [; ;menu_navigation.c: 446:         menu_init=1;
-[e = F6066 -> -> 1 `i `uc ]
+[e = F6069 -> -> 1 `i `uc ]
 "448
 [; ;menu_navigation.c: 448:         if(menu_type==main_menu)
-[e $ ! == -> F6064 `i -> . `E6046 0 `i 722  ]
+[e $ ! == -> F6067 `i -> . `E6049 0 `i 722  ]
 "449
 [; ;menu_navigation.c: 449:         {
 {
 "450
 [; ;menu_navigation.c: 450:             if (menu_change == start)
-[e $ ! == -> F6063 `i -> . `E5901 1 `i 723  ]
+[e $ ! == -> F6066 `i -> . `E5904 1 `i 723  ]
 "451
 [; ;menu_navigation.c: 451:             {
 {
 "452
 [; ;menu_navigation.c: 452:                 Handle_Main_MenuNavigation(menu_change);
-[e ( _Handle_Main_MenuNavigation (1 F6063 ]
+[e ( _Handle_Main_MenuNavigation (1 F6066 ]
 "453
 [; ;menu_navigation.c: 453:                 menu_change = menu;
-[e = F6063 -> . `E5901 0 `uc ]
+[e = F6066 -> . `E5904 0 `uc ]
 "454
 [; ;menu_navigation.c: 454:                 menu_selection=start;
-[e = F6065 -> . `E5901 1 `uc ]
+[e = F6068 -> . `E5904 1 `uc ]
 "456
 [; ;menu_navigation.c: 456:             }else if (menu_change == menu)
 }
 [e $U 724  ]
 [e :U 723 ]
-[e $ ! == -> F6063 `i -> . `E5901 0 `i 725  ]
+[e $ ! == -> F6066 `i -> . `E5904 0 `i 725  ]
 "457
 [; ;menu_navigation.c: 457:             {
 {
 "458
 [; ;menu_navigation.c: 458:                 Handle_Main_MenuNavigation(menu_change);
-[e ( _Handle_Main_MenuNavigation (1 F6063 ]
+[e ( _Handle_Main_MenuNavigation (1 F6066 ]
 "459
 [; ;menu_navigation.c: 459:                 menu_change = start;
-[e = F6063 -> . `E5901 1 `uc ]
+[e = F6066 -> . `E5904 1 `uc ]
 "460
 [; ;menu_navigation.c: 460:                 menu_selection=menu;
-[e = F6065 -> . `E5901 0 `uc ]
+[e = F6068 -> . `E5904 0 `uc ]
 "461
 [; ;menu_navigation.c: 461:             }
 }
@@ -15190,49 +15190,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 726  ]
 [e :U 722 ]
-[e $ ! == -> F6064 `i -> . `E6046 1 `i 727  ]
+[e $ ! == -> F6067 `i -> . `E6049 1 `i 727  ]
 "464
 [; ;menu_navigation.c: 464:         {
 {
 "465
 [; ;menu_navigation.c: 465:             if(param_pos == menu_start_next)
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 728  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 728  ]
 "466
 [; ;menu_navigation.c: 466:             {
 {
 "468
 [; ;menu_navigation.c: 468:                 if (menu_change == save_exit)
-[e $ ! == -> F6063 `i -> . `E6033 2 `i 729  ]
+[e $ ! == -> F6066 `i -> . `E6036 2 `i 729  ]
 "469
 [; ;menu_navigation.c: 469:                 {
 {
 "470
 [; ;menu_navigation.c: 470:                     Handle_Setting1_MenuNavigation(menu_change);
-[e ( _Handle_Setting1_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting1_MenuNavigation (1 F6066 ]
 "471
 [; ;menu_navigation.c: 471:                     menu_change = next;
-[e = F6063 -> . `E6033 0 `uc ]
+[e = F6066 -> . `E6036 0 `uc ]
 "472
 [; ;menu_navigation.c: 472:                     menu_selection=save_exit;
-[e = F6065 -> . `E6033 2 `uc ]
+[e = F6068 -> . `E6036 2 `uc ]
 "474
 [; ;menu_navigation.c: 474:                 }else if (menu_change == next)
 }
 [e $U 730  ]
 [e :U 729 ]
-[e $ ! == -> F6063 `i -> . `E6033 0 `i 731  ]
+[e $ ! == -> F6066 `i -> . `E6036 0 `i 731  ]
 "475
 [; ;menu_navigation.c: 475:                 {
 {
 "476
 [; ;menu_navigation.c: 476:                     Handle_Setting1_MenuNavigation(menu_change);
-[e ( _Handle_Setting1_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting1_MenuNavigation (1 F6066 ]
 "477
 [; ;menu_navigation.c: 477:                     menu_change = save_exit;
-[e = F6063 -> . `E6033 2 `uc ]
+[e = F6066 -> . `E6036 2 `uc ]
 "478
 [; ;menu_navigation.c: 478:                     menu_selection=next;
-[e = F6065 -> . `E6033 0 `uc ]
+[e = F6068 -> . `E6036 0 `uc ]
 "479
 [; ;menu_navigation.c: 479:                 }
 }
@@ -15243,7 +15243,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 732  ]
 [e :U 728 ]
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 733  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 733  ]
 "482
 [; ;menu_navigation.c: 482:             {
 {
@@ -15256,49 +15256,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 "486
 [; ;menu_navigation.c: 486:                     case liion: switch_param=1; break;
 [e :U 736 ]
-[e = F6069 -> -> 1 `i `uc ]
+[e = F6072 -> -> 1 `i `uc ]
 [e $U 734  ]
 "487
 [; ;menu_navigation.c: 487:                     case pb: switch_param=2; break;
 [e :U 737 ]
-[e = F6069 -> -> 2 `i `uc ]
+[e = F6072 -> -> 2 `i `uc ]
 [e $U 734  ]
 "488
 [; ;menu_navigation.c: 488:                     case nimh: switch_param=3; break;
 [e :U 738 ]
-[e = F6069 -> -> 3 `i `uc ]
+[e = F6072 -> -> 3 `i `uc ]
 [e $U 734  ]
 "489
 [; ;menu_navigation.c: 489:                 }
 }
 [e $U 734  ]
 [e :U 735 ]
-[e [\ -> . *U _bat_param 4 `i , $ . `E5904 0 736
- , $ . `E5904 1 737
- , $ . `E5904 2 738
+[e [\ -> . *U _bat_param 4 `i , $ . `E5907 0 736
+ , $ . `E5907 1 737
+ , $ . `E5907 2 738
  734 ]
 [e :U 734 ]
 "491
 [; ;menu_navigation.c: 491:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 739  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 739  ]
 "492
 [; ;menu_navigation.c: 492:                 {
 {
 "493
 [; ;menu_navigation.c: 493:                      switch_param++;
-[e ++ F6069 -> -> 1 `i `uc ]
+[e ++ F6072 -> -> 1 `i `uc ]
 "494
 [; ;menu_navigation.c: 494:                 }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 740  ]
 [e :U 739 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 741  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 741  ]
 "495
 [; ;menu_navigation.c: 495:                 {
 {
 "496
 [; ;menu_navigation.c: 496:                      switch_param--;
-[e -- F6069 -> -> 1 `i `uc ]
+[e -- F6072 -> -> 1 `i `uc ]
 "497
 [; ;menu_navigation.c: 497:                 }
 }
@@ -15306,25 +15306,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 740 ]
 "499
 [; ;menu_navigation.c: 499:                 if(switch_param==0)
-[e $ ! == -> F6069 `i -> 0 `i 742  ]
+[e $ ! == -> F6072 `i -> 0 `i 742  ]
 "500
 [; ;menu_navigation.c: 500:                 {
 {
 "501
 [; ;menu_navigation.c: 501:                      switch_param = 3;
-[e = F6069 -> -> 3 `i `uc ]
+[e = F6072 -> -> 3 `i `uc ]
 "503
 [; ;menu_navigation.c: 503:                 }else if(switch_param>=4)
 }
 [e $U 743  ]
 [e :U 742 ]
-[e $ ! >= -> F6069 `i -> 4 `i 744  ]
+[e $ ! >= -> F6072 `i -> 4 `i 744  ]
 "504
 [; ;menu_navigation.c: 504:                 {
 {
 "505
 [; ;menu_navigation.c: 505:                      switch_param = 1;
-[e = F6069 -> -> 1 `i `uc ]
+[e = F6072 -> -> 1 `i `uc ]
 "506
 [; ;menu_navigation.c: 506:                 }
 }
@@ -15339,24 +15339,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "511
 [; ;menu_navigation.c: 511:                     case 1: bat_param->bat_chem = liion; break;
 [e :U 747 ]
-[e = . *U _bat_param 4 -> . `E5904 0 `uc ]
+[e = . *U _bat_param 4 -> . `E5907 0 `uc ]
 [e $U 745  ]
 "512
 [; ;menu_navigation.c: 512:                     case 2: bat_param->bat_chem = pb; break;
 [e :U 748 ]
-[e = . *U _bat_param 4 -> . `E5904 1 `uc ]
+[e = . *U _bat_param 4 -> . `E5907 1 `uc ]
 [e $U 745  ]
 "513
 [; ;menu_navigation.c: 513:                     case 3: bat_param->bat_chem = nimh; break;
 [e :U 749 ]
-[e = . *U _bat_param 4 -> . `E5904 2 `uc ]
+[e = . *U _bat_param 4 -> . `E5907 2 `uc ]
 [e $U 745  ]
 "514
 [; ;menu_navigation.c: 514:                 }
 }
 [e $U 745  ]
 [e :U 746 ]
-[e [\ -> F6069 `i , $ -> 1 `i 747
+[e [\ -> F6072 `i , $ -> 1 `i 747
  , $ -> 2 `i 748
  , $ -> 3 `i 749
  745 ]
@@ -15369,13 +15369,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 750  ]
 [e :U 733 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 751  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 751  ]
 "519
 [; ;menu_navigation.c: 519:             {
 {
 "521
 [; ;menu_navigation.c: 521:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 752  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 752  ]
 "522
 [; ;menu_navigation.c: 522:                 {
 {
@@ -15387,7 +15387,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 753  ]
 [e :U 752 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 754  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 754  ]
 "525
 [; ;menu_navigation.c: 525:                 {
 {
@@ -15433,7 +15433,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 758  ]
 [e :U 751 ]
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 759  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 759  ]
 "541
 [; ;menu_navigation.c: 541:             {
 {
@@ -15446,49 +15446,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 "545
 [; ;menu_navigation.c: 545:                     case charging: switch_param=1; break;
 [e :U 762 ]
-[e = F6069 -> -> 1 `i `uc ]
+[e = F6072 -> -> 1 `i `uc ]
 [e $U 760  ]
 "546
 [; ;menu_navigation.c: 546:                     case charging_discharging: switch_param=2; break;
 [e :U 763 ]
-[e = F6069 -> -> 2 `i `uc ]
+[e = F6072 -> -> 2 `i `uc ]
 [e $U 760  ]
 "547
 [; ;menu_navigation.c: 547:                     case charging_discharging_storage: switch_param=3; break;
 [e :U 764 ]
-[e = F6069 -> -> 3 `i `uc ]
+[e = F6072 -> -> 3 `i `uc ]
 [e $U 760  ]
 "548
 [; ;menu_navigation.c: 548:                 }
 }
 [e $U 760  ]
 [e :U 761 ]
-[e [\ -> . *U _bat_param 6 `i , $ . `E5908 0 762
- , $ . `E5908 1 763
- , $ . `E5908 2 764
+[e [\ -> . *U _bat_param 6 `i , $ . `E5911 0 762
+ , $ . `E5911 1 763
+ , $ . `E5911 2 764
  760 ]
 [e :U 760 ]
 "550
 [; ;menu_navigation.c: 550:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 765  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 765  ]
 "551
 [; ;menu_navigation.c: 551:                 {
 {
 "552
 [; ;menu_navigation.c: 552:                      switch_param++;
-[e ++ F6069 -> -> 1 `i `uc ]
+[e ++ F6072 -> -> 1 `i `uc ]
 "553
 [; ;menu_navigation.c: 553:                 }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 766  ]
 [e :U 765 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 767  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 767  ]
 "554
 [; ;menu_navigation.c: 554:                 {
 {
 "555
 [; ;menu_navigation.c: 555:                      switch_param--;
-[e -- F6069 -> -> 1 `i `uc ]
+[e -- F6072 -> -> 1 `i `uc ]
 "556
 [; ;menu_navigation.c: 556:                 }
 }
@@ -15496,25 +15496,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 766 ]
 "558
 [; ;menu_navigation.c: 558:                 if(switch_param==0)
-[e $ ! == -> F6069 `i -> 0 `i 768  ]
+[e $ ! == -> F6072 `i -> 0 `i 768  ]
 "559
 [; ;menu_navigation.c: 559:                 {
 {
 "560
 [; ;menu_navigation.c: 560:                      switch_param = 3;
-[e = F6069 -> -> 3 `i `uc ]
+[e = F6072 -> -> 3 `i `uc ]
 "562
 [; ;menu_navigation.c: 562:                 }else if(switch_param>=4)
 }
 [e $U 769  ]
 [e :U 768 ]
-[e $ ! >= -> F6069 `i -> 4 `i 770  ]
+[e $ ! >= -> F6072 `i -> 4 `i 770  ]
 "563
 [; ;menu_navigation.c: 563:                 {
 {
 "564
 [; ;menu_navigation.c: 564:                      switch_param = 1;
-[e = F6069 -> -> 1 `i `uc ]
+[e = F6072 -> -> 1 `i `uc ]
 "565
 [; ;menu_navigation.c: 565:                 }
 }
@@ -15529,24 +15529,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "569
 [; ;menu_navigation.c: 569:                     case 1: bat_param->selected_mode = charging; break;
 [e :U 773 ]
-[e = . *U _bat_param 6 -> . `E5908 0 `uc ]
+[e = . *U _bat_param 6 -> . `E5911 0 `uc ]
 [e $U 771  ]
 "570
 [; ;menu_navigation.c: 570:                     case 2: bat_param->selected_mode = charging_discharging; break;
 [e :U 774 ]
-[e = . *U _bat_param 6 -> . `E5908 1 `uc ]
+[e = . *U _bat_param 6 -> . `E5911 1 `uc ]
 [e $U 771  ]
 "571
 [; ;menu_navigation.c: 571:                     case 3: bat_param->selected_mode = charging_discharging_storage; break;
 [e :U 775 ]
-[e = . *U _bat_param 6 -> . `E5908 2 `uc ]
+[e = . *U _bat_param 6 -> . `E5911 2 `uc ]
 [e $U 771  ]
 "572
 [; ;menu_navigation.c: 572:                 }
 }
 [e $U 771  ]
 [e :U 772 ]
-[e [\ -> F6069 `i , $ -> 1 `i 773
+[e [\ -> F6072 `i , $ -> 1 `i 773
  , $ -> 2 `i 774
  , $ -> 3 `i 775
  771 ]
@@ -15559,13 +15559,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 776  ]
 [e :U 759 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 777  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 777  ]
 "577
 [; ;menu_navigation.c: 577:             {
 {
 "579
 [; ;menu_navigation.c: 579:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 778  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 778  ]
 "580
 [; ;menu_navigation.c: 580:                 {
 {
@@ -15577,7 +15577,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 779  ]
 [e :U 778 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 780  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 780  ]
 "583
 [; ;menu_navigation.c: 583:                 {
 {
@@ -15631,37 +15631,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 784  ]
 [e :U 727 ]
-[e $ ! == -> F6064 `i -> . `E6046 2 `i 785  ]
+[e $ ! == -> F6067 `i -> . `E6049 2 `i 785  ]
 "600
 [; ;menu_navigation.c: 600:         {
 {
 "601
 [; ;menu_navigation.c: 601:             if(param_pos == menu_start_next)
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 786  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 786  ]
 "602
 [; ;menu_navigation.c: 602:             {
 {
 "603
 [; ;menu_navigation.c: 603:                 if(Button_EventGet(LEFT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 787  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 787  ]
 "604
 [; ;menu_navigation.c: 604:                 {
 {
 "605
 [; ;menu_navigation.c: 605:                      menu_pos--;
-[e -- F6067 -> -> 1 `i `uc ]
+[e -- F6070 -> -> 1 `i `uc ]
 "606
 [; ;menu_navigation.c: 606:                 }else if(Button_EventGet(RIGHT_SW))
 }
 [e $U 788  ]
 [e :U 787 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 789  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 789  ]
 "607
 [; ;menu_navigation.c: 607:                 {
 {
 "608
 [; ;menu_navigation.c: 608:                      menu_pos++;
-[e ++ F6067 -> -> 1 `i `uc ]
+[e ++ F6070 -> -> 1 `i `uc ]
 "609
 [; ;menu_navigation.c: 609:                 }
 }
@@ -15669,37 +15669,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 788 ]
 "611
 [; ;menu_navigation.c: 611:                 if(menu_pos==0)
-[e $ ! == -> F6067 `i -> 0 `i 790  ]
+[e $ ! == -> F6070 `i -> 0 `i 790  ]
 "612
 [; ;menu_navigation.c: 612:                 {
 {
 "613
 [; ;menu_navigation.c: 613:                     menu_pos = 3;
-[e = F6067 -> -> 3 `i `uc ]
+[e = F6070 -> -> 3 `i `uc ]
 "614
 [; ;menu_navigation.c: 614:                 }else if(menu_pos==4)
 }
 [e $U 791  ]
 [e :U 790 ]
-[e $ ! == -> F6067 `i -> 4 `i 792  ]
+[e $ ! == -> F6070 `i -> 4 `i 792  ]
 "615
 [; ;menu_navigation.c: 615:                 {
 {
 "616
 [; ;menu_navigation.c: 616:                     menu_pos = 1;
-[e = F6067 -> -> 1 `i `uc ]
+[e = F6070 -> -> 1 `i `uc ]
 "617
 [; ;menu_navigation.c: 617:                 }else if(menu_pos>4)
 }
 [e $U 793  ]
 [e :U 792 ]
-[e $ ! > -> F6067 `i -> 4 `i 794  ]
+[e $ ! > -> F6070 `i -> 4 `i 794  ]
 "618
 [; ;menu_navigation.c: 618:                 {
 {
 "619
 [; ;menu_navigation.c: 619:                     menu_pos=2;
-[e = F6067 -> -> 2 `i `uc ]
+[e = F6070 -> -> 2 `i `uc ]
 "620
 [; ;menu_navigation.c: 620:                 }
 }
@@ -15715,70 +15715,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 "624
 [; ;menu_navigation.c: 624:                     case 1: menu_change = back; break;
 [e :U 797 ]
-[e = F6063 -> . `E6033 1 `uc ]
+[e = F6066 -> . `E6036 1 `uc ]
 [e $U 795  ]
 "625
 [; ;menu_navigation.c: 625:                     case 2: menu_change = next; break;
 [e :U 798 ]
-[e = F6063 -> . `E6033 0 `uc ]
+[e = F6066 -> . `E6036 0 `uc ]
 [e $U 795  ]
 "626
 [; ;menu_navigation.c: 626:                     case 3: menu_change = save_exit; break;
 [e :U 799 ]
-[e = F6063 -> . `E6033 2 `uc ]
+[e = F6066 -> . `E6036 2 `uc ]
 [e $U 795  ]
 "627
 [; ;menu_navigation.c: 627:                 }
 }
 [e $U 795  ]
 [e :U 796 ]
-[e [\ -> F6067 `i , $ -> 1 `i 797
+[e [\ -> F6070 `i , $ -> 1 `i 797
  , $ -> 2 `i 798
  , $ -> 3 `i 799
  795 ]
 [e :U 795 ]
 "629
 [; ;menu_navigation.c: 629:                 if (menu_change == back)
-[e $ ! == -> F6063 `i -> . `E6033 1 `i 800  ]
+[e $ ! == -> F6066 `i -> . `E6036 1 `i 800  ]
 "630
 [; ;menu_navigation.c: 630:                 {
 {
 "631
 [; ;menu_navigation.c: 631:                     Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6066 ]
 "632
 [; ;menu_navigation.c: 632:                     menu_selection=back;
-[e = F6065 -> . `E6033 1 `uc ]
+[e = F6068 -> . `E6036 1 `uc ]
 "633
 [; ;menu_navigation.c: 633:                 }else if (menu_change == next)
 }
 [e $U 801  ]
 [e :U 800 ]
-[e $ ! == -> F6063 `i -> . `E6033 0 `i 802  ]
+[e $ ! == -> F6066 `i -> . `E6036 0 `i 802  ]
 "634
 [; ;menu_navigation.c: 634:                 {
 {
 "635
 [; ;menu_navigation.c: 635:                     Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6066 ]
 "636
 [; ;menu_navigation.c: 636:                     menu_selection=next;
-[e = F6065 -> . `E6033 0 `uc ]
+[e = F6068 -> . `E6036 0 `uc ]
 "637
 [; ;menu_navigation.c: 637:                 }else if (menu_change == save_exit)
 }
 [e $U 803  ]
 [e :U 802 ]
-[e $ ! == -> F6063 `i -> . `E6033 2 `i 804  ]
+[e $ ! == -> F6066 `i -> . `E6036 2 `i 804  ]
 "638
 [; ;menu_navigation.c: 638:                 {
 {
 "639
 [; ;menu_navigation.c: 639:                     Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6066 ]
 "640
 [; ;menu_navigation.c: 640:                     menu_selection= save_exit;
-[e = F6065 -> . `E6033 2 `uc ]
+[e = F6068 -> . `E6036 2 `uc ]
 "641
 [; ;menu_navigation.c: 641:                 }
 }
@@ -15790,13 +15790,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 805  ]
 [e :U 786 ]
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 806  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 806  ]
 "643
 [; ;menu_navigation.c: 643:             {
 {
 "645
 [; ;menu_navigation.c: 645:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 807  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 807  ]
 "646
 [; ;menu_navigation.c: 646:                 {
 {
@@ -15808,7 +15808,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 808  ]
 [e :U 807 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 809  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 809  ]
 "649
 [; ;menu_navigation.c: 649:                 {
 {
@@ -15854,13 +15854,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 813  ]
 [e :U 806 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 814  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 814  ]
 "664
 [; ;menu_navigation.c: 664:             {
 {
 "666
 [; ;menu_navigation.c: 666:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 815  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 815  ]
 "667
 [; ;menu_navigation.c: 667:                 {
 {
@@ -15872,7 +15872,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 816  ]
 [e :U 815 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 817  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 817  ]
 "670
 [; ;menu_navigation.c: 670:                 {
 {
@@ -15918,13 +15918,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 821  ]
 [e :U 814 ]
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 822  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 822  ]
 "686
 [; ;menu_navigation.c: 686:             {
 {
 "688
 [; ;menu_navigation.c: 688:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 823  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 823  ]
 "689
 [; ;menu_navigation.c: 689:                 {
 {
@@ -15936,7 +15936,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 824  ]
 [e :U 823 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 825  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 825  ]
 "692
 [; ;menu_navigation.c: 692:                 {
 {
@@ -15982,13 +15982,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 829  ]
 [e :U 822 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 830  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 830  ]
 "708
 [; ;menu_navigation.c: 708:             {
 {
 "710
 [; ;menu_navigation.c: 710:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 831  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 831  ]
 "711
 [; ;menu_navigation.c: 711:                 {
 {
@@ -16000,7 +16000,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 832  ]
 [e :U 831 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 833  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 833  ]
 "714
 [; ;menu_navigation.c: 714:                 {
 {
@@ -16054,37 +16054,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 837  ]
 [e :U 785 ]
-[e $ ! == -> F6064 `i -> . `E6046 3 `i 838  ]
+[e $ ! == -> F6067 `i -> . `E6049 3 `i 838  ]
 "730
 [; ;menu_navigation.c: 730:         {
 {
 "731
 [; ;menu_navigation.c: 731:             if(param_pos == menu_start_next)
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 839  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 839  ]
 "732
 [; ;menu_navigation.c: 732:             {
 {
 "733
 [; ;menu_navigation.c: 733:                 if(Button_EventGet(LEFT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 840  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 840  ]
 "734
 [; ;menu_navigation.c: 734:                 {
 {
 "735
 [; ;menu_navigation.c: 735:                      menu_pos--;
-[e -- F6067 -> -> 1 `i `uc ]
+[e -- F6070 -> -> 1 `i `uc ]
 "736
 [; ;menu_navigation.c: 736:                 }else if(Button_EventGet(RIGHT_SW))
 }
 [e $U 841  ]
 [e :U 840 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 842  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 842  ]
 "737
 [; ;menu_navigation.c: 737:                 {
 {
 "738
 [; ;menu_navigation.c: 738:                      menu_pos++;
-[e ++ F6067 -> -> 1 `i `uc ]
+[e ++ F6070 -> -> 1 `i `uc ]
 "739
 [; ;menu_navigation.c: 739:                 }
 }
@@ -16092,37 +16092,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 841 ]
 "741
 [; ;menu_navigation.c: 741:                 if(menu_pos==0)
-[e $ ! == -> F6067 `i -> 0 `i 843  ]
+[e $ ! == -> F6070 `i -> 0 `i 843  ]
 "742
 [; ;menu_navigation.c: 742:                 {
 {
 "743
 [; ;menu_navigation.c: 743:                     menu_pos = 3;
-[e = F6067 -> -> 3 `i `uc ]
+[e = F6070 -> -> 3 `i `uc ]
 "744
 [; ;menu_navigation.c: 744:                 }else if(menu_pos==4)
 }
 [e $U 844  ]
 [e :U 843 ]
-[e $ ! == -> F6067 `i -> 4 `i 845  ]
+[e $ ! == -> F6070 `i -> 4 `i 845  ]
 "745
 [; ;menu_navigation.c: 745:                 {
 {
 "746
 [; ;menu_navigation.c: 746:                     menu_pos = 1;
-[e = F6067 -> -> 1 `i `uc ]
+[e = F6070 -> -> 1 `i `uc ]
 "747
 [; ;menu_navigation.c: 747:                 }else if(menu_pos>4)
 }
 [e $U 846  ]
 [e :U 845 ]
-[e $ ! > -> F6067 `i -> 4 `i 847  ]
+[e $ ! > -> F6070 `i -> 4 `i 847  ]
 "748
 [; ;menu_navigation.c: 748:                 {
 {
 "749
 [; ;menu_navigation.c: 749:                     menu_pos=2;
-[e = F6067 -> -> 2 `i `uc ]
+[e = F6070 -> -> 2 `i `uc ]
 "750
 [; ;menu_navigation.c: 750:                 }
 }
@@ -16138,70 +16138,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 "754
 [; ;menu_navigation.c: 754:                     case 1: menu_change = back; break;
 [e :U 850 ]
-[e = F6063 -> . `E6033 1 `uc ]
+[e = F6066 -> . `E6036 1 `uc ]
 [e $U 848  ]
 "755
 [; ;menu_navigation.c: 755:                     case 2: menu_change = next; break;
 [e :U 851 ]
-[e = F6063 -> . `E6033 0 `uc ]
+[e = F6066 -> . `E6036 0 `uc ]
 [e $U 848  ]
 "756
 [; ;menu_navigation.c: 756:                     case 3: menu_change = save_exit; break;
 [e :U 852 ]
-[e = F6063 -> . `E6033 2 `uc ]
+[e = F6066 -> . `E6036 2 `uc ]
 [e $U 848  ]
 "757
 [; ;menu_navigation.c: 757:                 }
 }
 [e $U 848  ]
 [e :U 849 ]
-[e [\ -> F6067 `i , $ -> 1 `i 850
+[e [\ -> F6070 `i , $ -> 1 `i 850
  , $ -> 2 `i 851
  , $ -> 3 `i 852
  848 ]
 [e :U 848 ]
 "759
 [; ;menu_navigation.c: 759:                 if (menu_change == back)
-[e $ ! == -> F6063 `i -> . `E6033 1 `i 853  ]
+[e $ ! == -> F6066 `i -> . `E6036 1 `i 853  ]
 "760
 [; ;menu_navigation.c: 760:                 {
 {
 "761
 [; ;menu_navigation.c: 761:                     Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6066 ]
 "762
 [; ;menu_navigation.c: 762:                     menu_selection=back;
-[e = F6065 -> . `E6033 1 `uc ]
+[e = F6068 -> . `E6036 1 `uc ]
 "763
 [; ;menu_navigation.c: 763:                 }else if (menu_change == next)
 }
 [e $U 854  ]
 [e :U 853 ]
-[e $ ! == -> F6063 `i -> . `E6033 0 `i 855  ]
+[e $ ! == -> F6066 `i -> . `E6036 0 `i 855  ]
 "764
 [; ;menu_navigation.c: 764:                 {
 {
 "765
 [; ;menu_navigation.c: 765:                     Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6066 ]
 "766
 [; ;menu_navigation.c: 766:                     menu_selection=next;
-[e = F6065 -> . `E6033 0 `uc ]
+[e = F6068 -> . `E6036 0 `uc ]
 "767
 [; ;menu_navigation.c: 767:                 }else if (menu_change == save_exit)
 }
 [e $U 856  ]
 [e :U 855 ]
-[e $ ! == -> F6063 `i -> . `E6033 2 `i 857  ]
+[e $ ! == -> F6066 `i -> . `E6036 2 `i 857  ]
 "768
 [; ;menu_navigation.c: 768:                 {
 {
 "769
 [; ;menu_navigation.c: 769:                     Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6066 ]
 "770
 [; ;menu_navigation.c: 770:                     menu_selection= save_exit;
-[e = F6065 -> . `E6033 2 `uc ]
+[e = F6068 -> . `E6036 2 `uc ]
 "771
 [; ;menu_navigation.c: 771:                 }
 }
@@ -16213,31 +16213,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 858  ]
 [e :U 839 ]
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 859  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 859  ]
 "775
 [; ;menu_navigation.c: 775:             {
 {
 "777
 [; ;menu_navigation.c: 777:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 860  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 860  ]
 "778
 [; ;menu_navigation.c: 778:                 {
 {
 "779
 [; ;menu_navigation.c: 779:                     bat_param->set_time=bat_param->set_time+30;
-[e = . *U _bat_param 31 -> + -> . *U _bat_param 31 `ui -> -> 30 `i `ui `us ]
+[e = . *U _bat_param 34 -> + -> . *U _bat_param 34 `ui -> -> 30 `i `ui `us ]
 "780
 [; ;menu_navigation.c: 780:                 }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 861  ]
 [e :U 860 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 862  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 862  ]
 "781
 [; ;menu_navigation.c: 781:                 {
 {
 "782
 [; ;menu_navigation.c: 782:                     bat_param->set_time=bat_param->set_time-30;
-[e = . *U _bat_param 31 -> - -> . *U _bat_param 31 `ui -> -> 30 `i `ui `us ]
+[e = . *U _bat_param 34 -> - -> . *U _bat_param 34 `ui -> -> 30 `i `ui `us ]
 "783
 [; ;menu_navigation.c: 783:                 }
 }
@@ -16245,25 +16245,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 861 ]
 "785
 [; ;menu_navigation.c: 785:                 if(bat_param->set_time<60)
-[e $ ! < -> . *U _bat_param 31 `ui -> -> 60 `i `ui 863  ]
+[e $ ! < -> . *U _bat_param 34 `ui -> -> 60 `i `ui 863  ]
 "786
 [; ;menu_navigation.c: 786:                 {
 {
 "787
 [; ;menu_navigation.c: 787:                     bat_param->set_time = 60*48;
-[e = . *U _bat_param 31 -> * -> 60 `i -> 48 `i `us ]
+[e = . *U _bat_param 34 -> * -> 60 `i -> 48 `i `us ]
 "789
 [; ;menu_navigation.c: 789:                 }else if(bat_param->set_time>60*48)
 }
 [e $U 864  ]
 [e :U 863 ]
-[e $ ! > -> . *U _bat_param 31 `ui -> * -> 60 `i -> 48 `i `ui 865  ]
+[e $ ! > -> . *U _bat_param 34 `ui -> * -> 60 `i -> 48 `i `ui 865  ]
 "790
 [; ;menu_navigation.c: 790:                 {
 {
 "791
 [; ;menu_navigation.c: 791:                     bat_param->set_time = 60;
-[e = . *U _bat_param 31 -> -> 60 `i `us ]
+[e = . *U _bat_param 34 -> -> 60 `i `us ]
 "792
 [; ;menu_navigation.c: 792:                 }
 }
@@ -16277,13 +16277,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 866  ]
 [e :U 859 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 867  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 867  ]
 "796
 [; ;menu_navigation.c: 796:             {
 {
 "798
 [; ;menu_navigation.c: 798:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 868  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 868  ]
 "799
 [; ;menu_navigation.c: 799:                 {
 {
@@ -16295,7 +16295,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 869  ]
 [e :U 868 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 870  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 870  ]
 "802
 [; ;menu_navigation.c: 802:                 {
 {
@@ -16347,37 +16347,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 874  ]
 [e :U 838 ]
-[e $ ! == -> F6064 `i -> . `E6046 4 `i 875  ]
+[e $ ! == -> F6067 `i -> . `E6049 4 `i 875  ]
 "820
 [; ;menu_navigation.c: 820:         {
 {
 "821
 [; ;menu_navigation.c: 821:             if(param_pos == menu_start_next)
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 876  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 876  ]
 "822
 [; ;menu_navigation.c: 822:             {
 {
 "824
 [; ;menu_navigation.c: 824:                 if(Button_EventGet(LEFT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 877  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 877  ]
 "825
 [; ;menu_navigation.c: 825:                 {
 {
 "826
 [; ;menu_navigation.c: 826:                      menu_pos--;
-[e -- F6067 -> -> 1 `i `uc ]
+[e -- F6070 -> -> 1 `i `uc ]
 "827
 [; ;menu_navigation.c: 827:                 }else if(Button_EventGet(RIGHT_SW))
 }
 [e $U 878  ]
 [e :U 877 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 879  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 879  ]
 "828
 [; ;menu_navigation.c: 828:                 {
 {
 "829
 [; ;menu_navigation.c: 829:                      menu_pos++;
-[e ++ F6067 -> -> 1 `i `uc ]
+[e ++ F6070 -> -> 1 `i `uc ]
 "830
 [; ;menu_navigation.c: 830:                 }
 }
@@ -16385,37 +16385,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 878 ]
 "832
 [; ;menu_navigation.c: 832:                 if(menu_pos==0)
-[e $ ! == -> F6067 `i -> 0 `i 880  ]
+[e $ ! == -> F6070 `i -> 0 `i 880  ]
 "833
 [; ;menu_navigation.c: 833:                 {
 {
 "834
 [; ;menu_navigation.c: 834:                     menu_pos = 3;
-[e = F6067 -> -> 3 `i `uc ]
+[e = F6070 -> -> 3 `i `uc ]
 "835
 [; ;menu_navigation.c: 835:                 }else if(menu_pos==4)
 }
 [e $U 881  ]
 [e :U 880 ]
-[e $ ! == -> F6067 `i -> 4 `i 882  ]
+[e $ ! == -> F6070 `i -> 4 `i 882  ]
 "836
 [; ;menu_navigation.c: 836:                 {
 {
 "837
 [; ;menu_navigation.c: 837:                     menu_pos = 1;
-[e = F6067 -> -> 1 `i `uc ]
+[e = F6070 -> -> 1 `i `uc ]
 "838
 [; ;menu_navigation.c: 838:                 }else if(menu_pos>4)
 }
 [e $U 883  ]
 [e :U 882 ]
-[e $ ! > -> F6067 `i -> 4 `i 884  ]
+[e $ ! > -> F6070 `i -> 4 `i 884  ]
 "839
 [; ;menu_navigation.c: 839:                 {
 {
 "840
 [; ;menu_navigation.c: 840:                     menu_pos=2;
-[e = F6067 -> -> 2 `i `uc ]
+[e = F6070 -> -> 2 `i `uc ]
 "841
 [; ;menu_navigation.c: 841:                 }
 }
@@ -16431,70 +16431,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 "845
 [; ;menu_navigation.c: 845:                     case 1: menu_change = back; break;
 [e :U 887 ]
-[e = F6063 -> . `E6033 1 `uc ]
+[e = F6066 -> . `E6036 1 `uc ]
 [e $U 885  ]
 "846
 [; ;menu_navigation.c: 846:                     case 2: menu_change = next; break;
 [e :U 888 ]
-[e = F6063 -> . `E6033 0 `uc ]
+[e = F6066 -> . `E6036 0 `uc ]
 [e $U 885  ]
 "847
 [; ;menu_navigation.c: 847:                     case 3: menu_change = save_exit; break;
 [e :U 889 ]
-[e = F6063 -> . `E6033 2 `uc ]
+[e = F6066 -> . `E6036 2 `uc ]
 [e $U 885  ]
 "848
 [; ;menu_navigation.c: 848:                 }
 }
 [e $U 885  ]
 [e :U 886 ]
-[e [\ -> F6067 `i , $ -> 1 `i 887
+[e [\ -> F6070 `i , $ -> 1 `i 887
  , $ -> 2 `i 888
  , $ -> 3 `i 889
  885 ]
 [e :U 885 ]
 "850
 [; ;menu_navigation.c: 850:                 if (menu_change == back)
-[e $ ! == -> F6063 `i -> . `E6033 1 `i 890  ]
+[e $ ! == -> F6066 `i -> . `E6036 1 `i 890  ]
 "851
 [; ;menu_navigation.c: 851:                 {
 {
 "852
 [; ;menu_navigation.c: 852:                     Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6066 ]
 "853
 [; ;menu_navigation.c: 853:                     menu_selection=back;
-[e = F6065 -> . `E6033 1 `uc ]
+[e = F6068 -> . `E6036 1 `uc ]
 "854
 [; ;menu_navigation.c: 854:                 }else if (menu_change == next)
 }
 [e $U 891  ]
 [e :U 890 ]
-[e $ ! == -> F6063 `i -> . `E6033 0 `i 892  ]
+[e $ ! == -> F6066 `i -> . `E6036 0 `i 892  ]
 "855
 [; ;menu_navigation.c: 855:                 {
 {
 "856
 [; ;menu_navigation.c: 856:                     Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6066 ]
 "857
 [; ;menu_navigation.c: 857:                     menu_selection=next;
-[e = F6065 -> . `E6033 0 `uc ]
+[e = F6068 -> . `E6036 0 `uc ]
 "858
 [; ;menu_navigation.c: 858:                 }else if (menu_change == save_exit)
 }
 [e $U 893  ]
 [e :U 892 ]
-[e $ ! == -> F6063 `i -> . `E6033 2 `i 894  ]
+[e $ ! == -> F6066 `i -> . `E6036 2 `i 894  ]
 "859
 [; ;menu_navigation.c: 859:                 {
 {
 "860
 [; ;menu_navigation.c: 860:                     Handle_Setting23_MenuNavigation(menu_change);
-[e ( _Handle_Setting23_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting23_MenuNavigation (1 F6066 ]
 "861
 [; ;menu_navigation.c: 861:                     menu_selection= save_exit;
-[e = F6065 -> . `E6033 2 `uc ]
+[e = F6068 -> . `E6036 2 `uc ]
 "862
 [; ;menu_navigation.c: 862:                 }
 }
@@ -16507,13 +16507,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 876 ]
 "865
 [; ;menu_navigation.c: 865:             if(param_pos == param_1)
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 895  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 895  ]
 "866
 [; ;menu_navigation.c: 866:             {
 {
 "868
 [; ;menu_navigation.c: 868:                 if(bat_param->charge_current_1>=1000)
-[e $ ! >= -> . *U _bat_param 20 `ui -> -> 1000 `i `ui 896  ]
+[e $ ! >= -> . *U _bat_param 23 `ui -> -> 1000 `i `ui 896  ]
 "869
 [; ;menu_navigation.c: 869:                 {
 {
@@ -16525,7 +16525,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 897  ]
 [e :U 896 ]
-[e $ ! >= -> . *U _bat_param 20 `ui -> -> 100 `i `ui 898  ]
+[e $ ! >= -> . *U _bat_param 23 `ui -> -> 100 `i `ui 898  ]
 "872
 [; ;menu_navigation.c: 872:                 {
 {
@@ -16537,7 +16537,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 899  ]
 [e :U 898 ]
-[e $ ! < -> . *U _bat_param 20 `ui -> -> 100 `i `ui 900  ]
+[e $ ! < -> . *U _bat_param 23 `ui -> -> 100 `i `ui 900  ]
 "875
 [; ;menu_navigation.c: 875:                 {
 {
@@ -16552,25 +16552,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 897 ]
 "880
 [; ;menu_navigation.c: 880:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 901  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 901  ]
 "881
 [; ;menu_navigation.c: 881:                 {
 {
 "882
 [; ;menu_navigation.c: 882:                     bat_param->charge_current_1=bat_param->charge_current_1+val;
-[e = . *U _bat_param 20 -> + -> . *U _bat_param 20 `ui -> _val `ui `us ]
+[e = . *U _bat_param 23 -> + -> . *U _bat_param 23 `ui -> _val `ui `us ]
 "883
 [; ;menu_navigation.c: 883:                 }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 902  ]
 [e :U 901 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 903  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 903  ]
 "884
 [; ;menu_navigation.c: 884:                 {
 {
 "885
 [; ;menu_navigation.c: 885:                     bat_param->charge_current_1=bat_param->charge_current_1-val;
-[e = . *U _bat_param 20 -> - -> . *U _bat_param 20 `ui -> _val `ui `us ]
+[e = . *U _bat_param 23 -> - -> . *U _bat_param 23 `ui -> _val `ui `us ]
 "886
 [; ;menu_navigation.c: 886:                 }
 }
@@ -16578,25 +16578,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 902 ]
 "888
 [; ;menu_navigation.c: 888:                 if(bat_param->charge_current_1<10)
-[e $ ! < -> . *U _bat_param 20 `ui -> -> 10 `i `ui 904  ]
+[e $ ! < -> . *U _bat_param 23 `ui -> -> 10 `i `ui 904  ]
 "889
 [; ;menu_navigation.c: 889:                 {
 {
 "890
 [; ;menu_navigation.c: 890:                     bat_param->charge_current_1 = 3000;
-[e = . *U _bat_param 20 -> -> 3000 `i `us ]
+[e = . *U _bat_param 23 -> -> 3000 `i `us ]
 "892
 [; ;menu_navigation.c: 892:                 }else if(bat_param->charge_current_1>3000)
 }
 [e $U 905  ]
 [e :U 904 ]
-[e $ ! > -> . *U _bat_param 20 `ui -> -> 3000 `i `ui 906  ]
+[e $ ! > -> . *U _bat_param 23 `ui -> -> 3000 `i `ui 906  ]
 "893
 [; ;menu_navigation.c: 893:                 {
 {
 "894
 [; ;menu_navigation.c: 894:                     bat_param->charge_current_1 = 10;
-[e = . *U _bat_param 20 -> -> 10 `i `us ]
+[e = . *U _bat_param 23 -> -> 10 `i `us ]
 "895
 [; ;menu_navigation.c: 895:                 }
 }
@@ -16611,13 +16611,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 895 ]
 "900
 [; ;menu_navigation.c: 900:             if(param_pos == param_2)
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 907  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 907  ]
 "901
 [; ;menu_navigation.c: 901:             {
 {
 "903
 [; ;menu_navigation.c: 903:                 if(bat_param->discharge_current_1>=1000)
-[e $ ! >= -> . *U _bat_param 21 `ui -> -> 1000 `i `ui 908  ]
+[e $ ! >= -> . *U _bat_param 24 `ui -> -> 1000 `i `ui 908  ]
 "904
 [; ;menu_navigation.c: 904:                 {
 {
@@ -16629,7 +16629,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 909  ]
 [e :U 908 ]
-[e $ ! >= -> . *U _bat_param 21 `ui -> -> 100 `i `ui 910  ]
+[e $ ! >= -> . *U _bat_param 24 `ui -> -> 100 `i `ui 910  ]
 "907
 [; ;menu_navigation.c: 907:                 {
 {
@@ -16641,7 +16641,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 911  ]
 [e :U 910 ]
-[e $ ! < -> . *U _bat_param 21 `ui -> -> 100 `i `ui 912  ]
+[e $ ! < -> . *U _bat_param 24 `ui -> -> 100 `i `ui 912  ]
 "910
 [; ;menu_navigation.c: 910:                 {
 {
@@ -16656,25 +16656,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 909 ]
 "915
 [; ;menu_navigation.c: 915:                 if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 913  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 913  ]
 "916
 [; ;menu_navigation.c: 916:                 {
 {
 "917
 [; ;menu_navigation.c: 917:                     bat_param->discharge_current_1=bat_param->discharge_current_1+val;
-[e = . *U _bat_param 21 -> + -> . *U _bat_param 21 `ui -> _val `ui `us ]
+[e = . *U _bat_param 24 -> + -> . *U _bat_param 24 `ui -> _val `ui `us ]
 "918
 [; ;menu_navigation.c: 918:                 }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 914  ]
 [e :U 913 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 915  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 915  ]
 "919
 [; ;menu_navigation.c: 919:                 {
 {
 "920
 [; ;menu_navigation.c: 920:                     bat_param->discharge_current_1=bat_param->discharge_current_1-val;
-[e = . *U _bat_param 21 -> - -> . *U _bat_param 21 `ui -> _val `ui `us ]
+[e = . *U _bat_param 24 -> - -> . *U _bat_param 24 `ui -> _val `ui `us ]
 "921
 [; ;menu_navigation.c: 921:                 }
 }
@@ -16682,25 +16682,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 914 ]
 "923
 [; ;menu_navigation.c: 923:                 if(bat_param->discharge_current_1<10)
-[e $ ! < -> . *U _bat_param 21 `ui -> -> 10 `i `ui 916  ]
+[e $ ! < -> . *U _bat_param 24 `ui -> -> 10 `i `ui 916  ]
 "924
 [; ;menu_navigation.c: 924:                 {
 {
 "925
 [; ;menu_navigation.c: 925:                     bat_param->discharge_current_1 = 3000;
-[e = . *U _bat_param 21 -> -> 3000 `i `us ]
+[e = . *U _bat_param 24 -> -> 3000 `i `us ]
 "927
 [; ;menu_navigation.c: 927:                 }else if(bat_param->discharge_current_1>3000)
 }
 [e $U 917  ]
 [e :U 916 ]
-[e $ ! > -> . *U _bat_param 21 `ui -> -> 3000 `i `ui 918  ]
+[e $ ! > -> . *U _bat_param 24 `ui -> -> 3000 `i `ui 918  ]
 "928
 [; ;menu_navigation.c: 928:                 {
 {
 "929
 [; ;menu_navigation.c: 929:                     bat_param->discharge_current_1 = 10;
-[e = . *U _bat_param 21 -> -> 10 `i `us ]
+[e = . *U _bat_param 24 -> -> 10 `i `us ]
 "930
 [; ;menu_navigation.c: 930:                 }
 }
@@ -16715,7 +16715,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 907 ]
 "934
 [; ;menu_navigation.c: 934:             if(param_pos == param_3)
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 919  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 919  ]
 "935
 [; ;menu_navigation.c: 935:             {
 {
@@ -16727,7 +16727,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "938
 [; ;menu_navigation.c: 938:                      if(bat_param->charge_current_2>=1000)
-[e $ ! >= -> . *U _bat_param 22 `ui -> -> 1000 `i `ui 921  ]
+[e $ ! >= -> . *U _bat_param 25 `ui -> -> 1000 `i `ui 921  ]
 "939
 [; ;menu_navigation.c: 939:                     {
 {
@@ -16739,7 +16739,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 922  ]
 [e :U 921 ]
-[e $ ! >= -> . *U _bat_param 22 `ui -> -> 100 `i `ui 923  ]
+[e $ ! >= -> . *U _bat_param 25 `ui -> -> 100 `i `ui 923  ]
 "942
 [; ;menu_navigation.c: 942:                     {
 {
@@ -16764,25 +16764,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 922 ]
 "948
 [; ;menu_navigation.c: 948:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 925  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 925  ]
 "949
 [; ;menu_navigation.c: 949:                     {
 {
 "950
 [; ;menu_navigation.c: 950:                         bat_param->charge_current_2=bat_param->charge_current_2+val;
-[e = . *U _bat_param 22 -> + -> . *U _bat_param 22 `ui -> _val `ui `us ]
+[e = . *U _bat_param 25 -> + -> . *U _bat_param 25 `ui -> _val `ui `us ]
 "951
 [; ;menu_navigation.c: 951:                     }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 926  ]
 [e :U 925 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 927  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 927  ]
 "952
 [; ;menu_navigation.c: 952:                     {
 {
 "953
 [; ;menu_navigation.c: 953:                         bat_param->charge_current_2=bat_param->charge_current_2-val;
-[e = . *U _bat_param 22 -> - -> . *U _bat_param 22 `ui -> _val `ui `us ]
+[e = . *U _bat_param 25 -> - -> . *U _bat_param 25 `ui -> _val `ui `us ]
 "954
 [; ;menu_navigation.c: 954:                     }
 }
@@ -16790,25 +16790,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 926 ]
 "956
 [; ;menu_navigation.c: 956:                     if(bat_param->charge_current_2<10)
-[e $ ! < -> . *U _bat_param 22 `ui -> -> 10 `i `ui 928  ]
+[e $ ! < -> . *U _bat_param 25 `ui -> -> 10 `i `ui 928  ]
 "957
 [; ;menu_navigation.c: 957:                     {
 {
 "958
 [; ;menu_navigation.c: 958:                         bat_param->charge_current_2 = 3000;
-[e = . *U _bat_param 22 -> -> 3000 `i `us ]
+[e = . *U _bat_param 25 -> -> 3000 `i `us ]
 "960
 [; ;menu_navigation.c: 960:                     }else if(bat_param->charge_current_2>3000)
 }
 [e $U 929  ]
 [e :U 928 ]
-[e $ ! > -> . *U _bat_param 22 `ui -> -> 3000 `i `ui 930  ]
+[e $ ! > -> . *U _bat_param 25 `ui -> -> 3000 `i `ui 930  ]
 "961
 [; ;menu_navigation.c: 961:                     {
 {
 "962
 [; ;menu_navigation.c: 962:                         bat_param->charge_current_2 = 10;
-[e = . *U _bat_param 22 -> -> 10 `i `us ]
+[e = . *U _bat_param 25 -> -> 10 `i `us ]
 "963
 [; ;menu_navigation.c: 963:                     }
 }
@@ -16861,7 +16861,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 933 ]
 "977
 [; ;menu_navigation.c: 977:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 936  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 936  ]
 "978
 [; ;menu_navigation.c: 978:                     {
 {
@@ -16873,7 +16873,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 937  ]
 [e :U 936 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 938  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 938  ]
 "981
 [; ;menu_navigation.c: 981:                     {
 {
@@ -16922,7 +16922,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 995:             } if(param_pos == param_4)
 }
 [e :U 919 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 942  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 942  ]
 "996
 [; ;menu_navigation.c: 996:             {
 {
@@ -16934,7 +16934,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "999
 [; ;menu_navigation.c: 999:                      if(bat_param->discharge_current_2>=1000)
-[e $ ! >= -> . *U _bat_param 23 `ui -> -> 1000 `i `ui 944  ]
+[e $ ! >= -> . *U _bat_param 26 `ui -> -> 1000 `i `ui 944  ]
 "1000
 [; ;menu_navigation.c: 1000:                     {
 {
@@ -16946,7 +16946,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 945  ]
 [e :U 944 ]
-[e $ ! >= -> . *U _bat_param 23 `ui -> -> 100 `i `ui 946  ]
+[e $ ! >= -> . *U _bat_param 26 `ui -> -> 100 `i `ui 946  ]
 "1003
 [; ;menu_navigation.c: 1003:                     {
 {
@@ -16971,25 +16971,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 945 ]
 "1009
 [; ;menu_navigation.c: 1009:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 948  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 948  ]
 "1010
 [; ;menu_navigation.c: 1010:                     {
 {
 "1011
 [; ;menu_navigation.c: 1011:                         bat_param->discharge_current_2=bat_param->discharge_current_2+val;
-[e = . *U _bat_param 23 -> + -> . *U _bat_param 23 `ui -> _val `ui `us ]
+[e = . *U _bat_param 26 -> + -> . *U _bat_param 26 `ui -> _val `ui `us ]
 "1012
 [; ;menu_navigation.c: 1012:                     }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 949  ]
 [e :U 948 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 950  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 950  ]
 "1013
 [; ;menu_navigation.c: 1013:                     {
 {
 "1014
 [; ;menu_navigation.c: 1014:                         bat_param->discharge_current_2=bat_param->discharge_current_2-val;
-[e = . *U _bat_param 23 -> - -> . *U _bat_param 23 `ui -> _val `ui `us ]
+[e = . *U _bat_param 26 -> - -> . *U _bat_param 26 `ui -> _val `ui `us ]
 "1015
 [; ;menu_navigation.c: 1015:                     }
 }
@@ -16997,25 +16997,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 949 ]
 "1017
 [; ;menu_navigation.c: 1017:                     if(bat_param->discharge_current_2<10)
-[e $ ! < -> . *U _bat_param 23 `ui -> -> 10 `i `ui 951  ]
+[e $ ! < -> . *U _bat_param 26 `ui -> -> 10 `i `ui 951  ]
 "1018
 [; ;menu_navigation.c: 1018:                     {
 {
 "1019
 [; ;menu_navigation.c: 1019:                         bat_param->discharge_current_2 = 3000;
-[e = . *U _bat_param 23 -> -> 3000 `i `us ]
+[e = . *U _bat_param 26 -> -> 3000 `i `us ]
 "1021
 [; ;menu_navigation.c: 1021:                     }else if(bat_param->discharge_current_2>3000)
 }
 [e $U 952  ]
 [e :U 951 ]
-[e $ ! > -> . *U _bat_param 23 `ui -> -> 3000 `i `ui 953  ]
+[e $ ! > -> . *U _bat_param 26 `ui -> -> 3000 `i `ui 953  ]
 "1022
 [; ;menu_navigation.c: 1022:                     {
 {
 "1023
 [; ;menu_navigation.c: 1023:                         bat_param->discharge_current_2 = 10;
-[e = . *U _bat_param 23 -> -> 10 `i `us ]
+[e = . *U _bat_param 26 -> -> 10 `i `us ]
 "1024
 [; ;menu_navigation.c: 1024:                     }
 }
@@ -17031,7 +17031,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1027
 [; ;menu_navigation.c: 1027:                     if(bat_param->discharge_current_2_percent>=50)
-[e $ ! >= -> . *U _bat_param 30 `ui -> -> 50 `i `ui 955  ]
+[e $ ! >= -> . *U _bat_param 33 `ui -> -> 50 `i `ui 955  ]
 "1028
 [; ;menu_navigation.c: 1028:                     {
 {
@@ -17043,7 +17043,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 956  ]
 [e :U 955 ]
-[e $ ! >= -> . *U _bat_param 30 `ui -> -> 10 `i `ui 957  ]
+[e $ ! >= -> . *U _bat_param 33 `ui -> -> 10 `i `ui 957  ]
 "1031
 [; ;menu_navigation.c: 1031:                     {
 {
@@ -17068,25 +17068,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 956 ]
 "1038
 [; ;menu_navigation.c: 1038:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 959  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 959  ]
 "1039
 [; ;menu_navigation.c: 1039:                     {
 {
 "1040
 [; ;menu_navigation.c: 1040:                         bat_param->discharge_current_2_percent=bat_param->discharge_current_2_percent+val;
-[e = . *U _bat_param 30 -> + -> . *U _bat_param 30 `ui -> _val `ui `us ]
+[e = . *U _bat_param 33 -> + -> . *U _bat_param 33 `ui -> _val `ui `us ]
 "1041
 [; ;menu_navigation.c: 1041:                     }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 960  ]
 [e :U 959 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 961  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 961  ]
 "1042
 [; ;menu_navigation.c: 1042:                     {
 {
 "1043
 [; ;menu_navigation.c: 1043:                         bat_param->discharge_current_2_percent=bat_param->discharge_current_2_percent-val;
-[e = . *U _bat_param 30 -> - -> . *U _bat_param 30 `ui -> _val `ui `us ]
+[e = . *U _bat_param 33 -> - -> . *U _bat_param 33 `ui -> _val `ui `us ]
 "1044
 [; ;menu_navigation.c: 1044:                     }
 }
@@ -17094,25 +17094,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 960 ]
 "1046
 [; ;menu_navigation.c: 1046:                     if(bat_param->discharge_current_2_percent<5)
-[e $ ! < -> . *U _bat_param 30 `ui -> -> 5 `i `ui 962  ]
+[e $ ! < -> . *U _bat_param 33 `ui -> -> 5 `i `ui 962  ]
 "1047
 [; ;menu_navigation.c: 1047:                     {
 {
 "1048
 [; ;menu_navigation.c: 1048:                         bat_param->discharge_current_2_percent = 300;
-[e = . *U _bat_param 30 -> -> 300 `i `us ]
+[e = . *U _bat_param 33 -> -> 300 `i `us ]
 "1050
 [; ;menu_navigation.c: 1050:                     }else if(bat_param->discharge_current_2_percent>300)
 }
 [e $U 963  ]
 [e :U 962 ]
-[e $ ! > -> . *U _bat_param 30 `ui -> -> 300 `i `ui 964  ]
+[e $ ! > -> . *U _bat_param 33 `ui -> -> 300 `i `ui 964  ]
 "1051
 [; ;menu_navigation.c: 1051:                     {
 {
 "1052
 [; ;menu_navigation.c: 1052:                         bat_param->discharge_current_2_percent = 5;
-[e = . *U _bat_param 30 -> -> 5 `i `us ]
+[e = . *U _bat_param 33 -> -> 5 `i `us ]
 "1053
 [; ;menu_navigation.c: 1053:                     }
 }
@@ -17134,49 +17134,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 965  ]
 [e :U 875 ]
-[e $ ! == -> F6064 `i -> . `E6046 5 `i 966  ]
+[e $ ! == -> F6067 `i -> . `E6049 5 `i 966  ]
 "1059
 [; ;menu_navigation.c: 1059:         {
 {
 "1060
 [; ;menu_navigation.c: 1060:             if(param_pos == menu_start_next)
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 967  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 967  ]
 "1061
 [; ;menu_navigation.c: 1061:             {
 {
 "1062
 [; ;menu_navigation.c: 1062:                 if (menu_change == back)
-[e $ ! == -> F6063 `i -> . `E6033 1 `i 968  ]
+[e $ ! == -> F6066 `i -> . `E6036 1 `i 968  ]
 "1063
 [; ;menu_navigation.c: 1063:                 {
 {
 "1064
 [; ;menu_navigation.c: 1064:                     Handle_Setting5_MenuNavigation(menu_change);
-[e ( _Handle_Setting5_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting5_MenuNavigation (1 F6066 ]
 "1065
 [; ;menu_navigation.c: 1065:                     menu_selection=back;
-[e = F6065 -> . `E6033 1 `uc ]
+[e = F6068 -> . `E6036 1 `uc ]
 "1066
 [; ;menu_navigation.c: 1066:                     menu_change = save_exit;
-[e = F6063 -> . `E6033 2 `uc ]
+[e = F6066 -> . `E6036 2 `uc ]
 "1067
 [; ;menu_navigation.c: 1067:                 }else if (menu_change == save_exit)
 }
 [e $U 969  ]
 [e :U 968 ]
-[e $ ! == -> F6063 `i -> . `E6033 2 `i 970  ]
+[e $ ! == -> F6066 `i -> . `E6036 2 `i 970  ]
 "1068
 [; ;menu_navigation.c: 1068:                 {
 {
 "1069
 [; ;menu_navigation.c: 1069:                     Handle_Setting5_MenuNavigation(menu_change);
-[e ( _Handle_Setting5_MenuNavigation (1 F6063 ]
+[e ( _Handle_Setting5_MenuNavigation (1 F6066 ]
 "1070
 [; ;menu_navigation.c: 1070:                     menu_selection = save_exit;
-[e = F6065 -> . `E6033 2 `uc ]
+[e = F6068 -> . `E6036 2 `uc ]
 "1071
 [; ;menu_navigation.c: 1071:                     menu_change = back;
-[e = F6063 -> . `E6033 1 `uc ]
+[e = F6066 -> . `E6036 1 `uc ]
 "1072
 [; ;menu_navigation.c: 1072:                 }
 }
@@ -17188,7 +17188,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 967 ]
 "1074
 [; ;menu_navigation.c: 1074:             if(param_pos == param_1)
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 971  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 971  ]
 "1075
 [; ;menu_navigation.c: 1075:             {
 {
@@ -17200,7 +17200,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1078
 [; ;menu_navigation.c: 1078:                      if(bat_param->charge_current_3>=1000)
-[e $ ! >= -> . *U _bat_param 24 `ui -> -> 1000 `i `ui 973  ]
+[e $ ! >= -> . *U _bat_param 27 `ui -> -> 1000 `i `ui 973  ]
 "1079
 [; ;menu_navigation.c: 1079:                     {
 {
@@ -17212,7 +17212,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 974  ]
 [e :U 973 ]
-[e $ ! >= -> . *U _bat_param 24 `ui -> -> 100 `i `ui 975  ]
+[e $ ! >= -> . *U _bat_param 27 `ui -> -> 100 `i `ui 975  ]
 "1082
 [; ;menu_navigation.c: 1082:                     {
 {
@@ -17237,25 +17237,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 974 ]
 "1088
 [; ;menu_navigation.c: 1088:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 977  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 977  ]
 "1089
 [; ;menu_navigation.c: 1089:                     {
 {
 "1090
 [; ;menu_navigation.c: 1090:                         bat_param->charge_current_3=bat_param->charge_current_3+val;
-[e = . *U _bat_param 24 -> + -> . *U _bat_param 24 `ui -> _val `ui `us ]
+[e = . *U _bat_param 27 -> + -> . *U _bat_param 27 `ui -> _val `ui `us ]
 "1091
 [; ;menu_navigation.c: 1091:                     }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 978  ]
 [e :U 977 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 979  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 979  ]
 "1092
 [; ;menu_navigation.c: 1092:                     {
 {
 "1093
 [; ;menu_navigation.c: 1093:                         bat_param->charge_current_3=bat_param->charge_current_3-val;
-[e = . *U _bat_param 24 -> - -> . *U _bat_param 24 `ui -> _val `ui `us ]
+[e = . *U _bat_param 27 -> - -> . *U _bat_param 27 `ui -> _val `ui `us ]
 "1094
 [; ;menu_navigation.c: 1094:                     }
 }
@@ -17263,25 +17263,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 978 ]
 "1096
 [; ;menu_navigation.c: 1096:                     if(bat_param->charge_current_3<10)
-[e $ ! < -> . *U _bat_param 24 `ui -> -> 10 `i `ui 980  ]
+[e $ ! < -> . *U _bat_param 27 `ui -> -> 10 `i `ui 980  ]
 "1097
 [; ;menu_navigation.c: 1097:                     {
 {
 "1098
 [; ;menu_navigation.c: 1098:                         bat_param->charge_current_3 = 3000;
-[e = . *U _bat_param 24 -> -> 3000 `i `us ]
+[e = . *U _bat_param 27 -> -> 3000 `i `us ]
 "1100
 [; ;menu_navigation.c: 1100:                     }else if(bat_param->charge_current_3>3000)
 }
 [e $U 981  ]
 [e :U 980 ]
-[e $ ! > -> . *U _bat_param 24 `ui -> -> 3000 `i `ui 982  ]
+[e $ ! > -> . *U _bat_param 27 `ui -> -> 3000 `i `ui 982  ]
 "1101
 [; ;menu_navigation.c: 1101:                     {
 {
 "1102
 [; ;menu_navigation.c: 1102:                         bat_param->charge_current_3 = 10;
-[e = . *U _bat_param 24 -> -> 10 `i `us ]
+[e = . *U _bat_param 27 -> -> 10 `i `us ]
 "1103
 [; ;menu_navigation.c: 1103:                     }
 }
@@ -17334,7 +17334,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 985 ]
 "1117
 [; ;menu_navigation.c: 1117:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 988  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 988  ]
 "1118
 [; ;menu_navigation.c: 1118:                     {
 {
@@ -17346,7 +17346,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 989  ]
 [e :U 988 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 990  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 990  ]
 "1121
 [; ;menu_navigation.c: 1121:                     {
 {
@@ -17395,7 +17395,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 1135:             } if(param_pos == param_2)
 }
 [e :U 971 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 994  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 994  ]
 "1136
 [; ;menu_navigation.c: 1136:             {
 {
@@ -17407,7 +17407,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1139
 [; ;menu_navigation.c: 1139:                      if(bat_param->discharge_current_3>=1000)
-[e $ ! >= -> . *U _bat_param 25 `ui -> -> 1000 `i `ui 996  ]
+[e $ ! >= -> . *U _bat_param 28 `ui -> -> 1000 `i `ui 996  ]
 "1140
 [; ;menu_navigation.c: 1140:                     {
 {
@@ -17419,7 +17419,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 997  ]
 [e :U 996 ]
-[e $ ! >= -> . *U _bat_param 25 `ui -> -> 100 `i `ui 998  ]
+[e $ ! >= -> . *U _bat_param 28 `ui -> -> 100 `i `ui 998  ]
 "1143
 [; ;menu_navigation.c: 1143:                     {
 {
@@ -17444,25 +17444,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 997 ]
 "1149
 [; ;menu_navigation.c: 1149:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 1000  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 1000  ]
 "1150
 [; ;menu_navigation.c: 1150:                     {
 {
 "1151
 [; ;menu_navigation.c: 1151:                         bat_param->discharge_current_3=bat_param->discharge_current_3+val;
-[e = . *U _bat_param 25 -> + -> . *U _bat_param 25 `ui -> _val `ui `us ]
+[e = . *U _bat_param 28 -> + -> . *U _bat_param 28 `ui -> _val `ui `us ]
 "1152
 [; ;menu_navigation.c: 1152:                     }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 1001  ]
 [e :U 1000 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 1002  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 1002  ]
 "1153
 [; ;menu_navigation.c: 1153:                     {
 {
 "1154
 [; ;menu_navigation.c: 1154:                         bat_param->discharge_current_3=bat_param->discharge_current_3-val;
-[e = . *U _bat_param 25 -> - -> . *U _bat_param 25 `ui -> _val `ui `us ]
+[e = . *U _bat_param 28 -> - -> . *U _bat_param 28 `ui -> _val `ui `us ]
 "1155
 [; ;menu_navigation.c: 1155:                     }
 }
@@ -17470,25 +17470,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1001 ]
 "1157
 [; ;menu_navigation.c: 1157:                     if(bat_param->discharge_current_3<10)
-[e $ ! < -> . *U _bat_param 25 `ui -> -> 10 `i `ui 1003  ]
+[e $ ! < -> . *U _bat_param 28 `ui -> -> 10 `i `ui 1003  ]
 "1158
 [; ;menu_navigation.c: 1158:                     {
 {
 "1159
 [; ;menu_navigation.c: 1159:                         bat_param->discharge_current_3 = 3000;
-[e = . *U _bat_param 25 -> -> 3000 `i `us ]
+[e = . *U _bat_param 28 -> -> 3000 `i `us ]
 "1161
 [; ;menu_navigation.c: 1161:                     }else if(bat_param->discharge_current_3>3000)
 }
 [e $U 1004  ]
 [e :U 1003 ]
-[e $ ! > -> . *U _bat_param 25 `ui -> -> 3000 `i `ui 1005  ]
+[e $ ! > -> . *U _bat_param 28 `ui -> -> 3000 `i `ui 1005  ]
 "1162
 [; ;menu_navigation.c: 1162:                     {
 {
 "1163
 [; ;menu_navigation.c: 1163:                         bat_param->discharge_current_3 = 10;
-[e = . *U _bat_param 25 -> -> 10 `i `us ]
+[e = . *U _bat_param 28 -> -> 10 `i `us ]
 "1164
 [; ;menu_navigation.c: 1164:                     }
 }
@@ -17504,7 +17504,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1167
 [; ;menu_navigation.c: 1167:                     if(bat_param->discharge_current_3_percent>=50)
-[e $ ! >= -> . *U _bat_param 29 `ui -> -> 50 `i `ui 1007  ]
+[e $ ! >= -> . *U _bat_param 32 `ui -> -> 50 `i `ui 1007  ]
 "1168
 [; ;menu_navigation.c: 1168:                     {
 {
@@ -17516,7 +17516,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1008  ]
 [e :U 1007 ]
-[e $ ! >= -> . *U _bat_param 29 `ui -> -> 10 `i `ui 1009  ]
+[e $ ! >= -> . *U _bat_param 32 `ui -> -> 10 `i `ui 1009  ]
 "1171
 [; ;menu_navigation.c: 1171:                     {
 {
@@ -17541,25 +17541,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1008 ]
 "1178
 [; ;menu_navigation.c: 1178:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 1011  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 1011  ]
 "1179
 [; ;menu_navigation.c: 1179:                     {
 {
 "1180
 [; ;menu_navigation.c: 1180:                         bat_param->discharge_current_3_percent=bat_param->discharge_current_3_percent+val;
-[e = . *U _bat_param 29 -> + -> . *U _bat_param 29 `ui -> _val `ui `us ]
+[e = . *U _bat_param 32 -> + -> . *U _bat_param 32 `ui -> _val `ui `us ]
 "1181
 [; ;menu_navigation.c: 1181:                     }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 1012  ]
 [e :U 1011 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 1013  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 1013  ]
 "1182
 [; ;menu_navigation.c: 1182:                     {
 {
 "1183
 [; ;menu_navigation.c: 1183:                         bat_param->discharge_current_3_percent=bat_param->discharge_current_3_percent-val;
-[e = . *U _bat_param 29 -> - -> . *U _bat_param 29 `ui -> _val `ui `us ]
+[e = . *U _bat_param 32 -> - -> . *U _bat_param 32 `ui -> _val `ui `us ]
 "1184
 [; ;menu_navigation.c: 1184:                     }
 }
@@ -17567,25 +17567,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1012 ]
 "1186
 [; ;menu_navigation.c: 1186:                     if(bat_param->discharge_current_3_percent<5)
-[e $ ! < -> . *U _bat_param 29 `ui -> -> 5 `i `ui 1014  ]
+[e $ ! < -> . *U _bat_param 32 `ui -> -> 5 `i `ui 1014  ]
 "1187
 [; ;menu_navigation.c: 1187:                     {
 {
 "1188
 [; ;menu_navigation.c: 1188:                         bat_param->discharge_current_3_percent = 300;
-[e = . *U _bat_param 29 -> -> 300 `i `us ]
+[e = . *U _bat_param 32 -> -> 300 `i `us ]
 "1190
 [; ;menu_navigation.c: 1190:                     }else if(bat_param->discharge_current_3_percent>300)
 }
 [e $U 1015  ]
 [e :U 1014 ]
-[e $ ! > -> . *U _bat_param 29 `ui -> -> 300 `i `ui 1016  ]
+[e $ ! > -> . *U _bat_param 32 `ui -> -> 300 `i `ui 1016  ]
 "1191
 [; ;menu_navigation.c: 1191:                     {
 {
 "1192
 [; ;menu_navigation.c: 1192:                         bat_param->discharge_current_3_percent = 5;
-[e = . *U _bat_param 29 -> -> 5 `i `us ]
+[e = . *U _bat_param 32 -> -> 5 `i `us ]
 "1193
 [; ;menu_navigation.c: 1193:                     }
 }
@@ -17604,7 +17604,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 994 ]
 "1197
 [; ;menu_navigation.c: 1197:             if(param_pos == param_3)
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 1017  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 1017  ]
 "1198
 [; ;menu_navigation.c: 1198:             {
 {
@@ -17616,7 +17616,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1201
 [; ;menu_navigation.c: 1201:                      if(bat_param->charge_current_4>=1000)
-[e $ ! >= -> . *U _bat_param 26 `ui -> -> 1000 `i `ui 1019  ]
+[e $ ! >= -> . *U _bat_param 29 `ui -> -> 1000 `i `ui 1019  ]
 "1202
 [; ;menu_navigation.c: 1202:                     {
 {
@@ -17628,7 +17628,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1020  ]
 [e :U 1019 ]
-[e $ ! >= -> . *U _bat_param 26 `ui -> -> 100 `i `ui 1021  ]
+[e $ ! >= -> . *U _bat_param 29 `ui -> -> 100 `i `ui 1021  ]
 "1205
 [; ;menu_navigation.c: 1205:                     {
 {
@@ -17653,25 +17653,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1020 ]
 "1211
 [; ;menu_navigation.c: 1211:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 1023  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 1023  ]
 "1212
 [; ;menu_navigation.c: 1212:                     {
 {
 "1213
 [; ;menu_navigation.c: 1213:                         bat_param->charge_current_4=bat_param->charge_current_4+val;
-[e = . *U _bat_param 26 -> + -> . *U _bat_param 26 `ui -> _val `ui `us ]
+[e = . *U _bat_param 29 -> + -> . *U _bat_param 29 `ui -> _val `ui `us ]
 "1214
 [; ;menu_navigation.c: 1214:                     }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 1024  ]
 [e :U 1023 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 1025  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 1025  ]
 "1215
 [; ;menu_navigation.c: 1215:                     {
 {
 "1216
 [; ;menu_navigation.c: 1216:                         bat_param->charge_current_4=bat_param->charge_current_4-val;
-[e = . *U _bat_param 26 -> - -> . *U _bat_param 26 `ui -> _val `ui `us ]
+[e = . *U _bat_param 29 -> - -> . *U _bat_param 29 `ui -> _val `ui `us ]
 "1217
 [; ;menu_navigation.c: 1217:                     }
 }
@@ -17679,25 +17679,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1024 ]
 "1219
 [; ;menu_navigation.c: 1219:                     if(bat_param->charge_current_4<10)
-[e $ ! < -> . *U _bat_param 26 `ui -> -> 10 `i `ui 1026  ]
+[e $ ! < -> . *U _bat_param 29 `ui -> -> 10 `i `ui 1026  ]
 "1220
 [; ;menu_navigation.c: 1220:                     {
 {
 "1221
 [; ;menu_navigation.c: 1221:                         bat_param->charge_current_4 = 3000;
-[e = . *U _bat_param 26 -> -> 3000 `i `us ]
+[e = . *U _bat_param 29 -> -> 3000 `i `us ]
 "1223
 [; ;menu_navigation.c: 1223:                     }else if(bat_param->charge_current_4>3000)
 }
 [e $U 1027  ]
 [e :U 1026 ]
-[e $ ! > -> . *U _bat_param 26 `ui -> -> 3000 `i `ui 1028  ]
+[e $ ! > -> . *U _bat_param 29 `ui -> -> 3000 `i `ui 1028  ]
 "1224
 [; ;menu_navigation.c: 1224:                     {
 {
 "1225
 [; ;menu_navigation.c: 1225:                         bat_param->charge_current_4 = 10;
-[e = . *U _bat_param 26 -> -> 10 `i `us ]
+[e = . *U _bat_param 29 -> -> 10 `i `us ]
 "1226
 [; ;menu_navigation.c: 1226:                     }
 }
@@ -17750,7 +17750,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1031 ]
 "1240
 [; ;menu_navigation.c: 1240:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 1034  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 1034  ]
 "1241
 [; ;menu_navigation.c: 1241:                     {
 {
@@ -17762,7 +17762,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1035  ]
 [e :U 1034 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 1036  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 1036  ]
 "1244
 [; ;menu_navigation.c: 1244:                     {
 {
@@ -17811,7 +17811,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 1258:             }if(param_pos == param_4)
 }
 [e :U 1017 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 1040  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 1040  ]
 "1259
 [; ;menu_navigation.c: 1259:             {
 {
@@ -17823,7 +17823,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1262
 [; ;menu_navigation.c: 1262:                      if(bat_param->discharge_current_4>=1000)
-[e $ ! >= -> . *U _bat_param 27 `ui -> -> 1000 `i `ui 1042  ]
+[e $ ! >= -> . *U _bat_param 30 `ui -> -> 1000 `i `ui 1042  ]
 "1263
 [; ;menu_navigation.c: 1263:                     {
 {
@@ -17835,7 +17835,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1043  ]
 [e :U 1042 ]
-[e $ ! >= -> . *U _bat_param 27 `ui -> -> 100 `i `ui 1044  ]
+[e $ ! >= -> . *U _bat_param 30 `ui -> -> 100 `i `ui 1044  ]
 "1266
 [; ;menu_navigation.c: 1266:                     {
 {
@@ -17860,25 +17860,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1043 ]
 "1272
 [; ;menu_navigation.c: 1272:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 1046  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 1046  ]
 "1273
 [; ;menu_navigation.c: 1273:                     {
 {
 "1274
 [; ;menu_navigation.c: 1274:                         bat_param->discharge_current_4=bat_param->discharge_current_4+val;
-[e = . *U _bat_param 27 -> + -> . *U _bat_param 27 `ui -> _val `ui `us ]
+[e = . *U _bat_param 30 -> + -> . *U _bat_param 30 `ui -> _val `ui `us ]
 "1275
 [; ;menu_navigation.c: 1275:                     }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 1047  ]
 [e :U 1046 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 1048  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 1048  ]
 "1276
 [; ;menu_navigation.c: 1276:                     {
 {
 "1277
 [; ;menu_navigation.c: 1277:                         bat_param->discharge_current_4=bat_param->discharge_current_4-val;
-[e = . *U _bat_param 27 -> - -> . *U _bat_param 27 `ui -> _val `ui `us ]
+[e = . *U _bat_param 30 -> - -> . *U _bat_param 30 `ui -> _val `ui `us ]
 "1278
 [; ;menu_navigation.c: 1278:                     }
 }
@@ -17886,25 +17886,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1047 ]
 "1280
 [; ;menu_navigation.c: 1280:                     if(bat_param->discharge_current_4<10)
-[e $ ! < -> . *U _bat_param 27 `ui -> -> 10 `i `ui 1049  ]
+[e $ ! < -> . *U _bat_param 30 `ui -> -> 10 `i `ui 1049  ]
 "1281
 [; ;menu_navigation.c: 1281:                     {
 {
 "1282
 [; ;menu_navigation.c: 1282:                         bat_param->discharge_current_4 = 3000;
-[e = . *U _bat_param 27 -> -> 3000 `i `us ]
+[e = . *U _bat_param 30 -> -> 3000 `i `us ]
 "1284
 [; ;menu_navigation.c: 1284:                     }else if(bat_param->discharge_current_4>3000)
 }
 [e $U 1050  ]
 [e :U 1049 ]
-[e $ ! > -> . *U _bat_param 27 `ui -> -> 3000 `i `ui 1051  ]
+[e $ ! > -> . *U _bat_param 30 `ui -> -> 3000 `i `ui 1051  ]
 "1285
 [; ;menu_navigation.c: 1285:                     {
 {
 "1286
 [; ;menu_navigation.c: 1286:                         bat_param->discharge_current_4 = 10;
-[e = . *U _bat_param 27 -> -> 10 `i `us ]
+[e = . *U _bat_param 30 -> -> 10 `i `us ]
 "1287
 [; ;menu_navigation.c: 1287:                     }
 }
@@ -17920,7 +17920,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1290
 [; ;menu_navigation.c: 1290:                     if(bat_param->discharge_current_4_percent>=50)
-[e $ ! >= -> . *U _bat_param 28 `ui -> -> 50 `i `ui 1053  ]
+[e $ ! >= -> . *U _bat_param 31 `ui -> -> 50 `i `ui 1053  ]
 "1291
 [; ;menu_navigation.c: 1291:                     {
 {
@@ -17932,7 +17932,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1054  ]
 [e :U 1053 ]
-[e $ ! >= -> . *U _bat_param 28 `ui -> -> 10 `i `ui 1055  ]
+[e $ ! >= -> . *U _bat_param 31 `ui -> -> 10 `i `ui 1055  ]
 "1294
 [; ;menu_navigation.c: 1294:                     {
 {
@@ -17957,25 +17957,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1054 ]
 "1301
 [; ;menu_navigation.c: 1301:                     if(Button_EventGet(RIGHT_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 1 `uc `ui -> -> 0 `i `ui 1057  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 1 `uc `ui -> -> 0 `i `ui 1057  ]
 "1302
 [; ;menu_navigation.c: 1302:                     {
 {
 "1303
 [; ;menu_navigation.c: 1303:                         bat_param->discharge_current_4_percent=bat_param->discharge_current_4_percent+val;
-[e = . *U _bat_param 28 -> + -> . *U _bat_param 28 `ui -> _val `ui `us ]
+[e = . *U _bat_param 31 -> + -> . *U _bat_param 31 `ui -> _val `ui `us ]
 "1304
 [; ;menu_navigation.c: 1304:                     }else if(Button_EventGet(LEFT_SW))
 }
 [e $U 1058  ]
 [e :U 1057 ]
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 0 `uc `ui -> -> 0 `i `ui 1059  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 0 `uc `ui -> -> 0 `i `ui 1059  ]
 "1305
 [; ;menu_navigation.c: 1305:                     {
 {
 "1306
 [; ;menu_navigation.c: 1306:                         bat_param->discharge_current_4_percent=bat_param->discharge_current_4_percent-val;
-[e = . *U _bat_param 28 -> - -> . *U _bat_param 28 `ui -> _val `ui `us ]
+[e = . *U _bat_param 31 -> - -> . *U _bat_param 31 `ui -> _val `ui `us ]
 "1307
 [; ;menu_navigation.c: 1307:                     }
 }
@@ -17983,25 +17983,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1058 ]
 "1309
 [; ;menu_navigation.c: 1309:                     if(bat_param->discharge_current_4_percent<5)
-[e $ ! < -> . *U _bat_param 28 `ui -> -> 5 `i `ui 1060  ]
+[e $ ! < -> . *U _bat_param 31 `ui -> -> 5 `i `ui 1060  ]
 "1310
 [; ;menu_navigation.c: 1310:                     {
 {
 "1311
 [; ;menu_navigation.c: 1311:                         bat_param->discharge_current_4_percent = 300;
-[e = . *U _bat_param 28 -> -> 300 `i `us ]
+[e = . *U _bat_param 31 -> -> 300 `i `us ]
 "1313
 [; ;menu_navigation.c: 1313:                     }else if(bat_param->discharge_current_4_percent>300)
 }
 [e $U 1061  ]
 [e :U 1060 ]
-[e $ ! > -> . *U _bat_param 28 `ui -> -> 300 `i `ui 1062  ]
+[e $ ! > -> . *U _bat_param 31 `ui -> -> 300 `i `ui 1062  ]
 "1314
 [; ;menu_navigation.c: 1314:                     {
 {
 "1315
 [; ;menu_navigation.c: 1315:                         bat_param->discharge_current_4_percent = 5;
-[e = . *U _bat_param 28 -> -> 5 `i `us ]
+[e = . *U _bat_param 31 -> -> 5 `i `us ]
 "1316
 [; ;menu_navigation.c: 1316:                     }
 }
@@ -18039,7 +18039,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 721 ]
 "1326
 [; ;menu_navigation.c: 1326:     if (Button_EventGet(OK_SW))
-[e $ ! != -> ( _Button_EventGet (1 -> . `E5982 4 `uc `ui -> -> 0 `i `ui 1063  ]
+[e $ ! != -> ( _Button_EventGet (1 -> . `E5985 4 `uc `ui -> -> 0 `i `ui 1063  ]
 "1327
 [; ;menu_navigation.c: 1327:     {
 {
@@ -18048,28 +18048,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Button_Event_Reset ..  ]
 "1330
 [; ;menu_navigation.c: 1330:         if(menu_type==main_menu)
-[e $ ! == -> F6064 `i -> . `E6046 0 `i 1064  ]
+[e $ ! == -> F6067 `i -> . `E6049 0 `i 1064  ]
 "1331
 [; ;menu_navigation.c: 1331:         {
 {
 "1332
 [; ;menu_navigation.c: 1332:             if(menu_selection==menu)
-[e $ ! == -> F6065 `i -> . `E5901 0 `i 1065  ]
+[e $ ! == -> F6068 `i -> . `E5904 0 `i 1065  ]
 "1333
 [; ;menu_navigation.c: 1333:             {
 {
 "1334
 [; ;menu_navigation.c: 1334:                 menu_type = settings1;
-[e = F6064 -> . `E6046 1 `uc ]
+[e = F6067 -> . `E6049 1 `uc ]
 "1335
 [; ;menu_navigation.c: 1335:                 menu_change = menu;
-[e = F6063 -> . `E5901 0 `uc ]
+[e = F6066 -> . `E5904 0 `uc ]
 "1336
 [; ;menu_navigation.c: 1336:                 Options1_Menu(bat_param);
 [e ( _Options1_Menu (1 _bat_param ]
 "1337
 [; ;menu_navigation.c: 1337:                 menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1338
 [; ;menu_navigation.c: 1338:             }
 }
@@ -18079,28 +18079,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1066  ]
 [e :U 1064 ]
-[e $ ! && == -> F6064 `i -> . `E6046 1 `i == -> F6068 `i -> . `E6038 5 `i 1067  ]
+[e $ ! && == -> F6067 `i -> . `E6049 1 `i == -> F6071 `i -> . `E6041 5 `i 1067  ]
 "1341
 [; ;menu_navigation.c: 1341:         {
 {
 "1342
 [; ;menu_navigation.c: 1342:             if(menu_selection==next)
-[e $ ! == -> F6065 `i -> . `E6033 0 `i 1068  ]
+[e $ ! == -> F6068 `i -> . `E6036 0 `i 1068  ]
 "1343
 [; ;menu_navigation.c: 1343:             {
 {
 "1344
 [; ;menu_navigation.c: 1344:                 menu_type = settings2;
-[e = F6064 -> . `E6046 2 `uc ]
+[e = F6067 -> . `E6049 2 `uc ]
 "1345
 [; ;menu_navigation.c: 1345:                 menu_change = next;
-[e = F6063 -> . `E6033 0 `uc ]
+[e = F6066 -> . `E6036 0 `uc ]
 "1346
 [; ;menu_navigation.c: 1346:                 menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1347
 [; ;menu_navigation.c: 1347:                 menu_pos=2;
-[e = F6067 -> -> 2 `i `uc ]
+[e = F6070 -> -> 2 `i `uc ]
 "1348
 [; ;menu_navigation.c: 1348:                 Options2_Menu(bat_param);
 [e ( _Options2_Menu (1 _bat_param ]
@@ -18109,22 +18109,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1069  ]
 [e :U 1068 ]
-[e $ ! == -> F6065 `i -> . `E6033 2 `i 1070  ]
+[e $ ! == -> F6068 `i -> . `E6036 2 `i 1070  ]
 "1352
 [; ;menu_navigation.c: 1352:             {
 {
 "1353
 [; ;menu_navigation.c: 1353:                 menu_type = main_menu;
-[e = F6064 -> . `E6046 0 `uc ]
+[e = F6067 -> . `E6049 0 `uc ]
 "1354
 [; ;menu_navigation.c: 1354:                 menu_change = start;
-[e = F6063 -> . `E5901 1 `uc ]
+[e = F6066 -> . `E5904 1 `uc ]
 "1355
 [; ;menu_navigation.c: 1355:                 SingleBat_Menu(bat_param);
 [e ( _SingleBat_Menu (1 _bat_param ]
 "1356
 [; ;menu_navigation.c: 1356:                 menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1359
 [; ;menu_navigation.c: 1359:             }
 }
@@ -18135,13 +18135,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1071  ]
 [e :U 1067 ]
-[e $ ! == -> F6064 `i -> . `E6046 2 `i 1072  ]
+[e $ ! == -> F6067 `i -> . `E6049 2 `i 1072  ]
 "1362
 [; ;menu_navigation.c: 1362:         {
 {
 "1363
 [; ;menu_navigation.c: 1363:             if(menu_selection==next)
-[e $ ! == -> F6065 `i -> . `E6033 0 `i 1073  ]
+[e $ ! == -> F6068 `i -> . `E6036 0 `i 1073  ]
 "1364
 [; ;menu_navigation.c: 1364:             {
 {
@@ -18150,34 +18150,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Options3_Menu (1 _bat_param ]
 "1366
 [; ;menu_navigation.c: 1366:                 menu_type = settings3;
-[e = F6064 -> . `E6046 3 `uc ]
+[e = F6067 -> . `E6049 3 `uc ]
 "1367
 [; ;menu_navigation.c: 1367:                 menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1368
 [; ;menu_navigation.c: 1368:                 menu_pos=2;
-[e = F6067 -> -> 2 `i `uc ]
+[e = F6070 -> -> 2 `i `uc ]
 "1371
 [; ;menu_navigation.c: 1371:             }else if(menu_selection==back)
 }
 [e $U 1074  ]
 [e :U 1073 ]
-[e $ ! == -> F6065 `i -> . `E6033 1 `i 1075  ]
+[e $ ! == -> F6068 `i -> . `E6036 1 `i 1075  ]
 "1372
 [; ;menu_navigation.c: 1372:             {
 {
 "1373
 [; ;menu_navigation.c: 1373:                 menu_type = settings1;
-[e = F6064 -> . `E6046 1 `uc ]
+[e = F6067 -> . `E6049 1 `uc ]
 "1374
 [; ;menu_navigation.c: 1374:                 Options1_Menu(bat_param);
 [e ( _Options1_Menu (1 _bat_param ]
 "1375
 [; ;menu_navigation.c: 1375:                 menu_change = save_exit;
-[e = F6063 -> . `E6033 2 `uc ]
+[e = F6066 -> . `E6036 2 `uc ]
 "1376
 [; ;menu_navigation.c: 1376:                 menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1378
 [; ;menu_navigation.c: 1378:             }
 }
@@ -18185,22 +18185,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1379
 [; ;menu_navigation.c: 1379:             else if(menu_selection==save_exit)
 [e :U 1075 ]
-[e $ ! == -> F6065 `i -> . `E6033 2 `i 1077  ]
+[e $ ! == -> F6068 `i -> . `E6036 2 `i 1077  ]
 "1380
 [; ;menu_navigation.c: 1380:             {
 {
 "1381
 [; ;menu_navigation.c: 1381:                 menu_type = main_menu;
-[e = F6064 -> . `E6046 0 `uc ]
+[e = F6067 -> . `E6049 0 `uc ]
 "1382
 [; ;menu_navigation.c: 1382:                 SingleBat_Menu(bat_param);
 [e ( _SingleBat_Menu (1 _bat_param ]
 "1383
 [; ;menu_navigation.c: 1383:                 menu_change = start;
-[e = F6063 -> . `E5901 1 `uc ]
+[e = F6066 -> . `E5904 1 `uc ]
 "1384
 [; ;menu_navigation.c: 1384:                 menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1385
 [; ;menu_navigation.c: 1385:             }
 }
@@ -18212,13 +18212,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1078  ]
 [e :U 1072 ]
-[e $ ! == -> F6064 `i -> . `E6046 3 `i 1079  ]
+[e $ ! == -> F6067 `i -> . `E6049 3 `i 1079  ]
 "1388
 [; ;menu_navigation.c: 1388:         {
 {
 "1389
 [; ;menu_navigation.c: 1389:             if(menu_selection==next)
-[e $ ! == -> F6065 `i -> . `E6033 0 `i 1080  ]
+[e $ ! == -> F6068 `i -> . `E6036 0 `i 1080  ]
 "1390
 [; ;menu_navigation.c: 1390:             {
 {
@@ -18227,34 +18227,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Options4_Menu (1 _bat_param ]
 "1392
 [; ;menu_navigation.c: 1392:                 menu_type = settings4;
-[e = F6064 -> . `E6046 4 `uc ]
+[e = F6067 -> . `E6049 4 `uc ]
 "1393
 [; ;menu_navigation.c: 1393:                 menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1394
 [; ;menu_navigation.c: 1394:                 menu_pos=2;
-[e = F6067 -> -> 2 `i `uc ]
+[e = F6070 -> -> 2 `i `uc ]
 "1397
 [; ;menu_navigation.c: 1397:             }else if(menu_selection==back)
 }
 [e $U 1081  ]
 [e :U 1080 ]
-[e $ ! == -> F6065 `i -> . `E6033 1 `i 1082  ]
+[e $ ! == -> F6068 `i -> . `E6036 1 `i 1082  ]
 "1398
 [; ;menu_navigation.c: 1398:             {
 {
 "1399
 [; ;menu_navigation.c: 1399:                 menu_type = settings2;
-[e = F6064 -> . `E6046 2 `uc ]
+[e = F6067 -> . `E6049 2 `uc ]
 "1400
 [; ;menu_navigation.c: 1400:                 Options2_Menu(bat_param);
 [e ( _Options2_Menu (1 _bat_param ]
 "1401
 [; ;menu_navigation.c: 1401:                 menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1402
 [; ;menu_navigation.c: 1402:                 menu_pos=1;
-[e = F6067 -> -> 1 `i `uc ]
+[e = F6070 -> -> 1 `i `uc ]
 "1403
 [; ;menu_navigation.c: 1403:             }
 }
@@ -18262,22 +18262,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1404
 [; ;menu_navigation.c: 1404:             else if(menu_selection==save_exit)
 [e :U 1082 ]
-[e $ ! == -> F6065 `i -> . `E6033 2 `i 1084  ]
+[e $ ! == -> F6068 `i -> . `E6036 2 `i 1084  ]
 "1405
 [; ;menu_navigation.c: 1405:             {
 {
 "1406
 [; ;menu_navigation.c: 1406:                 menu_type = main_menu;
-[e = F6064 -> . `E6046 0 `uc ]
+[e = F6067 -> . `E6049 0 `uc ]
 "1407
 [; ;menu_navigation.c: 1407:                 SingleBat_Menu(bat_param);
 [e ( _SingleBat_Menu (1 _bat_param ]
 "1408
 [; ;menu_navigation.c: 1408:                 menu_change = start;
-[e = F6063 -> . `E5901 1 `uc ]
+[e = F6066 -> . `E5904 1 `uc ]
 "1409
 [; ;menu_navigation.c: 1409:                 menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1410
 [; ;menu_navigation.c: 1410:             }
 }
@@ -18289,19 +18289,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1085  ]
 [e :U 1079 ]
-[e $ ! == -> F6064 `i -> . `E6046 4 `i 1086  ]
+[e $ ! == -> F6067 `i -> . `E6049 4 `i 1086  ]
 "1415
 [; ;menu_navigation.c: 1415:         {
 {
 "1416
 [; ;menu_navigation.c: 1416:             if(param_pos == menu_start_next)
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 1087  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 1087  ]
 "1417
 [; ;menu_navigation.c: 1417:             {
 {
 "1418
 [; ;menu_navigation.c: 1418:                 if(menu_selection==next )
-[e $ ! == -> F6065 `i -> . `E6033 0 `i 1088  ]
+[e $ ! == -> F6068 `i -> . `E6036 0 `i 1088  ]
 "1419
 [; ;menu_navigation.c: 1419:                 {
 {
@@ -18310,34 +18310,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Options5_Menu (1 _bat_param ]
 "1421
 [; ;menu_navigation.c: 1421:                     menu_type = settings5;
-[e = F6064 -> . `E6046 5 `uc ]
+[e = F6067 -> . `E6049 5 `uc ]
 "1422
 [; ;menu_navigation.c: 1422:                     menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1423
 [; ;menu_navigation.c: 1423:                     menu_change = save_exit;
-[e = F6063 -> . `E6033 2 `uc ]
+[e = F6066 -> . `E6036 2 `uc ]
 "1426
 [; ;menu_navigation.c: 1426:                 }else if(menu_selection==back)
 }
 [e $U 1089  ]
 [e :U 1088 ]
-[e $ ! == -> F6065 `i -> . `E6033 1 `i 1090  ]
+[e $ ! == -> F6068 `i -> . `E6036 1 `i 1090  ]
 "1427
 [; ;menu_navigation.c: 1427:                 {
 {
 "1428
 [; ;menu_navigation.c: 1428:                     menu_type = settings3;
-[e = F6064 -> . `E6046 3 `uc ]
+[e = F6067 -> . `E6049 3 `uc ]
 "1429
 [; ;menu_navigation.c: 1429:                     Options3_Menu(bat_param);
 [e ( _Options3_Menu (1 _bat_param ]
 "1430
 [; ;menu_navigation.c: 1430:                     menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1431
 [; ;menu_navigation.c: 1431:                     menu_pos=1;
-[e = F6067 -> -> 1 `i `uc ]
+[e = F6070 -> -> 1 `i `uc ]
 "1432
 [; ;menu_navigation.c: 1432:                 }
 }
@@ -18345,22 +18345,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1433
 [; ;menu_navigation.c: 1433:                 else if(menu_selection==save_exit)
 [e :U 1090 ]
-[e $ ! == -> F6065 `i -> . `E6033 2 `i 1092  ]
+[e $ ! == -> F6068 `i -> . `E6036 2 `i 1092  ]
 "1434
 [; ;menu_navigation.c: 1434:                 {
 {
 "1435
 [; ;menu_navigation.c: 1435:                     menu_type = main_menu;
-[e = F6064 -> . `E6046 0 `uc ]
+[e = F6067 -> . `E6049 0 `uc ]
 "1436
 [; ;menu_navigation.c: 1436:                     SingleBat_Menu(bat_param);
 [e ( _SingleBat_Menu (1 _bat_param ]
 "1437
 [; ;menu_navigation.c: 1437:                     menu_change = start;
-[e = F6063 -> . `E5901 1 `uc ]
+[e = F6066 -> . `E5904 1 `uc ]
 "1438
 [; ;menu_navigation.c: 1438:                     menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1439
 [; ;menu_navigation.c: 1439:                 }
 }
@@ -18372,7 +18372,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1093  ]
 [e :U 1087 ]
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 1094  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 1094  ]
 "1441
 [; ;menu_navigation.c: 1441:             {
 {
@@ -18408,7 +18408,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1097  ]
 [e :U 1094 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 1098  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 1098  ]
 "1454
 [; ;menu_navigation.c: 1454:             {
 {
@@ -18450,37 +18450,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1101  ]
 [e :U 1086 ]
-[e $ ! == -> F6064 `i -> . `E6046 5 `i 1102  ]
+[e $ ! == -> F6067 `i -> . `E6049 5 `i 1102  ]
 "1475
 [; ;menu_navigation.c: 1475:         {
 {
 "1476
 [; ;menu_navigation.c: 1476:             if(param_pos == menu_start_next)
-[e $ ! == -> F6068 `i -> . `E6038 5 `i 1103  ]
+[e $ ! == -> F6071 `i -> . `E6041 5 `i 1103  ]
 "1477
 [; ;menu_navigation.c: 1477:             {
 {
 "1478
 [; ;menu_navigation.c: 1478:                 if(menu_selection==back)
-[e $ ! == -> F6065 `i -> . `E6033 1 `i 1104  ]
+[e $ ! == -> F6068 `i -> . `E6036 1 `i 1104  ]
 "1479
 [; ;menu_navigation.c: 1479:                 {
 {
 "1480
 [; ;menu_navigation.c: 1480:                     menu_type = settings4;
-[e = F6064 -> . `E6046 4 `uc ]
+[e = F6067 -> . `E6049 4 `uc ]
 "1481
 [; ;menu_navigation.c: 1481:                     menu_change = save_exit;
-[e = F6063 -> . `E6033 2 `uc ]
+[e = F6066 -> . `E6036 2 `uc ]
 "1482
 [; ;menu_navigation.c: 1482:                     Options4_Menu(bat_param);
 [e ( _Options4_Menu (1 _bat_param ]
 "1483
 [; ;menu_navigation.c: 1483:                     menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1484
 [; ;menu_navigation.c: 1484:                     menu_pos=1;
-[e = F6067 -> -> 1 `i `uc ]
+[e = F6070 -> -> 1 `i `uc ]
 "1485
 [; ;menu_navigation.c: 1485:                 }
 }
@@ -18488,22 +18488,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1486
 [; ;menu_navigation.c: 1486:                 else if(menu_selection==save_exit)
 [e :U 1104 ]
-[e $ ! == -> F6065 `i -> . `E6033 2 `i 1106  ]
+[e $ ! == -> F6068 `i -> . `E6036 2 `i 1106  ]
 "1487
 [; ;menu_navigation.c: 1487:                 {
 {
 "1488
 [; ;menu_navigation.c: 1488:                     menu_type = main_menu;
-[e = F6064 -> . `E6046 0 `uc ]
+[e = F6067 -> . `E6049 0 `uc ]
 "1489
 [; ;menu_navigation.c: 1489:                     menu_change = start;
-[e = F6063 -> . `E5901 1 `uc ]
+[e = F6066 -> . `E5904 1 `uc ]
 "1490
 [; ;menu_navigation.c: 1490:                     SingleBat_Menu(bat_param);
 [e ( _SingleBat_Menu (1 _bat_param ]
 "1491
 [; ;menu_navigation.c: 1491:                     menu_init=0;
-[e = F6066 -> -> 0 `i `uc ]
+[e = F6069 -> -> 0 `i `uc ]
 "1492
 [; ;menu_navigation.c: 1492:                 }
 }
@@ -18514,7 +18514,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1107  ]
 [e :U 1103 ]
-[e $ ! == -> F6068 `i -> . `E6038 1 `i 1108  ]
+[e $ ! == -> F6071 `i -> . `E6041 1 `i 1108  ]
 "1494
 [; ;menu_navigation.c: 1494:             {
 {
@@ -18550,7 +18550,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1111  ]
 [e :U 1108 ]
-[e $ ! == -> F6068 `i -> . `E6038 2 `i 1112  ]
+[e $ ! == -> F6071 `i -> . `E6041 2 `i 1112  ]
 "1507
 [; ;menu_navigation.c: 1507:             {
 {
@@ -18586,7 +18586,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1115  ]
 [e :U 1112 ]
-[e $ ! == -> F6068 `i -> . `E6038 3 `i 1116  ]
+[e $ ! == -> F6071 `i -> . `E6041 3 `i 1116  ]
 "1519
 [; ;menu_navigation.c: 1519:             {
 {
@@ -18622,7 +18622,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1119  ]
 [e :U 1116 ]
-[e $ ! == -> F6068 `i -> . `E6038 4 `i 1120  ]
+[e $ ! == -> F6071 `i -> . `E6041 4 `i 1120  ]
 "1532
 [; ;menu_navigation.c: 1532:             {
 {
@@ -18696,7 +18696,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1551
 [; ;menu_navigation.c: 1551:     if (option == back)
-[e $ ! == -> _option `i -> . `E6033 1 `i 1124  ]
+[e $ ! == -> _option `i -> . `E6036 1 `i 1124  ]
 "1552
 [; ;menu_navigation.c: 1552:     {
 {
@@ -18747,7 +18747,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1125  ]
 [e :U 1124 ]
-[e $ ! == -> _option `i -> . `E6033 0 `i 1126  ]
+[e $ ! == -> _option `i -> . `E6036 0 `i 1126  ]
 "1571
 [; ;menu_navigation.c: 1571:     {
 {
@@ -18798,7 +18798,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1127  ]
 [e :U 1126 ]
-[e $ ! == -> _option `i -> . `E6033 2 `i 1128  ]
+[e $ ! == -> _option `i -> . `E6036 2 `i 1128  ]
 "1592
 [; ;menu_navigation.c: 1592:     {
 {
@@ -18849,7 +18849,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1129  ]
 [e :U 1128 ]
-[e $ ! == -> _option `i -> . `E6033 3 `i 1130  ]
+[e $ ! == -> _option `i -> . `E6036 3 `i 1130  ]
 "1611
 [; ;menu_navigation.c: 1611:     {
 {
@@ -18924,7 +18924,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1637
 [; ;menu_navigation.c: 1637:     if (option == next)
-[e $ ! == -> _option `i -> . `E6033 0 `i 1132  ]
+[e $ ! == -> _option `i -> . `E6036 0 `i 1132  ]
 "1638
 [; ;menu_navigation.c: 1638:     {
 {
@@ -18960,7 +18960,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1133  ]
 [e :U 1132 ]
-[e $ ! == -> _option `i -> . `E6033 2 `i 1134  ]
+[e $ ! == -> _option `i -> . `E6036 2 `i 1134  ]
 "1651
 [; ;menu_navigation.c: 1651:     {
 {
@@ -18996,7 +18996,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1135  ]
 [e :U 1134 ]
-[e $ ! == -> _option `i -> . `E6033 3 `i 1136  ]
+[e $ ! == -> _option `i -> . `E6036 3 `i 1136  ]
 "1664
 [; ;menu_navigation.c: 1664:     {
 {
@@ -19055,7 +19055,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1682
 [; ;menu_navigation.c: 1682:     if (option == back)
-[e $ ! == -> _option `i -> . `E6033 1 `i 1138  ]
+[e $ ! == -> _option `i -> . `E6036 1 `i 1138  ]
 "1683
 [; ;menu_navigation.c: 1683:     {
 {
@@ -19091,7 +19091,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1139  ]
 [e :U 1138 ]
-[e $ ! == -> _option `i -> . `E6033 2 `i 1140  ]
+[e $ ! == -> _option `i -> . `E6036 2 `i 1140  ]
 "1696
 [; ;menu_navigation.c: 1696:     {
 {
@@ -19127,7 +19127,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1141  ]
 [e :U 1140 ]
-[e $ ! == -> _option `i -> . `E6033 3 `i 1142  ]
+[e $ ! == -> _option `i -> . `E6036 3 `i 1142  ]
 "1709
 [; ;menu_navigation.c: 1709:     {
 {
@@ -19186,7 +19186,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1730
 [; ;menu_navigation.c: 1730:     if (option == start)
-[e $ ! == -> _option `i -> . `E5901 1 `i 1144  ]
+[e $ ! == -> _option `i -> . `E5904 1 `i 1144  ]
 "1731
 [; ;menu_navigation.c: 1731:     {
 {
@@ -19222,7 +19222,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1145  ]
 [e :U 1144 ]
-[e $ ! == -> _option `i -> . `E5901 0 `i 1146  ]
+[e $ ! == -> _option `i -> . `E5904 0 `i 1146  ]
 "1744
 [; ;menu_navigation.c: 1744:     {
 {

@@ -9841,7 +9841,7 @@ typedef struct
             batt_actual_voltage, batt_actual_current,
             batt_set_trickle_voltage, bat_set_trickle_current,
             batt_set_min_discharge_voltage,
-            batt_capacitance,
+            batt_capacitance_cycle1,batt_capacitance_cycle2,batt_capacitance_cycle3,batt_capacitance_cycle4,
             charge_current_1, discharge_current_1,
             charge_current_2, discharge_current_2,
             charge_current_3, discharge_current_3,
@@ -10258,7 +10258,14 @@ void CellCount(BattParameters *bat_param, uint8_t set_mode)
 
 void CapacitanceDisplay (BattParameters *bat_param)
 {
-    sprintf(bat_param->text, "Cap:%04umAh", bat_param->batt_capacitance);
+
+    switch(bat_param->set_cycle)
+    {
+        case 1: sprintf(bat_param->text, "Cap:%04umAh", bat_param->batt_capacitance_cycle1); break;
+        case 2: sprintf(bat_param->text, "Cap:%04u/%04umAh", bat_param->batt_capacitance_cycle1,bat_param->batt_capacitance_cycle2); break;
+        case 3: sprintf(bat_param->text, "C:%04u/%04u/%04umAh", bat_param->batt_capacitance_cycle1,bat_param->batt_capacitance_cycle2,bat_param->batt_capacitance_cycle3); break;
+        case 4: sprintf(bat_param->text, "C:%04u/%04u/%04u/%04u", bat_param->batt_capacitance_cycle1,bat_param->batt_capacitance_cycle2,bat_param->batt_capacitance_cycle3,bat_param->batt_capacitance_cycle4); break;
+    }
     GLCD_PrintString(bat_param->text);
 }
 
@@ -10448,7 +10455,7 @@ void SingleBat_Menu(BattParameters *bat_param)
     GLCD_GotoXY(2, 2);
     GLCD_PrintString("BAT 1");
     GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
-# 581 "menu_definitions.c"
+
     GLCD_GotoXY(0, 13);
     VoltageDisplay(bat_param);
     GLCD_GotoXY(0, 22);
@@ -10462,15 +10469,11 @@ void SingleBat_Menu(BattParameters *bat_param)
     GLCD_GotoXY(78, 40);
     TempDisplay(bat_param);
 
-
-
-
-   ;
 }
 
 void Options5_Menu(BattParameters *bat_param)
 {
-# 612 "menu_definitions.c"
+# 604 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10495,7 +10498,7 @@ void Options5_Menu(BattParameters *bat_param)
 
 void Options4_Menu(BattParameters *bat_param)
 {
-# 646 "menu_definitions.c"
+# 638 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10517,7 +10520,7 @@ void Options4_Menu(BattParameters *bat_param)
 
 void Options3_Menu(BattParameters *bat_param)
 {
-# 675 "menu_definitions.c"
+# 667 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10537,7 +10540,7 @@ void Options3_Menu(BattParameters *bat_param)
 
 void Options2_Menu(BattParameters *bat_param)
 {
-# 702 "menu_definitions.c"
+# 694 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10556,7 +10559,7 @@ void Options2_Menu(BattParameters *bat_param)
 
 void Options1_Menu(BattParameters *bat_param)
 {
-# 729 "menu_definitions.c"
+# 721 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10713,5 +10716,5 @@ void InitBattParameters (BattParameters *bat_param)
         bat_param->batt_set_trickle_voltage = 270;
         bat_param->bat_set_trickle_current = 30;
         bat_param->batt_set_min_discharge_voltage = 270;
-        bat_param->batt_capacitance = 1000;
+        bat_param->batt_capacitance_cycle1 = 1000;
 }

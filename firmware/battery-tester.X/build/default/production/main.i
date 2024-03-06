@@ -9571,7 +9571,7 @@ typedef struct
             batt_actual_voltage, batt_actual_current,
             batt_set_trickle_voltage, bat_set_trickle_current,
             batt_set_min_discharge_voltage,
-            batt_capacitance,
+            batt_capacitance_cycle1,batt_capacitance_cycle2,batt_capacitance_cycle3,batt_capacitance_cycle4,
             charge_current_1, discharge_current_1,
             charge_current_2, discharge_current_2,
             charge_current_3, discharge_current_3,

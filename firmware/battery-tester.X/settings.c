@@ -27,8 +27,7 @@ void setupClock(void)
 
 void setupPorts(void)
 {
-    TRISDbits.RD2 = 0;
-    TRISAbits.RA6 = 0;  
+    TRISDbits.RD2 = 0;  //LCD RST PIN
 }
 
 void setupInterrupts(void)
