@@ -2,7 +2,7 @@
 #include "interrupts.h"
 
 
-volatile uint16_t button_counter;
+volatile uint16_t button_counter, counter_test;
 volatile uint32_t time;
 
 
@@ -51,6 +51,7 @@ void __interrupt() ISR()
         //Code to be executed evry desired time
         button_counter++;
         counter_second++;
+        counter_test++;
         if(counter_second >= 1000)
         {
             counter_second=0;

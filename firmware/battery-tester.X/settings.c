@@ -28,6 +28,8 @@ void setupClock(void)
 void setupPorts(void)
 {
     TRISDbits.RD2 = 0;  //LCD RST PIN
+    TRISAbits.RA6 = 0;  //LCD backlight pin output
+    LATAbits.LA6 = 1;   //LCD backlight on
 }
 
 void setupInterrupts(void)

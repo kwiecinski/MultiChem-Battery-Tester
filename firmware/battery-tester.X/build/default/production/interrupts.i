@@ -9252,15 +9252,16 @@ unsigned char __t3rd16on(void);
 # 39 "./interrupts.h" 2
 
 
-extern volatile uint16_t button_counter;
+extern volatile uint16_t button_counter, counter_test;
 extern volatile uint32_t time;
+
 
 void Init_Timer0();
 # 2 "interrupts.c" 2
 
 
 
-volatile uint16_t button_counter;
+volatile uint16_t button_counter, counter_test;
 volatile uint32_t time;
 
 
@@ -9295,6 +9296,7 @@ void __attribute__((picinterrupt(("")))) ISR()
 
         button_counter++;
         counter_second++;
+        counter_test++;
         if(counter_second >= 1000)
         {
             counter_second=0;

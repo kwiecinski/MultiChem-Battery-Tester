@@ -9,26 +9,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./button.h: 176:   struct {
 [s S631 :2 `uc 1 :2 `uc 1 :1 `uc 1 ]
 [n S631 . act prew locked ]
-[v F5722 `(uc ~T0 @X0 0 t? ]
+[v F5723 `(uc ~T0 @X0 0 t? ]
 "175
 [; ;./button.h: 175: typedef struct {
-[s S630 `S631 1 `uc 1 `us 1 `us 1 `*F5722 1 ]
+[s S630 `S631 1 `uc 1 `us 1 `us 1 `*F5723 1 ]
 [n S630 . state lock_count long_count long_press_time_ms port_read ]
-[v F5752 `(uc ~T0 @X0 0 t? ]
-[v F5754 `(uc ~T0 @X0 0 t? ]
-[v F5756 `(uc ~T0 @X0 0 t? ]
-[v F5758 `(uc ~T0 @X0 0 t? ]
-[v F5760 `(uc ~T0 @X0 0 t? ]
+[v F5753 `(uc ~T0 @X0 0 t? ]
+[v F5755 `(uc ~T0 @X0 0 t? ]
+[v F5757 `(uc ~T0 @X0 0 t? ]
+[v F5759 `(uc ~T0 @X0 0 t? ]
+[v F5761 `(uc ~T0 @X0 0 t? ]
 "106 button.c
 [; ;button.c: 106: static btn_init_t this =
-[c E5695 0 1 2 3 4 .. ]
-[n E5695 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
-[v F5730 `(v ~T0 @X0 0 tf1`E5695 ]
-[v F5733 `(v ~T0 @X0 0 tf1`E5695 ]
-[v F5736 `(v ~T0 @X0 0 tf1`E5695 ]
+[c E5696 0 1 2 3 4 .. ]
+[n E5696 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
+[v F5731 `(v ~T0 @X0 0 tf1`E5696 ]
+[v F5734 `(v ~T0 @X0 0 tf1`E5696 ]
+[v F5737 `(v ~T0 @X0 0 tf1`E5696 ]
 "194 ./button.h
 [; ;./button.h: 194: typedef struct {
-[s S632 `*S630 1 `uc 1 `uc 1 `us 1 `*F5730 1 `*F5733 1 `*F5736 1 ]
+[s S632 `*S630 1 `uc 1 `uc 1 `us 1 `*F5731 1 `*F5734 1 `*F5737 1 ]
 [n S632 . instance process_time_ms debounce_time_ms long_press_def_ms short_release long_release long_press ]
 "7273 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 7273: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
@@ -38,14 +38,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TRISG `Vuc ~T0 @X0 0 e@3992 ]
 "133 button.c
 [; ;button.c: 133:     this.instance[i].state.prew = BTN_STATE_NONE;
-[c E5702 0 1 2 .. ]
-[n E5702 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
+[c E5703 0 1 2 .. ]
+[n E5703 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
 "41 ./interrupts.h
-[; ;./interrupts.h: 41: extern volatile uint16_t button_counter;
+[; ;./interrupts.h: 41: extern volatile uint16_t button_counter, counter_test;
 [v _button_counter `Vus ~T0 @X0 0 e ]
-[v F5769 `(v ~T0 @X0 0 tf1`E5695 ]
-[v F5775 `(v ~T0 @X0 0 tf1`E5695 ]
-[v F5781 `(v ~T0 @X0 0 tf1`E5695 ]
+[v F5770 `(v ~T0 @X0 0 tf1`E5696 ]
+[v F5776 `(v ~T0 @X0 0 tf1`E5696 ]
+[v F5782 `(v ~T0 @X0 0 tf1`E5696 ]
 "54 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -921,7 +921,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `us
 -> -> 1200 `i `us
--> &U _ButtonRight `*F5752
+-> &U _ButtonRight `*F5753
 ..
 :U ..
 :U ..
@@ -934,7 +934,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `us
 -> -> 1200 `i `us
--> &U _ButtonLeft `*F5754
+-> &U _ButtonLeft `*F5755
 ..
 :U ..
 :U ..
@@ -947,7 +947,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `us
 -> -> 1200 `i `us
--> &U _ButtonUp `*F5756
+-> &U _ButtonUp `*F5757
 ..
 :U ..
 :U ..
@@ -960,7 +960,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `us
 -> -> 1200 `i `us
--> &U _ButtonDown `*F5758
+-> &U _ButtonDown `*F5759
 ..
 :U ..
 :U ..
@@ -973,7 +973,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `us
 -> -> 1200 `i `us
--> &U _ButtonOK `*F5760
+-> &U _ButtonOK `*F5761
 ..
 ..
 ]
@@ -1037,7 +1037,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 0 2 -> -> 0 `i `uc ]
 "133
 [; ;button.c: 133:     this.instance[i].state.prew = BTN_STATE_NONE;
-[e = . . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 0 1 -> . `E5702 0 `uc ]
+[e = . . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 0 1 -> . `E5703 0 `uc ]
 "134
 [; ;button.c: 134:     this.instance[i].long_count = 0;
 [e = . *U + . _this 0 * -> _i `ux -> -> # *U . _this 0 `ui `ux 2 -> -> 0 `i `us ]
@@ -1085,14 +1085,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "150
 [; ;button.c: 150:       btn_state_t now_pressed = BTN_STATE_NONE;
-[v _now_pressed `E5702 ~T0 @X0 1 a ]
-[e = _now_pressed . `E5702 0 ]
+[v _now_pressed `E5703 ~T0 @X0 1 a ]
+[e = _now_pressed . `E5703 0 ]
 "152
 [; ;button.c: 152:       now_pressed = ((this.instance[key].port_read)()==0 ? BTN_STATE_SHORT : BTN_STATE_NONE);
-[e = _now_pressed -> ? == -> ( *U . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 4 ..  `i -> 0 `i : . `E5702 1 . `E5702 0 `E5702 ]
+[e = _now_pressed -> ? == -> ( *U . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 4 ..  `i -> 0 `i : . `E5703 1 . `E5703 0 `E5703 ]
 "154
 [; ;button.c: 154:       if (BTN_STATE_SHORT == now_pressed)
-[e $ ! == -> . `E5702 1 `ui -> _now_pressed `ui 647  ]
+[e $ ! == -> . `E5703 1 `ui -> _now_pressed `ui 647  ]
 "155
 [; ;button.c: 155:       {
 {
@@ -1121,7 +1121,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 648 ]
 "164
 [; ;button.c: 164:         if ((this.instance[key].state.locked) &&
-[e $ ! && != -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 2 `i -> 0 `i == -> . `E5702 1 `i -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 1 `i 650  ]
+[e $ ! && != -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 2 `i -> 0 `i == -> . `E5703 1 `i -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 1 `i 650  ]
 "166
 [; ;button.c: 166:         {
 {
@@ -1133,11 +1133,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "169
 [; ;button.c: 169:             this.instance[key].state.act = BTN_STATE_LONG;
-[e = . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 -> . `E5702 2 `uc ]
+[e = . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 -> . `E5703 2 `uc ]
 "170
 [; ;button.c: 170:             if (((void*)0) != this.long_press) this.long_press(key);
-[e $ ! != -> -> -> 0 `i `*v `*F5769 . _this 6 652  ]
-[e ( *U . _this 6 (1 -> _key `E5695 ]
+[e $ ! != -> -> -> 0 `i `*v `*F5770 . _this 6 652  ]
+[e ( *U . _this 6 (1 -> _key `E5696 ]
 [e :U 652 ]
 "171
 [; ;button.c: 171:           }
@@ -1157,7 +1157,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "175
 [; ;button.c: 175:       else if (BTN_STATE_NONE == now_pressed)
 [e :U 647 ]
-[e $ ! == -> . `E5702 0 `ui -> _now_pressed `ui 654  ]
+[e $ ! == -> . `E5703 0 `ui -> _now_pressed `ui 654  ]
 "176
 [; ;button.c: 176:       {
 {
@@ -1203,11 +1203,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "190
 [; ;button.c: 190:                 this.instance[key].state.act = BTN_STATE_SHORT;
-[e = . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 -> . `E5702 1 `uc ]
+[e = . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 -> . `E5703 1 `uc ]
 "191
 [; ;button.c: 191:                 if (((void*)0) != this.short_release) this.short_release(key);
-[e $ ! != -> -> -> 0 `i `*v `*F5775 . _this 4 660  ]
-[e ( *U . _this 4 (1 -> _key `E5695 ]
+[e $ ! != -> -> -> 0 `i `*v `*F5776 . _this 4 660  ]
+[e ( *U . _this 4 (1 -> _key `E5696 ]
 [e :U 660 ]
 "192
 [; ;button.c: 192:               }
@@ -1225,14 +1225,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "196
 [; ;button.c: 196:               if (BTN_STATE_LONG == this.instance[key].state.act)
-[e $ ! == -> . `E5702 2 `i -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 `i 662  ]
+[e $ ! == -> . `E5703 2 `i -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 `i 662  ]
 "197
 [; ;button.c: 197:               {
 {
 "198
 [; ;button.c: 198:                 if (((void*)0) != this.long_release) this.long_release(key);
-[e $ ! != -> -> -> 0 `i `*v `*F5781 . _this 5 663  ]
-[e ( *U . _this 5 (1 -> _key `E5695 ]
+[e $ ! != -> -> -> 0 `i `*v `*F5782 . _this 5 663  ]
+[e ( *U . _this 5 (1 -> _key `E5696 ]
 [e :U 663 ]
 "199
 [; ;button.c: 199:               }
@@ -1292,7 +1292,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "214
 [; ;button.c: 214: btn_state_t Button_EventGet(uint8_t key)
-[v _Button_EventGet `(E5702 ~T0 @X0 1 ef1`uc ]
+[v _Button_EventGet `(E5703 ~T0 @X0 1 ef1`uc ]
 "215
 [; ;button.c: 215: {
 {
@@ -1306,12 +1306,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "216
 [; ;button.c: 216:   if (key >= 5) return 0;
 [e $ ! >= -> _key `i -> 5 `i 666  ]
-[e ) -> -> 0 `i `E5702 ]
+[e ) -> -> 0 `i `E5703 ]
 [e $UE 665  ]
 [e :U 666 ]
 "217
 [; ;button.c: 217:   return this.instance[key].state.act;
-[e ) -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 `E5702 ]
+[e ) -> . . *U + . _this 0 * -> _key `ux -> -> # *U . _this 0 `ui `ux 0 0 `E5703 ]
 [e $UE 665  ]
 "219
 [; ;button.c: 219: }

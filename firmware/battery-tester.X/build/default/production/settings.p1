@@ -143,6 +143,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6861
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6861: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
 [v _TRISAbits `VS270 ~T0 @X0 0 e@3986 ]
+"6109
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6109:     struct {
+[s S250 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S250 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"6119
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6119:     struct {
+[s S251 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S251 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"6108
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6108: typedef union {
+[u S249 `S250 1 `S251 1 ]
+[n S249 . . . ]
+"6130
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6130: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
+[v _LATAbits `VS249 ~T0 @X0 0 e@3977 ]
 "15447
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 15447:     struct {
 [s S621 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1057,97 +1072,100 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;settings.c: 31:     TRISAbits.RA6 = 0;
 [e = . . _TRISAbits 1 6 -> -> 0 `i `uc ]
 "32
-[; ;settings.c: 32: }
+[; ;settings.c: 32:     LATAbits.LA6 = 1;
+[e = . . _LATAbits 1 6 -> -> 1 `i `uc ]
+"33
+[; ;settings.c: 33: }
 [e :UE 632 ]
 }
-"34
-[; ;settings.c: 34: void setupInterrupts(void)
-[v _setupInterrupts `(v ~T0 @X0 1 ef ]
 "35
-[; ;settings.c: 35: {
+[; ;settings.c: 35: void setupInterrupts(void)
+[v _setupInterrupts `(v ~T0 @X0 1 ef ]
+"36
+[; ;settings.c: 36: {
 {
 [e :U _setupInterrupts ]
 [f ]
-"37
-[; ;settings.c: 37:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "38
-[; ;settings.c: 38:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;settings.c: 38:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "39
-[; ;settings.c: 39: }
+[; ;settings.c: 39:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"40
+[; ;settings.c: 40: }
 [e :UE 633 ]
 }
-"41
-[; ;settings.c: 41: void setupPWM(void)
-[v _setupPWM `(v ~T0 @X0 1 ef ]
 "42
-[; ;settings.c: 42: {
+[; ;settings.c: 42: void setupPWM(void)
+[v _setupPWM `(v ~T0 @X0 1 ef ]
+"43
+[; ;settings.c: 43: {
 {
 [e :U _setupPWM ]
 [f ]
-"43
-[; ;settings.c: 43:     TRISGbits.TRISG0 = 0;
-[e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
 "44
-[; ;settings.c: 44:     T2CONbits.TMR2ON = 1;
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;settings.c: 44:     TRISGbits.TRISG0 = 0;
+[e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
 "45
-[; ;settings.c: 45:     CCP3CONbits.CCP3M0 = 0;
-[e = . . _CCP3CONbits 1 0 -> -> 0 `i `uc ]
+[; ;settings.c: 45:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 "46
-[; ;settings.c: 46:     CCP3CONbits.CCP3M1 = 0;
-[e = . . _CCP3CONbits 1 1 -> -> 0 `i `uc ]
+[; ;settings.c: 46:     CCP3CONbits.CCP3M0 = 0;
+[e = . . _CCP3CONbits 1 0 -> -> 0 `i `uc ]
 "47
-[; ;settings.c: 47:     CCP3CONbits.CCP3M2 = 1;
-[e = . . _CCP3CONbits 1 2 -> -> 1 `i `uc ]
+[; ;settings.c: 47:     CCP3CONbits.CCP3M1 = 0;
+[e = . . _CCP3CONbits 1 1 -> -> 0 `i `uc ]
 "48
-[; ;settings.c: 48:     CCP3CONbits.CCP3M3 = 1;
-[e = . . _CCP3CONbits 1 3 -> -> 1 `i `uc ]
+[; ;settings.c: 48:     CCP3CONbits.CCP3M2 = 1;
+[e = . . _CCP3CONbits 1 2 -> -> 1 `i `uc ]
 "49
-[; ;settings.c: 49:     PR2=200;
-[e = _PR2 -> -> 200 `i `uc ]
+[; ;settings.c: 49:     CCP3CONbits.CCP3M3 = 1;
+[e = . . _CCP3CONbits 1 3 -> -> 1 `i `uc ]
 "50
-[; ;settings.c: 50: }
+[; ;settings.c: 50:     PR2=200;
+[e = _PR2 -> -> 200 `i `uc ]
+"51
+[; ;settings.c: 51: }
 [e :UE 634 ]
 }
-"52
-[; ;settings.c: 52: void delay_ms(unsigned int milliseconds)
-[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
 "53
-[; ;settings.c: 53: {
+[; ;settings.c: 53: void delay_ms(unsigned int milliseconds)
+[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
+"54
+[; ;settings.c: 54: {
 {
 [e :U _delay_ms ]
-"52
-[; ;settings.c: 52: void delay_ms(unsigned int milliseconds)
-[v _milliseconds `ui ~T0 @X0 1 r1 ]
 "53
-[; ;settings.c: 53: {
-[f ]
+[; ;settings.c: 53: void delay_ms(unsigned int milliseconds)
+[v _milliseconds `ui ~T0 @X0 1 r1 ]
 "54
-[; ;settings.c: 54:     unsigned int i;
-[v _i `ui ~T0 @X0 1 a ]
+[; ;settings.c: 54: {
+[f ]
 "55
-[; ;settings.c: 55:     for (i = 0; i < milliseconds; i++)
+[; ;settings.c: 55:     unsigned int i;
+[v _i `ui ~T0 @X0 1 a ]
+"56
+[; ;settings.c: 56:     for (i = 0; i < milliseconds; i++)
 {
 [e = _i -> -> 0 `i `ui ]
 [e $U 639  ]
 [e :U 636 ]
-"56
-[; ;settings.c: 56:     {
-{
 "57
-[; ;settings.c: 57:         _delay((unsigned long)((1)*(24000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
+[; ;settings.c: 57:     {
+{
 "58
-[; ;settings.c: 58:     }
+[; ;settings.c: 58:         _delay((unsigned long)((1)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
+"59
+[; ;settings.c: 59:     }
 }
 [e ++ _i -> -> 1 `i `ui ]
 [e :U 639 ]
 [e $ < _i _milliseconds 636  ]
 [e :U 637 ]
 }
-"59
-[; ;settings.c: 59: }
+"60
+[; ;settings.c: 60: }
 [e :UE 635 ]
 }

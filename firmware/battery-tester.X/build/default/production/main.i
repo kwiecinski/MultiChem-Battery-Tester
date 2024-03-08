@@ -9840,11 +9840,20 @@ const uint8_t Font5x8[] =
 
 # 1 "./interrupts.h" 1
 # 41 "./interrupts.h"
-extern volatile uint16_t button_counter;
+extern volatile uint16_t button_counter, counter_test;
 extern volatile uint32_t time;
+
 
 void Init_Timer0();
 # 18 "main.c" 2
+
+# 1 "./MMSP.h" 1
+# 15 "./MMSP.h"
+void setSPI_Interface(void);
+uint8_t SPI_Transfer(uint8_t data);
+void ReadID (void);
+void ReadID_JEDEC(void);
+# 19 "main.c" 2
 
 
 
@@ -9858,7 +9867,7 @@ void main(void)
     setupPWM();
     Button_Init();
     Init_Timer0();
-    LATAbits.LA6=1;
+    setSPI_Interface();
 
     BattParameters bat_param;
     InitBattParameters(&bat_param);
@@ -9867,5 +9876,19 @@ void main(void)
     while (1)
     {
         Menu(&bat_param);
+
+        if(counter_test>=1000)
+        {
+            counter_test=0;
+
+            printf("\r\n");
+            ReadID();
+            printf("\r\n");
+            ReadID_JEDEC();
+        }
     }
+
+
+
+
 }

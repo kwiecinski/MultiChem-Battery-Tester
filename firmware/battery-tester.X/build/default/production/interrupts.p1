@@ -792,8 +792,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 15782: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "5 interrupts.c
-[; ;interrupts.c: 5: volatile uint16_t button_counter;
+[; ;interrupts.c: 5: volatile uint16_t button_counter, counter_test;
 [v _button_counter `Vus ~T0 @X0 1 e ]
+[v _counter_test `Vus ~T0 @X0 1 e ]
 "6
 [; ;interrupts.c: 6: volatile uint32_t time;
 [v _time `Vul ~T0 @X0 1 e ]
@@ -838,7 +839,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "43
 [; ;interrupts.c: 43:     static uint16_t counter_second;
-[v F5381 `us ~T0 @X0 1 s counter_second ]
+[v F5383 `us ~T0 @X0 1 s counter_second ]
 "46
 [; ;interrupts.c: 46:     if (INTCONbits.TMR0IF)
 [e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 630  ]
@@ -853,31 +854,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _button_counter -> -> 1 `i `Vus ]
 "53
 [; ;interrupts.c: 53:         counter_second++;
-[e ++ F5381 -> -> 1 `i `us ]
+[e ++ F5383 -> -> 1 `i `us ]
 "54
-[; ;interrupts.c: 54:         if(counter_second >= 1000)
-[e $ ! >= -> F5381 `ui -> -> 1000 `i `ui 631  ]
+[; ;interrupts.c: 54:         counter_test++;
+[e ++ _counter_test -> -> 1 `i `Vus ]
 "55
-[; ;interrupts.c: 55:         {
-{
+[; ;interrupts.c: 55:         if(counter_second >= 1000)
+[e $ ! >= -> F5383 `ui -> -> 1000 `i `ui 631  ]
 "56
-[; ;interrupts.c: 56:             counter_second=0;
-[e = F5381 -> -> 0 `i `us ]
+[; ;interrupts.c: 56:         {
+{
 "57
-[; ;interrupts.c: 57:             time++;
-[e ++ _time -> -> 1 `i `Vul ]
+[; ;interrupts.c: 57:             counter_second=0;
+[e = F5383 -> -> 0 `i `us ]
 "58
-[; ;interrupts.c: 58:         }
+[; ;interrupts.c: 58:             time++;
+[e ++ _time -> -> 1 `i `Vul ]
+"59
+[; ;interrupts.c: 59:         }
 }
 [e :U 631 ]
-"61
-[; ;interrupts.c: 61:         INTCONbits.TMR0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "62
-[; ;interrupts.c: 62:     }
+[; ;interrupts.c: 62:         INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"63
+[; ;interrupts.c: 63:     }
 }
 [e :U 630 ]
-"63
-[; ;interrupts.c: 63: }
+"64
+[; ;interrupts.c: 64: }
 [e :UE 629 ]
 }

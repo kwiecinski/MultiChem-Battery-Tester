@@ -16,6 +16,7 @@
 #include "button.h"
 #include "LCD-KS0108/font5x8.h"
 #include "interrupts.h"
+#include "MMSP.h"
 
 
 void main(void) 
@@ -28,7 +29,8 @@ void main(void)
     setupPWM();
     Button_Init();
     Init_Timer0();
-  
+    setSPI_Interface();
+    
     BattParameters bat_param;
     InitBattParameters(&bat_param);
     SingleBat_Menu(&bat_param);
@@ -36,5 +38,19 @@ void main(void)
     while (1) 
     {
         Menu(&bat_param);
+        
+        if(counter_test>=1000)
+        {
+            counter_test=0;
+            //printf("test \r\n");
+            printf("\r\n");
+            ReadID();
+            printf("\r\n");
+            ReadID_JEDEC();
+        }
     }
+    
+        
+  
+    
 }

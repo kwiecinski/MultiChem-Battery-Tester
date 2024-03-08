@@ -21,24 +21,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "214 ./button.h
 [; ;./button.h: 214: void Button_Init(void);
 [v _Button_Init `(v ~T0 @X0 0 ef ]
-"44 ./interrupts.h
-[; ;./interrupts.h: 44: void Init_Timer0();
+"45 ./interrupts.h
+[; ;./interrupts.h: 45: void Init_Timer0();
 [v _Init_Timer0 `(v ~T0 @X0 0 e? ]
-"6109 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6109:     struct {
-[s S250 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S250 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
-"6119
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6119:     struct {
-[s S251 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S251 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
-"6108
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6108: typedef union {
-[u S249 `S250 1 `S251 1 ]
-[n S249 . . . ]
-"6130
-[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6130: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
-[v _LATAbits `VS249 ~T0 @X0 0 e@3977 ]
+"15 ./MMSP.h
+[; ;./MMSP.h: 15: void setSPI_Interface(void);
+[v _setSPI_Interface `(v ~T0 @X0 0 ef ]
 "16 ./menu_definitions.h
 [; ;./menu_definitions.h: 16: {
 [s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
@@ -52,6 +40,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40 ./menu_navigation.h
 [; ;./menu_navigation.h: 40: void Menu(BattParameters *bat_param);
 [v _Menu `(v ~T0 @X0 0 ef1`*S632 ]
+"41 ./interrupts.h
+[; ;./interrupts.h: 41: extern volatile uint16_t button_counter, counter_test;
+[v _counter_test `Vus ~T0 @X0 0 e ]
+"105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"17 ./MMSP.h
+[; ;./MMSP.h: 17: void ReadID (void);
+[v _ReadID `(v ~T0 @X0 0 ef ]
+"18
+[; ;./MMSP.h: 18: void ReadID_JEDEC(void);
+[v _ReadID_JEDEC `(v ~T0 @X0 0 ef ]
 "54 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -1415,66 +1415,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"21 main.c
-[; ;main.c: 21: void main(void)
+"22 main.c
+[; ;main.c: 22: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"22
-[; ;main.c: 22: {
+"23
+[; ;main.c: 23: {
 {
 [e :U _main ]
 [f ]
-"23
-[; ;main.c: 23:     setupPorts();
-[e ( _setupPorts ..  ]
 "24
-[; ;main.c: 24:     setupInterrupts();
-[e ( _setupInterrupts ..  ]
+[; ;main.c: 24:     setupPorts();
+[e ( _setupPorts ..  ]
 "25
-[; ;main.c: 25:     GLCD_Setup();
-[e ( _GLCD_Setup ..  ]
+[; ;main.c: 25:     setupInterrupts();
+[e ( _setupInterrupts ..  ]
 "26
-[; ;main.c: 26:     setupUART();
-[e ( _setupUART ..  ]
+[; ;main.c: 26:     GLCD_Setup();
+[e ( _GLCD_Setup ..  ]
 "27
-[; ;main.c: 27:     setupClock();
-[e ( _setupClock ..  ]
+[; ;main.c: 27:     setupUART();
+[e ( _setupUART ..  ]
 "28
-[; ;main.c: 28:     setupPWM();
-[e ( _setupPWM ..  ]
+[; ;main.c: 28:     setupClock();
+[e ( _setupClock ..  ]
 "29
-[; ;main.c: 29:     Button_Init();
-[e ( _Button_Init ..  ]
+[; ;main.c: 29:     setupPWM();
+[e ( _setupPWM ..  ]
 "30
-[; ;main.c: 30:     Init_Timer0();
-[e ( _Init_Timer0 ..  ]
+[; ;main.c: 30:     Button_Init();
+[e ( _Button_Init ..  ]
 "31
-[; ;main.c: 31:     LATAbits.LA6=1;
-[e = . . _LATAbits 1 6 -> -> 1 `i `uc ]
-"33
-[; ;main.c: 33:     BattParameters bat_param;
-[v _bat_param `S632 ~T0 @X0 1 a ]
+[; ;main.c: 31:     Init_Timer0();
+[e ( _Init_Timer0 ..  ]
+"32
+[; ;main.c: 32:     setSPI_Interface();
+[e ( _setSPI_Interface ..  ]
 "34
-[; ;main.c: 34:     InitBattParameters(&bat_param);
-[e ( _InitBattParameters (1 &U _bat_param ]
+[; ;main.c: 34:     BattParameters bat_param;
+[v _bat_param `S632 ~T0 @X0 1 a ]
 "35
-[; ;main.c: 35:     SingleBat_Menu(&bat_param);
+[; ;main.c: 35:     InitBattParameters(&bat_param);
+[e ( _InitBattParameters (1 &U _bat_param ]
+"36
+[; ;main.c: 36:     SingleBat_Menu(&bat_param);
 [e ( _SingleBat_Menu (1 &U _bat_param ]
-"37
-[; ;main.c: 37:     while (1)
-[e :U 638 ]
 "38
-[; ;main.c: 38:     {
-{
+[; ;main.c: 38:     while (1)
+[e :U 638 ]
 "39
-[; ;main.c: 39:         Menu(&bat_param);
-[e ( _Menu (1 &U _bat_param ]
+[; ;main.c: 39:     {
+{
 "40
-[; ;main.c: 40:     }
+[; ;main.c: 40:         Menu(&bat_param);
+[e ( _Menu (1 &U _bat_param ]
+"42
+[; ;main.c: 42:         if(counter_test>=1000)
+[e $ ! >= -> _counter_test `ui -> -> 1000 `i `ui 640  ]
+"43
+[; ;main.c: 43:         {
+{
+"44
+[; ;main.c: 44:             counter_test=0;
+[e = _counter_test -> -> 0 `i `us ]
+"46
+[; ;main.c: 46:             printf("\r\n");
+[e ( _printf :s 1C ]
+"47
+[; ;main.c: 47:             ReadID();
+[e ( _ReadID ..  ]
+"48
+[; ;main.c: 48:             printf("\r\n");
+[e ( _printf :s 2C ]
+"49
+[; ;main.c: 49:             ReadID_JEDEC();
+[e ( _ReadID_JEDEC ..  ]
+"50
+[; ;main.c: 50:         }
+}
+[e :U 640 ]
+"51
+[; ;main.c: 51:     }
 }
 [e :U 637 ]
 [e $U 638  ]
 [e :U 639 ]
-"41
-[; ;main.c: 41: }
+"56
+[; ;main.c: 56: }
 [e :UE 636 ]
 }
+[p f _printf 8388608 ]
+[a 1C 13 10 0 ]
+[a 2C 13 10 0 ]

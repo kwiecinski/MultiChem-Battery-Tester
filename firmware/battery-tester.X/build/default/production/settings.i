@@ -9447,6 +9447,7 @@ void setupPorts(void)
 {
     TRISDbits.RD2 = 0;
     TRISAbits.RA6 = 0;
+    LATAbits.LA6 = 1;
 }
 
 void setupInterrupts(void)

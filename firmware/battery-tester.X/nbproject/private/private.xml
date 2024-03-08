@@ -34,12 +34,9 @@
         <group>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/settings.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.h</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/MMSP.h</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/main.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/peripherials/UART.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/settings.h</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/MMSP.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.h</file>
         </group>
