@@ -1,4 +1,4 @@
-# 1 "MMSP.c"
+# 1 "memory.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MMSP.c" 2
+# 1 "memory.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9246,7 +9246,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 2 3
-# 1 "MMSP.c" 2
+# 1 "memory.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
@@ -9392,14 +9392,14 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 2 "MMSP.c" 2
+# 2 "memory.c" 2
 
 # 1 "./peripherials/UART.h" 1
 # 15 "./peripherials/UART.h"
 void setupUART(void);
 void UART_SendChar(char data);
 void UART_SendString(const char *string);
-# 3 "MMSP.c" 2
+# 3 "memory.c" 2
 
 # 1 "./main.h" 1
 # 39 "./main.h"
@@ -9424,28 +9424,64 @@ void UART_SendString(const char *string);
 
 #pragma config CCP2MX = DEFAULT
 #pragma config MSSPMSK = MSK5
-# 4 "MMSP.c" 2
+# 4 "memory.c" 2
+
+# 1 "./settings.h" 1
 
 
 
-void setSPI_Interface(void)
+
+
+
+
+void setupUART(void);
+void setupClock(void);
+void setupPorts(void);
+void setupInterrupts(void);
+void setupPWM(void);
+
+void delay_ms(unsigned int milliseconds);
+# 5 "memory.c" 2
+
+# 1 "./interrupts.h" 1
+# 41 "./interrupts.h"
+extern volatile uint16_t button_counter, counter_test;
+extern volatile uint32_t time;
+
+
+void Init_Timer0();
+# 6 "memory.c" 2
+
+# 1 "./SST25VF.h" 1
+# 36 "./SST25VF.h"
+void BlockErase(uint8_t Add, uint8_t block_type);
+void SectorErase(uint8_t Add);
+void ChipErase(void);
+void WriteByte(uint32_t Add,uint8_t data);
+void StatRegBP(void);
+void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
+void ReadID_JEDEC(void);
+void ReadID (void);
+uint8_t CheckWriteEN (void);
+uint8_t CheckBusy(void);
+void SST25VF_init (void);
+# 7 "memory.c" 2
+
+# 1 "./MMSP.h" 1
+# 15 "./MMSP.h"
+void setSPI_Interface(void);
+uint8_t SPI_Exchange(uint8_t data);
+# 8 "memory.c" 2
+# 158 "memory.c"
+void CheckCurrentParamAddress(void)
 {
+    uint8_t current_param_address[4];
+    ReadBytes(0x0,&current_param_address[0],4);
 
-    TRISCbits.RC3 = 0;
-    TRISCbits.RC4 = 1;
-    TRISCbits.RC5 = 0;
-    TRISFbits.RF7 = 0;
-
-    SSP1CON1bits.SSPEN = 1;
-    SSP1CON1bits.SSPM1=1;
-
-    SSP1CON1bits.CKP = 1;
-    SSP1STATbits.CKE = 0;
 
 }
-uint8_t SPI_Exchange(uint8_t data)
+
+void SaveParamToFlash (void)
 {
-    SSP1BUF = data;
-    while (!SSP1STATbits.BF);
-    return SSP1BUF;
+
 }

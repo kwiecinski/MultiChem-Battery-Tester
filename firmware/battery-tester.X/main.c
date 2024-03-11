@@ -16,8 +16,8 @@
 #include "button.h"
 #include "LCD-KS0108/font5x8.h"
 #include "interrupts.h"
+#include "SST25VF.h"
 #include "MMSP.h"
-
 
 void main(void) 
 {   
@@ -30,10 +30,14 @@ void main(void)
     Button_Init();
     Init_Timer0();
     setSPI_Interface();
-    
+    SST25VF_init_Enable_Write();
+            
     BattParameters bat_param;
     InitBattParameters(&bat_param);
     SingleBat_Menu(&bat_param);
+    
+    uint8_t tab[4];
+   
     
     while (1) 
     {
@@ -42,15 +46,7 @@ void main(void)
         if(counter_test>=1000)
         {
             counter_test=0;
-            //printf("test \r\n");
-            printf("\r\n");
-            ReadID();
-            printf("\r\n");
-            ReadID_JEDEC();
+
         }
-    }
-    
-        
-  
-    
+    }    
 }

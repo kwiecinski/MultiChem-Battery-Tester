@@ -1,4 +1,4 @@
-# 1 "MMSP.c"
+# 1 "SST25VF.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MMSP.c" 2
+# 1 "SST25VF.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9246,7 +9246,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 2 3
-# 1 "MMSP.c" 2
+# 1 "SST25VF.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
@@ -9392,14 +9392,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 2 "MMSP.c" 2
-
-# 1 "./peripherials/UART.h" 1
-# 15 "./peripherials/UART.h"
-void setupUART(void);
-void UART_SendChar(char data);
-void UART_SendString(const char *string);
-# 3 "MMSP.c" 2
+# 2 "SST25VF.c" 2
 
 # 1 "./main.h" 1
 # 39 "./main.h"
@@ -9424,28 +9417,287 @@ void UART_SendString(const char *string);
 
 #pragma config CCP2MX = DEFAULT
 #pragma config MSSPMSK = MSK5
-# 4 "MMSP.c" 2
+# 3 "SST25VF.c" 2
+
+# 1 "./MMSP.h" 1
+# 15 "./MMSP.h"
+void setSPI_Interface(void);
+uint8_t SPI_Exchange(uint8_t data);
+# 4 "SST25VF.c" 2
+
+# 1 "./settings.h" 1
 
 
 
-void setSPI_Interface(void)
+
+
+
+
+void setupUART(void);
+void setupClock(void);
+void setupPorts(void);
+void setupInterrupts(void);
+void setupPWM(void);
+
+void delay_ms(unsigned int milliseconds);
+# 5 "SST25VF.c" 2
+# 38 "SST25VF.c"
+uint8_t CheckBusy(void)
+{
+ uint8_t StatusRegisterByte;
+
+ LATFbits.LF7=0;
+
+ SPI_Exchange(0x05);
+ StatusRegisterByte=SPI_Exchange(0);
+
+ if((StatusRegisterByte & 0x01)==1)
+ {
+  LATFbits.LF7=1;
+  return 1;
+ }
+
+ LATFbits.LF7=1;
+ return 0;
+}
+
+uint8_t CheckWriteEN (void)
+{
+ LATFbits.LF7=0;
+
+ uint8_t StatusRegisterByte;
+
+ SPI_Exchange(0x05);
+ StatusRegisterByte=SPI_Exchange(0xFF);
+ if((StatusRegisterByte & 0x02)>>1==1)
+ {
+  LATFbits.LF7=1;
+  return 1;
+ }
+
+ LATFbits.LF7=1;
+ return 0;
+}
+
+
+void SST25VF_init (void)
 {
 
-    TRISCbits.RC3 = 0;
-    TRISCbits.RC4 = 1;
-    TRISCbits.RC5 = 0;
-    TRISFbits.RF7 = 0;
+ LATFbits.LF7=0;
+ SPI_Exchange(0x50);
+ LATFbits.LF7=1;
 
-    SSP1CON1bits.SSPEN = 1;
-    SSP1CON1bits.SSPM1=1;
+    delay_ms(50);
+  LATFbits.LF7=0;
+    SPI_Exchange(0x01);
+    SPI_Exchange(0x00);
+    LATFbits.LF7=1;
 
-    SSP1CON1bits.CKP = 1;
-    SSP1STATbits.CKE = 0;
+ delay_ms(50);
+}
+
+
+
+void ReadID (void)
+{
+ LATFbits.LF7=0;
+
+    uint8_t tab[2];
+
+ SPI_Exchange(0X90);
+ SPI_Exchange(0x00);
+ SPI_Exchange(0x00);
+ SPI_Exchange(0X00);
+    tab[0]=SPI_Exchange(0xFF);
+    tab[1]=SPI_Exchange(0xFF);
+
+ printf("Manufacurer ID: %x \r\nDevice ID: %x \r\n", tab[0], tab[1]);
+
+ LATFbits.LF7=1;
+}
+
+void ReadID_JEDEC(void)
+{
+ LATFbits.LF7=0;
+
+    uint8_t tab[3];
+
+ SPI_Exchange(0X9F);
+    tab[0]=SPI_Exchange(0xFF);
+    tab[1]=SPI_Exchange(0xFF);
+    tab[2]=SPI_Exchange(0xFF);
+
+ printf("Manufacurer ID: %x \r\nDevice ID: %x \r\nMemory Capacity: %x \r\n", tab[0], tab[1], tab[2]);
+
+ LATFbits.LF7=1;
+}
+
+
+void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
+{
+ uint8_t i;
+ LATFbits.LF7=0;
+
+ SPI_Exchange(0x03);
+ SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+ SPI_Exchange(((Add & 0x00FFFF) >> 8));
+ SPI_Exchange(Add & 0x0000FF);
+ for(i=0;i<BytesCount;i++)
+ {
+  *(data+i)=SPI_Exchange(0);
+ }
+
+ LATFbits.LF7=1;
+}
+
+void StatRegBP(void)
+{
+
+ LATFbits.LF7=0;
+ SPI_Exchange(0x50);
+ LATFbits.LF7=1;
+
+ SPI_Exchange(0x00);
+
+ LATFbits.LF7=0;
+ SPI_Exchange(0x01);
+ SPI_Exchange(0x00);
+ LATFbits.LF7=1;
 
 }
-uint8_t SPI_Exchange(uint8_t data)
+
+
+void WriteByte(uint32_t Add,uint8_t data)
 {
-    SSP1BUF = data;
-    while (!SSP1STATbits.BF);
-    return SSP1BUF;
+
+
+ LATFbits.LF7=0;
+ SPI_Exchange(0x06);
+ LATFbits.LF7=1;
+
+ while(1)
+ {
+  if(CheckWriteEN()==1)
+  {
+   break;
+  }
+ }
+
+
+
+ LATFbits.LF7=0;
+ SPI_Exchange(0X02);
+ SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+ SPI_Exchange(((Add & 0x00FFFF) >> 8));
+ SPI_Exchange(Add & 0x0000FF);
+ SPI_Exchange(data);
+
+ LATFbits.LF7=1;
+
+
+
+ while(1)
+ {
+  if(CheckBusy()==0)
+  {
+   break;
+  }
+
+ }
+}
+
+
+
+void ChipErase(void)
+{
+ LATFbits.LF7=0;
+ SPI_Exchange(0x06);
+ LATFbits.LF7=1;
+
+ while(1)
+ {
+  if(CheckWriteEN()==1)
+  {
+   break;
+  }
+ }
+
+ LATFbits.LF7=0;
+ SPI_Exchange(0X60);
+ LATFbits.LF7=1;
+
+
+ while(1)
+ {
+  if(CheckBusy()==0)
+  {
+   break;
+  }
+ }
+}
+
+
+
+void SectorErase(uint8_t Add)
+{
+
+    LATFbits.LF7=0;
+    SPI_Exchange(0x06);
+    LATFbits.LF7=1;
+
+    while(1)
+ {
+  if(CheckWriteEN()==1)
+  {
+   break;
+  }
+ }
+
+ LATFbits.LF7=0;
+ SPI_Exchange(0x20);
+   SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+ SPI_Exchange(((Add & 0x00FFFF) >> 8));
+ SPI_Exchange(Add & 0x0000FF);
+    LATFbits.LF7=1;
+
+ while(1)
+ {
+  if(CheckBusy()==0)
+  {
+   break;
+  }
+ }
+}
+
+
+
+void BlockErase(uint8_t Add, uint8_t block_type)
+{
+
+    LATFbits.LF7=0;
+    SPI_Exchange(0x06);
+    LATFbits.LF7=1;
+
+    while(1)
+ {
+  if(CheckWriteEN()==1)
+  {
+   break;
+  }
+ }
+
+ LATFbits.LF7=0;
+ SPI_Exchange(block_type);
+   SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+ SPI_Exchange(((Add & 0x00FFFF) >> 8));
+ SPI_Exchange(Add & 0x0000FF);
+    LATFbits.LF7=1;
+
+ while(1)
+ {
+  if(CheckBusy()==0)
+  {
+   break;
+  }
+ }
 }

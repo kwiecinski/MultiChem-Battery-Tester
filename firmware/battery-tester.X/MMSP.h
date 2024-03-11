@@ -13,9 +13,8 @@ extern "C" {
 #endif
 
 void setSPI_Interface(void);
-uint8_t SPI_Transfer(uint8_t data);
-void ReadID (void);
-void ReadID_JEDEC(void);
+uint8_t SPI_Exchange(uint8_t data);
+
 
 #ifdef	__cplusplus
 }

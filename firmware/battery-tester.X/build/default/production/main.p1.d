@@ -11,4 +11,5 @@ menu_navigation.h  \
 button.h  \
 LCD-KS0108/font5x8.h  \
 interrupts.h  \
+SST25VF.h  \
 MMSP.h 

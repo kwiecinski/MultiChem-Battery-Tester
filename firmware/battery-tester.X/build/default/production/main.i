@@ -9847,14 +9847,26 @@ extern volatile uint32_t time;
 void Init_Timer0();
 # 18 "main.c" 2
 
+# 1 "./SST25VF.h" 1
+# 36 "./SST25VF.h"
+void BlockErase(uint8_t Add, uint8_t block_type);
+void SectorErase(uint8_t Add);
+void ChipErase(void);
+void WriteByte(uint32_t Add,uint8_t data);
+void StatRegBP(void);
+void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
+void ReadID_JEDEC(void);
+void ReadID (void);
+uint8_t CheckWriteEN (void);
+uint8_t CheckBusy(void);
+void SST25VF_init (void);
+# 19 "main.c" 2
+
 # 1 "./MMSP.h" 1
 # 15 "./MMSP.h"
 void setSPI_Interface(void);
-uint8_t SPI_Transfer(uint8_t data);
-void ReadID (void);
-void ReadID_JEDEC(void);
-# 19 "main.c" 2
-
+uint8_t SPI_Exchange(uint8_t data);
+# 20 "main.c" 2
 
 
 void main(void)
@@ -9868,10 +9880,28 @@ void main(void)
     Button_Init();
     Init_Timer0();
     setSPI_Interface();
+    StatRegBP();
 
     BattParameters bat_param;
     InitBattParameters(&bat_param);
     SingleBat_Menu(&bat_param);
+
+    uint8_t tab[4];
+
+
+    WriteByte(0x00,0b1111110);
+    ReadBytes(0x00,&tab[0],1);
+    printf("param test 1: %x \n\r", tab[0]);
+    WriteByte(0x00,0b1111100);
+    ReadBytes(0x00,&tab[0],1);
+    printf("param test 2: %x \n\r", tab[0]);
+    WriteByte(0x00,0b1111000);
+    ReadBytes(0x00,&tab[0],1);
+    printf("param test 3: %x \n\r", tab[0]);
+    WriteByte(0x00,0b1110000);
+    ReadBytes(0x00,&tab[0],1);
+    printf("param test 4: %x \n\r", tab[0]);
+
 
     while (1)
     {
@@ -9881,14 +9911,6 @@ void main(void)
         {
             counter_test=0;
 
-            printf("\r\n");
-            ReadID();
-            printf("\r\n");
-            ReadID_JEDEC();
         }
     }
-
-
-
-
 }

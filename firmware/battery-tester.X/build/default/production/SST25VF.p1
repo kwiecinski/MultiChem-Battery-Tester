@@ -1,60 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"10 ./settings.h
-[; ;./settings.h: 10: void setupPorts(void);
-[v _setupPorts `(v ~T0 @X0 0 ef ]
-"11
-[; ;./settings.h: 11: void setupInterrupts(void);
-[v _setupInterrupts `(v ~T0 @X0 0 ef ]
-"87 ./LCD-KS0108/KS0108.h
-[; ;./LCD-KS0108/KS0108.h: 87: void GLCD_Setup(void);
-[v _GLCD_Setup `(v ~T0 @X0 0 ef ]
-"8 ./settings.h
-[; ;./settings.h: 8: void setupUART(void);
-[v _setupUART `(v ~T0 @X0 0 ef ]
-"9
-[; ;./settings.h: 9: void setupClock(void);
-[v _setupClock `(v ~T0 @X0 0 ef ]
-"12
-[; ;./settings.h: 12: void setupPWM(void);
-[v _setupPWM `(v ~T0 @X0 0 ef ]
-"214 ./button.h
-[; ;./button.h: 214: void Button_Init(void);
-[v _Button_Init `(v ~T0 @X0 0 ef ]
-"45 ./interrupts.h
-[; ;./interrupts.h: 45: void Init_Timer0();
-[v _Init_Timer0 `(v ~T0 @X0 0 e? ]
-"15 ./MMSP.h
-[; ;./MMSP.h: 15: void setSPI_Interface(void);
-[v _setSPI_Interface `(v ~T0 @X0 0 ef ]
-"40 ./SST25VF.h
-[; ;./SST25VF.h: 40: void StatRegBP(void);
-[v _StatRegBP `(v ~T0 @X0 0 ef ]
-"16 ./menu_definitions.h
-[; ;./menu_definitions.h: 16: {
-[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_time current_time text ]
-"84
-[; ;./menu_definitions.h: 84: void InitBattParameters(BattParameters *bat_param);
-[v _InitBattParameters `(v ~T0 @X0 0 ef1`*S632 ]
-"85
-[; ;./menu_definitions.h: 85: void SingleBat_Menu(BattParameters *bat_param);
-[v _SingleBat_Menu `(v ~T0 @X0 0 ef1`*S632 ]
-"39 ./SST25VF.h
-[; ;./SST25VF.h: 39: void WriteByte(uint32_t Add,uint8_t data);
-[v _WriteByte `(v ~T0 @X0 0 ef2`ul`uc ]
-"41
-[; ;./SST25VF.h: 41: void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
-[v _ReadBytes `(v ~T0 @X0 0 ef3`ul`*uc`uc ]
+"6669 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6669:     struct {
+[s S265 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S265 . . LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
+"6678
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6678:     struct {
+[s S266 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S266 . . LF2 LF3 LF4 LF5 LF6 LF7 ]
+"6668
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6668: typedef union {
+[u S264 `S265 1 `S266 1 ]
+[n S264 . . . ]
+"6688
+[; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 6688: extern volatile LATFbits_t LATFbits __attribute__((address(0xF8E)));
+[v _LATFbits `VS264 ~T0 @X0 0 e@3982 ]
+"16 ./MMSP.h
+[; ;./MMSP.h: 16: uint8_t SPI_Exchange(uint8_t data);
+[v _SPI_Exchange `(uc ~T0 @X0 0 ef1`uc ]
+"14 ./settings.h
+[; ;./settings.h: 14: void delay_ms(unsigned int milliseconds);
+[v _delay_ms `(v ~T0 @X0 0 ef1`ui ]
 "105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"40 ./menu_navigation.h
-[; ;./menu_navigation.h: 40: void Menu(BattParameters *bat_param);
-[v _Menu `(v ~T0 @X0 0 ef1`*S632 ]
-"41 ./interrupts.h
-[; ;./interrupts.h: 41: extern volatile uint16_t button_counter, counter_test;
-[v _counter_test `Vus ~T0 @X0 0 e ]
 "54 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -834,710 +802,682 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CCP2MX  =  DEFAULT      ]
 "59
 [p x MSSPMSK  =  MSK5        ]
-"7 ./LCD-KS0108/font5x8.h
-[; ;./LCD-KS0108/font5x8.h: 7: const uint8_t Font5x8[] =
-[v _Font5x8 `Cuc ~T0 @X0 -> 576 `i e ]
-[i _Font5x8
-:U ..
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 95 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 7 `i `uc
--> -> 0 `i `uc
--> -> 7 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 20 `i `uc
--> -> 127 `i `uc
--> -> 20 `i `uc
--> -> 127 `i `uc
--> -> 20 `i `uc
--> -> 5 `i `uc
--> -> 36 `i `uc
--> -> 42 `i `uc
--> -> 127 `i `uc
--> -> 42 `i `uc
--> -> 18 `i `uc
--> -> 5 `i `uc
--> -> 35 `i `uc
--> -> 19 `i `uc
--> -> 8 `i `uc
--> -> 100 `i `uc
--> -> 98 `i `uc
--> -> 5 `i `uc
--> -> 54 `i `uc
--> -> 73 `i `uc
--> -> 86 `i `uc
--> -> 32 `i `uc
--> -> 80 `i `uc
--> -> 5 `i `uc
--> -> 8 `i `uc
--> -> 7 `i `uc
--> -> 3 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 28 `i `uc
--> -> 34 `i `uc
--> -> 65 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 65 `i `uc
--> -> 34 `i `uc
--> -> 28 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 20 `i `uc
--> -> 8 `i `uc
--> -> 62 `i `uc
--> -> 8 `i `uc
--> -> 20 `i `uc
--> -> 5 `i `uc
--> -> 8 `i `uc
--> -> 8 `i `uc
--> -> 62 `i `uc
--> -> 8 `i `uc
--> -> 8 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 176 `i `uc
--> -> 112 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 8 `i `uc
--> -> 8 `i `uc
--> -> 8 `i `uc
--> -> 8 `i `uc
--> -> 8 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 96 `i `uc
--> -> 96 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 32 `i `uc
--> -> 16 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 2 `i `uc
--> -> 5 `i `uc
--> -> 62 `i `uc
--> -> 81 `i `uc
--> -> 73 `i `uc
--> -> 69 `i `uc
--> -> 62 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 66 `i `uc
--> -> 127 `i `uc
--> -> 64 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 114 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 70 `i `uc
--> -> 5 `i `uc
--> -> 33 `i `uc
--> -> 65 `i `uc
--> -> 73 `i `uc
--> -> 77 `i `uc
--> -> 51 `i `uc
--> -> 5 `i `uc
--> -> 24 `i `uc
--> -> 20 `i `uc
--> -> 18 `i `uc
--> -> 127 `i `uc
--> -> 16 `i `uc
--> -> 5 `i `uc
--> -> 39 `i `uc
--> -> 69 `i `uc
--> -> 69 `i `uc
--> -> 69 `i `uc
--> -> 57 `i `uc
--> -> 5 `i `uc
--> -> 60 `i `uc
--> -> 74 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 49 `i `uc
--> -> 5 `i `uc
--> -> 65 `i `uc
--> -> 33 `i `uc
--> -> 17 `i `uc
--> -> 9 `i `uc
--> -> 7 `i `uc
--> -> 5 `i `uc
--> -> 54 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 54 `i `uc
--> -> 5 `i `uc
--> -> 70 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 41 `i `uc
--> -> 30 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 20 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 64 `i `uc
--> -> 52 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 8 `i `uc
--> -> 20 `i `uc
--> -> 34 `i `uc
--> -> 65 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 20 `i `uc
--> -> 20 `i `uc
--> -> 20 `i `uc
--> -> 20 `i `uc
--> -> 20 `i `uc
--> -> 5 `i `uc
--> -> 65 `i `uc
--> -> 34 `i `uc
--> -> 20 `i `uc
--> -> 8 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 2 `i `uc
--> -> 1 `i `uc
--> -> 89 `i `uc
--> -> 9 `i `uc
--> -> 6 `i `uc
--> -> 5 `i `uc
--> -> 62 `i `uc
--> -> 65 `i `uc
--> -> 93 `i `uc
--> -> 89 `i `uc
--> -> 78 `i `uc
--> -> 5 `i `uc
--> -> 124 `i `uc
--> -> 18 `i `uc
--> -> 17 `i `uc
--> -> 18 `i `uc
--> -> 124 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 54 `i `uc
--> -> 5 `i `uc
--> -> 62 `i `uc
--> -> 65 `i `uc
--> -> 65 `i `uc
--> -> 65 `i `uc
--> -> 34 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 65 `i `uc
--> -> 65 `i `uc
--> -> 65 `i `uc
--> -> 62 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 9 `i `uc
--> -> 9 `i `uc
--> -> 9 `i `uc
--> -> 9 `i `uc
--> -> 5 `i `uc
--> -> 62 `i `uc
--> -> 65 `i `uc
--> -> 65 `i `uc
--> -> 81 `i `uc
--> -> 115 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 8 `i `uc
--> -> 8 `i `uc
--> -> 8 `i `uc
--> -> 127 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 65 `i `uc
--> -> 127 `i `uc
--> -> 65 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 32 `i `uc
--> -> 64 `i `uc
--> -> 65 `i `uc
--> -> 63 `i `uc
--> -> 1 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 8 `i `uc
--> -> 20 `i `uc
--> -> 34 `i `uc
--> -> 65 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 2 `i `uc
--> -> 12 `i `uc
--> -> 2 `i `uc
--> -> 127 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 16 `i `uc
--> -> 127 `i `uc
--> -> 5 `i `uc
--> -> 62 `i `uc
--> -> 65 `i `uc
--> -> 65 `i `uc
--> -> 65 `i `uc
--> -> 62 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 9 `i `uc
--> -> 9 `i `uc
--> -> 9 `i `uc
--> -> 6 `i `uc
--> -> 5 `i `uc
--> -> 62 `i `uc
--> -> 65 `i `uc
--> -> 81 `i `uc
--> -> 33 `i `uc
--> -> 94 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 9 `i `uc
--> -> 25 `i `uc
--> -> 41 `i `uc
--> -> 70 `i `uc
--> -> 5 `i `uc
--> -> 38 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 73 `i `uc
--> -> 50 `i `uc
--> -> 5 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 127 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 5 `i `uc
--> -> 63 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 63 `i `uc
--> -> 5 `i `uc
--> -> 31 `i `uc
--> -> 32 `i `uc
--> -> 64 `i `uc
--> -> 32 `i `uc
--> -> 31 `i `uc
--> -> 5 `i `uc
--> -> 63 `i `uc
--> -> 64 `i `uc
--> -> 56 `i `uc
--> -> 64 `i `uc
--> -> 63 `i `uc
--> -> 5 `i `uc
--> -> 99 `i `uc
--> -> 20 `i `uc
--> -> 8 `i `uc
--> -> 20 `i `uc
--> -> 99 `i `uc
--> -> 5 `i `uc
--> -> 3 `i `uc
--> -> 4 `i `uc
--> -> 120 `i `uc
--> -> 4 `i `uc
--> -> 3 `i `uc
--> -> 5 `i `uc
--> -> 97 `i `uc
--> -> 81 `i `uc
--> -> 73 `i `uc
--> -> 69 `i `uc
--> -> 67 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 127 `i `uc
--> -> 65 `i `uc
--> -> 65 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 2 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 65 `i `uc
--> -> 65 `i `uc
--> -> 127 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 4 `i `uc
--> -> 2 `i `uc
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 4 `i `uc
--> -> 5 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 5 `i `uc
--> -> 7 `i `uc
--> -> 11 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 32 `i `uc
--> -> 84 `i `uc
--> -> 84 `i `uc
--> -> 120 `i `uc
--> -> 64 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 40 `i `uc
--> -> 68 `i `uc
--> -> 68 `i `uc
--> -> 56 `i `uc
--> -> 5 `i `uc
--> -> 56 `i `uc
--> -> 68 `i `uc
--> -> 68 `i `uc
--> -> 68 `i `uc
--> -> 40 `i `uc
--> -> 5 `i `uc
--> -> 56 `i `uc
--> -> 68 `i `uc
--> -> 68 `i `uc
--> -> 40 `i `uc
--> -> 127 `i `uc
--> -> 5 `i `uc
--> -> 56 `i `uc
--> -> 84 `i `uc
--> -> 84 `i `uc
--> -> 84 `i `uc
--> -> 24 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 8 `i `uc
--> -> 126 `i `uc
--> -> 9 `i `uc
--> -> 2 `i `uc
--> -> 5 `i `uc
--> -> 24 `i `uc
--> -> 164 `i `uc
--> -> 164 `i `uc
--> -> 156 `i `uc
--> -> 120 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 4 `i `uc
--> -> 120 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 68 `i `uc
--> -> 125 `i `uc
--> -> 64 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 32 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 61 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 127 `i `uc
--> -> 16 `i `uc
--> -> 40 `i `uc
--> -> 68 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 65 `i `uc
--> -> 127 `i `uc
--> -> 64 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 124 `i `uc
--> -> 4 `i `uc
--> -> 120 `i `uc
--> -> 4 `i `uc
--> -> 120 `i `uc
--> -> 5 `i `uc
--> -> 124 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 4 `i `uc
--> -> 120 `i `uc
--> -> 5 `i `uc
--> -> 56 `i `uc
--> -> 68 `i `uc
--> -> 68 `i `uc
--> -> 68 `i `uc
--> -> 56 `i `uc
--> -> 5 `i `uc
--> -> 252 `i `uc
--> -> 24 `i `uc
--> -> 36 `i `uc
--> -> 36 `i `uc
--> -> 24 `i `uc
--> -> 5 `i `uc
--> -> 24 `i `uc
--> -> 36 `i `uc
--> -> 36 `i `uc
--> -> 24 `i `uc
--> -> 252 `i `uc
--> -> 5 `i `uc
--> -> 124 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 5 `i `uc
--> -> 72 `i `uc
--> -> 84 `i `uc
--> -> 84 `i `uc
--> -> 84 `i `uc
--> -> 36 `i `uc
--> -> 5 `i `uc
--> -> 4 `i `uc
--> -> 4 `i `uc
--> -> 63 `i `uc
--> -> 68 `i `uc
--> -> 36 `i `uc
--> -> 5 `i `uc
--> -> 60 `i `uc
--> -> 64 `i `uc
--> -> 64 `i `uc
--> -> 32 `i `uc
--> -> 124 `i `uc
--> -> 5 `i `uc
--> -> 28 `i `uc
--> -> 32 `i `uc
--> -> 64 `i `uc
--> -> 32 `i `uc
--> -> 28 `i `uc
--> -> 5 `i `uc
--> -> 60 `i `uc
--> -> 64 `i `uc
--> -> 48 `i `uc
--> -> 64 `i `uc
--> -> 60 `i `uc
--> -> 5 `i `uc
--> -> 68 `i `uc
--> -> 40 `i `uc
--> -> 16 `i `uc
--> -> 40 `i `uc
--> -> 68 `i `uc
--> -> 5 `i `uc
--> -> 76 `i `uc
--> -> 144 `i `uc
--> -> 144 `i `uc
--> -> 144 `i `uc
--> -> 124 `i `uc
--> -> 5 `i `uc
--> -> 68 `i `uc
--> -> 100 `i `uc
--> -> 84 `i `uc
--> -> 76 `i `uc
--> -> 68 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 8 `i `uc
--> -> 54 `i `uc
--> -> 65 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 119 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 65 `i `uc
--> -> 54 `i `uc
--> -> 8 `i `uc
--> -> 0 `i `uc
--> -> 5 `i `uc
--> -> 4 `i `uc
--> -> 2 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 5 `i `uc
--> -> 0 `i `uc
--> -> 127 `i `uc
--> -> 65 `i `uc
--> -> 127 `i `uc
--> -> 0 `i `uc
-..
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"22 main.c
-[; ;main.c: 22: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
-"23
-[; ;main.c: 23: {
-{
-[e :U _main ]
-[f ]
-"24
-[; ;main.c: 24:     setupPorts();
-[e ( _setupPorts ..  ]
-"25
-[; ;main.c: 25:     setupInterrupts();
-[e ( _setupInterrupts ..  ]
-"26
-[; ;main.c: 26:     GLCD_Setup();
-[e ( _GLCD_Setup ..  ]
-"27
-[; ;main.c: 27:     setupUART();
-[e ( _setupUART ..  ]
-"28
-[; ;main.c: 28:     setupClock();
-[e ( _setupClock ..  ]
-"29
-[; ;main.c: 29:     setupPWM();
-[e ( _setupPWM ..  ]
-"30
-[; ;main.c: 30:     Button_Init();
-[e ( _Button_Init ..  ]
-"31
-[; ;main.c: 31:     Init_Timer0();
-[e ( _Init_Timer0 ..  ]
-"32
-[; ;main.c: 32:     setSPI_Interface();
-[e ( _setSPI_Interface ..  ]
-"33
-[; ;main.c: 33:     StatRegBP();
-[e ( _StatRegBP ..  ]
-"35
-[; ;main.c: 35:     BattParameters bat_param;
-[v _bat_param `S632 ~T0 @X0 1 a ]
-"36
-[; ;main.c: 36:     InitBattParameters(&bat_param);
-[e ( _InitBattParameters (1 &U _bat_param ]
-"37
-[; ;main.c: 37:     SingleBat_Menu(&bat_param);
-[e ( _SingleBat_Menu (1 &U _bat_param ]
+"38 SST25VF.c
+[; ;SST25VF.c: 38: uint8_t CheckBusy(void)
+[v _CheckBusy `(uc ~T0 @X0 1 ef ]
 "39
-[; ;main.c: 39:     uint8_t tab[4];
-[v _tab `uc ~T0 @X0 -> 4 `i a ]
+[; ;SST25VF.c: 39: {
+{
+[e :U _CheckBusy ]
+[f ]
+"40
+[; ;SST25VF.c: 40:  uint8_t StatusRegisterByte;
+[v _StatusRegisterByte `uc ~T0 @X0 1 a ]
 "42
-[; ;main.c: 42:     WriteByte(0x00,0b1111110);
-[e ( _WriteByte (2 , -> -> -> 0 `i `l `ul -> -> 126 `i `uc ]
-"43
-[; ;main.c: 43:     ReadBytes(0x00,&tab[0],1);
-[e ( _ReadBytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux -> -> 1 `i `uc ]
+[; ;SST25VF.c: 42:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
 "44
-[; ;main.c: 44:     printf("param test 1: %x \n\r", tab[0]);
-[e ( _printf , (. :s 1C -> *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux `i ]
+[; ;SST25VF.c: 44:  SPI_Exchange(0x05);
+[e ( _SPI_Exchange (1 -> -> 5 `i `uc ]
 "45
-[; ;main.c: 45:     WriteByte(0x00,0b1111100);
-[e ( _WriteByte (2 , -> -> -> 0 `i `l `ul -> -> 124 `i `uc ]
-"46
-[; ;main.c: 46:     ReadBytes(0x00,&tab[0],1);
-[e ( _ReadBytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux -> -> 1 `i `uc ]
+[; ;SST25VF.c: 45:  StatusRegisterByte=SPI_Exchange(0);
+[e = _StatusRegisterByte ( _SPI_Exchange (1 -> -> 0 `i `uc ]
 "47
-[; ;main.c: 47:     printf("param test 2: %x \n\r", tab[0]);
-[e ( _printf , (. :s 2C -> *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux `i ]
+[; ;SST25VF.c: 47:  if((StatusRegisterByte & 0x01)==1)
+[e $ ! == & -> _StatusRegisterByte `i -> 1 `i -> 1 `i 631  ]
 "48
-[; ;main.c: 48:     WriteByte(0x00,0b1111000);
-[e ( _WriteByte (2 , -> -> -> 0 `i `l `ul -> -> 120 `i `uc ]
+[; ;SST25VF.c: 48:  {
+{
 "49
-[; ;main.c: 49:     ReadBytes(0x00,&tab[0],1);
-[e ( _ReadBytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux -> -> 1 `i `uc ]
+[; ;SST25VF.c: 49:   LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
 "50
-[; ;main.c: 50:     printf("param test 3: %x \n\r", tab[0]);
-[e ( _printf , (. :s 3C -> *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux `i ]
+[; ;SST25VF.c: 50:   return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 630  ]
 "51
-[; ;main.c: 51:     WriteByte(0x00,0b1110000);
-[e ( _WriteByte (2 , -> -> -> 0 `i `l `ul -> -> 112 `i `uc ]
-"52
-[; ;main.c: 52:     ReadBytes(0x00,&tab[0],1);
-[e ( _ReadBytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux -> -> 1 `i `uc ]
+[; ;SST25VF.c: 51:  }
+}
+[e :U 631 ]
 "53
-[; ;main.c: 53:     printf("param test 4: %x \n\r", tab[0]);
-[e ( _printf , (. :s 4C -> *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux `i ]
-"56
-[; ;main.c: 56:     while (1)
-[e :U 638 ]
+[; ;SST25VF.c: 53:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"54
+[; ;SST25VF.c: 54:  return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 630  ]
+"55
+[; ;SST25VF.c: 55: }
+[e :UE 630 ]
+}
 "57
-[; ;main.c: 57:     {
-{
+[; ;SST25VF.c: 57: uint8_t CheckWriteEN (void)
+[v _CheckWriteEN `(uc ~T0 @X0 1 ef ]
 "58
-[; ;main.c: 58:         Menu(&bat_param);
-[e ( _Menu (1 &U _bat_param ]
-"60
-[; ;main.c: 60:         if(counter_test>=1000)
-[e $ ! >= -> _counter_test `ui -> -> 1000 `i `ui 640  ]
-"61
-[; ;main.c: 61:         {
+[; ;SST25VF.c: 58: {
 {
-"62
-[; ;main.c: 62:             counter_test=0;
-[e = _counter_test -> -> 0 `i `us ]
+[e :U _CheckWriteEN ]
+[f ]
+"59
+[; ;SST25VF.c: 59:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"61
+[; ;SST25VF.c: 61:  uint8_t StatusRegisterByte;
+[v _StatusRegisterByte `uc ~T0 @X0 1 a ]
+"63
+[; ;SST25VF.c: 63:  SPI_Exchange(0x05);
+[e ( _SPI_Exchange (1 -> -> 5 `i `uc ]
 "64
-[; ;main.c: 64:         }
-}
-[e :U 640 ]
+[; ;SST25VF.c: 64:  StatusRegisterByte=SPI_Exchange(0xFF);
+[e = _StatusRegisterByte ( _SPI_Exchange (1 -> -> 255 `i `uc ]
 "65
-[; ;main.c: 65:     }
-}
-[e :U 637 ]
-[e $U 638  ]
-[e :U 639 ]
+[; ;SST25VF.c: 65:  if((StatusRegisterByte & 0x02)>>1==1)
+[e $ ! == >> & -> _StatusRegisterByte `i -> 2 `i -> 1 `i -> 1 `i 633  ]
 "66
-[; ;main.c: 66: }
+[; ;SST25VF.c: 66:  {
+{
+"67
+[; ;SST25VF.c: 67:   LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"68
+[; ;SST25VF.c: 68:   return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 632  ]
+"69
+[; ;SST25VF.c: 69:  }
+}
+[e :U 633 ]
+"71
+[; ;SST25VF.c: 71:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"72
+[; ;SST25VF.c: 72:  return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 632  ]
+"73
+[; ;SST25VF.c: 73: }
+[e :UE 632 ]
+}
+"76
+[; ;SST25VF.c: 76: void SST25VF_init (void)
+[v _SST25VF_init `(v ~T0 @X0 1 ef ]
+"77
+[; ;SST25VF.c: 77: {
+{
+[e :U _SST25VF_init ]
+[f ]
+"79
+[; ;SST25VF.c: 79:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"80
+[; ;SST25VF.c: 80:  SPI_Exchange(0x50);
+[e ( _SPI_Exchange (1 -> -> 80 `i `uc ]
+"81
+[; ;SST25VF.c: 81:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"83
+[; ;SST25VF.c: 83:     delay_ms(50);
+[e ( _delay_ms (1 -> -> 50 `i `ui ]
+"84
+[; ;SST25VF.c: 84:   LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"85
+[; ;SST25VF.c: 85:     SPI_Exchange(0x01);
+[e ( _SPI_Exchange (1 -> -> 1 `i `uc ]
+"86
+[; ;SST25VF.c: 86:     SPI_Exchange(0x00);
+[e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
+"87
+[; ;SST25VF.c: 87:     LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"89
+[; ;SST25VF.c: 89:  delay_ms(50);
+[e ( _delay_ms (1 -> -> 50 `i `ui ]
+"90
+[; ;SST25VF.c: 90: }
+[e :UE 634 ]
+}
+"94
+[; ;SST25VF.c: 94: void ReadID (void)
+[v _ReadID `(v ~T0 @X0 1 ef ]
+"95
+[; ;SST25VF.c: 95: {
+{
+[e :U _ReadID ]
+[f ]
+"96
+[; ;SST25VF.c: 96:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"98
+[; ;SST25VF.c: 98:     uint8_t tab[2];
+[v _tab `uc ~T0 @X0 -> 2 `i a ]
+"100
+[; ;SST25VF.c: 100:  SPI_Exchange(0X90);
+[e ( _SPI_Exchange (1 -> -> 144 `i `uc ]
+"101
+[; ;SST25VF.c: 101:  SPI_Exchange(0x00);
+[e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
+"102
+[; ;SST25VF.c: 102:  SPI_Exchange(0x00);
+[e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
+"103
+[; ;SST25VF.c: 103:  SPI_Exchange(0X00);
+[e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
+"104
+[; ;SST25VF.c: 104:     tab[0]=SPI_Exchange(0xFF);
+[e = *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
+"105
+[; ;SST25VF.c: 105:     tab[1]=SPI_Exchange(0xFF);
+[e = *U + &U _tab * -> -> -> 1 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
+"107
+[; ;SST25VF.c: 107:  printf("Manufacurer ID: %x \r\nDevice ID: %x \r\n", tab[0], tab[1]);
+[e ( _printf , , (. :s 1C -> *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux `i -> *U + &U _tab * -> -> -> 1 `i `ui `ux -> -> # *U &U _tab `ui `ux `i ]
+"109
+[; ;SST25VF.c: 109:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"110
+[; ;SST25VF.c: 110: }
+[e :UE 635 ]
+}
+"112
+[; ;SST25VF.c: 112: void ReadID_JEDEC(void)
+[v _ReadID_JEDEC `(v ~T0 @X0 1 ef ]
+"113
+[; ;SST25VF.c: 113: {
+{
+[e :U _ReadID_JEDEC ]
+[f ]
+"114
+[; ;SST25VF.c: 114:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"116
+[; ;SST25VF.c: 116:     uint8_t tab[3];
+[v _tab `uc ~T0 @X0 -> 3 `i a ]
+"118
+[; ;SST25VF.c: 118:  SPI_Exchange(0X9F);
+[e ( _SPI_Exchange (1 -> -> 159 `i `uc ]
+"119
+[; ;SST25VF.c: 119:     tab[0]=SPI_Exchange(0xFF);
+[e = *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
+"120
+[; ;SST25VF.c: 120:     tab[1]=SPI_Exchange(0xFF);
+[e = *U + &U _tab * -> -> -> 1 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
+"121
+[; ;SST25VF.c: 121:     tab[2]=SPI_Exchange(0xFF);
+[e = *U + &U _tab * -> -> -> 2 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
+"123
+[; ;SST25VF.c: 123:  printf("Manufacurer ID: %x \r\nDevice ID: %x \r\nMemory Capacity: %x \r\n", tab[0], tab[1], tab[2]);
+[e ( _printf , , , (. :s 2C -> *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux `i -> *U + &U _tab * -> -> -> 1 `i `ui `ux -> -> # *U &U _tab `ui `ux `i -> *U + &U _tab * -> -> -> 2 `i `ui `ux -> -> # *U &U _tab `ui `ux `i ]
+"125
+[; ;SST25VF.c: 125:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"126
+[; ;SST25VF.c: 126: }
 [e :UE 636 ]
 }
+"129
+[; ;SST25VF.c: 129: void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
+[v _ReadBytes `(v ~T0 @X0 1 ef3`ul`*uc`uc ]
+"130
+[; ;SST25VF.c: 130: {
+{
+[e :U _ReadBytes ]
+"129
+[; ;SST25VF.c: 129: void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
+[v _Add `ul ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[v _BytesCount `uc ~T0 @X0 1 r3 ]
+"130
+[; ;SST25VF.c: 130: {
+[f ]
+"131
+[; ;SST25VF.c: 131:  uint8_t i;
+[v _i `uc ~T0 @X0 1 a ]
+"132
+[; ;SST25VF.c: 132:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"134
+[; ;SST25VF.c: 134:  SPI_Exchange(0x03);
+[e ( _SPI_Exchange (1 -> -> 3 `i `uc ]
+"135
+[; ;SST25VF.c: 135:  SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+[e ( _SPI_Exchange (1 -> >> & _Add -> -> 16777215 `l `ul -> 16 `i `uc ]
+"136
+[; ;SST25VF.c: 136:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
+[e ( _SPI_Exchange (1 -> >> & _Add -> -> 65535 `ui `ul -> 8 `i `uc ]
+"137
+[; ;SST25VF.c: 137:  SPI_Exchange(Add & 0x0000FF);
+[e ( _SPI_Exchange (1 -> & _Add -> -> -> 255 `i `l `ul `uc ]
+"138
+[; ;SST25VF.c: 138:  for(i=0;i<BytesCount;i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 641  ]
+[e :U 638 ]
+"139
+[; ;SST25VF.c: 139:  {
+{
+"140
+[; ;SST25VF.c: 140:   *(data+i)=SPI_Exchange(0);
+[e = *U + _data * -> -> _i `i `x -> -> # *U _data `i `x ( _SPI_Exchange (1 -> -> 0 `i `uc ]
+"141
+[; ;SST25VF.c: 141:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 641 ]
+[e $ < -> _i `i -> _BytesCount `i 638  ]
+[e :U 639 ]
+}
+"143
+[; ;SST25VF.c: 143:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"144
+[; ;SST25VF.c: 144: }
+[e :UE 637 ]
+}
+"146
+[; ;SST25VF.c: 146: void StatRegBP(void)
+[v _StatRegBP `(v ~T0 @X0 1 ef ]
+"147
+[; ;SST25VF.c: 147: {
+{
+[e :U _StatRegBP ]
+[f ]
+"149
+[; ;SST25VF.c: 149:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"150
+[; ;SST25VF.c: 150:  SPI_Exchange(0x50);
+[e ( _SPI_Exchange (1 -> -> 80 `i `uc ]
+"151
+[; ;SST25VF.c: 151:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"153
+[; ;SST25VF.c: 153:  SPI_Exchange(0x00);
+[e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
+"155
+[; ;SST25VF.c: 155:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"156
+[; ;SST25VF.c: 156:  SPI_Exchange(0x01);
+[e ( _SPI_Exchange (1 -> -> 1 `i `uc ]
+"157
+[; ;SST25VF.c: 157:  SPI_Exchange(0x00);
+[e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
+"158
+[; ;SST25VF.c: 158:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"160
+[; ;SST25VF.c: 160: }
+[e :UE 642 ]
+}
+"163
+[; ;SST25VF.c: 163: void WriteByte(uint32_t Add,uint8_t data)
+[v _WriteByte `(v ~T0 @X0 1 ef2`ul`uc ]
+"164
+[; ;SST25VF.c: 164: {
+{
+[e :U _WriteByte ]
+"163
+[; ;SST25VF.c: 163: void WriteByte(uint32_t Add,uint8_t data)
+[v _Add `ul ~T0 @X0 1 r1 ]
+[v _data `uc ~T0 @X0 1 r2 ]
+"164
+[; ;SST25VF.c: 164: {
+[f ]
+"167
+[; ;SST25VF.c: 167:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"168
+[; ;SST25VF.c: 168:  SPI_Exchange(0x06);
+[e ( _SPI_Exchange (1 -> -> 6 `i `uc ]
+"169
+[; ;SST25VF.c: 169:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"171
+[; ;SST25VF.c: 171:  while(1)
+[e :U 645 ]
+"172
+[; ;SST25VF.c: 172:  {
+{
+"173
+[; ;SST25VF.c: 173:   if(CheckWriteEN()==1)
+[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 647  ]
+"174
+[; ;SST25VF.c: 174:   {
+{
+"175
+[; ;SST25VF.c: 175:    break;
+[e $U 646  ]
+"176
+[; ;SST25VF.c: 176:   }
+}
+[e :U 647 ]
+"177
+[; ;SST25VF.c: 177:  }
+}
+[e :U 644 ]
+[e $U 645  ]
+[e :U 646 ]
+"181
+[; ;SST25VF.c: 181:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"182
+[; ;SST25VF.c: 182:  SPI_Exchange(0X02);
+[e ( _SPI_Exchange (1 -> -> 2 `i `uc ]
+"183
+[; ;SST25VF.c: 183:  SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+[e ( _SPI_Exchange (1 -> >> & _Add -> -> 16777215 `l `ul -> 16 `i `uc ]
+"184
+[; ;SST25VF.c: 184:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
+[e ( _SPI_Exchange (1 -> >> & _Add -> -> 65535 `ui `ul -> 8 `i `uc ]
+"185
+[; ;SST25VF.c: 185:  SPI_Exchange(Add & 0x0000FF);
+[e ( _SPI_Exchange (1 -> & _Add -> -> -> 255 `i `l `ul `uc ]
+"186
+[; ;SST25VF.c: 186:  SPI_Exchange(data);
+[e ( _SPI_Exchange (1 _data ]
+"188
+[; ;SST25VF.c: 188:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"192
+[; ;SST25VF.c: 192:  while(1)
+[e :U 649 ]
+"193
+[; ;SST25VF.c: 193:  {
+{
+"194
+[; ;SST25VF.c: 194:   if(CheckBusy()==0)
+[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 651  ]
+"195
+[; ;SST25VF.c: 195:   {
+{
+"196
+[; ;SST25VF.c: 196:    break;
+[e $U 650  ]
+"197
+[; ;SST25VF.c: 197:   }
+}
+[e :U 651 ]
+"199
+[; ;SST25VF.c: 199:  }
+}
+[e :U 648 ]
+[e $U 649  ]
+[e :U 650 ]
+"200
+[; ;SST25VF.c: 200: }
+[e :UE 643 ]
+}
+"204
+[; ;SST25VF.c: 204: void ChipErase(void)
+[v _ChipErase `(v ~T0 @X0 1 ef ]
+"205
+[; ;SST25VF.c: 205: {
+{
+[e :U _ChipErase ]
+[f ]
+"206
+[; ;SST25VF.c: 206:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"207
+[; ;SST25VF.c: 207:  SPI_Exchange(0x06);
+[e ( _SPI_Exchange (1 -> -> 6 `i `uc ]
+"208
+[; ;SST25VF.c: 208:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"210
+[; ;SST25VF.c: 210:  while(1)
+[e :U 654 ]
+"211
+[; ;SST25VF.c: 211:  {
+{
+"212
+[; ;SST25VF.c: 212:   if(CheckWriteEN()==1)
+[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 656  ]
+"213
+[; ;SST25VF.c: 213:   {
+{
+"214
+[; ;SST25VF.c: 214:    break;
+[e $U 655  ]
+"215
+[; ;SST25VF.c: 215:   }
+}
+[e :U 656 ]
+"216
+[; ;SST25VF.c: 216:  }
+}
+[e :U 653 ]
+[e $U 654  ]
+[e :U 655 ]
+"218
+[; ;SST25VF.c: 218:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"219
+[; ;SST25VF.c: 219:  SPI_Exchange(0X60);
+[e ( _SPI_Exchange (1 -> -> 96 `i `uc ]
+"220
+[; ;SST25VF.c: 220:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"223
+[; ;SST25VF.c: 223:  while(1)
+[e :U 658 ]
+"224
+[; ;SST25VF.c: 224:  {
+{
+"225
+[; ;SST25VF.c: 225:   if(CheckBusy()==0)
+[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 660  ]
+"226
+[; ;SST25VF.c: 226:   {
+{
+"227
+[; ;SST25VF.c: 227:    break;
+[e $U 659  ]
+"228
+[; ;SST25VF.c: 228:   }
+}
+[e :U 660 ]
+"229
+[; ;SST25VF.c: 229:  }
+}
+[e :U 657 ]
+[e $U 658  ]
+[e :U 659 ]
+"230
+[; ;SST25VF.c: 230: }
+[e :UE 652 ]
+}
+"234
+[; ;SST25VF.c: 234: void SectorErase(uint8_t Add)
+[v _SectorErase `(v ~T0 @X0 1 ef1`uc ]
+"235
+[; ;SST25VF.c: 235: {
+{
+[e :U _SectorErase ]
+"234
+[; ;SST25VF.c: 234: void SectorErase(uint8_t Add)
+[v _Add `uc ~T0 @X0 1 r1 ]
+"235
+[; ;SST25VF.c: 235: {
+[f ]
+"237
+[; ;SST25VF.c: 237:     LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"238
+[; ;SST25VF.c: 238:     SPI_Exchange(0x06);
+[e ( _SPI_Exchange (1 -> -> 6 `i `uc ]
+"239
+[; ;SST25VF.c: 239:     LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"241
+[; ;SST25VF.c: 241:     while(1)
+[e :U 663 ]
+"242
+[; ;SST25VF.c: 242:  {
+{
+"243
+[; ;SST25VF.c: 243:   if(CheckWriteEN()==1)
+[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 665  ]
+"244
+[; ;SST25VF.c: 244:   {
+{
+"245
+[; ;SST25VF.c: 245:    break;
+[e $U 664  ]
+"246
+[; ;SST25VF.c: 246:   }
+}
+[e :U 665 ]
+"247
+[; ;SST25VF.c: 247:  }
+}
+[e :U 662 ]
+[e $U 663  ]
+[e :U 664 ]
+"249
+[; ;SST25VF.c: 249:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"250
+[; ;SST25VF.c: 250:  SPI_Exchange(0x20);
+[e ( _SPI_Exchange (1 -> -> 32 `i `uc ]
+"251
+[; ;SST25VF.c: 251:    SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+[e ( _SPI_Exchange (1 -> >> & -> _Add `l -> 16777215 `l -> 16 `i `uc ]
+"252
+[; ;SST25VF.c: 252:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
+[e ( _SPI_Exchange (1 -> >> & -> _Add `ui -> 65535 `ui -> 8 `i `uc ]
+"253
+[; ;SST25VF.c: 253:  SPI_Exchange(Add & 0x0000FF);
+[e ( _SPI_Exchange (1 -> & -> _Add `i -> 255 `i `uc ]
+"254
+[; ;SST25VF.c: 254:     LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"256
+[; ;SST25VF.c: 256:  while(1)
+[e :U 667 ]
+"257
+[; ;SST25VF.c: 257:  {
+{
+"258
+[; ;SST25VF.c: 258:   if(CheckBusy()==0)
+[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 669  ]
+"259
+[; ;SST25VF.c: 259:   {
+{
+"260
+[; ;SST25VF.c: 260:    break;
+[e $U 668  ]
+"261
+[; ;SST25VF.c: 261:   }
+}
+[e :U 669 ]
+"262
+[; ;SST25VF.c: 262:  }
+}
+[e :U 666 ]
+[e $U 667  ]
+[e :U 668 ]
+"263
+[; ;SST25VF.c: 263: }
+[e :UE 661 ]
+}
+"267
+[; ;SST25VF.c: 267: void BlockErase(uint8_t Add, uint8_t block_type)
+[v _BlockErase `(v ~T0 @X0 1 ef2`uc`uc ]
+"268
+[; ;SST25VF.c: 268: {
+{
+[e :U _BlockErase ]
+"267
+[; ;SST25VF.c: 267: void BlockErase(uint8_t Add, uint8_t block_type)
+[v _Add `uc ~T0 @X0 1 r1 ]
+[v _block_type `uc ~T0 @X0 1 r2 ]
+"268
+[; ;SST25VF.c: 268: {
+[f ]
+"270
+[; ;SST25VF.c: 270:     LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"271
+[; ;SST25VF.c: 271:     SPI_Exchange(0x06);
+[e ( _SPI_Exchange (1 -> -> 6 `i `uc ]
+"272
+[; ;SST25VF.c: 272:     LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"274
+[; ;SST25VF.c: 274:     while(1)
+[e :U 672 ]
+"275
+[; ;SST25VF.c: 275:  {
+{
+"276
+[; ;SST25VF.c: 276:   if(CheckWriteEN()==1)
+[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 674  ]
+"277
+[; ;SST25VF.c: 277:   {
+{
+"278
+[; ;SST25VF.c: 278:    break;
+[e $U 673  ]
+"279
+[; ;SST25VF.c: 279:   }
+}
+[e :U 674 ]
+"280
+[; ;SST25VF.c: 280:  }
+}
+[e :U 671 ]
+[e $U 672  ]
+[e :U 673 ]
+"282
+[; ;SST25VF.c: 282:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"283
+[; ;SST25VF.c: 283:  SPI_Exchange(block_type);
+[e ( _SPI_Exchange (1 _block_type ]
+"284
+[; ;SST25VF.c: 284:    SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+[e ( _SPI_Exchange (1 -> >> & -> _Add `l -> 16777215 `l -> 16 `i `uc ]
+"285
+[; ;SST25VF.c: 285:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
+[e ( _SPI_Exchange (1 -> >> & -> _Add `ui -> 65535 `ui -> 8 `i `uc ]
+"286
+[; ;SST25VF.c: 286:  SPI_Exchange(Add & 0x0000FF);
+[e ( _SPI_Exchange (1 -> & -> _Add `i -> 255 `i `uc ]
+"287
+[; ;SST25VF.c: 287:     LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"289
+[; ;SST25VF.c: 289:  while(1)
+[e :U 676 ]
+"290
+[; ;SST25VF.c: 290:  {
+{
+"291
+[; ;SST25VF.c: 291:   if(CheckBusy()==0)
+[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 678  ]
+"292
+[; ;SST25VF.c: 292:   {
+{
+"293
+[; ;SST25VF.c: 293:    break;
+[e $U 677  ]
+"294
+[; ;SST25VF.c: 294:   }
+}
+[e :U 678 ]
+"295
+[; ;SST25VF.c: 295:  }
+}
+[e :U 675 ]
+[e $U 676  ]
+[e :U 677 ]
+"296
+[; ;SST25VF.c: 296: }
+[e :UE 670 ]
+}
 [p f _printf 12582912 ]
-[a 4C 112 97 114 97 109 32 116 101 115 116 32 52 58 32 37 120 32 10 13 0 ]
-[a 3C 112 97 114 97 109 32 116 101 115 116 32 51 58 32 37 120 32 10 13 0 ]
-[a 2C 112 97 114 97 109 32 116 101 115 116 32 50 58 32 37 120 32 10 13 0 ]
-[a 1C 112 97 114 97 109 32 116 101 115 116 32 49 58 32 37 120 32 10 13 0 ]
+[a 2C 77 97 110 117 102 97 99 117 114 101 114 32 73 68 58 32 37 120 32 13 10 68 101 118 105 99 101 32 73 68 58 32 37 120 32 13 10 77 101 109 111 114 121 32 67 97 112 97 99 105 116 121 58 32 37 120 32 13 10 0 ]
+[a 1C 77 97 110 117 102 97 99 117 114 101 114 32 73 68 58 32 37 120 32 13 10 68 101 118 105 99 101 32 73 68 58 32 37 120 32 13 10 0 ]

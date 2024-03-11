@@ -23,6 +23,8 @@
       <itemPath>interrupts.h</itemPath>
       <itemPath>menu_definitions.h</itemPath>
       <itemPath>menu_navigation.h</itemPath>
+      <itemPath>SST25VF.h</itemPath>
+      <itemPath>memory.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -45,6 +47,8 @@
       <itemPath>interrupts.c</itemPath>
       <itemPath>menu_definitions.c</itemPath>
       <itemPath>menu_navigation.c</itemPath>
+      <itemPath>SST25VF.c</itemPath>
+      <itemPath>memory.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

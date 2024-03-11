@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=LCD-KS0108/KS0108.c peripherials/UART.c pwm.c MMSP.c main.c settings.c button.c interrupts.c menu_definitions.c menu_navigation.c
+SOURCEFILES_QUOTED_IF_SPACED=LCD-KS0108/KS0108.c peripherials/UART.c pwm.c MMSP.c main.c settings.c button.c interrupts.c menu_definitions.c menu_navigation.c SST25VF.c memory.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/LCD-KS0108/KS0108.p1 ${OBJECTDIR}/peripherials/UART.p1 ${OBJECTDIR}/pwm.p1 ${OBJECTDIR}/MMSP.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/settings.p1 ${OBJECTDIR}/button.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/menu_definitions.p1 ${OBJECTDIR}/menu_navigation.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/LCD-KS0108/KS0108.p1.d ${OBJECTDIR}/peripherials/UART.p1.d ${OBJECTDIR}/pwm.p1.d ${OBJECTDIR}/MMSP.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/settings.p1.d ${OBJECTDIR}/button.p1.d ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/menu_definitions.p1.d ${OBJECTDIR}/menu_navigation.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/LCD-KS0108/KS0108.p1 ${OBJECTDIR}/peripherials/UART.p1 ${OBJECTDIR}/pwm.p1 ${OBJECTDIR}/MMSP.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/settings.p1 ${OBJECTDIR}/button.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/menu_definitions.p1 ${OBJECTDIR}/menu_navigation.p1 ${OBJECTDIR}/SST25VF.p1 ${OBJECTDIR}/memory.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/LCD-KS0108/KS0108.p1.d ${OBJECTDIR}/peripherials/UART.p1.d ${OBJECTDIR}/pwm.p1.d ${OBJECTDIR}/MMSP.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/settings.p1.d ${OBJECTDIR}/button.p1.d ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/menu_definitions.p1.d ${OBJECTDIR}/menu_navigation.p1.d ${OBJECTDIR}/SST25VF.p1.d ${OBJECTDIR}/memory.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/LCD-KS0108/KS0108.p1 ${OBJECTDIR}/peripherials/UART.p1 ${OBJECTDIR}/pwm.p1 ${OBJECTDIR}/MMSP.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/settings.p1 ${OBJECTDIR}/button.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/menu_definitions.p1 ${OBJECTDIR}/menu_navigation.p1
+OBJECTFILES=${OBJECTDIR}/LCD-KS0108/KS0108.p1 ${OBJECTDIR}/peripherials/UART.p1 ${OBJECTDIR}/pwm.p1 ${OBJECTDIR}/MMSP.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/settings.p1 ${OBJECTDIR}/button.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/menu_definitions.p1 ${OBJECTDIR}/menu_navigation.p1 ${OBJECTDIR}/SST25VF.p1 ${OBJECTDIR}/memory.p1
 
 # Source Files
-SOURCEFILES=LCD-KS0108/KS0108.c peripherials/UART.c pwm.c MMSP.c main.c settings.c button.c interrupts.c menu_definitions.c menu_navigation.c
+SOURCEFILES=LCD-KS0108/KS0108.c peripherials/UART.c pwm.c MMSP.c main.c settings.c button.c interrupts.c menu_definitions.c menu_navigation.c SST25VF.c memory.c
 
 
 
@@ -168,6 +168,22 @@ ${OBJECTDIR}/menu_navigation.p1: menu_navigation.c  nbproject/Makefile-${CND_CON
 	@-${MV} ${OBJECTDIR}/menu_navigation.d ${OBJECTDIR}/menu_navigation.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/menu_navigation.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/SST25VF.p1: SST25VF.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SST25VF.p1.d 
+	@${RM} ${OBJECTDIR}/SST25VF.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit4   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=5 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/SST25VF.p1 SST25VF.c 
+	@-${MV} ${OBJECTDIR}/SST25VF.d ${OBJECTDIR}/SST25VF.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SST25VF.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/memory.p1: memory.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/memory.p1.d 
+	@${RM} ${OBJECTDIR}/memory.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit4   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=5 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/memory.p1 memory.c 
+	@-${MV} ${OBJECTDIR}/memory.d ${OBJECTDIR}/memory.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/memory.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/LCD-KS0108/KS0108.p1: LCD-KS0108/KS0108.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/LCD-KS0108" 
@@ -248,6 +264,22 @@ ${OBJECTDIR}/menu_navigation.p1: menu_navigation.c  nbproject/Makefile-${CND_CON
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=5 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/menu_navigation.p1 menu_navigation.c 
 	@-${MV} ${OBJECTDIR}/menu_navigation.d ${OBJECTDIR}/menu_navigation.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/menu_navigation.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/SST25VF.p1: SST25VF.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SST25VF.p1.d 
+	@${RM} ${OBJECTDIR}/SST25VF.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=5 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/SST25VF.p1 SST25VF.c 
+	@-${MV} ${OBJECTDIR}/SST25VF.d ${OBJECTDIR}/SST25VF.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SST25VF.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/memory.p1: memory.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/memory.p1.d 
+	@${RM} ${OBJECTDIR}/memory.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=5 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/memory.p1 memory.c 
+	@-${MV} ${OBJECTDIR}/memory.d ${OBJECTDIR}/memory.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/memory.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
