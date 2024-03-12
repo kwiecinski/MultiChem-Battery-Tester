@@ -9853,13 +9853,12 @@ void BlockErase(uint8_t Add, uint8_t block_type);
 void SectorErase(uint8_t Add);
 void ChipErase(void);
 void WriteByte(uint32_t Add,uint8_t data);
-void StatRegBP(void);
+void SST25VF_init_Enable_Write(void);
 void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
 void ReadID_JEDEC(void);
 void ReadID (void);
 uint8_t CheckWriteEN (void);
 uint8_t CheckBusy(void);
-void SST25VF_init (void);
 # 19 "main.c" 2
 
 # 1 "./MMSP.h" 1
@@ -9867,6 +9866,15 @@ void SST25VF_init (void);
 void setSPI_Interface(void);
 uint8_t SPI_Exchange(uint8_t data);
 # 20 "main.c" 2
+
+# 1 "./memory.h" 1
+
+
+
+uint16_t CheckCurrentParamOffset(void);
+void SaveParamToFlash (void);
+# 21 "main.c" 2
+
 
 
 void main(void)
@@ -9880,7 +9888,7 @@ void main(void)
     Button_Init();
     Init_Timer0();
     setSPI_Interface();
-    StatRegBP();
+    SST25VF_init_Enable_Write();
 
     BattParameters bat_param;
     InitBattParameters(&bat_param);
@@ -9889,26 +9897,14 @@ void main(void)
     uint8_t tab[4];
 
 
-    WriteByte(0x00,0b1111110);
-    ReadBytes(0x00,&tab[0],1);
-    printf("param test 1: %x \n\r", tab[0]);
-    WriteByte(0x00,0b1111100);
-    ReadBytes(0x00,&tab[0],1);
-    printf("param test 2: %x \n\r", tab[0]);
-    WriteByte(0x00,0b1111000);
-    ReadBytes(0x00,&tab[0],1);
-    printf("param test 3: %x \n\r", tab[0]);
-    WriteByte(0x00,0b1110000);
-    ReadBytes(0x00,&tab[0],1);
-    printf("param test 4: %x \n\r", tab[0]);
-
-
     while (1)
     {
         Menu(&bat_param);
 
-        if(counter_test>=1000)
+        if(counter_test>=2000)
         {
+            printf("address %u\n\r", CheckCurrentParamOffset());
+            SaveParamToFlash();
             counter_test=0;
 
         }

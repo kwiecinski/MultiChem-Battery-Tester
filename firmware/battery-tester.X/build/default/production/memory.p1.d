@@ -5,4 +5,5 @@ main.h  \
 settings.h  \
 interrupts.h  \
 SST25VF.h  \
-MMSP.h 
+MMSP.h  \
+memory.h 

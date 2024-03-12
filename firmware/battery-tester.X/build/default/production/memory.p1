@@ -1,7 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"41 ./SST25VF.h
+"37 ./SST25VF.h
+[; ;./SST25VF.h: 37: void SectorErase(uint8_t Add);
+[v _SectorErase `(v ~T0 @X0 0 ef1`uc ]
+"41
 [; ;./SST25VF.h: 41: void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
 [v _ReadBytes `(v ~T0 @X0 0 ef3`ul`*uc`uc ]
+"105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"39 ./SST25VF.h
+[; ;./SST25VF.h: 39: void WriteByte(uint32_t Add,uint8_t data);
+[v _WriteByte `(v ~T0 @X0 0 ef2`ul`uc ]
 "54 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -781,33 +790,387 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CCP2MX  =  DEFAULT      ]
 "59
 [p x MSSPMSK  =  MSK5        ]
-"158 memory.c
-[; ;memory.c: 158: void CheckCurrentParamAddress(void)
-[v _CheckCurrentParamAddress `(v ~T0 @X0 1 ef ]
-"159
-[; ;memory.c: 159: {
+"156 memory.c
+[; ;memory.c: 156: void ParameterSector_CopyEraseRestore(void)
+[v _ParameterSector_CopyEraseRestore `(v ~T0 @X0 1 ef ]
+"157
+[; ;memory.c: 157: {
 {
-[e :U _CheckCurrentParamAddress ]
+[e :U _ParameterSector_CopyEraseRestore ]
 [f ]
-"160
-[; ;memory.c: 160:     uint8_t current_param_address[4];
-[v _current_param_address `uc ~T0 @X0 -> 4 `i a ]
-"161
-[; ;memory.c: 161:     ReadBytes(0x0,&current_param_address[0],4);
-[e ( _ReadBytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _current_param_address * -> -> -> 0 `i `ui `ux -> -> # *U &U _current_param_address `ui `ux -> -> 4 `i `uc ]
-"164
-[; ;memory.c: 164: }
+"158
+[; ;memory.c: 158:     SectorErase(0x0);
+[e ( _SectorErase (1 -> -> 0 `i `uc ]
+"159
+[; ;memory.c: 159: }
 [e :UE 630 ]
 }
+"161
+[; ;memory.c: 161: uint16_t CheckOffsetPosition(void)
+[v _CheckOffsetPosition `(us ~T0 @X0 1 ef ]
+"162
+[; ;memory.c: 162: {
+{
+[e :U _CheckOffsetPosition ]
+[f ]
+"163
+[; ;memory.c: 163:     uint8_t current_param_address[4],zeroBitCount;
+[v _current_param_address `uc ~T0 @X0 -> 4 `i a ]
+[v _zeroBitCount `uc ~T0 @X0 1 a ]
+"164
+[; ;memory.c: 164:     int8_t i,j;
+[v _i `c ~T0 @X0 1 a ]
+[v _j `c ~T0 @X0 1 a ]
 "166
-[; ;memory.c: 166: void SaveParamToFlash (void)
+[; ;memory.c: 166:     ReadBytes(0x0,&current_param_address[0],4);
+[e ( _ReadBytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _current_param_address * -> -> -> 0 `i `ui `ux -> -> # *U &U _current_param_address `ui `ux -> -> 4 `i `uc ]
+"169
+[; ;memory.c: 169:     zeroBitCount = 0;
+[e = _zeroBitCount -> -> 0 `i `uc ]
+"170
+[; ;memory.c: 170:     for (i = 0; i < 4; ++i)
+{
+[e = _i -> -> 0 `i `c ]
+[e $ < -> _i `i -> 4 `i 632  ]
+[e $U 633  ]
+[e :U 632 ]
+"171
+[; ;memory.c: 171:     {
+{
+"172
+[; ;memory.c: 172:         for (j = 7; j >= 0; --j)
+{
+[e = _j -> -> 7 `i `c ]
+[e $ >= -> _j `i -> 0 `i 635  ]
+[e $U 636  ]
+[e :U 635 ]
+"173
+[; ;memory.c: 173:         {
+{
+"174
+[; ;memory.c: 174:             if (((current_param_address[i] >> j) & 0x01) == 0)
+[e $ ! == & >> -> *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux `i -> _j `i -> 1 `i -> 0 `i 638  ]
+"175
+[; ;memory.c: 175:             {
+{
+"176
+[; ;memory.c: 176:                 zeroBitCount++;
+[e ++ _zeroBitCount -> -> 1 `i `uc ]
+"177
+[; ;memory.c: 177:             }
+}
+[e :U 638 ]
+"178
+[; ;memory.c: 178:         }
+}
+[e =- _j -> -> 1 `i `c ]
+[e $ >= -> _j `i -> 0 `i 635  ]
+[e :U 636 ]
+}
+"179
+[; ;memory.c: 179:     }
+}
+[e =+ _i -> -> 1 `i `c ]
+[e $ < -> _i `i -> 4 `i 632  ]
+[e :U 633 ]
+}
+"180
+[; ;memory.c: 180:     return zeroBitCount;
+[e ) -> _zeroBitCount `us ]
+[e $UE 631  ]
+"182
+[; ;memory.c: 182: }
+[e :UE 631 ]
+}
+"187
+[; ;memory.c: 187: uint16_t CheckCurrentParamOffset(void)
+[v _CheckCurrentParamOffset `(us ~T0 @X0 1 ef ]
+"188
+[; ;memory.c: 188: {
+{
+[e :U _CheckCurrentParamOffset ]
+[f ]
+"189
+[; ;memory.c: 189:     return (CheckOffsetPosition()*144 + 144);
+[e ) -> + * -> ( _CheckOffsetPosition ..  `ui -> -> 144 `i `ui -> -> 144 `i `ui `us ]
+[e $UE 639  ]
+"190
+[; ;memory.c: 190: }
+[e :UE 639 ]
+}
+"192
+[; ;memory.c: 192: void SaveParamToFlash(void)
 [v _SaveParamToFlash `(v ~T0 @X0 1 ef ]
-"167
-[; ;memory.c: 167: {
+"193
+[; ;memory.c: 193: {
 {
 [e :U _SaveParamToFlash ]
 [f ]
-"169
-[; ;memory.c: 169: }
-[e :UE 631 ]
+"194
+[; ;memory.c: 194:     uint8_t current_param_address[4];
+[v _current_param_address `uc ~T0 @X0 -> 4 `i a ]
+"195
+[; ;memory.c: 195:     int8_t i,j;
+[v _i `c ~T0 @X0 1 a ]
+[v _j `c ~T0 @X0 1 a ]
+"197
+[; ;memory.c: 197:     if(CheckOffsetPosition()>=27)
+[e $ ! >= -> ( _CheckOffsetPosition ..  `ui -> -> 27 `i `ui 641  ]
+"198
+[; ;memory.c: 198:     {
+{
+"199
+[; ;memory.c: 199:         ParameterSector_CopyEraseRestore();
+[e ( _ParameterSector_CopyEraseRestore ..  ]
+"200
+[; ;memory.c: 200:         printf("CLEAR MEMORY! \n\r");
+[e ( _printf :s 1C ]
+"201
+[; ;memory.c: 201:         return;
+[e $UE 640  ]
+"202
+[; ;memory.c: 202:     }
 }
+[e :U 641 ]
+"203
+[; ;memory.c: 203:     ReadBytes(0x0,&current_param_address[0],4);
+[e ( _ReadBytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _current_param_address * -> -> -> 0 `i `ui `ux -> -> # *U &U _current_param_address `ui `ux -> -> 4 `i `uc ]
+"205
+[; ;memory.c: 205:     for (i = 0; i < 4; ++i)
+{
+[e = _i -> -> 0 `i `c ]
+[e $ < -> _i `i -> 4 `i 642  ]
+[e $U 643  ]
+[e :U 642 ]
+"206
+[; ;memory.c: 206:     {
+{
+"208
+[; ;memory.c: 208:         for (j = 7; j >= 0; --j)
+{
+[e = _j -> -> 7 `i `c ]
+[e $ >= -> _j `i -> 0 `i 645  ]
+[e $U 646  ]
+[e :U 645 ]
+"209
+[; ;memory.c: 209:         {
+{
+"210
+[; ;memory.c: 210:             if (((current_param_address[i] >> j) & 0x01) == 1)
+[e $ ! == & >> -> *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux `i -> _j `i -> 1 `i -> 1 `i 648  ]
+"211
+[; ;memory.c: 211:             {
+{
+"213
+[; ;memory.c: 213:                current_param_address[i] &= ~(1 << j);
+[e =& *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux -> ~ << -> 1 `i -> _j `i `uc ]
+"214
+[; ;memory.c: 214:                WriteByte(0x0 +i, current_param_address[i]);
+[e ( _WriteByte (2 , -> -> + -> 0 `i -> _i `i `l `ul *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux ]
+"216
+[; ;memory.c: 216:                return;
+[e $UE 640  ]
+"217
+[; ;memory.c: 217:             }
+}
+[e :U 648 ]
+"218
+[; ;memory.c: 218:         }
+}
+[e =- _j -> -> 1 `i `c ]
+[e $ >= -> _j `i -> 0 `i 645  ]
+[e :U 646 ]
+}
+"219
+[; ;memory.c: 219:     }
+}
+[e =+ _i -> -> 1 `i `c ]
+[e $ < -> _i `i -> 4 `i 642  ]
+[e :U 643 ]
+}
+"220
+[; ;memory.c: 220: }
+[e :UE 640 ]
+}
+"222
+[; ;memory.c: 222: void RepresentValueInBinary (uint8_t value)
+[v _RepresentValueInBinary `(v ~T0 @X0 1 ef1`uc ]
+"223
+[; ;memory.c: 223: {
+{
+[e :U _RepresentValueInBinary ]
+"222
+[; ;memory.c: 222: void RepresentValueInBinary (uint8_t value)
+[v _value `uc ~T0 @X0 1 r1 ]
+"223
+[; ;memory.c: 223: {
+[f ]
+"224
+[; ;memory.c: 224:     for (int8_t j = 7; j >= 0; j--)
+{
+[v _j `c ~T0 @X0 1 a ]
+[e = _j -> -> 7 `i `c ]
+[e $ >= -> _j `i -> 0 `i 650  ]
+[e $U 651  ]
+[e :U 650 ]
+"225
+[; ;memory.c: 225:     {
+{
+"226
+[; ;memory.c: 226:         printf("%d", (value & (1 << j)) ? 1 : 0);
+[e ( _printf , (. :s 2C ? != & -> _value `i << -> 1 `i -> _j `i -> 0 `i : -> 1 `i -> 0 `i ]
+"227
+[; ;memory.c: 227:     }
+}
+[e -- _j -> -> 1 `i `c ]
+[e $ >= -> _j `i -> 0 `i 650  ]
+[e :U 651 ]
+}
+"228
+[; ;memory.c: 228: }
+[e :UE 649 ]
+}
+"230
+[; ;memory.c: 230: void SaveParametersToFlash (void)
+[v _SaveParametersToFlash `(v ~T0 @X0 1 ef ]
+"231
+[; ;memory.c: 231: {
+{
+[e :U _SaveParametersToFlash ]
+[f ]
+"232
+[; ;memory.c: 232:     uint16_t address_offset;
+[v _address_offset `us ~T0 @X0 1 a ]
+"233
+[; ;memory.c: 233:     address_offset = CheckCurrentParamOffset();
+[e = _address_offset ( _CheckCurrentParamOffset ..  ]
+[v F5748 `Cuc ~T0 @X0 -> 2 `i t ]
+[v F5747 `F5748 ~T0 @X0 -> 40 `i s ]
+[i F5747
+:U ..
+:U ..
+"235
+[; ;memory.c: 235: const uint8_t parameters_address[40][2] =
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 3 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 5 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 7 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 9 `i `uc
+-> -> 1 `i `uc
+..
+:U ..
+-> -> 16 `i `uc
+-> -> 1 `i `uc
+..
+:U ..
+-> -> 17 `i `uc
+-> -> 1 `i `uc
+..
+:U ..
+-> -> 18 `i `uc
+-> -> 1 `i `uc
+..
+:U ..
+-> -> 19 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 21 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 23 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 25 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 27 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 28 `i `uc
+-> -> 1 `i `uc
+..
+:U ..
+-> -> 29 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 31 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 30 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 32 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 34 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 36 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 38 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 40 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 42 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 44 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 46 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 48 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 50 `i `uc
+-> -> 2 `i `uc
+..
+:U ..
+-> -> 52 `i `uc
+-> -> 2 `i `uc
+..
+..
+]
+[v F5750 `Cuc ~T0 @X0 -> 2 `i t ]
+[v _parameters_address `F5750 ~T0 @X0 -> 40 `i a ]
+[e = _parameters_address F5747 ]
+"268
+[; ;memory.c: 268: }
+[e :UE 653 ]
+}
+[p f _printf 8388736 ]
+[a 2C 37 100 0 ]
+[a 1C 67 76 69 65 82 32 77 69 77 79 82 89 33 32 10 13 0 ]

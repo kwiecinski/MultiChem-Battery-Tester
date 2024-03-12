@@ -9458,13 +9458,12 @@ void BlockErase(uint8_t Add, uint8_t block_type);
 void SectorErase(uint8_t Add);
 void ChipErase(void);
 void WriteByte(uint32_t Add,uint8_t data);
-void StatRegBP(void);
+void SST25VF_init_Enable_Write(void);
 void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
 void ReadID_JEDEC(void);
 void ReadID (void);
 uint8_t CheckWriteEN (void);
 uint8_t CheckBusy(void);
-void SST25VF_init (void);
 # 7 "memory.c" 2
 
 # 1 "./MMSP.h" 1
@@ -9472,16 +9471,125 @@ void SST25VF_init (void);
 void setSPI_Interface(void);
 uint8_t SPI_Exchange(uint8_t data);
 # 8 "memory.c" 2
-# 158 "memory.c"
-void CheckCurrentParamAddress(void)
+
+# 1 "./memory.h" 1
+
+
+
+uint16_t CheckCurrentParamOffset(void);
+void SaveParamToFlash (void);
+# 9 "memory.c" 2
+# 156 "memory.c"
+void ParameterSector_CopyEraseRestore(void)
 {
-    uint8_t current_param_address[4];
+    SectorErase(0x0);
+}
+
+uint16_t CheckOffsetPosition(void)
+{
+    uint8_t current_param_address[4],zeroBitCount;
+    int8_t i,j;
+
     ReadBytes(0x0,&current_param_address[0],4);
 
 
+    zeroBitCount = 0;
+    for (i = 0; i < 4; ++i)
+    {
+        for (j = 7; j >= 0; --j)
+        {
+            if (((current_param_address[i] >> j) & 0x01) == 0)
+            {
+                zeroBitCount++;
+            }
+        }
+    }
+    return zeroBitCount;
+
 }
 
-void SaveParamToFlash (void)
+
+
+
+uint16_t CheckCurrentParamOffset(void)
 {
+    return (CheckOffsetPosition()*144 + 144);
+}
+
+void SaveParamToFlash(void)
+{
+    uint8_t current_param_address[4];
+    int8_t i,j;
+
+    if(CheckOffsetPosition()>=27)
+    {
+        ParameterSector_CopyEraseRestore();
+        printf("CLEAR MEMORY! \n\r");
+        return;
+    }
+    ReadBytes(0x0,&current_param_address[0],4);
+
+    for (i = 0; i < 4; ++i)
+    {
+
+        for (j = 7; j >= 0; --j)
+        {
+            if (((current_param_address[i] >> j) & 0x01) == 1)
+            {
+
+               current_param_address[i] &= ~(1 << j);
+               WriteByte(0x0 +i, current_param_address[i]);
+
+               return;
+            }
+        }
+    }
+}
+
+void RepresentValueInBinary (uint8_t value)
+{
+    for (int8_t j = 7; j >= 0; j--)
+    {
+        printf("%d", (value & (1 << j)) ? 1 : 0);
+    }
+}
+
+void SaveParametersToFlash (void)
+{
+    uint16_t address_offset;
+    address_offset = CheckCurrentParamOffset();
+
+const uint8_t parameters_address[40][2] =
+{
+    {0x01, 2},
+    {0x03, 2},
+    {0x05, 2},
+    {0x07, 2},
+    {0x09, 1},
+    {0x10, 1},
+    {0x11, 1},
+    {0x12, 1},
+    {0x13, 2},
+    {0x15, 2},
+    {0x17, 2},
+    {0x19, 2},
+    {0x1B, 2},
+    {0x1C, 1},
+    {0x1D, 2},
+    {0x1F, 2},
+    {0x1E, 2},
+    {0x20, 2},
+    {0x22, 2},
+    {0x24, 2},
+    {0x26, 2},
+    {0x28, 2},
+    {0x2A, 2},
+    {0x2C, 2},
+    {0x2E, 2},
+    {0x30, 2},
+    {0x32, 2},
+    {0x34, 2},
+};
+
 
 }

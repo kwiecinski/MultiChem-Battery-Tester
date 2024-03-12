@@ -18,6 +18,8 @@
 #include "interrupts.h"
 #include "SST25VF.h"
 #include "MMSP.h"
+#include "memory.h"
+
 
 void main(void) 
 {   
@@ -43,8 +45,10 @@ void main(void)
     {
         Menu(&bat_param);
         
-        if(counter_test>=1000)
+        if(counter_test>=2000)
         {
+            printf("address %u\n\r", CheckCurrentParamOffset());
+            SaveParamToFlash();
             counter_test=0;
 
         }

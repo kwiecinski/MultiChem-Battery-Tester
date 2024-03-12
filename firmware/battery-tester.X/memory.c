@@ -6,20 +6,22 @@
 #include "interrupts.h"
 #include "SST25VF.h"
 #include "MMSP.h"
+#include "memory.h"
 
 
+#define PARAMETER_SECTOR_ADDR                       0x0
+#define WEAR_LEVELING_PARAM_START_ADDR              0x0     
+#define WEAR_LEVELING_PARAM_CYCLES                  27      // 1 Sector size (4096B) / Size of parameters table (144B)
+#define WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT     4       // value is up ronded from WEAR_LEVELING_PARAM_CYCLES/8 
+#define PARAMETERS_DATA_SIZE                        144
 
-#define WEAR_LEVELING_PARAM_START       0x0     // 0
-#define WEAR_LEVELING_PARAM_LENGHT      4    
+#define MEASURMENT_DATA_SECTOR_ADDR                           0x40    //64
+#define WEAR_LEVELING_MEASURMENT_DATA_START_ADDR              0X10     // 0
+#define WEAR_LEVELING_MEASURMENT_DATA_CYCLES                  32      // 1 Sector size (4096B) / Size of parameters table (144B)
+#define WEAR_LEVELING_MEASURMENT_DATA_CYCLES_BYTES_LENGHT     4       // value is up ronded from WEAR_LEVELING_PARAM_CYCLES/8 
+#define MEASURMENT_DATA_SIZE                                  16384
 
-#define WEAR_LEVELING_MEASUREMENT_START 0x10    // 16
-#define WEAR_LEVELING_MEASUREMENT_END   0x1F    // 31
-
-#define UNUSED_SPACE_START              0x20    // 32
-#define UNUSED_SPACE_END                0x3F    // 63
-
-#define PARAMETERS_DATA_START           0x40    // 64
-#define PARAMETERS_DATA_END             0x1000  // 4096
+/********************************************************************************/
 
 #define CAPACITANCE_CYCLE1_ADDR         0x01    // 1
 #define CAPACITANCE_CYCLE1_LENGTH       2       // Used bytes: 2
@@ -151,34 +153,116 @@
 #define DISC_CUR4_PERCENT_ADDR_NI_MH      0x88    // 134
 #define DISC_CUR4_PERCENT_LENGTH          2       // Used bytes: 2
 
-
-/*
- 
- */
-uint16_t CheckCurrentParamAddress(void)
+void ParameterSector_CopyEraseRestore(void)
 {
-    uint8_t current_param_address[4],i,j,zeroBitCount;
-    
-    ReadBytes(WEAR_LEVELING_PARAM_START,&current_param_address[0],WEAR_LEVELING_PARAM_LENGHT);
-    
-    
-    for (int i = 0; i < 4; ++i) 
-    {
-        uint8_t currentByte = current_param_address[i];
+    SectorErase(PARAMETER_SECTOR_ADDR);
+}
 
-        // Sprawdzenie ka?dego bitu w bajcie
-        for (int j = 0; j < 8; ++j) 
+uint16_t CheckOffsetPosition(void)
+{
+    uint8_t current_param_address[4],zeroBitCount;
+    int8_t i,j;
+    
+    ReadBytes(WEAR_LEVELING_PARAM_START_ADDR,&current_param_address[0],WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT);
+    
+    // Check how many zeros are in bytes are in Wear Leveling Status Buffer
+    zeroBitCount = 0;
+    for (i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT; ++i) 
+    {
+        for (j = 7; j >= 0; --j) 
         {
-            if (((currentByte >> j) & 0x01) == 0) 
+            if (((current_param_address[i] >> j) & 0x01) == 0) 
             {
                 zeroBitCount++;
             }
         }
     }
-    
+    return zeroBitCount; 
+      
 }
 
-void SaveParamToFlash (void)
+/*
+ Function return current offset address for parameters
+ */
+uint16_t CheckCurrentParamOffset(void)
+{ 
+    return  (CheckOffsetPosition()*PARAMETERS_DATA_SIZE + PARAMETERS_DATA_SIZE);
+}
+
+void SaveParamToFlash(void)
 {
+    uint8_t current_param_address[4];
+    int8_t i,j;
+
+    if(CheckOffsetPosition()>=WEAR_LEVELING_PARAM_CYCLES)
+    {
+        ParameterSector_CopyEraseRestore();
+        printf("CLEAR MEMORY! \n\r");
+        return;
+    }
+    ReadBytes(WEAR_LEVELING_PARAM_START_ADDR,&current_param_address[0],WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT);
+    
+    for (i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT; ++i) 
+    {
+        // Checking for first bit that is 1 (MSB)
+        for (j = 7; j >= 0; --j) 
+        {
+            if (((current_param_address[i] >> j) & 0x01) == 1) 
+            {
+                // Found bit 1, change it to 0
+               current_param_address[i] &= ~(1 << j);
+               WriteByte(WEAR_LEVELING_PARAM_START_ADDR+i, current_param_address[i]);    // save new offset posistion to flash
+               
+               return; // End for after finding first 1 bit
+            }
+        }
+    }
+}
+
+void RepresentValueInBinary (uint8_t value)
+{
+    for (int8_t j = 7; j >= 0; j--) 
+    {
+        printf("%d", (value & (1 << j)) ? 1 : 0);
+    }
+}
+
+void SaveParametersToFlash (void)
+{
+    uint16_t address_offset;
+    address_offset = CheckCurrentParamOffset();
+   
+const uint8_t parameters_address[40][2] = 
+{
+    {CAPACITANCE_CYCLE1_ADDR, CAPACITANCE_CYCLE1_LENGTH},
+    {CAPACITANCE_CYCLE2_ADDR, CAPACITANCE_CYCLE2_LENGTH},
+    {CAPACITANCE_CYCLE3_ADDR, CAPACITANCE_CYCLE3_LENGTH},
+    {CAPACITANCE_CYCLE4_ADDR, CAPACITANCE_CYCLE4_LENGTH},
+    {BATT_TYPE_ADDR, BATT_TYPE_LENGTH},
+    {CELL_COUNT_ADDR_LI_ION, CELL_COUNT_LENGTH},
+    {MODE_ADDR_LI_ION, MODE_LENGTH},
+    {CYCLE_ADDR_LI_ION, CYCLE_LENGTH},
+    {CELL_VOLTAGE_ADDR_LI_ION, CELL_VOLTAGE_LENGTH},
+    {MIN_DISCHARGE_VOLTAGE_ADDR_LI_ION, MIN_DISCHARGE_VOLTAGE_LENGTH},
+    {TRICKLE_VOLTAGE_ADDR_LI_ION, TRICKLE_VOLTAGE_LENGTH},
+    {TRICKLE_CURRENT_ADDR_LI_ION, TRICKLE_CURRENT_LENGTH},
+    {MAX_TIME_ADDR_LI_ION, MAX_TIME_LENGTH},
+    {TEMP_ADDR_LI_ION, TEMP_LENGTH},
+    {CHRG_CUR1_ADDR_LI_ION, CHRG_CUR1_LENGTH},
+    {DISC_CUR1_ADDR_LI_ION, DISC_CUR1_LENGTH},
+    {CHRG_CUR2_MILLI_ADDR_LI_ION, CHRG_CUR2_MILLI_LENGTH},
+    {DISC_CUR2_MILLI_ADDR_LI_ION, DISC_CUR2_MILLI_LENGTH},
+    {CHRG_CUR2_PERCENT_ADDR_LI_ION, CHRG_CUR2_PERCENT_LENGTH},
+    {DISC_CUR2_PERCENT_ADDR_LI_ION, DISC_CUR2_PERCENT_LENGTH},
+    {CHRG_CUR3_MILLI_ADDR_LI_ION, CHRG_CUR3_MILLI_LENGTH},
+    {DISC_CUR3_MILLI_ADDR_LI_ION, DISC_CUR3_MILLI_LENGTH},
+    {CHRG_CUR3_PERCENT_ADDR_LI_ION, CHRG_CUR3_PERCENT_LENGTH},
+    {DISC_CUR3_PERCENT_ADDR_LI_ION, DISC_CUR3_PERCENT_LENGTH},
+    {CHRG_CUR4_MILLI_ADDR_LI_ION, CHRG_CUR4_MILLI_LENGTH},
+    {DISC_CUR4_MILLI_ADDR_LI_ION, DISC_CUR4_MILLI_LENGTH},
+    {CHRG_CUR4_PERCENT_ADDR_LI_ION, CHRG_CUR4_PERCENT_LENGTH},
+    {DISC_CUR4_PERCENT_ADDR_LI_ION, DISC_CUR4_PERCENT_LENGTH},
+};
+    
     
 }

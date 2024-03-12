@@ -1,6 +1,6 @@
 
 Memory Summary:
-    Program space        used  CAB4h ( 51892) of 1FFF8h bytes   ( 39.6%)
-    Data space           used   56Bh (  1387) of   F40h bytes   ( 35.5%)
+    Program space        used  CBDAh ( 52186) of 1FFF8h bytes   ( 39.8%)
+    Data space           used   567h (  1383) of   F40h bytes   ( 35.4%)
     Configuration bits   used     3h (     3) of     3h words   (100.0%)
 

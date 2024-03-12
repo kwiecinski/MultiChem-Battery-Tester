@@ -17,9 +17,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 ./MMSP.h
 [; ;./MMSP.h: 16: uint8_t SPI_Exchange(uint8_t data);
 [v _SPI_Exchange `(uc ~T0 @X0 0 ef1`uc ]
-"14 ./settings.h
-[; ;./settings.h: 14: void delay_ms(unsigned int milliseconds);
-[v _delay_ms `(v ~T0 @X0 0 ef1`ui ]
 "105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
@@ -898,585 +895,546 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;SST25VF.c: 73: }
 [e :UE 632 ]
 }
-"76
-[; ;SST25VF.c: 76: void SST25VF_init (void)
-[v _SST25VF_init `(v ~T0 @X0 1 ef ]
-"77
-[; ;SST25VF.c: 77: {
-{
-[e :U _SST25VF_init ]
-[f ]
-"79
-[; ;SST25VF.c: 79:  LATFbits.LF7=0;
-[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"80
-[; ;SST25VF.c: 80:  SPI_Exchange(0x50);
-[e ( _SPI_Exchange (1 -> -> 80 `i `uc ]
-"81
-[; ;SST25VF.c: 81:  LATFbits.LF7=1;
-[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"83
-[; ;SST25VF.c: 83:     delay_ms(50);
-[e ( _delay_ms (1 -> -> 50 `i `ui ]
-"84
-[; ;SST25VF.c: 84:   LATFbits.LF7=0;
-[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"85
-[; ;SST25VF.c: 85:     SPI_Exchange(0x01);
-[e ( _SPI_Exchange (1 -> -> 1 `i `uc ]
-"86
-[; ;SST25VF.c: 86:     SPI_Exchange(0x00);
-[e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
-"87
-[; ;SST25VF.c: 87:     LATFbits.LF7=1;
-[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"89
-[; ;SST25VF.c: 89:  delay_ms(50);
-[e ( _delay_ms (1 -> -> 50 `i `ui ]
-"90
-[; ;SST25VF.c: 90: }
-[e :UE 634 ]
-}
-"94
-[; ;SST25VF.c: 94: void ReadID (void)
+"75
+[; ;SST25VF.c: 75: void ReadID (void)
 [v _ReadID `(v ~T0 @X0 1 ef ]
-"95
-[; ;SST25VF.c: 95: {
+"76
+[; ;SST25VF.c: 76: {
 {
 [e :U _ReadID ]
 [f ]
-"96
-[; ;SST25VF.c: 96:  LATFbits.LF7=0;
+"77
+[; ;SST25VF.c: 77:  LATFbits.LF7=0;
 [e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"98
-[; ;SST25VF.c: 98:     uint8_t tab[2];
+"79
+[; ;SST25VF.c: 79:     uint8_t tab[2];
 [v _tab `uc ~T0 @X0 -> 2 `i a ]
-"100
-[; ;SST25VF.c: 100:  SPI_Exchange(0X90);
+"81
+[; ;SST25VF.c: 81:  SPI_Exchange(0X90);
 [e ( _SPI_Exchange (1 -> -> 144 `i `uc ]
-"101
-[; ;SST25VF.c: 101:  SPI_Exchange(0x00);
+"82
+[; ;SST25VF.c: 82:  SPI_Exchange(0x00);
 [e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
-"102
-[; ;SST25VF.c: 102:  SPI_Exchange(0x00);
+"83
+[; ;SST25VF.c: 83:  SPI_Exchange(0x00);
 [e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
-"103
-[; ;SST25VF.c: 103:  SPI_Exchange(0X00);
+"84
+[; ;SST25VF.c: 84:  SPI_Exchange(0X00);
 [e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
-"104
-[; ;SST25VF.c: 104:     tab[0]=SPI_Exchange(0xFF);
+"85
+[; ;SST25VF.c: 85:     tab[0]=SPI_Exchange(0xFF);
 [e = *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
-"105
-[; ;SST25VF.c: 105:     tab[1]=SPI_Exchange(0xFF);
+"86
+[; ;SST25VF.c: 86:     tab[1]=SPI_Exchange(0xFF);
 [e = *U + &U _tab * -> -> -> 1 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
-"107
-[; ;SST25VF.c: 107:  printf("Manufacurer ID: %x \r\nDevice ID: %x \r\n", tab[0], tab[1]);
+"88
+[; ;SST25VF.c: 88:  printf("Manufacurer ID: %x \r\nDevice ID: %x \r\n", tab[0], tab[1]);
 [e ( _printf , , (. :s 1C -> *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux `i -> *U + &U _tab * -> -> -> 1 `i `ui `ux -> -> # *U &U _tab `ui `ux `i ]
-"109
-[; ;SST25VF.c: 109:  LATFbits.LF7=1;
+"90
+[; ;SST25VF.c: 90:  LATFbits.LF7=1;
 [e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"110
-[; ;SST25VF.c: 110: }
-[e :UE 635 ]
+"91
+[; ;SST25VF.c: 91: }
+[e :UE 634 ]
 }
-"112
-[; ;SST25VF.c: 112: void ReadID_JEDEC(void)
+"93
+[; ;SST25VF.c: 93: void ReadID_JEDEC(void)
 [v _ReadID_JEDEC `(v ~T0 @X0 1 ef ]
-"113
-[; ;SST25VF.c: 113: {
+"94
+[; ;SST25VF.c: 94: {
 {
 [e :U _ReadID_JEDEC ]
 [f ]
-"114
-[; ;SST25VF.c: 114:  LATFbits.LF7=0;
+"95
+[; ;SST25VF.c: 95:  LATFbits.LF7=0;
 [e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"116
-[; ;SST25VF.c: 116:     uint8_t tab[3];
+"97
+[; ;SST25VF.c: 97:     uint8_t tab[3];
 [v _tab `uc ~T0 @X0 -> 3 `i a ]
-"118
-[; ;SST25VF.c: 118:  SPI_Exchange(0X9F);
+"99
+[; ;SST25VF.c: 99:  SPI_Exchange(0X9F);
 [e ( _SPI_Exchange (1 -> -> 159 `i `uc ]
-"119
-[; ;SST25VF.c: 119:     tab[0]=SPI_Exchange(0xFF);
+"100
+[; ;SST25VF.c: 100:     tab[0]=SPI_Exchange(0xFF);
 [e = *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
-"120
-[; ;SST25VF.c: 120:     tab[1]=SPI_Exchange(0xFF);
+"101
+[; ;SST25VF.c: 101:     tab[1]=SPI_Exchange(0xFF);
 [e = *U + &U _tab * -> -> -> 1 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
-"121
-[; ;SST25VF.c: 121:     tab[2]=SPI_Exchange(0xFF);
+"102
+[; ;SST25VF.c: 102:     tab[2]=SPI_Exchange(0xFF);
 [e = *U + &U _tab * -> -> -> 2 `i `ui `ux -> -> # *U &U _tab `ui `ux ( _SPI_Exchange (1 -> -> 255 `i `uc ]
-"123
-[; ;SST25VF.c: 123:  printf("Manufacurer ID: %x \r\nDevice ID: %x \r\nMemory Capacity: %x \r\n", tab[0], tab[1], tab[2]);
+"104
+[; ;SST25VF.c: 104:  printf("Manufacurer ID: %x \r\nDevice ID: %x \r\nMemory Capacity: %x \r\n", tab[0], tab[1], tab[2]);
 [e ( _printf , , , (. :s 2C -> *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux `i -> *U + &U _tab * -> -> -> 1 `i `ui `ux -> -> # *U &U _tab `ui `ux `i -> *U + &U _tab * -> -> -> 2 `i `ui `ux -> -> # *U &U _tab `ui `ux `i ]
-"125
-[; ;SST25VF.c: 125:  LATFbits.LF7=1;
+"106
+[; ;SST25VF.c: 106:  LATFbits.LF7=1;
 [e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"126
-[; ;SST25VF.c: 126: }
-[e :UE 636 ]
+"107
+[; ;SST25VF.c: 107: }
+[e :UE 635 ]
 }
-"129
-[; ;SST25VF.c: 129: void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
+"110
+[; ;SST25VF.c: 110: void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
 [v _ReadBytes `(v ~T0 @X0 1 ef3`ul`*uc`uc ]
-"130
-[; ;SST25VF.c: 130: {
+"111
+[; ;SST25VF.c: 111: {
 {
 [e :U _ReadBytes ]
-"129
-[; ;SST25VF.c: 129: void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
+"110
+[; ;SST25VF.c: 110: void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
 [v _Add `ul ~T0 @X0 1 r1 ]
 [v _data `*uc ~T0 @X0 1 r2 ]
 [v _BytesCount `uc ~T0 @X0 1 r3 ]
-"130
-[; ;SST25VF.c: 130: {
+"111
+[; ;SST25VF.c: 111: {
 [f ]
-"131
-[; ;SST25VF.c: 131:  uint8_t i;
+"112
+[; ;SST25VF.c: 112:  uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"132
-[; ;SST25VF.c: 132:  LATFbits.LF7=0;
+"113
+[; ;SST25VF.c: 113:  LATFbits.LF7=0;
 [e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"134
-[; ;SST25VF.c: 134:  SPI_Exchange(0x03);
+"115
+[; ;SST25VF.c: 115:  SPI_Exchange(0x03);
 [e ( _SPI_Exchange (1 -> -> 3 `i `uc ]
-"135
-[; ;SST25VF.c: 135:  SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+"116
+[; ;SST25VF.c: 116:  SPI_Exchange(((Add & 0xFFFFFF) >> 16));
 [e ( _SPI_Exchange (1 -> >> & _Add -> -> 16777215 `l `ul -> 16 `i `uc ]
-"136
-[; ;SST25VF.c: 136:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
+"117
+[; ;SST25VF.c: 117:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
 [e ( _SPI_Exchange (1 -> >> & _Add -> -> 65535 `ui `ul -> 8 `i `uc ]
-"137
-[; ;SST25VF.c: 137:  SPI_Exchange(Add & 0x0000FF);
+"118
+[; ;SST25VF.c: 118:  SPI_Exchange(Add & 0x0000FF);
 [e ( _SPI_Exchange (1 -> & _Add -> -> -> 255 `i `l `ul `uc ]
-"138
-[; ;SST25VF.c: 138:  for(i=0;i<BytesCount;i++)
+"119
+[; ;SST25VF.c: 119:  for(i=0;i<BytesCount;i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 641  ]
-[e :U 638 ]
-"139
-[; ;SST25VF.c: 139:  {
+[e $U 640  ]
+[e :U 637 ]
+"120
+[; ;SST25VF.c: 120:  {
 {
-"140
-[; ;SST25VF.c: 140:   *(data+i)=SPI_Exchange(0);
+"121
+[; ;SST25VF.c: 121:   *(data+i)=SPI_Exchange(0);
 [e = *U + _data * -> -> _i `i `x -> -> # *U _data `i `x ( _SPI_Exchange (1 -> -> 0 `i `uc ]
-"141
-[; ;SST25VF.c: 141:  }
+"122
+[; ;SST25VF.c: 122:  }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 641 ]
-[e $ < -> _i `i -> _BytesCount `i 638  ]
-[e :U 639 ]
+[e :U 640 ]
+[e $ < -> _i `i -> _BytesCount `i 637  ]
+[e :U 638 ]
 }
-"143
-[; ;SST25VF.c: 143:  LATFbits.LF7=1;
+"124
+[; ;SST25VF.c: 124:  LATFbits.LF7=1;
 [e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"144
-[; ;SST25VF.c: 144: }
-[e :UE 637 ]
+"125
+[; ;SST25VF.c: 125: }
+[e :UE 636 ]
 }
-"146
-[; ;SST25VF.c: 146: void StatRegBP(void)
-[v _StatRegBP `(v ~T0 @X0 1 ef ]
-"147
-[; ;SST25VF.c: 147: {
+"127
+[; ;SST25VF.c: 127: void SST25VF_init_Enable_Write(void)
+[v _SST25VF_init_Enable_Write `(v ~T0 @X0 1 ef ]
+"128
+[; ;SST25VF.c: 128: {
 {
-[e :U _StatRegBP ]
+[e :U _SST25VF_init_Enable_Write ]
 [f ]
-"149
-[; ;SST25VF.c: 149:  LATFbits.LF7=0;
+"130
+[; ;SST25VF.c: 130:  LATFbits.LF7=0;
 [e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"150
-[; ;SST25VF.c: 150:  SPI_Exchange(0x50);
+"131
+[; ;SST25VF.c: 131:  SPI_Exchange(0x50);
 [e ( _SPI_Exchange (1 -> -> 80 `i `uc ]
-"151
-[; ;SST25VF.c: 151:  LATFbits.LF7=1;
+"132
+[; ;SST25VF.c: 132:  LATFbits.LF7=1;
 [e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"153
-[; ;SST25VF.c: 153:  SPI_Exchange(0x00);
+"134
+[; ;SST25VF.c: 134:  SPI_Exchange(0x00);
 [e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
-"155
-[; ;SST25VF.c: 155:  LATFbits.LF7=0;
+"136
+[; ;SST25VF.c: 136:  LATFbits.LF7=0;
 [e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"156
-[; ;SST25VF.c: 156:  SPI_Exchange(0x01);
+"137
+[; ;SST25VF.c: 137:  SPI_Exchange(0x01);
 [e ( _SPI_Exchange (1 -> -> 1 `i `uc ]
-"157
-[; ;SST25VF.c: 157:  SPI_Exchange(0x00);
+"138
+[; ;SST25VF.c: 138:  SPI_Exchange(0x00);
 [e ( _SPI_Exchange (1 -> -> 0 `i `uc ]
-"158
-[; ;SST25VF.c: 158:  LATFbits.LF7=1;
+"139
+[; ;SST25VF.c: 139:  LATFbits.LF7=1;
 [e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"160
-[; ;SST25VF.c: 160: }
-[e :UE 642 ]
+"141
+[; ;SST25VF.c: 141: }
+[e :UE 641 ]
 }
-"163
-[; ;SST25VF.c: 163: void WriteByte(uint32_t Add,uint8_t data)
+"144
+[; ;SST25VF.c: 144: void WriteByte(uint32_t Add,uint8_t data)
 [v _WriteByte `(v ~T0 @X0 1 ef2`ul`uc ]
-"164
-[; ;SST25VF.c: 164: {
+"145
+[; ;SST25VF.c: 145: {
 {
 [e :U _WriteByte ]
-"163
-[; ;SST25VF.c: 163: void WriteByte(uint32_t Add,uint8_t data)
+"144
+[; ;SST25VF.c: 144: void WriteByte(uint32_t Add,uint8_t data)
 [v _Add `ul ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
-"164
-[; ;SST25VF.c: 164: {
+"145
+[; ;SST25VF.c: 145: {
 [f ]
-"167
-[; ;SST25VF.c: 167:  LATFbits.LF7=0;
+"148
+[; ;SST25VF.c: 148:  LATFbits.LF7=0;
 [e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"168
-[; ;SST25VF.c: 168:  SPI_Exchange(0x06);
+"149
+[; ;SST25VF.c: 149:  SPI_Exchange(0x06);
 [e ( _SPI_Exchange (1 -> -> 6 `i `uc ]
+"150
+[; ;SST25VF.c: 150:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"152
+[; ;SST25VF.c: 152:  while(1)
+[e :U 644 ]
+"153
+[; ;SST25VF.c: 153:  {
+{
+"154
+[; ;SST25VF.c: 154:   if(CheckWriteEN()==1)
+[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 646  ]
+"155
+[; ;SST25VF.c: 155:   {
+{
+"156
+[; ;SST25VF.c: 156:    break;
+[e $U 645  ]
+"157
+[; ;SST25VF.c: 157:   }
+}
+[e :U 646 ]
+"158
+[; ;SST25VF.c: 158:  }
+}
+[e :U 643 ]
+[e $U 644  ]
+[e :U 645 ]
+"162
+[; ;SST25VF.c: 162:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"163
+[; ;SST25VF.c: 163:  SPI_Exchange(0X02);
+[e ( _SPI_Exchange (1 -> -> 2 `i `uc ]
+"164
+[; ;SST25VF.c: 164:  SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+[e ( _SPI_Exchange (1 -> >> & _Add -> -> 16777215 `l `ul -> 16 `i `uc ]
+"165
+[; ;SST25VF.c: 165:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
+[e ( _SPI_Exchange (1 -> >> & _Add -> -> 65535 `ui `ul -> 8 `i `uc ]
+"166
+[; ;SST25VF.c: 166:  SPI_Exchange(Add & 0x0000FF);
+[e ( _SPI_Exchange (1 -> & _Add -> -> -> 255 `i `l `ul `uc ]
+"167
+[; ;SST25VF.c: 167:  SPI_Exchange(data);
+[e ( _SPI_Exchange (1 _data ]
 "169
 [; ;SST25VF.c: 169:  LATFbits.LF7=1;
 [e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"171
-[; ;SST25VF.c: 171:  while(1)
-[e :U 645 ]
-"172
-[; ;SST25VF.c: 172:  {
-{
 "173
-[; ;SST25VF.c: 173:   if(CheckWriteEN()==1)
-[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 647  ]
+[; ;SST25VF.c: 173:  while(1)
+[e :U 648 ]
 "174
-[; ;SST25VF.c: 174:   {
+[; ;SST25VF.c: 174:  {
 {
 "175
-[; ;SST25VF.c: 175:    break;
-[e $U 646  ]
+[; ;SST25VF.c: 175:   if(CheckBusy()==0)
+[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 650  ]
 "176
-[; ;SST25VF.c: 176:   }
+[; ;SST25VF.c: 176:   {
+{
+"177
+[; ;SST25VF.c: 177:    break;
+[e $U 649  ]
+"178
+[; ;SST25VF.c: 178:   }
+}
+[e :U 650 ]
+"180
+[; ;SST25VF.c: 180:  }
 }
 [e :U 647 ]
-"177
-[; ;SST25VF.c: 177:  }
-}
-[e :U 644 ]
-[e $U 645  ]
-[e :U 646 ]
-"181
-[; ;SST25VF.c: 181:  LATFbits.LF7=0;
-[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"182
-[; ;SST25VF.c: 182:  SPI_Exchange(0X02);
-[e ( _SPI_Exchange (1 -> -> 2 `i `uc ]
-"183
-[; ;SST25VF.c: 183:  SPI_Exchange(((Add & 0xFFFFFF) >> 16));
-[e ( _SPI_Exchange (1 -> >> & _Add -> -> 16777215 `l `ul -> 16 `i `uc ]
-"184
-[; ;SST25VF.c: 184:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
-[e ( _SPI_Exchange (1 -> >> & _Add -> -> 65535 `ui `ul -> 8 `i `uc ]
-"185
-[; ;SST25VF.c: 185:  SPI_Exchange(Add & 0x0000FF);
-[e ( _SPI_Exchange (1 -> & _Add -> -> -> 255 `i `l `ul `uc ]
-"186
-[; ;SST25VF.c: 186:  SPI_Exchange(data);
-[e ( _SPI_Exchange (1 _data ]
-"188
-[; ;SST25VF.c: 188:  LATFbits.LF7=1;
-[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"192
-[; ;SST25VF.c: 192:  while(1)
+[e $U 648  ]
 [e :U 649 ]
-"193
-[; ;SST25VF.c: 193:  {
-{
-"194
-[; ;SST25VF.c: 194:   if(CheckBusy()==0)
-[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 651  ]
-"195
-[; ;SST25VF.c: 195:   {
-{
-"196
-[; ;SST25VF.c: 196:    break;
-[e $U 650  ]
-"197
-[; ;SST25VF.c: 197:   }
+"181
+[; ;SST25VF.c: 181: }
+[e :UE 642 ]
 }
-[e :U 651 ]
-"199
-[; ;SST25VF.c: 199:  }
-}
-[e :U 648 ]
-[e $U 649  ]
-[e :U 650 ]
-"200
-[; ;SST25VF.c: 200: }
-[e :UE 643 ]
-}
-"204
-[; ;SST25VF.c: 204: void ChipErase(void)
+"185
+[; ;SST25VF.c: 185: void ChipErase(void)
 [v _ChipErase `(v ~T0 @X0 1 ef ]
-"205
-[; ;SST25VF.c: 205: {
+"186
+[; ;SST25VF.c: 186: {
 {
 [e :U _ChipErase ]
 [f ]
-"206
-[; ;SST25VF.c: 206:  LATFbits.LF7=0;
+"187
+[; ;SST25VF.c: 187:  LATFbits.LF7=0;
 [e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"207
-[; ;SST25VF.c: 207:  SPI_Exchange(0x06);
+"188
+[; ;SST25VF.c: 188:  SPI_Exchange(0x06);
 [e ( _SPI_Exchange (1 -> -> 6 `i `uc ]
-"208
-[; ;SST25VF.c: 208:  LATFbits.LF7=1;
+"189
+[; ;SST25VF.c: 189:  LATFbits.LF7=1;
 [e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"210
-[; ;SST25VF.c: 210:  while(1)
+"191
+[; ;SST25VF.c: 191:  while(1)
+[e :U 653 ]
+"192
+[; ;SST25VF.c: 192:  {
+{
+"193
+[; ;SST25VF.c: 193:   if(CheckWriteEN()==1)
+[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 655  ]
+"194
+[; ;SST25VF.c: 194:   {
+{
+"195
+[; ;SST25VF.c: 195:    break;
+[e $U 654  ]
+"196
+[; ;SST25VF.c: 196:   }
+}
+[e :U 655 ]
+"197
+[; ;SST25VF.c: 197:  }
+}
+[e :U 652 ]
+[e $U 653  ]
 [e :U 654 ]
-"211
-[; ;SST25VF.c: 211:  {
+"199
+[; ;SST25VF.c: 199:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"200
+[; ;SST25VF.c: 200:  SPI_Exchange(0X60);
+[e ( _SPI_Exchange (1 -> -> 96 `i `uc ]
+"201
+[; ;SST25VF.c: 201:  LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"204
+[; ;SST25VF.c: 204:  while(1)
+[e :U 657 ]
+"205
+[; ;SST25VF.c: 205:  {
 {
-"212
-[; ;SST25VF.c: 212:   if(CheckWriteEN()==1)
-[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 656  ]
-"213
-[; ;SST25VF.c: 213:   {
+"206
+[; ;SST25VF.c: 206:   if(CheckBusy()==0)
+[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 659  ]
+"207
+[; ;SST25VF.c: 207:   {
 {
-"214
-[; ;SST25VF.c: 214:    break;
-[e $U 655  ]
-"215
-[; ;SST25VF.c: 215:   }
+"208
+[; ;SST25VF.c: 208:    break;
+[e $U 658  ]
+"209
+[; ;SST25VF.c: 209:   }
+}
+[e :U 659 ]
+"210
+[; ;SST25VF.c: 210:  }
 }
 [e :U 656 ]
-"216
-[; ;SST25VF.c: 216:  }
-}
-[e :U 653 ]
-[e $U 654  ]
-[e :U 655 ]
-"218
-[; ;SST25VF.c: 218:  LATFbits.LF7=0;
-[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"219
-[; ;SST25VF.c: 219:  SPI_Exchange(0X60);
-[e ( _SPI_Exchange (1 -> -> 96 `i `uc ]
-"220
-[; ;SST25VF.c: 220:  LATFbits.LF7=1;
-[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"223
-[; ;SST25VF.c: 223:  while(1)
+[e $U 657  ]
 [e :U 658 ]
-"224
-[; ;SST25VF.c: 224:  {
-{
-"225
-[; ;SST25VF.c: 225:   if(CheckBusy()==0)
-[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 660  ]
-"226
-[; ;SST25VF.c: 226:   {
-{
-"227
-[; ;SST25VF.c: 227:    break;
-[e $U 659  ]
-"228
-[; ;SST25VF.c: 228:   }
+"211
+[; ;SST25VF.c: 211: }
+[e :UE 651 ]
 }
-[e :U 660 ]
-"229
-[; ;SST25VF.c: 229:  }
-}
-[e :U 657 ]
-[e $U 658  ]
-[e :U 659 ]
-"230
-[; ;SST25VF.c: 230: }
-[e :UE 652 ]
-}
-"234
-[; ;SST25VF.c: 234: void SectorErase(uint8_t Add)
+"215
+[; ;SST25VF.c: 215: void SectorErase(uint8_t Add)
 [v _SectorErase `(v ~T0 @X0 1 ef1`uc ]
-"235
-[; ;SST25VF.c: 235: {
+"216
+[; ;SST25VF.c: 216: {
 {
 [e :U _SectorErase ]
-"234
-[; ;SST25VF.c: 234: void SectorErase(uint8_t Add)
+"215
+[; ;SST25VF.c: 215: void SectorErase(uint8_t Add)
 [v _Add `uc ~T0 @X0 1 r1 ]
-"235
-[; ;SST25VF.c: 235: {
+"216
+[; ;SST25VF.c: 216: {
 [f ]
-"237
-[; ;SST25VF.c: 237:     LATFbits.LF7=0;
+"218
+[; ;SST25VF.c: 218:     LATFbits.LF7=0;
 [e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"238
-[; ;SST25VF.c: 238:     SPI_Exchange(0x06);
+"219
+[; ;SST25VF.c: 219:     SPI_Exchange(0x06);
 [e ( _SPI_Exchange (1 -> -> 6 `i `uc ]
-"239
-[; ;SST25VF.c: 239:     LATFbits.LF7=1;
+"220
+[; ;SST25VF.c: 220:     LATFbits.LF7=1;
 [e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"241
-[; ;SST25VF.c: 241:     while(1)
+"222
+[; ;SST25VF.c: 222:     while(1)
+[e :U 662 ]
+"223
+[; ;SST25VF.c: 223:  {
+{
+"224
+[; ;SST25VF.c: 224:   if(CheckWriteEN()==1)
+[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 664  ]
+"225
+[; ;SST25VF.c: 225:   {
+{
+"226
+[; ;SST25VF.c: 226:    break;
+[e $U 663  ]
+"227
+[; ;SST25VF.c: 227:   }
+}
+[e :U 664 ]
+"228
+[; ;SST25VF.c: 228:  }
+}
+[e :U 661 ]
+[e $U 662  ]
 [e :U 663 ]
+"230
+[; ;SST25VF.c: 230:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"231
+[; ;SST25VF.c: 231:  SPI_Exchange(0x20);
+[e ( _SPI_Exchange (1 -> -> 32 `i `uc ]
+"232
+[; ;SST25VF.c: 232:    SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+[e ( _SPI_Exchange (1 -> >> & -> _Add `l -> 16777215 `l -> 16 `i `uc ]
+"233
+[; ;SST25VF.c: 233:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
+[e ( _SPI_Exchange (1 -> >> & -> _Add `ui -> 65535 `ui -> 8 `i `uc ]
+"234
+[; ;SST25VF.c: 234:  SPI_Exchange(Add & 0x0000FF);
+[e ( _SPI_Exchange (1 -> & -> _Add `i -> 255 `i `uc ]
+"235
+[; ;SST25VF.c: 235:     LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"237
+[; ;SST25VF.c: 237:  while(1)
+[e :U 666 ]
+"238
+[; ;SST25VF.c: 238:  {
+{
+"239
+[; ;SST25VF.c: 239:   if(CheckBusy()==0)
+[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 668  ]
+"240
+[; ;SST25VF.c: 240:   {
+{
+"241
+[; ;SST25VF.c: 241:    break;
+[e $U 667  ]
 "242
-[; ;SST25VF.c: 242:  {
-{
+[; ;SST25VF.c: 242:   }
+}
+[e :U 668 ]
 "243
-[; ;SST25VF.c: 243:   if(CheckWriteEN()==1)
-[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 665  ]
-"244
-[; ;SST25VF.c: 244:   {
-{
-"245
-[; ;SST25VF.c: 245:    break;
-[e $U 664  ]
-"246
-[; ;SST25VF.c: 246:   }
+[; ;SST25VF.c: 243:  }
 }
 [e :U 665 ]
-"247
-[; ;SST25VF.c: 247:  }
-}
-[e :U 662 ]
-[e $U 663  ]
-[e :U 664 ]
-"249
-[; ;SST25VF.c: 249:  LATFbits.LF7=0;
-[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"250
-[; ;SST25VF.c: 250:  SPI_Exchange(0x20);
-[e ( _SPI_Exchange (1 -> -> 32 `i `uc ]
-"251
-[; ;SST25VF.c: 251:    SPI_Exchange(((Add & 0xFFFFFF) >> 16));
-[e ( _SPI_Exchange (1 -> >> & -> _Add `l -> 16777215 `l -> 16 `i `uc ]
-"252
-[; ;SST25VF.c: 252:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
-[e ( _SPI_Exchange (1 -> >> & -> _Add `ui -> 65535 `ui -> 8 `i `uc ]
-"253
-[; ;SST25VF.c: 253:  SPI_Exchange(Add & 0x0000FF);
-[e ( _SPI_Exchange (1 -> & -> _Add `i -> 255 `i `uc ]
-"254
-[; ;SST25VF.c: 254:     LATFbits.LF7=1;
-[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"256
-[; ;SST25VF.c: 256:  while(1)
+[e $U 666  ]
 [e :U 667 ]
-"257
-[; ;SST25VF.c: 257:  {
-{
-"258
-[; ;SST25VF.c: 258:   if(CheckBusy()==0)
-[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 669  ]
-"259
-[; ;SST25VF.c: 259:   {
-{
-"260
-[; ;SST25VF.c: 260:    break;
-[e $U 668  ]
-"261
-[; ;SST25VF.c: 261:   }
+"244
+[; ;SST25VF.c: 244: }
+[e :UE 660 ]
 }
-[e :U 669 ]
-"262
-[; ;SST25VF.c: 262:  }
-}
-[e :U 666 ]
-[e $U 667  ]
-[e :U 668 ]
-"263
-[; ;SST25VF.c: 263: }
-[e :UE 661 ]
-}
-"267
-[; ;SST25VF.c: 267: void BlockErase(uint8_t Add, uint8_t block_type)
+"248
+[; ;SST25VF.c: 248: void BlockErase(uint8_t Add, uint8_t block_type)
 [v _BlockErase `(v ~T0 @X0 1 ef2`uc`uc ]
-"268
-[; ;SST25VF.c: 268: {
+"249
+[; ;SST25VF.c: 249: {
 {
 [e :U _BlockErase ]
-"267
-[; ;SST25VF.c: 267: void BlockErase(uint8_t Add, uint8_t block_type)
+"248
+[; ;SST25VF.c: 248: void BlockErase(uint8_t Add, uint8_t block_type)
 [v _Add `uc ~T0 @X0 1 r1 ]
 [v _block_type `uc ~T0 @X0 1 r2 ]
-"268
-[; ;SST25VF.c: 268: {
+"249
+[; ;SST25VF.c: 249: {
 [f ]
-"270
-[; ;SST25VF.c: 270:     LATFbits.LF7=0;
+"251
+[; ;SST25VF.c: 251:     LATFbits.LF7=0;
 [e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"271
-[; ;SST25VF.c: 271:     SPI_Exchange(0x06);
+"252
+[; ;SST25VF.c: 252:     SPI_Exchange(0x06);
 [e ( _SPI_Exchange (1 -> -> 6 `i `uc ]
-"272
-[; ;SST25VF.c: 272:     LATFbits.LF7=1;
+"253
+[; ;SST25VF.c: 253:     LATFbits.LF7=1;
 [e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"274
-[; ;SST25VF.c: 274:     while(1)
+"255
+[; ;SST25VF.c: 255:     while(1)
+[e :U 671 ]
+"256
+[; ;SST25VF.c: 256:  {
+{
+"257
+[; ;SST25VF.c: 257:   if(CheckWriteEN()==1)
+[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 673  ]
+"258
+[; ;SST25VF.c: 258:   {
+{
+"259
+[; ;SST25VF.c: 259:    break;
+[e $U 672  ]
+"260
+[; ;SST25VF.c: 260:   }
+}
+[e :U 673 ]
+"261
+[; ;SST25VF.c: 261:  }
+}
+[e :U 670 ]
+[e $U 671  ]
 [e :U 672 ]
+"263
+[; ;SST25VF.c: 263:  LATFbits.LF7=0;
+[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
+"264
+[; ;SST25VF.c: 264:  SPI_Exchange(block_type);
+[e ( _SPI_Exchange (1 _block_type ]
+"265
+[; ;SST25VF.c: 265:    SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+[e ( _SPI_Exchange (1 -> >> & -> _Add `l -> 16777215 `l -> 16 `i `uc ]
+"266
+[; ;SST25VF.c: 266:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
+[e ( _SPI_Exchange (1 -> >> & -> _Add `ui -> 65535 `ui -> 8 `i `uc ]
+"267
+[; ;SST25VF.c: 267:  SPI_Exchange(Add & 0x0000FF);
+[e ( _SPI_Exchange (1 -> & -> _Add `i -> 255 `i `uc ]
+"268
+[; ;SST25VF.c: 268:     LATFbits.LF7=1;
+[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
+"270
+[; ;SST25VF.c: 270:  while(1)
+[e :U 675 ]
+"271
+[; ;SST25VF.c: 271:  {
+{
+"272
+[; ;SST25VF.c: 272:   if(CheckBusy()==0)
+[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 677  ]
+"273
+[; ;SST25VF.c: 273:   {
+{
+"274
+[; ;SST25VF.c: 274:    break;
+[e $U 676  ]
 "275
-[; ;SST25VF.c: 275:  {
-{
+[; ;SST25VF.c: 275:   }
+}
+[e :U 677 ]
 "276
-[; ;SST25VF.c: 276:   if(CheckWriteEN()==1)
-[e $ ! == -> ( _CheckWriteEN ..  `i -> 1 `i 674  ]
-"277
-[; ;SST25VF.c: 277:   {
-{
-"278
-[; ;SST25VF.c: 278:    break;
-[e $U 673  ]
-"279
-[; ;SST25VF.c: 279:   }
+[; ;SST25VF.c: 276:  }
 }
 [e :U 674 ]
-"280
-[; ;SST25VF.c: 280:  }
-}
-[e :U 671 ]
-[e $U 672  ]
-[e :U 673 ]
-"282
-[; ;SST25VF.c: 282:  LATFbits.LF7=0;
-[e = . . _LATFbits 1 6 -> -> 0 `i `uc ]
-"283
-[; ;SST25VF.c: 283:  SPI_Exchange(block_type);
-[e ( _SPI_Exchange (1 _block_type ]
-"284
-[; ;SST25VF.c: 284:    SPI_Exchange(((Add & 0xFFFFFF) >> 16));
-[e ( _SPI_Exchange (1 -> >> & -> _Add `l -> 16777215 `l -> 16 `i `uc ]
-"285
-[; ;SST25VF.c: 285:  SPI_Exchange(((Add & 0x00FFFF) >> 8));
-[e ( _SPI_Exchange (1 -> >> & -> _Add `ui -> 65535 `ui -> 8 `i `uc ]
-"286
-[; ;SST25VF.c: 286:  SPI_Exchange(Add & 0x0000FF);
-[e ( _SPI_Exchange (1 -> & -> _Add `i -> 255 `i `uc ]
-"287
-[; ;SST25VF.c: 287:     LATFbits.LF7=1;
-[e = . . _LATFbits 1 6 -> -> 1 `i `uc ]
-"289
-[; ;SST25VF.c: 289:  while(1)
+[e $U 675  ]
 [e :U 676 ]
-"290
-[; ;SST25VF.c: 290:  {
-{
-"291
-[; ;SST25VF.c: 291:   if(CheckBusy()==0)
-[e $ ! == -> ( _CheckBusy ..  `i -> 0 `i 678  ]
-"292
-[; ;SST25VF.c: 292:   {
-{
-"293
-[; ;SST25VF.c: 293:    break;
-[e $U 677  ]
-"294
-[; ;SST25VF.c: 294:   }
-}
-[e :U 678 ]
-"295
-[; ;SST25VF.c: 295:  }
-}
-[e :U 675 ]
-[e $U 676  ]
-[e :U 677 ]
-"296
-[; ;SST25VF.c: 296: }
-[e :UE 670 ]
+"277
+[; ;SST25VF.c: 277: }
+[e :UE 669 ]
 }
 [p f _printf 12582912 ]
 [a 2C 77 97 110 117 102 97 99 117 114 101 114 32 73 68 58 32 37 120 32 13 10 68 101 118 105 99 101 32 73 68 58 32 37 120 32 13 10 77 101 109 111 114 121 32 67 97 112 97 99 105 116 121 58 32 37 120 32 13 10 0 ]

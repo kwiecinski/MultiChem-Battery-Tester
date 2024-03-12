@@ -317,8 +317,16 @@ GLCD_Non_Inverted 1
 [v _Pulse_En Pulse_En `T(v  1 s 1 Pulse_En ]
 "1271
 [v _Int2bcd Int2bcd `(v  1 s 1 Int2bcd ]
-"22 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
+"24 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"156 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\memory.c
+[v _ParameterSector_CopyEraseRestore ParameterSector_CopyEraseRestore `(v  1 e 1 0 ]
+"161
+[v _CheckOffsetPosition CheckOffsetPosition `(us  1 e 2 0 ]
+"187
+[v _CheckCurrentParamOffset CheckCurrentParamOffset `(us  1 e 2 0 ]
+"192
+[v _SaveParamToFlash SaveParamToFlash `(v  1 e 1 0 ]
 "48 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _batState batState `(v  1 e 1 0 ]
 "64
@@ -411,41 +419,41 @@ GLCD_Non_Inverted 1
 [v _setupInterrupts setupInterrupts `(v  1 e 1 0 ]
 "42
 [v _setupPWM setupPWM `(v  1 e 1 0 ]
-"53
-[v _delay_ms delay_ms `(v  1 e 1 0 ]
 "38 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\SST25VF.c
 [v _CheckBusy CheckBusy `(uc  1 e 1 0 ]
 "57
 [v _CheckWriteEN CheckWriteEN `(uc  1 e 1 0 ]
-"129
+"110
 [v _ReadBytes ReadBytes `(v  1 e 1 0 ]
-"146
-[v _StatRegBP StatRegBP `(v  1 e 1 0 ]
-"163
+"127
+[v _SST25VF_init_Enable_Write SST25VF_init_Enable_Write `(v  1 e 1 0 ]
+"144
 [v _WriteByte WriteByte `(v  1 e 1 0 ]
+"215
+[v _SectorErase SectorErase `(v  1 e 1 0 ]
 "7 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X/LCD-KS0108/font5x8.h
 [v _Font5x8 Font5x8 `C[576]uc  1 e 576 0 ]
 "7 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X/LCD-KS0108/Tahoma11x13.h
 [v _Tahoma11x13 Tahoma11x13 `C[2208]uc  1 e 2208 0 ]
 "7 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X/LCD-KS0108/Tekton_Pro_Ext27x28.h
 [v _Tekton_Pro_Ext27x28 Tekton_Pro_Ext27x28 `C[10464]uc  1 e 10464 0 ]
-[s S1577 . 1 `uc 1 act 1 0 :2:0 
+[s S1569 . 1 `uc 1 act 1 0 :2:0 
 `uc 1 prew 1 0 :2:2 
 `uc 1 locked 1 0 :1:4 
 ]
 "73 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
-[s S1582 . 9 `S1577 1 state 1 0 `uc 1 lock_count 1 1 `us 1 long_count 2 2 `us 1 long_press_time_ms 2 4 `*.38(uc 1 port_read 3 6 ]
-[v _instance instance `[5]S1582  1 e 45 0 ]
+[s S1574 . 9 `S1569 1 state 1 0 `uc 1 lock_count 1 1 `us 1 long_count 2 2 `us 1 long_press_time_ms 2 4 `*.38(uc 1 port_read 3 6 ]
+[v _instance instance `[5]S1574  1 e 45 0 ]
 "106
-[s S1602 . 15 `*.39S1582 1 instance 2 0 `uc 1 process_time_ms 1 2 `uc 1 debounce_time_ms 1 3 `us 1 long_press_def_ms 2 4 `*.38(v 1 short_release 3 6 `*.38(v 1 long_release 3 9 `*.38(v 1 long_press 3 12 ]
-[v _this this `S1602  1 s 15 this ]
+[s S1594 . 15 `*.39S1574 1 instance 2 0 `uc 1 process_time_ms 1 2 `uc 1 debounce_time_ms 1 3 `us 1 long_press_def_ms 2 4 `*.38(v 1 short_release 3 6 `*.38(v 1 long_release 3 9 `*.38(v 1 long_press 3 12 ]
+[v _this this `S1594  1 s 15 this ]
 "5244 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "5574
 [v _PORTE PORTE `VEuc  1 e 1 @3972 ]
 "5945
 [v _PORTG PORTG `VEuc  1 e 1 @3974 ]
-[s S1355 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S1347 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -455,7 +463,7 @@ GLCD_Non_Inverted 1
 `uc 1 LATA7 1 0 :1:7 
 ]
 "6130
-[s S1364 . 1 `uc 1 LA0 1 0 :1:0 
+[s S1356 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -464,13 +472,13 @@ GLCD_Non_Inverted 1
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S1373 . 1 `S1355 1 . 1 0 `S1364 1 . 1 0 ]
-[v _LATAbits LATAbits `VES1373  1 e 1 @3977 ]
+[u S1365 . 1 `S1347 1 . 1 0 `S1356 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1365  1 e 1 @3977 ]
 "6439
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "6551
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-[s S3203 . 1 `uc 1 . 1 0 :2:0 
+[s S3195 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LATF2 1 0 :1:2 
 `uc 1 LATF3 1 0 :1:3 
 `uc 1 LATF4 1 0 :1:4 
@@ -479,7 +487,7 @@ GLCD_Non_Inverted 1
 `uc 1 LATF7 1 0 :1:7 
 ]
 "6688
-[s S3211 . 1 `uc 1 . 1 0 :2:0 
+[s S3203 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LF2 1 0 :1:2 
 `uc 1 LF3 1 0 :1:3 
 `uc 1 LF4 1 0 :1:4 
@@ -487,9 +495,9 @@ GLCD_Non_Inverted 1
 `uc 1 LF6 1 0 :1:6 
 `uc 1 LF7 1 0 :1:7 
 ]
-[u S3219 . 1 `S3203 1 . 1 0 `S3211 1 . 1 0 ]
-[v _LATFbits LATFbits `VES3219  1 e 1 @3982 ]
-[s S1315 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S3211 . 1 `S3195 1 . 1 0 `S3203 1 . 1 0 ]
+[v _LATFbits LATFbits `VES3211  1 e 1 @3982 ]
+[s S1307 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -499,7 +507,7 @@ GLCD_Non_Inverted 1
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "6861
-[s S1324 . 1 `uc 1 RA0 1 0 :1:0 
+[s S1316 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -508,8 +516,8 @@ GLCD_Non_Inverted 1
 `uc 1 RA6 1 0 :1:6 
 `uc 1 RA7 1 0 :1:7 
 ]
-[u S1333 . 1 `S1315 1 . 1 0 `S1324 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES1333  1 e 1 @3986 ]
+[u S1325 . 1 `S1307 1 . 1 0 `S1316 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES1325  1 e 1 @3986 ]
 "7273
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 [s S596 . 1 `uc 1 TRISC0 1 0 :1:0 
@@ -535,7 +543,7 @@ GLCD_Non_Inverted 1
 [v _TRISCbits TRISCbits `VES614  1 e 1 @3988 ]
 "7495
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S1275 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S1267 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -545,7 +553,7 @@ GLCD_Non_Inverted 1
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "7527
-[s S1284 . 1 `uc 1 RD0 1 0 :1:0 
+[s S1276 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -554,8 +562,8 @@ GLCD_Non_Inverted 1
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-[u S1293 . 1 `S1275 1 . 1 0 `S1284 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES1293  1 e 1 @3989 ]
+[u S1285 . 1 `S1267 1 . 1 0 `S1276 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES1285  1 e 1 @3989 ]
 "7717
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
 [s S636 . 1 `uc 1 . 1 0 :2:0 
@@ -579,22 +587,22 @@ GLCD_Non_Inverted 1
 [v _TRISFbits TRISFbits `VES652  1 e 1 @3991 ]
 "8117
 [v _TRISG TRISG `VEuc  1 e 1 @3992 ]
-[s S1069 . 1 `uc 1 TRISG0 1 0 :1:0 
+[s S1061 . 1 `uc 1 TRISG0 1 0 :1:0 
 `uc 1 TRISG1 1 0 :1:1 
 `uc 1 TRISG2 1 0 :1:2 
 `uc 1 TRISG3 1 0 :1:3 
 `uc 1 TRISG4 1 0 :1:4 
 ]
 "8143
-[s S1075 . 1 `uc 1 RG0 1 0 :1:0 
+[s S1067 . 1 `uc 1 RG0 1 0 :1:0 
 `uc 1 RG1 1 0 :1:1 
 `uc 1 RG2 1 0 :1:2 
 `uc 1 RG3 1 0 :1:3 
 `uc 1 RG4 1 0 :1:4 
 ]
-[u S1081 . 1 `S1069 1 . 1 0 `S1075 1 . 1 0 ]
-[v _TRISGbits TRISGbits `VES1081  1 e 1 @3992 ]
-[s S1254 . 1 `uc 1 TUN0 1 0 :1:0 
+[u S1073 . 1 `S1061 1 . 1 0 `S1067 1 . 1 0 ]
+[v _TRISGbits TRISGbits `VES1073  1 e 1 @3992 ]
+[s S1246 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
@@ -604,9 +612,9 @@ GLCD_Non_Inverted 1
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "8284
-[u S1263 . 1 `S1254 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES1263  1 e 1 @3995 ]
-[s S1138 . 1 `uc 1 RX9D 1 0 :1:0 
+[u S1255 . 1 `S1246 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES1255  1 e 1 @3995 ]
+[s S1130 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -616,20 +624,20 @@ GLCD_Non_Inverted 1
 `uc 1 SPEN 1 0 :1:7 
 ]
 "8382
-[s S1147 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S1139 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S1151 . 1 `uc 1 . 1 0 :6:0 
+[s S1143 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RC8 1 0 :1:6 
 ]
-[s S1154 . 1 `uc 1 . 1 0 :6:0 
+[s S1146 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S1157 . 1 `uc 1 . 1 0 :6:0 
+[s S1149 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S1160 . 1 `uc 1 RX9D2 1 0 :1:0 
+[s S1152 . 1 `uc 1 RX9D2 1 0 :1:0 
 `uc 1 OERR2 1 0 :1:1 
 `uc 1 FERR2 1 0 :1:2 
 `uc 1 ADDEN2 1 0 :1:3 
@@ -638,15 +646,15 @@ GLCD_Non_Inverted 1
 `uc 1 RX92 1 0 :1:6 
 `uc 1 SPEN2 1 0 :1:7 
 ]
-[s S1169 . 1 `uc 1 RCD82 1 0 :1:0 
+[s S1161 . 1 `uc 1 RCD82 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC8_92 1 0 :1:6 
 ]
-[s S1173 . 1 `uc 1 . 1 0 :6:0 
+[s S1165 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC92 1 0 :1:6 
 ]
-[u S1176 . 1 `S1138 1 . 1 0 `S1147 1 . 1 0 `S1151 1 . 1 0 `S1154 1 . 1 0 `S1157 1 . 1 0 `S1160 1 . 1 0 `S1169 1 . 1 0 `S1173 1 . 1 0 ]
-[v _RCSTA2bits RCSTA2bits `VES1176  1 e 1 @3996 ]
+[u S1168 . 1 `S1130 1 . 1 0 `S1139 1 . 1 0 `S1143 1 . 1 0 `S1146 1 . 1 0 `S1149 1 . 1 0 `S1152 1 . 1 0 `S1161 1 . 1 0 `S1165 1 . 1 0 ]
+[v _RCSTA2bits RCSTA2bits `VES1168  1 e 1 @3996 ]
 [s S458 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
@@ -809,12 +817,12 @@ GLCD_Non_Inverted 1
 [v _SSP1STATbits SSP1STATbits `VES790  1 e 1 @4039 ]
 "13494
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @4041 ]
-[s S1444 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S1436 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "13527
-[s S1448 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S1440 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -822,27 +830,27 @@ GLCD_Non_Inverted 1
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S1456 . 1 `S1444 1 . 1 0 `S1448 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1456  1 e 1 @4042 ]
+[u S1448 . 1 `S1436 1 . 1 0 `S1440 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1448  1 e 1 @4042 ]
 "13577
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
-[s S1224 . 1 `uc 1 SCS 1 0 :2:0 
+[s S1216 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "14771
-[s S1230 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S1222 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S1237 . 1 `S1224 1 . 1 0 `S1230 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES1237  1 e 1 @4051 ]
-[s S1676 . 1 `uc 1 T0PS 1 0 :3:0 
+[u S1229 . 1 `S1216 1 . 1 0 `S1222 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES1229  1 e 1 @4051 ]
+[s S1668 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -850,16 +858,16 @@ GLCD_Non_Inverted 1
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "14907
-[s S1683 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1675 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
-[u S1688 . 1 `S1676 1 . 1 0 `S1683 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES1688  1 e 1 @4053 ]
+[u S1680 . 1 `S1668 1 . 1 0 `S1675 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES1680  1 e 1 @4053 ]
 "14962
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
-[s S1395 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S1387 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -869,7 +877,7 @@ GLCD_Non_Inverted 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "15473
-[s S1404 . 1 `uc 1 . 1 0 :1:0 
+[s S1396 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -878,12 +886,12 @@ GLCD_Non_Inverted 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1413 . 1 `uc 1 . 1 0 :6:0 
+[s S1405 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1417 . 1 `S1395 1 . 1 0 `S1404 1 . 1 0 `S1413 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1417  1 e 1 @4082 ]
+[u S1409 . 1 `S1387 1 . 1 0 `S1396 1 . 1 0 `S1405 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1409  1 e 1 @4082 ]
 "99 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
 [v _prec prec `i  1 s 2 prec ]
 [v _width width `i  1 s 2 width ]
@@ -902,15 +910,13 @@ GLCD_Non_Inverted 1
 "11
 [s S37 . 10 `uc 1 X 1 0 `uc 1 Y 1 1 `E5699 1 Mode 1 2 `S30 1 Font 7 3 ]
 [v ___GLCD __GLCD `S37  1 e 10 0 ]
-"22 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
+"24 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 [s S950 . 87 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 charge_current_3_percent 1 9 `uc 1 charge_current_4_percent 1 10 `uc 1 precent_current_flags 1 11 `us 1 batt_set_voltage 2 12 `us 1 batt_set_current 2 14 `us 1 batt_actual_voltage 2 16 `us 1 batt_actual_current 2 18 `us 1 batt_set_trickle_voltage 2 20 `us 1 bat_set_trickle_current 2 22 `us 1 batt_set_min_discharge_voltage 2 24 `us 1 batt_capacitance_cycle1 2 26 `us 1 batt_capacitance_cycle2 2 28 `us 1 batt_capacitance_cycle3 2 30 `us 1 batt_capacitance_cycle4 2 32 `us 1 charge_current_1 2 34 `us 1 discharge_current_1 2 36 `us 1 charge_current_2 2 38 `us 1 discharge_current_2 2 40 `us 1 charge_current_3 2 42 `us 1 discharge_current_3 2 44 `us 1 charge_current_4 2 46 `us 1 discharge_current_4 2 48 `us 1 discharge_current_4_percent 2 50 `us 1 discharge_current_3_percent 2 52 `us 1 discharge_current_2_percent 2 54 `us 1 set_time 2 56 `ul 1 current_time 4 58 `[25]uc 1 text 25 62 ]
-"35
-[v main@bat_param bat_param `S950  1 a 87 48 ]
-"39
-[v main@tab tab `[4]uc  1 a 4 44 ]
-"66
+"37
+[v main@bat_param bat_param `S950  1 a 87 44 ]
+"56
 } 0
 "7 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\settings.c
 [v _setupUART setupUART `(v  1 e 1 0 ]
@@ -942,6 +948,16 @@ GLCD_Non_Inverted 1
 {
 "21
 } 0
+"192 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\memory.c
+[v _SaveParamToFlash SaveParamToFlash `(v  1 e 1 0 ]
+{
+"194
+[v SaveParamToFlash@current_param_address current_param_address `[4]uc  1 a 4 17 ]
+"195
+[v SaveParamToFlash@i i `c  1 a 1 22 ]
+[v SaveParamToFlash@j j `c  1 a 1 21 ]
+"220
+} 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 {
@@ -951,12 +967,26 @@ GLCD_Non_Inverted 1
 [v printf@fmt fmt `*.32Cuc  1 p 2 6 ]
 "13
 } 0
-"163 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\SST25VF.c
+"144 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\SST25VF.c
 [v _WriteByte WriteByte `(v  1 e 1 0 ]
 {
 [v WriteByte@Add Add `ul  1 p 4 3 ]
 [v WriteByte@data data `uc  1 p 1 7 ]
-"200
+"181
+} 0
+"156 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\memory.c
+[v _ParameterSector_CopyEraseRestore ParameterSector_CopyEraseRestore `(v  1 e 1 0 ]
+{
+"159
+} 0
+"215 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\SST25VF.c
+[v _SectorErase SectorErase `(v  1 e 1 0 ]
+{
+[v SectorErase@Add Add `uc  1 a 1 wreg ]
+[v SectorErase@Add Add `uc  1 a 1 wreg ]
+"218
+[v SectorErase@Add Add `uc  1 a 1 3 ]
+"244
 } 0
 "57
 [v _CheckWriteEN CheckWriteEN `(uc  1 e 1 0 ]
@@ -972,30 +1002,10 @@ GLCD_Non_Inverted 1
 [v CheckBusy@StatusRegisterByte StatusRegisterByte `uc  1 a 1 1 ]
 "55
 } 0
-"146
-[v _StatRegBP StatRegBP `(v  1 e 1 0 ]
+"127
+[v _SST25VF_init_Enable_Write SST25VF_init_Enable_Write `(v  1 e 1 0 ]
 {
-"160
-} 0
-"129
-[v _ReadBytes ReadBytes `(v  1 e 1 0 ]
-{
-"131
-[v ReadBytes@i i `uc  1 a 1 8 ]
-"129
-[v ReadBytes@Add Add `ul  1 p 4 1 ]
-[v ReadBytes@data data `*.39uc  1 p 2 5 ]
-[v ReadBytes@BytesCount BytesCount `uc  1 p 1 7 ]
-"144
-} 0
-"22 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\MMSP.c
-[v _SPI_Exchange SPI_Exchange `(uc  1 e 1 0 ]
-{
-[v SPI_Exchange@data data `uc  1 a 1 wreg ]
-[v SPI_Exchange@data data `uc  1 a 1 wreg ]
-"24
-[v SPI_Exchange@data data `uc  1 a 1 0 ]
-"27
+"141
 } 0
 "145 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 [v _Menu Menu `(v  1 e 1 0 ]
@@ -1028,8 +1038,8 @@ GLCD_Non_Inverted 1
 {
 [v batState@state state `uc  1 a 1 wreg ]
 [v batState@state state `uc  1 a 1 wreg ]
-[v batState@battery_number battery_number `uc  1 p 1 33 ]
-[v batState@state state `uc  1 a 1 36 ]
+[v batState@battery_number battery_number `uc  1 p 1 51 ]
+[v batState@state state `uc  1 a 1 54 ]
 "62
 } 0
 "343
@@ -1283,16 +1293,16 @@ GLCD_Non_Inverted 1
 [v _ChemistryDisplay ChemistryDisplay `(v  1 e 1 0 ]
 {
 [s S950 . 87 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 charge_current_3_percent 1 9 `uc 1 charge_current_4_percent 1 10 `uc 1 precent_current_flags 1 11 `us 1 batt_set_voltage 2 12 `us 1 batt_set_current 2 14 `us 1 batt_actual_voltage 2 16 `us 1 batt_actual_current 2 18 `us 1 batt_set_trickle_voltage 2 20 `us 1 bat_set_trickle_current 2 22 `us 1 batt_set_min_discharge_voltage 2 24 `us 1 batt_capacitance_cycle1 2 26 `us 1 batt_capacitance_cycle2 2 28 `us 1 batt_capacitance_cycle3 2 30 `us 1 batt_capacitance_cycle4 2 32 `us 1 charge_current_1 2 34 `us 1 discharge_current_1 2 36 `us 1 charge_current_2 2 38 `us 1 discharge_current_2 2 40 `us 1 charge_current_3 2 42 `us 1 discharge_current_3 2 44 `us 1 charge_current_4 2 46 `us 1 discharge_current_4 2 48 `us 1 discharge_current_4_percent 2 50 `us 1 discharge_current_3_percent 2 52 `us 1 discharge_current_2_percent 2 54 `us 1 set_time 2 56 `ul 1 current_time 4 58 `[25]uc 1 text 25 62 ]
-[v ChemistryDisplay@bat_param bat_param `*.39S950  1 p 2 33 ]
-[v ChemistryDisplay@set_mode set_mode `uc  1 p 1 35 ]
+[v ChemistryDisplay@bat_param bat_param `*.39S950  1 p 2 51 ]
+[v ChemistryDisplay@set_mode set_mode `uc  1 p 1 53 ]
 "91
 } 0
 "93
 [v _ChargerMode ChargerMode `(v  1 e 1 0 ]
 {
 [s S950 . 87 `uc 1 set_cycle 1 0 `uc 1 current_cycle 1 1 `uc 1 bat_actual_temp 1 2 `uc 1 bat_max_temp 1 3 `uc 1 bat_chem 1 4 `uc 1 bat_storage_precentage 1 5 `uc 1 selected_mode 1 6 `uc 1 cell_count 1 7 `uc 1 charge_current_2_percent 1 8 `uc 1 charge_current_3_percent 1 9 `uc 1 charge_current_4_percent 1 10 `uc 1 precent_current_flags 1 11 `us 1 batt_set_voltage 2 12 `us 1 batt_set_current 2 14 `us 1 batt_actual_voltage 2 16 `us 1 batt_actual_current 2 18 `us 1 batt_set_trickle_voltage 2 20 `us 1 bat_set_trickle_current 2 22 `us 1 batt_set_min_discharge_voltage 2 24 `us 1 batt_capacitance_cycle1 2 26 `us 1 batt_capacitance_cycle2 2 28 `us 1 batt_capacitance_cycle3 2 30 `us 1 batt_capacitance_cycle4 2 32 `us 1 charge_current_1 2 34 `us 1 discharge_current_1 2 36 `us 1 charge_current_2 2 38 `us 1 discharge_current_2 2 40 `us 1 charge_current_3 2 42 `us 1 discharge_current_3 2 44 `us 1 charge_current_4 2 46 `us 1 discharge_current_4 2 48 `us 1 discharge_current_4_percent 2 50 `us 1 discharge_current_3_percent 2 52 `us 1 discharge_current_2_percent 2 54 `us 1 set_time 2 56 `ul 1 current_time 4 58 `[25]uc 1 text 25 62 ]
-[v ChargerMode@bat_param bat_param `*.39S950  1 p 2 33 ]
-[v ChargerMode@set_mode set_mode `uc  1 p 1 35 ]
+[v ChargerMode@bat_param bat_param `*.39S950  1 p 2 51 ]
+[v ChargerMode@set_mode set_mode `uc  1 p 1 53 ]
 "120
 } 0
 "355
@@ -1306,10 +1316,10 @@ GLCD_Non_Inverted 1
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S3720 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S3736 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S3723 _IO_FILE 11 `S3720 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S3723  1 a 11 20 ]
+[s S3739 _IO_FILE 11 `S3736 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S3739  1 a 11 20 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 18 ]
 "9
@@ -1322,9 +1332,9 @@ GLCD_Non_Inverted 1
 {
 "1523
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 87 ]
-[s S3755 _IO_FILE 0 ]
+[s S3771 _IO_FILE 0 ]
 "1520
-[v vfprintf@fp fp `*.39S3755  1 p 2 0 ]
+[v vfprintf@fp fp `*.39S3771  1 p 2 0 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 4 ]
 "1543
@@ -1332,16 +1342,16 @@ GLCD_Non_Inverted 1
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S3788 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+[u S3804 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
 "1016
-[v vfpfcnvrt@convarg convarg `S3788  1 a 8 77 ]
+[v vfpfcnvrt@convarg convarg `S3804  1 a 8 77 ]
 "1009
 [v vfpfcnvrt@cp cp `*.32uc  1 a 2 85 ]
 "1010
 [v vfpfcnvrt@done done `i  1 a 2 75 ]
-[s S3755 _IO_FILE 0 ]
+[s S3771 _IO_FILE 0 ]
 "1007
-[v vfpfcnvrt@fp fp `*.39S3755  1 p 2 65 ]
+[v vfpfcnvrt@fp fp `*.39S3771  1 p 2 65 ]
 [v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 67 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 69 ]
 "1517
@@ -1357,9 +1367,9 @@ GLCD_Non_Inverted 1
 [v xtoa@p p `i  1 a 2 50 ]
 "938
 [v xtoa@c c `uc  1 a 1 64 ]
-[s S3755 _IO_FILE 0 ]
+[s S3771 _IO_FILE 0 ]
 "931
-[v xtoa@fp fp `*.39S3755  1 p 2 29 ]
+[v xtoa@fp fp `*.39S3771  1 p 2 29 ]
 [v xtoa@d d `uo  1 p 8 31 ]
 [v xtoa@x x `uc  1 p 1 39 ]
 "1001
@@ -1397,9 +1407,9 @@ GLCD_Non_Inverted 1
 [v utoa@i i `i  1 a 2 59 ]
 [v utoa@w w `i  1 a 2 49 ]
 [v utoa@p p `i  1 a 2 47 ]
-[s S3755 _IO_FILE 0 ]
+[s S3771 _IO_FILE 0 ]
 "894
-[v utoa@fp fp `*.39S3755  1 p 2 29 ]
+[v utoa@fp fp `*.39S3771  1 p 2 29 ]
 [v utoa@d d `uo  1 p 8 31 ]
 "926
 } 0
@@ -1436,9 +1446,9 @@ GLCD_Non_Inverted 1
 [v dtoa@p p `i  1 a 2 49 ]
 "445
 [v dtoa@s s `uc  1 a 1 61 ]
-[s S3755 _IO_FILE 0 ]
+[s S3771 _IO_FILE 0 ]
 "443
-[v dtoa@fp fp `*.39S3755  1 p 2 29 ]
+[v dtoa@fp fp `*.39S3771  1 p 2 29 ]
 [v dtoa@d d `o  1 p 8 31 ]
 "502
 } 0
@@ -1448,9 +1458,9 @@ GLCD_Non_Inverted 1
 "135
 [v pad@w w `i  1 a 2 27 ]
 [v pad@i i `i  1 a 2 25 ]
-[s S3755 _IO_FILE 0 ]
+[s S3771 _IO_FILE 0 ]
 "133
-[v pad@fp fp `*.39S3755  1 p 2 18 ]
+[v pad@fp fp `*.39S3771  1 p 2 18 ]
 [v pad@buf buf `*.39uc  1 p 2 20 ]
 [v pad@p p `i  1 p 2 22 ]
 "164
@@ -1464,18 +1474,18 @@ GLCD_Non_Inverted 1
 [v fputs@c c `uc  1 a 1 15 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 11 ]
-[u S3720 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S3723 _IO_FILE 11 `S3720 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S3723  1 p 2 13 ]
+[u S3736 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S3739 _IO_FILE 11 `S3736 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S3739  1 p 2 13 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 2 ]
-[u S3720 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S3723 _IO_FILE 11 `S3720 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S3723  1 p 2 4 ]
+[u S3736 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S3739 _IO_FILE 11 `S3736 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S3739  1 p 2 4 ]
 "24
 } 0
 "10 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
@@ -1529,10 +1539,10 @@ GLCD_Non_Inverted 1
 [v _atoi atoi `(i  1 e 2 0 ]
 {
 "6
-[v atoi@n n `i  1 a 2 13 ]
-[v atoi@neg neg `i  1 a 2 11 ]
+[v atoi@n n `i  1 a 2 33 ]
+[v atoi@neg neg `i  1 a 2 31 ]
 "4
-[v atoi@s s `*.32Cuc  1 p 2 6 ]
+[v atoi@s s `*.32Cuc  1 p 2 26 ]
 "16
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\isspace.c
@@ -1553,7 +1563,7 @@ GLCD_Non_Inverted 1
 [v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 wreg ]
 "1682
-[v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 37 ]
+[v Handle_Setting5_MenuNavigation@option option `uc  1 a 1 51 ]
 "1724
 } 0
 "1549
@@ -1562,7 +1572,7 @@ GLCD_Non_Inverted 1
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 wreg ]
 "1551
-[v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 37 ]
+[v Handle_Setting23_MenuNavigation@option option `uc  1 a 1 51 ]
 "1633
 } 0
 "1635
@@ -1571,7 +1581,7 @@ GLCD_Non_Inverted 1
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 wreg ]
 "1637
-[v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 37 ]
+[v Handle_Setting1_MenuNavigation@option option `uc  1 a 1 51 ]
 "1678
 } 0
 "1728
@@ -1580,7 +1590,7 @@ GLCD_Non_Inverted 1
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 wreg ]
 "1730
-[v Handle_Main_MenuNavigation@option option `uc  1 a 1 37 ]
+[v Handle_Main_MenuNavigation@option option `uc  1 a 1 51 ]
 "1758
 } 0
 "793 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
@@ -1596,7 +1606,7 @@ GLCD_Non_Inverted 1
 "1048
 [v _GLCD_PrintString GLCD_PrintString `(v  1 e 1 0 ]
 {
-[v GLCD_PrintString@Text Text `*.34Cuc  1 p 2 29 ]
+[v GLCD_PrintString@Text Text `*.34Cuc  1 p 2 47 ]
 "1057
 } 0
 "850
@@ -1604,36 +1614,26 @@ GLCD_Non_Inverted 1
 {
 [v GLCD_PrintChar@Character Character `uc  1 a 1 wreg ]
 "853
-[v GLCD_PrintChar@fontRead fontRead `ui  1 a 2 23 ]
-[v GLCD_PrintChar@fontStart fontStart `ui  1 a 2 19 ]
+[v GLCD_PrintChar@fontRead fontRead `ui  1 a 2 41 ]
+[v GLCD_PrintChar@fontStart fontStart `ui  1 a 2 37 ]
 "854
-[v GLCD_PrintChar@data data `uc  1 a 1 28 ]
-[v GLCD_PrintChar@j j `uc  1 a 1 27 ]
-[v GLCD_PrintChar@i i `uc  1 a 1 26 ]
-[v GLCD_PrintChar@overflow overflow `uc  1 a 1 25 ]
-[v GLCD_PrintChar@lines lines `uc  1 a 1 22 ]
-[v GLCD_PrintChar@width width `uc  1 a 1 21 ]
-[v GLCD_PrintChar@x x `uc  1 a 1 18 ]
-[v GLCD_PrintChar@data_next data_next `uc  1 a 1 17 ]
-[v GLCD_PrintChar@y y `uc  1 a 1 16 ]
-[v GLCD_PrintChar@y2 y2 `uc  1 a 1 15 ]
+[v GLCD_PrintChar@data data `uc  1 a 1 46 ]
+[v GLCD_PrintChar@j j `uc  1 a 1 45 ]
+[v GLCD_PrintChar@i i `uc  1 a 1 44 ]
+[v GLCD_PrintChar@overflow overflow `uc  1 a 1 43 ]
+[v GLCD_PrintChar@lines lines `uc  1 a 1 40 ]
+[v GLCD_PrintChar@width width `uc  1 a 1 39 ]
+[v GLCD_PrintChar@x x `uc  1 a 1 36 ]
+[v GLCD_PrintChar@data_next data_next `uc  1 a 1 35 ]
+[v GLCD_PrintChar@y y `uc  1 a 1 34 ]
+[v GLCD_PrintChar@y2 y2 `uc  1 a 1 33 ]
 "850
 [v GLCD_PrintChar@Character Character `uc  1 a 1 wreg ]
 "855
-[v GLCD_PrintChar@Character Character `uc  1 a 1 14 ]
+[v GLCD_PrintChar@Character Character `uc  1 a 1 32 ]
 "1046
 } 0
-"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"593 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+"593
 [v _GLCD_FillRectangle GLCD_FillRectangle `(v  1 e 1 0 ]
 {
 [v GLCD_FillRectangle@X1 X1 `Cuc  1 a 1 wreg ]
@@ -1967,6 +1967,53 @@ GLCD_Non_Inverted 1
 "191
 [v GLCD_GotoX@X X `Cuc  1 a 1 0 ]
 "193
+} 0
+"187 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\memory.c
+[v _CheckCurrentParamOffset CheckCurrentParamOffset `(us  1 e 2 0 ]
+{
+"190
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 24 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 20 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 22 ]
+"53
+} 0
+"161 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\memory.c
+[v _CheckOffsetPosition CheckOffsetPosition `(us  1 e 2 0 ]
+{
+"163
+[v CheckOffsetPosition@current_param_address current_param_address `[4]uc  1 a 4 13 ]
+"164
+[v CheckOffsetPosition@j j `c  1 a 1 19 ]
+[v CheckOffsetPosition@i i `c  1 a 1 18 ]
+"163
+[v CheckOffsetPosition@zeroBitCount zeroBitCount `uc  1 a 1 17 ]
+"182
+} 0
+"110 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\SST25VF.c
+[v _ReadBytes ReadBytes `(v  1 e 1 0 ]
+{
+"112
+[v ReadBytes@i i `uc  1 a 1 8 ]
+"110
+[v ReadBytes@Add Add `ul  1 p 4 1 ]
+[v ReadBytes@data data `*.39uc  1 p 2 5 ]
+[v ReadBytes@BytesCount BytesCount `uc  1 p 1 7 ]
+"125
+} 0
+"22 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\MMSP.c
+[v _SPI_Exchange SPI_Exchange `(uc  1 e 1 0 ]
+{
+[v SPI_Exchange@data data `uc  1 a 1 wreg ]
+[v SPI_Exchange@data data `uc  1 a 1 wreg ]
+"24
+[v SPI_Exchange@data data `uc  1 a 1 0 ]
+"27
 } 0
 "116 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
 [v _Button_Init Button_Init `(v  1 e 1 0 ]

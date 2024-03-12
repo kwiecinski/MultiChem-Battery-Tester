@@ -9479,25 +9479,6 @@ uint8_t CheckWriteEN (void)
  return 0;
 }
 
-
-void SST25VF_init (void)
-{
-
- LATFbits.LF7=0;
- SPI_Exchange(0x50);
- LATFbits.LF7=1;
-
-    delay_ms(50);
-  LATFbits.LF7=0;
-    SPI_Exchange(0x01);
-    SPI_Exchange(0x00);
-    LATFbits.LF7=1;
-
- delay_ms(50);
-}
-
-
-
 void ReadID (void)
 {
  LATFbits.LF7=0;
@@ -9550,7 +9531,7 @@ void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
  LATFbits.LF7=1;
 }
 
-void StatRegBP(void)
+void SST25VF_init_Enable_Write(void)
 {
 
  LATFbits.LF7=0;
