@@ -43,7 +43,7 @@ void ReadID_JEDEC(void);
 void ReadID (void);
 uint8_t CheckWriteEN (void);
 uint8_t CheckBusy(void);
-
+void WriteByteTable_AutoAddressIncrement(uint32_t Add ,uint8_t *data, uint8_t lenght);
 
 
 #endif	

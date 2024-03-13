@@ -38,19 +38,22 @@ void main(void)
     InitBattParameters(&bat_param);
     SingleBat_Menu(&bat_param);
     
-    uint8_t tab[4];
-   
-    
+    uint8_t taba[20],tab[20]={5,8,5,96,74,236,144,178,196,32,1,58,66,23,55,44,88,99,66,33};
+    WriteByteTable_AutoAddressIncrement(32,&tab[0],20);
+    ReadBytes(32,&taba[0],20);
+            
     while (1) 
     {
         Menu(&bat_param);
         
-        if(counter_test>=2000)
+        if(counter_test>=10000)
         {
-            printf("address %u\n\r", CheckCurrentParamOffset());
-            SaveParamToFlash();
+            
+        for (int i = 0; i < 20; ++i) 
+        {
+            printf("%d ", taba[i]);
+        }
             counter_test=0;
-
         }
     }    
 }

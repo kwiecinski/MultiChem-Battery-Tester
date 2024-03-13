@@ -9464,6 +9464,7 @@ void ReadID_JEDEC(void);
 void ReadID (void);
 uint8_t CheckWriteEN (void);
 uint8_t CheckBusy(void);
+void WriteByteTable_AutoAddressIncrement(uint32_t Add ,uint8_t *data, uint8_t lenght);
 # 7 "memory.c" 2
 
 # 1 "./MMSP.h" 1
@@ -9479,10 +9480,116 @@ uint8_t SPI_Exchange(uint8_t data);
 uint16_t CheckCurrentParamOffset(void);
 void SaveParamToFlash (void);
 # 9 "memory.c" 2
-# 156 "memory.c"
+
+# 1 "./menu_definitions.h" 1
+# 15 "./menu_definitions.h"
+typedef struct
+{
+
+    uint8_t set_cycle, current_cycle,
+            bat_actual_temp, bat_max_temp,
+            bat_chem, bat_storage_precentage, selected_mode, cell_count,
+            charge_current_2_percent,
+            charge_current_3_percent,
+            charge_current_4_percent,
+            precent_current_flags;
+
+
+    uint16_t batt_set_voltage, batt_set_current,
+            batt_actual_voltage, batt_actual_current,
+            batt_set_trickle_voltage, bat_set_trickle_current,
+            batt_set_min_discharge_voltage,
+            batt_capacitance_cycle1,batt_capacitance_cycle2,batt_capacitance_cycle3,batt_capacitance_cycle4,
+            charge_current_1, discharge_current_1,
+            charge_current_2, discharge_current_2,
+            charge_current_3, discharge_current_3,
+            charge_current_4, discharge_current_4,
+            discharge_current_4_percent,
+            discharge_current_3_percent,
+            discharge_current_2_percent,
+            set_time;
+
+
+    uint32_t current_time;
+
+    char text[25];
+
+}BattParameters;
+
+
+enum state
+{
+    state_charging,
+    state_discharging,
+    state_idle
+};
+
+enum battery_number
+{
+    battery_1,
+    battery_2
+};
+
+enum select_menu_start
+{
+    menu,
+    start
+};
+
+enum select_batt_chemistry
+{
+    liion,
+    pb,
+    nimh
+};
+
+enum mode
+{
+    charging,
+    charging_discharging,
+    charging_discharging_storage
+};
+
+
+
+void InitBattParameters(BattParameters *bat_param);
+void SingleBat_Menu(BattParameters *bat_param);
+void Options1_Menu(BattParameters *bat_param);
+void Options2_Menu(BattParameters *bat_param);
+void Options3_Menu(BattParameters *bat_param);
+void Options4_Menu(BattParameters *bat_param);
+void Options5_Menu(BattParameters *bat_param);
+void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode);
+void CellCount(BattParameters *batparam_ptr, uint8_t set_mode);
+void ChargerMode(BattParameters *bat_param, uint8_t set_mode);
+void CycleSet(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetCellVotage(BattParameters *batparam_ptr, uint8_t set_mode);
+void MinimumDischargeVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
+void TrickleCurrent(BattParameters *batparam_ptr, uint8_t set_mode);
+void TrickleVoltage(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetMaxTime (BattParameters *batparam_ptr, uint8_t set_mode);
+void SetTemp(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetChargingCurrent_1(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetChargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetChargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetChargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetDischargingCurrent_1(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
+void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
+# 10 "memory.c" 2
+# 31 "memory.c"
 void ParameterSector_CopyEraseRestore(void)
 {
+    uint8_t tab[64];
+    ReadBytes(0x40 -1,&tab[0],64);
+    for (uint8_t i = 0; i < 4; ++i)
+    {
+         tab[0x0 + i] = 0xFF;
+    }
     SectorErase(0x0);
+
+
 }
 
 uint16_t CheckOffsetPosition(void)
@@ -9511,11 +9618,13 @@ uint16_t CheckOffsetPosition(void)
 
 
 
+
+
 uint16_t CheckCurrentParamOffset(void)
 {
     return (CheckOffsetPosition()*144 + 144);
 }
-
+# 85 "memory.c"
 void SaveParamToFlash(void)
 {
     uint8_t current_param_address[4];
@@ -9553,43 +9662,34 @@ void RepresentValueInBinary (uint8_t value)
         printf("%d", (value & (1 << j)) ? 1 : 0);
     }
 }
+# 131 "memory.c"
+void SaveParamToTable( uint8_t lenght, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
+{
+    for(uint8_t j=0; j<=lenght; j++)
+    {
+        *(param_tab + *parameter_position +j) = (uint8_t)data>>(8*j);
+    }
+}
 
-void SaveParametersToFlash (void)
+
+void SaveParametersToFlash (BattParameters *bat_param)
 {
     uint16_t address_offset;
     address_offset = CheckCurrentParamOffset();
 
-const uint8_t parameters_address[40][2] =
-{
-    {0x01, 2},
-    {0x03, 2},
-    {0x05, 2},
-    {0x07, 2},
-    {0x09, 1},
-    {0x10, 1},
-    {0x11, 1},
-    {0x12, 1},
-    {0x13, 2},
-    {0x15, 2},
-    {0x17, 2},
-    {0x19, 2},
-    {0x1B, 2},
-    {0x1C, 1},
-    {0x1D, 2},
-    {0x1F, 2},
-    {0x1E, 2},
-    {0x20, 2},
-    {0x22, 2},
-    {0x24, 2},
-    {0x26, 2},
-    {0x28, 2},
-    {0x2A, 2},
-    {0x2C, 2},
-    {0x2E, 2},
-    {0x30, 2},
-    {0x32, 2},
-    {0x34, 2},
-};
+    uint8_t param_tab[144], parameter_position;
+
+   parameter_position=0;
+   SaveParamToTable(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
+   SaveParamToTable(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
+   SaveParamToTable(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
+   SaveParamToTable(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
+   SaveParamToTable(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
+   SaveParamToTable(bat_param->cell_count, sizeof(bat_param->cell_count), &parameter_position, &param_tab[0]);
+   SaveParamToTable(bat_param->selected_mode, sizeof(bat_param->selected_mode), &parameter_position, &param_tab[0]);
+   SaveParamToTable(bat_param->set_cycle, sizeof(bat_param->set_cycle), &parameter_position, &param_tab[0]);
+
+
 
 
 }

@@ -13,7 +13,8 @@
 #define		BYTE_PROGRAM			0X02
 #define 	WRITE_EN				0x06
 #define		WRITE_DB				0X04
-#define		EBSY					0x70
+#define		EBSY					0x70    // Enable SO as RY/BY# status during AAI programming
+#define		DBSY					0x80    // Disable SO as RY/BY# status during AAI programming
 #define		READ_REGISTER_STATUS	0x05
 #define		CHIP_ERASE				0X60
 #define		SRB_BUSY				0x01	//status register bit: busy		
@@ -22,6 +23,8 @@
 #define     SECTOR_ERASE            0x20
 #define     BLOCK_ERASE_32KB        0x52
 #define     BLOCK_ERASE_64KB        0xD8
+#define     AAI_WORD_PROGRAM        0xAD
+
 
 #define ENABLE_SST25        LATFbits.LF7=0
 #define DISABLE_SST25       LATFbits.LF7=1
@@ -71,6 +74,7 @@ uint8_t CheckWriteEN (void)
 	DISABLE_SST25;
 	return 0;
 }
+
 
 void ReadID (void)
 {
@@ -178,8 +182,66 @@ void WriteByte(uint32_t Add,uint8_t data)
 		}
 
 	}
+    
+    ENABLE_SST25;
+	SPI_Exchange(WRITE_DB);
+	DISABLE_SST25;
 }
 
+
+void WriteByteTable_AutoAddressIncrement(uint32_t Add ,uint8_t *data, uint8_t lenght)
+{
+	//enable end checking WRITE bit------------------------
+
+    ENABLE_SST25;
+	SPI_Exchange(DBSY);
+	DISABLE_SST25;
+    
+	ENABLE_SST25;
+	SPI_Exchange(WRITE_EN);
+	DISABLE_SST25;
+
+
+    
+	while(1)
+	{
+		if(CheckWriteEN()==1)		
+		{
+			break;
+		}
+	}
+
+	//-----------------------------------------------------
+	//writing data to FLASH--------------------------------
+	ENABLE_SST25;
+	SPI_Exchange(AAI_WORD_PROGRAM);
+	SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+	SPI_Exchange(((Add & 0x00FFFF) >> 8));
+	SPI_Exchange(Add & 0x0000FF);
+    
+    for(uint16_t i=0; i<lenght; i++)
+    {
+        SPI_Exchange(*(data+i));
+    }
+
+	DISABLE_SST25;
+	//-----------------------------------------------------
+	//Waiting to finish writing - Checking Busy flag
+
+	while(1)
+	{
+		if(CheckBusy()==0)
+		{
+			break;
+		}
+
+	}
+    
+    ENABLE_SST25;
+	SPI_Exchange(WRITE_DB);
+	DISABLE_SST25;
+    
+}
 /////////////////////////////////////////////////////////////////////////
 
 void ChipErase(void)

@@ -6,4 +6,5 @@ settings.h  \
 interrupts.h  \
 SST25VF.h  \
 MMSP.h  \
-memory.h 
+memory.h  \
+menu_definitions.h 

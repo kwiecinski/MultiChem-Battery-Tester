@@ -9441,7 +9441,7 @@ void setupPWM(void);
 
 void delay_ms(unsigned int milliseconds);
 # 5 "SST25VF.c" 2
-# 38 "SST25VF.c"
+# 41 "SST25VF.c"
 uint8_t CheckBusy(void)
 {
  uint8_t StatusRegisterByte;
@@ -9478,6 +9478,7 @@ uint8_t CheckWriteEN (void)
  LATFbits.LF7=1;
  return 0;
 }
+
 
 void ReadID (void)
 {
@@ -9585,8 +9586,66 @@ void WriteByte(uint32_t Add,uint8_t data)
   }
 
  }
+
+    LATFbits.LF7=0;
+ SPI_Exchange(0X04);
+ LATFbits.LF7=1;
 }
 
+
+void WriteByteTable_AutoAddressIncrement(uint32_t Add ,uint8_t *data, uint8_t lenght)
+{
+
+
+    LATFbits.LF7=0;
+ SPI_Exchange(0x80);
+ LATFbits.LF7=1;
+
+ LATFbits.LF7=0;
+ SPI_Exchange(0x06);
+ LATFbits.LF7=1;
+
+
+
+ while(1)
+ {
+  if(CheckWriteEN()==1)
+  {
+   break;
+  }
+ }
+
+
+
+ LATFbits.LF7=0;
+ SPI_Exchange(0xAD);
+ SPI_Exchange(((Add & 0xFFFFFF) >> 16));
+ SPI_Exchange(((Add & 0x00FFFF) >> 8));
+ SPI_Exchange(Add & 0x0000FF);
+
+    for(uint16_t i=0; i<=lenght;i++)
+    {
+        SPI_Exchange(*(data+i));
+    }
+
+ LATFbits.LF7=1;
+
+
+
+ while(1)
+ {
+  if(CheckBusy()==0)
+  {
+   break;
+  }
+
+ }
+
+    LATFbits.LF7=0;
+ SPI_Exchange(0X04);
+ LATFbits.LF7=1;
+
+}
 
 
 void ChipErase(void)
