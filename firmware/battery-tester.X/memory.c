@@ -10,69 +10,78 @@
 #include "menu_definitions.h"
 
 #define ADDRESS     0
-#define LENGHT      1
+#define LENGTH      1
 
 #define PARAMETER_SECTOR_ADDR                       0x0
+#define MEASUREMENT_SECTOR_ADDR                     0x1000
+
 #define WEAR_LEVELING_PARAM_START_ADDR              0x0     
 #define WEAR_LEVELING_PARAM_CYCLES                  27      // 1 Sector size (4096B) / Size of parameters table (144B)
-#define WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT     4       // value is up ronded from WEAR_LEVELING_PARAM_CYCLES/8 
+#define WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH     4       // value is up rounded from WEAR_LEVELING_PARAM_CYCLES/8 
+#define DATA_COPY_LENGTH                            64
+
+#define PARAMETER_START_ADDR                        0x40    //64
 #define PARAMETERS_DATA_SIZE                        144
 
-#define MEASURMENT_DATA_SECTOR_ADDR                           0x40    //64
-#define WEAR_LEVELING_MEASURMENT_DATA_START_ADDR              0X10     // 0
-#define WEAR_LEVELING_MEASURMENT_DATA_CYCLES                  32      // 1 Sector size (4096B) / Size of parameters table (144B)
-#define WEAR_LEVELING_MEASURMENT_DATA_CYCLES_BYTES_LENGHT     4       // value is up ronded from WEAR_LEVELING_PARAM_CYCLES/8 
-#define MEASURMENT_DATA_SIZE                                  16384
+#define WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR              0X10     // 0
+#define WEAR_LEVELING_MEASUREMENT_DATA_CYCLES                  32      // 1 Sector size (4096B) / Size of parameters table (144B)
+#define WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH     4       // value is up rounded from WEAR_LEVELING_PARAM_CYCLES/8 
+
+#define MEASUREMENT_START_ADDR                       0x1000
+#define MEASUREMENT_DATA_SIZE                                  16384
 
 /********************************************************************************/
-#define DATA_COPY_LENGHT 64
 
-
-void ParameterSector_CopyEraseRestore(void)
+/*
+ * @brief Copies, erases, and restores parameter sector.
+ */
+void parameter_sector_copy_erase_restore(void)
 {
-    uint8_t tab[DATA_COPY_LENGHT];
-    ReadBytes(MEASURMENT_DATA_SECTOR_ADDR-1,&tab[0],DATA_COPY_LENGHT);
-    for (uint8_t i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT; ++i)
+    uint8_t tab[DATA_COPY_LENGTH];
+    read_bytes(PARAMETER_START_ADDR, &tab[0], DATA_COPY_LENGTH);
+    for (uint8_t i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH; ++i)
     {
-         tab[WEAR_LEVELING_PARAM_START_ADDR + i] = 0xFF;
+        tab[WEAR_LEVELING_PARAM_START_ADDR + i] = 0xFF;
     }
-    SectorErase(PARAMETER_SECTOR_ADDR);
-    
-    
+    sector_erase(PARAMETER_SECTOR_ADDR);
+    write_byte_table_auto_address_increment(PARAMETER_START_ADDR, &tab[0], DATA_COPY_LENGTH);
 }
 
-uint16_t CheckOffsetPosition(void)
+/*
+ * @brief Checks the current offset position.
+ * @return The calculated current offset position.
+ */
+uint16_t check_offset_position(void)
 {
-    uint8_t current_param_address[4],zeroBitCount;
-    int8_t i,j;
-    
-    ReadBytes(WEAR_LEVELING_PARAM_START_ADDR,&current_param_address[0],WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT);
-    
+    uint8_t current_param_address[4], zero_bit_count;
+    int8_t i, j;
+
+    read_bytes(WEAR_LEVELING_PARAM_START_ADDR, &current_param_address[0], WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH);
+
     // Check how many zeros are in bytes are in Wear Leveling Status Buffer
-    zeroBitCount = 0;
-    for (i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT; ++i) 
+    zero_bit_count = 0;
+    for (i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH; ++i) 
     {
         for (j = 7; j >= 0; --j) 
         {
             if (((current_param_address[i] >> j) & 0x01) == 0) 
             {
-                zeroBitCount++;
+                zero_bit_count++;
             }
         }
     }
-    return zeroBitCount; 
-      
+    return zero_bit_count; 
 }
 
 /*
  * @brief Checks the current parameter offset.
  * @return The calculated current parameter offset.
  */
-
-uint16_t CheckCurrentParamOffset(void)
+uint16_t check_current_param_offset(void)
 { 
-    return  (CheckOffsetPosition()*PARAMETERS_DATA_SIZE + PARAMETERS_DATA_SIZE);
+    return (check_offset_position() * PARAMETERS_DATA_SIZE + PARAMETERS_DATA_SIZE);
 }
+
 /*
  * @brief Saves parameter to flash memory.
  *
@@ -81,38 +90,40 @@ uint16_t CheckCurrentParamOffset(void)
  * searches for the first bit that is set to 1 (MSB) in the current parameter address array.
  * Once found, it changes that bit to 0 and writes the updated parameter to the flash memory.
  */
-
-void SaveParamToFlash(void)
+void update_wear_leveling_static_buffer(void)
 {
     uint8_t current_param_address[4];
-    int8_t i,j;
+    int8_t i, j;
 
-    if(CheckOffsetPosition()>=WEAR_LEVELING_PARAM_CYCLES)
+    if (check_offset_position() >= WEAR_LEVELING_PARAM_CYCLES)
     {
-        ParameterSector_CopyEraseRestore();
+        parameter_sector_copy_erase_restore();
         printf("CLEAR MEMORY! \n\r");
         return;
     }
-    ReadBytes(WEAR_LEVELING_PARAM_START_ADDR,&current_param_address[0],WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT);
-    
-    for (i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGHT; ++i) 
+    read_bytes(WEAR_LEVELING_PARAM_START_ADDR, &current_param_address[0], WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH);
+
+    for (i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH; ++i)
     {
         // Checking for first bit that is 1 (MSB)
-        for (j = 7; j >= 0; --j) 
+        for (j = 7; j >= 0; --j)
         {
-            if (((current_param_address[i] >> j) & 0x01) == 1) 
+            if (((current_param_address[i] >> j) & 0x01) == 1)
             {
                 // Found bit 1, change it to 0
-               current_param_address[i] &= ~(1 << j);
-               WriteByte(WEAR_LEVELING_PARAM_START_ADDR+i, current_param_address[i]);    // save new offset posistion to flash
-               
-               return; // End for after finding first 1 bit
+                current_param_address[i] &= ~(1 << j);
+                write_byte(WEAR_LEVELING_PARAM_START_ADDR + i, current_param_address[i]);    // save new offset position to flash
+                return; // End for after finding first 1 bit
             }
         }
     }
 }
 
-void RepresentValueInBinary (uint8_t value)
+/*
+ * @brief Represents value in binary.
+ * @param value: The value to be represented.
+ */
+void represent_value_in_binary(uint8_t value)
 {
     for (int8_t j = 7; j >= 0; j--) 
     {
@@ -123,38 +134,57 @@ void RepresentValueInBinary (uint8_t value)
 /**
  * @brief Saves parameter data to a table.
  *
- * @param lenght: The length of the data.
+ * @param length: The length of the data.
  * @param data: The data to be saved.
  * @param parameter_position: The position of the parameter in the table.
  * @param param_tab: The table where the parameter data will be saved.
  */
-void SaveParamToTable( uint8_t lenght, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
+void save_param_to_table(uint8_t length, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
 {
-    for(uint8_t j=0; j<=lenght; j++)
+    for (uint8_t j = 0; j <= length; j++)
     {
-        *(param_tab + *parameter_position +j) = (uint8_t)data>>(8*j);
+        *(param_tab + *parameter_position + j) = (uint8_t)data >> (8 * j);
     }
 }  
-    
 
-void SaveParametersToFlash (BattParameters *bat_param)
+/*
+ * @brief Saves parameters to flash.
+ * @param bat_param: The battery parameters to be saved.
+ */
+void save_parameters_to_flash(BattParameters *bat_param)
 {
-    uint16_t address_offset;
-    address_offset = CheckCurrentParamOffset();
-    
     uint8_t param_tab[144], parameter_position;
-    
-   parameter_position=0;
-   SaveParamToTable(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->cell_count, sizeof(bat_param->cell_count), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->selected_mode, sizeof(bat_param->selected_mode), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->set_cycle, sizeof(bat_param->set_cycle), &parameter_position, &param_tab[0]);
 
+    parameter_position = 0;
+    save_param_to_table(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->cell_count, sizeof(bat_param->cell_count), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->selected_mode, sizeof(bat_param->selected_mode), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->set_cycle, sizeof(bat_param->set_cycle), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_set_voltage, sizeof(bat_param->batt_set_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_set_min_discharge_voltage, sizeof(bat_param->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_set_trickle_voltage, sizeof(bat_param->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_set_trickle_current, sizeof(bat_param->batt_set_trickle_current), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->set_max_time, sizeof(bat_param->set_max_time), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_max_temp, sizeof(bat_param->batt_max_temp), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_1, sizeof(bat_param->charge_current_1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_1, sizeof(bat_param->discharge_current_1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_2, sizeof(bat_param->charge_current_2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_2_percent, sizeof(bat_param->charge_current_2_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_3, sizeof(bat_param->charge_current_3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_3_percent, sizeof(bat_param->charge_current_3_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_4, sizeof(bat_param->charge_current_4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_4_percent, sizeof(bat_param->charge_current_4_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_2, sizeof(bat_param->discharge_current_2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_2_percent, sizeof(bat_param->discharge_current_2_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_3, sizeof(bat_param->discharge_current_3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_3_percent, sizeof(bat_param->discharge_current_3_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_4, sizeof(bat_param->discharge_current_4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_4_percent, sizeof(bat_param->discharge_current_4_percent), &parameter_position, &param_tab[0]);
+    
   
-
-    
+    write_byte_table_auto_address_increment(check_current_param_offset(), &param_tab[0], parameter_position);
 }

@@ -438,7 +438,7 @@ void SetMaxTime (BattParameters *bat_param, uint8_t set_mode)
     }
 
     GLCD_GotoXY(54, 13);
-    sprintf(bat_param->text, "%02uh%02um", bat_param->set_time/60, bat_param->set_time%60);
+    sprintf(bat_param->text, "%02uh%02um", bat_param->set_max_time/60, bat_param->set_max_time%60);
     GLCD_PrintString(bat_param->text); 
 }
 /*-----------------------------------------------------------------------------*/
@@ -466,7 +466,7 @@ void SetTemp(BattParameters *bat_param, uint8_t set_mode)
     }
 
     GLCD_GotoXY(30, 22);
-    sprintf(bat_param->text, "%uC", bat_param->bat_max_temp);
+    sprintf(bat_param->text, "%uC", bat_param->batt_max_temp);
     GLCD_PrintString(bat_param->text);  
 }
 /*-----------------------------------------------------------------------------*/
@@ -509,7 +509,7 @@ void TrickleCurrent(BattParameters *bat_param, uint8_t set_mode)
     }
 
     GLCD_GotoXY(67, 40);
-    sprintf(bat_param->text, "%umA", bat_param->bat_set_trickle_current);
+    sprintf(bat_param->text, "%umA", bat_param->batt_set_trickle_current);
     GLCD_PrintString(bat_param->text); 
 }
 void SetCellVotage(BattParameters *bat_param, uint8_t set_mode)
@@ -857,12 +857,12 @@ void InitBattParameters (BattParameters *bat_param)
         bat_param->set_cycle = 1;
         bat_param->current_cycle = 1;
         bat_param->bat_actual_temp = 20;
-        bat_param->bat_max_temp = 35;
+        bat_param->batt_max_temp = 35;
         bat_param->bat_chem = liion;
         bat_param->bat_storage_precentage = 70;
         bat_param->selected_mode = charging_discharging;
         bat_param->cell_count = 1;
-        bat_param->set_time = 30;
+        bat_param->set_max_time = 30;
         bat_param->charge_current_1=1100;
         bat_param->charge_current_2=1200;
         bat_param->charge_current_3=1300;
@@ -872,7 +872,7 @@ void InitBattParameters (BattParameters *bat_param)
         bat_param->batt_actual_voltage = 370;
         bat_param->batt_actual_current = 430;
         bat_param->batt_set_trickle_voltage = 270;
-        bat_param->bat_set_trickle_current = 30;
+        bat_param->batt_set_trickle_current = 30;
         bat_param->batt_set_min_discharge_voltage = 270;
         bat_param->batt_capacitance_cycle1 = 1000;
 }

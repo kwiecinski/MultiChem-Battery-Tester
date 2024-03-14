@@ -709,19 +709,19 @@ void Menu(BattParameters *bat_param)
             
                 if(Button_EventGet(RIGHT_SW))
                 {
-                    bat_param->bat_set_trickle_current=bat_param->bat_set_trickle_current+5;
+                    bat_param->batt_set_trickle_current=bat_param->batt_set_trickle_current+5;
                 }else if(Button_EventGet(LEFT_SW))
                 {
-                    bat_param->bat_set_trickle_current=bat_param->bat_set_trickle_current-5;
+                    bat_param->batt_set_trickle_current=bat_param->batt_set_trickle_current-5;
                 }
 
-                if(bat_param->bat_set_trickle_current<MIN_TRICKLE_CURRENT-1)
+                if(bat_param->batt_set_trickle_current<MIN_TRICKLE_CURRENT-1)
                 {
-                    bat_param->bat_set_trickle_current = MAX_TRICKLE_CURRENT;  
+                    bat_param->batt_set_trickle_current = MAX_TRICKLE_CURRENT;  
 
-                }else if(bat_param->bat_set_trickle_current>MAX_TRICKLE_CURRENT+1)
+                }else if(bat_param->batt_set_trickle_current>MAX_TRICKLE_CURRENT+1)
                 {
-                    bat_param->bat_set_trickle_current = MIN_TRICKLE_CURRENT;  
+                    bat_param->batt_set_trickle_current = MIN_TRICKLE_CURRENT;  
                 }
                 TrickleCurrent(bat_param, set_mode_edit);
             }
@@ -776,19 +776,19 @@ void Menu(BattParameters *bat_param)
             
                 if(Button_EventGet(RIGHT_SW))
                 {
-                    bat_param->set_time=bat_param->set_time+30;
+                    bat_param->set_max_time=bat_param->set_max_time+30;
                 }else if(Button_EventGet(LEFT_SW))
                 {
-                    bat_param->set_time=bat_param->set_time-30;
+                    bat_param->set_max_time=bat_param->set_max_time-30;
                 }
 
-                if(bat_param->set_time<MIN_TIME)
+                if(bat_param->set_max_time<MIN_TIME)
                 {
-                    bat_param->set_time = MAX_TIME;  
+                    bat_param->set_max_time = MAX_TIME;  
 
-                }else if(bat_param->set_time>MAX_TIME)
+                }else if(bat_param->set_max_time>MAX_TIME)
                 {
-                    bat_param->set_time = MIN_TIME;  
+                    bat_param->set_max_time = MIN_TIME;  
                 }
                 
                  SetMaxTime(bat_param, set_mode_edit);
@@ -797,19 +797,19 @@ void Menu(BattParameters *bat_param)
             
                 if(Button_EventGet(RIGHT_SW))
                 {
-                    bat_param->bat_max_temp=bat_param->bat_max_temp+5;
+                    bat_param->batt_max_temp=bat_param->batt_max_temp+5;
                 }else if(Button_EventGet(LEFT_SW))
                 {
-                    bat_param->bat_max_temp=bat_param->bat_max_temp-5;
+                    bat_param->batt_max_temp=bat_param->batt_max_temp-5;
                 }
 
-                if(bat_param->bat_max_temp<MIN_TEMP-1)
+                if(bat_param->batt_max_temp<MIN_TEMP-1)
                 {
-                    bat_param->bat_max_temp = MAX_TEMP;  
+                    bat_param->batt_max_temp = MAX_TEMP;  
 
-                }else if(bat_param->bat_max_temp>MAX_TEMP+1)
+                }else if(bat_param->batt_max_temp>MAX_TEMP+1)
                 {
-                    bat_param->bat_max_temp = MIN_TEMP;  
+                    bat_param->batt_max_temp = MIN_TEMP;  
                 }
                 
                  SetTemp(bat_param, set_mode_edit);

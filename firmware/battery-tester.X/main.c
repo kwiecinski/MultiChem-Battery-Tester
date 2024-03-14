@@ -32,15 +32,12 @@ void main(void)
     Button_Init();
     Init_Timer0();
     setSPI_Interface();
-    SST25VF_init_Enable_Write();
+    sst25vf_init_enable_write();
             
     BattParameters bat_param;
     InitBattParameters(&bat_param);
     SingleBat_Menu(&bat_param);
     
-    uint8_t taba[20],tab[20]={5,8,5,96,74,236,144,178,196,32,1,58,66,23,55,44,88,99,66,33};
-    WriteByteTable_AutoAddressIncrement(32,&tab[0],20);
-    ReadBytes(32,&taba[0],20);
             
     while (1) 
     {
@@ -49,10 +46,6 @@ void main(void)
         if(counter_test>=10000)
         {
             
-        for (int i = 0; i < 20; ++i) 
-        {
-            printf("%d ", taba[i]);
-        }
             counter_test=0;
         }
     }    

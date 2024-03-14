@@ -34,6 +34,7 @@
         <group>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/SST25VF.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.c</file>
+            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.h</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/interrupts.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/main.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/SST25VF.h</file>

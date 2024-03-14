@@ -9453,18 +9453,16 @@ void Init_Timer0();
 # 6 "memory.c" 2
 
 # 1 "./SST25VF.h" 1
-# 36 "./SST25VF.h"
-void BlockErase(uint8_t Add, uint8_t block_type);
-void SectorErase(uint8_t Add);
-void ChipErase(void);
-void WriteByte(uint32_t Add,uint8_t data);
-void SST25VF_init_Enable_Write(void);
-void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
-void ReadID_JEDEC(void);
-void ReadID (void);
-uint8_t CheckWriteEN (void);
-uint8_t CheckBusy(void);
-void WriteByteTable_AutoAddressIncrement(uint32_t Add ,uint8_t *data, uint8_t lenght);
+# 37 "./SST25VF.h"
+void block_erase(uint8_t add, uint8_t block_type);
+void sector_erase(uint8_t add);
+void chip_erase(void);
+void write_byte(uint32_t add, uint8_t data);
+void sst25vf_init_enable_write(void);
+void read_bytes(uint32_t add, uint8_t *data, uint8_t length);
+void read_id_jedec(void);
+void read_id(void);
+void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length);
 # 7 "memory.c" 2
 
 # 1 "./MMSP.h" 1
@@ -9474,11 +9472,6 @@ uint8_t SPI_Exchange(uint8_t data);
 # 8 "memory.c" 2
 
 # 1 "./memory.h" 1
-
-
-
-uint16_t CheckCurrentParamOffset(void);
-void SaveParamToFlash (void);
 # 9 "memory.c" 2
 
 # 1 "./menu_definitions.h" 1
@@ -9487,7 +9480,7 @@ typedef struct
 {
 
     uint8_t set_cycle, current_cycle,
-            bat_actual_temp, bat_max_temp,
+            bat_actual_temp, batt_max_temp,
             bat_chem, bat_storage_precentage, selected_mode, cell_count,
             charge_current_2_percent,
             charge_current_3_percent,
@@ -9497,7 +9490,7 @@ typedef struct
 
     uint16_t batt_set_voltage, batt_set_current,
             batt_actual_voltage, batt_actual_current,
-            batt_set_trickle_voltage, bat_set_trickle_current,
+            batt_set_trickle_voltage, batt_set_trickle_current,
             batt_set_min_discharge_voltage,
             batt_capacitance_cycle1,batt_capacitance_cycle2,batt_capacitance_cycle3,batt_capacitance_cycle4,
             charge_current_1, discharge_current_1,
@@ -9507,7 +9500,7 @@ typedef struct
             discharge_current_4_percent,
             discharge_current_3_percent,
             discharge_current_2_percent,
-            set_time;
+            set_max_time;
 
 
     uint32_t current_time;
@@ -9578,65 +9571,66 @@ void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
 # 10 "memory.c" 2
-# 31 "memory.c"
-void ParameterSector_CopyEraseRestore(void)
+# 38 "memory.c"
+void parameter_sector_copy_erase_restore(void)
 {
     uint8_t tab[64];
-    ReadBytes(0x40 -1,&tab[0],64);
+    read_bytes(0x40, &tab[0], 64);
     for (uint8_t i = 0; i < 4; ++i)
     {
-         tab[0x0 + i] = 0xFF;
+        tab[0x0 + i] = 0xFF;
     }
-    SectorErase(0x0);
-
-
+    sector_erase(0x0);
+    write_byte_table_auto_address_increment(0x40, &tab[0], 64);
 }
 
-uint16_t CheckOffsetPosition(void)
+
+
+
+
+uint16_t check_offset_position(void)
 {
-    uint8_t current_param_address[4],zeroBitCount;
-    int8_t i,j;
+    uint8_t current_param_address[4], zero_bit_count;
+    int8_t i, j;
 
-    ReadBytes(0x0,&current_param_address[0],4);
+    read_bytes(0x0, &current_param_address[0], 4);
 
 
-    zeroBitCount = 0;
+    zero_bit_count = 0;
     for (i = 0; i < 4; ++i)
     {
         for (j = 7; j >= 0; --j)
         {
             if (((current_param_address[i] >> j) & 0x01) == 0)
             {
-                zeroBitCount++;
+                zero_bit_count++;
             }
         }
     }
-    return zeroBitCount;
-
+    return zero_bit_count;
 }
 
 
 
 
 
-
-uint16_t CheckCurrentParamOffset(void)
+uint16_t check_current_param_offset(void)
 {
-    return (CheckOffsetPosition()*144 + 144);
+    return (check_offset_position() * 144 + 144);
 }
-# 85 "memory.c"
-void SaveParamToFlash(void)
+# 93 "memory.c"
+void update_wear_leveling_static_buffer(void)
 {
     uint8_t current_param_address[4];
-    int8_t i,j;
+    int8_t i, j;
 
-    if(CheckOffsetPosition()>=27)
+    if (check_offset_position() >= 27)
     {
-        ParameterSector_CopyEraseRestore();
+        parameter_sector_copy_erase_restore();
         printf("CLEAR MEMORY! \n\r");
         return;
     }
-    ReadBytes(0x0,&current_param_address[0],4);
+    read_bytes(0x0, &current_param_address[0], 4);
 
     for (i = 0; i < 4; ++i)
     {
@@ -9646,50 +9640,72 @@ void SaveParamToFlash(void)
             if (((current_param_address[i] >> j) & 0x01) == 1)
             {
 
-               current_param_address[i] &= ~(1 << j);
-               WriteByte(0x0 +i, current_param_address[i]);
-
-               return;
+                current_param_address[i] &= ~(1 << j);
+                write_byte(0x0 + i, current_param_address[i]);
+                return;
             }
         }
     }
 }
 
-void RepresentValueInBinary (uint8_t value)
+
+
+
+
+void represent_value_in_binary(uint8_t value)
 {
     for (int8_t j = 7; j >= 0; j--)
     {
         printf("%d", (value & (1 << j)) ? 1 : 0);
     }
 }
-# 131 "memory.c"
-void SaveParamToTable( uint8_t lenght, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
+# 142 "memory.c"
+void save_param_to_table(uint8_t length, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
 {
-    for(uint8_t j=0; j<=lenght; j++)
+    for (uint8_t j = 0; j <= length; j++)
     {
-        *(param_tab + *parameter_position +j) = (uint8_t)data>>(8*j);
+        *(param_tab + *parameter_position + j) = (uint8_t)data >> (8 * j);
     }
 }
 
 
-void SaveParametersToFlash (BattParameters *bat_param)
-{
-    uint16_t address_offset;
-    address_offset = CheckCurrentParamOffset();
 
+
+
+void save_parameters_to_flash(BattParameters *bat_param)
+{
     uint8_t param_tab[144], parameter_position;
 
-   parameter_position=0;
-   SaveParamToTable(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->cell_count, sizeof(bat_param->cell_count), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->selected_mode, sizeof(bat_param->selected_mode), &parameter_position, &param_tab[0]);
-   SaveParamToTable(bat_param->set_cycle, sizeof(bat_param->set_cycle), &parameter_position, &param_tab[0]);
+    parameter_position = 0;
+    save_param_to_table(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->cell_count, sizeof(bat_param->cell_count), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->selected_mode, sizeof(bat_param->selected_mode), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->set_cycle, sizeof(bat_param->set_cycle), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_set_voltage, sizeof(bat_param->batt_set_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_set_min_discharge_voltage, sizeof(bat_param->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_set_trickle_voltage, sizeof(bat_param->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_set_trickle_current, sizeof(bat_param->batt_set_trickle_current), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->set_max_time, sizeof(bat_param->set_max_time), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->batt_max_temp, sizeof(bat_param->batt_max_temp), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_1, sizeof(bat_param->charge_current_1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_1, sizeof(bat_param->discharge_current_1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_2, sizeof(bat_param->charge_current_2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_2_percent, sizeof(bat_param->charge_current_2_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_3, sizeof(bat_param->charge_current_3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_3_percent, sizeof(bat_param->charge_current_3_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_4, sizeof(bat_param->charge_current_4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->charge_current_4_percent, sizeof(bat_param->charge_current_4_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_2, sizeof(bat_param->discharge_current_2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_2_percent, sizeof(bat_param->discharge_current_2_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_3, sizeof(bat_param->discharge_current_3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_3_percent, sizeof(bat_param->discharge_current_3_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_4, sizeof(bat_param->discharge_current_4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->discharge_current_4_percent, sizeof(bat_param->discharge_current_4_percent), &parameter_position, &param_tab[0]);
 
 
-
-
+    write_byte_table_auto_address_increment(check_current_param_offset(), &param_tab[0], parameter_position);
 }

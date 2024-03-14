@@ -4,8 +4,6 @@
 #include "MMSP.h"
 #include "settings.h"
 
-
-
 #define		READ_ID					0X90
 #define		READ_ID_ADD				0X00
 #define		JEDEC_READ_ID			0X9F
@@ -25,76 +23,77 @@
 #define     BLOCK_ERASE_64KB        0xD8
 #define     AAI_WORD_PROGRAM        0xAD
 
-
 #define ENABLE_SST25        LATFbits.LF7=0
 #define DISABLE_SST25       LATFbits.LF7=1
 
-
 /*
-*	Function checks BUSY bit 
-*	
-*	RETURN 1 if device BUSY
-*	RETURN 0 if device FREE
-*
+*    @brief Checks SST25 flash memory chip busy status.
 */
 
-uint8_t CheckBusy(void)
+void check_busy(void)
 {
-	uint8_t StatusRegisterByte;
+    uint8_t status_register_byte;
 
-	ENABLE_SST25;
+    ENABLE_SST25;
 
-	SPI_Exchange(READ_REGISTER_STATUS);
-	StatusRegisterByte=SPI_Exchange(0);
+    while (1)
+    {
+        SPI_Exchange(READ_REGISTER_STATUS);
+        status_register_byte = SPI_Exchange(0);
 
-	if((StatusRegisterByte & SRB_BUSY)==1)
-	{
-		DISABLE_SST25;
-		return 1;
-	}
-
-	DISABLE_SST25;
-	return 0;
+        if ((status_register_byte & SRB_BUSY) == 0)
+        {
+            DISABLE_SST25;
+            break;
+        }
+    }
 }
-
-uint8_t CheckWriteEN (void)
+/**
+*  @brief Checks if SST25 flash memory chip write enable status.
+*/
+void check_write_en(void)
 {
-	ENABLE_SST25;
+    ENABLE_SST25;
 
-	uint8_t StatusRegisterByte;
+    uint8_t status_register_byte;
 
-	SPI_Exchange(READ_REGISTER_STATUS);
-	StatusRegisterByte=SPI_Exchange(0xFF);
-	if((StatusRegisterByte & SRB_WRITEEN)>>1==1)
-	{
-		DISABLE_SST25;
-		return 1;
-	}
-
-	DISABLE_SST25;
-	return 0;
+    while (1)
+    {
+        SPI_Exchange(READ_REGISTER_STATUS);
+        status_register_byte = SPI_Exchange(0xFF);
+        if ((status_register_byte & SRB_WRITEEN) >> 1 == 1)
+        {
+            DISABLE_SST25;
+            break;
+        }
+    }
 }
+	
+/**
+*   @brief Reads manufacturer and device ID from SST25 flash memory chip.
+*/
 
-
-void ReadID (void)
+void read_id(void)
 {
-	ENABLE_SST25;
+    ENABLE_SST25;
 
     uint8_t tab[2];
-    
-	SPI_Exchange(READ_ID);
-	SPI_Exchange(0x00);
-	SPI_Exchange(0x00);
-	SPI_Exchange(READ_ID_ADD);
-    tab[0]=SPI_Exchange(0xFF);
-    tab[1]=SPI_Exchange(0xFF);
 
-	printf("Manufacurer ID: %x \r\nDevice ID: %x \r\n", tab[0], tab[1]);
-    
-	DISABLE_SST25;
+    SPI_Exchange(READ_ID);
+    SPI_Exchange(0x00);
+    SPI_Exchange(0x00);
+    SPI_Exchange(READ_ID_ADD);
+    tab[0] = SPI_Exchange(0xFF);
+    tab[1] = SPI_Exchange(0xFF);
+
+    printf("Manufacturer ID: %x \r\nDevice ID: %x \r\n", tab[0], tab[1]);
+
+    DISABLE_SST25;
 }
-
-void ReadID_JEDEC(void)
+/**
+* @brief Reads JEDEC manufacturer ID, device ID, and memory capacity from SST25 flash memory chip.
+*/
+void read_id_jedec(void)
 {
 	ENABLE_SST25;
 
@@ -109,231 +108,191 @@ void ReadID_JEDEC(void)
     
 	DISABLE_SST25;
 }
-
-///////////////////////////////////////////////////////////
-void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
+/**
+ * @brief Reads bytes from SST25 flash memory chip.
+ * 
+ * @param add: The starting address to read from.
+ * @param data: Pointer to the buffer to store read data.
+ * @param lenght: Number of bytes to read.
+ */
+void read_bytes(uint32_t add, uint8_t *data, uint8_t lenght)
 {
-	uint8_t i;
-	ENABLE_SST25;
-	//fprintf(KMP,"\n\r Add: %Lu\n\r",Add);
-	SPI_Exchange(READ);
-	SPI_Exchange(((Add & 0xFFFFFF) >> 16));
-	SPI_Exchange(((Add & 0x00FFFF) >> 8));
-	SPI_Exchange(Add & 0x0000FF);
-	for(i=0;i<BytesCount;i++)
-	{
-		*(data+i)=SPI_Exchange(0);
-	}
-
-	DISABLE_SST25;
-}
-
-void SST25VF_init_Enable_Write(void)
-{
-
-	ENABLE_SST25;
-	SPI_Exchange(WRITE_STAT_REG_EN);
-	DISABLE_SST25;
-
-	SPI_Exchange(0x00);
-
-	ENABLE_SST25;
-	SPI_Exchange(0x01);
-	SPI_Exchange(0x00);
-	DISABLE_SST25;
-
-}
-
-
-void WriteByte(uint32_t Add,uint8_t data)
-{
-	//enable end checking WRITE bit------------------------
-
-	ENABLE_SST25;
-	SPI_Exchange(WRITE_EN);
-	DISABLE_SST25;
-
-	while(1)
-	{
-		if(CheckWriteEN()==1)		
-		{
-			break;
-		}
-	}
-
-	//-----------------------------------------------------
-	//writing data to FLASH--------------------------------
-	ENABLE_SST25;
-	SPI_Exchange(BYTE_PROGRAM);
-	SPI_Exchange(((Add & 0xFFFFFF) >> 16));
-	SPI_Exchange(((Add & 0x00FFFF) >> 8));
-	SPI_Exchange(Add & 0x0000FF);
-	SPI_Exchange(data);
-
-	DISABLE_SST25;
-	//-----------------------------------------------------
-	//Waiting to finish writing - Checking Busy flag
-
-	while(1)
-	{
-		if(CheckBusy()==0)
-		{
-			break;
-		}
-
-	}
-    
-    ENABLE_SST25;
-	SPI_Exchange(WRITE_DB);
-	DISABLE_SST25;
-}
-
-
-void WriteByteTable_AutoAddressIncrement(uint32_t Add ,uint8_t *data, uint8_t lenght)
-{
-	//enable end checking WRITE bit------------------------
+    uint8_t i;
 
     ENABLE_SST25;
-	SPI_Exchange(DBSY);
-	DISABLE_SST25;
-    
-	ENABLE_SST25;
-	SPI_Exchange(WRITE_EN);
-	DISABLE_SST25;
-
-
-    
-	while(1)
-	{
-		if(CheckWriteEN()==1)		
-		{
-			break;
-		}
-	}
-
-	//-----------------------------------------------------
-	//writing data to FLASH--------------------------------
-	ENABLE_SST25;
-	SPI_Exchange(AAI_WORD_PROGRAM);
-	SPI_Exchange(((Add & 0xFFFFFF) >> 16));
-	SPI_Exchange(((Add & 0x00FFFF) >> 8));
-	SPI_Exchange(Add & 0x0000FF);
-    
-    for(uint16_t i=0; i<lenght; i++)
+    SPI_Exchange(READ);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    for (i = 0; i < lenght; i++)
     {
-        SPI_Exchange(*(data+i));
+        *(data + i) = SPI_Exchange(0);
     }
 
-	DISABLE_SST25;
-	//-----------------------------------------------------
-	//Waiting to finish writing - Checking Busy flag
+    DISABLE_SST25;
+}
 
-	while(1)
-	{
-		if(CheckBusy()==0)
-		{
-			break;
-		}
-
-	}
-    
+/**
+ * @brief Initializes and enables write operation on SST25 flash memory chip.
+ */
+void sst25vf_init_enable_write(void)
+{
     ENABLE_SST25;
-	SPI_Exchange(WRITE_DB);
-	DISABLE_SST25;
-    
-}
-/////////////////////////////////////////////////////////////////////////
+    SPI_Exchange(WRITE_STAT_REG_EN);
+    DISABLE_SST25;
 
-void ChipErase(void)
-{
-	ENABLE_SST25;
-	SPI_Exchange(WRITE_EN);
-	DISABLE_SST25;
+    SPI_Exchange(0x00);
 
-	while(1)
-	{
-		if(CheckWriteEN()==1)		
-		{
-			break;
-		}
-	}
-
-	ENABLE_SST25;
-	SPI_Exchange(CHIP_ERASE);
-	DISABLE_SST25;
-
-
-	while(1)
-	{
-		if(CheckBusy()==0)
-		{
-			break;
-		}
-	}
+    ENABLE_SST25;
+    SPI_Exchange(0x01);
+    SPI_Exchange(0x00);
+    DISABLE_SST25;
 }
 
-//////////////////////////////////////////////////////////////////////
-
-void SectorErase(uint8_t Add)
+/**
+ * @brief Writes a byte to SST25 flash memory chip.
+ * 
+ * @param add: The address to write to.
+ * @param data: The byte of data to write.
+ */
+void write_byte(uint32_t add, uint8_t data)
 {
+    // Enable end checking WRITE bit------------------------
+    ENABLE_SST25;
+    SPI_Exchange(WRITE_EN);
+    DISABLE_SST25;
+
+    check_write_en();
+
+    //-----------------------------------------------------
+    // writing data to FLASH--------------------------------
+    ENABLE_SST25;
+    SPI_Exchange(BYTE_PROGRAM);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    SPI_Exchange(data);
+
+    DISABLE_SST25;
+    //-----------------------------------------------------
+    // Waiting to finish writing - Checking Busy flag
+
+    check_busy();
+
+    ENABLE_SST25;
+    SPI_Exchange(WRITE_DB);
+    DISABLE_SST25;
+}
+
+/**
+ * @brief Writes a table of bytes with auto address increment to SST25 flash memory chip.
+ * 
+ * @param add: The starting address to write to.
+ * @param data: Pointer to the buffer containing data to write.
+ * @param length: The number of bytes to write.
+ */
+void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length)
+{
+    // Enable end checking WRITE bit------------------------
+    ENABLE_SST25;
+    SPI_Exchange(DBSY);
+    DISABLE_SST25;
 
     ENABLE_SST25;
     SPI_Exchange(WRITE_EN);
     DISABLE_SST25;
-    
-    while(1)
-	{
-		if(CheckWriteEN()==1)		
-		{
-			break;
-		}
-	}
 
-	ENABLE_SST25;
-	SPI_Exchange(SECTOR_ERASE);
-  	SPI_Exchange(((Add & 0xFFFFFF) >> 16));
-	SPI_Exchange(((Add & 0x00FFFF) >> 8));
-	SPI_Exchange(Add & 0x0000FF);
+    check_write_en();
+
+    ENABLE_SST25;
+    SPI_Exchange(AAI_WORD_PROGRAM);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    SPI_Exchange(*(data));
+    SPI_Exchange(*(data + 1));
     DISABLE_SST25;
 
-	while(1)
-	{
-		if(CheckBusy()==0)
-		{
-			break;
-		}
-	}
+    check_busy();
+
+    for (uint8_t i = 2; i < length; i = i + 2)
+    {
+        // writing data to FLASH
+        ENABLE_SST25;
+        SPI_Exchange(AAI_WORD_PROGRAM);
+        SPI_Exchange(*(data + i));
+        SPI_Exchange(*(data + i + 1));
+        DISABLE_SST25;
+
+        check_busy();
+    }
+
+    ENABLE_SST25;
+    SPI_Exchange(WRITE_DB);
+    DISABLE_SST25;
 }
 
-//////////////////////////////////////////////////////////////////////
-
-void BlockErase(uint8_t Add, uint8_t block_type)
+/**
+ * @brief Erases the entire chip of SST25 flash memory.
+ */
+void chip_erase(void)
 {
-
     ENABLE_SST25;
     SPI_Exchange(WRITE_EN);
     DISABLE_SST25;
-    
-    while(1)
-	{
-		if(CheckWriteEN()==1)		
-		{
-			break;
-		}
-	}
 
-	ENABLE_SST25;
-	SPI_Exchange(block_type);
-  	SPI_Exchange(((Add & 0xFFFFFF) >> 16));
-	SPI_Exchange(((Add & 0x00FFFF) >> 8));
-	SPI_Exchange(Add & 0x0000FF);
+    check_write_en();
+
+    ENABLE_SST25;
+    SPI_Exchange(CHIP_ERASE);
     DISABLE_SST25;
 
-	while(1)
-	{
-		if(CheckBusy()==0)
-		{
-			break;
-		}
-	}
+    check_busy();
+}
+
+/**
+ * @brief Erases a sector of SST25 flash memory.
+ * 
+ * @param add: The address within the sector to erase.
+ */
+void sector_erase(uint8_t add)
+{
+    ENABLE_SST25;
+    SPI_Exchange(WRITE_EN);
+    DISABLE_SST25;
+
+    check_write_en();
+
+    ENABLE_SST25;
+    SPI_Exchange(SECTOR_ERASE);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    DISABLE_SST25;
+
+    check_busy();
+}
+
+/**
+ * @brief Erases a block of SST25 flash memory.
+ * 
+ * @param add: The starting address of the block to erase.
+ * @param block_type: The type of block to erase can be 32kB or 64kB
+ */
+void block_erase(uint8_t add, uint8_t block_type)
+{
+    ENABLE_SST25;
+    SPI_Exchange(WRITE_EN);
+    DISABLE_SST25;
+
+    check_write_en();
+
+    ENABLE_SST25;
+    SPI_Exchange(block_type);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    DISABLE_SST25;
+
+    check_busy();
 }

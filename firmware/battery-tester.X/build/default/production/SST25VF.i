@@ -9441,64 +9441,71 @@ void setupPWM(void);
 
 void delay_ms(unsigned int milliseconds);
 # 5 "SST25VF.c" 2
-# 41 "SST25VF.c"
-uint8_t CheckBusy(void)
+# 33 "SST25VF.c"
+void check_busy(void)
 {
- uint8_t StatusRegisterByte;
+    uint8_t status_register_byte;
 
- LATFbits.LF7=0;
+    LATFbits.LF7=0;
 
- SPI_Exchange(0x05);
- StatusRegisterByte=SPI_Exchange(0);
+    while (1)
+    {
+        SPI_Exchange(0x05);
+        status_register_byte = SPI_Exchange(0);
 
- if((StatusRegisterByte & 0x01)==1)
- {
-  LATFbits.LF7=1;
-  return 1;
- }
-
- LATFbits.LF7=1;
- return 0;
-}
-
-uint8_t CheckWriteEN (void)
-{
- LATFbits.LF7=0;
-
- uint8_t StatusRegisterByte;
-
- SPI_Exchange(0x05);
- StatusRegisterByte=SPI_Exchange(0xFF);
- if((StatusRegisterByte & 0x02)>>1==1)
- {
-  LATFbits.LF7=1;
-  return 1;
- }
-
- LATFbits.LF7=1;
- return 0;
+        if ((status_register_byte & 0x01) == 0)
+        {
+            LATFbits.LF7=1;
+            break;
+        }
+    }
 }
 
 
-void ReadID (void)
+
+void check_write_en(void)
 {
- LATFbits.LF7=0;
+    LATFbits.LF7=0;
+
+    uint8_t status_register_byte;
+
+    while (1)
+    {
+        SPI_Exchange(0x05);
+        status_register_byte = SPI_Exchange(0xFF);
+        if ((status_register_byte & 0x02) >> 1 == 1)
+        {
+            LATFbits.LF7=1;
+            break;
+        }
+    }
+}
+
+
+
+
+
+void read_id(void)
+{
+    LATFbits.LF7=0;
 
     uint8_t tab[2];
 
- SPI_Exchange(0X90);
- SPI_Exchange(0x00);
- SPI_Exchange(0x00);
- SPI_Exchange(0X00);
-    tab[0]=SPI_Exchange(0xFF);
-    tab[1]=SPI_Exchange(0xFF);
+    SPI_Exchange(0X90);
+    SPI_Exchange(0x00);
+    SPI_Exchange(0x00);
+    SPI_Exchange(0X00);
+    tab[0] = SPI_Exchange(0xFF);
+    tab[1] = SPI_Exchange(0xFF);
 
- printf("Manufacurer ID: %x \r\nDevice ID: %x \r\n", tab[0], tab[1]);
+    printf("Manufacturer ID: %x \r\nDevice ID: %x \r\n", tab[0], tab[1]);
 
- LATFbits.LF7=1;
+    LATFbits.LF7=1;
 }
 
-void ReadID_JEDEC(void)
+
+
+void read_id_jedec(void)
 {
  LATFbits.LF7=0;
 
@@ -9515,229 +9522,182 @@ void ReadID_JEDEC(void)
 }
 
 
-void ReadBytes (uint32_t Add, uint8_t *data ,uint8_t BytesCount)
+
+
+
+
+
+void read_bytes(uint32_t add, uint8_t *data, uint8_t lenght)
 {
- uint8_t i;
- LATFbits.LF7=0;
-
- SPI_Exchange(0x03);
- SPI_Exchange(((Add & 0xFFFFFF) >> 16));
- SPI_Exchange(((Add & 0x00FFFF) >> 8));
- SPI_Exchange(Add & 0x0000FF);
- for(i=0;i<BytesCount;i++)
- {
-  *(data+i)=SPI_Exchange(0);
- }
-
- LATFbits.LF7=1;
-}
-
-void SST25VF_init_Enable_Write(void)
-{
-
- LATFbits.LF7=0;
- SPI_Exchange(0x50);
- LATFbits.LF7=1;
-
- SPI_Exchange(0x00);
-
- LATFbits.LF7=0;
- SPI_Exchange(0x01);
- SPI_Exchange(0x00);
- LATFbits.LF7=1;
-
-}
-
-
-void WriteByte(uint32_t Add,uint8_t data)
-{
-
-
- LATFbits.LF7=0;
- SPI_Exchange(0x06);
- LATFbits.LF7=1;
-
- while(1)
- {
-  if(CheckWriteEN()==1)
-  {
-   break;
-  }
- }
-
-
-
- LATFbits.LF7=0;
- SPI_Exchange(0X02);
- SPI_Exchange(((Add & 0xFFFFFF) >> 16));
- SPI_Exchange(((Add & 0x00FFFF) >> 8));
- SPI_Exchange(Add & 0x0000FF);
- SPI_Exchange(data);
-
- LATFbits.LF7=1;
-
-
-
- while(1)
- {
-  if(CheckBusy()==0)
-  {
-   break;
-  }
-
- }
+    uint8_t i;
 
     LATFbits.LF7=0;
- SPI_Exchange(0X04);
- LATFbits.LF7=1;
-}
-
-
-void WriteByteTable_AutoAddressIncrement(uint32_t Add ,uint8_t *data, uint8_t lenght)
-{
-
-
-    LATFbits.LF7=0;
- SPI_Exchange(0x80);
- LATFbits.LF7=1;
-
- LATFbits.LF7=0;
- SPI_Exchange(0x06);
- LATFbits.LF7=1;
-
-
-
- while(1)
- {
-  if(CheckWriteEN()==1)
-  {
-   break;
-  }
- }
-
-
-
- LATFbits.LF7=0;
- SPI_Exchange(0xAD);
- SPI_Exchange(((Add & 0xFFFFFF) >> 16));
- SPI_Exchange(((Add & 0x00FFFF) >> 8));
- SPI_Exchange(Add & 0x0000FF);
-
-    for(uint16_t i=0; i<=lenght;i++)
+    SPI_Exchange(0x03);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    for (i = 0; i < lenght; i++)
     {
-        SPI_Exchange(*(data+i));
+        *(data + i) = SPI_Exchange(0);
     }
 
- LATFbits.LF7=1;
+    LATFbits.LF7=1;
+}
 
 
 
- while(1)
- {
-  if(CheckBusy()==0)
-  {
-   break;
-  }
 
- }
+void sst25vf_init_enable_write(void)
+{
+    LATFbits.LF7=0;
+    SPI_Exchange(0x50);
+    LATFbits.LF7=1;
+
+    SPI_Exchange(0x00);
 
     LATFbits.LF7=0;
- SPI_Exchange(0X04);
- LATFbits.LF7=1;
-
-}
-
-
-void ChipErase(void)
-{
- LATFbits.LF7=0;
- SPI_Exchange(0x06);
- LATFbits.LF7=1;
-
- while(1)
- {
-  if(CheckWriteEN()==1)
-  {
-   break;
-  }
- }
-
- LATFbits.LF7=0;
- SPI_Exchange(0X60);
- LATFbits.LF7=1;
-
-
- while(1)
- {
-  if(CheckBusy()==0)
-  {
-   break;
-  }
- }
+    SPI_Exchange(0x01);
+    SPI_Exchange(0x00);
+    LATFbits.LF7=1;
 }
 
 
 
-void SectorErase(uint8_t Add)
+
+
+
+
+void write_byte(uint32_t add, uint8_t data)
 {
 
     LATFbits.LF7=0;
     SPI_Exchange(0x06);
     LATFbits.LF7=1;
 
-    while(1)
- {
-  if(CheckWriteEN()==1)
-  {
-   break;
-  }
- }
+    check_write_en();
 
- LATFbits.LF7=0;
- SPI_Exchange(0x20);
-   SPI_Exchange(((Add & 0xFFFFFF) >> 16));
- SPI_Exchange(((Add & 0x00FFFF) >> 8));
- SPI_Exchange(Add & 0x0000FF);
+
+
+    LATFbits.LF7=0;
+    SPI_Exchange(0X02);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    SPI_Exchange(data);
+
     LATFbits.LF7=1;
 
- while(1)
- {
-  if(CheckBusy()==0)
-  {
-   break;
-  }
- }
+
+
+    check_busy();
+
+    LATFbits.LF7=0;
+    SPI_Exchange(0X04);
+    LATFbits.LF7=1;
 }
-
-
-
-void BlockErase(uint8_t Add, uint8_t block_type)
+# 194 "SST25VF.c"
+void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length)
 {
+
+    LATFbits.LF7=0;
+    SPI_Exchange(0x80);
+    LATFbits.LF7=1;
 
     LATFbits.LF7=0;
     SPI_Exchange(0x06);
     LATFbits.LF7=1;
 
-    while(1)
- {
-  if(CheckWriteEN()==1)
-  {
-   break;
-  }
- }
+    check_write_en();
 
- LATFbits.LF7=0;
- SPI_Exchange(block_type);
-   SPI_Exchange(((Add & 0xFFFFFF) >> 16));
- SPI_Exchange(((Add & 0x00FFFF) >> 8));
- SPI_Exchange(Add & 0x0000FF);
+    LATFbits.LF7=0;
+    SPI_Exchange(0xAD);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    SPI_Exchange(*(data));
+    SPI_Exchange(*(data + 1));
     LATFbits.LF7=1;
 
- while(1)
- {
-  if(CheckBusy()==0)
-  {
-   break;
-  }
- }
+    check_busy();
+
+    for (uint8_t i = 2; i < length; i = i + 2)
+    {
+
+        LATFbits.LF7=0;
+        SPI_Exchange(0xAD);
+        SPI_Exchange(*(data + i));
+        SPI_Exchange(*(data + i + 1));
+        LATFbits.LF7=1;
+
+        check_busy();
+    }
+
+    LATFbits.LF7=0;
+    SPI_Exchange(0X04);
+    LATFbits.LF7=1;
+}
+
+
+
+
+void chip_erase(void)
+{
+    LATFbits.LF7=0;
+    SPI_Exchange(0x06);
+    LATFbits.LF7=1;
+
+    check_write_en();
+
+    LATFbits.LF7=0;
+    SPI_Exchange(0X60);
+    LATFbits.LF7=1;
+
+    check_busy();
+}
+
+
+
+
+
+
+void sector_erase(uint8_t add)
+{
+    LATFbits.LF7=0;
+    SPI_Exchange(0x06);
+    LATFbits.LF7=1;
+
+    check_write_en();
+
+    LATFbits.LF7=0;
+    SPI_Exchange(0x20);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    LATFbits.LF7=1;
+
+    check_busy();
+}
+
+
+
+
+
+
+
+void block_erase(uint8_t add, uint8_t block_type)
+{
+    LATFbits.LF7=0;
+    SPI_Exchange(0x06);
+    LATFbits.LF7=1;
+
+    check_write_en();
+
+    LATFbits.LF7=0;
+    SPI_Exchange(block_type);
+    SPI_Exchange(((add & 0xFFFFFF) >> 16));
+    SPI_Exchange(((add & 0x00FFFF) >> 8));
+    SPI_Exchange(add & 0x0000FF);
+    LATFbits.LF7=1;
+
+    check_busy();
 }

@@ -1,20 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"41 ./SST25VF.h
-[; ;./SST25VF.h: 41: void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
-[v _ReadBytes `(v ~T0 @X0 0 ef3`ul`*uc`uc ]
-"37
-[; ;./SST25VF.h: 37: void SectorErase(uint8_t Add);
-[v _SectorErase `(v ~T0 @X0 0 ef1`uc ]
+"42 ./SST25VF.h
+[; ;./SST25VF.h: 42: void read_bytes(uint32_t add, uint8_t *data, uint8_t length);
+[v _read_bytes `(v ~T0 @X0 0 ef3`ul`*uc`uc ]
+"38
+[; ;./SST25VF.h: 38: void sector_erase(uint8_t add);
+[v _sector_erase `(v ~T0 @X0 0 ef1`uc ]
+"45
+[; ;./SST25VF.h: 45: void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length);
+[v _write_byte_table_auto_address_increment `(v ~T0 @X0 0 ef3`ul`*uc`uc ]
 "105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"39 ./SST25VF.h
-[; ;./SST25VF.h: 39: void WriteByte(uint32_t Add,uint8_t data);
-[v _WriteByte `(v ~T0 @X0 0 ef2`ul`uc ]
+"40 ./SST25VF.h
+[; ;./SST25VF.h: 40: void write_byte(uint32_t add, uint8_t data);
+[v _write_byte `(v ~T0 @X0 0 ef2`ul`uc ]
 "16 ./menu_definitions.h
 [; ;./menu_definitions.h: 16: {
 [s S630 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S630 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_time current_time text ]
+[n S630 . set_cycle current_cycle bat_actual_temp batt_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time current_time text ]
 "54 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -794,366 +797,426 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CCP2MX  =  DEFAULT      ]
 "59
 [p x MSSPMSK  =  MSK5        ]
-"31 memory.c
-[; ;memory.c: 31: void ParameterSector_CopyEraseRestore(void)
-[v _ParameterSector_CopyEraseRestore `(v ~T0 @X0 1 ef ]
-"32
-[; ;memory.c: 32: {
+"38 memory.c
+[; ;memory.c: 38: void parameter_sector_copy_erase_restore(void)
+[v _parameter_sector_copy_erase_restore `(v ~T0 @X0 1 ef ]
+"39
+[; ;memory.c: 39: {
 {
-[e :U _ParameterSector_CopyEraseRestore ]
+[e :U _parameter_sector_copy_erase_restore ]
 [f ]
-"33
-[; ;memory.c: 33:     uint8_t tab[64];
+"40
+[; ;memory.c: 40:     uint8_t tab[64];
 [v _tab `uc ~T0 @X0 -> 64 `i a ]
-"34
-[; ;memory.c: 34:     ReadBytes(0x40 -1,&tab[0],64);
-[e ( _ReadBytes (3 , , -> -> - -> 64 `i -> 1 `i `l `ul &U *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux -> -> 64 `i `uc ]
-"35
-[; ;memory.c: 35:     for (uint8_t i = 0; i < 4; ++i)
+"41
+[; ;memory.c: 41:     read_bytes(0x40, &tab[0], 64);
+[e ( _read_bytes (3 , , -> -> -> 64 `i `l `ul &U *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux -> -> 64 `i `uc ]
+"42
+[; ;memory.c: 42:     for (uint8_t i = 0; i < 4; ++i)
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 4 `i 632  ]
 [e $U 633  ]
 [e :U 632 ]
-"36
-[; ;memory.c: 36:     {
+"43
+[; ;memory.c: 43:     {
 {
-"37
-[; ;memory.c: 37:          tab[0x0 + i] = 0xFF;
+"44
+[; ;memory.c: 44:         tab[0x0 + i] = 0xFF;
 [e = *U + &U _tab * -> -> + -> 0 `i -> _i `i `ui `ux -> -> # *U &U _tab `ui `ux -> -> 255 `i `uc ]
-"38
-[; ;memory.c: 38:     }
+"45
+[; ;memory.c: 45:     }
 }
 [e =+ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 4 `i 632  ]
 [e :U 633 ]
 }
-"39
-[; ;memory.c: 39:     SectorErase(0x0);
-[e ( _SectorErase (1 -> -> 0 `i `uc ]
-"42
-[; ;memory.c: 42: }
+"46
+[; ;memory.c: 46:     sector_erase(0x0);
+[e ( _sector_erase (1 -> -> 0 `i `uc ]
+"47
+[; ;memory.c: 47:     write_byte_table_auto_address_increment(0x40, &tab[0], 64);
+[e ( _write_byte_table_auto_address_increment (3 , , -> -> -> 64 `i `l `ul &U *U + &U _tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _tab `ui `ux -> -> 64 `i `uc ]
+"48
+[; ;memory.c: 48: }
 [e :UE 631 ]
 }
-"44
-[; ;memory.c: 44: uint16_t CheckOffsetPosition(void)
-[v _CheckOffsetPosition `(us ~T0 @X0 1 ef ]
-"45
-[; ;memory.c: 45: {
+"54
+[; ;memory.c: 54: uint16_t check_offset_position(void)
+[v _check_offset_position `(us ~T0 @X0 1 ef ]
+"55
+[; ;memory.c: 55: {
 {
-[e :U _CheckOffsetPosition ]
+[e :U _check_offset_position ]
 [f ]
-"46
-[; ;memory.c: 46:     uint8_t current_param_address[4],zeroBitCount;
+"56
+[; ;memory.c: 56:     uint8_t current_param_address[4], zero_bit_count;
 [v _current_param_address `uc ~T0 @X0 -> 4 `i a ]
-[v _zeroBitCount `uc ~T0 @X0 1 a ]
-"47
-[; ;memory.c: 47:     int8_t i,j;
+[v _zero_bit_count `uc ~T0 @X0 1 a ]
+"57
+[; ;memory.c: 57:     int8_t i, j;
 [v _i `c ~T0 @X0 1 a ]
 [v _j `c ~T0 @X0 1 a ]
-"49
-[; ;memory.c: 49:     ReadBytes(0x0,&current_param_address[0],4);
-[e ( _ReadBytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _current_param_address * -> -> -> 0 `i `ui `ux -> -> # *U &U _current_param_address `ui `ux -> -> 4 `i `uc ]
-"52
-[; ;memory.c: 52:     zeroBitCount = 0;
-[e = _zeroBitCount -> -> 0 `i `uc ]
-"53
-[; ;memory.c: 53:     for (i = 0; i < 4; ++i)
+"59
+[; ;memory.c: 59:     read_bytes(0x0, &current_param_address[0], 4);
+[e ( _read_bytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _current_param_address * -> -> -> 0 `i `ui `ux -> -> # *U &U _current_param_address `ui `ux -> -> 4 `i `uc ]
+"62
+[; ;memory.c: 62:     zero_bit_count = 0;
+[e = _zero_bit_count -> -> 0 `i `uc ]
+"63
+[; ;memory.c: 63:     for (i = 0; i < 4; ++i)
 {
 [e = _i -> -> 0 `i `c ]
 [e $ < -> _i `i -> 4 `i 636  ]
 [e $U 637  ]
 [e :U 636 ]
-"54
-[; ;memory.c: 54:     {
+"64
+[; ;memory.c: 64:     {
 {
-"55
-[; ;memory.c: 55:         for (j = 7; j >= 0; --j)
+"65
+[; ;memory.c: 65:         for (j = 7; j >= 0; --j)
 {
 [e = _j -> -> 7 `i `c ]
 [e $ >= -> _j `i -> 0 `i 639  ]
 [e $U 640  ]
 [e :U 639 ]
-"56
-[; ;memory.c: 56:         {
+"66
+[; ;memory.c: 66:         {
 {
-"57
-[; ;memory.c: 57:             if (((current_param_address[i] >> j) & 0x01) == 0)
+"67
+[; ;memory.c: 67:             if (((current_param_address[i] >> j) & 0x01) == 0)
 [e $ ! == & >> -> *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux `i -> _j `i -> 1 `i -> 0 `i 642  ]
-"58
-[; ;memory.c: 58:             {
+"68
+[; ;memory.c: 68:             {
 {
-"59
-[; ;memory.c: 59:                 zeroBitCount++;
-[e ++ _zeroBitCount -> -> 1 `i `uc ]
-"60
-[; ;memory.c: 60:             }
+"69
+[; ;memory.c: 69:                 zero_bit_count++;
+[e ++ _zero_bit_count -> -> 1 `i `uc ]
+"70
+[; ;memory.c: 70:             }
 }
 [e :U 642 ]
-"61
-[; ;memory.c: 61:         }
+"71
+[; ;memory.c: 71:         }
 }
 [e =- _j -> -> 1 `i `c ]
 [e $ >= -> _j `i -> 0 `i 639  ]
 [e :U 640 ]
 }
-"62
-[; ;memory.c: 62:     }
+"72
+[; ;memory.c: 72:     }
 }
 [e =+ _i -> -> 1 `i `c ]
 [e $ < -> _i `i -> 4 `i 636  ]
 [e :U 637 ]
 }
-"63
-[; ;memory.c: 63:     return zeroBitCount;
-[e ) -> _zeroBitCount `us ]
+"73
+[; ;memory.c: 73:     return zero_bit_count;
+[e ) -> _zero_bit_count `us ]
 [e $UE 635  ]
-"65
-[; ;memory.c: 65: }
+"74
+[; ;memory.c: 74: }
 [e :UE 635 ]
 }
-"72
-[; ;memory.c: 72: uint16_t CheckCurrentParamOffset(void)
-[v _CheckCurrentParamOffset `(us ~T0 @X0 1 ef ]
-"73
-[; ;memory.c: 73: {
+"80
+[; ;memory.c: 80: uint16_t check_current_param_offset(void)
+[v _check_current_param_offset `(us ~T0 @X0 1 ef ]
+"81
+[; ;memory.c: 81: {
 {
-[e :U _CheckCurrentParamOffset ]
+[e :U _check_current_param_offset ]
 [f ]
-"74
-[; ;memory.c: 74:     return (CheckOffsetPosition()*144 + 144);
-[e ) -> + * -> ( _CheckOffsetPosition ..  `ui -> -> 144 `i `ui -> -> 144 `i `ui `us ]
+"82
+[; ;memory.c: 82:     return (check_offset_position() * 144 + 144);
+[e ) -> + * -> ( _check_offset_position ..  `ui -> -> 144 `i `ui -> -> 144 `i `ui `us ]
 [e $UE 643  ]
-"75
-[; ;memory.c: 75: }
+"83
+[; ;memory.c: 83: }
 [e :UE 643 ]
 }
-"85
-[; ;memory.c: 85: void SaveParamToFlash(void)
-[v _SaveParamToFlash `(v ~T0 @X0 1 ef ]
-"86
-[; ;memory.c: 86: {
+"93
+[; ;memory.c: 93: void update_wear_leveling_static_buffer(void)
+[v _update_wear_leveling_static_buffer `(v ~T0 @X0 1 ef ]
+"94
+[; ;memory.c: 94: {
 {
-[e :U _SaveParamToFlash ]
+[e :U _update_wear_leveling_static_buffer ]
 [f ]
-"87
-[; ;memory.c: 87:     uint8_t current_param_address[4];
+"95
+[; ;memory.c: 95:     uint8_t current_param_address[4];
 [v _current_param_address `uc ~T0 @X0 -> 4 `i a ]
-"88
-[; ;memory.c: 88:     int8_t i,j;
+"96
+[; ;memory.c: 96:     int8_t i, j;
 [v _i `c ~T0 @X0 1 a ]
 [v _j `c ~T0 @X0 1 a ]
-"90
-[; ;memory.c: 90:     if(CheckOffsetPosition()>=27)
-[e $ ! >= -> ( _CheckOffsetPosition ..  `ui -> -> 27 `i `ui 645  ]
-"91
-[; ;memory.c: 91:     {
+"98
+[; ;memory.c: 98:     if (check_offset_position() >= 27)
+[e $ ! >= -> ( _check_offset_position ..  `ui -> -> 27 `i `ui 645  ]
+"99
+[; ;memory.c: 99:     {
 {
-"92
-[; ;memory.c: 92:         ParameterSector_CopyEraseRestore();
-[e ( _ParameterSector_CopyEraseRestore ..  ]
-"93
-[; ;memory.c: 93:         printf("CLEAR MEMORY! \n\r");
+"100
+[; ;memory.c: 100:         parameter_sector_copy_erase_restore();
+[e ( _parameter_sector_copy_erase_restore ..  ]
+"101
+[; ;memory.c: 101:         printf("CLEAR MEMORY! \n\r");
 [e ( _printf :s 1C ]
-"94
-[; ;memory.c: 94:         return;
+"102
+[; ;memory.c: 102:         return;
 [e $UE 644  ]
-"95
-[; ;memory.c: 95:     }
+"103
+[; ;memory.c: 103:     }
 }
 [e :U 645 ]
-"96
-[; ;memory.c: 96:     ReadBytes(0x0,&current_param_address[0],4);
-[e ( _ReadBytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _current_param_address * -> -> -> 0 `i `ui `ux -> -> # *U &U _current_param_address `ui `ux -> -> 4 `i `uc ]
-"98
-[; ;memory.c: 98:     for (i = 0; i < 4; ++i)
+"104
+[; ;memory.c: 104:     read_bytes(0x0, &current_param_address[0], 4);
+[e ( _read_bytes (3 , , -> -> -> 0 `i `l `ul &U *U + &U _current_param_address * -> -> -> 0 `i `ui `ux -> -> # *U &U _current_param_address `ui `ux -> -> 4 `i `uc ]
+"106
+[; ;memory.c: 106:     for (i = 0; i < 4; ++i)
 {
 [e = _i -> -> 0 `i `c ]
 [e $ < -> _i `i -> 4 `i 646  ]
 [e $U 647  ]
 [e :U 646 ]
-"99
-[; ;memory.c: 99:     {
+"107
+[; ;memory.c: 107:     {
 {
-"101
-[; ;memory.c: 101:         for (j = 7; j >= 0; --j)
+"109
+[; ;memory.c: 109:         for (j = 7; j >= 0; --j)
 {
 [e = _j -> -> 7 `i `c ]
 [e $ >= -> _j `i -> 0 `i 649  ]
 [e $U 650  ]
 [e :U 649 ]
-"102
-[; ;memory.c: 102:         {
-{
-"103
-[; ;memory.c: 103:             if (((current_param_address[i] >> j) & 0x01) == 1)
-[e $ ! == & >> -> *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux `i -> _j `i -> 1 `i -> 1 `i 652  ]
-"104
-[; ;memory.c: 104:             {
-{
-"106
-[; ;memory.c: 106:                current_param_address[i] &= ~(1 << j);
-[e =& *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux -> ~ << -> 1 `i -> _j `i `uc ]
-"107
-[; ;memory.c: 107:                WriteByte(0x0 +i, current_param_address[i]);
-[e ( _WriteByte (2 , -> -> + -> 0 `i -> _i `i `l `ul *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux ]
-"109
-[; ;memory.c: 109:                return;
-[e $UE 644  ]
 "110
-[; ;memory.c: 110:             }
+[; ;memory.c: 110:         {
+{
+"111
+[; ;memory.c: 111:             if (((current_param_address[i] >> j) & 0x01) == 1)
+[e $ ! == & >> -> *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux `i -> _j `i -> 1 `i -> 1 `i 652  ]
+"112
+[; ;memory.c: 112:             {
+{
+"114
+[; ;memory.c: 114:                 current_param_address[i] &= ~(1 << j);
+[e =& *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux -> ~ << -> 1 `i -> _j `i `uc ]
+"115
+[; ;memory.c: 115:                 write_byte(0x0 + i, current_param_address[i]);
+[e ( _write_byte (2 , -> -> + -> 0 `i -> _i `i `l `ul *U + &U _current_param_address * -> -> _i `uc `ux -> -> # *U &U _current_param_address `ui `ux ]
+"116
+[; ;memory.c: 116:                 return;
+[e $UE 644  ]
+"117
+[; ;memory.c: 117:             }
 }
 [e :U 652 ]
-"111
-[; ;memory.c: 111:         }
+"118
+[; ;memory.c: 118:         }
 }
 [e =- _j -> -> 1 `i `c ]
 [e $ >= -> _j `i -> 0 `i 649  ]
 [e :U 650 ]
 }
-"112
-[; ;memory.c: 112:     }
+"119
+[; ;memory.c: 119:     }
 }
 [e =+ _i -> -> 1 `i `c ]
 [e $ < -> _i `i -> 4 `i 646  ]
 [e :U 647 ]
 }
-"113
-[; ;memory.c: 113: }
+"120
+[; ;memory.c: 120: }
 [e :UE 644 ]
 }
-"115
-[; ;memory.c: 115: void RepresentValueInBinary (uint8_t value)
-[v _RepresentValueInBinary `(v ~T0 @X0 1 ef1`uc ]
-"116
-[; ;memory.c: 116: {
+"126
+[; ;memory.c: 126: void represent_value_in_binary(uint8_t value)
+[v _represent_value_in_binary `(v ~T0 @X0 1 ef1`uc ]
+"127
+[; ;memory.c: 127: {
 {
-[e :U _RepresentValueInBinary ]
-"115
-[; ;memory.c: 115: void RepresentValueInBinary (uint8_t value)
+[e :U _represent_value_in_binary ]
+"126
+[; ;memory.c: 126: void represent_value_in_binary(uint8_t value)
 [v _value `uc ~T0 @X0 1 r1 ]
-"116
-[; ;memory.c: 116: {
+"127
+[; ;memory.c: 127: {
 [f ]
-"117
-[; ;memory.c: 117:     for (int8_t j = 7; j >= 0; j--)
+"128
+[; ;memory.c: 128:     for (int8_t j = 7; j >= 0; j--)
 {
 [v _j `c ~T0 @X0 1 a ]
 [e = _j -> -> 7 `i `c ]
 [e $ >= -> _j `i -> 0 `i 654  ]
 [e $U 655  ]
 [e :U 654 ]
-"118
-[; ;memory.c: 118:     {
+"129
+[; ;memory.c: 129:     {
 {
-"119
-[; ;memory.c: 119:         printf("%d", (value & (1 << j)) ? 1 : 0);
+"130
+[; ;memory.c: 130:         printf("%d", (value & (1 << j)) ? 1 : 0);
 [e ( _printf , (. :s 2C ? != & -> _value `i << -> 1 `i -> _j `i -> 0 `i : -> 1 `i -> 0 `i ]
-"120
-[; ;memory.c: 120:     }
+"131
+[; ;memory.c: 131:     }
 }
 [e -- _j -> -> 1 `i `c ]
 [e $ >= -> _j `i -> 0 `i 654  ]
 [e :U 655 ]
 }
-"121
-[; ;memory.c: 121: }
+"132
+[; ;memory.c: 132: }
 [e :UE 653 ]
 }
-"131
-[; ;memory.c: 131: void SaveParamToTable( uint8_t lenght, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
-[v _SaveParamToTable `(v ~T0 @X0 1 ef4`uc`uc`*uc`*uc ]
-"132
-[; ;memory.c: 132: {
+"142
+[; ;memory.c: 142: void save_param_to_table(uint8_t length, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
+[v _save_param_to_table `(v ~T0 @X0 1 ef4`uc`uc`*uc`*uc ]
+"143
+[; ;memory.c: 143: {
 {
-[e :U _SaveParamToTable ]
-"131
-[; ;memory.c: 131: void SaveParamToTable( uint8_t lenght, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
-[v _lenght `uc ~T0 @X0 1 r1 ]
+[e :U _save_param_to_table ]
+"142
+[; ;memory.c: 142: void save_param_to_table(uint8_t length, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
+[v _length `uc ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
 [v _parameter_position `*uc ~T0 @X0 1 r3 ]
 [v _param_tab `*uc ~T0 @X0 1 r4 ]
-"132
-[; ;memory.c: 132: {
+"143
+[; ;memory.c: 143: {
 [f ]
-"133
-[; ;memory.c: 133:     for(uint8_t j=0; j<=lenght; j++)
+"144
+[; ;memory.c: 144:     for (uint8_t j = 0; j <= length; j++)
 {
 [v _j `uc ~T0 @X0 1 a ]
 [e = _j -> -> 0 `i `uc ]
 [e $U 661  ]
 [e :U 658 ]
-"134
-[; ;memory.c: 134:     {
+"145
+[; ;memory.c: 145:     {
 {
-"135
-[; ;memory.c: 135:         *(param_tab + *parameter_position +j) = (uint8_t)data>>(8*j);
+"146
+[; ;memory.c: 146:         *(param_tab + *parameter_position + j) = (uint8_t)data >> (8 * j);
 [e = *U + + _param_tab * -> -> *U _parameter_position `i `x -> -> # *U _param_tab `i `x * -> -> _j `i `x -> -> # *U + _param_tab * -> -> *U _parameter_position `i `x -> -> # *U _param_tab `i `x `i `x -> >> -> _data `i * -> 8 `i -> _j `i `uc ]
-"136
-[; ;memory.c: 136:     }
+"147
+[; ;memory.c: 147:     }
 }
 [e ++ _j -> -> 1 `i `uc ]
 [e :U 661 ]
-[e $ <= -> _j `i -> _lenght `i 658  ]
+[e $ <= -> _j `i -> _length `i 658  ]
 [e :U 659 ]
 }
-"137
-[; ;memory.c: 137: }
+"148
+[; ;memory.c: 148: }
 [e :UE 657 ]
 }
-"140
-[; ;memory.c: 140: void SaveParametersToFlash (BattParameters *bat_param)
-[v _SaveParametersToFlash `(v ~T0 @X0 1 ef1`*S630 ]
-"141
-[; ;memory.c: 141: {
+"154
+[; ;memory.c: 154: void save_parameters_to_flash(BattParameters *bat_param)
+[v _save_parameters_to_flash `(v ~T0 @X0 1 ef1`*S630 ]
+"155
+[; ;memory.c: 155: {
 {
-[e :U _SaveParametersToFlash ]
-"140
-[; ;memory.c: 140: void SaveParametersToFlash (BattParameters *bat_param)
+[e :U _save_parameters_to_flash ]
+"154
+[; ;memory.c: 154: void save_parameters_to_flash(BattParameters *bat_param)
 [v _bat_param `*S630 ~T0 @X0 1 r1 ]
-"141
-[; ;memory.c: 141: {
+"155
+[; ;memory.c: 155: {
 [f ]
-"142
-[; ;memory.c: 142:     uint16_t address_offset;
-[v _address_offset `us ~T0 @X0 1 a ]
-"143
-[; ;memory.c: 143:     address_offset = CheckCurrentParamOffset();
-[e = _address_offset ( _CheckCurrentParamOffset ..  ]
-"145
-[; ;memory.c: 145:     uint8_t param_tab[144], parameter_position;
+"156
+[; ;memory.c: 156:     uint8_t param_tab[144], parameter_position;
 [v _param_tab `uc ~T0 @X0 -> 144 `i a ]
 [v _parameter_position `uc ~T0 @X0 1 a ]
-"147
-[; ;memory.c: 147:    parameter_position=0;
+"158
+[; ;memory.c: 158:     parameter_position = 0;
 [e = _parameter_position -> -> 0 `i `uc ]
-"148
-[; ;memory.c: 148:    SaveParamToTable(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
-[e ( _SaveParamToTable (4 , , , -> . *U _bat_param 19 `uc -> -> # . *U _bat_param 19 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
-"149
-[; ;memory.c: 149:    SaveParamToTable(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
-[e ( _SaveParamToTable (4 , , , -> . *U _bat_param 20 `uc -> -> # . *U _bat_param 20 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
-"150
-[; ;memory.c: 150:    SaveParamToTable(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
-[e ( _SaveParamToTable (4 , , , -> . *U _bat_param 21 `uc -> -> # . *U _bat_param 21 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
-"151
-[; ;memory.c: 151:    SaveParamToTable(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
-[e ( _SaveParamToTable (4 , , , -> . *U _bat_param 22 `uc -> -> # . *U _bat_param 22 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
-"152
-[; ;memory.c: 152:    SaveParamToTable(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
-[e ( _SaveParamToTable (4 , , , . *U _bat_param 4 -> -> # . *U _bat_param 4 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
-"153
-[; ;memory.c: 153:    SaveParamToTable(bat_param->cell_count, sizeof(bat_param->cell_count), &parameter_position, &param_tab[0]);
-[e ( _SaveParamToTable (4 , , , . *U _bat_param 7 -> -> # . *U _bat_param 7 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
-"154
-[; ;memory.c: 154:    SaveParamToTable(bat_param->selected_mode, sizeof(bat_param->selected_mode), &parameter_position, &param_tab[0]);
-[e ( _SaveParamToTable (4 , , , . *U _bat_param 6 -> -> # . *U _bat_param 6 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
-"155
-[; ;memory.c: 155:    SaveParamToTable(bat_param->set_cycle, sizeof(bat_param->set_cycle), &parameter_position, &param_tab[0]);
-[e ( _SaveParamToTable (4 , , , . *U _bat_param 0 -> -> # . *U _bat_param 0 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"159
+[; ;memory.c: 159:     save_param_to_table(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 19 `uc -> -> # . *U _bat_param 19 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
 "160
-[; ;memory.c: 160: }
+[; ;memory.c: 160:     save_param_to_table(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 20 `uc -> -> # . *U _bat_param 20 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"161
+[; ;memory.c: 161:     save_param_to_table(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 21 `uc -> -> # . *U _bat_param 21 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"162
+[; ;memory.c: 162:     save_param_to_table(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 22 `uc -> -> # . *U _bat_param 22 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"163
+[; ;memory.c: 163:     save_param_to_table(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , . *U _bat_param 4 -> -> # . *U _bat_param 4 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"164
+[; ;memory.c: 164:     save_param_to_table(bat_param->cell_count, sizeof(bat_param->cell_count), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , . *U _bat_param 7 -> -> # . *U _bat_param 7 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"165
+[; ;memory.c: 165:     save_param_to_table(bat_param->selected_mode, sizeof(bat_param->selected_mode), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , . *U _bat_param 6 -> -> # . *U _bat_param 6 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"166
+[; ;memory.c: 166:     save_param_to_table(bat_param->set_cycle, sizeof(bat_param->set_cycle), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , . *U _bat_param 0 -> -> # . *U _bat_param 0 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"167
+[; ;memory.c: 167:     save_param_to_table(bat_param->batt_set_voltage, sizeof(bat_param->batt_set_voltage), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 12 `uc -> -> # . *U _bat_param 12 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"168
+[; ;memory.c: 168:     save_param_to_table(bat_param->batt_set_min_discharge_voltage, sizeof(bat_param->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 18 `uc -> -> # . *U _bat_param 18 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"169
+[; ;memory.c: 169:     save_param_to_table(bat_param->batt_set_trickle_voltage, sizeof(bat_param->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 16 `uc -> -> # . *U _bat_param 16 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"170
+[; ;memory.c: 170:     save_param_to_table(bat_param->batt_set_trickle_current, sizeof(bat_param->batt_set_trickle_current), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 17 `uc -> -> # . *U _bat_param 17 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"171
+[; ;memory.c: 171:     save_param_to_table(bat_param->set_max_time, sizeof(bat_param->set_max_time), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 34 `uc -> -> # . *U _bat_param 34 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"172
+[; ;memory.c: 172:     save_param_to_table(bat_param->batt_max_temp, sizeof(bat_param->batt_max_temp), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , . *U _bat_param 3 -> -> # . *U _bat_param 3 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"173
+[; ;memory.c: 173:     save_param_to_table(bat_param->charge_current_1, sizeof(bat_param->charge_current_1), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 23 `uc -> -> # . *U _bat_param 23 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"174
+[; ;memory.c: 174:     save_param_to_table(bat_param->discharge_current_1, sizeof(bat_param->discharge_current_1), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 24 `uc -> -> # . *U _bat_param 24 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"175
+[; ;memory.c: 175:     save_param_to_table(bat_param->charge_current_2, sizeof(bat_param->charge_current_2), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 25 `uc -> -> # . *U _bat_param 25 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"176
+[; ;memory.c: 176:     save_param_to_table(bat_param->charge_current_2_percent, sizeof(bat_param->charge_current_2_percent), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , . *U _bat_param 8 -> -> # . *U _bat_param 8 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"177
+[; ;memory.c: 177:     save_param_to_table(bat_param->charge_current_3, sizeof(bat_param->charge_current_3), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 27 `uc -> -> # . *U _bat_param 27 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"178
+[; ;memory.c: 178:     save_param_to_table(bat_param->charge_current_3_percent, sizeof(bat_param->charge_current_3_percent), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , . *U _bat_param 9 -> -> # . *U _bat_param 9 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"179
+[; ;memory.c: 179:     save_param_to_table(bat_param->charge_current_4, sizeof(bat_param->charge_current_4), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 29 `uc -> -> # . *U _bat_param 29 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"180
+[; ;memory.c: 180:     save_param_to_table(bat_param->charge_current_4_percent, sizeof(bat_param->charge_current_4_percent), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , . *U _bat_param 10 -> -> # . *U _bat_param 10 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"181
+[; ;memory.c: 181:     save_param_to_table(bat_param->discharge_current_2, sizeof(bat_param->discharge_current_2), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 26 `uc -> -> # . *U _bat_param 26 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"182
+[; ;memory.c: 182:     save_param_to_table(bat_param->discharge_current_2_percent, sizeof(bat_param->discharge_current_2_percent), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 33 `uc -> -> # . *U _bat_param 33 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"183
+[; ;memory.c: 183:     save_param_to_table(bat_param->discharge_current_3, sizeof(bat_param->discharge_current_3), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 28 `uc -> -> # . *U _bat_param 28 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"184
+[; ;memory.c: 184:     save_param_to_table(bat_param->discharge_current_3_percent, sizeof(bat_param->discharge_current_3_percent), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 32 `uc -> -> # . *U _bat_param 32 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"185
+[; ;memory.c: 185:     save_param_to_table(bat_param->discharge_current_4, sizeof(bat_param->discharge_current_4), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 30 `uc -> -> # . *U _bat_param 30 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"186
+[; ;memory.c: 186:     save_param_to_table(bat_param->discharge_current_4_percent, sizeof(bat_param->discharge_current_4_percent), &parameter_position, &param_tab[0]);
+[e ( _save_param_to_table (4 , , , -> . *U _bat_param 31 `uc -> -> # . *U _bat_param 31 `ui `uc &U _parameter_position &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux ]
+"189
+[; ;memory.c: 189:     write_byte_table_auto_address_increment(check_current_param_offset(), &param_tab[0], parameter_position);
+[e ( _write_byte_table_auto_address_increment (3 , , -> ( _check_current_param_offset ..  `ul &U *U + &U _param_tab * -> -> -> 0 `i `ui `ux -> -> # *U &U _param_tab `ui `ux _parameter_position ]
+"190
+[; ;memory.c: 190: }
 [e :UE 662 ]
 }
 [p f _printf 8388736 ]

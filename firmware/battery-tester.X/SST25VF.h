@@ -33,18 +33,16 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-void BlockErase(uint8_t Add, uint8_t block_type);
-void SectorErase(uint8_t Add);
-void ChipErase(void);
-void WriteByte(uint32_t Add,uint8_t data);
-void SST25VF_init_Enable_Write(void);
-void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
-void ReadID_JEDEC(void);
-void ReadID (void);
-uint8_t CheckWriteEN (void);
-uint8_t CheckBusy(void);
-void WriteByteTable_AutoAddressIncrement(uint32_t Add ,uint8_t *data, uint8_t lenght);
 
+void block_erase(uint8_t add, uint8_t block_type);
+void sector_erase(uint8_t add);
+void chip_erase(void);
+void write_byte(uint32_t add, uint8_t data);
+void sst25vf_init_enable_write(void);
+void read_bytes(uint32_t add, uint8_t *data, uint8_t length);
+void read_id_jedec(void);
+void read_id(void);
+void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length);
 
 #endif	
 

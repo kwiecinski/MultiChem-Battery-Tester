@@ -9559,7 +9559,7 @@ typedef struct
 {
 
     uint8_t set_cycle, current_cycle,
-            bat_actual_temp, bat_max_temp,
+            bat_actual_temp, batt_max_temp,
             bat_chem, bat_storage_precentage, selected_mode, cell_count,
             charge_current_2_percent,
             charge_current_3_percent,
@@ -9569,7 +9569,7 @@ typedef struct
 
     uint16_t batt_set_voltage, batt_set_current,
             batt_actual_voltage, batt_actual_current,
-            batt_set_trickle_voltage, bat_set_trickle_current,
+            batt_set_trickle_voltage, batt_set_trickle_current,
             batt_set_min_discharge_voltage,
             batt_capacitance_cycle1,batt_capacitance_cycle2,batt_capacitance_cycle3,batt_capacitance_cycle4,
             charge_current_1, discharge_current_1,
@@ -9579,7 +9579,7 @@ typedef struct
             discharge_current_4_percent,
             discharge_current_3_percent,
             discharge_current_2_percent,
-            set_time;
+            set_max_time;
 
 
     uint32_t current_time;
@@ -9848,18 +9848,16 @@ void Init_Timer0();
 # 18 "main.c" 2
 
 # 1 "./SST25VF.h" 1
-# 36 "./SST25VF.h"
-void BlockErase(uint8_t Add, uint8_t block_type);
-void SectorErase(uint8_t Add);
-void ChipErase(void);
-void WriteByte(uint32_t Add,uint8_t data);
-void SST25VF_init_Enable_Write(void);
-void ReadBytes(uint32_t Add,uint8_t *data ,uint8_t BytesCount);
-void ReadID_JEDEC(void);
-void ReadID (void);
-uint8_t CheckWriteEN (void);
-uint8_t CheckBusy(void);
-void WriteByteTable_AutoAddressIncrement(uint32_t Add ,uint8_t *data, uint8_t lenght);
+# 37 "./SST25VF.h"
+void block_erase(uint8_t add, uint8_t block_type);
+void sector_erase(uint8_t add);
+void chip_erase(void);
+void write_byte(uint32_t add, uint8_t data);
+void sst25vf_init_enable_write(void);
+void read_bytes(uint32_t add, uint8_t *data, uint8_t length);
+void read_id_jedec(void);
+void read_id(void);
+void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length);
 # 19 "main.c" 2
 
 # 1 "./MMSP.h" 1
@@ -9869,11 +9867,6 @@ uint8_t SPI_Exchange(uint8_t data);
 # 20 "main.c" 2
 
 # 1 "./memory.h" 1
-
-
-
-uint16_t CheckCurrentParamOffset(void);
-void SaveParamToFlash (void);
 # 21 "main.c" 2
 
 
@@ -9889,15 +9882,12 @@ void main(void)
     Button_Init();
     Init_Timer0();
     setSPI_Interface();
-    SST25VF_init_Enable_Write();
+    sst25vf_init_enable_write();
 
     BattParameters bat_param;
     InitBattParameters(&bat_param);
     SingleBat_Menu(&bat_param);
 
-    uint8_t taba[20],tab[20]={5,8,5,96,74,236,144,178,196,32,1,58,66,23,55,44,88,99,66,33};
-   WriteByteTable_AutoAddressIncrement(32,&tab[0],20);
-     ReadBytes(32,&taba[0],20);
 
     while (1)
     {
@@ -9906,10 +9896,6 @@ void main(void)
         if(counter_test>=10000)
         {
 
-        for (int i = 0; i < 20; ++i)
-        {
-            printf("%d ", taba[i]);
-        }
             counter_test=0;
         }
     }

@@ -2,7 +2,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 ./menu_definitions.h
 [; ;./menu_definitions.h: 16: {
 [s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S632 . set_cycle current_cycle bat_actual_temp bat_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage bat_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_time current_time text ]
+[n S632 . set_cycle current_cycle bat_actual_temp batt_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time current_time text ]
 "148 menu_navigation.c
 [; ;menu_navigation.c: 148:     static uint8_t menu_change=start, menu_type=main_menu, menu_selection, menu_init=0,
 [c E5904 0 1 .. ]
@@ -15993,7 +15993,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 711:                 {
 {
 "712
-[; ;menu_navigation.c: 712:                     bat_param->bat_set_trickle_current=bat_param->bat_set_trickle_current+5;
+[; ;menu_navigation.c: 712:                     bat_param->batt_set_trickle_current=bat_param->batt_set_trickle_current+5;
 [e = . *U _bat_param 17 -> + -> . *U _bat_param 17 `ui -> -> 5 `i `ui `us ]
 "713
 [; ;menu_navigation.c: 713:                 }else if(Button_EventGet(LEFT_SW))
@@ -16005,7 +16005,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 714:                 {
 {
 "715
-[; ;menu_navigation.c: 715:                     bat_param->bat_set_trickle_current=bat_param->bat_set_trickle_current-5;
+[; ;menu_navigation.c: 715:                     bat_param->batt_set_trickle_current=bat_param->batt_set_trickle_current-5;
 [e = . *U _bat_param 17 -> - -> . *U _bat_param 17 `ui -> -> 5 `i `ui `us ]
 "716
 [; ;menu_navigation.c: 716:                 }
@@ -16013,16 +16013,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 833 ]
 [e :U 832 ]
 "718
-[; ;menu_navigation.c: 718:                 if(bat_param->bat_set_trickle_current<5 -1)
+[; ;menu_navigation.c: 718:                 if(bat_param->batt_set_trickle_current<5 -1)
 [e $ ! < -> . *U _bat_param 17 `ui -> - -> 5 `i -> 1 `i `ui 834  ]
 "719
 [; ;menu_navigation.c: 719:                 {
 {
 "720
-[; ;menu_navigation.c: 720:                     bat_param->bat_set_trickle_current = 50;
+[; ;menu_navigation.c: 720:                     bat_param->batt_set_trickle_current = 50;
 [e = . *U _bat_param 17 -> -> 50 `i `us ]
 "722
-[; ;menu_navigation.c: 722:                 }else if(bat_param->bat_set_trickle_current>50 +1)
+[; ;menu_navigation.c: 722:                 }else if(bat_param->batt_set_trickle_current>50 +1)
 }
 [e $U 835  ]
 [e :U 834 ]
@@ -16031,7 +16031,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 723:                 {
 {
 "724
-[; ;menu_navigation.c: 724:                     bat_param->bat_set_trickle_current = 5;
+[; ;menu_navigation.c: 724:                     bat_param->batt_set_trickle_current = 5;
 [e = . *U _bat_param 17 -> -> 5 `i `us ]
 "725
 [; ;menu_navigation.c: 725:                 }
@@ -16224,7 +16224,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 778:                 {
 {
 "779
-[; ;menu_navigation.c: 779:                     bat_param->set_time=bat_param->set_time+30;
+[; ;menu_navigation.c: 779:                     bat_param->set_max_time=bat_param->set_max_time+30;
 [e = . *U _bat_param 34 -> + -> . *U _bat_param 34 `ui -> -> 30 `i `ui `us ]
 "780
 [; ;menu_navigation.c: 780:                 }else if(Button_EventGet(LEFT_SW))
@@ -16236,7 +16236,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 781:                 {
 {
 "782
-[; ;menu_navigation.c: 782:                     bat_param->set_time=bat_param->set_time-30;
+[; ;menu_navigation.c: 782:                     bat_param->set_max_time=bat_param->set_max_time-30;
 [e = . *U _bat_param 34 -> - -> . *U _bat_param 34 `ui -> -> 30 `i `ui `us ]
 "783
 [; ;menu_navigation.c: 783:                 }
@@ -16244,16 +16244,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 862 ]
 [e :U 861 ]
 "785
-[; ;menu_navigation.c: 785:                 if(bat_param->set_time<60)
+[; ;menu_navigation.c: 785:                 if(bat_param->set_max_time<60)
 [e $ ! < -> . *U _bat_param 34 `ui -> -> 60 `i `ui 863  ]
 "786
 [; ;menu_navigation.c: 786:                 {
 {
 "787
-[; ;menu_navigation.c: 787:                     bat_param->set_time = 60*48;
+[; ;menu_navigation.c: 787:                     bat_param->set_max_time = 60*48;
 [e = . *U _bat_param 34 -> * -> 60 `i -> 48 `i `us ]
 "789
-[; ;menu_navigation.c: 789:                 }else if(bat_param->set_time>60*48)
+[; ;menu_navigation.c: 789:                 }else if(bat_param->set_max_time>60*48)
 }
 [e $U 864  ]
 [e :U 863 ]
@@ -16262,7 +16262,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 790:                 {
 {
 "791
-[; ;menu_navigation.c: 791:                     bat_param->set_time = 60;
+[; ;menu_navigation.c: 791:                     bat_param->set_max_time = 60;
 [e = . *U _bat_param 34 -> -> 60 `i `us ]
 "792
 [; ;menu_navigation.c: 792:                 }
@@ -16288,7 +16288,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 799:                 {
 {
 "800
-[; ;menu_navigation.c: 800:                     bat_param->bat_max_temp=bat_param->bat_max_temp+5;
+[; ;menu_navigation.c: 800:                     bat_param->batt_max_temp=bat_param->batt_max_temp+5;
 [e = . *U _bat_param 3 -> + -> . *U _bat_param 3 `i -> 5 `i `uc ]
 "801
 [; ;menu_navigation.c: 801:                 }else if(Button_EventGet(LEFT_SW))
@@ -16300,7 +16300,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 802:                 {
 {
 "803
-[; ;menu_navigation.c: 803:                     bat_param->bat_max_temp=bat_param->bat_max_temp-5;
+[; ;menu_navigation.c: 803:                     bat_param->batt_max_temp=bat_param->batt_max_temp-5;
 [e = . *U _bat_param 3 -> - -> . *U _bat_param 3 `i -> 5 `i `uc ]
 "804
 [; ;menu_navigation.c: 804:                 }
@@ -16308,16 +16308,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 870 ]
 [e :U 869 ]
 "806
-[; ;menu_navigation.c: 806:                 if(bat_param->bat_max_temp<5 -1)
+[; ;menu_navigation.c: 806:                 if(bat_param->batt_max_temp<5 -1)
 [e $ ! < -> . *U _bat_param 3 `i - -> 5 `i -> 1 `i 871  ]
 "807
 [; ;menu_navigation.c: 807:                 {
 {
 "808
-[; ;menu_navigation.c: 808:                     bat_param->bat_max_temp = 45;
+[; ;menu_navigation.c: 808:                     bat_param->batt_max_temp = 45;
 [e = . *U _bat_param 3 -> -> 45 `i `uc ]
 "810
-[; ;menu_navigation.c: 810:                 }else if(bat_param->bat_max_temp>45 +1)
+[; ;menu_navigation.c: 810:                 }else if(bat_param->batt_max_temp>45 +1)
 }
 [e $U 872  ]
 [e :U 871 ]
@@ -16326,7 +16326,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 811:                 {
 {
 "812
-[; ;menu_navigation.c: 812:                     bat_param->bat_max_temp = 5;
+[; ;menu_navigation.c: 812:                     bat_param->batt_max_temp = 5;
 [e = . *U _bat_param 3 -> -> 5 `i `uc ]
 "813
 [; ;menu_navigation.c: 813:                 }

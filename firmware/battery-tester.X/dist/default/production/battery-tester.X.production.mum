@@ -1,6 +1,6 @@
 
 Memory Summary:
-    Program space        used  CA50h ( 51792) of 1FFF8h bytes   ( 39.5%)
-    Data space           used   5A6h (  1446) of   F40h bytes   ( 37.0%)
+    Program space        used  BDD8h ( 48600) of 1FFF8h bytes   ( 37.1%)
+    Data space           used   563h (  1379) of   F40h bytes   ( 35.3%)
     Configuration bits   used     3h (     3) of     3h words   (100.0%)
 

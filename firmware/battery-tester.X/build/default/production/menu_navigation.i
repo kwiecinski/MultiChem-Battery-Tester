@@ -9828,7 +9828,7 @@ typedef struct
 {
 
     uint8_t set_cycle, current_cycle,
-            bat_actual_temp, bat_max_temp,
+            bat_actual_temp, batt_max_temp,
             bat_chem, bat_storage_precentage, selected_mode, cell_count,
             charge_current_2_percent,
             charge_current_3_percent,
@@ -9838,7 +9838,7 @@ typedef struct
 
     uint16_t batt_set_voltage, batt_set_current,
             batt_actual_voltage, batt_actual_current,
-            batt_set_trickle_voltage, bat_set_trickle_current,
+            batt_set_trickle_voltage, batt_set_trickle_current,
             batt_set_min_discharge_voltage,
             batt_capacitance_cycle1,batt_capacitance_cycle2,batt_capacitance_cycle3,batt_capacitance_cycle4,
             charge_current_1, discharge_current_1,
@@ -9848,7 +9848,7 @@ typedef struct
             discharge_current_4_percent,
             discharge_current_3_percent,
             discharge_current_2_percent,
-            set_time;
+            set_max_time;
 
 
     uint32_t current_time;
@@ -10602,19 +10602,19 @@ void Menu(BattParameters *bat_param)
 
                 if(Button_EventGet(RIGHT_SW))
                 {
-                    bat_param->bat_set_trickle_current=bat_param->bat_set_trickle_current+5;
+                    bat_param->batt_set_trickle_current=bat_param->batt_set_trickle_current+5;
                 }else if(Button_EventGet(LEFT_SW))
                 {
-                    bat_param->bat_set_trickle_current=bat_param->bat_set_trickle_current-5;
+                    bat_param->batt_set_trickle_current=bat_param->batt_set_trickle_current-5;
                 }
 
-                if(bat_param->bat_set_trickle_current<5 -1)
+                if(bat_param->batt_set_trickle_current<5 -1)
                 {
-                    bat_param->bat_set_trickle_current = 50;
+                    bat_param->batt_set_trickle_current = 50;
 
-                }else if(bat_param->bat_set_trickle_current>50 +1)
+                }else if(bat_param->batt_set_trickle_current>50 +1)
                 {
-                    bat_param->bat_set_trickle_current = 5;
+                    bat_param->batt_set_trickle_current = 5;
                 }
                 TrickleCurrent(bat_param, 1);
             }
@@ -10669,19 +10669,19 @@ void Menu(BattParameters *bat_param)
 
                 if(Button_EventGet(RIGHT_SW))
                 {
-                    bat_param->set_time=bat_param->set_time+30;
+                    bat_param->set_max_time=bat_param->set_max_time+30;
                 }else if(Button_EventGet(LEFT_SW))
                 {
-                    bat_param->set_time=bat_param->set_time-30;
+                    bat_param->set_max_time=bat_param->set_max_time-30;
                 }
 
-                if(bat_param->set_time<60)
+                if(bat_param->set_max_time<60)
                 {
-                    bat_param->set_time = 60*48;
+                    bat_param->set_max_time = 60*48;
 
-                }else if(bat_param->set_time>60*48)
+                }else if(bat_param->set_max_time>60*48)
                 {
-                    bat_param->set_time = 60;
+                    bat_param->set_max_time = 60;
                 }
 
                  SetMaxTime(bat_param, 1);
@@ -10690,19 +10690,19 @@ void Menu(BattParameters *bat_param)
 
                 if(Button_EventGet(RIGHT_SW))
                 {
-                    bat_param->bat_max_temp=bat_param->bat_max_temp+5;
+                    bat_param->batt_max_temp=bat_param->batt_max_temp+5;
                 }else if(Button_EventGet(LEFT_SW))
                 {
-                    bat_param->bat_max_temp=bat_param->bat_max_temp-5;
+                    bat_param->batt_max_temp=bat_param->batt_max_temp-5;
                 }
 
-                if(bat_param->bat_max_temp<5 -1)
+                if(bat_param->batt_max_temp<5 -1)
                 {
-                    bat_param->bat_max_temp = 45;
+                    bat_param->batt_max_temp = 45;
 
-                }else if(bat_param->bat_max_temp>45 +1)
+                }else if(bat_param->batt_max_temp>45 +1)
                 {
-                    bat_param->bat_max_temp = 5;
+                    bat_param->batt_max_temp = 5;
                 }
 
                  SetTemp(bat_param, 1);
