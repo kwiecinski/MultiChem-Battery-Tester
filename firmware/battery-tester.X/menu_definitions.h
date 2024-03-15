@@ -12,9 +12,41 @@
 #define set_mode_display 0
 
 
+typedef struct
+{
+    uint8_t set_cycle ,
+         batt_max_temp,
+         bat_storage_precentage,  selected_mode, cell_count,
+         charge_current_2_percent, 
+         charge_current_3_percent, 
+         charge_current_4_percent, 
+         precent_current_flags;
+
+
+    uint16_t batt_set_voltage, batt_set_current, 
+         batt_set_trickle_voltage, batt_set_trickle_current,
+         batt_set_min_discharge_voltage,
+         charge_current_1, discharge_current_1,
+         charge_current_2, discharge_current_2,
+         charge_current_3, discharge_current_3,
+         charge_current_4, discharge_current_4,
+         discharge_current_4_percent,
+         discharge_current_3_percent,
+         discharge_current_2_percent,
+         set_max_time;
+   
+}BattTypeSettings;
+
+
+
 typedef struct 
 {
 
+    BattTypeSettings *settings_ptr;
+    BattTypeSettings *liion_settings_ptr;
+    BattTypeSettings *pb_settings_ptr;
+    BattTypeSettings *nimh_settings_ptr;
+    
     uint8_t set_cycle, current_cycle, 
             bat_actual_temp, batt_max_temp,
             bat_chem, bat_storage_precentage,  selected_mode, cell_count,
@@ -44,6 +76,7 @@ typedef struct
     char text[25];
 
 }BattParameters;
+
 
 
 enum state 
@@ -106,4 +139,5 @@ void SetDischargingCurrent_1(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
+void switch_between_battery_types(BattParameters *bat_param);
 #endif	/* MENU_H */

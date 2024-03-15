@@ -35,10 +35,18 @@ void main(void)
     sst25vf_init_enable_write();
             
     BattParameters bat_param;
+    BattTypeSettings nimh_settings;
+    BattTypeSettings pb_settings;
+    BattTypeSettings liion_settings;
+    bat_param.liion_settings_ptr=&liion_settings;
+    bat_param.pb_settings_ptr=&pb_settings;
+    bat_param.nimh_settings_ptr=&nimh_settings;
+    
     InitBattParameters(&bat_param);
     SingleBat_Menu(&bat_param);
+    bat_param.bat_chem = liion;
+    switch_between_battery_types(&bat_param);     
     
-            
     while (1) 
     {
         Menu(&bat_param);

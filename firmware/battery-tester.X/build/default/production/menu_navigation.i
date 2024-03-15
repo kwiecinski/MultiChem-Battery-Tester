@@ -9826,6 +9826,38 @@ const uint8_t Tekton_Pro_Ext27x28[] =
 # 15 "./menu_definitions.h"
 typedef struct
 {
+    uint8_t set_cycle ,
+         batt_max_temp,
+         bat_storage_precentage, selected_mode, cell_count,
+         charge_current_2_percent,
+         charge_current_3_percent,
+         charge_current_4_percent,
+         precent_current_flags;
+
+
+    uint16_t batt_set_voltage, batt_set_current,
+         batt_set_trickle_voltage, batt_set_trickle_current,
+         batt_set_min_discharge_voltage,
+         charge_current_1, discharge_current_1,
+         charge_current_2, discharge_current_2,
+         charge_current_3, discharge_current_3,
+         charge_current_4, discharge_current_4,
+         discharge_current_4_percent,
+         discharge_current_3_percent,
+         discharge_current_2_percent,
+         set_max_time;
+
+}BattTypeSettings;
+
+
+
+typedef struct
+{
+
+    BattTypeSettings *settings_ptr;
+    BattTypeSettings *liion_settings_ptr;
+    BattTypeSettings *pb_settings_ptr;
+    BattTypeSettings *nimh_settings_ptr;
 
     uint8_t set_cycle, current_cycle,
             bat_actual_temp, batt_max_temp,
@@ -9856,6 +9888,7 @@ typedef struct
     char text[25];
 
 }BattParameters;
+
 
 
 enum state
@@ -9918,6 +9951,7 @@ void SetDischargingCurrent_1(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
+void switch_between_battery_types(BattParameters *bat_param);
 # 8 "menu_navigation.c" 2
 
 # 1 "./menu_navigation.h" 1
@@ -10034,7 +10068,64 @@ void Handle_Main_MenuNavigation(uint8_t option);
 void Handle_Setting1_MenuNavigation(uint8_t option);
 void Handle_Setting23_MenuNavigation(uint8_t option);
 void Handle_Setting5_MenuNavigation(uint8_t option);
-# 145 "menu_navigation.c"
+
+void switch_between_battery_types(BattParameters *bat_param)
+{
+
+    bat_param->settings_ptr->batt_max_temp = bat_param->batt_max_temp;
+    bat_param->settings_ptr->bat_storage_precentage = bat_param->bat_storage_precentage;
+    bat_param->settings_ptr->batt_set_current = bat_param->batt_set_current;
+    bat_param->settings_ptr->batt_set_min_discharge_voltage = bat_param->batt_set_min_discharge_voltage;
+    bat_param->settings_ptr->batt_set_trickle_current = bat_param->batt_set_trickle_current;
+    bat_param->settings_ptr->batt_set_trickle_voltage = bat_param->batt_set_trickle_voltage;
+    bat_param->settings_ptr->batt_set_voltage = bat_param->batt_set_voltage;
+    bat_param->settings_ptr->cell_count = bat_param->cell_count;
+    bat_param->settings_ptr->charge_current_1 = bat_param->charge_current_1;
+    bat_param->settings_ptr->charge_current_2 = bat_param->charge_current_2;
+    bat_param->settings_ptr->charge_current_3 = bat_param->charge_current_3;
+    bat_param->settings_ptr->charge_current_4 = bat_param->charge_current_4;
+    bat_param->settings_ptr->charge_current_2_percent = bat_param->charge_current_2_percent;
+    bat_param->settings_ptr->charge_current_3_percent = bat_param->charge_current_3_percent;
+    bat_param->settings_ptr->charge_current_4_percent = bat_param->charge_current_4_percent;
+    bat_param->settings_ptr->selected_mode = bat_param->selected_mode;
+    bat_param->settings_ptr->set_cycle = bat_param->set_cycle;
+    bat_param->settings_ptr->set_max_time = bat_param->set_max_time;
+
+
+
+    if(bat_param->bat_chem==liion)
+    {
+        bat_param->settings_ptr = bat_param->liion_settings_ptr;
+
+    }else if(bat_param->bat_chem==pb)
+    {
+        bat_param->settings_ptr = bat_param->pb_settings_ptr;
+
+    }else if(bat_param->bat_chem==nimh)
+    {
+        bat_param->settings_ptr = bat_param->nimh_settings_ptr;
+    }
+
+        bat_param->batt_max_temp = bat_param->settings_ptr->batt_max_temp;
+        bat_param->bat_storage_precentage = bat_param->settings_ptr->bat_storage_precentage;
+        bat_param->batt_set_current = bat_param->settings_ptr->batt_set_current;
+        bat_param->batt_set_min_discharge_voltage = bat_param->settings_ptr->batt_set_min_discharge_voltage;
+        bat_param->batt_set_trickle_current = bat_param->settings_ptr->batt_set_trickle_current;
+        bat_param->batt_set_trickle_voltage = bat_param->settings_ptr->batt_set_trickle_voltage;
+        bat_param->batt_set_voltage = bat_param->settings_ptr->batt_set_voltage;
+        bat_param->cell_count = bat_param->settings_ptr->cell_count;
+        bat_param->charge_current_1 = bat_param->settings_ptr->charge_current_1;
+        bat_param->charge_current_2 = bat_param->settings_ptr->charge_current_2;
+        bat_param->charge_current_3 = bat_param->settings_ptr->charge_current_3;
+        bat_param->charge_current_4 = bat_param->settings_ptr->charge_current_4;
+        bat_param->charge_current_2_percent = bat_param->settings_ptr->charge_current_2_percent;
+        bat_param->charge_current_3_percent = bat_param->settings_ptr->charge_current_3_percent;
+        bat_param->charge_current_4_percent = bat_param->settings_ptr->charge_current_4_percent;
+        bat_param->selected_mode = bat_param->settings_ptr->selected_mode;
+        bat_param->set_cycle = bat_param->settings_ptr->set_cycle;
+        bat_param->set_max_time = bat_param->settings_ptr->set_max_time;
+}
+
 void Menu(BattParameters *bat_param)
 {
 
@@ -10405,8 +10496,14 @@ void Menu(BattParameters *bat_param)
                     case 2: bat_param->bat_chem = pb; break;
                     case 3: bat_param->bat_chem = nimh; break;
                 }
+                switch_between_battery_types(bat_param);
+
 
                 ChemistryDisplay(bat_param, 1);
+                CellCount(bat_param, 0);
+                ChargerMode(bat_param, 0);
+                CycleSet(bat_param, 0);
+
 
             }else if(param_pos == param_2)
             {
@@ -10677,9 +10774,9 @@ void Menu(BattParameters *bat_param)
 
                 if(bat_param->set_max_time<60)
                 {
-                    bat_param->set_max_time = 60*48;
+                    bat_param->set_max_time = (60 * 48);
 
-                }else if(bat_param->set_max_time>60*48)
+                }else if(bat_param->set_max_time>(60 * 48))
                 {
                     bat_param->set_max_time = 60;
                 }
@@ -11356,7 +11453,7 @@ void Menu(BattParameters *bat_param)
                 SetDischargingCurrent_2(bat_param, 1);
 
             }
-# 1474 "menu_navigation.c"
+# 1466 "menu_navigation.c"
         }else if(menu_type==settings5)
         {
             if(param_pos == menu_start_next)

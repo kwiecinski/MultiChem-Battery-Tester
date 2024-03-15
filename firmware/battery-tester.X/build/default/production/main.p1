@@ -32,17 +32,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _sst25vf_init_enable_write `(v ~T0 @X0 0 ef ]
 "16 ./menu_definitions.h
 [; ;./menu_definitions.h: 16: {
-[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S632 . set_cycle current_cycle bat_actual_temp batt_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time current_time text ]
-"84
-[; ;./menu_definitions.h: 84: void InitBattParameters(BattParameters *bat_param);
-[v _InitBattParameters `(v ~T0 @X0 0 ef1`*S632 ]
-"85
-[; ;./menu_definitions.h: 85: void SingleBat_Menu(BattParameters *bat_param);
-[v _SingleBat_Menu `(v ~T0 @X0 0 ef1`*S632 ]
+[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S632 . set_cycle batt_max_temp bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time ]
+"43
+[; ;./menu_definitions.h: 43: {
+[s S633 `*S632 1 `*S632 1 `*S632 1 `*S632 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
+[n S633 . settings_ptr liion_settings_ptr pb_settings_ptr nimh_settings_ptr set_cycle current_cycle bat_actual_temp batt_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time current_time text ]
+"117
+[; ;./menu_definitions.h: 117: void InitBattParameters(BattParameters *bat_param);
+[v _InitBattParameters `(v ~T0 @X0 0 ef1`*S633 ]
+"118
+[; ;./menu_definitions.h: 118: void SingleBat_Menu(BattParameters *bat_param);
+[v _SingleBat_Menu `(v ~T0 @X0 0 ef1`*S633 ]
+"47 main.c
+[; ;main.c: 47:     bat_param.bat_chem = liion;
+[c E5948 0 1 2 .. ]
+[n E5948 select_batt_chemistry liion pb nimh  ]
+"142 ./menu_definitions.h
+[; ;./menu_definitions.h: 142: void switch_between_battery_types(BattParameters *bat_param);
+[v _switch_between_battery_types `(v ~T0 @X0 0 ef1`*S633 ]
 "40 ./menu_navigation.h
 [; ;./menu_navigation.h: 40: void Menu(BattParameters *bat_param);
-[v _Menu `(v ~T0 @X0 0 ef1`*S632 ]
+[v _Menu `(v ~T0 @X0 0 ef1`*S633 ]
 "41 ./interrupts.h
 [; ;./interrupts.h: 41: extern volatile uint16_t button_counter, counter_test;
 [v _counter_test `Vus ~T0 @X0 0 e ]
@@ -1449,42 +1460,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sst25vf_init_enable_write ..  ]
 "37
 [; ;main.c: 37:     BattParameters bat_param;
-[v _bat_param `S632 ~T0 @X0 1 a ]
+[v _bat_param `S633 ~T0 @X0 1 a ]
 "38
-[; ;main.c: 38:     InitBattParameters(&bat_param);
-[e ( _InitBattParameters (1 &U _bat_param ]
+[; ;main.c: 38:     BattTypeSettings nimh_settings;
+[v _nimh_settings `S632 ~T0 @X0 1 a ]
 "39
-[; ;main.c: 39:     SingleBat_Menu(&bat_param);
-[e ( _SingleBat_Menu (1 &U _bat_param ]
+[; ;main.c: 39:     BattTypeSettings pb_settings;
+[v _pb_settings `S632 ~T0 @X0 1 a ]
+"40
+[; ;main.c: 40:     BattTypeSettings liion_settings;
+[v _liion_settings `S632 ~T0 @X0 1 a ]
+"41
+[; ;main.c: 41:     bat_param.liion_settings_ptr=&liion_settings;
+[e = . _bat_param 1 &U _liion_settings ]
 "42
-[; ;main.c: 42:     while (1)
-[e :U 638 ]
+[; ;main.c: 42:     bat_param.pb_settings_ptr=&pb_settings;
+[e = . _bat_param 2 &U _pb_settings ]
 "43
-[; ;main.c: 43:     {
-{
-"44
-[; ;main.c: 44:         Menu(&bat_param);
-[e ( _Menu (1 &U _bat_param ]
+[; ;main.c: 43:     bat_param.nimh_settings_ptr=&nimh_settings;
+[e = . _bat_param 3 &U _nimh_settings ]
+"45
+[; ;main.c: 45:     InitBattParameters(&bat_param);
+[e ( _InitBattParameters (1 &U _bat_param ]
 "46
-[; ;main.c: 46:         if(counter_test>=10000)
-[e $ ! >= -> _counter_test `ui -> -> 10000 `i `ui 640  ]
+[; ;main.c: 46:     SingleBat_Menu(&bat_param);
+[e ( _SingleBat_Menu (1 &U _bat_param ]
 "47
-[; ;main.c: 47:         {
-{
-"49
-[; ;main.c: 49:             counter_test=0;
-[e = _counter_test -> -> 0 `i `us ]
+[; ;main.c: 47:     bat_param.bat_chem = liion;
+[e = . _bat_param 8 -> . `E5948 0 `uc ]
+"48
+[; ;main.c: 48:     switch_between_battery_types(&bat_param);
+[e ( _switch_between_battery_types (1 &U _bat_param ]
 "50
-[; ;main.c: 50:         }
-}
-[e :U 640 ]
-"51
-[; ;main.c: 51:     }
-}
-[e :U 637 ]
-[e $U 638  ]
+[; ;main.c: 50:     while (1)
 [e :U 639 ]
+"51
+[; ;main.c: 51:     {
+{
 "52
-[; ;main.c: 52: }
-[e :UE 636 ]
+[; ;main.c: 52:         Menu(&bat_param);
+[e ( _Menu (1 &U _bat_param ]
+"54
+[; ;main.c: 54:         if(counter_test>=10000)
+[e $ ! >= -> _counter_test `ui -> -> 10000 `i `ui 641  ]
+"55
+[; ;main.c: 55:         {
+{
+"57
+[; ;main.c: 57:             counter_test=0;
+[e = _counter_test -> -> 0 `i `us ]
+"58
+[; ;main.c: 58:         }
+}
+[e :U 641 ]
+"59
+[; ;main.c: 59:     }
+}
+[e :U 638 ]
+[e $U 639  ]
+[e :U 640 ]
+"60
+[; ;main.c: 60: }
+[e :UE 637 ]
 }

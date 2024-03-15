@@ -9,31 +9,31 @@
 #include "menu_navigation.h"
 #include "button.h"
 
-#define MAX_CELL_COUNT 5
-#define MAX_CYCLE_COUNT 4
-#define MAX_CELL_VOLTAGE 430
-#define MIN_CELL_VOLTAGE 410
-#define MIN_MIN_DISCHARGE_VOLTAGE 250
-#define MAX_MIN_DISCHARGE_VOLTAGE 320
-#define MIN_TRICKLE_VOLTAGE 180
-#define MAX_TRICKLE_VOLTAGE 250
-#define MIN_TRICKLE_CURRENT 5
-#define MAX_TRICKLE_CURRENT 50
-#define MAX_TEMP            45
-#define MIN_TEMP            5
-#define MAX_TIME            60*48
-#define MIN_TIME            60
+#define MAX_CELL_COUNT                5
+#define MAX_CYCLE_COUNT               4
+#define MAX_CELL_VOLTAGE              430
+#define MIN_CELL_VOLTAGE              410
+#define MIN_MIN_DISCHARGE_VOLTAGE     250
+#define MAX_MIN_DISCHARGE_VOLTAGE     320
+#define MIN_TRICKLE_VOLTAGE           180
+#define MAX_TRICKLE_VOLTAGE           250
+#define MIN_TRICKLE_CURRENT           5
+#define MAX_TRICKLE_CURRENT           50
+#define MAX_TEMP                      45
+#define MIN_TEMP                      5
+#define MAX_TIME                      (60 * 48)
+#define MIN_TIME                      60
 
-#define MAX_CHARGE_CURRENT      3000
-#define MAX_DISCHARGE_CURRENT   3000
-#define MIN_CHARGE_CURRENT      10
-#define MIN_DISCHARGE_CURRENT   10
+#define MAX_CHARGE_CURRENT            3000
+#define MAX_DISCHARGE_CURRENT         3000
+#define MIN_CHARGE_CURRENT            10
+#define MIN_DISCHARGE_CURRENT         10
 
+#define MAX_PRECENT_CHARGE_VAL        100
+#define MIN_PRECENT_CHARGE_VAL        1
+#define MAX_PRECENT_DISCHARGE_VAL     300
+#define MIN_PRECENT_DISCHARGE_VAL     5
 
-#define MAX_PRECENT_CHARGE_VAL         100
-#define MIN_PRECENT_CHARGE_VAL         1
-#define MAX_PRECENT_DISCHARGE_VAL         300
-#define MIN_PRECENT_DISCHARGE_VAL         5
 
 enum settings1_navigation
 {
@@ -70,78 +70,64 @@ void Handle_Main_MenuNavigation(uint8_t option);
 void Handle_Setting1_MenuNavigation(uint8_t option);
 void Handle_Setting23_MenuNavigation(uint8_t option);
 void Handle_Setting5_MenuNavigation(uint8_t option);
-/*
-             if(Button_EventGet(UP_SW))
-            {
-                 param_pos++;
-            }else if(Button_EventGet(DOWN_SW))
-            {
-                 param_pos--;
-            }
 
-            if( param_pos==0)
-            {
-                 param_pos = 4;
-                 
-            }else if(param_pos==5)
-            {
-                 param_pos = 1; 
-                 
-            }else if(param_pos>6)
-            {
-                 param_pos=1;
-            }
-
-
-            if(param_pos == 1)
-            {
-                bat_param->cell_count = 1;
-                bat_param->bat_chem = liion;
-                bat_param->selected_mode = charging;
-                   bat_param->set_cycle = 1;
-                ChemistryDisplay(bat_param, set_mode_edit);
-                CellCount(bat_param, set_mode_edit);
-                ChargerMode(bat_param, set_mode_edit);
-                CycleSet(bat_param, set_mode_display);
-                
-            }else if (param_pos == 2)
-            {
-                bat_param->cell_count = 2;
-                bat_param->bat_chem = pb;
-                bat_param->selected_mode = charging_discharging;
-                bat_param->set_cycle = 2;
-           
-                ChemistryDisplay(bat_param, set_mode_edit);
-                CellCount(bat_param, set_mode_edit);
-                ChargerMode(bat_param, set_mode_edit);
-                CycleSet(bat_param, set_mode_edit);
-                
-            }else if (param_pos == 3)
-            {
-                bat_param->cell_count = 3;
-                bat_param->bat_chem = nimh;
-                bat_param->selected_mode = charging_discharging_storage;
-                
-                bat_param->set_cycle = 3;
-                ChemistryDisplay(bat_param, set_mode_edit);
-                CellCount(bat_param, set_mode_edit);
-                ChargerMode(bat_param, set_mode_edit);
-                CycleSet(bat_param, set_mode_edit);
-                
-                  
-                
-            }else if (param_pos == 4)
-            {
-                bat_param->cell_count = 4;
-                ChemistryDisplay(bat_param, set_mode_display);
-                CellCount(bat_param, set_mode_display);
-                ChargerMode(bat_param, set_mode_display);
-                CycleSet(bat_param, set_mode_display);
-            }
-            
+void switch_between_battery_types(BattParameters *bat_param)
+{
  
- 
- */
+    bat_param->settings_ptr->batt_max_temp = bat_param->batt_max_temp;
+    bat_param->settings_ptr->bat_storage_precentage = bat_param->bat_storage_precentage;
+    bat_param->settings_ptr->batt_set_current = bat_param->batt_set_current;
+    bat_param->settings_ptr->batt_set_min_discharge_voltage = bat_param->batt_set_min_discharge_voltage;
+    bat_param->settings_ptr->batt_set_trickle_current = bat_param->batt_set_trickle_current;
+    bat_param->settings_ptr->batt_set_trickle_voltage = bat_param->batt_set_trickle_voltage;
+    bat_param->settings_ptr->batt_set_voltage = bat_param->batt_set_voltage;
+    bat_param->settings_ptr->cell_count = bat_param->cell_count;
+    bat_param->settings_ptr->charge_current_1 = bat_param->charge_current_1;
+    bat_param->settings_ptr->charge_current_2 = bat_param->charge_current_2;
+    bat_param->settings_ptr->charge_current_3 = bat_param->charge_current_3;
+    bat_param->settings_ptr->charge_current_4 = bat_param->charge_current_4;
+    bat_param->settings_ptr->charge_current_2_percent = bat_param->charge_current_2_percent;
+    bat_param->settings_ptr->charge_current_3_percent = bat_param->charge_current_3_percent;
+    bat_param->settings_ptr->charge_current_4_percent = bat_param->charge_current_4_percent;
+    bat_param->settings_ptr->selected_mode = bat_param->selected_mode;
+    bat_param->settings_ptr->set_cycle = bat_param->set_cycle;
+    bat_param->settings_ptr->set_max_time = bat_param->set_max_time;
+
+    
+    
+    if(bat_param->bat_chem==liion)
+    {   
+        bat_param->settings_ptr = bat_param->liion_settings_ptr;   
+    
+    }else if(bat_param->bat_chem==pb)
+    {
+        bat_param->settings_ptr = bat_param->pb_settings_ptr;
+         
+    }else if(bat_param->bat_chem==nimh)
+    {
+        bat_param->settings_ptr = bat_param->nimh_settings_ptr;
+    }
+    
+        bat_param->batt_max_temp = bat_param->settings_ptr->batt_max_temp;
+        bat_param->bat_storage_precentage = bat_param->settings_ptr->bat_storage_precentage;
+        bat_param->batt_set_current = bat_param->settings_ptr->batt_set_current;
+        bat_param->batt_set_min_discharge_voltage = bat_param->settings_ptr->batt_set_min_discharge_voltage;
+        bat_param->batt_set_trickle_current = bat_param->settings_ptr->batt_set_trickle_current;
+        bat_param->batt_set_trickle_voltage = bat_param->settings_ptr->batt_set_trickle_voltage;
+        bat_param->batt_set_voltage = bat_param->settings_ptr->batt_set_voltage;
+        bat_param->cell_count = bat_param->settings_ptr->cell_count;
+        bat_param->charge_current_1 = bat_param->settings_ptr->charge_current_1;
+        bat_param->charge_current_2 = bat_param->settings_ptr->charge_current_2;
+        bat_param->charge_current_3 = bat_param->settings_ptr->charge_current_3;
+        bat_param->charge_current_4 = bat_param->settings_ptr->charge_current_4;
+        bat_param->charge_current_2_percent = bat_param->settings_ptr->charge_current_2_percent;
+        bat_param->charge_current_3_percent = bat_param->settings_ptr->charge_current_3_percent;
+        bat_param->charge_current_4_percent = bat_param->settings_ptr->charge_current_4_percent;
+        bat_param->selected_mode = bat_param->settings_ptr->selected_mode;
+        bat_param->set_cycle = bat_param->settings_ptr->set_cycle;
+        bat_param->set_max_time = bat_param->settings_ptr->set_max_time; 
+}
+
 void Menu(BattParameters *bat_param)
 {
     
@@ -512,8 +498,14 @@ void Menu(BattParameters *bat_param)
                     case 2:     bat_param->bat_chem = pb;    break;
                     case 3:     bat_param->bat_chem = nimh;  break;
                 }       
-
+                switch_between_battery_types(bat_param);
+                
+                
                 ChemistryDisplay(bat_param, set_mode_edit);  
+                CellCount(bat_param, set_mode_display);
+                ChargerMode(bat_param, set_mode_display);
+                CycleSet(bat_param, set_mode_display);
+                
                 
             }else if(param_pos == param_2)
             {

@@ -4,19 +4,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _GLCD_GotoXY `(v ~T0 @X0 0 ef2`Cuc`Cuc ]
 "54 menu_definitions.c
 [; ;menu_definitions.c: 54:         }
-[c E5901 0 1 .. ]
-[n E5901 battery_number battery_1 battery_2  ]
+[c E5933 0 1 .. ]
+[n E5933 battery_number battery_1 battery_2  ]
 "125 ./LCD-KS0108/KS0108.h
 [; ;./LCD-KS0108/KS0108.h: 125: void GLCD_PrintString(const char *Text);
 [v _GLCD_PrintString `(v ~T0 @X0 0 ef1`*Cuc ]
 "61 menu_definitions.c
 [; ;menu_definitions.c: 61:         }
-[c E5897 0 1 2 .. ]
-[n E5897 state state_charging state_discharging state_idle  ]
+[c E5929 0 1 2 .. ]
+[n E5929 state state_charging state_discharging state_idle  ]
 "16 ./menu_definitions.h
 [; ;./menu_definitions.h: 16: {
-[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S632 . set_cycle current_cycle bat_actual_temp batt_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time current_time text ]
+[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S632 . set_cycle batt_max_temp bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time ]
+"43
+[; ;./menu_definitions.h: 43: {
+[s S633 `*S632 1 `*S632 1 `*S632 1 `*S632 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
+[n S633 . settings_ptr liion_settings_ptr pb_settings_ptr nimh_settings_ptr set_cycle current_cycle bat_actual_temp batt_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time current_time text ]
 "67 menu_definitions.c
 [; ;menu_definitions.c: 67:         GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
 [c E5702 0 1 .. ]
@@ -35,12 +39,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _GLCD_FillRectangle `(v ~T0 @X0 0 ef5`Cuc`Cuc`Cuc`Cuc`E5705 ]
 "88 menu_definitions.c
 [; ;menu_definitions.c: 88:         }
-[c E5907 0 1 2 .. ]
-[n E5907 select_batt_chemistry liion pb nimh  ]
+[c E5939 0 1 2 .. ]
+[n E5939 select_batt_chemistry liion pb nimh  ]
 "118
 [; ;menu_definitions.c: 118:     }
-[c E5911 0 1 2 .. ]
-[n E5911 mode charging charging_discharging charging_discharging_storage  ]
+[c E5943 0 1 2 .. ]
+[n E5943 mode charging charging_discharging charging_discharging_storage  ]
 "109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
@@ -14094,74 +14098,74 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "50
 [; ;menu_definitions.c: 50:         switch(battery_number)
-[e $U 635  ]
+[e $U 636  ]
 "51
 [; ;menu_definitions.c: 51:         {
 {
 "52
 [; ;menu_definitions.c: 52:             case battery_1: GLCD_GotoXY(35,2); break;
-[e :U 636 ]
+[e :U 637 ]
 [e ( _GLCD_GotoXY (2 , -> -> 35 `i `uc -> -> 2 `i `uc ]
-[e $U 634  ]
+[e $U 635  ]
 "53
 [; ;menu_definitions.c: 53:             case battery_2: GLCD_GotoXY(102,2); break;
-[e :U 637 ]
+[e :U 638 ]
 [e ( _GLCD_GotoXY (2 , -> -> 102 `i `uc -> -> 2 `i `uc ]
-[e $U 634  ]
+[e $U 635  ]
 "54
 [; ;menu_definitions.c: 54:         }
 }
-[e $U 634  ]
+[e $U 635  ]
+[e :U 636 ]
+[e [\ -> _battery_number `i , $ . `E5933 0 637
+ , $ . `E5933 1 638
+ 635 ]
 [e :U 635 ]
-[e [\ -> _battery_number `i , $ . `E5901 0 636
- , $ . `E5901 1 637
- 634 ]
-[e :U 634 ]
 "56
 [; ;menu_definitions.c: 56:         switch(state)
-[e $U 639  ]
+[e $U 640  ]
 "57
 [; ;menu_definitions.c: 57:         {
 {
 "58
 [; ;menu_definitions.c: 58:             case state_charging: GLCD_PrintString("CHRG"); break;
-[e :U 640 ]
+[e :U 641 ]
 [e ( _GLCD_PrintString (1 :s 1C ]
-[e $U 638  ]
+[e $U 639  ]
 "59
 [; ;menu_definitions.c: 59:             case state_discharging: GLCD_PrintString("DISC"); break;
-[e :U 641 ]
+[e :U 642 ]
 [e ( _GLCD_PrintString (1 :s 2C ]
-[e $U 638  ]
+[e $U 639  ]
 "60
 [; ;menu_definitions.c: 60:             case state_idle: GLCD_PrintString("IDLE"); break;
-[e :U 642 ]
+[e :U 643 ]
 [e ( _GLCD_PrintString (1 :s 3C ]
-[e $U 638  ]
+[e $U 639  ]
 "61
 [; ;menu_definitions.c: 61:         }
 }
-[e $U 638  ]
+[e $U 639  ]
+[e :U 640 ]
+[e [\ -> _state `i , $ . `E5929 0 641
+ , $ . `E5929 1 642
+ , $ . `E5929 2 643
+ 639 ]
 [e :U 639 ]
-[e [\ -> _state `i , $ . `E5897 0 640
- , $ . `E5897 1 641
- , $ . `E5897 2 642
- 638 ]
-[e :U 638 ]
 "62
 [; ;menu_definitions.c: 62: }
-[e :UE 633 ]
+[e :UE 634 ]
 }
 "64
 [; ;menu_definitions.c: 64: void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode)
-[v _ChemistryDisplay `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _ChemistryDisplay `(v ~T0 @X0 1 ef2`*S633`uc ]
 "65
 [; ;menu_definitions.c: 65: {
 {
 [e :U _ChemistryDisplay ]
 "64
 [; ;menu_definitions.c: 64: void ChemistryDisplay(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "65
 [; ;menu_definitions.c: 65: {
@@ -14177,7 +14181,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 4C ]
 "70
 [; ;menu_definitions.c: 70:         if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 644  ]
+[e $ ! == -> _set_mode `i -> 1 `i 645  ]
 "71
 [; ;menu_definitions.c: 71:         {
 {
@@ -14190,9 +14194,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "75
 [; ;menu_definitions.c: 75:         }else if(set_mode == 0)
 }
-[e $U 645  ]
-[e :U 644 ]
-[e $ ! == -> _set_mode `i -> 0 `i 646  ]
+[e $U 646  ]
+[e :U 645 ]
+[e $ ! == -> _set_mode `i -> 0 `i 647  ]
 "76
 [; ;menu_definitions.c: 76:         {
 {
@@ -14205,56 +14209,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 "79
 [; ;menu_definitions.c: 79:         }
 }
+[e :U 647 ]
 [e :U 646 ]
-[e :U 645 ]
 "82
 [; ;menu_definitions.c: 82:         GLCD_GotoXY(61, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 61 `i `uc -> -> 13 `i `uc ]
 "83
 [; ;menu_definitions.c: 83:         switch(bat_param->bat_chem)
-[e $U 648  ]
+[e $U 649  ]
 "84
 [; ;menu_definitions.c: 84:         {
 {
 "85
 [; ;menu_definitions.c: 85:             case liion: GLCD_PrintString("Li-Ion"); break;
-[e :U 649 ]
+[e :U 650 ]
 [e ( _GLCD_PrintString (1 :s 5C ]
-[e $U 647  ]
+[e $U 648  ]
 "86
 [; ;menu_definitions.c: 86:             case pb: GLCD_PrintString("PB"); break;
-[e :U 650 ]
+[e :U 651 ]
 [e ( _GLCD_PrintString (1 :s 6C ]
-[e $U 647  ]
+[e $U 648  ]
 "87
 [; ;menu_definitions.c: 87:             case nimh: GLCD_PrintString("Ni-MH"); break;
-[e :U 651 ]
+[e :U 652 ]
 [e ( _GLCD_PrintString (1 :s 7C ]
-[e $U 647  ]
+[e $U 648  ]
 "88
 [; ;menu_definitions.c: 88:         }
 }
-[e $U 647  ]
+[e $U 648  ]
+[e :U 649 ]
+[e [\ -> . *U _bat_param 8 `i , $ . `E5939 0 650
+ , $ . `E5939 1 651
+ , $ . `E5939 2 652
+ 648 ]
 [e :U 648 ]
-[e [\ -> . *U _bat_param 4 `i , $ . `E5907 0 649
- , $ . `E5907 1 650
- , $ . `E5907 2 651
- 647 ]
-[e :U 647 ]
 "91
 [; ;menu_definitions.c: 91: }
-[e :UE 643 ]
+[e :UE 644 ]
 }
 "93
 [; ;menu_definitions.c: 93: void ChargerMode(BattParameters *bat_param, uint8_t set_mode)
-[v _ChargerMode `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _ChargerMode `(v ~T0 @X0 1 ef2`*S633`uc ]
 "94
 [; ;menu_definitions.c: 94: {
 {
 [e :U _ChargerMode ]
 "93
 [; ;menu_definitions.c: 93: void ChargerMode(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "94
 [; ;menu_definitions.c: 94: {
@@ -14270,7 +14274,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 8C ]
 "100
 [; ;menu_definitions.c: 100:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 653  ]
+[e $ ! == -> _set_mode `i -> 1 `i 654  ]
 "101
 [; ;menu_definitions.c: 101:     {
 {
@@ -14283,9 +14287,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "105
 [; ;menu_definitions.c: 105:     }else if(set_mode == 0)
 }
-[e $U 654  ]
-[e :U 653 ]
-[e $ ! == -> _set_mode `i -> 0 `i 655  ]
+[e $U 655  ]
+[e :U 654 ]
+[e $ ! == -> _set_mode `i -> 0 `i 656  ]
 "106
 [; ;menu_definitions.c: 106:     {
 {
@@ -14298,56 +14302,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 "109
 [; ;menu_definitions.c: 109:     }
 }
+[e :U 656 ]
 [e :U 655 ]
-[e :U 654 ]
 "112
 [; ;menu_definitions.c: 112:     GLCD_GotoXY(31, 31);
 [e ( _GLCD_GotoXY (2 , -> -> 31 `i `uc -> -> 31 `i `uc ]
 "113
 [; ;menu_definitions.c: 113:     switch(bat_param->selected_mode)
-[e $U 657  ]
+[e $U 658  ]
 "114
 [; ;menu_definitions.c: 114:     {
 {
 "115
 [; ;menu_definitions.c: 115:         case charging: GLCD_PrintString("Charging"); break;
-[e :U 658 ]
+[e :U 659 ]
 [e ( _GLCD_PrintString (1 :s 9C ]
-[e $U 656  ]
+[e $U 657  ]
 "116
 [; ;menu_definitions.c: 116:         case charging_discharging: GLCD_PrintString("Charg/Disch"); break;
-[e :U 659 ]
+[e :U 660 ]
 [e ( _GLCD_PrintString (1 :s 10C ]
-[e $U 656  ]
+[e $U 657  ]
 "117
 [; ;menu_definitions.c: 117:         case charging_discharging_storage: GLCD_PrintString("Charg/Disch/Stor"); break;
-[e :U 660 ]
+[e :U 661 ]
 [e ( _GLCD_PrintString (1 :s 11C ]
-[e $U 656  ]
+[e $U 657  ]
 "118
 [; ;menu_definitions.c: 118:     }
 }
-[e $U 656  ]
+[e $U 657  ]
+[e :U 658 ]
+[e [\ -> . *U _bat_param 10 `i , $ . `E5943 0 659
+ , $ . `E5943 1 660
+ , $ . `E5943 2 661
+ 657 ]
 [e :U 657 ]
-[e [\ -> . *U _bat_param 6 `i , $ . `E5911 0 658
- , $ . `E5911 1 659
- , $ . `E5911 2 660
- 656 ]
-[e :U 656 ]
 "120
 [; ;menu_definitions.c: 120: }
-[e :UE 652 ]
+[e :UE 653 ]
 }
 "124
 [; ;menu_definitions.c: 124: void SetChargingCurrent_1(BattParameters *bat_param, uint8_t set_mode)
-[v _SetChargingCurrent_1 `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetChargingCurrent_1 `(v ~T0 @X0 1 ef2`*S633`uc ]
 "125
 [; ;menu_definitions.c: 125: {
 {
 [e :U _SetChargingCurrent_1 ]
 "124
 [; ;menu_definitions.c: 124: void SetChargingCurrent_1(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "125
 [; ;menu_definitions.c: 125: {
@@ -14363,7 +14367,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 12C ]
 "130
 [; ;menu_definitions.c: 130:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 662  ]
+[e $ ! == -> _set_mode `i -> 1 `i 663  ]
 "131
 [; ;menu_definitions.c: 131:     {
 {
@@ -14376,9 +14380,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "135
 [; ;menu_definitions.c: 135:     }else if(set_mode == 0)
 }
-[e $U 663  ]
-[e :U 662 ]
-[e $ ! == -> _set_mode `i -> 0 `i 664  ]
+[e $U 664  ]
+[e :U 663 ]
+[e $ ! == -> _set_mode `i -> 0 `i 665  ]
 "136
 [; ;menu_definitions.c: 136:     {
 {
@@ -14391,31 +14395,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "139
 [; ;menu_definitions.c: 139:     }
 }
+[e :U 665 ]
 [e :U 664 ]
-[e :U 663 ]
 "141
 [; ;menu_definitions.c: 141:     GLCD_GotoXY(66, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 13 `i `uc ]
 "142
 [; ;menu_definitions.c: 142:     sprintf(bat_param->text, "%umA", bat_param->charge_current_1);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 13C -> . *U _bat_param 23 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 13C -> . *U _bat_param 27 `ui ]
 "143
 [; ;menu_definitions.c: 143:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "144
 [; ;menu_definitions.c: 144: }
-[e :UE 661 ]
+[e :UE 662 ]
 }
 "145
 [; ;menu_definitions.c: 145: void SetDischargingCurrent_1(BattParameters *bat_param, uint8_t set_mode)
-[v _SetDischargingCurrent_1 `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetDischargingCurrent_1 `(v ~T0 @X0 1 ef2`*S633`uc ]
 "146
 [; ;menu_definitions.c: 146: {
 {
 [e :U _SetDischargingCurrent_1 ]
 "145
 [; ;menu_definitions.c: 145: void SetDischargingCurrent_1(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "146
 [; ;menu_definitions.c: 146: {
@@ -14431,7 +14435,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 14C ]
 "152
 [; ;menu_definitions.c: 152:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 666  ]
+[e $ ! == -> _set_mode `i -> 1 `i 667  ]
 "153
 [; ;menu_definitions.c: 153:     {
 {
@@ -14444,9 +14448,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "157
 [; ;menu_definitions.c: 157:     }else if(set_mode == 0)
 }
-[e $U 667  ]
-[e :U 666 ]
-[e $ ! == -> _set_mode `i -> 0 `i 668  ]
+[e $U 668  ]
+[e :U 667 ]
+[e $ ! == -> _set_mode `i -> 0 `i 669  ]
 "158
 [; ;menu_definitions.c: 158:     {
 {
@@ -14459,31 +14463,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "161
 [; ;menu_definitions.c: 161:     }
 }
+[e :U 669 ]
 [e :U 668 ]
-[e :U 667 ]
 "163
 [; ;menu_definitions.c: 163:     GLCD_GotoXY(66, 22);
 [e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 22 `i `uc ]
 "164
 [; ;menu_definitions.c: 164:     sprintf(bat_param->text, "%umA", bat_param->discharge_current_1);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 15C -> . *U _bat_param 24 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 15C -> . *U _bat_param 28 `ui ]
 "165
 [; ;menu_definitions.c: 165:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "166
 [; ;menu_definitions.c: 166: }
-[e :UE 665 ]
+[e :UE 666 ]
 }
 "169
 [; ;menu_definitions.c: 169: void SetChargingCurrent_2(BattParameters *bat_param, uint8_t set_mode)
-[v _SetChargingCurrent_2 `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetChargingCurrent_2 `(v ~T0 @X0 1 ef2`*S633`uc ]
 "170
 [; ;menu_definitions.c: 170: {
 {
 [e :U _SetChargingCurrent_2 ]
 "169
 [; ;menu_definitions.c: 169: void SetChargingCurrent_2(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "170
 [; ;menu_definitions.c: 170: {
@@ -14499,7 +14503,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 16C ]
 "176
 [; ;menu_definitions.c: 176:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 670  ]
+[e $ ! == -> _set_mode `i -> 1 `i 671  ]
 "177
 [; ;menu_definitions.c: 177:     {
 {
@@ -14512,9 +14516,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "181
 [; ;menu_definitions.c: 181:     }else if(set_mode == 0)
 }
-[e $U 671  ]
-[e :U 670 ]
-[e $ ! == -> _set_mode `i -> 0 `i 672  ]
+[e $U 672  ]
+[e :U 671 ]
+[e $ ! == -> _set_mode `i -> 0 `i 673  ]
 "182
 [; ;menu_definitions.c: 182:     {
 {
@@ -14527,52 +14531,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 "185
 [; ;menu_definitions.c: 185:     }
 }
+[e :U 673 ]
 [e :U 672 ]
-[e :U 671 ]
 "187
 [; ;menu_definitions.c: 187:     GLCD_GotoXY(66, 31);
 [e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 31 `i `uc ]
 "188
 [; ;menu_definitions.c: 188:     if(bat_param->precent_current_flags & (1 << 0))
-[e $ ! != & -> . *U _bat_param 11 `i << -> 1 `i -> 0 `i -> 0 `i 673  ]
+[e $ ! != & -> . *U _bat_param 15 `i << -> 1 `i -> 0 `i -> 0 `i 674  ]
 "189
 [; ;menu_definitions.c: 189:     {
 {
 "190
 [; ;menu_definitions.c: 190:         sprintf(bat_param->text, "%umA", bat_param->charge_current_2);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 17C -> . *U _bat_param 25 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 17C -> . *U _bat_param 29 `ui ]
 "191
 [; ;menu_definitions.c: 191:     }else
 }
-[e $U 674  ]
-[e :U 673 ]
+[e $U 675  ]
+[e :U 674 ]
 "192
 [; ;menu_definitions.c: 192:     {
 {
 "193
 [; ;menu_definitions.c: 193:         sprintf(bat_param->text, "%u%%", bat_param->charge_current_2_percent);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 18C -> . *U _bat_param 8 `i ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 18C -> . *U _bat_param 12 `i ]
 "194
 [; ;menu_definitions.c: 194:     }
 }
-[e :U 674 ]
+[e :U 675 ]
 "195
 [; ;menu_definitions.c: 195:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "196
 [; ;menu_definitions.c: 196: }
-[e :UE 669 ]
+[e :UE 670 ]
 }
 "198
 [; ;menu_definitions.c: 198: void SetChargingCurrent_3(BattParameters *bat_param, uint8_t set_mode)
-[v _SetChargingCurrent_3 `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetChargingCurrent_3 `(v ~T0 @X0 1 ef2`*S633`uc ]
 "199
 [; ;menu_definitions.c: 199: {
 {
 [e :U _SetChargingCurrent_3 ]
 "198
 [; ;menu_definitions.c: 198: void SetChargingCurrent_3(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "199
 [; ;menu_definitions.c: 199: {
@@ -14588,7 +14592,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 19C ]
 "204
 [; ;menu_definitions.c: 204:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 676  ]
+[e $ ! == -> _set_mode `i -> 1 `i 677  ]
 "205
 [; ;menu_definitions.c: 205:     {
 {
@@ -14601,9 +14605,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "209
 [; ;menu_definitions.c: 209:     }else if(set_mode == 0)
 }
-[e $U 677  ]
-[e :U 676 ]
-[e $ ! == -> _set_mode `i -> 0 `i 678  ]
+[e $U 678  ]
+[e :U 677 ]
+[e $ ! == -> _set_mode `i -> 0 `i 679  ]
 "210
 [; ;menu_definitions.c: 210:     {
 {
@@ -14616,52 +14620,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 "213
 [; ;menu_definitions.c: 213:     }
 }
+[e :U 679 ]
 [e :U 678 ]
-[e :U 677 ]
 "215
 [; ;menu_definitions.c: 215:     GLCD_GotoXY(66, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 13 `i `uc ]
 "216
 [; ;menu_definitions.c: 216:     if(bat_param->precent_current_flags & (1 << 2))
-[e $ ! != & -> . *U _bat_param 11 `i << -> 1 `i -> 2 `i -> 0 `i 679  ]
+[e $ ! != & -> . *U _bat_param 15 `i << -> 1 `i -> 2 `i -> 0 `i 680  ]
 "217
 [; ;menu_definitions.c: 217:     {
 {
 "218
 [; ;menu_definitions.c: 218:         sprintf(bat_param->text, "%umA", bat_param->charge_current_3);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 20C -> . *U _bat_param 27 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 20C -> . *U _bat_param 31 `ui ]
 "219
 [; ;menu_definitions.c: 219:     }else
 }
-[e $U 680  ]
-[e :U 679 ]
+[e $U 681  ]
+[e :U 680 ]
 "220
 [; ;menu_definitions.c: 220:     {
 {
 "221
 [; ;menu_definitions.c: 221:         sprintf(bat_param->text, "%u%%", bat_param->charge_current_3_percent);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 21C -> . *U _bat_param 9 `i ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 21C -> . *U _bat_param 13 `i ]
 "222
 [; ;menu_definitions.c: 222:     }
 }
-[e :U 680 ]
+[e :U 681 ]
 "223
 [; ;menu_definitions.c: 223:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "224
 [; ;menu_definitions.c: 224: }
-[e :UE 675 ]
+[e :UE 676 ]
 }
 "227
 [; ;menu_definitions.c: 227: void SetChargingCurrent_4 (BattParameters *bat_param, uint8_t set_mode)
-[v _SetChargingCurrent_4 `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetChargingCurrent_4 `(v ~T0 @X0 1 ef2`*S633`uc ]
 "228
 [; ;menu_definitions.c: 228: {
 {
 [e :U _SetChargingCurrent_4 ]
 "227
 [; ;menu_definitions.c: 227: void SetChargingCurrent_4 (BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "228
 [; ;menu_definitions.c: 228: {
@@ -14677,7 +14681,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 22C ]
 "233
 [; ;menu_definitions.c: 233:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 682  ]
+[e $ ! == -> _set_mode `i -> 1 `i 683  ]
 "234
 [; ;menu_definitions.c: 234:     {
 {
@@ -14690,9 +14694,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "238
 [; ;menu_definitions.c: 238:     }else if(set_mode == 0)
 }
-[e $U 683  ]
-[e :U 682 ]
-[e $ ! == -> _set_mode `i -> 0 `i 684  ]
+[e $U 684  ]
+[e :U 683 ]
+[e $ ! == -> _set_mode `i -> 0 `i 685  ]
 "239
 [; ;menu_definitions.c: 239:     {
 {
@@ -14705,52 +14709,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 "242
 [; ;menu_definitions.c: 242:     }
 }
+[e :U 685 ]
 [e :U 684 ]
-[e :U 683 ]
 "244
 [; ;menu_definitions.c: 244:     GLCD_GotoXY(66, 31);
 [e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 31 `i `uc ]
 "245
 [; ;menu_definitions.c: 245:     if(bat_param->precent_current_flags & (1 << 4))
-[e $ ! != & -> . *U _bat_param 11 `i << -> 1 `i -> 4 `i -> 0 `i 685  ]
+[e $ ! != & -> . *U _bat_param 15 `i << -> 1 `i -> 4 `i -> 0 `i 686  ]
 "246
 [; ;menu_definitions.c: 246:     {
 {
 "247
 [; ;menu_definitions.c: 247:         sprintf(bat_param->text, "%umA", bat_param->charge_current_4);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 23C -> . *U _bat_param 29 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 23C -> . *U _bat_param 33 `ui ]
 "248
 [; ;menu_definitions.c: 248:     }else
 }
-[e $U 686  ]
-[e :U 685 ]
+[e $U 687  ]
+[e :U 686 ]
 "249
 [; ;menu_definitions.c: 249:     {
 {
 "250
 [; ;menu_definitions.c: 250:         sprintf(bat_param->text, "%u%%", bat_param->charge_current_4_percent);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 24C -> . *U _bat_param 10 `i ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 24C -> . *U _bat_param 14 `i ]
 "251
 [; ;menu_definitions.c: 251:     }
 }
-[e :U 686 ]
+[e :U 687 ]
 "252
 [; ;menu_definitions.c: 252:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "253
 [; ;menu_definitions.c: 253: }
-[e :UE 681 ]
+[e :UE 682 ]
 }
 "256
 [; ;menu_definitions.c: 256: void SetDischargingCurrent_2(BattParameters *bat_param, uint8_t set_mode)
-[v _SetDischargingCurrent_2 `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetDischargingCurrent_2 `(v ~T0 @X0 1 ef2`*S633`uc ]
 "257
 [; ;menu_definitions.c: 257: {
 {
 [e :U _SetDischargingCurrent_2 ]
 "256
 [; ;menu_definitions.c: 256: void SetDischargingCurrent_2(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "257
 [; ;menu_definitions.c: 257: {
@@ -14766,7 +14770,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 25C ]
 "262
 [; ;menu_definitions.c: 262:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 688  ]
+[e $ ! == -> _set_mode `i -> 1 `i 689  ]
 "263
 [; ;menu_definitions.c: 263:     {
 {
@@ -14779,9 +14783,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "267
 [; ;menu_definitions.c: 267:     }else if(set_mode == 0)
 }
-[e $U 689  ]
-[e :U 688 ]
-[e $ ! == -> _set_mode `i -> 0 `i 690  ]
+[e $U 690  ]
+[e :U 689 ]
+[e $ ! == -> _set_mode `i -> 0 `i 691  ]
 "268
 [; ;menu_definitions.c: 268:     {
 {
@@ -14794,52 +14798,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 "271
 [; ;menu_definitions.c: 271:     }
 }
+[e :U 691 ]
 [e :U 690 ]
-[e :U 689 ]
 "273
 [; ;menu_definitions.c: 273:     GLCD_GotoXY(66, 40);
 [e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 40 `i `uc ]
 "274
 [; ;menu_definitions.c: 274:     if(bat_param->precent_current_flags & (1 << 1))
-[e $ ! != & -> . *U _bat_param 11 `i << -> 1 `i -> 1 `i -> 0 `i 691  ]
+[e $ ! != & -> . *U _bat_param 15 `i << -> 1 `i -> 1 `i -> 0 `i 692  ]
 "275
 [; ;menu_definitions.c: 275:     {
 {
 "276
 [; ;menu_definitions.c: 276:         sprintf(bat_param->text, "%umA", bat_param->discharge_current_2);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 26C -> . *U _bat_param 26 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 26C -> . *U _bat_param 30 `ui ]
 "277
 [; ;menu_definitions.c: 277:     }else
 }
-[e $U 692  ]
-[e :U 691 ]
+[e $U 693  ]
+[e :U 692 ]
 "278
 [; ;menu_definitions.c: 278:     {
 {
 "279
 [; ;menu_definitions.c: 279:         sprintf(bat_param->text, "%u%%", bat_param->discharge_current_2_percent);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 27C -> . *U _bat_param 33 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 27C -> . *U _bat_param 37 `ui ]
 "280
 [; ;menu_definitions.c: 280:     }
 }
-[e :U 692 ]
+[e :U 693 ]
 "281
 [; ;menu_definitions.c: 281:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "282
 [; ;menu_definitions.c: 282: }
-[e :UE 687 ]
+[e :UE 688 ]
 }
 "284
 [; ;menu_definitions.c: 284: void SetDischargingCurrent_3(BattParameters *bat_param, uint8_t set_mode)
-[v _SetDischargingCurrent_3 `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetDischargingCurrent_3 `(v ~T0 @X0 1 ef2`*S633`uc ]
 "285
 [; ;menu_definitions.c: 285: {
 {
 [e :U _SetDischargingCurrent_3 ]
 "284
 [; ;menu_definitions.c: 284: void SetDischargingCurrent_3(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "285
 [; ;menu_definitions.c: 285: {
@@ -14855,7 +14859,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 28C ]
 "290
 [; ;menu_definitions.c: 290:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 694  ]
+[e $ ! == -> _set_mode `i -> 1 `i 695  ]
 "291
 [; ;menu_definitions.c: 291:     {
 {
@@ -14868,9 +14872,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "295
 [; ;menu_definitions.c: 295:     }else if(set_mode == 0)
 }
-[e $U 695  ]
-[e :U 694 ]
-[e $ ! == -> _set_mode `i -> 0 `i 696  ]
+[e $U 696  ]
+[e :U 695 ]
+[e $ ! == -> _set_mode `i -> 0 `i 697  ]
 "296
 [; ;menu_definitions.c: 296:     {
 {
@@ -14883,52 +14887,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 "299
 [; ;menu_definitions.c: 299:     }
 }
+[e :U 697 ]
 [e :U 696 ]
-[e :U 695 ]
 "301
 [; ;menu_definitions.c: 301:     GLCD_GotoXY(66, 22);
 [e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 22 `i `uc ]
 "302
 [; ;menu_definitions.c: 302:     if(bat_param->precent_current_flags & (1 << 3))
-[e $ ! != & -> . *U _bat_param 11 `i << -> 1 `i -> 3 `i -> 0 `i 697  ]
+[e $ ! != & -> . *U _bat_param 15 `i << -> 1 `i -> 3 `i -> 0 `i 698  ]
 "303
 [; ;menu_definitions.c: 303:     {
 {
 "304
 [; ;menu_definitions.c: 304:         sprintf(bat_param->text, "%umA", bat_param->discharge_current_3);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 29C -> . *U _bat_param 28 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 29C -> . *U _bat_param 32 `ui ]
 "305
 [; ;menu_definitions.c: 305:     }else
 }
-[e $U 698  ]
-[e :U 697 ]
+[e $U 699  ]
+[e :U 698 ]
 "306
 [; ;menu_definitions.c: 306:     {
 {
 "307
 [; ;menu_definitions.c: 307:         sprintf(bat_param->text, "%u%%", bat_param->discharge_current_3_percent);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 30C -> . *U _bat_param 32 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 30C -> . *U _bat_param 36 `ui ]
 "308
 [; ;menu_definitions.c: 308:     }
 }
-[e :U 698 ]
+[e :U 699 ]
 "309
 [; ;menu_definitions.c: 309:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "310
 [; ;menu_definitions.c: 310: }
-[e :UE 693 ]
+[e :UE 694 ]
 }
 "313
 [; ;menu_definitions.c: 313: void SetDischargingCurrent_4 (BattParameters *bat_param, uint8_t set_mode)
-[v _SetDischargingCurrent_4 `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetDischargingCurrent_4 `(v ~T0 @X0 1 ef2`*S633`uc ]
 "314
 [; ;menu_definitions.c: 314: {
 {
 [e :U _SetDischargingCurrent_4 ]
 "313
 [; ;menu_definitions.c: 313: void SetDischargingCurrent_4 (BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "314
 [; ;menu_definitions.c: 314: {
@@ -14944,7 +14948,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 31C ]
 "319
 [; ;menu_definitions.c: 319:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 700  ]
+[e $ ! == -> _set_mode `i -> 1 `i 701  ]
 "320
 [; ;menu_definitions.c: 320:     {
 {
@@ -14957,9 +14961,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "324
 [; ;menu_definitions.c: 324:     }else if(set_mode == 0)
 }
-[e $U 701  ]
-[e :U 700 ]
-[e $ ! == -> _set_mode `i -> 0 `i 702  ]
+[e $U 702  ]
+[e :U 701 ]
+[e $ ! == -> _set_mode `i -> 0 `i 703  ]
 "325
 [; ;menu_definitions.c: 325:     {
 {
@@ -14972,98 +14976,98 @@ Version 4.0 HI-TECH Software Intermediate Code
 "328
 [; ;menu_definitions.c: 328:     }
 }
+[e :U 703 ]
 [e :U 702 ]
-[e :U 701 ]
 "330
 [; ;menu_definitions.c: 330:     GLCD_GotoXY(66, 40);
 [e ( _GLCD_GotoXY (2 , -> -> 66 `i `uc -> -> 40 `i `uc ]
 "331
 [; ;menu_definitions.c: 331:     if(bat_param->precent_current_flags & (1 << 5))
-[e $ ! != & -> . *U _bat_param 11 `i << -> 1 `i -> 5 `i -> 0 `i 703  ]
+[e $ ! != & -> . *U _bat_param 15 `i << -> 1 `i -> 5 `i -> 0 `i 704  ]
 "332
 [; ;menu_definitions.c: 332:     {
 {
 "333
 [; ;menu_definitions.c: 333:         sprintf(bat_param->text, "%umA", bat_param->discharge_current_4);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 32C -> . *U _bat_param 30 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 32C -> . *U _bat_param 34 `ui ]
 "334
 [; ;menu_definitions.c: 334:     }else
 }
-[e $U 704  ]
-[e :U 703 ]
+[e $U 705  ]
+[e :U 704 ]
 "335
 [; ;menu_definitions.c: 335:     {
 {
 "336
 [; ;menu_definitions.c: 336:         sprintf(bat_param->text, "%u%%", bat_param->discharge_current_4_percent);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 33C -> . *U _bat_param 31 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 33C -> . *U _bat_param 35 `ui ]
 "337
 [; ;menu_definitions.c: 337:     }
 }
-[e :U 704 ]
+[e :U 705 ]
 "338
 [; ;menu_definitions.c: 338:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "339
 [; ;menu_definitions.c: 339: }
-[e :UE 699 ]
+[e :UE 700 ]
 }
 "343
 [; ;menu_definitions.c: 343: void VoltageDisplay (BattParameters *bat_param)
-[v _VoltageDisplay `(v ~T0 @X0 1 ef1`*S632 ]
+[v _VoltageDisplay `(v ~T0 @X0 1 ef1`*S633 ]
 "344
 [; ;menu_definitions.c: 344: {
 {
 [e :U _VoltageDisplay ]
 "343
 [; ;menu_definitions.c: 343: void VoltageDisplay (BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "344
 [; ;menu_definitions.c: 344: {
 [f ]
 "345
 [; ;menu_definitions.c: 345:     sprintf(bat_param->text, "Vol:%u.%02u/%u.%02uV", bat_param->batt_set_voltage/100, bat_param->batt_set_voltage%100, bat_param->batt_actual_voltage/100, bat_param->batt_actual_voltage%100);
-[e ( _sprintf (1 , , , , (. , &U . *U _bat_param 36 :s 34C / -> . *U _bat_param 12 `ui -> -> 100 `i `ui % -> . *U _bat_param 12 `ui -> -> 100 `i `ui / -> . *U _bat_param 14 `ui -> -> 100 `i `ui % -> . *U _bat_param 14 `ui -> -> 100 `i `ui ]
+[e ( _sprintf (1 , , , , (. , &U . *U _bat_param 40 :s 34C / -> . *U _bat_param 16 `ui -> -> 100 `i `ui % -> . *U _bat_param 16 `ui -> -> 100 `i `ui / -> . *U _bat_param 18 `ui -> -> 100 `i `ui % -> . *U _bat_param 18 `ui -> -> 100 `i `ui ]
 "346
 [; ;menu_definitions.c: 346:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "347
 [; ;menu_definitions.c: 347: }
-[e :UE 705 ]
+[e :UE 706 ]
 }
 "349
 [; ;menu_definitions.c: 349: void CurrentDisplay (BattParameters *bat_param)
-[v _CurrentDisplay `(v ~T0 @X0 1 ef1`*S632 ]
+[v _CurrentDisplay `(v ~T0 @X0 1 ef1`*S633 ]
 "350
 [; ;menu_definitions.c: 350: {
 {
 [e :U _CurrentDisplay ]
 "349
 [; ;menu_definitions.c: 349: void CurrentDisplay (BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "350
 [; ;menu_definitions.c: 350: {
 [f ]
 "351
 [; ;menu_definitions.c: 351:     sprintf(bat_param->text, "Cur:%u/%umA", bat_param->batt_set_current, bat_param->batt_actual_current);
-[e ( _sprintf (1 , , (. , &U . *U _bat_param 36 :s 35C -> . *U _bat_param 13 `ui -> . *U _bat_param 15 `ui ]
+[e ( _sprintf (1 , , (. , &U . *U _bat_param 40 :s 35C -> . *U _bat_param 17 `ui -> . *U _bat_param 19 `ui ]
 "352
 [; ;menu_definitions.c: 352:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "353
 [; ;menu_definitions.c: 353: }
-[e :UE 706 ]
+[e :UE 707 ]
 }
 "355
 [; ;menu_definitions.c: 355: void CellCount(BattParameters *bat_param, uint8_t set_mode)
-[v _CellCount `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _CellCount `(v ~T0 @X0 1 ef2`*S633`uc ]
 "356
 [; ;menu_definitions.c: 356: {
 {
 [e :U _CellCount ]
 "355
 [; ;menu_definitions.c: 355: void CellCount(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "356
 [; ;menu_definitions.c: 356: {
@@ -15079,7 +15083,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 36C ]
 "361
 [; ;menu_definitions.c: 361:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 708  ]
+[e $ ! == -> _set_mode `i -> 1 `i 709  ]
 "362
 [; ;menu_definitions.c: 362:     {
 {
@@ -15092,9 +15096,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "366
 [; ;menu_definitions.c: 366:     }else if(set_mode == 0)
 }
-[e $U 709  ]
-[e :U 708 ]
-[e $ ! == -> _set_mode `i -> 0 `i 710  ]
+[e $U 710  ]
+[e :U 709 ]
+[e $ ! == -> _set_mode `i -> 0 `i 711  ]
 "367
 [; ;menu_definitions.c: 367:     {
 {
@@ -15107,111 +15111,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 "370
 [; ;menu_definitions.c: 370:     }
 }
+[e :U 711 ]
 [e :U 710 ]
-[e :U 709 ]
 "372
 [; ;menu_definitions.c: 372:     GLCD_GotoXY(67, 22);
 [e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 22 `i `uc ]
 "373
 [; ;menu_definitions.c: 373:     sprintf(bat_param->text, "%u", bat_param->cell_count);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 37C -> . *U _bat_param 7 `i ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 37C -> . *U _bat_param 11 `i ]
 "374
 [; ;menu_definitions.c: 374:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "375
 [; ;menu_definitions.c: 375: }
-[e :UE 707 ]
+[e :UE 708 ]
 }
 "377
 [; ;menu_definitions.c: 377: void CapacitanceDisplay (BattParameters *bat_param)
-[v _CapacitanceDisplay `(v ~T0 @X0 1 ef1`*S632 ]
+[v _CapacitanceDisplay `(v ~T0 @X0 1 ef1`*S633 ]
 "378
 [; ;menu_definitions.c: 378: {
 {
 [e :U _CapacitanceDisplay ]
 "377
 [; ;menu_definitions.c: 377: void CapacitanceDisplay (BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "378
 [; ;menu_definitions.c: 378: {
 [f ]
 "380
 [; ;menu_definitions.c: 380:     switch(bat_param->set_cycle)
-[e $U 713  ]
+[e $U 714  ]
 "381
 [; ;menu_definitions.c: 381:     {
 {
 "382
 [; ;menu_definitions.c: 382:         case 1: sprintf(bat_param->text, "Cap:%04umAh", bat_param->batt_capacitance_cycle1); break;
-[e :U 714 ]
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 38C -> . *U _bat_param 19 `ui ]
-[e $U 712  ]
+[e :U 715 ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 38C -> . *U _bat_param 23 `ui ]
+[e $U 713  ]
 "383
 [; ;menu_definitions.c: 383:         case 2: sprintf(bat_param->text, "Cap:%04u/%04umAh", bat_param->batt_capacitance_cycle1,bat_param->batt_capacitance_cycle2); break;
-[e :U 715 ]
-[e ( _sprintf (1 , , (. , &U . *U _bat_param 36 :s 39C -> . *U _bat_param 19 `ui -> . *U _bat_param 20 `ui ]
-[e $U 712  ]
+[e :U 716 ]
+[e ( _sprintf (1 , , (. , &U . *U _bat_param 40 :s 39C -> . *U _bat_param 23 `ui -> . *U _bat_param 24 `ui ]
+[e $U 713  ]
 "384
 [; ;menu_definitions.c: 384:         case 3: sprintf(bat_param->text, "C:%04u/%04u/%04umAh", bat_param->batt_capacitance_cycle1,bat_param->batt_capacitance_cycle2,bat_param->batt_capacitance_cycle3); break;
-[e :U 716 ]
-[e ( _sprintf (1 , , , (. , &U . *U _bat_param 36 :s 40C -> . *U _bat_param 19 `ui -> . *U _bat_param 20 `ui -> . *U _bat_param 21 `ui ]
-[e $U 712  ]
+[e :U 717 ]
+[e ( _sprintf (1 , , , (. , &U . *U _bat_param 40 :s 40C -> . *U _bat_param 23 `ui -> . *U _bat_param 24 `ui -> . *U _bat_param 25 `ui ]
+[e $U 713  ]
 "385
 [; ;menu_definitions.c: 385:         case 4: sprintf(bat_param->text, "C:%04u/%04u/%04u/%04u", bat_param->batt_capacitance_cycle1,bat_param->batt_capacitance_cycle2,bat_param->batt_capacitance_cycle3,bat_param->batt_capacitance_cycle4); break;
-[e :U 717 ]
-[e ( _sprintf (1 , , , , (. , &U . *U _bat_param 36 :s 41C -> . *U _bat_param 19 `ui -> . *U _bat_param 20 `ui -> . *U _bat_param 21 `ui -> . *U _bat_param 22 `ui ]
-[e $U 712  ]
+[e :U 718 ]
+[e ( _sprintf (1 , , , , (. , &U . *U _bat_param 40 :s 41C -> . *U _bat_param 23 `ui -> . *U _bat_param 24 `ui -> . *U _bat_param 25 `ui -> . *U _bat_param 26 `ui ]
+[e $U 713  ]
 "386
 [; ;menu_definitions.c: 386:     }
 }
-[e $U 712  ]
+[e $U 713  ]
+[e :U 714 ]
+[e [\ -> . *U _bat_param 4 `i , $ -> 1 `i 715
+ , $ -> 2 `i 716
+ , $ -> 3 `i 717
+ , $ -> 4 `i 718
+ 713 ]
 [e :U 713 ]
-[e [\ -> . *U _bat_param 0 `i , $ -> 1 `i 714
- , $ -> 2 `i 715
- , $ -> 3 `i 716
- , $ -> 4 `i 717
- 712 ]
-[e :U 712 ]
 "387
 [; ;menu_definitions.c: 387:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "388
 [; ;menu_definitions.c: 388: }
-[e :UE 711 ]
+[e :UE 712 ]
 }
 "390
 [; ;menu_definitions.c: 390: void CycleDisplay (BattParameters *bat_param)
-[v _CycleDisplay `(v ~T0 @X0 1 ef1`*S632 ]
+[v _CycleDisplay `(v ~T0 @X0 1 ef1`*S633 ]
 "391
 [; ;menu_definitions.c: 391: {
 {
 [e :U _CycleDisplay ]
 "390
 [; ;menu_definitions.c: 390: void CycleDisplay (BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "391
 [; ;menu_definitions.c: 391: {
 [f ]
 "392
 [; ;menu_definitions.c: 392:     sprintf(bat_param->text, "Cycle:%u/%u", bat_param->current_cycle,bat_param->set_cycle);
-[e ( _sprintf (1 , , (. , &U . *U _bat_param 36 :s 42C -> . *U _bat_param 1 `i -> . *U _bat_param 0 `i ]
+[e ( _sprintf (1 , , (. , &U . *U _bat_param 40 :s 42C -> . *U _bat_param 5 `i -> . *U _bat_param 4 `i ]
 "393
 [; ;menu_definitions.c: 393:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "394
 [; ;menu_definitions.c: 394: }
-[e :UE 718 ]
+[e :UE 719 ]
 }
 "395
 [; ;menu_definitions.c: 395: void CycleSet(BattParameters *bat_param, uint8_t set_mode)
-[v _CycleSet `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _CycleSet `(v ~T0 @X0 1 ef2`*S633`uc ]
 "396
 [; ;menu_definitions.c: 396: {
 {
 [e :U _CycleSet ]
 "395
 [; ;menu_definitions.c: 395: void CycleSet(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "396
 [; ;menu_definitions.c: 396: {
@@ -15227,7 +15231,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 43C ]
 "401
 [; ;menu_definitions.c: 401:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 720  ]
+[e $ ! == -> _set_mode `i -> 1 `i 721  ]
 "402
 [; ;menu_definitions.c: 402:     {
 {
@@ -15240,9 +15244,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "406
 [; ;menu_definitions.c: 406:     }else if(set_mode == 0)
 }
-[e $U 721  ]
-[e :U 720 ]
-[e $ ! == -> _set_mode `i -> 0 `i 722  ]
+[e $U 722  ]
+[e :U 721 ]
+[e $ ! == -> _set_mode `i -> 0 `i 723  ]
 "407
 [; ;menu_definitions.c: 407:     {
 {
@@ -15255,54 +15259,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "410
 [; ;menu_definitions.c: 410:     }
 }
+[e :U 723 ]
 [e :U 722 ]
-[e :U 721 ]
 "412
 [; ;menu_definitions.c: 412:     GLCD_GotoXY(36, 40);
 [e ( _GLCD_GotoXY (2 , -> -> 36 `i `uc -> -> 40 `i `uc ]
 "413
 [; ;menu_definitions.c: 413:     sprintf(bat_param->text, "%u",bat_param->set_cycle);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 44C -> . *U _bat_param 0 `i ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 44C -> . *U _bat_param 4 `i ]
 "414
 [; ;menu_definitions.c: 414:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "415
 [; ;menu_definitions.c: 415: }
-[e :UE 719 ]
+[e :UE 720 ]
 }
 "417
 [; ;menu_definitions.c: 417: void TimeDisplay (BattParameters *bat_param)
-[v _TimeDisplay `(v ~T0 @X0 1 ef1`*S632 ]
+[v _TimeDisplay `(v ~T0 @X0 1 ef1`*S633 ]
 "418
 [; ;menu_definitions.c: 418: {
 {
 [e :U _TimeDisplay ]
 "417
 [; ;menu_definitions.c: 417: void TimeDisplay (BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "418
 [; ;menu_definitions.c: 418: {
 [f ]
 "419
 [; ;menu_definitions.c: 419:     sprintf(bat_param->text, "%02uh%02um%02us", (unsigned int)(bat_param->current_time/3600),(unsigned int)((bat_param->current_time%3600)/60),(unsigned int)(bat_param->current_time%60));
-[e ( _sprintf (1 , , , (. , &U . *U _bat_param 36 :s 45C -> / . *U _bat_param 35 -> -> -> 3600 `i `l `ul `ui -> / % . *U _bat_param 35 -> -> -> 3600 `i `l `ul -> -> -> 60 `i `l `ul `ui -> % . *U _bat_param 35 -> -> -> 60 `i `l `ul `ui ]
+[e ( _sprintf (1 , , , (. , &U . *U _bat_param 40 :s 45C -> / . *U _bat_param 39 -> -> -> 3600 `i `l `ul `ui -> / % . *U _bat_param 39 -> -> -> 3600 `i `l `ul -> -> -> 60 `i `l `ul `ui -> % . *U _bat_param 39 -> -> -> 60 `i `l `ul `ui ]
 "420
 [; ;menu_definitions.c: 420:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "421
 [; ;menu_definitions.c: 421: }
-[e :UE 723 ]
+[e :UE 724 ]
 }
 "423
 [; ;menu_definitions.c: 423: void SetMaxTime (BattParameters *bat_param, uint8_t set_mode)
-[v _SetMaxTime `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetMaxTime `(v ~T0 @X0 1 ef2`*S633`uc ]
 "424
 [; ;menu_definitions.c: 424: {
 {
 [e :U _SetMaxTime ]
 "423
 [; ;menu_definitions.c: 423: void SetMaxTime (BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "424
 [; ;menu_definitions.c: 424: {
@@ -15318,7 +15322,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 46C ]
 "429
 [; ;menu_definitions.c: 429:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 725  ]
+[e $ ! == -> _set_mode `i -> 1 `i 726  ]
 "430
 [; ;menu_definitions.c: 430:     {
 {
@@ -15331,9 +15335,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "434
 [; ;menu_definitions.c: 434:     }else if(set_mode == 0)
 }
-[e $U 726  ]
-[e :U 725 ]
-[e $ ! == -> _set_mode `i -> 0 `i 727  ]
+[e $U 727  ]
+[e :U 726 ]
+[e $ ! == -> _set_mode `i -> 0 `i 728  ]
 "435
 [; ;menu_definitions.c: 435:     {
 {
@@ -15346,54 +15350,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "438
 [; ;menu_definitions.c: 438:     }
 }
+[e :U 728 ]
 [e :U 727 ]
-[e :U 726 ]
 "440
 [; ;menu_definitions.c: 440:     GLCD_GotoXY(54, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 54 `i `uc -> -> 13 `i `uc ]
 "441
 [; ;menu_definitions.c: 441:     sprintf(bat_param->text, "%02uh%02um", bat_param->set_max_time/60, bat_param->set_max_time%60);
-[e ( _sprintf (1 , , (. , &U . *U _bat_param 36 :s 47C / -> . *U _bat_param 34 `ui -> -> 60 `i `ui % -> . *U _bat_param 34 `ui -> -> 60 `i `ui ]
+[e ( _sprintf (1 , , (. , &U . *U _bat_param 40 :s 47C / -> . *U _bat_param 38 `ui -> -> 60 `i `ui % -> . *U _bat_param 38 `ui -> -> 60 `i `ui ]
 "442
 [; ;menu_definitions.c: 442:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "443
 [; ;menu_definitions.c: 443: }
-[e :UE 724 ]
+[e :UE 725 ]
 }
 "445
 [; ;menu_definitions.c: 445: void TempDisplay (BattParameters *bat_param)
-[v _TempDisplay `(v ~T0 @X0 1 ef1`*S632 ]
+[v _TempDisplay `(v ~T0 @X0 1 ef1`*S633 ]
 "446
 [; ;menu_definitions.c: 446: {
 {
 [e :U _TempDisplay ]
 "445
 [; ;menu_definitions.c: 445: void TempDisplay (BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "446
 [; ;menu_definitions.c: 446: {
 [f ]
 "447
 [; ;menu_definitions.c: 447:     sprintf(bat_param->text, "Temp:%02uC", bat_param->bat_actual_temp);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 48C -> . *U _bat_param 2 `i ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 48C -> . *U _bat_param 6 `i ]
 "448
 [; ;menu_definitions.c: 448:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "449
 [; ;menu_definitions.c: 449: }
-[e :UE 728 ]
+[e :UE 729 ]
 }
 "451
 [; ;menu_definitions.c: 451: void SetTemp(BattParameters *bat_param, uint8_t set_mode)
-[v _SetTemp `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetTemp `(v ~T0 @X0 1 ef2`*S633`uc ]
 "452
 [; ;menu_definitions.c: 452: {
 {
 [e :U _SetTemp ]
 "451
 [; ;menu_definitions.c: 451: void SetTemp(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "452
 [; ;menu_definitions.c: 452: {
@@ -15409,7 +15413,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 49C ]
 "457
 [; ;menu_definitions.c: 457:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 730  ]
+[e $ ! == -> _set_mode `i -> 1 `i 731  ]
 "458
 [; ;menu_definitions.c: 458:     {
 {
@@ -15422,9 +15426,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "462
 [; ;menu_definitions.c: 462:     }else if(set_mode == 0)
 }
-[e $U 731  ]
-[e :U 730 ]
-[e $ ! == -> _set_mode `i -> 0 `i 732  ]
+[e $U 732  ]
+[e :U 731 ]
+[e $ ! == -> _set_mode `i -> 0 `i 733  ]
 "463
 [; ;menu_definitions.c: 463:     {
 {
@@ -15437,31 +15441,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "466
 [; ;menu_definitions.c: 466:     }
 }
+[e :U 733 ]
 [e :U 732 ]
-[e :U 731 ]
 "468
 [; ;menu_definitions.c: 468:     GLCD_GotoXY(30, 22);
 [e ( _GLCD_GotoXY (2 , -> -> 30 `i `uc -> -> 22 `i `uc ]
 "469
 [; ;menu_definitions.c: 469:     sprintf(bat_param->text, "%uC", bat_param->batt_max_temp);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 50C -> . *U _bat_param 3 `i ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 50C -> . *U _bat_param 7 `i ]
 "470
 [; ;menu_definitions.c: 470:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "471
 [; ;menu_definitions.c: 471: }
-[e :UE 729 ]
+[e :UE 730 ]
 }
 "473
 [; ;menu_definitions.c: 473: void TrickleVoltage(BattParameters *bat_param, uint8_t set_mode)
-[v _TrickleVoltage `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _TrickleVoltage `(v ~T0 @X0 1 ef2`*S633`uc ]
 "474
 [; ;menu_definitions.c: 474: {
 {
 [e :U _TrickleVoltage ]
 "473
 [; ;menu_definitions.c: 473: void TrickleVoltage(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "474
 [; ;menu_definitions.c: 474: {
@@ -15477,7 +15481,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 51C ]
 "479
 [; ;menu_definitions.c: 479:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 734  ]
+[e $ ! == -> _set_mode `i -> 1 `i 735  ]
 "480
 [; ;menu_definitions.c: 480:     {
 {
@@ -15490,9 +15494,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "484
 [; ;menu_definitions.c: 484:     }else if(set_mode == 0)
 }
-[e $U 735  ]
-[e :U 734 ]
-[e $ ! == -> _set_mode `i -> 0 `i 736  ]
+[e $U 736  ]
+[e :U 735 ]
+[e $ ! == -> _set_mode `i -> 0 `i 737  ]
 "485
 [; ;menu_definitions.c: 485:     {
 {
@@ -15505,31 +15509,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "488
 [; ;menu_definitions.c: 488:     }
 }
+[e :U 737 ]
 [e :U 736 ]
-[e :U 735 ]
 "490
 [; ;menu_definitions.c: 490:     GLCD_GotoXY(67, 31);
 [e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 31 `i `uc ]
 "491
 [; ;menu_definitions.c: 491:     sprintf(bat_param->text, "%u.%02uV", bat_param->batt_set_trickle_voltage/100, bat_param->batt_set_trickle_voltage%100);
-[e ( _sprintf (1 , , (. , &U . *U _bat_param 36 :s 52C / -> . *U _bat_param 16 `ui -> -> 100 `i `ui % -> . *U _bat_param 16 `ui -> -> 100 `i `ui ]
+[e ( _sprintf (1 , , (. , &U . *U _bat_param 40 :s 52C / -> . *U _bat_param 20 `ui -> -> 100 `i `ui % -> . *U _bat_param 20 `ui -> -> 100 `i `ui ]
 "492
 [; ;menu_definitions.c: 492:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "493
 [; ;menu_definitions.c: 493: }
-[e :UE 733 ]
+[e :UE 734 ]
 }
 "494
 [; ;menu_definitions.c: 494: void TrickleCurrent(BattParameters *bat_param, uint8_t set_mode)
-[v _TrickleCurrent `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _TrickleCurrent `(v ~T0 @X0 1 ef2`*S633`uc ]
 "495
 [; ;menu_definitions.c: 495: {
 {
 [e :U _TrickleCurrent ]
 "494
 [; ;menu_definitions.c: 494: void TrickleCurrent(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "495
 [; ;menu_definitions.c: 495: {
@@ -15545,7 +15549,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 53C ]
 "500
 [; ;menu_definitions.c: 500:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 738  ]
+[e $ ! == -> _set_mode `i -> 1 `i 739  ]
 "501
 [; ;menu_definitions.c: 501:     {
 {
@@ -15558,9 +15562,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "505
 [; ;menu_definitions.c: 505:     }else if(set_mode == 0)
 }
-[e $U 739  ]
-[e :U 738 ]
-[e $ ! == -> _set_mode `i -> 0 `i 740  ]
+[e $U 740  ]
+[e :U 739 ]
+[e $ ! == -> _set_mode `i -> 0 `i 741  ]
 "506
 [; ;menu_definitions.c: 506:     {
 {
@@ -15573,31 +15577,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "509
 [; ;menu_definitions.c: 509:     }
 }
+[e :U 741 ]
 [e :U 740 ]
-[e :U 739 ]
 "511
 [; ;menu_definitions.c: 511:     GLCD_GotoXY(67, 40);
 [e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 40 `i `uc ]
 "512
 [; ;menu_definitions.c: 512:     sprintf(bat_param->text, "%umA", bat_param->batt_set_trickle_current);
-[e ( _sprintf (1 , (. , &U . *U _bat_param 36 :s 54C -> . *U _bat_param 17 `ui ]
+[e ( _sprintf (1 , (. , &U . *U _bat_param 40 :s 54C -> . *U _bat_param 21 `ui ]
 "513
 [; ;menu_definitions.c: 513:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "514
 [; ;menu_definitions.c: 514: }
-[e :UE 737 ]
+[e :UE 738 ]
 }
 "515
 [; ;menu_definitions.c: 515: void SetCellVotage(BattParameters *bat_param, uint8_t set_mode)
-[v _SetCellVotage `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _SetCellVotage `(v ~T0 @X0 1 ef2`*S633`uc ]
 "516
 [; ;menu_definitions.c: 516: {
 {
 [e :U _SetCellVotage ]
 "515
 [; ;menu_definitions.c: 515: void SetCellVotage(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "516
 [; ;menu_definitions.c: 516: {
@@ -15613,7 +15617,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 55C ]
 "521
 [; ;menu_definitions.c: 521:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 742  ]
+[e $ ! == -> _set_mode `i -> 1 `i 743  ]
 "522
 [; ;menu_definitions.c: 522:     {
 {
@@ -15626,9 +15630,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "526
 [; ;menu_definitions.c: 526:     }else if(set_mode == 0)
 }
-[e $U 743  ]
-[e :U 742 ]
-[e $ ! == -> _set_mode `i -> 0 `i 744  ]
+[e $U 744  ]
+[e :U 743 ]
+[e $ ! == -> _set_mode `i -> 0 `i 745  ]
 "527
 [; ;menu_definitions.c: 527:     {
 {
@@ -15641,31 +15645,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "530
 [; ;menu_definitions.c: 530:     }
 }
+[e :U 745 ]
 [e :U 744 ]
-[e :U 743 ]
 "532
 [; ;menu_definitions.c: 532:     GLCD_GotoXY(67, 13);
 [e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 13 `i `uc ]
 "533
 [; ;menu_definitions.c: 533:     sprintf(bat_param->text, "%u.%02uV", bat_param->batt_set_voltage/100, bat_param->batt_set_voltage%100);
-[e ( _sprintf (1 , , (. , &U . *U _bat_param 36 :s 56C / -> . *U _bat_param 12 `ui -> -> 100 `i `ui % -> . *U _bat_param 12 `ui -> -> 100 `i `ui ]
+[e ( _sprintf (1 , , (. , &U . *U _bat_param 40 :s 56C / -> . *U _bat_param 16 `ui -> -> 100 `i `ui % -> . *U _bat_param 16 `ui -> -> 100 `i `ui ]
 "534
 [; ;menu_definitions.c: 534:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "535
 [; ;menu_definitions.c: 535: }
-[e :UE 741 ]
+[e :UE 742 ]
 }
 "536
 [; ;menu_definitions.c: 536: void MinimumDischargeVoltage(BattParameters *bat_param, uint8_t set_mode)
-[v _MinimumDischargeVoltage `(v ~T0 @X0 1 ef2`*S632`uc ]
+[v _MinimumDischargeVoltage `(v ~T0 @X0 1 ef2`*S633`uc ]
 "537
 [; ;menu_definitions.c: 537: {
 {
 [e :U _MinimumDischargeVoltage ]
 "536
 [; ;menu_definitions.c: 536: void MinimumDischargeVoltage(BattParameters *bat_param, uint8_t set_mode)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 [v _set_mode `uc ~T0 @X0 1 r2 ]
 "537
 [; ;menu_definitions.c: 537: {
@@ -15681,7 +15685,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_PrintString (1 :s 57C ]
 "542
 [; ;menu_definitions.c: 542:     if(set_mode == 1)
-[e $ ! == -> _set_mode `i -> 1 `i 746  ]
+[e $ ! == -> _set_mode `i -> 1 `i 747  ]
 "543
 [; ;menu_definitions.c: 543:     {
 {
@@ -15694,9 +15698,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "547
 [; ;menu_definitions.c: 547:     }else if(set_mode == 0)
 }
-[e $U 747  ]
-[e :U 746 ]
-[e $ ! == -> _set_mode `i -> 0 `i 748  ]
+[e $U 748  ]
+[e :U 747 ]
+[e $ ! == -> _set_mode `i -> 0 `i 749  ]
 "548
 [; ;menu_definitions.c: 548:     {
 {
@@ -15709,31 +15713,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "551
 [; ;menu_definitions.c: 551:     }
 }
+[e :U 749 ]
 [e :U 748 ]
-[e :U 747 ]
 "553
 [; ;menu_definitions.c: 553:     GLCD_GotoXY(67, 22);
 [e ( _GLCD_GotoXY (2 , -> -> 67 `i `uc -> -> 22 `i `uc ]
 "554
 [; ;menu_definitions.c: 554:     sprintf(bat_param->text, "%u.%02uV", bat_param->batt_set_min_discharge_voltage/100, bat_param->batt_set_min_discharge_voltage%100);
-[e ( _sprintf (1 , , (. , &U . *U _bat_param 36 :s 58C / -> . *U _bat_param 18 `ui -> -> 100 `i `ui % -> . *U _bat_param 18 `ui -> -> 100 `i `ui ]
+[e ( _sprintf (1 , , (. , &U . *U _bat_param 40 :s 58C / -> . *U _bat_param 22 `ui -> -> 100 `i `ui % -> . *U _bat_param 22 `ui -> -> 100 `i `ui ]
 "555
 [; ;menu_definitions.c: 555:     GLCD_PrintString(bat_param->text);
-[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 36 `*Cuc ]
+[e ( _GLCD_PrintString (1 -> &U . *U _bat_param 40 `*Cuc ]
 "556
 [; ;menu_definitions.c: 556: }
-[e :UE 745 ]
+[e :UE 746 ]
 }
 "564
 [; ;menu_definitions.c: 564: void SingleBat_Menu(BattParameters *bat_param)
-[v _SingleBat_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+[v _SingleBat_Menu `(v ~T0 @X0 1 ef1`*S633 ]
 "565
 [; ;menu_definitions.c: 565: {
 {
 [e :U _SingleBat_Menu ]
 "564
 [; ;menu_definitions.c: 564: void SingleBat_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "565
 [; ;menu_definitions.c: 565: {
 [f ]
@@ -15745,7 +15749,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_SetFont (4 , , , , &U _Font5x8 -> -> 5 `i `uc -> -> 8 `i `uc . `E5702 1 . `E5699 1 ]
 "570
 [; ;menu_definitions.c: 570:     batState(state_idle, battery_1);
-[e ( _batState (2 , -> . `E5897 2 `uc -> . `E5901 0 `uc ]
+[e ( _batState (2 , -> . `E5929 2 `uc -> . `E5933 0 `uc ]
 "573
 [; ;menu_definitions.c: 573:     GLCD_GotoXY(2, 2);
 [e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
@@ -15793,18 +15797,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TempDisplay (1 _bat_param ]
 "590
 [; ;menu_definitions.c: 590: }
-[e :UE 749 ]
+[e :UE 750 ]
 }
 "592
 [; ;menu_definitions.c: 592: void Options5_Menu(BattParameters *bat_param)
-[v _Options5_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+[v _Options5_Menu `(v ~T0 @X0 1 ef1`*S633 ]
 "593
 [; ;menu_definitions.c: 593: {
 {
 [e :U _Options5_Menu ]
 "592
 [; ;menu_definitions.c: 592: void Options5_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "593
 [; ;menu_definitions.c: 593: {
 [f ]
@@ -15855,18 +15859,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_4 (2 , _bat_param -> -> 0 `i `uc ]
 "624
 [; ;menu_definitions.c: 624: }
-[e :UE 750 ]
+[e :UE 751 ]
 }
 "626
 [; ;menu_definitions.c: 626: void Options4_Menu(BattParameters *bat_param)
-[v _Options4_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+[v _Options4_Menu `(v ~T0 @X0 1 ef1`*S633 ]
 "627
 [; ;menu_definitions.c: 627: {
 {
 [e :U _Options4_Menu ]
 "626
 [; ;menu_definitions.c: 626: void Options4_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "627
 [; ;menu_definitions.c: 627: {
 [f ]
@@ -15905,18 +15909,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetDischargingCurrent_2 (2 , _bat_param -> -> 0 `i `uc ]
 "654
 [; ;menu_definitions.c: 654: }
-[e :UE 751 ]
+[e :UE 752 ]
 }
 "657
 [; ;menu_definitions.c: 657: void Options3_Menu(BattParameters *bat_param)
-[v _Options3_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+[v _Options3_Menu `(v ~T0 @X0 1 ef1`*S633 ]
 "658
 [; ;menu_definitions.c: 658: {
 {
 [e :U _Options3_Menu ]
 "657
 [; ;menu_definitions.c: 657: void Options3_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "658
 [; ;menu_definitions.c: 658: {
 [f ]
@@ -15949,18 +15953,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetTemp (2 , _bat_param -> -> 0 `i `uc ]
 "680
 [; ;menu_definitions.c: 680: }
-[e :UE 752 ]
+[e :UE 753 ]
 }
 "684
 [; ;menu_definitions.c: 684: void Options2_Menu(BattParameters *bat_param)
-[v _Options2_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+[v _Options2_Menu `(v ~T0 @X0 1 ef1`*S633 ]
 "685
 [; ;menu_definitions.c: 685: {
 {
 [e :U _Options2_Menu ]
 "684
 [; ;menu_definitions.c: 684: void Options2_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "685
 [; ;menu_definitions.c: 685: {
 [f ]
@@ -15999,18 +16003,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TrickleCurrent (2 , _bat_param -> -> 0 `i `uc ]
 "708
 [; ;menu_definitions.c: 708: }
-[e :UE 753 ]
+[e :UE 754 ]
 }
 "710
 [; ;menu_definitions.c: 710: void Options1_Menu(BattParameters *bat_param)
-[v _Options1_Menu `(v ~T0 @X0 1 ef1`*S632 ]
+[v _Options1_Menu `(v ~T0 @X0 1 ef1`*S633 ]
 "711
 [; ;menu_definitions.c: 711: {
 {
 [e :U _Options1_Menu ]
 "710
 [; ;menu_definitions.c: 710: void Options1_Menu(BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "711
 [; ;menu_definitions.c: 711: {
 [f ]
@@ -16049,7 +16053,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _CycleSet (2 , _bat_param -> -> 0 `i `uc ]
 "735
 [; ;menu_definitions.c: 735: }
-[e :UE 754 ]
+[e :UE 755 ]
 }
 "738
 [; ;menu_definitions.c: 738: void Test_function (void)
@@ -16067,9 +16071,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 8 `i 756  ]
-[e $U 757  ]
-[e :U 756 ]
+[e $ <= -> _i `i -> 8 `i 757  ]
+[e $U 758  ]
+[e :U 757 ]
 "743
 [; ;menu_definitions.c: 743:      {
 {
@@ -16080,8 +16084,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_definitions.c: 745:      }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 8 `i 756  ]
-[e :U 757 ]
+[e $ <= -> _i `i -> 8 `i 757  ]
+[e :U 758 ]
 }
 "748
 [; ;menu_definitions.c: 748:     GLCD_FillRectangle(0, 0, 50, 63, GLCD_Black);
@@ -16175,7 +16179,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_Render ..  ]
 "787
 [; ;menu_definitions.c: 787: }
-[e :UE 755 ]
+[e :UE 756 ]
 }
 "790
 [; ;menu_definitions.c: 790: void TwoBatMenu(void)
@@ -16185,8 +16189,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _TwoBatMenu ]
 [f ]
-[v F6069 `Cuc ~T0 @X0 -> 10 `i s ]
-[i F6069
+[v F6103 `Cuc ~T0 @X0 -> 10 `i s ]
+[i F6103
 :U ..
 "792
 [; ;menu_definitions.c: 792:     const char voltage[] = "Vol:3,35V";
@@ -16203,9 +16207,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _voltage `Cuc ~T0 @X0 -> 10 `i a ]
-[e = _voltage F6069 ]
-[v F6071 `Cuc ~T0 @X0 -> 10 `i s ]
-[i F6071
+[e = _voltage F6103 ]
+[v F6105 `Cuc ~T0 @X0 -> 10 `i s ]
+[i F6105
 :U ..
 "793
 [; ;menu_definitions.c: 793:     const char current[] = "Cur:230mA";
@@ -16222,9 +16226,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _current `Cuc ~T0 @X0 -> 10 `i a ]
-[e = _current F6071 ]
-[v F6073 `Cuc ~T0 @X0 -> 11 `i s ]
-[i F6073
+[e = _current F6105 ]
+[v F6107 `Cuc ~T0 @X0 -> 11 `i s ]
+[i F6107
 :U ..
 "794
 [; ;menu_definitions.c: 794:     const char capacity[] = "Cap:540mAh";
@@ -16242,9 +16246,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _capacity `Cuc ~T0 @X0 -> 11 `i a ]
-[e = _capacity F6073 ]
-[v F6075 `Cuc ~T0 @X0 -> 10 `i s ]
-[i F6075
+[e = _capacity F6107 ]
+[v F6109 `Cuc ~T0 @X0 -> 10 `i s ]
+[i F6109
 :U ..
 "795
 [; ;menu_definitions.c: 795:     const char cycle[] = "Cycle:2/4";
@@ -16261,7 +16265,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _cycle `Cuc ~T0 @X0 -> 10 `i a ]
-[e = _cycle F6075 ]
+[e = _cycle F6109 ]
 "797
 [; ;menu_definitions.c: 797:      GLCD_GotoXY(2, 2);
 [e ( _GLCD_GotoXY (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
@@ -16378,93 +16382,93 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GLCD_DrawRectangle (4 , , , , -> + -> 35 `i -> 66 `i `uc -> -> 51 `i `uc -> + -> 61 `i -> 66 `i `uc -> -> 63 `i `uc . `E5705 1 ]
 "850
 [; ;menu_definitions.c: 850:     batState(state_idle, battery_1);
-[e ( _batState (2 , -> . `E5897 2 `uc -> . `E5901 0 `uc ]
+[e ( _batState (2 , -> . `E5929 2 `uc -> . `E5933 0 `uc ]
 "851
 [; ;menu_definitions.c: 851:     batState(state_idle, battery_2);
-[e ( _batState (2 , -> . `E5897 2 `uc -> . `E5901 1 `uc ]
+[e ( _batState (2 , -> . `E5929 2 `uc -> . `E5933 1 `uc ]
 "852
 [; ;menu_definitions.c: 852: }
-[e :UE 759 ]
+[e :UE 760 ]
 }
 "855
 [; ;menu_definitions.c: 855: void InitBattParameters (BattParameters *bat_param)
-[v _InitBattParameters `(v ~T0 @X0 1 ef1`*S632 ]
+[v _InitBattParameters `(v ~T0 @X0 1 ef1`*S633 ]
 "856
 [; ;menu_definitions.c: 856: {
 {
 [e :U _InitBattParameters ]
 "855
 [; ;menu_definitions.c: 855: void InitBattParameters (BattParameters *bat_param)
-[v _bat_param `*S632 ~T0 @X0 1 r1 ]
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
 "856
 [; ;menu_definitions.c: 856: {
 [f ]
 "857
 [; ;menu_definitions.c: 857:         bat_param->set_cycle = 1;
-[e = . *U _bat_param 0 -> -> 1 `i `uc ]
+[e = . *U _bat_param 4 -> -> 1 `i `uc ]
 "858
 [; ;menu_definitions.c: 858:         bat_param->current_cycle = 1;
-[e = . *U _bat_param 1 -> -> 1 `i `uc ]
+[e = . *U _bat_param 5 -> -> 1 `i `uc ]
 "859
 [; ;menu_definitions.c: 859:         bat_param->bat_actual_temp = 20;
-[e = . *U _bat_param 2 -> -> 20 `i `uc ]
+[e = . *U _bat_param 6 -> -> 20 `i `uc ]
 "860
 [; ;menu_definitions.c: 860:         bat_param->batt_max_temp = 35;
-[e = . *U _bat_param 3 -> -> 35 `i `uc ]
+[e = . *U _bat_param 7 -> -> 35 `i `uc ]
 "861
 [; ;menu_definitions.c: 861:         bat_param->bat_chem = liion;
-[e = . *U _bat_param 4 -> . `E5907 0 `uc ]
+[e = . *U _bat_param 8 -> . `E5939 0 `uc ]
 "862
 [; ;menu_definitions.c: 862:         bat_param->bat_storage_precentage = 70;
-[e = . *U _bat_param 5 -> -> 70 `i `uc ]
+[e = . *U _bat_param 9 -> -> 70 `i `uc ]
 "863
 [; ;menu_definitions.c: 863:         bat_param->selected_mode = charging_discharging;
-[e = . *U _bat_param 6 -> . `E5911 1 `uc ]
+[e = . *U _bat_param 10 -> . `E5943 1 `uc ]
 "864
 [; ;menu_definitions.c: 864:         bat_param->cell_count = 1;
-[e = . *U _bat_param 7 -> -> 1 `i `uc ]
+[e = . *U _bat_param 11 -> -> 1 `i `uc ]
 "865
 [; ;menu_definitions.c: 865:         bat_param->set_max_time = 30;
-[e = . *U _bat_param 34 -> -> 30 `i `us ]
+[e = . *U _bat_param 38 -> -> 30 `i `us ]
 "866
 [; ;menu_definitions.c: 866:         bat_param->charge_current_1=1100;
-[e = . *U _bat_param 23 -> -> 1100 `i `us ]
+[e = . *U _bat_param 27 -> -> 1100 `i `us ]
 "867
 [; ;menu_definitions.c: 867:         bat_param->charge_current_2=1200;
-[e = . *U _bat_param 25 -> -> 1200 `i `us ]
+[e = . *U _bat_param 29 -> -> 1200 `i `us ]
 "868
 [; ;menu_definitions.c: 868:         bat_param->charge_current_3=1300;
-[e = . *U _bat_param 27 -> -> 1300 `i `us ]
+[e = . *U _bat_param 31 -> -> 1300 `i `us ]
 "869
 [; ;menu_definitions.c: 869:         bat_param->charge_current_4=1400;
-[e = . *U _bat_param 29 -> -> 1400 `i `us ]
+[e = . *U _bat_param 33 -> -> 1400 `i `us ]
 "870
 [; ;menu_definitions.c: 870:         bat_param->batt_set_voltage = 420;
-[e = . *U _bat_param 12 -> -> 420 `i `us ]
+[e = . *U _bat_param 16 -> -> 420 `i `us ]
 "871
 [; ;menu_definitions.c: 871:         bat_param->batt_set_current = 1000;
-[e = . *U _bat_param 13 -> -> 1000 `i `us ]
+[e = . *U _bat_param 17 -> -> 1000 `i `us ]
 "872
 [; ;menu_definitions.c: 872:         bat_param->batt_actual_voltage = 370;
-[e = . *U _bat_param 14 -> -> 370 `i `us ]
+[e = . *U _bat_param 18 -> -> 370 `i `us ]
 "873
 [; ;menu_definitions.c: 873:         bat_param->batt_actual_current = 430;
-[e = . *U _bat_param 15 -> -> 430 `i `us ]
+[e = . *U _bat_param 19 -> -> 430 `i `us ]
 "874
 [; ;menu_definitions.c: 874:         bat_param->batt_set_trickle_voltage = 270;
-[e = . *U _bat_param 16 -> -> 270 `i `us ]
+[e = . *U _bat_param 20 -> -> 270 `i `us ]
 "875
 [; ;menu_definitions.c: 875:         bat_param->batt_set_trickle_current = 30;
-[e = . *U _bat_param 17 -> -> 30 `i `us ]
+[e = . *U _bat_param 21 -> -> 30 `i `us ]
 "876
 [; ;menu_definitions.c: 876:         bat_param->batt_set_min_discharge_voltage = 270;
-[e = . *U _bat_param 18 -> -> 270 `i `us ]
+[e = . *U _bat_param 22 -> -> 270 `i `us ]
 "877
 [; ;menu_definitions.c: 877:         bat_param->batt_capacitance_cycle1 = 1000;
-[e = . *U _bat_param 19 -> -> 1000 `i `us ]
+[e = . *U _bat_param 23 -> -> 1000 `i `us ]
 "878
 [; ;menu_definitions.c: 878: }
-[e :UE 760 ]
+[e :UE 761 ]
 }
 [p f _sprintf 9470980 ]
 [a 41C 67 58 37 48 52 117 47 37 48 52 117 47 37 48 52 117 47 37 48 52 117 0 ]

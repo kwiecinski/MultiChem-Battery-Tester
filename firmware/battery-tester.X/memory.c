@@ -155,36 +155,103 @@ void save_parameters_to_flash(BattParameters *bat_param)
 {
     uint8_t param_tab[144], parameter_position;
 
+        
     parameter_position = 0;
     save_param_to_table(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
     save_param_to_table(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
     save_param_to_table(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
     save_param_to_table(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
     save_param_to_table(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->cell_count, sizeof(bat_param->cell_count), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->selected_mode, sizeof(bat_param->selected_mode), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->set_cycle, sizeof(bat_param->set_cycle), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->batt_set_voltage, sizeof(bat_param->batt_set_voltage), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->batt_set_min_discharge_voltage, sizeof(bat_param->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->batt_set_trickle_voltage, sizeof(bat_param->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->batt_set_trickle_current, sizeof(bat_param->batt_set_trickle_current), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->set_max_time, sizeof(bat_param->set_max_time), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->batt_max_temp, sizeof(bat_param->batt_max_temp), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->charge_current_1, sizeof(bat_param->charge_current_1), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->discharge_current_1, sizeof(bat_param->discharge_current_1), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->charge_current_2, sizeof(bat_param->charge_current_2), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->charge_current_2_percent, sizeof(bat_param->charge_current_2_percent), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->charge_current_3, sizeof(bat_param->charge_current_3), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->charge_current_3_percent, sizeof(bat_param->charge_current_3_percent), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->charge_current_4, sizeof(bat_param->charge_current_4), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->charge_current_4_percent, sizeof(bat_param->charge_current_4_percent), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->discharge_current_2, sizeof(bat_param->discharge_current_2), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->discharge_current_2_percent, sizeof(bat_param->discharge_current_2_percent), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->discharge_current_3, sizeof(bat_param->discharge_current_3), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->discharge_current_3_percent, sizeof(bat_param->discharge_current_3_percent), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->discharge_current_4, sizeof(bat_param->discharge_current_4), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->discharge_current_4_percent, sizeof(bat_param->discharge_current_4_percent), &parameter_position, &param_tab[0]);
+
     
+    
+    for(uint8_t i=0; i<3;i++)
+    {
+        switch(i)
+        {
+            case 1:  bat_param->settings_ptr = bat_param->liion_settings_ptr; break;
+            case 2:  bat_param->settings_ptr = bat_param->pb_settings_ptr; break;
+            case 3:  bat_param->settings_ptr = bat_param->nimh_settings_ptr; break;
+        }
+        
+        
+        save_param_to_table(bat_param->settings_ptr->cell_count, sizeof(bat_param->settings_ptr->cell_count), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->selected_mode, sizeof(bat_param->settings_ptr->selected_mode), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->set_cycle, sizeof(bat_param->settings_ptr->set_cycle), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->batt_set_voltage, sizeof(bat_param->settings_ptr->batt_set_voltage), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->batt_set_min_discharge_voltage, sizeof(bat_param->settings_ptr->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->batt_set_trickle_voltage, sizeof(bat_param->settings_ptr->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->batt_set_trickle_current, sizeof(bat_param->settings_ptr->batt_set_trickle_current), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->set_max_time, sizeof(bat_param->settings_ptr->set_max_time), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->batt_max_temp, sizeof(bat_param->settings_ptr->batt_max_temp), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->charge_current_1, sizeof(bat_param->settings_ptr->charge_current_1), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->discharge_current_1, sizeof(bat_param->settings_ptr->discharge_current_1), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->charge_current_2, sizeof(bat_param->settings_ptr->charge_current_2), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->charge_current_2_percent, sizeof(bat_param->settings_ptr->charge_current_2_percent), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->charge_current_3, sizeof(bat_param->settings_ptr->charge_current_3), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->charge_current_3_percent, sizeof(bat_param->settings_ptr->charge_current_3_percent), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->charge_current_4, sizeof(bat_param->settings_ptr->charge_current_4), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->charge_current_4_percent, sizeof(bat_param->settings_ptr->charge_current_4_percent), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->discharge_current_2, sizeof(bat_param->settings_ptr->discharge_current_2), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->discharge_current_2_percent, sizeof(bat_param->settings_ptr->discharge_current_2_percent), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->discharge_current_3, sizeof(bat_param->settings_ptr->discharge_current_3), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->discharge_current_3_percent, sizeof(bat_param->settings_ptr->discharge_current_3_percent), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->discharge_current_4, sizeof(bat_param->settings_ptr->discharge_current_4), &parameter_position, &param_tab[0]);
+        save_param_to_table(bat_param->settings_ptr->discharge_current_4_percent, sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
+    }
   
     write_byte_table_auto_address_increment(check_current_param_offset(), &param_tab[0], parameter_position);
 }
+
+
+/*
+ 
+   save_param_to_table(bat_param->pb_settings->cell_count, sizeof(bat_param->pb_settings->cell_count), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->selected_mode, sizeof(bat_param->pb_settings->selected_mode), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->set_cycle, sizeof(bat_param->pb_settings->set_cycle), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->batt_set_voltage, sizeof(bat_param->pb_settings->batt_set_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->batt_set_min_discharge_voltage, sizeof(bat_param->pb_settings->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->batt_set_trickle_voltage, sizeof(bat_param->pb_settings->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->batt_set_trickle_current, sizeof(bat_param->pb_settings->batt_set_trickle_current), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->set_max_time, sizeof(bat_param->pb_settings->set_max_time), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->batt_max_temp, sizeof(bat_param->pb_settings->batt_max_temp), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->charge_current_1, sizeof(bat_param->pb_settings->charge_current_1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->discharge_current_1, sizeof(bat_param->pb_settings->discharge_current_1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->charge_current_2, sizeof(bat_param->pb_settings->charge_current_2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->charge_current_2_percent, sizeof(bat_param->pb_settings->charge_current_2_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->charge_current_3, sizeof(bat_param->pb_settings->charge_current_3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->charge_current_3_percent, sizeof(bat_param->pb_settings->charge_current_3_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->charge_current_4, sizeof(bat_param->pb_settings->charge_current_4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->charge_current_4_percent, sizeof(bat_param->pb_settings->charge_current_4_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->discharge_current_2, sizeof(bat_param->pb_settings->discharge_current_2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->discharge_current_2_percent, sizeof(bat_param->pb_settings->discharge_current_2_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->discharge_current_3, sizeof(bat_param->pb_settings->discharge_current_3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->discharge_current_3_percent, sizeof(bat_param->pb_settings->discharge_current_3_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->discharge_current_4, sizeof(bat_param->pb_settings->discharge_current_4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->pb_settings->discharge_current_4_percent, sizeof(bat_param->pb_settings->discharge_current_4_percent), &parameter_position, &param_tab[0]);
+
+    save_param_to_table(bat_param->nimh_settings->cell_count, sizeof(bat_param->nimh_settings->cell_count), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->selected_mode, sizeof(bat_param->nimh_settings->selected_mode), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->set_cycle, sizeof(bat_param->nimh_settings->set_cycle), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->batt_set_voltage, sizeof(bat_param->nimh_settings->batt_set_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->batt_set_min_discharge_voltage, sizeof(bat_param->nimh_settings->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->batt_set_trickle_voltage, sizeof(bat_param->nimh_settings->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->batt_set_trickle_current, sizeof(bat_param->nimh_settings->batt_set_trickle_current), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->set_max_time, sizeof(bat_param->nimh_settings->set_max_time), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->batt_max_temp, sizeof(bat_param->nimh_settings->batt_max_temp), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->charge_current_1, sizeof(bat_param->nimh_settings->charge_current_1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->discharge_current_1, sizeof(bat_param->nimh_settings->discharge_current_1), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->charge_current_2, sizeof(bat_param->nimh_settings->charge_current_2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->charge_current_2_percent, sizeof(bat_param->nimh_settings->charge_current_2_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->charge_current_3, sizeof(bat_param->nimh_settings->charge_current_3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->charge_current_3_percent, sizeof(bat_param->nimh_settings->charge_current_3_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->charge_current_4, sizeof(bat_param->nimh_settings->charge_current_4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->charge_current_4_percent, sizeof(bat_param->nimh_settings->charge_current_4_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->discharge_current_2, sizeof(bat_param->nimh_settings->discharge_current_2), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->discharge_current_2_percent, sizeof(bat_param->nimh_settings->discharge_current_2_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->discharge_current_3, sizeof(bat_param->nimh_settings->discharge_current_3), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->discharge_current_3_percent, sizeof(bat_param->nimh_settings->discharge_current_3_percent), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->discharge_current_4, sizeof(bat_param->nimh_settings->discharge_current_4), &parameter_position, &param_tab[0]);
+    save_param_to_table(bat_param->nimh_settings->discharge_current_4_percent, sizeof(bat_param->nimh_settings->discharge_current_4_percent), &parameter_position, &param_tab[0]);
+
+ */
