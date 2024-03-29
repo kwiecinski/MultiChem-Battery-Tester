@@ -779,11 +779,9 @@ void Test_function (void)
     GLCD_PrintString("W]");
 
     GLCD_GotoXY(100, 4 * 8);
-    GLCD_PrintString("N");
-   
+    GLCD_PrintString("N"); 
     
-    GLCD_Render();
-    
+    GLCD_Render(); 
 }
 
 
@@ -815,8 +813,6 @@ void TwoBatMenu(void)
     GLCD_GotoXY(0, 40);
     GLCD_PrintString(cycle);
 
-
-
     GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
     GLCD_GotoXY(2, 54);
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
@@ -828,7 +824,6 @@ void TwoBatMenu(void)
     GLCD_GotoXY(37, 54);
     GLCD_PrintString("MENU");
     GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
-
 
     GLCD_GotoXY(66, 13);
     GLCD_PrintString(voltage);
@@ -845,7 +840,6 @@ void TwoBatMenu(void)
     GLCD_GotoXY(37 + 66, 54);
     GLCD_PrintString("MENU");
     GLCD_DrawRectangle(35 + 66, 51, 61 + 66, 63, GLCD_Black);
-
     
     batState(state_idle, battery_1);
     batState(state_idle, battery_2);
@@ -854,26 +848,66 @@ void TwoBatMenu(void)
 
 void InitBattParameters (BattParameters *bat_param)
 {
-        bat_param->set_cycle = 1;
-        bat_param->current_cycle = 1;
-        bat_param->bat_actual_temp = 20;
-        bat_param->batt_max_temp = 35;
-        bat_param->bat_chem = liion;
-        bat_param->bat_storage_precentage = 70;
-        bat_param->selected_mode = charging_discharging;
-        bat_param->cell_count = 1;
-        bat_param->set_max_time = 30;
-        bat_param->charge_current_1=1100;
-        bat_param->charge_current_2=1200;
-        bat_param->charge_current_3=1300;
-        bat_param->charge_current_4=1400;
-        bat_param->batt_set_voltage = 420;
-        bat_param->batt_set_current = 1000;
-        bat_param->batt_actual_voltage = 370;
-        bat_param->batt_actual_current = 430;
-        bat_param->batt_set_trickle_voltage = 270;
-        bat_param->batt_set_trickle_current = 30;
-        bat_param->batt_set_min_discharge_voltage = 270;
-        bat_param->batt_capacitance_cycle1 = 1000;
+    bat_param->set_cycle = 1;
+    bat_param->current_cycle = 1;
+    bat_param->bat_actual_temp = 20;
+    bat_param->batt_max_temp = 35;
+    bat_param->bat_chem = liion;
+    bat_param->bat_storage_precentage = 70;
+    bat_param->selected_mode = charging_discharging;
+    bat_param->cell_count = 1;
+    bat_param->set_max_time = 30;
+    bat_param->charge_current_1=1100;
+    bat_param->charge_current_2=1200;
+    bat_param->charge_current_3=1300;
+    bat_param->charge_current_4=1400;
+    bat_param->batt_set_voltage = 420;
+    bat_param->batt_set_current = 1000;
+    bat_param->batt_actual_voltage = 370;
+    bat_param->batt_actual_current = 430;
+    bat_param->batt_set_trickle_voltage = 270;
+    bat_param->batt_set_trickle_current = 30;
+    bat_param->batt_set_min_discharge_voltage = 270;
+    bat_param->batt_capacitance_cycle1 = 1000;
+    
+    
+    
+    for(uint8_t i=0; i<3; i++)
+    {
+        if(i==0)
+        {   
+            bat_param->settings_ptr = bat_param->liion_settings_ptr;   
+
+        }else if(i==1)
+        {
+            bat_param->settings_ptr = bat_param->pb_settings_ptr;
+
+        }else if(i==2)
+        {
+            bat_param->settings_ptr = bat_param->nimh_settings_ptr;
+        }
+
+        bat_param->settings_ptr->batt_max_temp = bat_param->batt_max_temp;
+        bat_param->settings_ptr->bat_storage_precentage = bat_param->bat_storage_precentage;
+        bat_param->settings_ptr->batt_set_current = bat_param->batt_set_current;
+        bat_param->settings_ptr->batt_set_min_discharge_voltage = bat_param->batt_set_min_discharge_voltage;
+        bat_param->settings_ptr->batt_set_trickle_current = bat_param->batt_set_trickle_current;
+        bat_param->settings_ptr->batt_set_trickle_voltage = bat_param->batt_set_trickle_voltage;
+        bat_param->settings_ptr->batt_set_voltage = bat_param->batt_set_voltage;
+        bat_param->settings_ptr->cell_count = bat_param->cell_count;
+        bat_param->settings_ptr->charge_current_1 = bat_param->charge_current_1;
+        bat_param->settings_ptr->charge_current_2 = bat_param->charge_current_2;
+        bat_param->settings_ptr->charge_current_3 = bat_param->charge_current_3;
+        bat_param->settings_ptr->charge_current_4 = bat_param->charge_current_4;
+        bat_param->settings_ptr->charge_current_2_percent = bat_param->charge_current_2_percent;
+        bat_param->settings_ptr->charge_current_3_percent = bat_param->charge_current_3_percent;
+        bat_param->settings_ptr->charge_current_4_percent = bat_param->charge_current_4_percent;
+        bat_param->settings_ptr->selected_mode = bat_param->selected_mode;
+        bat_param->settings_ptr->set_cycle = bat_param->set_cycle;
+        bat_param->settings_ptr->set_max_time = bat_param->set_max_time;
+    }
+
+    
+    
 }
 

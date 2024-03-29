@@ -512,19 +512,32 @@ void Menu(BattParameters *bat_param)
 
                 if(Button_EventGet(RIGHT_SW))
                 {
-                     bat_param->cell_count++;
+                    bat_param->cell_count++;
                 }else if(Button_EventGet(LEFT_SW))
                 {
-                     bat_param->cell_count--;
+                    bat_param->cell_count--;
                 }
 
-                if(bat_param->cell_count==0)
+                if(bat_param->bat_chem==pb)
                 {
-                     bat_param->cell_count = MAX_CELL_COUNT;  
+                    if(bat_param->cell_count==0)
+                    {
+                        bat_param->cell_count = 1;  
 
-                }else if(bat_param->cell_count>=MAX_CELL_COUNT+1)
+                    }else if(bat_param->cell_count>=2)
+                    {
+                        bat_param->cell_count = 1;  
+                    }
+                }else
                 {
-                     bat_param->cell_count = 1;  
+                    if(bat_param->cell_count==0)
+                    {
+                        bat_param->cell_count = MAX_CELL_COUNT;  
+
+                    }else if(bat_param->cell_count>=MAX_CELL_COUNT+1)
+                    {
+                        bat_param->cell_count = 1;  
+                    }
                 }
 
                 CellCount(bat_param, set_mode_edit);

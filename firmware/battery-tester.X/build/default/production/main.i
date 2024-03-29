@@ -9688,6 +9688,7 @@ void switch_between_battery_types(BattParameters *bat_param);
 # 1 "./menu_navigation.h" 1
 # 40 "./menu_navigation.h"
 void Menu(BattParameters *bat_param);
+void switch_between_battery_types(BattParameters *bat_param);
 # 15 "main.c" 2
 
 # 1 "./button.h" 1
@@ -9929,7 +9930,8 @@ void main(void)
     InitBattParameters(&bat_param);
     SingleBat_Menu(&bat_param);
     bat_param.bat_chem = liion;
-    switch_between_battery_types(&bat_param);
+    bat_param.settings_ptr = bat_param.liion_settings_ptr;
+
 
     while (1)
     {

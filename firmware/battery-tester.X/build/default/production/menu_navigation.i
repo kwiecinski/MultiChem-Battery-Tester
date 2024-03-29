@@ -9957,6 +9957,7 @@ void switch_between_battery_types(BattParameters *bat_param);
 # 1 "./menu_navigation.h" 1
 # 40 "./menu_navigation.h"
 void Menu(BattParameters *bat_param);
+void switch_between_battery_types(BattParameters *bat_param);
 # 9 "menu_navigation.c" 2
 
 # 1 "./button.h" 1
@@ -10510,19 +10511,32 @@ void Menu(BattParameters *bat_param)
 
                 if(Button_EventGet(RIGHT_SW))
                 {
-                     bat_param->cell_count++;
+                    bat_param->cell_count++;
                 }else if(Button_EventGet(LEFT_SW))
                 {
-                     bat_param->cell_count--;
+                    bat_param->cell_count--;
                 }
 
-                if(bat_param->cell_count==0)
+                if(bat_param->bat_chem==pb)
                 {
-                     bat_param->cell_count = 5;
+                    if(bat_param->cell_count==0)
+                    {
+                        bat_param->cell_count = 1;
 
-                }else if(bat_param->cell_count>=5 +1)
+                    }else if(bat_param->cell_count>=2)
+                    {
+                        bat_param->cell_count = 1;
+                    }
+                }else
                 {
-                     bat_param->cell_count = 1;
+                    if(bat_param->cell_count==0)
+                    {
+                        bat_param->cell_count = 5;
+
+                    }else if(bat_param->cell_count>=5 +1)
+                    {
+                        bat_param->cell_count = 1;
+                    }
                 }
 
                 CellCount(bat_param, 1);
@@ -11453,7 +11467,7 @@ void Menu(BattParameters *bat_param)
                 SetDischargingCurrent_2(bat_param, 1);
 
             }
-# 1466 "menu_navigation.c"
+# 1479 "menu_navigation.c"
         }else if(menu_type==settings5)
         {
             if(param_pos == menu_start_next)

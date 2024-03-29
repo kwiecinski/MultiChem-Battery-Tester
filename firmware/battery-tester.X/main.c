@@ -45,7 +45,8 @@ void main(void)
     InitBattParameters(&bat_param);
     SingleBat_Menu(&bat_param);
     bat_param.bat_chem = liion;
-    switch_between_battery_types(&bat_param);     
+    bat_param.settings_ptr = bat_param.liion_settings_ptr;
+ 
     
     while (1) 
     {

@@ -38,6 +38,8 @@
 
 
 void Menu(BattParameters *bat_param);
+void switch_between_battery_types(BattParameters *bat_param);
+
 
 #endif	/* MENU_NAVIGATION_H */
 
