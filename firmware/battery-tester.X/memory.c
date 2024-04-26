@@ -139,12 +139,13 @@ void represent_value_in_binary(uint8_t value)
  * @param parameter_position: The position of the parameter in the table.
  * @param param_tab: The table where the parameter data will be saved.
  */
-void save_param_to_table(uint8_t length, uint8_t data, uint8_t *parameter_position, uint8_t *param_tab)
+void save_param_to_table(uint8_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
     for (uint8_t j = 0; j <= length; j++)
     {
         *(param_tab + *parameter_position + j) = (uint8_t)data >> (8 * j);
     }
+    *parameter_position = *parameter_position + length;
 }  
 
 /*

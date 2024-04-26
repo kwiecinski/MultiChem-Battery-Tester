@@ -1051,8 +1051,8 @@ text60 18F42 19112 CODE 18F42 0
 text3 19114 19159 CODE 19114 0
 %locals
 dist/default/production\battery-tester.X.production.o
-C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
-C:\Users\LPC-user\AppData\Local\Temp\xcAscvc.s
+C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
+C:\Users\RaD\AppData\Local\Temp\xcAs6no.s
 20857 188A4 0 CODE 0
 20859 188A4 0 CODE 0
 20862 188A4 0 CODE 0
@@ -3406,7 +3406,7 @@ button.c
 136 15C6A 0 CODE 0
 137 15D04 0 CODE 0
 138 15D16 0 CODE 0
-C:\Users\LPC-user\AppData\Local\Temp\xcAscvc.s
+C:\Users\RaD\AppData\Local\Temp\xcAs6no.s
 53958 8 0 CODE 0
 interrupts.c
 41 8 0 CODE 0
