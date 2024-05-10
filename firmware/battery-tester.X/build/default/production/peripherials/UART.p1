@@ -33,6 +33,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9501
 [; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 9501: extern volatile unsigned char TXREG2 __attribute__((address(0xFA9)));
 [v _TXREG2 `Vuc ~T0 @X0 0 e@4009 ]
+"27 peripherials/UART.c
+[; ;peripherials/UART.c: 27:         printf("%x | ",*(tab+i));
+[v _printf `(i ~T0 @X0 0 e? ]
 "54 C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -868,3 +871,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;peripherials/UART.c: 21: }
 [e :UE 633 ]
 }
+"23
+[; ;peripherials/UART.c: 23: void print_tab(uint8_t *tab, uint8_t lenght)
+[v _print_tab `(v ~T0 @X0 1 ef2`*uc`uc ]
+"24
+[; ;peripherials/UART.c: 24: {
+{
+[e :U _print_tab ]
+"23
+[; ;peripherials/UART.c: 23: void print_tab(uint8_t *tab, uint8_t lenght)
+[v _tab `*uc ~T0 @X0 1 r1 ]
+[v _lenght `uc ~T0 @X0 1 r2 ]
+"24
+[; ;peripherials/UART.c: 24: {
+[f ]
+"25
+[; ;peripherials/UART.c: 25:     for(uint8_t i=0; i<lenght; i++)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 641  ]
+[e :U 638 ]
+"26
+[; ;peripherials/UART.c: 26:     {
+{
+"27
+[; ;peripherials/UART.c: 27:         printf("%x | ",*(tab+i));
+[e ( _printf , :s 1C -> *U + _tab * -> -> _i `i `x -> -> # *U _tab `i `x `i ]
+"28
+[; ;peripherials/UART.c: 28:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 641 ]
+[e $ < -> _i `i -> _lenght `i 638  ]
+[e :U 639 ]
+}
+"29
+[; ;peripherials/UART.c: 29: }
+[e :UE 637 ]
+}
+[a 1C 37 120 32 124 32 0 ]

@@ -5,43 +5,41 @@
             <url>menu_navigation.c</url>
             <bookmark id="2">
                 <name/>
-                <line>35</line>
+                <line>36</line>
                 <key/>
             </bookmark>
             <bookmark id="4">
                 <name/>
-                <line>893</line>
+                <line>894</line>
                 <key/>
             </bookmark>
             <bookmark id="5">
                 <name/>
-                <line>913</line>
+                <line>914</line>
                 <key/>
             </bookmark>
             <bookmark id="3">
                 <name/>
-                <line>1420</line>
+                <line>1424</line>
                 <key/>
             </bookmark>
             <bookmark id="1">
                 <name/>
-                <line>1447</line>
+                <line>1452</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/SST25VF.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.h</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/interrupts.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/main.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/SST25VF.h</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.h</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.h</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.h</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/peripherials/UART.c</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.c</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/button.h</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.c</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.h</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.c</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/main.c</file>
         </group>
     </open-files>
 </project-private>

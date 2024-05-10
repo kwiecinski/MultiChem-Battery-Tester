@@ -8,6 +8,7 @@
 #include "menu_definitions.h"
 #include "menu_navigation.h"
 #include "button.h"
+#include "memory.h"
 
 #define MAX_CELL_COUNT                5
 #define MAX_CYCLE_COUNT               4
@@ -1355,6 +1356,7 @@ void Menu(BattParameters *bat_param)
                 
             }else if(menu_selection==save_exit)
             {
+                check_if_any_changes_in_parameters(bat_param);
                 menu_type = main_menu;
                 menu_change = start;
                 SingleBat_Menu(bat_param);
@@ -1383,6 +1385,7 @@ void Menu(BattParameters *bat_param)
             }
             else if(menu_selection==save_exit)
             {
+                check_if_any_changes_in_parameters(bat_param);
                 menu_type = main_menu;
                 SingleBat_Menu(bat_param);
                 menu_change = start;
@@ -1408,6 +1411,7 @@ void Menu(BattParameters *bat_param)
             }
             else if(menu_selection==save_exit)
             {
+                check_if_any_changes_in_parameters(bat_param);
                 menu_type = main_menu;
                 SingleBat_Menu(bat_param);
                 menu_change = start;
@@ -1437,6 +1441,7 @@ void Menu(BattParameters *bat_param)
                 }
                 else if(menu_selection==save_exit)
                 {
+                    check_if_any_changes_in_parameters(bat_param);
                     menu_type = main_menu;
                     SingleBat_Menu(bat_param);
                     menu_change = start;
@@ -1490,6 +1495,7 @@ void Menu(BattParameters *bat_param)
                 }
                 else if(menu_selection==save_exit)
                 {
+                    check_if_any_changes_in_parameters(bat_param);
                     menu_type = main_menu;
                     menu_change = start;
                     SingleBat_Menu(bat_param);

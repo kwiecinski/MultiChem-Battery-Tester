@@ -10033,7 +10033,15 @@ btn_state_t Button_EventGet(uint8_t key);
 void Button_Event_Reset(void);
 void Button_ShortRelease(buttons btnCode);
 # 10 "menu_navigation.c" 2
-# 38 "menu_navigation.c"
+
+# 1 "./memory.h" 1
+
+
+
+
+void check_if_any_changes_in_parameters(BattParameters *bat_param);
+# 11 "menu_navigation.c" 2
+# 39 "menu_navigation.c"
 enum settings1_navigation
 {
     next,
@@ -11354,6 +11362,7 @@ void Menu(BattParameters *bat_param)
 
             }else if(menu_selection==save_exit)
             {
+                check_if_any_changes_in_parameters(bat_param);
                 menu_type = main_menu;
                 menu_change = start;
                 SingleBat_Menu(bat_param);
@@ -11382,6 +11391,7 @@ void Menu(BattParameters *bat_param)
             }
             else if(menu_selection==save_exit)
             {
+                check_if_any_changes_in_parameters(bat_param);
                 menu_type = main_menu;
                 SingleBat_Menu(bat_param);
                 menu_change = start;
@@ -11407,6 +11417,7 @@ void Menu(BattParameters *bat_param)
             }
             else if(menu_selection==save_exit)
             {
+                check_if_any_changes_in_parameters(bat_param);
                 menu_type = main_menu;
                 SingleBat_Menu(bat_param);
                 menu_change = start;
@@ -11436,6 +11447,7 @@ void Menu(BattParameters *bat_param)
                 }
                 else if(menu_selection==save_exit)
                 {
+                    check_if_any_changes_in_parameters(bat_param);
                     menu_type = main_menu;
                     SingleBat_Menu(bat_param);
                     menu_change = start;
@@ -11467,7 +11479,7 @@ void Menu(BattParameters *bat_param)
                 SetDischargingCurrent_2(bat_param, 1);
 
             }
-# 1479 "menu_navigation.c"
+# 1484 "menu_navigation.c"
         }else if(menu_type==settings5)
         {
             if(param_pos == menu_start_next)
@@ -11482,6 +11494,7 @@ void Menu(BattParameters *bat_param)
                 }
                 else if(menu_selection==save_exit)
                 {
+                    check_if_any_changes_in_parameters(bat_param);
                     menu_type = main_menu;
                     menu_change = start;
                     SingleBat_Menu(bat_param);

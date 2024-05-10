@@ -46,8 +46,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _SingleBat_Menu `(v ~T0 @X0 0 ef1`*S633 ]
 "47 main.c
 [; ;main.c: 47:     bat_param.bat_chem = liion;
-[c E5948 0 1 2 .. ]
-[n E5948 select_batt_chemistry liion pb nimh  ]
+[c E5951 0 1 2 .. ]
+[n E5951 select_batt_chemistry liion pb nimh  ]
 "40 ./menu_navigation.h
 [; ;./menu_navigation.h: 40: void Menu(BattParameters *bat_param);
 [v _Menu `(v ~T0 @X0 0 ef1`*S633 ]
@@ -1484,7 +1484,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SingleBat_Menu (1 &U _bat_param ]
 "47
 [; ;main.c: 47:     bat_param.bat_chem = liion;
-[e = . _bat_param 8 -> . `E5948 0 `uc ]
+[e = . _bat_param 8 -> . `E5951 0 `uc ]
 "48
 [; ;main.c: 48:     bat_param.settings_ptr = bat_param.liion_settings_ptr;
 [e = . _bat_param 0 . _bat_param 1 ]

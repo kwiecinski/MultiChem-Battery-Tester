@@ -9509,6 +9509,7 @@ void GLCD_Render_printf(void);
 void setupUART(void);
 void UART_SendChar(char data);
 void UART_SendString(const char *string);
+void print_tab(uint8_t *tab, uint8_t lenght);
 # 11 "main.c" 2
 
 # 1 "./main.h" 1
@@ -9902,6 +9903,11 @@ uint8_t SPI_Exchange(uint8_t data);
 # 20 "main.c" 2
 
 # 1 "./memory.h" 1
+
+
+
+
+void check_if_any_changes_in_parameters(BattParameters *bat_param);
 # 21 "main.c" 2
 
 

@@ -9268,3 +9268,11 @@ void UART_SendString(const char *string)
         UART_SendChar(*string++);
     }
 }
+
+void print_tab(uint8_t *tab, uint8_t lenght)
+{
+    for(uint8_t i=0; i<lenght; i++)
+    {
+        printf("%x | ",*(tab+i));
+    }
+}
