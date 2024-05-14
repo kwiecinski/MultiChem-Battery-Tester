@@ -10040,6 +10040,8 @@ void Button_ShortRelease(buttons btnCode);
 
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param);
+void read_parameters_from_flash(BattParameters *bat_param);
+void save_parameters_to_flash(BattParameters *bat_param);
 # 11 "menu_navigation.c" 2
 # 39 "menu_navigation.c"
 enum settings1_navigation
@@ -10505,6 +10507,7 @@ void Menu(BattParameters *bat_param)
                     case 2: bat_param->bat_chem = pb; break;
                     case 3: bat_param->bat_chem = nimh; break;
                 }
+
                 switch_between_battery_types(bat_param);
 
 
@@ -11479,7 +11482,7 @@ void Menu(BattParameters *bat_param)
                 SetDischargingCurrent_2(bat_param, 1);
 
             }
-# 1484 "menu_navigation.c"
+# 1485 "menu_navigation.c"
         }else if(menu_type==settings5)
         {
             if(param_pos == menu_start_next)

@@ -9400,6 +9400,7 @@ void setupUART(void);
 void UART_SendChar(char data);
 void UART_SendString(const char *string);
 void print_tab(uint8_t *tab, uint8_t lenght);
+void print_data_tab(uint8_t *tab, uint8_t lenght);
 # 3 "memory.c" 2
 
 # 1 "./main.h" 1
@@ -9610,6 +9611,8 @@ void switch_between_battery_types(BattParameters *bat_param);
 
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param);
+void read_parameters_from_flash(BattParameters *bat_param);
+void save_parameters_to_flash(BattParameters *bat_param);
 # 10 "memory.c" 2
 # 35 "memory.c"
 void represent_value_in_binary(uint8_t value);
@@ -9693,11 +9696,16 @@ void update_wear_leveling_static_buffer(void)
 
         for (j = 7; j >= 0; --j)
         {
+
             if (((current_param_address[i] >> j) & 0x01) == 1)
             {
 
                 current_param_address[i] &= ~(1 << j);
+                printf("i:%d j:%d\r\n",i,j);
+                  print_tab(&current_param_address[0],sizeof(current_param_address));
                 write_byte(0x0 + i, current_param_address[i]);
+
+
                 return;
             }
         }
@@ -9716,7 +9724,7 @@ void represent_value_in_binary(uint8_t value)
     }
      printf(" ");
 }
-# 156 "memory.c"
+# 161 "memory.c"
 void save_param_to_table(uint16_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
     for (uint8_t j = 0; j <= length; j++)
@@ -9791,9 +9799,14 @@ void save_parameters_to_flash(BattParameters *bat_param)
         save_param_to_table(bat_param->settings_ptr->discharge_current_4, sizeof(bat_param->settings_ptr->discharge_current_4), &parameter_position, &param_tab[0]);
         save_param_to_table(bat_param->settings_ptr->discharge_current_4_percent, sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
     }
+
+    printf("Write table: \n\r");
+    print_data_tab(&param_tab[0], parameter_position);
+
+    update_wear_leveling_static_buffer();
     printf("Write to flash, parameter address: %u  \n\r", check_current_param_offset());
     write_byte_table_auto_address_increment(check_current_param_offset(), &param_tab[0], parameter_position);
-    update_wear_leveling_static_buffer();
+
 }
 
 
@@ -9803,7 +9816,9 @@ void read_parameters_from_flash(BattParameters *bat_param)
 
     read_bytes(check_current_param_offset(), &param_tab[0], sizeof(param_tab));
 
-    printf("Parameter addr read:%x \r\n", check_current_param_offset());
+
+
+    printf("Parameter addr read:%u \r\n", check_current_param_offset());
 
     parameter_position = 0;
     bat_param->batt_capacitance_cycle1 = save_table_to_param(sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
@@ -9849,7 +9864,8 @@ void read_parameters_from_flash(BattParameters *bat_param)
         bat_param->settings_ptr->discharge_current_4_percent = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
     }
 
-
+      printf("Read table: \n\r");
+    print_data_tab(&param_tab[0], parameter_position);
 }
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param)

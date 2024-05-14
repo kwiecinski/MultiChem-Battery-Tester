@@ -9276,3 +9276,11 @@ void print_tab(uint8_t *tab, uint8_t lenght)
         printf("%x | ",*(tab+i));
     }
 }
+
+void print_data_tab(uint8_t *tab, uint8_t lenght)
+{
+    for(uint8_t i=0; i<lenght; i++)
+    {
+        printf("%d: %d \r\n",i,*(tab+i));
+    }
+}

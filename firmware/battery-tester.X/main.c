@@ -43,11 +43,16 @@ void main(void)
     bat_param.nimh_settings_ptr=&nimh_settings;
     
     InitBattParameters(&bat_param);
-    SingleBat_Menu(&bat_param);
-    bat_param.bat_chem = liion;
-    bat_param.settings_ptr = bat_param.liion_settings_ptr;
+  
+    //bat_param.bat_chem = liion;
+    //bat_param.settings_ptr = bat_param.liion_settings_ptr;
  
+    save_parameters_to_flash(&bat_param);
+    read_parameters_from_flash(&bat_param);
     
+    switch_between_battery_types(&bat_param);
+    
+     SingleBat_Menu(&bat_param);
     while (1) 
     {
         Menu(&bat_param);

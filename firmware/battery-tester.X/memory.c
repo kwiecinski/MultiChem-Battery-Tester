@@ -121,11 +121,16 @@ void update_wear_leveling_static_buffer(void)
         // Checking for first bit that is 1 (MSB)
         for (j = 7; j >= 0; --j)
         {
+            
             if (((current_param_address[i] >> j) & 0x01) == 1)
             {
                 // Found bit 1, change it to 0
                 current_param_address[i] &= ~(1 << j);
+                printf("i:%d j:%d\r\n",i,j);
+                  print_tab(&current_param_address[0],sizeof(current_param_address));
                 write_byte(WEAR_LEVELING_PARAM_START_ADDR + i, current_param_address[i]);    // save new offset position to flash
+              
+                 
                 return; // End for after finding first 1 bit
             }
         }
@@ -227,9 +232,14 @@ void save_parameters_to_flash(BattParameters *bat_param)
         save_param_to_table(bat_param->settings_ptr->discharge_current_4, sizeof(bat_param->settings_ptr->discharge_current_4), &parameter_position, &param_tab[0]);
         save_param_to_table(bat_param->settings_ptr->discharge_current_4_percent, sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
     }
+    
+    printf("Write table: \n\r");
+    print_data_tab(&param_tab[0], parameter_position);
+    
+    update_wear_leveling_static_buffer();
     printf("Write to flash, parameter address: %u  \n\r", check_current_param_offset());
     write_byte_table_auto_address_increment(check_current_param_offset(), &param_tab[0], parameter_position);
-    update_wear_leveling_static_buffer();
+  
 }
 
 
@@ -238,8 +248,10 @@ void read_parameters_from_flash(BattParameters *bat_param)
     uint8_t param_tab[144], parameter_position;
 
     read_bytes(check_current_param_offset(), &param_tab[0], sizeof(param_tab));
+   
+
     
-    printf("Parameter addr read:%x \r\n", check_current_param_offset());
+    printf("Parameter addr read:%u \r\n", check_current_param_offset());
     
     parameter_position = 0;
     bat_param->batt_capacitance_cycle1 = save_table_to_param(sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
@@ -285,7 +297,8 @@ void read_parameters_from_flash(BattParameters *bat_param)
         bat_param->settings_ptr->discharge_current_4_percent = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
     }
   
-  
+      printf("Read table: \n\r");
+    print_data_tab(&param_tab[0], parameter_position);
 }
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param)

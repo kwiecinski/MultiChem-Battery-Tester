@@ -10725,6 +10725,7 @@ void TwoBatMenu(void)
 
 void InitBattParameters (BattParameters *bat_param)
 {
+
     bat_param->set_cycle = 1;
     bat_param->current_cycle = 1;
     bat_param->bat_actual_temp = 20;

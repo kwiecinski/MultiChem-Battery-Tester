@@ -9510,6 +9510,7 @@ void setupUART(void);
 void UART_SendChar(char data);
 void UART_SendString(const char *string);
 void print_tab(uint8_t *tab, uint8_t lenght);
+void print_data_tab(uint8_t *tab, uint8_t lenght);
 # 11 "main.c" 2
 
 # 1 "./main.h" 1
@@ -9908,6 +9909,8 @@ uint8_t SPI_Exchange(uint8_t data);
 
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param);
+void read_parameters_from_flash(BattParameters *bat_param);
+void save_parameters_to_flash(BattParameters *bat_param);
 # 21 "main.c" 2
 
 
@@ -9934,11 +9937,16 @@ void main(void)
     bat_param.nimh_settings_ptr=&nimh_settings;
 
     InitBattParameters(&bat_param);
-    SingleBat_Menu(&bat_param);
-    bat_param.bat_chem = liion;
-    bat_param.settings_ptr = bat_param.liion_settings_ptr;
 
 
+
+
+    save_parameters_to_flash(&bat_param);
+    read_parameters_from_flash(&bat_param);
+
+    switch_between_battery_types(&bat_param);
+
+     SingleBat_Menu(&bat_param);
     while (1)
     {
         Menu(&bat_param);

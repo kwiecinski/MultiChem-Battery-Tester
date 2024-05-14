@@ -16,6 +16,8 @@ void setupUART(void);
 void UART_SendChar(char data);
 void UART_SendString(const char *string);
 void print_tab(uint8_t *tab, uint8_t lenght);
+void print_data_tab(uint8_t *tab, uint8_t lenght);
+
 
 #ifdef	__cplusplus
 }

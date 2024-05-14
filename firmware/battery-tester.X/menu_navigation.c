@@ -499,6 +499,7 @@ void Menu(BattParameters *bat_param)
                     case 2:     bat_param->bat_chem = pb;    break;
                     case 3:     bat_param->bat_chem = nimh;  break;
                 }       
+                
                 switch_between_battery_types(bat_param);
                 
                 
