@@ -160,23 +160,25 @@ void represent_value_in_binary(uint8_t value)
  */
 void save_param_to_table(uint16_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
-    for (uint8_t j = 0; j <= length; j++)
+    for (uint8_t j = 0; j < length; j++)
     {
-        *(param_tab + *parameter_position + j) = (uint8_t)data >> (8 * j);
+        *(param_tab + *parameter_position + j) = (unsigned char)((data >> (8 * (length - 1 - j))) & 0xFF);
     }
     *parameter_position = *parameter_position + length;
 }  
 
  uint16_t save_table_to_param(uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
-    uint16_t data;
+    uint16_t data=0;
     
-    for (uint8_t j = 0; j <= length; j++)
+    for (uint8_t j = 0; j < length; j++)
     {
-        data |= *(param_tab + j) << (8 * j);    
+          data |= ((uint16_t)*(param_tab + *parameter_position + j)) << (8 * (length - 1 - j));
+          
     }
     *parameter_position = *parameter_position + length;
       
+    return data;
 } 
 
 
@@ -189,6 +191,9 @@ void save_parameters_to_flash(BattParameters *bat_param)
     uint8_t param_tab[144], parameter_position;
 
     printf("Saving parameters to flash. Copying data to table \n\r");
+    
+    switch_between_battery_types(bat_param, 0);
+    
     parameter_position = 0;
     save_param_to_table(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
     save_param_to_table(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
@@ -297,8 +302,24 @@ void read_parameters_from_flash(BattParameters *bat_param)
         bat_param->settings_ptr->discharge_current_4_percent = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
     }
   
-      printf("Read table: \n\r");
+    
+   
+    
+    printf("Read table: \n\r");
     print_data_tab(&param_tab[0], parameter_position);
+    bat_param->settings_ptr = bat_param->pb_settings_ptr; 
+    printf("batt_pb_cycle: %u \r\n",  bat_param->settings_ptr->set_cycle);
+    //printf("batt_capacitance_cycle2: %u \r\n", bat_param->batt_capacitance_cycle2);
+    //printf("batt_capacitance_cycle3: %u \r\n", bat_param->batt_capacitance_cycle3);
+     //printf("batt_capacitance_cycle4: %u \r\n", bat_param->batt_capacitance_cycle4);
+   // printf("bat_chem: %u \r\n", bat_param->bat_chem);
+    
+    
+   // parameter_position=0;
+   // param_tab[0]=0x45;
+   // param_tab[1]=0xa3;
+    //  printf("test: %x \r\n",  save_table_to_param(2, &parameter_position, &param_tab[0]));
+   
 }
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param)

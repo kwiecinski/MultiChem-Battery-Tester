@@ -1,4 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"16 ./menu_definitions.h
+[; ;./menu_definitions.h: 16: {
+[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S632 . set_cycle batt_max_temp bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time ]
+"43
+[; ;./menu_definitions.h: 43: {
+[s S633 `*S632 1 `*S632 1 `*S632 1 `*S632 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
+[n S633 . settings_ptr liion_settings_ptr pb_settings_ptr nimh_settings_ptr set_cycle current_cycle bat_actual_temp batt_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time current_time text ]
+"25 main.c
+[; ;main.c: 25:      if(bat_param->bat_chem==liion)
+[c E5954 0 1 2 .. ]
+[n E5954 select_batt_chemistry liion pb nimh  ]
 [p mainexit ]
 "10 ./settings.h
 [; ;./settings.h: 10: void setupPorts(void);
@@ -30,26 +42,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "41 ./SST25VF.h
 [; ;./SST25VF.h: 41: void sst25vf_init_enable_write(void);
 [v _sst25vf_init_enable_write `(v ~T0 @X0 0 ef ]
-"16 ./menu_definitions.h
-[; ;./menu_definitions.h: 16: {
-[s S632 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
-[n S632 . set_cycle batt_max_temp bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time ]
-"43
-[; ;./menu_definitions.h: 43: {
-[s S633 `*S632 1 `*S632 1 `*S632 1 `*S632 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `ul 1 `uc -> 25 `i ]
-[n S633 . settings_ptr liion_settings_ptr pb_settings_ptr nimh_settings_ptr set_cycle current_cycle bat_actual_temp batt_max_temp bat_chem bat_storage_precentage selected_mode cell_count charge_current_2_percent charge_current_3_percent charge_current_4_percent precent_current_flags batt_set_voltage batt_set_current batt_actual_voltage batt_actual_current batt_set_trickle_voltage batt_set_trickle_current batt_set_min_discharge_voltage batt_capacitance_cycle1 batt_capacitance_cycle2 batt_capacitance_cycle3 batt_capacitance_cycle4 charge_current_1 discharge_current_1 charge_current_2 discharge_current_2 charge_current_3 discharge_current_3 charge_current_4 discharge_current_4 discharge_current_4_percent discharge_current_3_percent discharge_current_2_percent set_max_time current_time text ]
-"117
+"117 ./menu_definitions.h
 [; ;./menu_definitions.h: 117: void InitBattParameters(BattParameters *bat_param);
 [v _InitBattParameters `(v ~T0 @X0 0 ef1`*S633 ]
-"7 ./memory.h
-[; ;./memory.h: 7: void save_parameters_to_flash(BattParameters *bat_param);
-[v _save_parameters_to_flash `(v ~T0 @X0 0 ef1`*S633 ]
-"6
+"6 ./memory.h
 [; ;./memory.h: 6: void read_parameters_from_flash(BattParameters *bat_param);
 [v _read_parameters_from_flash `(v ~T0 @X0 0 ef1`*S633 ]
 "41 ./menu_navigation.h
-[; ;./menu_navigation.h: 41: void switch_between_battery_types(BattParameters *bat_param);
-[v _switch_between_battery_types `(v ~T0 @X0 0 ef1`*S633 ]
+[; ;./menu_navigation.h: 41: void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
+[v _switch_between_battery_types `(v ~T0 @X0 0 ef2`*S633`uc ]
 "118 ./menu_definitions.h
 [; ;./menu_definitions.h: 118: void SingleBat_Menu(BattParameters *bat_param);
 [v _SingleBat_Menu `(v ~T0 @X0 0 ef1`*S633 ]
@@ -1421,110 +1422,166 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"24 main.c
-[; ;main.c: 24: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
+"23 main.c
+[; ;main.c: 23: void init_settings_ptr(BattParameters *bat_param)
+[v _init_settings_ptr `(v ~T0 @X0 1 ef1`*S633 ]
+"24
+[; ;main.c: 24: {
+{
+[e :U _init_settings_ptr ]
+"23
+[; ;main.c: 23: void init_settings_ptr(BattParameters *bat_param)
+[v _bat_param `*S633 ~T0 @X0 1 r1 ]
+"24
+[; ;main.c: 24: {
+[f ]
 "25
-[; ;main.c: 25: {
+[; ;main.c: 25:      if(bat_param->bat_chem==liion)
+[e $ ! == -> . *U _bat_param 8 `i -> . `E5954 0 `i 638  ]
+"26
+[; ;main.c: 26:     {
+{
+"27
+[; ;main.c: 27:         bat_param->settings_ptr = bat_param->liion_settings_ptr;
+[e = . *U _bat_param 0 . *U _bat_param 1 ]
+"29
+[; ;main.c: 29:     }else if(bat_param->bat_chem==pb)
+}
+[e $U 639  ]
+[e :U 638 ]
+[e $ ! == -> . *U _bat_param 8 `i -> . `E5954 1 `i 640  ]
+"30
+[; ;main.c: 30:     {
+{
+"31
+[; ;main.c: 31:         bat_param->settings_ptr = bat_param->pb_settings_ptr;
+[e = . *U _bat_param 0 . *U _bat_param 2 ]
+"33
+[; ;main.c: 33:     }else if(bat_param->bat_chem==nimh)
+}
+[e $U 641  ]
+[e :U 640 ]
+[e $ ! == -> . *U _bat_param 8 `i -> . `E5954 2 `i 642  ]
+"34
+[; ;main.c: 34:     {
+{
+"35
+[; ;main.c: 35:         bat_param->settings_ptr = bat_param->nimh_settings_ptr;
+[e = . *U _bat_param 0 . *U _bat_param 3 ]
+"36
+[; ;main.c: 36:     }
+}
+[e :U 642 ]
+[e :U 641 ]
+[e :U 639 ]
+"37
+[; ;main.c: 37: }
+[e :UE 637 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"39
+[; ;main.c: 39: void main(void)
+[v _main `(v ~T0 @X0 1 ef ]
+"40
+[; ;main.c: 40: {
 {
 [e :U _main ]
 [f ]
-"26
-[; ;main.c: 26:     setupPorts();
-[e ( _setupPorts ..  ]
-"27
-[; ;main.c: 27:     setupInterrupts();
-[e ( _setupInterrupts ..  ]
-"28
-[; ;main.c: 28:     GLCD_Setup();
-[e ( _GLCD_Setup ..  ]
-"29
-[; ;main.c: 29:     setupUART();
-[e ( _setupUART ..  ]
-"30
-[; ;main.c: 30:     setupClock();
-[e ( _setupClock ..  ]
-"31
-[; ;main.c: 31:     setupPWM();
-[e ( _setupPWM ..  ]
-"32
-[; ;main.c: 32:     Button_Init();
-[e ( _Button_Init ..  ]
-"33
-[; ;main.c: 33:     Init_Timer0();
-[e ( _Init_Timer0 ..  ]
-"34
-[; ;main.c: 34:     setSPI_Interface();
-[e ( _setSPI_Interface ..  ]
-"35
-[; ;main.c: 35:     sst25vf_init_enable_write();
-[e ( _sst25vf_init_enable_write ..  ]
-"37
-[; ;main.c: 37:     BattParameters bat_param;
-[v _bat_param `S633 ~T0 @X0 1 a ]
-"38
-[; ;main.c: 38:     BattTypeSettings nimh_settings;
-[v _nimh_settings `S632 ~T0 @X0 1 a ]
-"39
-[; ;main.c: 39:     BattTypeSettings pb_settings;
-[v _pb_settings `S632 ~T0 @X0 1 a ]
-"40
-[; ;main.c: 40:     BattTypeSettings liion_settings;
-[v _liion_settings `S632 ~T0 @X0 1 a ]
 "41
-[; ;main.c: 41:     bat_param.liion_settings_ptr=&liion_settings;
-[e = . _bat_param 1 &U _liion_settings ]
+[; ;main.c: 41:     setupPorts();
+[e ( _setupPorts ..  ]
 "42
-[; ;main.c: 42:     bat_param.pb_settings_ptr=&pb_settings;
-[e = . _bat_param 2 &U _pb_settings ]
+[; ;main.c: 42:     setupInterrupts();
+[e ( _setupInterrupts ..  ]
 "43
-[; ;main.c: 43:     bat_param.nimh_settings_ptr=&nimh_settings;
-[e = . _bat_param 3 &U _nimh_settings ]
+[; ;main.c: 43:     GLCD_Setup();
+[e ( _GLCD_Setup ..  ]
+"44
+[; ;main.c: 44:     setupUART();
+[e ( _setupUART ..  ]
 "45
-[; ;main.c: 45:     InitBattParameters(&bat_param);
-[e ( _InitBattParameters (1 &U _bat_param ]
+[; ;main.c: 45:     setupClock();
+[e ( _setupClock ..  ]
+"46
+[; ;main.c: 46:     setupPWM();
+[e ( _setupPWM ..  ]
+"47
+[; ;main.c: 47:     Button_Init();
+[e ( _Button_Init ..  ]
+"48
+[; ;main.c: 48:     Init_Timer0();
+[e ( _Init_Timer0 ..  ]
+"49
+[; ;main.c: 49:     setSPI_Interface();
+[e ( _setSPI_Interface ..  ]
 "50
-[; ;main.c: 50:     save_parameters_to_flash(&bat_param);
-[e ( _save_parameters_to_flash (1 &U _bat_param ]
-"51
-[; ;main.c: 51:     read_parameters_from_flash(&bat_param);
-[e ( _read_parameters_from_flash (1 &U _bat_param ]
+[; ;main.c: 50:     sst25vf_init_enable_write();
+[e ( _sst25vf_init_enable_write ..  ]
+"52
+[; ;main.c: 52:     BattParameters bat_param;
+[v _bat_param `S633 ~T0 @X0 1 a ]
 "53
-[; ;main.c: 53:     switch_between_battery_types(&bat_param);
-[e ( _switch_between_battery_types (1 &U _bat_param ]
+[; ;main.c: 53:     BattTypeSettings nimh_settings;
+[v _nimh_settings `S632 ~T0 @X0 1 a ]
+"54
+[; ;main.c: 54:     BattTypeSettings pb_settings;
+[v _pb_settings `S632 ~T0 @X0 1 a ]
 "55
-[; ;main.c: 55:      SingleBat_Menu(&bat_param);
-[e ( _SingleBat_Menu (1 &U _bat_param ]
+[; ;main.c: 55:     BattTypeSettings liion_settings;
+[v _liion_settings `S632 ~T0 @X0 1 a ]
 "56
-[; ;main.c: 56:     while (1)
-[e :U 639 ]
+[; ;main.c: 56:     bat_param.liion_settings_ptr=&liion_settings;
+[e = . _bat_param 1 &U _liion_settings ]
 "57
-[; ;main.c: 57:     {
-{
+[; ;main.c: 57:     bat_param.pb_settings_ptr=&pb_settings;
+[e = . _bat_param 2 &U _pb_settings ]
 "58
-[; ;main.c: 58:         Menu(&bat_param);
-[e ( _Menu (1 &U _bat_param ]
+[; ;main.c: 58:     bat_param.nimh_settings_ptr=&nimh_settings;
+[e = . _bat_param 3 &U _nimh_settings ]
 "60
-[; ;main.c: 60:         if(counter_test>=10000)
-[e $ ! >= -> _counter_test `ui -> -> 10000 `i `ui 641  ]
-"61
-[; ;main.c: 61:         {
-{
-"63
-[; ;main.c: 63:             counter_test=0;
-[e = _counter_test -> -> 0 `i `us ]
-"64
-[; ;main.c: 64:         }
-}
-[e :U 641 ]
-"65
-[; ;main.c: 65:     }
-}
-[e :U 638 ]
-[e $U 639  ]
-[e :U 640 ]
+[; ;main.c: 60:     InitBattParameters(&bat_param);
+[e ( _InitBattParameters (1 &U _bat_param ]
 "66
-[; ;main.c: 66: }
-[e :UE 637 ]
+[; ;main.c: 66:     read_parameters_from_flash(&bat_param);
+[e ( _read_parameters_from_flash (1 &U _bat_param ]
+"69
+[; ;main.c: 69:     init_settings_ptr(&bat_param);
+[e ( _init_settings_ptr (1 &U _bat_param ]
+"71
+[; ;main.c: 71:     switch_between_battery_types(&bat_param, 1);
+[e ( _switch_between_battery_types (2 , &U _bat_param -> -> 1 `i `uc ]
+"74
+[; ;main.c: 74:     SingleBat_Menu(&bat_param);
+[e ( _SingleBat_Menu (1 &U _bat_param ]
+"75
+[; ;main.c: 75:     while (1)
+[e :U 645 ]
+"76
+[; ;main.c: 76:     {
+{
+"77
+[; ;main.c: 77:         Menu(&bat_param);
+[e ( _Menu (1 &U _bat_param ]
+"79
+[; ;main.c: 79:         if(counter_test>=10000)
+[e $ ! >= -> _counter_test `ui -> -> 10000 `i `ui 647  ]
+"80
+[; ;main.c: 80:         {
+{
+"82
+[; ;main.c: 82:             counter_test=0;
+[e = _counter_test -> -> 0 `i `us ]
+"83
+[; ;main.c: 83:         }
+}
+[e :U 647 ]
+"84
+[; ;main.c: 84:     }
+}
+[e :U 644 ]
+[e $U 645  ]
+[e :U 646 ]
+"85
+[; ;main.c: 85: }
+[e :UE 643 ]
 }

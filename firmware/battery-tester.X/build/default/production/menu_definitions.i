@@ -9952,13 +9952,13 @@ void SetDischargingCurrent_1(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
-void switch_between_battery_types(BattParameters *bat_param);
+void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
 # 45 "menu_definitions.c" 2
 
 # 1 "./menu_navigation.h" 1
 # 40 "./menu_navigation.h"
 void Menu(BattParameters *bat_param);
-void switch_between_battery_types(BattParameters *bat_param);
+void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
 # 46 "menu_definitions.c" 2
 
 
@@ -10747,6 +10747,9 @@ void InitBattParameters (BattParameters *bat_param)
     bat_param->batt_set_trickle_current = 30;
     bat_param->batt_set_min_discharge_voltage = 270;
     bat_param->batt_capacitance_cycle1 = 1000;
+    bat_param->batt_capacitance_cycle2 = 1200;
+    bat_param->batt_capacitance_cycle3 = 1300;
+    bat_param->batt_capacitance_cycle4 = 1402;
 
 
 

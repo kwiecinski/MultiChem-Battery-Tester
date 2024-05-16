@@ -35,10 +35,10 @@
 #define CHECK_CHRG4_CURRENT_SET             bat_param->precent_current_flags & (1 << PRECENT_CURRENT_CHRG4_POS)
 #define CHECK_DISCHRG4_CURRENT_SET          bat_param->precent_current_flags & (1 << PRECENT_CURRENT_DISCHRG4_POS) 
 
-
+#define INITILIZE_SETTINGS 1
 
 void Menu(BattParameters *bat_param);
-void switch_between_battery_types(BattParameters *bat_param);
+void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
 
 
 #endif	/* MENU_NAVIGATION_H */

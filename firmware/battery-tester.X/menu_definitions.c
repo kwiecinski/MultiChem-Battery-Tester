@@ -870,6 +870,9 @@ void InitBattParameters (BattParameters *bat_param)
     bat_param->batt_set_trickle_current = 30;
     bat_param->batt_set_min_discharge_voltage = 270;
     bat_param->batt_capacitance_cycle1 = 1000;
+    bat_param->batt_capacitance_cycle2 = 1200;
+    bat_param->batt_capacitance_cycle3 = 1300;
+    bat_param->batt_capacitance_cycle4 = 1402;
     
     
     

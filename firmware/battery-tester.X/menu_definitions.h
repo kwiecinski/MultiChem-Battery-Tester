@@ -139,5 +139,5 @@ void SetDischargingCurrent_1(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
-void switch_between_battery_types(BattParameters *bat_param);
+void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
 #endif	/* MENU_H */

@@ -20,6 +20,21 @@
 #include "MMSP.h"
 #include "memory.h"
 
+void init_settings_ptr(BattParameters *bat_param)
+{
+     if(bat_param->bat_chem==liion)
+    {   
+        bat_param->settings_ptr = bat_param->liion_settings_ptr;   
+    
+    }else if(bat_param->bat_chem==pb)
+    {
+        bat_param->settings_ptr = bat_param->pb_settings_ptr;
+         
+    }else if(bat_param->bat_chem==nimh)
+    {
+        bat_param->settings_ptr = bat_param->nimh_settings_ptr;
+    }
+}
 
 void main(void) 
 {   
@@ -47,12 +62,16 @@ void main(void)
     //bat_param.bat_chem = liion;
     //bat_param.settings_ptr = bat_param.liion_settings_ptr;
  
-    save_parameters_to_flash(&bat_param);
+    //save_parameters_to_flash(&bat_param);
     read_parameters_from_flash(&bat_param);
     
-    switch_between_battery_types(&bat_param);
+ 
+    init_settings_ptr(&bat_param);
     
-     SingleBat_Menu(&bat_param);
+    switch_between_battery_types(&bat_param, INITILIZE_SETTINGS);
+    
+    
+    SingleBat_Menu(&bat_param);
     while (1) 
     {
         Menu(&bat_param);

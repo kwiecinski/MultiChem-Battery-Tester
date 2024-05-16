@@ -10,36 +10,39 @@
             </bookmark>
             <bookmark id="4">
                 <name/>
-                <line>894</line>
+                <line>895</line>
                 <key/>
             </bookmark>
             <bookmark id="5">
                 <name/>
-                <line>914</line>
+                <line>915</line>
                 <key/>
             </bookmark>
             <bookmark id="3">
                 <name/>
-                <line>1424</line>
+                <line>1425</line>
                 <key/>
             </bookmark>
             <bookmark id="1">
                 <name/>
-                <line>1452</line>
+                <line>1453</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.h</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.h</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/peripherials/UART.c</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.c</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/button.h</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.c</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/SST25VF.c</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.h</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.c</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/main.c</file>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/peripherials/UART.h</file>
         </group>
     </open-files>
 </project-private>

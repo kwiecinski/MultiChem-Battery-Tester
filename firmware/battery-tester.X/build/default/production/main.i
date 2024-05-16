@@ -9684,13 +9684,13 @@ void SetDischargingCurrent_1(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
-void switch_between_battery_types(BattParameters *bat_param);
+void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
 # 14 "main.c" 2
 
 # 1 "./menu_navigation.h" 1
 # 40 "./menu_navigation.h"
 void Menu(BattParameters *bat_param);
-void switch_between_battery_types(BattParameters *bat_param);
+void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
 # 15 "main.c" 2
 
 # 1 "./button.h" 1
@@ -9914,6 +9914,21 @@ void save_parameters_to_flash(BattParameters *bat_param);
 # 21 "main.c" 2
 
 
+void init_settings_ptr(BattParameters *bat_param)
+{
+     if(bat_param->bat_chem==liion)
+    {
+        bat_param->settings_ptr = bat_param->liion_settings_ptr;
+
+    }else if(bat_param->bat_chem==pb)
+    {
+        bat_param->settings_ptr = bat_param->pb_settings_ptr;
+
+    }else if(bat_param->bat_chem==nimh)
+    {
+        bat_param->settings_ptr = bat_param->nimh_settings_ptr;
+    }
+}
 
 void main(void)
 {
@@ -9941,12 +9956,16 @@ void main(void)
 
 
 
-    save_parameters_to_flash(&bat_param);
+
     read_parameters_from_flash(&bat_param);
 
-    switch_between_battery_types(&bat_param);
 
-     SingleBat_Menu(&bat_param);
+    init_settings_ptr(&bat_param);
+
+    switch_between_battery_types(&bat_param, 1);
+
+
+    SingleBat_Menu(&bat_param);
     while (1)
     {
         Menu(&bat_param);
