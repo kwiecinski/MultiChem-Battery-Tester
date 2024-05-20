@@ -9455,7 +9455,7 @@ void Init_Timer0();
 # 6 "memory.c" 2
 
 # 1 "./SST25VF.h" 1
-# 37 "./SST25VF.h"
+# 40 "./SST25VF.h"
 void block_erase(uint8_t add, uint8_t block_type);
 void sector_erase(uint8_t add);
 void chip_erase(void);
@@ -9614,24 +9614,34 @@ void check_if_any_changes_in_parameters(BattParameters *bat_param);
 void read_parameters_from_flash(BattParameters *bat_param);
 void save_parameters_to_flash(BattParameters *bat_param);
 # 10 "memory.c" 2
-# 35 "memory.c"
+# 44 "memory.c"
 void represent_value_in_binary(uint8_t value);
 
 
 
 
 
-void parameter_sector_copy_erase_restore(void)
+void parameter_erase(void)
 {
-    uint8_t tab[64];
-
-    read_bytes(0x40, &tab[0], 64);
-    for (uint8_t i = 0; i < 4; ++i)
-    {
-        tab[0x0 + i] = 0xFF;
-    }
     sector_erase(0x0);
-    write_byte_table_auto_address_increment(0x40, &tab[0], 64);
+    sector_erase(0x1000);
+}
+
+void measurment_erase(void)
+{
+    uint8_t i;
+
+    for(i=0; i<7;i++)
+    {
+        block_erase((0xFFFF + 0xFFFF*i),0xD8);
+    }
+
+    block_erase(0x8000,0x52);
+
+    for(i=0; i<6;i++)
+    {
+        sector_erase(0x3000 + 0x1000*i);
+    }
 }
 
 
@@ -9666,9 +9676,9 @@ uint16_t check_offset_position(void)
 
 uint16_t check_current_param_offset(void)
 {
-    return (check_offset_position() * 144 + 0x40);
+    return (check_offset_position() * 144 + 0x10);
 }
-# 97 "memory.c"
+# 116 "memory.c"
 void update_wear_leveling_static_buffer(void)
 {
     uint8_t current_param_address[4];
@@ -9676,7 +9686,7 @@ void update_wear_leveling_static_buffer(void)
 
     if (check_offset_position() >= 27)
     {
-        parameter_sector_copy_erase_restore();
+        parameter_erase();
         printf("CLEAR MEMORY! \n\r");
         return;
     }
@@ -9724,7 +9734,7 @@ void represent_value_in_binary(uint8_t value)
     }
      printf(" ");
 }
-# 161 "memory.c"
+# 180 "memory.c"
 void save_param_to_table(uint16_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
     for (uint8_t j = 0; j < length; j++)
@@ -9876,7 +9886,7 @@ void read_parameters_from_flash(BattParameters *bat_param)
     print_data_tab(&param_tab[0], parameter_position);
     bat_param->settings_ptr = bat_param->pb_settings_ptr;
     printf("batt_pb_cycle: %u \r\n", bat_param->settings_ptr->set_cycle);
-# 323 "memory.c"
+# 342 "memory.c"
 }
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param)

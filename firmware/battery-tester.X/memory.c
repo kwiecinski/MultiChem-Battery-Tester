@@ -9,27 +9,36 @@
 #include "menu_definitions.h"
 #include "memory.h"
 
-
 #define ADDRESS     0
 #define LENGTH      1
 
-#define PARAMETER_SECTOR_ADDR                       0x0
-#define MEASUREMENT_SECTOR_ADDR                     0x1000
+// ERASE PARAMETERS-------------------------------------------------------------
+#define PARAMETER_4KB_SECTOR_ERASE_ADDRESS_1        0x0
+#define PARAMETER_4KB_SECTOR_ERASE_ADDRESS_2        0x1000
+#define MEASUREMENT_64KB_BLOCK_ERASE_ADDRESS        0xFFFF
+#define MEASUREMENT_64KB_BLOCK_ERASE_COUNT          7
+#define MEASUREMENT_32KB_BLOCK_ERASE_ADDRESS        0x8000
+#define MEASUREMENT_4KB_SECTOR_ERASE_ADDRESS        0x3000
+#define MEASUREMENT_4KB_BLOCK_ERASE_COUNT           6
+// -----------------------------------------------------------------------------
 
+// WEAR LEVELING FOR PARAMETERS-------------------------------------------------
 #define WEAR_LEVELING_PARAM_START_ADDR              0x0     
 #define WEAR_LEVELING_PARAM_CYCLES                  27      // 1 Sector size (4096B) / Size of parameters table (144B)
 #define WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH     4       // value is up rounded from WEAR_LEVELING_PARAM_CYCLES/8 
-#define DATA_COPY_LENGTH                            64
-
-#define PARAMETER_START_ADDR                        0x40    //64
+#define PARAMETER_START_ADDR                        0x10    //64
 #define PARAMETERS_DATA_SIZE                        144
+// -----------------------------------------------------------------------------
 
-#define WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR              0X10     // 0
-#define WEAR_LEVELING_MEASUREMENT_DATA_CYCLES                  32      // 1 Sector size (4096B) / Size of parameters table (144B)
-#define WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH     4       // value is up rounded from WEAR_LEVELING_PARAM_CYCLES/8 
+// WEAR LEVELING FOR MEASUREMENT------------------------------------------------
+#define WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR              0x4000    // 
+#define WEAR_LEVELING_MEASUREMENT_DATA_CYCLES                  31        // 1 Sector size (4096B) / Size of parameters table (144B)
+#define WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH     4         // value is up rounded from WEAR_LEVELING_PARAM_CYCLES/8 
+#define MASURMENT_START_ADDR                                   0x4000
+#define TEMP_START_ADDR                                        0x2007
+#define TEMP_DATA_SIZE                                         264
+// -----------------------------------------------------------------------------
 
-#define MEASUREMENT_START_ADDR                                 0x1000
-#define MEASUREMENT_DATA_SIZE                                  16384
 
 
 void represent_value_in_binary(uint8_t value);
@@ -38,17 +47,27 @@ void represent_value_in_binary(uint8_t value);
 /*
  * @brief Copies, erases, and restores parameter sector.
  */
-void parameter_sector_copy_erase_restore(void)
+void parameter_erase(void)
 {
-    uint8_t tab[DATA_COPY_LENGTH];          
+    sector_erase(PARAMETER_4KB_SECTOR_ERASE_ADDRESS_1);
+    sector_erase(PARAMETER_4KB_SECTOR_ERASE_ADDRESS_2);
+}
+
+void measurment_erase(void)
+{
+    uint8_t i;
     
-    read_bytes(PARAMETER_START_ADDR, &tab[0], DATA_COPY_LENGTH);
-    for (uint8_t i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH; ++i)
+    for(i=0; i<MEASUREMENT_64KB_BLOCK_ERASE_COUNT;i++)
     {
-        tab[WEAR_LEVELING_PARAM_START_ADDR + i] = 0xFF;
+        block_erase((MEASUREMENT_64KB_BLOCK_ERASE_ADDRESS + 0xFFFF*i),BLOCK_ERASE_64KB);
     }
-    sector_erase(PARAMETER_SECTOR_ADDR);
-    write_byte_table_auto_address_increment(PARAMETER_START_ADDR, &tab[0], DATA_COPY_LENGTH);
+    
+    block_erase(MEASUREMENT_32KB_BLOCK_ERASE_ADDRESS,BLOCK_ERASE_32KB);
+    
+    for(i=0; i<MEASUREMENT_4KB_BLOCK_ERASE_COUNT;i++)
+    {
+        sector_erase(MEASUREMENT_4KB_SECTOR_ERASE_ADDRESS + 0x1000*i);
+    }
 }
 
 /*
@@ -101,7 +120,7 @@ void update_wear_leveling_static_buffer(void)
 
     if (check_offset_position() >= WEAR_LEVELING_PARAM_CYCLES)
     {
-        parameter_sector_copy_erase_restore();
+        parameter_erase();
         printf("CLEAR MEMORY! \n\r");
         return;
     }

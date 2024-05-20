@@ -33,6 +33,9 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
+#define     BLOCK_ERASE_32KB        0x52
+#define     BLOCK_ERASE_64KB        0xD8
+
 
 void block_erase(uint8_t add, uint8_t block_type);
 void sector_erase(uint8_t add);
@@ -43,6 +46,8 @@ void read_bytes(uint32_t add, uint8_t *data, uint8_t length);
 void read_id_jedec(void);
 void read_id(void);
 void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length);
+
+
 
 #endif	
 

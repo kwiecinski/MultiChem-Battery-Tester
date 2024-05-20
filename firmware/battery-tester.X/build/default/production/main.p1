@@ -39,8 +39,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15 ./MMSP.h
 [; ;./MMSP.h: 15: void setSPI_Interface(void);
 [v _setSPI_Interface `(v ~T0 @X0 0 ef ]
-"41 ./SST25VF.h
-[; ;./SST25VF.h: 41: void sst25vf_init_enable_write(void);
+"44 ./SST25VF.h
+[; ;./SST25VF.h: 44: void sst25vf_init_enable_write(void);
 [v _sst25vf_init_enable_write `(v ~T0 @X0 0 ef ]
 "117 ./menu_definitions.h
 [; ;./menu_definitions.h: 117: void InitBattParameters(BattParameters *bat_param);
@@ -60,6 +60,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "41 ./interrupts.h
 [; ;./interrupts.h: 41: extern volatile uint16_t button_counter, counter_test;
 [v _counter_test `Vus ~T0 @X0 0 e ]
+"105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"224 ./button.h
+[; ;./button.h: 224: void Button_Update(void);
+[v _Button_Update `(v ~T0 @X0 0 ef ]
+"85 main.c
+[; ;main.c: 85:           if (BTN_STATE_LONG == Button_EventGet(OK_SW))
+[c E6045 0 1 2 .. ]
+[n E6045 . BTN_STATE_NONE BTN_STATE_SHORT BTN_STATE_LONG  ]
+"232 ./button.h
+[; ;./button.h: 232: btn_state_t Button_EventGet(uint8_t key);
+[v _Button_EventGet `(E6045 ~T0 @X0 0 ef1`uc ]
+"85 main.c
+[; ;main.c: 85:           if (BTN_STATE_LONG == Button_EventGet(OK_SW))
+[c E6038 0 1 2 3 4 .. ]
+[n E6038 . LEFT_SW RIGHT_SW UP_SW DOWN_SW OK_SW  ]
+"42 ./SST25VF.h
+[; ;./SST25VF.h: 42: void chip_erase(void);
+[v _chip_erase `(v ~T0 @X0 0 ef ]
+"14 ./settings.h
+[; ;./settings.h: 14: void delay_ms(unsigned int milliseconds);
+[v _delay_ms `(v ~T0 @X0 0 ef1`ui ]
+"7 ./memory.h
+[; ;./memory.h: 7: void save_parameters_to_flash(BattParameters *bat_param);
+[v _save_parameters_to_flash `(v ~T0 @X0 0 ef1`*S633 ]
 "54 C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/RaD/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -1568,6 +1594,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "80
 [; ;main.c: 80:         {
 {
+"81
+[; ;main.c: 81:             printf("alive \r\n");
+[e ( _printf :s 1C ]
 "82
 [; ;main.c: 82:             counter_test=0;
 [e = _counter_test -> -> 0 `i `us ]
@@ -1576,12 +1605,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 647 ]
 "84
-[; ;main.c: 84:     }
+[; ;main.c: 84:         Button_Update();
+[e ( _Button_Update ..  ]
+"85
+[; ;main.c: 85:           if (BTN_STATE_LONG == Button_EventGet(OK_SW))
+[e $ ! == -> . `E6045 2 `ui -> ( _Button_EventGet (1 -> . `E6038 4 `uc `ui 648  ]
+"86
+[; ;main.c: 86:           {
+{
+"87
+[; ;main.c: 87:               printf("CHIP ERASE! \r\n");
+[e ( _printf :s 2C ]
+"88
+[; ;main.c: 88:               chip_erase();
+[e ( _chip_erase ..  ]
+"89
+[; ;main.c: 89:               delay_ms(5000);
+[e ( _delay_ms (1 -> -> 5000 `i `ui ]
+"90
+[; ;main.c: 90:           }
+}
+[e :U 648 ]
+"92
+[; ;main.c: 92:         if (BTN_STATE_LONG == Button_EventGet(UP_SW))
+[e $ ! == -> . `E6045 2 `ui -> ( _Button_EventGet (1 -> . `E6038 2 `uc `ui 649  ]
+"93
+[; ;main.c: 93:           {
+{
+"94
+[; ;main.c: 94:              InitBattParameters(&bat_param);
+[e ( _InitBattParameters (1 &U _bat_param ]
+"95
+[; ;main.c: 95:              save_parameters_to_flash(&bat_param);
+[e ( _save_parameters_to_flash (1 &U _bat_param ]
+"96
+[; ;main.c: 96:            read_parameters_from_flash(&bat_param);
+[e ( _read_parameters_from_flash (1 &U _bat_param ]
+"97
+[; ;main.c: 97:             printf("INIT PARAM DONE! \r\n");
+[e ( _printf :s 3C ]
+"98
+[; ;main.c: 98:             delay_ms(5000);
+[e ( _delay_ms (1 -> -> 5000 `i `ui ]
+"99
+[; ;main.c: 99:           }
+}
+[e :U 649 ]
+"103
+[; ;main.c: 103:     }
 }
 [e :U 644 ]
 [e $U 645  ]
 [e :U 646 ]
-"85
-[; ;main.c: 85: }
+"104
+[; ;main.c: 104: }
 [e :UE 643 ]
 }
+[p f _printf 8388608 ]
+[a 1C 97 108 105 118 101 32 13 10 0 ]
+[a 2C 67 72 73 80 32 69 82 65 83 69 33 32 13 10 0 ]
+[a 3C 73 78 73 84 32 80 65 82 65 77 32 68 79 78 69 33 32 13 10 0 ]

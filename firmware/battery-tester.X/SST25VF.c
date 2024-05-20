@@ -19,8 +19,7 @@
 #define		SRB_WRITEEN				0x02
 #define		WRITE_STAT_REG_EN		0x50
 #define     SECTOR_ERASE            0x20
-#define     BLOCK_ERASE_32KB        0x52
-#define     BLOCK_ERASE_64KB        0xD8
+
 #define     AAI_WORD_PROGRAM        0xAD
 
 #define ENABLE_SST25        LATFbits.LF7=0

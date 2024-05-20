@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="5">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="6">
         <file>
             <url>menu_navigation.c</url>
             <bookmark id="2">
@@ -18,6 +18,11 @@
                 <line>915</line>
                 <key/>
             </bookmark>
+            <bookmark id="6">
+                <name/>
+                <line>1336</line>
+                <key/>
+            </bookmark>
             <bookmark id="3">
                 <name/>
                 <line>1425</line>
@@ -32,9 +37,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/button.c</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.h</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.h</file>
-            <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/peripherials/UART.c</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.c</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/button.h</file>
             <file>file:/D:/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.c</file>

@@ -89,7 +89,7 @@ btn_instance_t instance[BUTTON_COUNT] =
       .port_read = ButtonDown,
   },  
   {
-      .long_press_time_ms = 1200,
+      .long_press_time_ms = 3200,
       .port_read = ButtonOK,
   },
 };

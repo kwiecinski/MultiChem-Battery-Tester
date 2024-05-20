@@ -9885,7 +9885,7 @@ void Init_Timer0();
 # 18 "main.c" 2
 
 # 1 "./SST25VF.h" 1
-# 37 "./SST25VF.h"
+# 40 "./SST25VF.h"
 void block_erase(uint8_t add, uint8_t block_type);
 void sector_erase(uint8_t add);
 void chip_erase(void);
@@ -9972,8 +9972,27 @@ void main(void)
 
         if(counter_test>=10000)
         {
-
+            printf("alive \r\n");
             counter_test=0;
         }
+        Button_Update();
+          if (BTN_STATE_LONG == Button_EventGet(OK_SW))
+          {
+              printf("CHIP ERASE! \r\n");
+              chip_erase();
+              delay_ms(5000);
+          }
+
+        if (BTN_STATE_LONG == Button_EventGet(UP_SW))
+          {
+             InitBattParameters(&bat_param);
+             save_parameters_to_flash(&bat_param);
+           read_parameters_from_flash(&bat_param);
+            printf("INIT PARAM DONE! \r\n");
+            delay_ms(5000);
+          }
+
+
+
     }
 }

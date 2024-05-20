@@ -9441,7 +9441,7 @@ void setupPWM(void);
 
 void delay_ms(unsigned int milliseconds);
 # 5 "SST25VF.c" 2
-# 33 "SST25VF.c"
+# 32 "SST25VF.c"
 void check_busy(void)
 {
     uint8_t status_register_byte;
@@ -9595,7 +9595,7 @@ void write_byte(uint32_t add, uint8_t data)
     SPI_Exchange(0X04);
     LATFbits.LF7=1;
 }
-# 194 "SST25VF.c"
+# 193 "SST25VF.c"
 void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length)
 {
 
