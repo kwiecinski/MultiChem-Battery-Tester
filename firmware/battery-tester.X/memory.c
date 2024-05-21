@@ -11,6 +11,8 @@
 
 #define ADDRESS     0
 #define LENGTH      1
+#define UPDATE_PARAMETERS 0
+#define UPDATE_MEASURMENT 1
 
 // ERASE PARAMETERS-------------------------------------------------------------
 #define PARAMETER_4KB_SECTOR_ERASE_ADDRESS_1        0x0
@@ -34,12 +36,70 @@
 #define WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR              0x4000    // 
 #define WEAR_LEVELING_MEASUREMENT_DATA_CYCLES                  31        // 1 Sector size (4096B) / Size of parameters table (144B)
 #define WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH     4         // value is up rounded from WEAR_LEVELING_PARAM_CYCLES/8 
-#define MASURMENT_START_ADDR                                   0x4000
+#define MEASURMENT_START_ADDR                                  0x4000
 #define TEMP_START_ADDR                                        0x2007
 #define TEMP_DATA_SIZE                                         264
+#define MEASURMENT_DATA_SIZE                                   4096
 // -----------------------------------------------------------------------------
 
 
+uint16_t check_current_measurment_offset(void);
+uint16_t check_current_temp_offset(void);
+
+
+#define BAT_ID          0
+#define SAMPLING_TIME   1
+#define DONE_CYCLE_TYPE 2
+#define CAPACITANCE     3
+#define SET_CURRENT     5
+#define SET_VOLTAGE     7
+#define MAX_TEMP        8
+
+
+/*
+* 0               bat id	
+* 1               sampling time	
+* 2             whole cycle flag, cycle type (chg, disc)	
+* 3,4            measured capacitance (2bytes)	
+* 5,6            set current (2bytes)	
+* 7,8            set voltage(2bytes)	
+* 9               max temp	
+* 10 to 4095 	  measurment data	
+*/
+
+void save_measurment_to_flash(void)
+{
+    uint8_t param_tab[10];
+    read_bytes(check_current_measurment_offset(), &param_tab[0], sizeof(param_tab));
+   
+    
+    
+}
+
+
+uint16_t check_parameters_offset_position(uint16_t addr, uint8_t lenght);
+
+void memory_and_cycle_positions(BattParameters *bat_param)
+{
+    uint8_t param_tab[1],offset;
+    
+    
+    bat_param->max_memory_cycle = WEAR_LEVELING_MEASUREMENT_DATA_CYCLES;
+    bat_param->current_memory_cycle = check_parameters_offset_position(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH); 
+    
+    offset = check_current_measurment_offset();
+    if(offset == MEASURMENT_START_ADDR)
+    {
+        bat_param->current_battery_memory_position = 1;
+    }else
+    {
+         //to read bat_id need to read heder of previous cycle so i need to do offset-MEASURMENT_DATA_SIZE
+         read_bytes(offset-MEASURMENT_DATA_SIZE, &param_tab[0], sizeof(param_tab));        
+         bat_param->current_battery_memory_position = &param_tab[BAT_ID]+1;
+         
+    }
+    
+}
 
 void represent_value_in_binary(uint8_t value);
 /********************************************************************************/
@@ -74,16 +134,16 @@ void measurment_erase(void)
  * @brief Checks the current offset position.
  * @return The calculated current offset position.
  */
-uint16_t check_offset_position(void)
+uint16_t check_parameters_offset_position(uint16_t addr, uint8_t lenght)
 {
     uint8_t current_param_address[4], zero_bit_count;
     int8_t i, j;
 
-    read_bytes(WEAR_LEVELING_PARAM_START_ADDR, &current_param_address[0], WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH);
+    read_bytes(addr, &current_param_address[0], lenght);
 
     // Check how many zeros are in bytes are in Wear Leveling Status Buffer
     zero_bit_count = 0;
-    for (i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH; ++i) 
+    for (i = 0; i < lenght; ++i) 
     {
         for (j = 7; j >= 0; --j) 
         {
@@ -96,15 +156,27 @@ uint16_t check_offset_position(void)
     return zero_bit_count; 
 }
 
+
+
 /*
  * @brief Checks the current parameter offset.
  * @return The calculated current parameter offset.
  */
 uint16_t check_current_param_offset(void)
 { 
-    return (check_offset_position() * PARAMETERS_DATA_SIZE + PARAMETER_START_ADDR);
+    return (check_parameters_offset_position(WEAR_LEVELING_PARAM_START_ADDR, WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH) * PARAMETERS_DATA_SIZE + PARAMETER_START_ADDR);
 }
 
+
+uint16_t check_current_measurment_offset(void)
+{ 
+    return (check_parameters_offset_position(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH) * MEASURMENT_DATA_SIZE + MEASURMENT_START_ADDR);
+}
+
+uint16_t check_current_temp_offset(void)
+{ 
+    return (check_parameters_offset_position(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH) * TEMP_DATA_SIZE + TEMP_START_ADDR);
+}
 /*
  * @brief Saves parameter to flash memory.
  *
@@ -113,18 +185,39 @@ uint16_t check_current_param_offset(void)
  * searches for the first bit that is set to 1 (MSB) in the current parameter address array.
  * Once found, it changes that bit to 0 and writes the updated parameter to the flash memory.
  */
-void update_wear_leveling_static_buffer(void)
+void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
 {
     uint8_t current_param_address[4];
     int8_t i, j;
+    uint16_t addr,lenght;
 
-    if (check_offset_position() >= WEAR_LEVELING_PARAM_CYCLES)
+    if(wear_leveling_type == UPDATE_PARAMETERS)
     {
-        parameter_erase();
-        printf("CLEAR MEMORY! \n\r");
-        return;
+        addr = WEAR_LEVELING_PARAM_START_ADDR;
+        lenght = WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH;
+        if (check_parameters_offset_position(WEAR_LEVELING_PARAM_START_ADDR, WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH) >= WEAR_LEVELING_PARAM_CYCLES)
+        {
+            parameter_erase();
+            printf("CLEAR PARAMETER MEMORY! \n\r");
+            return;
+        }
+    }else if (wear_leveling_type == UPDATE_MEASURMENT)
+    {
+        
+        addr = WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR;
+        lenght = WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH;
+        
+        if (check_parameters_offset_position(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH) >= WEAR_LEVELING_MEASUREMENT_DATA_CYCLES)
+        {
+            measurment_erase();
+            printf("CLEAR MEASURMENT MEMORY! \n\r");
+            return;
+        }
     }
-    read_bytes(WEAR_LEVELING_PARAM_START_ADDR, &current_param_address[0], WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH);
+    
+    
+    
+    read_bytes(addr, &current_param_address[0], lenght);
     
     printf("current_param_address tab: \r\n");
     print_tab(&current_param_address[0],sizeof(current_param_address));
@@ -135,7 +228,7 @@ void update_wear_leveling_static_buffer(void)
         represent_value_in_binary(current_param_address[i]);
     }
     
-    for (i = 0; i < WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH; ++i)
+    for (i = 0; i < lenght; ++i)
     {
         // Checking for first bit that is 1 (MSB)
         for (j = 7; j >= 0; --j)
@@ -147,7 +240,7 @@ void update_wear_leveling_static_buffer(void)
                 current_param_address[i] &= ~(1 << j);
                 printf("i:%d j:%d\r\n",i,j);
                   print_tab(&current_param_address[0],sizeof(current_param_address));
-                write_byte(WEAR_LEVELING_PARAM_START_ADDR + i, current_param_address[i]);    // save new offset position to flash
+                write_byte(addr + i, current_param_address[i]);    // save new offset position to flash
               
                  
                 return; // End for after finding first 1 bit
@@ -260,7 +353,7 @@ void save_parameters_to_flash(BattParameters *bat_param)
     printf("Write table: \n\r");
     print_data_tab(&param_tab[0], parameter_position);
     
-    update_wear_leveling_static_buffer();
+    update_wear_leveling_static_buffer(UPDATE_PARAMETERS);
     printf("Write to flash, parameter address: %u  \n\r", check_current_param_offset());
     write_byte_table_auto_address_increment(check_current_param_offset(), &param_tab[0], parameter_position);
   

@@ -9516,7 +9516,8 @@ typedef struct
             charge_current_2_percent,
             charge_current_3_percent,
             charge_current_4_percent,
-            precent_current_flags;
+            precent_current_flags,
+            current_battery_memory_position, current_memory_cycle, max_memory_cycle;
 
 
     uint16_t batt_set_voltage, batt_set_current,
@@ -9603,18 +9604,27 @@ void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
 void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
+void MemoryDisplay (BattParameters *bat_param);
 # 9 "memory.c" 2
 
 # 1 "./memory.h" 1
 
 
 
-
+void memory_and_cycle_positions(BattParameters *bat_param);
 void check_if_any_changes_in_parameters(BattParameters *bat_param);
 void read_parameters_from_flash(BattParameters *bat_param);
 void save_parameters_to_flash(BattParameters *bat_param);
 # 10 "memory.c" 2
-# 44 "memory.c"
+# 47 "memory.c"
+void memory_and_cycle_positions(BattParameters *bat_param)
+{
+    bat_param->max_memory_cycle = 31;
+
+    bat_param->current_memory_cycle = 2;
+    bat_param->current_battery_memory_position = 1;
+}
+
 void represent_value_in_binary(uint8_t value);
 
 
@@ -9648,16 +9658,16 @@ void measurment_erase(void)
 
 
 
-uint16_t check_offset_position(void)
+uint16_t check_parameters_offset_position(uint16_t addr, uint8_t lenght)
 {
     uint8_t current_param_address[4], zero_bit_count;
     int8_t i, j;
 
-    read_bytes(0x0, &current_param_address[0], 4);
+    read_bytes(addr, &current_param_address[0], lenght);
 
 
     zero_bit_count = 0;
-    for (i = 0; i < 4; ++i)
+    for (i = 0; i < lenght; ++i)
     {
         for (j = 7; j >= 0; --j)
         {
@@ -9674,23 +9684,57 @@ uint16_t check_offset_position(void)
 
 
 
+
+
 uint16_t check_current_param_offset(void)
 {
-    return (check_offset_position() * 144 + 0x10);
+    return (check_parameters_offset_position(0x0, 4) * 144 + 0x10);
 }
-# 116 "memory.c"
-void update_wear_leveling_static_buffer(void)
+
+
+uint16_t check_current_measurment_offset(void)
+{
+    return (check_parameters_offset_position(0x4000, 4) * 4096 + 0x4000);
+}
+
+uint16_t check_current_temp_offset(void)
+{
+    return (check_parameters_offset_position(0x4000, 4) * 264 + 0x2007);
+}
+# 139 "memory.c"
+void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
 {
     uint8_t current_param_address[4];
     int8_t i, j;
+    uint16_t addr,lenght;
 
-    if (check_offset_position() >= 27)
+    if(wear_leveling_type == 0)
     {
-        parameter_erase();
-        printf("CLEAR MEMORY! \n\r");
-        return;
+        addr = 0x0;
+        lenght = 4;
+        if (check_parameters_offset_position(0x0, 4) >= 27)
+        {
+            parameter_erase();
+            printf("CLEAR PARAMETER MEMORY! \n\r");
+            return;
+        }
+    }else if (wear_leveling_type == 1)
+    {
+
+        addr = 0x4000;
+        lenght = 4;
+
+        if (check_parameters_offset_position(0x4000, 4) >= 31)
+        {
+            measurment_erase();
+            printf("CLEAR MEASURMENT MEMORY! \n\r");
+            return;
+        }
     }
-    read_bytes(0x0, &current_param_address[0], 4);
+
+
+
+    read_bytes(addr, &current_param_address[0], lenght);
 
     printf("current_param_address tab: \r\n");
     print_tab(&current_param_address[0],sizeof(current_param_address));
@@ -9701,7 +9745,7 @@ void update_wear_leveling_static_buffer(void)
         represent_value_in_binary(current_param_address[i]);
     }
 
-    for (i = 0; i < 4; ++i)
+    for (i = 0; i < lenght; ++i)
     {
 
         for (j = 7; j >= 0; --j)
@@ -9713,7 +9757,7 @@ void update_wear_leveling_static_buffer(void)
                 current_param_address[i] &= ~(1 << j);
                 printf("i:%d j:%d\r\n",i,j);
                   print_tab(&current_param_address[0],sizeof(current_param_address));
-                write_byte(0x0 + i, current_param_address[i]);
+                write_byte(addr + i, current_param_address[i]);
 
 
                 return;
@@ -9734,7 +9778,7 @@ void represent_value_in_binary(uint8_t value)
     }
      printf(" ");
 }
-# 180 "memory.c"
+# 224 "memory.c"
 void save_param_to_table(uint16_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
     for (uint8_t j = 0; j < length; j++)
@@ -9818,7 +9862,7 @@ void save_parameters_to_flash(BattParameters *bat_param)
     printf("Write table: \n\r");
     print_data_tab(&param_tab[0], parameter_position);
 
-    update_wear_leveling_static_buffer();
+    update_wear_leveling_static_buffer(0);
     printf("Write to flash, parameter address: %u  \n\r", check_current_param_offset());
     write_byte_table_auto_address_increment(check_current_param_offset(), &param_tab[0], parameter_position);
 
@@ -9886,7 +9930,7 @@ void read_parameters_from_flash(BattParameters *bat_param)
     print_data_tab(&param_tab[0], parameter_position);
     bat_param->settings_ptr = bat_param->pb_settings_ptr;
     printf("batt_pb_cycle: %u \r\n", bat_param->settings_ptr->set_cycle);
-# 342 "memory.c"
+# 386 "memory.c"
 }
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param)

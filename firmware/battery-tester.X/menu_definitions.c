@@ -448,6 +448,17 @@ void TempDisplay (BattParameters *bat_param)
     GLCD_PrintString(bat_param->text); 
 }
 
+void MemoryDisplay (BattParameters *bat_param)
+{ 
+    GLCD_GotoXY(73, 45);
+    sprintf(bat_param->text, "BAT:%02d", bat_param->current_battery_memory_position);
+    GLCD_PrintString(bat_param->text); 
+    GLCD_GotoXY(73, 54);
+    sprintf(bat_param->text,"CYC:%02d/%02d", bat_param->current_memory_cycle, bat_param->max_memory_cycle);
+    GLCD_PrintString(bat_param->text); 
+}
+
+
 void SetTemp(BattParameters *bat_param, uint8_t set_mode)
 { 
     GLCD_GotoXY(0, 22);
@@ -584,8 +595,10 @@ void SingleBat_Menu(BattParameters *bat_param)
     CycleDisplay(bat_param);
     GLCD_GotoXY(74, 0);
     TimeDisplay(bat_param);
-    GLCD_GotoXY(78, 40);
+    GLCD_GotoXY(78, 31);
     TempDisplay(bat_param);
+
+    MemoryDisplay(bat_param);
     
 }
 

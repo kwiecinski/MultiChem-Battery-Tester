@@ -9865,7 +9865,8 @@ typedef struct
             charge_current_2_percent,
             charge_current_3_percent,
             charge_current_4_percent,
-            precent_current_flags;
+            precent_current_flags,
+            current_battery_memory_position, current_memory_cycle, max_memory_cycle;
 
 
     uint16_t batt_set_voltage, batt_set_current,
@@ -9952,6 +9953,7 @@ void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
 void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
+void MemoryDisplay (BattParameters *bat_param);
 # 8 "menu_navigation.c" 2
 
 # 1 "./menu_navigation.h" 1
@@ -10038,7 +10040,7 @@ void Button_ShortRelease(buttons btnCode);
 
 
 
-
+void memory_and_cycle_positions(BattParameters *bat_param);
 void check_if_any_changes_in_parameters(BattParameters *bat_param);
 void read_parameters_from_flash(BattParameters *bat_param);
 void save_parameters_to_flash(BattParameters *bat_param);

@@ -9598,7 +9598,8 @@ typedef struct
             charge_current_2_percent,
             charge_current_3_percent,
             charge_current_4_percent,
-            precent_current_flags;
+            precent_current_flags,
+            current_battery_memory_position, current_memory_cycle, max_memory_cycle;
 
 
     uint16_t batt_set_voltage, batt_set_current,
@@ -9685,6 +9686,7 @@ void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
 void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
+void MemoryDisplay (BattParameters *bat_param);
 # 14 "main.c" 2
 
 # 1 "./menu_navigation.h" 1
@@ -9907,7 +9909,7 @@ uint8_t SPI_Exchange(uint8_t data);
 
 
 
-
+void memory_and_cycle_positions(BattParameters *bat_param);
 void check_if_any_changes_in_parameters(BattParameters *bat_param);
 void read_parameters_from_flash(BattParameters *bat_param);
 void save_parameters_to_flash(BattParameters *bat_param);
@@ -9963,9 +9965,10 @@ void main(void)
     init_settings_ptr(&bat_param);
 
     switch_between_battery_types(&bat_param, 1);
-
+     memory_and_cycle_positions(&bat_param);
 
     SingleBat_Menu(&bat_param);
+
     while (1)
     {
         Menu(&bat_param);
@@ -9976,21 +9979,22 @@ void main(void)
             counter_test=0;
         }
         Button_Update();
+
           if (BTN_STATE_LONG == Button_EventGet(OK_SW))
-          {
-              printf("CHIP ERASE! \r\n");
-              chip_erase();
-              delay_ms(5000);
-          }
+        {
+            printf("CHIP ERASE! \r\n");
+            chip_erase();
+            delay_ms(5000);
+        }
 
         if (BTN_STATE_LONG == Button_EventGet(UP_SW))
-          {
-             InitBattParameters(&bat_param);
-             save_parameters_to_flash(&bat_param);
-           read_parameters_from_flash(&bat_param);
+        {
+            InitBattParameters(&bat_param);
+            save_parameters_to_flash(&bat_param);
+            read_parameters_from_flash(&bat_param);
             printf("INIT PARAM DONE! \r\n");
             delay_ms(5000);
-          }
+        }
 
 
 

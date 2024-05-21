@@ -69,9 +69,10 @@ void main(void)
     init_settings_ptr(&bat_param);
     
     switch_between_battery_types(&bat_param, INITILIZE_SETTINGS);
-    
+     memory_and_cycle_positions(&bat_param);
     
     SingleBat_Menu(&bat_param);
+   
     while (1) 
     {
         Menu(&bat_param);

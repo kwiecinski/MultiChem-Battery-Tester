@@ -9866,7 +9866,8 @@ typedef struct
             charge_current_2_percent,
             charge_current_3_percent,
             charge_current_4_percent,
-            precent_current_flags;
+            precent_current_flags,
+            current_battery_memory_position, current_memory_cycle, max_memory_cycle;
 
 
     uint16_t batt_set_voltage, batt_set_current,
@@ -9953,6 +9954,7 @@ void SetDischargingCurrent_2(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
 void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
+void MemoryDisplay (BattParameters *bat_param);
 # 45 "menu_definitions.c" 2
 
 # 1 "./menu_navigation.h" 1
@@ -10365,6 +10367,17 @@ void TempDisplay (BattParameters *bat_param)
     GLCD_PrintString(bat_param->text);
 }
 
+void MemoryDisplay (BattParameters *bat_param)
+{
+    GLCD_GotoXY(73, 45);
+    sprintf(bat_param->text, "BAT:%02d", bat_param->current_battery_memory_position);
+    GLCD_PrintString(bat_param->text);
+    GLCD_GotoXY(73, 54);
+    sprintf(bat_param->text,"CYC:%02d/%02d", bat_param->current_memory_cycle, bat_param->max_memory_cycle);
+    GLCD_PrintString(bat_param->text);
+}
+
+
 void SetTemp(BattParameters *bat_param, uint8_t set_mode)
 {
     GLCD_GotoXY(0, 22);
@@ -10501,14 +10514,16 @@ void SingleBat_Menu(BattParameters *bat_param)
     CycleDisplay(bat_param);
     GLCD_GotoXY(74, 0);
     TimeDisplay(bat_param);
-    GLCD_GotoXY(78, 40);
+    GLCD_GotoXY(78, 31);
     TempDisplay(bat_param);
+
+    MemoryDisplay(bat_param);
 
 }
 
 void Options5_Menu(BattParameters *bat_param)
 {
-# 604 "menu_definitions.c"
+# 617 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10533,7 +10548,7 @@ void Options5_Menu(BattParameters *bat_param)
 
 void Options4_Menu(BattParameters *bat_param)
 {
-# 638 "menu_definitions.c"
+# 651 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10555,7 +10570,7 @@ void Options4_Menu(BattParameters *bat_param)
 
 void Options3_Menu(BattParameters *bat_param)
 {
-# 667 "menu_definitions.c"
+# 680 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10575,7 +10590,7 @@ void Options3_Menu(BattParameters *bat_param)
 
 void Options2_Menu(BattParameters *bat_param)
 {
-# 694 "menu_definitions.c"
+# 707 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
@@ -10594,7 +10609,7 @@ void Options2_Menu(BattParameters *bat_param)
 
 void Options1_Menu(BattParameters *bat_param)
 {
-# 721 "menu_definitions.c"
+# 734 "menu_definitions.c"
     GLCD_Clear();
 
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
