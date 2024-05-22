@@ -9867,7 +9867,7 @@ typedef struct
             charge_current_3_percent,
             charge_current_4_percent,
             precent_current_flags,
-            current_battery_memory_position, current_memory_cycle, max_memory_cycle;
+            bat_id, current_memory_cycle, max_memory_cycle;
 
 
     uint16_t batt_set_voltage, batt_set_current,
@@ -10370,7 +10370,7 @@ void TempDisplay (BattParameters *bat_param)
 void MemoryDisplay (BattParameters *bat_param)
 {
     GLCD_GotoXY(73, 45);
-    sprintf(bat_param->text, "BAT:%02d", bat_param->current_battery_memory_position);
+    sprintf(bat_param->text, "BAT:%02d", bat_param->bat_id);
     GLCD_PrintString(bat_param->text);
     GLCD_GotoXY(73, 54);
     sprintf(bat_param->text,"CYC:%02d/%02d", bat_param->current_memory_cycle, bat_param->max_memory_cycle);
@@ -10675,69 +10675,7 @@ void Test_function (void)
 
     GLCD_Render();
 }
-
-
-void TwoBatMenu(void)
-{
-    const char voltage[] = "Vol:3,35V";
-    const char current[] = "Cur:230mA";
-    const char capacity[] = "Cap:540mAh";
-    const char cycle[] = "Cycle:2/4";
-
-     GLCD_GotoXY(2, 2);
-
-    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-
-    GLCD_PrintString("BAT 1");
-    GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
-
-    GLCD_DrawLine(63, 0, 63, 63, GLCD_Black);
-    GLCD_GotoXY(67, 2);
-    GLCD_PrintString("BAT 2");
-    GLCD_DrawRectangle(65, 0, 98, 10, GLCD_Black);
-
-    GLCD_GotoXY(0, 13);
-    GLCD_PrintString(voltage);
-    GLCD_GotoXY(0, 22);
-    GLCD_PrintString(current);
-    GLCD_GotoXY(0, 31);
-    GLCD_PrintString(capacity);
-    GLCD_GotoXY(0, 40);
-    GLCD_PrintString(cycle);
-
-    GLCD_FillRectangle(0, 51, 32, 63, GLCD_Black);
-    GLCD_GotoXY(2, 54);
-    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Inverted);
-    GLCD_PrintString("START");
-    GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
-
-
-
-    GLCD_GotoXY(37, 54);
-    GLCD_PrintString("MENU");
-    GLCD_DrawRectangle(35, 51, 61, 63, GLCD_Black);
-
-    GLCD_GotoXY(66, 13);
-    GLCD_PrintString(voltage);
-    GLCD_GotoXY(66, 22);
-    GLCD_PrintString(current);
-    GLCD_GotoXY(66, 31);
-    GLCD_PrintString(capacity);
-    GLCD_GotoXY(66, 40);
-    GLCD_PrintString(cycle);
-    GLCD_GotoXY(2 + 66, 54);
-    GLCD_PrintString("START");
-
-    GLCD_DrawRectangle(66, 51, 32 + 66, 63, GLCD_Black);
-    GLCD_GotoXY(37 + 66, 54);
-    GLCD_PrintString("MENU");
-    GLCD_DrawRectangle(35 + 66, 51, 61 + 66, 63, GLCD_Black);
-
-    batState(state_idle, battery_1);
-    batState(state_idle, battery_2);
-}
-
-
+# 862 "menu_definitions.c"
 void InitBattParameters (BattParameters *bat_param)
 {
 

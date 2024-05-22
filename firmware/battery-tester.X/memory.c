@@ -1,5 +1,6 @@
 #include <xc.h>
 #include <stdio.h>
+#include <string.h>
 #include "peripherials/UART.h"
 #include "main.h"
 #include "settings.h"
@@ -13,6 +14,8 @@
 #define LENGTH      1
 #define UPDATE_PARAMETERS 0
 #define UPDATE_MEASURMENT 1
+
+#
 
 // ERASE PARAMETERS-------------------------------------------------------------
 #define PARAMETER_4KB_SECTOR_ERASE_ADDRESS_1        0x0
@@ -46,15 +49,22 @@
 uint16_t check_current_measurment_offset(void);
 uint16_t check_current_temp_offset(void);
 
+// BYTE POSITIONS IN FLASH-----------------------------------------------------
+#define BAT_ID              0
+#define SAMPLING_TIME       1
+#define DONE_CYCLE_TYPE     2
+#define CAPACITANCE_MSB_POS 3
+#define CAPACITANCE_LSB_POS 4
+#define SET_CURRENT_MSB_POS 5
+#define SET_CURRENT_LSB_POS 6
+#define SET_VOLTAGE_MSB_POS 7
+#define SET_VOLTAGE_LSB_POS 8
+#define MAX_TEMP            9
 
-#define BAT_ID          0
-#define SAMPLING_TIME   1
-#define DONE_CYCLE_TYPE 2
-#define CAPACITANCE     3
-#define SET_CURRENT     5
-#define SET_VOLTAGE     7
-#define MAX_TEMP        8
-
+// BIT POSITIONS OF DONE_CYCLE BYTE---------------------------------------------
+#define CYCLE_TYPE_CHARGING_BIT_POS     0
+#define CYCLE_TYPE_DISCHARGING_BIT_POS  1
+#define COMPLETE_CYCLE_BIT_POS          2
 
 /*
 * 0               bat id	
@@ -67,16 +77,90 @@ uint16_t check_current_temp_offset(void);
 * 10 to 4095 	  measurment data	
 */
 
-void save_measurment_to_flash(void)
+uint8_t calculate_measurment_sampling_time (BattParameters *bat_param)
 {
-    uint8_t param_tab[10];
-    read_bytes(check_current_measurment_offset(), &param_tab[0], sizeof(param_tab));
-   
     
+    return (bat_param->set_max_time/100*60+bat_param->set_max_time%100)*60/(MEASURMENT_DATA_SIZE/2);
     
 }
 
+uint8_t calculate_temp_sampling_time (BattParameters *bat_param)
+{
+    
+    return (bat_param->set_max_time/100*60+bat_param->set_max_time%100)*60/TEMP_DATA_SIZE;
+    
+}
 
+void save_measurment_start_header_to_flash(BattParameters *bat_param, uint8_t charger_state)
+{
+    uint8_t param_tab[10];
+    memset(param_tab[0], 0xFF, sizeof(param_tab));
+    
+    param_tab[BAT_ID] = bat_param->bat_id;
+    param_tab[SAMPLING_TIME] = calculate_measurment_sampling_time(bat_param);
+   
+    if(charger_state == state_charging)
+    {
+        param_tab[DONE_CYCLE_TYPE] &= ~(1 << CYCLE_TYPE_CHARGING_BIT_POS);           
+    }else if(charger_state == state_discharging)
+    {
+        param_tab[DONE_CYCLE_TYPE] &= ~(1 << CYCLE_TYPE_DISCHARGING_BIT_POS); 
+    }
+    
+    param_tab[SET_CURRENT_MSB_POS] = (uint8_t)(bat_param->batt_set_current >> 8) & 0xFF; 
+    param_tab[SET_CURRENT_LSB_POS] = (uint8_t)(bat_param->batt_set_current & 0xFF); 
+    param_tab[SET_VOLTAGE_MSB_POS] = (uint8_t)(bat_param->batt_set_voltage >> 8) & 0xFF; 
+    param_tab[SET_VOLTAGE_LSB_POS] = (uint8_t)(bat_param->batt_set_voltage & 0xFF);
+     write_byte_table_auto_address_increment(check_current_measurment_offset(), &param_tab[0], sizeof(param_tab));
+}
+
+void save_measurment_end_header_to_flash(BattParameters *bat_param)
+{
+     uint8_t param_tab[10];
+     memset(param_tab[0], 0xFF, sizeof(param_tab));  
+     
+     param_tab[DONE_CYCLE_TYPE] &= ~(1 << COMPLETE_CYCLE_BIT_POS); 
+     if(bat_param->current_cycle == 1)
+     {
+        param_tab[CAPACITANCE_MSB_POS] = (uint8_t)(bat_param->batt_capacitance_cycle1 >> 8) & 0xFF; 
+        param_tab[CAPACITANCE_MSB_POS] = (uint8_t)(bat_param->batt_capacitance_cycle1 & 0xFF); 
+     }else if(bat_param->current_cycle == 2)
+     {
+        param_tab[CAPACITANCE_MSB_POS] = (uint8_t)(bat_param->batt_capacitance_cycle2 >> 8) & 0xFF; 
+        param_tab[CAPACITANCE_MSB_POS] = (uint8_t)(bat_param->batt_capacitance_cycle2 & 0xFF); 
+     }if(bat_param->current_cycle == 3)
+     {
+        param_tab[CAPACITANCE_MSB_POS] = (uint8_t)(bat_param->batt_capacitance_cycle3 >> 8) & 0xFF; 
+        param_tab[CAPACITANCE_MSB_POS] = (uint8_t)(bat_param->batt_capacitance_cycle3 & 0xFF); 
+     }if(bat_param->current_cycle == 4)
+     {
+        param_tab[CAPACITANCE_MSB_POS] = (uint8_t)(bat_param->batt_capacitance_cycle4 >> 8) & 0xFF; 
+        param_tab[CAPACITANCE_MSB_POS] = (uint8_t)(bat_param->batt_capacitance_cycle4 & 0xFF); 
+     }
+     
+     param_tab[MAX_TEMP] = bat_param->bat_actual_max_temp;
+     write_byte_table_auto_address_increment(check_current_measurment_offset(), &param_tab[0], sizeof(param_tab));
+     
+}
+
+void save_measurment_data_to_flash(BattParameters *bat_param)
+{
+    static uint8_t data_pos;
+    uint8_t param_tab[64];
+    memset(param_tab[0], 0xFF, sizeof(param_tab));  
+    
+    
+    
+    param_tab[data_pos] = bat_param->batt_actual_voltage;
+    param_tab[data_pos] = bat_param->batt_actual_current;
+    
+    
+    printf("Write to flash, parameter address: %u  \n\r", check_current_measurment_offset());
+    write_byte_table_auto_address_increment(check_current_measurment_offset(), &param_tab[0], sizeof(param_tab));
+    
+    
+    
+}
 uint16_t check_parameters_offset_position(uint16_t addr, uint8_t lenght);
 
 void memory_and_cycle_positions(BattParameters *bat_param)
@@ -90,12 +174,12 @@ void memory_and_cycle_positions(BattParameters *bat_param)
     offset = check_current_measurment_offset();
     if(offset == MEASURMENT_START_ADDR)
     {
-        bat_param->current_battery_memory_position = 1;
+        bat_param->bat_id = 1;
     }else
     {
          //to read bat_id need to read heder of previous cycle so i need to do offset-MEASURMENT_DATA_SIZE
          read_bytes(offset-MEASURMENT_DATA_SIZE, &param_tab[0], sizeof(param_tab));        
-         bat_param->current_battery_memory_position = &param_tab[BAT_ID]+1;
+         bat_param->bat_id = &param_tab[BAT_ID]+1;
          
     }
     

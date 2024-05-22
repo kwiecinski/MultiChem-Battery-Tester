@@ -48,13 +48,13 @@ typedef struct
     BattTypeSettings *nimh_settings_ptr;
     
     uint8_t set_cycle, current_cycle, 
-            bat_actual_temp, batt_max_temp,
+            bat_actual_temp, batt_max_temp,bat_actual_max_temp,
             bat_chem, bat_storage_precentage,  selected_mode, cell_count,
             charge_current_2_percent, 
             charge_current_3_percent, 
             charge_current_4_percent, 
             precent_current_flags,
-            current_battery_memory_position, current_memory_cycle, max_memory_cycle;
+            bat_id, current_memory_cycle, max_memory_cycle;
 
 
     uint16_t batt_set_voltage, batt_set_current, 

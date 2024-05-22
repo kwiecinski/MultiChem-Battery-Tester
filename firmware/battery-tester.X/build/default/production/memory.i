@@ -9517,7 +9517,7 @@ typedef struct
             charge_current_3_percent,
             charge_current_4_percent,
             precent_current_flags,
-            current_battery_memory_position, current_memory_cycle, max_memory_cycle;
+            bat_id, current_memory_cycle, max_memory_cycle;
 
 
     uint16_t batt_set_voltage, batt_set_current,
@@ -9616,13 +9616,57 @@ void check_if_any_changes_in_parameters(BattParameters *bat_param);
 void read_parameters_from_flash(BattParameters *bat_param);
 void save_parameters_to_flash(BattParameters *bat_param);
 # 10 "memory.c" 2
-# 47 "memory.c"
+# 48 "memory.c"
+uint16_t check_current_measurment_offset(void);
+uint16_t check_current_temp_offset(void);
+# 75 "memory.c"
+uint8_t calculate_sampling_time (BattParameters *bat_param)
+{
+
+    return (bat_param->set_max_time/100*60+bat_param->set_max_time%100)*60/(4096/2);
+
+}
+
+void save_measurment_to_flash(BattParameters *bat_param, uint8_t charger_state)
+{
+    uint8_t param_tab[10];
+
+    param_tab[0] = bat_param->bat_id;
+    param_tab[1] = calculate_sampling_time(bat_param);
+
+    if(charger_state == state_charging)
+    {
+        param_tab[2] &= ~(1 << 0);
+    }else(charger_state == state_discharging)
+    {
+         param_tab[2] &= ~(1 << 1);
+    }
+
+}
+
+
+uint16_t check_parameters_offset_position(uint16_t addr, uint8_t lenght);
+
 void memory_and_cycle_positions(BattParameters *bat_param)
 {
-    bat_param->max_memory_cycle = 31;
+    uint8_t param_tab[1],offset;
 
-    bat_param->current_memory_cycle = 2;
-    bat_param->current_battery_memory_position = 1;
+
+    bat_param->max_memory_cycle = 31;
+    bat_param->current_memory_cycle = check_parameters_offset_position(0x4000, 4);
+
+    offset = check_current_measurment_offset();
+    if(offset == 0x4000)
+    {
+        bat_param->bat_id = 1;
+    }else
+    {
+
+         read_bytes(offset-4096, &param_tab[0], sizeof(param_tab));
+         bat_param->bat_id = &param_tab[0]+1;
+
+    }
+
 }
 
 void represent_value_in_binary(uint8_t value);
@@ -9701,7 +9745,7 @@ uint16_t check_current_temp_offset(void)
 {
     return (check_parameters_offset_position(0x4000, 4) * 264 + 0x2007);
 }
-# 139 "memory.c"
+# 208 "memory.c"
 void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
 {
     uint8_t current_param_address[4];
@@ -9778,7 +9822,7 @@ void represent_value_in_binary(uint8_t value)
     }
      printf(" ");
 }
-# 224 "memory.c"
+# 293 "memory.c"
 void save_param_to_table(uint16_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
     for (uint8_t j = 0; j < length; j++)
@@ -9930,7 +9974,7 @@ void read_parameters_from_flash(BattParameters *bat_param)
     print_data_tab(&param_tab[0], parameter_position);
     bat_param->settings_ptr = bat_param->pb_settings_ptr;
     printf("batt_pb_cycle: %u \r\n", bat_param->settings_ptr->set_cycle);
-# 386 "memory.c"
+# 455 "memory.c"
 }
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param)

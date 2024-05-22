@@ -451,7 +451,7 @@ void TempDisplay (BattParameters *bat_param)
 void MemoryDisplay (BattParameters *bat_param)
 { 
     GLCD_GotoXY(73, 45);
-    sprintf(bat_param->text, "BAT:%02d", bat_param->current_battery_memory_position);
+    sprintf(bat_param->text, "BAT:%02d", bat_param->bat_id);
     GLCD_PrintString(bat_param->text); 
     GLCD_GotoXY(73, 54);
     sprintf(bat_param->text,"CYC:%02d/%02d", bat_param->current_memory_cycle, bat_param->max_memory_cycle);
@@ -796,7 +796,7 @@ void Test_function (void)
     
     GLCD_Render(); 
 }
-
+/*
 
 void TwoBatMenu(void)
 {
@@ -858,7 +858,7 @@ void TwoBatMenu(void)
     batState(state_idle, battery_2);
 }
 
-
+*/
 void InitBattParameters (BattParameters *bat_param)
 {
     

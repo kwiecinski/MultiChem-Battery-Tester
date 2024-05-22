@@ -9866,7 +9866,7 @@ typedef struct
             charge_current_3_percent,
             charge_current_4_percent,
             precent_current_flags,
-            current_battery_memory_position, current_memory_cycle, max_memory_cycle;
+            bat_id, current_memory_cycle, max_memory_cycle;
 
 
     uint16_t batt_set_voltage, batt_set_current,
