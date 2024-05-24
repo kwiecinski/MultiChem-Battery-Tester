@@ -254,7 +254,7 @@ void chip_erase(void)
  * 
  * @param add: The address within the sector to erase.
  */
-void sector_erase(uint8_t add)
+void sector_erase(uint32_t add)
 {
     ENABLE_SST25;
     SPI_Exchange(WRITE_EN);
@@ -278,7 +278,7 @@ void sector_erase(uint8_t add)
  * @param add: The starting address of the block to erase.
  * @param block_type: The type of block to erase can be 32kB or 64kB
  */
-void block_erase(uint8_t add, uint8_t block_type)
+void block_erase(uint32_t add, uint8_t block_type)
 {
     ENABLE_SST25;
     SPI_Exchange(WRITE_EN);

@@ -39,7 +39,8 @@
 #include <xc.h>
 
 extern volatile uint16_t button_counter, counter_test;
-extern volatile uint32_t time;
+extern volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_timer;
+//extern volatile uint8_t  
 
 
 void Init_Timer0();

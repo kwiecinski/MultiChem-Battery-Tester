@@ -3,8 +3,8 @@
 
 
 volatile uint16_t button_counter, counter_test;
-volatile uint32_t time;
-
+volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_timer;
+//volatile uint8_t  
 
 
 // Function to initialize Timer0
@@ -52,6 +52,9 @@ void __interrupt() ISR()
         button_counter++;
         counter_second++;
         counter_test++;
+        measurement_data_sample_timer++;
+        temp_data_sample_timer++;
+        
         if(counter_second >= 1000)
         {
             counter_second=0;

@@ -37,8 +37,8 @@
 #define     BLOCK_ERASE_64KB        0xD8
 
 
-void block_erase(uint8_t add, uint8_t block_type);
-void sector_erase(uint8_t add);
+void block_erase(uint32_t add, uint8_t block_type);
+void sector_erase(uint32_t add);
 void chip_erase(void);
 void write_byte(uint32_t add, uint8_t data);
 void sst25vf_init_enable_write(void);

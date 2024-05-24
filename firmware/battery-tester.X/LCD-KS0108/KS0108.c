@@ -1370,7 +1370,7 @@ static void Int2bcd(int32_t Value, char BCD[])
 
 void GLCD_Render_printf(void)
 {
-	unsigned int i, j,temp;
+	uint8_t i, j,temp;
 	
 	for (j = 0 ; j < 8 ; j += __GLCD_Screen_Line_Height)
 	{
