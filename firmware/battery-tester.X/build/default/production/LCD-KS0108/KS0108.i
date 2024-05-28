@@ -9782,7 +9782,7 @@ void GLCD_SetPixels(const uint8_t X1, uint8_t Y1, const uint8_t X2, const uint8_
 
   if (h < height)
   {
-   mask = ~((uint8_t)0xFF << (height - h));
+   mask = ~(uint8_t)(0xFF << (uint16_t)(height - h));
    GLCD_GotoXY(X1, Y1 + 8);
    for (i = 0 ; i < width ; i++)
    {
@@ -9815,7 +9815,7 @@ void GLCD_DrawBitmap(const uint8_t *Bitmap, uint8_t Width, const uint8_t Height,
 
 
  lines = (Height + 8 - 1) / 8;
- data = __GLCD.Y / (uint8_t)8 + lines;
+ data = __GLCD.Y / (uint8_t)8 + (uint8_t)lines;
 
  if (data > 64 / 8)
   lines -= data - 64 / 8;
@@ -9846,7 +9846,7 @@ void GLCD_DrawBitmap(const uint8_t *Bitmap, uint8_t Width, const uint8_t Height,
 
    if (j > 0)
    {
-    dataPrev = &(Bitmap[bmpReadPrev++]);
+    dataPrev = Bitmap[bmpReadPrev++];
     dataPrev >>= 8 - overflow;
     data |= dataPrev;
    }
@@ -9922,6 +9922,7 @@ void GLCD_DrawLine(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2, enum Color_t 
   {
    uint8_t deltax, deltay, x, y, slope;
    int8_t error, ystep;
+
    slope = ((((Y1 > Y2) ? (Y1 - Y2) : (Y2 - Y1)) > ((X1 > X2) ? (X1 - X2) : (X2 - X1))) ? 1 : 0);
    if (slope)
    {
@@ -9954,7 +9955,7 @@ void GLCD_DrawLine(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2, enum Color_t 
     error -= deltay;
     if (error < 0)
     {
-     y = y + ystep;
+     y = y + (uint8_t)ystep;
      error = error + deltax;
     }
    }
@@ -10143,7 +10144,8 @@ void GLCD_FillTriangle(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t y2, uint8_t X
  {
   uint8_t sl, sx1, sx2;
   double m1, m2, m3;
-  sl = sx1 = sx2 = m1 = m2 = m3 = 0;
+  sl = sx1 = sx2 =0;
+        m1 = m2 = m3 = 0;
 
   if (y2 > Y3)
   {
@@ -10160,16 +10162,16 @@ void GLCD_FillTriangle(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t y2, uint8_t X
   m3 = (double)(X3 - X1) / (Y3 - Y1);
   for(sl = Y1 ; sl <= y2 ; sl++)
   {
-   sx1= m1 * (sl - Y1) + X1;
-   sx2= m3 * (sl - Y1) + X1;
+   sx1= (uint8_t)m1 * (sl - Y1) + X1;
+   sx2= (uint8_t)m3 * (sl - Y1) + X1;
    if (sx1> sx2)
    do{ uint8_t t = sx1; sx1 = sx2; sx2 = t; }while(0);
    GLCD_DrawLine(sx1, sl, sx2, sl, Color);
   }
   for (sl = y2 ; sl <= Y3 ; sl++)
   {
-   sx1= m2 * (sl - Y3) + X3;
-   sx2= m3 * (sl - Y1) + X1;
+   sx1= (uint8_t)m2 * (sl - Y3) + X3;
+   sx2= (uint8_t)m3 * (sl - Y1) + X1;
    if (sx1 > sx2)
     do{ uint8_t t = sx1; sx1 = sx2; sx2 = t; }while(0);
    GLCD_DrawLine(sx1, sl, sx2, sl, Color);
@@ -10184,7 +10186,7 @@ void GLCD_FillCircle(const uint8_t CenterX, const uint8_t CenterY, const uint8_t
  {
   int8_t f, ddF_x, ddF_y;
   uint8_t x, y;
-  f = 1 - Radius;
+  f = 1 - (int8_t)Radius;
   ddF_x = 1;
   ddF_y = -2 * Radius;
   x = 0;
@@ -10267,7 +10269,7 @@ void GLCD_InvertRect(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2)
 
  if (h < height)
  {
-  mask = ~(0xFF<<(height - h));
+  mask = ~(uint8_t)(0xFF<<(height - h));
   GLCD_GotoXY(X1, (Y1 + 8));
 
   for (i = 0 ; i < width ; i++)
@@ -10317,11 +10319,11 @@ uint16_t GLCD_GetWidthString(const char *Text)
 uint16_t GLCD_GetWidthString_P(const char *Text)
 {
  uint16_t width = 0;
- char r = Text++;
+ char r = *Text++;
  while (r)
  {
   width += GLCD_GetWidthChar(r);
-  r = Text++;
+  r = *Text++;
  }
 
  return width;
@@ -10342,7 +10344,7 @@ void GLCD_PrintChar(char Character)
     unsigned int fontStart, fontRead;
  unsigned char x, y, y2, i, j, width, lines, overflow, data, data_next;
  fontStart = fontRead = x = y = y2 = i = j = width = lines = overflow = data = data_next = 0;
-# 865 "LCD-KS0108/KS0108.c"
+# 867 "LCD-KS0108/KS0108.c"
  x = __GLCD.X;
  y = y2 = __GLCD.Y;
 
@@ -10351,7 +10353,7 @@ void GLCD_PrintChar(char Character)
 
 
  fontStart = Character * (__GLCD.Font.Width * __GLCD.Font.Lines + 1);
-# 883 "LCD-KS0108/KS0108.c"
+# 885 "LCD-KS0108/KS0108.c"
  width = __GLCD.Font.Name[fontStart++];
 
  data = __GLCD.X + width;
@@ -10360,7 +10362,7 @@ void GLCD_PrintChar(char Character)
     {
   width -= data-128;
  }
-# 913 "LCD-KS0108/KS0108.c"
+# 915 "LCD-KS0108/KS0108.c"
     overflow = __GLCD.Y % 8;
 
     if ((overflow + __GLCD.Font.Height) > (__GLCD.Font.Lines * 8))
@@ -10378,7 +10380,7 @@ void GLCD_PrintChar(char Character)
     {
   lines -= data - 64 / 8;
     }
-# 940 "LCD-KS0108/KS0108.c"
+# 942 "LCD-KS0108/KS0108.c"
     fontRead = fontStart;
 
 
@@ -10500,14 +10502,14 @@ void GLCD_PrintString(const char *Text)
 
 void GLCD_PrintString_P(const char *Text)
 {
- char r = Text++;
+ char r = *Text++;
  while(r)
  {
   if ((__GLCD.X + __GLCD.Font.Width) >= 128)
    break;
 
   GLCD_PrintChar(r);
-  r = Text++;
+  r = *Text++;
  }
 }
 
@@ -10517,7 +10519,7 @@ void GLCD_PrintInteger(int32_t Value)
  {
   GLCD_PrintChar('0');
  }
- else if ((Value > (-1-0x7fffffff)) && (Value <= (0x7fffffff)))
+ else
  {
 
   char bcd[12] = { '\0' };
@@ -10549,13 +10551,13 @@ void GLCD_PrintDouble(double Value, const uint32_t Tens)
   }
 
 
-  GLCD_PrintInteger(Value);
+   GLCD_PrintInteger((int32_t)Value);
 
 
   GLCD_PrintChar('.');
 
 
-  GLCD_PrintInteger((Value - (uint32_t)(Value)) * Tens);
+  GLCD_PrintInteger((int32_t)((Value - (int32_t)Value) * Tens));
  }
 }
 
@@ -10593,7 +10595,7 @@ static void GLCD_WaitBusy(enum Chip_t Chip)
   ( !0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
   _delay((unsigned long)((10)*(24000000/4000000.0)));
 
-  status = ( ( ( (PORTE) & (1UL<<7) ? 1 : 0 ) ) ) << 7;
+  status = (uint8_t)((uint16_t)( ( ( (PORTE) & (1UL<<7) ? 1 : 0 ) ) ) << 7);
 
   ( 0 ? ( ( (LATD) |= (1UL<<7) ) ) : ( ( (LATD) &= (~(1UL<<7)) ) ) );
   _delay((unsigned long)((10<<3)*(24000000/4000000.0)));

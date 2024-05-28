@@ -833,7 +833,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _CCPR3L_DC3B_val `us ~T0 @X0 1 a ]
 [e = _CCPR3L_DC3B_val -> / * _pwm_dutycycle_period -> -> 100 `i `f _pwm_period `us ]
 "18
-[; ;pwm.c: 18:     CCPR3L = (CCPR3L_DC3B_val >> 2);
+[; ;pwm.c: 18:     CCPR3L = (unsigned char)(CCPR3L_DC3B_val >> 2);
 [e = _CCPR3L -> >> -> _CCPR3L_DC3B_val `ui -> 2 `i `uc ]
 "19
 [; ;pwm.c: 19:     CCP3CONbits.DC3B = (CCPR3L_DC3B_val & 0x03);

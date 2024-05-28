@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+$C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 init CODE 0 7A 7A 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 1FFF8 1FFF8 6 1 1
@@ -232,7 +232,7 @@ MEDIUMCONST 1B570-1FFF7 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\battery-tester.X.production.o
-8 intcode CODE >62944:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
+8 intcode CODE >62944:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
 8 intcode CODE >41:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\interrupts.c
 A intcode CODE >46:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\interrupts.c
 18 intcode CODE >49:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\interrupts.c
@@ -275,51 +275,51 @@ A intcode CODE >46:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.
 1B52E text136 CODE >203:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1B534 text136 CODE >204:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1B53A text136 CODE >205:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B4F8 text135 CODE >1263:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1B4F8 text135 CODE >1265:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B4FA text135 CODE >1266:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B500 text135 CODE >1267:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B502 text135 CODE >1268:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B508 text135 CODE >1269:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-199DE text134 CODE >1120:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-199E0 text134 CODE >1123:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-199F6 text134 CODE >1124:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-19A0C text134 CODE >1125:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-19A22 text134 CODE >1126:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-19A38 text134 CODE >1127:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-19A4E text134 CODE >1128:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-19A64 text134 CODE >1129:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-19A7A text134 CODE >1130:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-19A90 text134 CODE >1131:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-19A94 text134 CODE >1132:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF1A text133 CODE >1179:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF1C text133 CODE >1184:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF1C text133 CODE >1185:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF20 text133 CODE >1191:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF30 text133 CODE >1193:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF32 text133 CODE >1194:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF38 text133 CODE >1196:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF48 text133 CODE >1198:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF4A text133 CODE >1199:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF50 text133 CODE >1203:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF56 text133 CODE >1206:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AAC2 text132 CODE >1134:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AAC4 text132 CODE >1136:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B4F8 text135 CODE >1267:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B4FA text135 CODE >1268:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B500 text135 CODE >1269:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B502 text135 CODE >1270:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B508 text135 CODE >1271:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+199DE text134 CODE >1122:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+199E0 text134 CODE >1125:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+199F6 text134 CODE >1126:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+19A0C text134 CODE >1127:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+19A22 text134 CODE >1128:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+19A38 text134 CODE >1129:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+19A4E text134 CODE >1130:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+19A64 text134 CODE >1131:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+19A7A text134 CODE >1132:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+19A90 text134 CODE >1133:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+19A94 text134 CODE >1134:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF1A text133 CODE >1181:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF1C text133 CODE >1186:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF1C text133 CODE >1187:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF20 text133 CODE >1193:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF30 text133 CODE >1195:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF32 text133 CODE >1196:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF38 text133 CODE >1198:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF48 text133 CODE >1200:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF4A text133 CODE >1201:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF50 text133 CODE >1205:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF56 text133 CODE >1208:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AAC2 text132 CODE >1136:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1AAC4 text132 CODE >1138:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AACA text132 CODE >1141:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AACC text132 CODE >1143:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AACE text132 CODE >1144:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AAD0 text132 CODE >1145:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AAD2 text132 CODE >1146:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AAD8 text132 CODE >1151:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AADA text132 CODE >1152:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AAE0 text132 CODE >1154:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AB00 text132 CODE >1156:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AB02 text132 CODE >1157:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AB08 text132 CODE >1158:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AB16 text132 CODE >1161:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AB18 text132 CODE >1164:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AB1A text132 CODE >1165:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AAC4 text132 CODE >1140:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AACA text132 CODE >1143:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AACC text132 CODE >1145:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AACE text132 CODE >1146:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AAD0 text132 CODE >1147:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AAD2 text132 CODE >1148:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AAD8 text132 CODE >1153:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AADA text132 CODE >1154:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AAE0 text132 CODE >1156:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AB00 text132 CODE >1158:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AB02 text132 CODE >1159:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AB08 text132 CODE >1160:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AB16 text132 CODE >1163:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AB18 text132 CODE >1166:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AB1A text132 CODE >1167:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1AF58 text131 CODE >34:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1AF5A text131 CODE >37:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1AF6C text131 CODE >39:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
@@ -511,16 +511,16 @@ A intcode CODE >46:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.
 161A6 text118 CODE >148:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
 161B6 text118 CODE >210:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
 161C0 text118 CODE >212:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
-1B14A text117 CODE >1173:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B14C text117 CODE >1176:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B17A text117 CODE >1177:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A7F2 text116 CODE >1208:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A7F4 text116 CODE >1210:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A804 text116 CODE >1215:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A81A text116 CODE >1216:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A858 text116 CODE >1219:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A85C text116 CODE >1222:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A866 text116 CODE >1224:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B14A text117 CODE >1175:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B14C text117 CODE >1178:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B17A text117 CODE >1179:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A7F2 text116 CODE >1210:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A7F4 text116 CODE >1212:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A804 text116 CODE >1217:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A81A text116 CODE >1218:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A858 text116 CODE >1221:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A85C text116 CODE >1224:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A866 text116 CODE >1226:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A284 text115 CODE >55:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A286 text115 CODE >58:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A298 text115 CODE >60:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
@@ -563,12 +563,12 @@ A intcode CODE >46:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.
 1990A text114 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awdiv.c
 19912 text114 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awdiv.c
 1991A text114 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awdiv.c
-1AF94 text113 CODE >1226:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AF96 text113 CODE >1228:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AFA6 text113 CODE >1233:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AFBE text113 CODE >1236:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AFC2 text113 CODE >1239:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AFCC text113 CODE >1241:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF94 text113 CODE >1228:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AF96 text113 CODE >1230:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AFA6 text113 CODE >1235:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AFBE text113 CODE >1238:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AFC2 text113 CODE >1241:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AFCC text113 CODE >1243:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A9AC text112 CODE >124:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A9AC text112 CODE >128:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A9B0 text112 CODE >130:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
@@ -577,9 +577,9 @@ A intcode CODE >46:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.
 1A9C0 text112 CODE >133:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A9F6 text112 CODE >134:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1AA0A text112 CODE >135:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B0E4 text111 CODE >1167:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B0E6 text111 CODE >1170:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B116 text111 CODE >1171:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B0E4 text111 CODE >1169:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B0E6 text111 CODE >1172:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B116 text111 CODE >1173:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A6F0 text110 CODE >228:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A6F2 text110 CODE >230:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A6F2 text110 CODE >233:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
@@ -589,13 +589,13 @@ A intcode CODE >46:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.
 1A73E text110 CODE >242:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A760 text110 CODE >245:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A770 text110 CODE >246:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AD00 text109 CODE >1243:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AD02 text109 CODE >1245:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AD14 text109 CODE >1246:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AD24 text109 CODE >1250:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AD32 text109 CODE >1251:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AD34 text109 CODE >1248:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AD46 text109 CODE >1253:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AD00 text109 CODE >1245:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AD02 text109 CODE >1247:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AD14 text109 CODE >1248:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AD24 text109 CODE >1252:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AD32 text109 CODE >1253:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AD34 text109 CODE >1250:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AD46 text109 CODE >1255:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1647A text108 CODE >248:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1647C text108 CODE >250:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 164BC text108 CODE >254:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
@@ -631,108 +631,108 @@ A intcode CODE >46:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.
 166C0 text108 CODE >305:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 166D4 text108 CODE >306:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 166E8 text108 CODE >309:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B03E text107 CODE >1255:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B040 text107 CODE >1257:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B052 text107 CODE >1258:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B05E text107 CODE >1260:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B074 text107 CODE >1261:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A4CC text106 CODE >476:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A4CE text106 CODE >478:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A50E text106 CODE >481:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A520 text106 CODE >482:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A532 text106 CODE >483:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A544 text106 CODE >484:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A556 text106 CODE >486:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B3E2 text105 CODE >593:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B3E4 text105 CODE >595:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1B3FA text105 CODE >596:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B03E text107 CODE >1257:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B040 text107 CODE >1259:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B052 text107 CODE >1260:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B05E text107 CODE >1262:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B074 text107 CODE >1263:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A4CC text106 CODE >477:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A4CE text106 CODE >479:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A50E text106 CODE >482:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A520 text106 CODE >483:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A532 text106 CODE >484:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A544 text106 CODE >485:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A556 text106 CODE >487:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B3E2 text105 CODE >594:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B3E4 text105 CODE >596:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1B3FA text105 CODE >597:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1B336 text104 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 1B336 text104 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 1B342 text104 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 1B34A text104 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 1B352 text104 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 1B35A text104 CODE >53:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-14FE4 text103 CODE >850:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-14FE6 text103 CODE >855:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15014 text103 CODE >865:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15018 text103 CODE >866:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15020 text103 CODE >869:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15024 text103 CODE >872:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15050 text103 CODE >883:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15074 text103 CODE >885:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1507A text103 CODE >887:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1508A text103 CODE >889:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15090 text103 CODE >890:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15090 text103 CODE >913:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15096 text103 CODE >915:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-150C6 text103 CODE >917:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-150CA text103 CODE >918:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-150CE text103 CODE >920:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-150D2 text103 CODE >924:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-150EA text103 CODE >926:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-150FA text103 CODE >928:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15100 text103 CODE >940:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15108 text103 CODE >943:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15110 text103 CODE >946:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1511A text103 CODE >949:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15122 text103 CODE >951:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15132 text103 CODE >953:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15144 text103 CODE >955:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15178 text103 CODE >956:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1517C text103 CODE >958:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-151AE text103 CODE >961:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-151C0 text103 CODE >963:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-151D2 text103 CODE >965:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-151FA text103 CODE >970:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1520C text103 CODE >972:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15254 text103 CODE >973:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15258 text103 CODE >975:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1529E text103 CODE >978:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-152B6 text103 CODE >982:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-152C8 text103 CODE >984:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-152D8 text103 CODE >986:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15314 text103 CODE >987:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15318 text103 CODE >989:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15352 text103 CODE >992:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15364 text103 CODE >993:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15368 text103 CODE >997:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-153B4 text103 CODE >999:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-153D0 text103 CODE >1002:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-153D0 text103 CODE >1005:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-153E2 text103 CODE >1007:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-153F2 text103 CODE >1009:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-153FE text103 CODE >1010:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15402 text103 CODE >1012:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1540E text103 CODE >1014:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1540E text103 CODE >1017:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15422 text103 CODE >1019:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15436 text103 CODE >1023:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15448 text103 CODE >1025:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15458 text103 CODE >1027:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1545A text103 CODE >1028:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1545E text103 CODE >1030:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15466 text103 CODE >1035:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15472 text103 CODE >1036:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15472 text103 CODE >1039:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15482 text103 CODE >1042:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-15486 text103 CODE >1043:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1549A text103 CODE >1045:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-154AA text103 CODE >1046:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A31E text102 CODE >1048:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+14FE4 text103 CODE >852:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+14FE6 text103 CODE >857:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15014 text103 CODE >867:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15018 text103 CODE >868:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15020 text103 CODE >871:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15024 text103 CODE >874:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15050 text103 CODE >885:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15074 text103 CODE >887:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1507A text103 CODE >889:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1508A text103 CODE >891:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15090 text103 CODE >892:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15090 text103 CODE >915:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15096 text103 CODE >917:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+150C6 text103 CODE >919:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+150CA text103 CODE >920:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+150CE text103 CODE >922:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+150D2 text103 CODE >926:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+150EA text103 CODE >928:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+150FA text103 CODE >930:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15100 text103 CODE >942:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15108 text103 CODE >945:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15110 text103 CODE >948:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1511A text103 CODE >951:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15122 text103 CODE >953:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15132 text103 CODE >955:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15144 text103 CODE >957:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15178 text103 CODE >958:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1517C text103 CODE >960:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+151AE text103 CODE >963:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+151C0 text103 CODE >965:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+151D2 text103 CODE >967:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+151FA text103 CODE >972:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1520C text103 CODE >974:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15254 text103 CODE >975:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15258 text103 CODE >977:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1529E text103 CODE >980:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+152B6 text103 CODE >984:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+152C8 text103 CODE >986:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+152D8 text103 CODE >988:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15314 text103 CODE >989:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15318 text103 CODE >991:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15352 text103 CODE >994:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15364 text103 CODE >995:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15368 text103 CODE >999:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+153B4 text103 CODE >1001:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+153D0 text103 CODE >1004:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+153D0 text103 CODE >1007:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+153E2 text103 CODE >1009:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+153F2 text103 CODE >1011:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+153FE text103 CODE >1012:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15402 text103 CODE >1014:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1540E text103 CODE >1016:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1540E text103 CODE >1019:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15422 text103 CODE >1021:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15436 text103 CODE >1025:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15448 text103 CODE >1027:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15458 text103 CODE >1029:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1545A text103 CODE >1030:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1545E text103 CODE >1032:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15466 text103 CODE >1037:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15472 text103 CODE >1038:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15472 text103 CODE >1041:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15482 text103 CODE >1044:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+15486 text103 CODE >1045:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1549A text103 CODE >1047:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+154AA text103 CODE >1048:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A31E text102 CODE >1050:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A322 text102 CODE >1052:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A352 text102 CODE >1055:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A37C text102 CODE >1050:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A3AE text102 CODE >1057:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A3B0 text101 CODE >793:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A31E text102 CODE >1052:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A322 text102 CODE >1054:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A352 text102 CODE >1057:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A37C text102 CODE >1052:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A3AE text102 CODE >1059:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1A3B0 text101 CODE >795:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A3F0 text101 CODE >798:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A3F8 text101 CODE >801:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A3FC text101 CODE >802:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A400 text101 CODE >805:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A436 text101 CODE >808:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A43A text101 CODE >809:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1A43E text101 CODE >811:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A3B0 text101 CODE >797:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A3F0 text101 CODE >800:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A3F8 text101 CODE >803:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A3FC text101 CODE >804:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A400 text101 CODE >807:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A436 text101 CODE >810:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A43A text101 CODE >811:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1A43E text101 CODE >813:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 176F2 text100 CODE >1744:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 176F4 text100 CODE >1746:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
 17704 text100 CODE >1748:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_navigation.c
@@ -1261,11 +1261,11 @@ A intcode CODE >46:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.
 18DDA text70 CODE >413:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 18E0A text70 CODE >414:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 18E1C text70 CODE >415:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
-1AE9A text69 CODE >584:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AE9C text69 CODE >588:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AEA0 text69 CODE >589:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AEA4 text69 CODE >590:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
-1AED8 text69 CODE >591:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AE9A text69 CODE >585:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AE9C text69 CODE >589:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AEA0 text69 CODE >590:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AEA4 text69 CODE >591:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+1AED8 text69 CODE >592:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1B35C text68 CODE >170:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1B35C text68 CODE >172:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 1B37E text68 CODE >173:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
@@ -2926,68 +2926,68 @@ A intcode CODE >46:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.
 1799E text0 CODE >130:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
 179AC text0 CODE >131:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
 179BA text0 CODE >132:C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
-1A772 cinit CODE >21232:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A772 cinit CODE >21234:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A772 cinit CODE >21237:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A772 cinit CODE >21345:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A774 cinit CODE >21346:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A776 cinit CODE >21347:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A778 cinit CODE >21348:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A77A cinit CODE >21349:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A77C cinit CODE >21350:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A77E cinit CODE >21351:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A782 cinit CODE >21352:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A786 cinit CODE >21353:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A786 cinit CODE >21354:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A788 cinit CODE >21355:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A78C cinit CODE >21356:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A78E cinit CODE >21357:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A790 cinit CODE >21358:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A792 cinit CODE >21362:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A794 cinit CODE >21363:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A796 cinit CODE >21364:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A798 cinit CODE >21365:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A79A cinit CODE >21366:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A79C cinit CODE >21367:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A79E cinit CODE >21368:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7A2 cinit CODE >21369:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7A6 cinit CODE >21370:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7A6 cinit CODE >21371:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7A8 cinit CODE >21372:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7AC cinit CODE >21373:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7AE cinit CODE >21374:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7B0 cinit CODE >21375:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7B2 cinit CODE >21379:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7B6 cinit CODE >21380:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7BA cinit CODE >21381:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7BA cinit CODE >21382:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7BC cinit CODE >21383:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7BE cinit CODE >21384:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7C0 cinit CODE >21385:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7C2 cinit CODE >21386:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7C4 cinit CODE >21387:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7C6 cinit CODE >21390:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7C8 cinit CODE >21391:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7CA cinit CODE >21392:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7CC cinit CODE >21395:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7D0 cinit CODE >21396:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7D2 cinit CODE >21397:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7D2 cinit CODE >21398:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7D4 cinit CODE >21399:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7D6 cinit CODE >21400:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7D8 cinit CODE >21403:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7DC cinit CODE >21404:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7DE cinit CODE >21405:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7DE cinit CODE >21406:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7E0 cinit CODE >21407:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7E2 cinit CODE >21408:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7E4 cinit CODE >21411:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7E6 cinit CODE >21412:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7E8 cinit CODE >21418:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7E8 cinit CODE >21420:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7EA cinit CODE >21421:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7EC cinit CODE >21422:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
-1A7EE cinit CODE >21423:C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.s
+1A772 cinit CODE >21232:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A772 cinit CODE >21234:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A772 cinit CODE >21237:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A772 cinit CODE >21345:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A774 cinit CODE >21346:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A776 cinit CODE >21347:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A778 cinit CODE >21348:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A77A cinit CODE >21349:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A77C cinit CODE >21350:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A77E cinit CODE >21351:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A782 cinit CODE >21352:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A786 cinit CODE >21353:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A786 cinit CODE >21354:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A788 cinit CODE >21355:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A78C cinit CODE >21356:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A78E cinit CODE >21357:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A790 cinit CODE >21358:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A792 cinit CODE >21362:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A794 cinit CODE >21363:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A796 cinit CODE >21364:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A798 cinit CODE >21365:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A79A cinit CODE >21366:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A79C cinit CODE >21367:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A79E cinit CODE >21368:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7A2 cinit CODE >21369:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7A6 cinit CODE >21370:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7A6 cinit CODE >21371:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7A8 cinit CODE >21372:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7AC cinit CODE >21373:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7AE cinit CODE >21374:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7B0 cinit CODE >21375:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7B2 cinit CODE >21379:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7B6 cinit CODE >21380:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7BA cinit CODE >21381:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7BA cinit CODE >21382:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7BC cinit CODE >21383:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7BE cinit CODE >21384:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7C0 cinit CODE >21385:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7C2 cinit CODE >21386:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7C4 cinit CODE >21387:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7C6 cinit CODE >21390:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7C8 cinit CODE >21391:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7CA cinit CODE >21392:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7CC cinit CODE >21395:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7D0 cinit CODE >21396:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7D2 cinit CODE >21397:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7D2 cinit CODE >21398:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7D4 cinit CODE >21399:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7D6 cinit CODE >21400:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7D8 cinit CODE >21403:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7DC cinit CODE >21404:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7DE cinit CODE >21405:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7DE cinit CODE >21406:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7E0 cinit CODE >21407:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7E2 cinit CODE >21408:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7E4 cinit CODE >21411:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7E6 cinit CODE >21412:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7E8 cinit CODE >21418:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7E8 cinit CODE >21420:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7EA cinit CODE >21421:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7EC cinit CODE >21422:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
+1A7EE cinit CODE >21423:C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -3022,7 +3022,7 @@ __end_of_write_byte 1AE9A 0 CODE 0 text20 dist/default/production\battery-tester
 _counter_test 2E4 0 BANK2 1 bssBANK2 dist/default/production\battery-tester.X.production.o
 __end_of_check_if_any_changes_in_parameters 1B558 0 CODE 0 text16 dist/default/production\battery-tester.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\battery-tester.X.production.o
-__mediumconst C840 0 MEDIUMCONST 0 mediumconst C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+__mediumconst C840 0 MEDIUMCONST 0 mediumconst C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 __end_of_update_wear_leveling_static_buffer 16954 0 CODE 0 text19 dist/default/production\battery-tester.X.production.o
 __end_of_TrickleCurrent 19240 0 CODE 0 text63 dist/default/production\battery-tester.X.production.o
 _represent_value_in_binary 1A8DC 0 CODE 0 text21 dist/default/production\battery-tester.X.production.o
@@ -3039,7 +3039,7 @@ _LATD F8C 0 ABS 0 - dist/default/production\battery-tester.X.production.o
 _LATE F8D 0 ABS 0 - dist/default/production\battery-tester.X.production.o
 _Menu 10000 0 CODE 0 text15 dist/default/production\battery-tester.X.production.o
 _TMR0 FD6 0 ABS 0 - dist/default/production\battery-tester.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+___sp 0 0 STACK 2 stack C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 _atoi 17B32 0 CODE 0 text94 dist/default/production\battery-tester.X.production.o
 _dbuf 91 0 BANK0 1 bssBANK0 dist/default/production\battery-tester.X.production.o
 _dtoa 161C2 0 CODE 0 text85 dist/default/production\battery-tester.X.production.o
@@ -3058,7 +3058,7 @@ pad@i 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.produc
 pad@p 17 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 pad@w 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 __HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production\battery-tester.X.production.o
-start 7A 0 CODE 0 init C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+start 7A 0 CODE 0 init C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 ___aomod@counter 11 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 _SetTemp 18C0A 0 CODE 0 text59 dist/default/production\battery-tester.X.production.o
 Menu@bat_param DF 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
@@ -3094,7 +3094,7 @@ _Options2_Menu 19E04 0 CODE 0 text61 dist/default/production\battery-tester.X.pr
 ttemp5 60 0 COMRAM 1 temp dist/default/production\battery-tester.X.production.o
 ttemp6 63 0 COMRAM 1 temp dist/default/production\battery-tester.X.production.o
 ttemp7 67 0 COMRAM 1 temp dist/default/production\battery-tester.X.production.o
-_read_parameters_from_flash$5831 190 0 BANK1 1 cstackBANK1 dist/default/production\battery-tester.X.production.o
+_read_parameters_from_flash$5826 190 0 BANK1 1 cstackBANK1 dist/default/production\battery-tester.X.production.o
 GLCD_DrawVLine@X 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 GLCD_DrawVLine@t 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 __end_of_write_byte_table_auto_address_increment 199DE 0 CODE 0 text18 dist/default/production\battery-tester.X.production.o
@@ -3108,11 +3108,11 @@ utoa@n 34 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.produ
 utoa@p 30 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 utoa@w 32 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 GLCD_SetPixel@Color 8 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
-intlevel0 0 0 CODE 0 text C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
-intlevel1 0 0 CODE 0 text C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
-intlevel2 0 0 CODE 0 text C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
-intlevel3 0 0 CODE 0 text C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+__accesstop 60 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
+intlevel0 0 0 CODE 0 text C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
+intlevel1 0 0 CODE 0 text C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
+intlevel2 0 0 CODE 0 text C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
+intlevel3 0 0 CODE 0 text C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 __ptext100 176F2 0 CODE 0 text100 dist/default/production\battery-tester.X.production.o
 __ptext101 1A3B0 0 CODE 0 text101 dist/default/production\battery-tester.X.production.o
 __ptext102 1A31E 0 CODE 0 text102 dist/default/production\battery-tester.X.production.o
@@ -3214,8 +3214,8 @@ __end_of_GLCD_PrintString 1A3B0 0 CODE 0 text102 dist/default/production\battery
 check_parameters_offset_position@lenght C 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 ___awdiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 _Pulse_En 1B4F8 0 CODE 0 text135 dist/default/production\battery-tester.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 represent_value_in_binary@j C6 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
 save_measurment_data_to_flash@measurment_sampling_time 8A 0 BANK0 1 bssBANK0 dist/default/production\battery-tester.X.production.o
 _measurement_data_sample_timer 76 0 BANK0 1 bssBANK0 dist/default/production\battery-tester.X.production.o
@@ -3386,7 +3386,7 @@ __end_of_printf 1B336 0 CODE 0 text32 dist/default/production\battery-tester.X.p
 __end_of_Button_Init 173D2 0 CODE 0 text139 dist/default/production\battery-tester.X.production.o
 __end_of_ButtonOK 1B470 0 CODE 0 text121 dist/default/production\battery-tester.X.production.o
 __end_of_ButtonUp 1B4C0 0 CODE 0 text125 dist/default/production\battery-tester.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+isa$xinst 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 __end_of_Options1_Menu 1A000 0 CODE 0 text67 dist/default/production\battery-tester.X.production.o
 fputc@fp 5 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 fputs@fp E 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
@@ -3450,7 +3450,7 @@ __Hbank15 0 0 ABS 0 bank15 dist/default/production\battery-tester.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\battery-tester.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\battery-tester.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\battery-tester.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 __end_of_Options5_Menu 196BE 0 CODE 0 text48 dist/default/production\battery-tester.X.production.o
 __end_of_sprintf 1AC18 0 CODE 0 text74 dist/default/production\battery-tester.X.production.o
 save_parameters_to_flash@bat_param D8 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
@@ -3604,7 +3604,7 @@ __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\battery-tester.X.productio
 SetDischargingCurrent_2@set_mode D6 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
 sprintf@fmt BD 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
 SetMaxTime@set_mode D6 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
-_dtoa$5211 30 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
+_dtoa$5206 30 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 print_tab@lenght C5 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
 _GLCD_SetPixels 1647A 0 CODE 0 text108 dist/default/production\battery-tester.X.production.o
 __end_of_GLCD_SelectChip 1AF58 0 CODE 0 text133 dist/default/production\battery-tester.X.production.o
@@ -3879,7 +3879,7 @@ print_tab@tab C3 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.
 _printf 1B30E 0 CODE 0 text32 dist/default/production\battery-tester.X.production.o
 _VoltageDisplay 19516 0 CODE 0 text39 dist/default/production\battery-tester.X.production.o
 __end_of_Tahoma11x13 F9C1 0 MEDIUMCONST 0 mediumconst dist/default/production\battery-tester.X.production.o
-_xtoa$5229 31 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
+_xtoa$5224 31 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 SetChargingCurrent_2@set_mode D6 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
 ___wmul@multiplier 19 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 _init_settings_ptr 19A96 0 CODE 0 text12 dist/default/production\battery-tester.X.production.o
@@ -3908,14 +3908,14 @@ _GLCD_SetPixels$210 10 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-t
 _GLCD_SetPixels$211 12 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 __end_of_TempDisplay 1AE16 0 CODE 0 text43 dist/default/production\battery-tester.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\battery-tester.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+isa$std 1 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 _ButtonDown 1B470 0 CODE 0 text122 dist/default/production\battery-tester.X.production.o
 _ButtonLeft 1B484 0 CODE 0 text123 dist/default/production\battery-tester.X.production.o
 SetChargingCurrent_4@set_mode D6 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
 _Handle_Main_MenuNavigation 176F2 0 CODE 0 text100 dist/default/production\battery-tester.X.production.o
 SetChargingCurrent_4@bat_param D4 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
-stacklo 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+stackhi 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
+stacklo 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 _GLCD_DrawRectangle 1A4CC 0 CODE 0 text106 dist/default/production\battery-tester.X.production.o
 __end_of_GLCD_Render 1AA0C 0 CODE 0 text112 dist/default/production\battery-tester.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\battery-tester.X.production.o
@@ -4113,7 +4113,7 @@ __Ltext97 0 0 ABS 0 text97 dist/default/production\battery-tester.X.production.o
 __Ltext98 0 0 ABS 0 text98 dist/default/production\battery-tester.X.production.o
 __Ltext99 0 0 ABS 0 text99 dist/default/production\battery-tester.X.production.o
 CellCount@set_mode D6 0 BANK0 1 cstackBANK0 dist/default/production\battery-tester.X.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 _sprintf 1ABC6 0 CODE 0 text74 dist/default/production\battery-tester.X.production.o
 main@nimh_settings 200 0 BANK2 1 cstackBANK2 dist/default/production\battery-tester.X.production.o
 __end_of_GLCD_SetFont 1A440 0 CODE 0 text101 dist/default/production\battery-tester.X.production.o
@@ -4145,8 +4145,8 @@ __end_of_vfprintf 1ABC6 0 CODE 0 text75 dist/default/production\battery-tester.X
 ___lomod@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 __end_of_CellCount 18F28 0 CODE 0 text73 dist/default/production\battery-tester.X.production.o
 _CCP3CONbits FB1 0 ABS 0 - dist/default/production\battery-tester.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
-___heap_lo 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+___heap_hi 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
+___heap_lo 0 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 check_write_en@status_register_byte 3 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 batState@battery_number 38 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 _GLCD_SetPixel 1A6F0 0 CODE 0 text110 dist/default/production\battery-tester.X.production.o
@@ -4168,7 +4168,7 @@ Menu@param_pos F6 0 BANK0 1 dataBANK0 dist/default/production\battery-tester.X.p
 _Button_Event_Reset 1AC18 0 CODE 0 text126 dist/default/production\battery-tester.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\battery-tester.X.production.o
 _SSP1CON1bits FC6 0 ABS 0 - dist/default/production\battery-tester.X.production.o
-_isspace$5288 5 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
+_isspace$5283 5 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 _batState 19B4A 0 CODE 0 text38 dist/default/production\battery-tester.X.production.o
 __end_of_check_current_measurment_offset 1B14A 0 CODE 0 text11 dist/default/production\battery-tester.X.production.o
 ___GLCD_GotoX@X E 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
@@ -4280,7 +4280,7 @@ _Handle_Setting23_MenuNavigation 154AC 0 CODE 0 text98 dist/default/production\b
 _putch 1B558 0 CODE 0 text89 dist/default/production\battery-tester.X.production.o
 _width 7E 0 BANK0 1 bssBANK0 dist/default/production\battery-tester.X.production.o
 ChemistryDisplay@bat_param 38 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
-___extmem_base 20000 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+___extmem_base 20000 0 ABS 0 - C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
 __end_of_sst25vf_init_enable_write 1B3A2 0 CODE 0 text1 dist/default/production\battery-tester.X.production.o
 ?_isalpha 1 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 ?_isdigit 1 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
@@ -4292,10 +4292,10 @@ _GLCD_SendCommand 1AF58 0 CODE 0 text131 dist/default/production\battery-tester.
 GLCD_PrintChar@fontStart 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\battery-tester.X.production.o
 __HdataBANK1 0 0 ABS 0 dataBANK1 dist/default/production\battery-tester.X.production.o
-_Button_Init$1988 7 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
-_Button_Init$1989 9 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
-_Button_Init$1990 B 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
-_Button_Init$2000 D 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
+_Button_Init$1983 7 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
+_Button_Init$1984 9 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
+_Button_Init$1985 B 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
+_Button_Init$1995 D 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 atoi@n 26 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 atoi@s 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\battery-tester.X.production.o
 _GLCD_Send 199DE 0 CODE 0 text134 dist/default/production\battery-tester.X.production.o

@@ -152,7 +152,7 @@ typedef enum {
 /**
   * @brief port_read_cb_t user provided port read function callback
   */
-typedef uint8_t (*port_read_cb_t)();
+typedef uint8_t (*port_read_cb_t)(void);
 
 /**
  * @brief btn_event_cb_t provide button event callback  

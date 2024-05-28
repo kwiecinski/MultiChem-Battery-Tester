@@ -8,7 +8,7 @@ volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_timer;
 
 
 // Function to initialize Timer0
-void Init_Timer0() 
+void Init_Timer0(void) 
 {
     //Internal clock frequency: 24MHz
     T0CONbits.TMR0ON = 1;   //Enables Timer0 

@@ -801,7 +801,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _measurement_data_sample_timer `Vul ~T0 @X0 1 e ]
 [v _temp_data_sample_timer `Vul ~T0 @X0 1 e ]
 "11
-[; ;interrupts.c: 11: void Init_Timer0()
+[; ;interrupts.c: 11: void Init_Timer0(void)
 [v _Init_Timer0 `(v ~T0 @X0 1 ef ]
 "12
 [; ;interrupts.c: 12: {

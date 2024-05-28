@@ -293,7 +293,7 @@ void GLCD_SetPixels(const uint8_t X1, uint8_t Y1, const uint8_t X2, const uint8_
 		//Fractional rows at the bottom of the region
 		if (h < height)
 		{
-			mask = ~((uint8_t)0xFF << (height - h));
+			mask = ~(uint8_t)(0xFF << (uint16_t)(height - h));
 			GLCD_GotoXY(X1, Y1 + __GLCD_Screen_Line_Height);
 			for (i = 0 ; i < width ; i++)
 			{
@@ -326,7 +326,7 @@ void GLCD_DrawBitmap(const uint8_t *Bitmap, uint8_t Width, const uint8_t Height,
 	
 	//#3 - Read height - Second two bytes - Convert to lines
 	lines = (Height + __GLCD_Screen_Line_Height - 1) / __GLCD_Screen_Line_Height;	//lines = Ceiling(A/B) = (A+B-1)/B
-	data = __GLCD.Y / (uint8_t)__GLCD_Screen_Line_Height + lines;							//"data" is used temporarily
+	data = __GLCD.Y / (uint8_t)__GLCD_Screen_Line_Height + (uint8_t)lines;							//"data" is used temporarily
 	//If bitmap exceed screen bounds, reduce
 	if (data > __GLCD_Screen_Lines)
 		lines -= data - __GLCD_Screen_Lines;
@@ -357,7 +357,7 @@ void GLCD_DrawBitmap(const uint8_t *Bitmap, uint8_t Width, const uint8_t Height,
 			//Merge byte with previous one
 			if (j > 0)
 			{
-				dataPrev = &(Bitmap[bmpReadPrev++]);
+				dataPrev = Bitmap[bmpReadPrev++];
 				dataPrev >>= __GLCD_Screen_Line_Height - overflow;
 				data |= dataPrev;
 			}
@@ -433,6 +433,7 @@ void GLCD_DrawLine(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2, enum Color_t 
 		{
 			uint8_t deltax, deltay, x, y, slope;
 			int8_t error, ystep;
+            
 			slope = ((__GLCD_AbsDiff(Y1, Y2) > __GLCD_AbsDiff(X1,X2)) ? 1 : 0);
 			if (slope)
 			{
@@ -465,7 +466,7 @@ void GLCD_DrawLine(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2, enum Color_t 
 				error -= deltay;
 				if (error < 0)
 				{
-					y = y + ystep;
+					y = y + (uint8_t)ystep;
 					error = error + deltax;
 				}
 			}
@@ -654,7 +655,8 @@ void GLCD_FillTriangle(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t y2, uint8_t X
 	{
 		uint8_t sl, sx1, sx2;
 		double m1, m2, m3;
-		sl = sx1 = sx2 = m1 = m2 = m3 = 0;
+		sl = sx1 = sx2 =0;
+        m1 = m2 = m3 = 0;
 		
 		if (y2 > Y3)
 		{
@@ -671,16 +673,16 @@ void GLCD_FillTriangle(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t y2, uint8_t X
 		m3 = (double)(X3 - X1) / (Y3 - Y1);
 		for(sl = Y1 ; sl <= y2 ; sl++)
 		{
-			sx1= m1 * (sl - Y1) + X1;
-			sx2= m3 * (sl - Y1) + X1;
+			sx1= (uint8_t)m1 * (sl - Y1) + X1;
+			sx2= (uint8_t)m3 * (sl - Y1) + X1;
 			if (sx1> sx2)
 			__GLCD_Swap(sx1, sx2);
 			GLCD_DrawLine(sx1, sl, sx2, sl, Color);
 		}
 		for (sl = y2 ; sl <= Y3 ; sl++)
 		{
-			sx1= m2 * (sl - Y3) + X3;
-			sx2= m3 * (sl - Y1) + X1;
+			sx1= (uint8_t)m2 * (sl - Y3) + X3;
+			sx2= (uint8_t)m3 * (sl - Y1) + X1;
 			if (sx1 > sx2)
 				__GLCD_Swap(sx1, sx2);
 			GLCD_DrawLine(sx1, sl, sx2, sl, Color);
@@ -695,7 +697,7 @@ void GLCD_FillCircle(const uint8_t CenterX, const uint8_t CenterY, const uint8_t
 	{
 		int8_t f, ddF_x, ddF_y;
 		uint8_t  x, y;
-		f = 1 - Radius;
+		f = 1 - (int8_t)Radius;
 		ddF_x = 1;
 		ddF_y = -2 * Radius;
 		x = 0;
@@ -778,7 +780,7 @@ void GLCD_InvertRect(uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2)
 	//Fractional rows at the bottom of the region
 	if (h < height)
 	{
-		mask = ~(0xFF<<(height - h));
+		mask = ~(uint8_t)(0xFF<<(height - h));
 		GLCD_GotoXY(X1, (Y1 + __GLCD_Screen_Line_Height));
 
 		for (i = 0 ; i < width ; i++)
@@ -828,11 +830,11 @@ uint16_t GLCD_GetWidthString(const char *Text)
 uint16_t GLCD_GetWidthString_P(const char *Text)
 {
 	uint16_t width = 0;
-	char r = Text++;
+	char r = *Text++;
 	while (r)
 	{
 		width += GLCD_GetWidthChar(r);
-		r = Text++;
+		r = *Text++;
 	}
 	
 	return width;
@@ -1058,14 +1060,14 @@ void GLCD_PrintString(const char *Text)
 
 void GLCD_PrintString_P(const char *Text)
 {
-	char r = Text++;
+	char r = *Text++;
 	while(r)
 	{
 		if ((__GLCD.X + __GLCD.Font.Width) >= __GLCD_Screen_Width)
 			break;
 
 		GLCD_PrintChar(r);
-		r = Text++;
+		r = *Text++;
 	}
 }
 
@@ -1075,7 +1077,7 @@ void GLCD_PrintInteger(int32_t Value)
 	{
 		GLCD_PrintChar('0');
 	}
-	else if ((Value > INT32_MIN) && (Value <= INT32_MAX))
+	else // if ((Value > INT32_MIN) && (Value <= INT32_MAX))
 	{
 		//int32_max + sign + null = 12 bytes
 		char bcd[12] = { '\0' };
@@ -1107,13 +1109,13 @@ void GLCD_PrintDouble(double Value, const uint32_t Tens)
 		}
 		
 		//Print integer part
-		GLCD_PrintInteger(Value);
+		 GLCD_PrintInteger((int32_t)Value);
 		
 		//Print dot
 		GLCD_PrintChar('.');
 		
 		//Print decimal part
-		GLCD_PrintInteger((Value - (uint32_t)(Value)) * Tens);
+		GLCD_PrintInteger((int32_t)((Value - (int32_t)Value) * Tens));
 	}
 }
 
@@ -1151,7 +1153,7 @@ static void GLCD_WaitBusy(enum Chip_t Chip)
 		DigitalWrite(GLCD_EN, High);
 		__delay_us(__GLCD_Pulse_En);
 		
-		status = DigitalRead(GLCD_D7) << 7;
+		status = (uint8_t)((uint16_t)DigitalRead(GLCD_D7) << 7);
 		
 		DigitalWrite(GLCD_EN, Low);
 		__delay_us(__GLCD_Pulse_En<<3);

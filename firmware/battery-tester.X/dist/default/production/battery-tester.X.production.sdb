@@ -306,43 +306,43 @@ state_idle 2
 [v _GLCD_SetPixels GLCD_SetPixels `(v  1 e 1 0 ]
 "423
 [v _GLCD_DrawLine GLCD_DrawLine `(v  1 e 1 0 ]
-"476
+"477
 [v _GLCD_DrawRectangle GLCD_DrawRectangle `(v  1 e 1 0 ]
-"584
+"585
 [v _GLCD_FillScreen GLCD_FillScreen `(v  1 e 1 0 ]
-"593
+"594
 [v _GLCD_FillRectangle GLCD_FillRectangle `(v  1 e 1 0 ]
-"793
+"795
 [v _GLCD_SetFont GLCD_SetFont `(v  1 e 1 0 ]
-"813
+"815
 [v _GLCD_GetWidthChar GLCD_GetWidthChar `(uc  1 e 1 0 ]
-"850
+"852
 [v _GLCD_PrintChar GLCD_PrintChar `(v  1 e 1 0 ]
-"1048
+"1050
 [v _GLCD_PrintString GLCD_PrintString `(v  1 e 1 0 ]
-"1072
+"1074
 [v _GLCD_PrintInteger GLCD_PrintInteger `(v  1 e 1 0 ]
-"1120
+"1122
 [v _GLCD_Send GLCD_Send `(v  1 s 1 GLCD_Send ]
-"1134
+"1136
 [v _GLCD_WaitBusy GLCD_WaitBusy `(v  1 s 1 GLCD_WaitBusy ]
-"1167
+"1169
 [v _GLCD_BufferWrite GLCD_BufferWrite `(v  1 s 1 GLCD_BufferWrite ]
-"1173
+"1175
 [v _GLCD_BufferRead GLCD_BufferRead `(uc  1 s 1 GLCD_BufferRead ]
-"1179
+"1181
 [v _GLCD_SelectChip GLCD_SelectChip `(v  1 s 1 GLCD_SelectChip ]
-"1208
+"1210
 [v ___GLCD_GotoX __GLCD_GotoX `(v  1 s 1 __GLCD_GotoX ]
-"1226
+"1228
 [v ___GLCD_GotoY __GLCD_GotoY `(v  1 s 1 __GLCD_GotoY ]
-"1243
+"1245
 [v _GLCD_DrawHLine GLCD_DrawHLine `(v  1 s 1 GLCD_DrawHLine ]
-"1255
+"1257
 [v _GLCD_DrawVLine GLCD_DrawVLine `(v  1 s 1 GLCD_DrawVLine ]
-"1263
+"1265
 [v _Pulse_En Pulse_En `T(v  1 s 1 Pulse_En ]
-"1271
+"1273
 [v _Int2bcd Int2bcd `(v  1 s 1 Int2bcd ]
 "55 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\main.c
 [v _init_settings_ptr init_settings_ptr `(v  1 e 1 0 ]
@@ -514,8 +514,8 @@ state_idle 2
 [s S1915 . 9 `S1910 1 state 1 0 `uc 1 lock_count 1 1 `us 1 long_count 2 2 `us 1 long_press_time_ms 2 4 `*.38(uc 1 port_read 3 6 ]
 [v _instance instance `[5]S1915  1 e 45 0 ]
 "106
-[s S1935 . 15 `*.39S1915 1 instance 2 0 `uc 1 process_time_ms 1 2 `uc 1 debounce_time_ms 1 3 `us 1 long_press_def_ms 2 4 `*.38(v 1 short_release 3 6 `*.38(v 1 long_release 3 9 `*.38(v 1 long_press 3 12 ]
-[v _this this `S1935  1 s 15 this ]
+[s S1930 . 15 `*.39S1915 1 instance 2 0 `uc 1 process_time_ms 1 2 `uc 1 debounce_time_ms 1 3 `us 1 long_press_def_ms 2 4 `*.38(v 1 short_release 3 6 `*.38(v 1 long_release 3 9 `*.38(v 1 long_press 3 12 ]
+[v _this this `S1930  1 s 15 this ]
 "5244 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "5574
@@ -547,7 +547,7 @@ state_idle 2
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "6551
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-[s S3955 . 1 `uc 1 . 1 0 :2:0 
+[s S3950 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LATF2 1 0 :1:2 
 `uc 1 LATF3 1 0 :1:3 
 `uc 1 LATF4 1 0 :1:4 
@@ -556,7 +556,7 @@ state_idle 2
 `uc 1 LATF7 1 0 :1:7 
 ]
 "6688
-[s S3963 . 1 `uc 1 . 1 0 :2:0 
+[s S3958 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LF2 1 0 :1:2 
 `uc 1 LF3 1 0 :1:3 
 `uc 1 LF4 1 0 :1:4 
@@ -564,8 +564,8 @@ state_idle 2
 `uc 1 LF6 1 0 :1:6 
 `uc 1 LF7 1 0 :1:7 
 ]
-[u S3971 . 1 `S3955 1 . 1 0 `S3963 1 . 1 0 ]
-[v _LATFbits LATFbits `VES3971  1 e 1 @3982 ]
+[u S3966 . 1 `S3950 1 . 1 0 `S3958 1 . 1 0 ]
+[v _LATFbits LATFbits `VES3966  1 e 1 @3982 ]
 [s S1648 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
@@ -919,7 +919,7 @@ state_idle 2
 ]
 [u S1570 . 1 `S1557 1 . 1 0 `S1563 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES1570  1 e 1 @4051 ]
-[s S2009 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2004 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -927,13 +927,13 @@ state_idle 2
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "14907
-[s S2016 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2011 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
-[u S2021 . 1 `S2009 1 . 1 0 `S2016 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2021  1 e 1 @4053 ]
+[u S2016 . 1 `S2004 1 . 1 0 `S2011 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2016  1 e 1 @4053 ]
 "14962
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
 [s S1728 . 1 `uc 1 RBIF 1 0 :1:0 
@@ -1599,18 +1599,18 @@ state_idle 2
 {
 "173
 } 0
-"584
+"585
 [v _GLCD_FillScreen GLCD_FillScreen `(v  1 e 1 0 ]
 {
 [v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
-"586
+"587
 [v GLCD_FillScreen@j j `uc  1 a 1 8 ]
 [v GLCD_FillScreen@i i `uc  1 a 1 7 ]
-"584
+"585
 [v GLCD_FillScreen@Color Color `E5705  1 a 1 wreg ]
-"588
+"589
 [v GLCD_FillScreen@Color Color `E5705  1 a 1 6 ]
-"591
+"592
 } 0
 "395 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\menu_definitions.c
 [v _CycleSet CycleSet `(v  1 e 1 0 ]
@@ -1651,10 +1651,10 @@ state_idle 2
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S5105 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S5100 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S5108 _IO_FILE 11 `S5105 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S5108  1 a 11 20 ]
+[s S5103 _IO_FILE 11 `S5100 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S5103  1 a 11 20 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 18 ]
 "9
@@ -1667,9 +1667,9 @@ state_idle 2
 {
 "1523
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 87 ]
-[s S5140 _IO_FILE 0 ]
+[s S5135 _IO_FILE 0 ]
 "1520
-[v vfprintf@fp fp `*.39S5140  1 p 2 0 ]
+[v vfprintf@fp fp `*.39S5135  1 p 2 0 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 4 ]
 "1543
@@ -1677,16 +1677,16 @@ state_idle 2
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S5173 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+[u S5168 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
 "1016
-[v vfpfcnvrt@convarg convarg `S5173  1 a 8 77 ]
+[v vfpfcnvrt@convarg convarg `S5168  1 a 8 77 ]
 "1009
 [v vfpfcnvrt@cp cp `*.32uc  1 a 2 85 ]
 "1010
 [v vfpfcnvrt@done done `i  1 a 2 75 ]
-[s S5140 _IO_FILE 0 ]
+[s S5135 _IO_FILE 0 ]
 "1007
-[v vfpfcnvrt@fp fp `*.39S5140  1 p 2 65 ]
+[v vfpfcnvrt@fp fp `*.39S5135  1 p 2 65 ]
 [v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 67 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 69 ]
 "1517
@@ -1702,9 +1702,9 @@ state_idle 2
 [v xtoa@p p `i  1 a 2 50 ]
 "938
 [v xtoa@c c `uc  1 a 1 64 ]
-[s S5140 _IO_FILE 0 ]
+[s S5135 _IO_FILE 0 ]
 "931
-[v xtoa@fp fp `*.39S5140  1 p 2 29 ]
+[v xtoa@fp fp `*.39S5135  1 p 2 29 ]
 [v xtoa@d d `uo  1 p 8 31 ]
 [v xtoa@x x `uc  1 p 1 39 ]
 "1001
@@ -1742,9 +1742,9 @@ state_idle 2
 [v utoa@i i `i  1 a 2 59 ]
 [v utoa@w w `i  1 a 2 49 ]
 [v utoa@p p `i  1 a 2 47 ]
-[s S5140 _IO_FILE 0 ]
+[s S5135 _IO_FILE 0 ]
 "894
-[v utoa@fp fp `*.39S5140  1 p 2 29 ]
+[v utoa@fp fp `*.39S5135  1 p 2 29 ]
 [v utoa@d d `uo  1 p 8 31 ]
 "926
 } 0
@@ -1781,9 +1781,9 @@ state_idle 2
 [v dtoa@p p `i  1 a 2 49 ]
 "445
 [v dtoa@s s `uc  1 a 1 61 ]
-[s S5140 _IO_FILE 0 ]
+[s S5135 _IO_FILE 0 ]
 "443
-[v dtoa@fp fp `*.39S5140  1 p 2 29 ]
+[v dtoa@fp fp `*.39S5135  1 p 2 29 ]
 [v dtoa@d d `o  1 p 8 31 ]
 "502
 } 0
@@ -1793,9 +1793,9 @@ state_idle 2
 "135
 [v pad@w w `i  1 a 2 27 ]
 [v pad@i i `i  1 a 2 25 ]
-[s S5140 _IO_FILE 0 ]
+[s S5135 _IO_FILE 0 ]
 "133
-[v pad@fp fp `*.39S5140  1 p 2 18 ]
+[v pad@fp fp `*.39S5135  1 p 2 18 ]
 [v pad@buf buf `*.39uc  1 p 2 20 ]
 [v pad@p p `i  1 p 2 22 ]
 "164
@@ -1809,18 +1809,18 @@ state_idle 2
 [v fputs@c c `uc  1 a 1 15 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 11 ]
-[u S5105 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S5108 _IO_FILE 11 `S5105 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S5108  1 p 2 13 ]
+[u S5100 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S5103 _IO_FILE 11 `S5100 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S5103  1 p 2 13 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 2 ]
-[u S5105 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S5108 _IO_FILE 11 `S5105 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S5108  1 p 2 4 ]
+[u S5100 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S5103 _IO_FILE 11 `S5100 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S5103  1 p 2 4 ]
 "24
 } 0
 "10 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\peripherials/UART.c
@@ -1928,7 +1928,7 @@ state_idle 2
 [v Handle_Main_MenuNavigation@option option `uc  1 a 1 55 ]
 "1774
 } 0
-"793 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+"795 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_SetFont GLCD_SetFont `(v  1 e 1 0 ]
 {
 [v GLCD_SetFont@Name Name `*.32Cuc  1 p 2 8 ]
@@ -1936,22 +1936,22 @@ state_idle 2
 [v GLCD_SetFont@Height Height `Cuc  1 p 1 11 ]
 [v GLCD_SetFont@Mode Mode `E5702  1 p 1 12 ]
 [v GLCD_SetFont@Invert Invert `E5699  1 p 1 13 ]
-"811
+"813
 } 0
-"1048
+"1050
 [v _GLCD_PrintString GLCD_PrintString `(v  1 e 1 0 ]
 {
 [v GLCD_PrintString@Text Text `*.34Cuc  1 p 2 51 ]
-"1057
+"1059
 } 0
-"850
+"852
 [v _GLCD_PrintChar GLCD_PrintChar `(v  1 e 1 0 ]
 {
 [v GLCD_PrintChar@Character Character `uc  1 a 1 wreg ]
-"853
+"855
 [v GLCD_PrintChar@fontRead fontRead `ui  1 a 2 45 ]
 [v GLCD_PrintChar@fontStart fontStart `ui  1 a 2 41 ]
-"854
+"856
 [v GLCD_PrintChar@data data `uc  1 a 1 50 ]
 [v GLCD_PrintChar@j j `uc  1 a 1 49 ]
 [v GLCD_PrintChar@i i `uc  1 a 1 48 ]
@@ -1962,11 +1962,11 @@ state_idle 2
 [v GLCD_PrintChar@data_next data_next `uc  1 a 1 39 ]
 [v GLCD_PrintChar@y y `uc  1 a 1 38 ]
 [v GLCD_PrintChar@y2 y2 `uc  1 a 1 37 ]
-"850
+"852
 [v GLCD_PrintChar@Character Character `uc  1 a 1 wreg ]
-"855
+"857
 [v GLCD_PrintChar@Character Character `uc  1 a 1 36 ]
-"1046
+"1048
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -1978,7 +1978,7 @@ state_idle 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 26 ]
 "53
 } 0
-"593 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
+"594 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\LCD-KS0108/KS0108.c
 [v _GLCD_FillRectangle GLCD_FillRectangle `(v  1 e 1 0 ]
 {
 [v GLCD_FillRectangle@X1 X1 `Cuc  1 a 1 wreg ]
@@ -1987,11 +1987,11 @@ state_idle 2
 [v GLCD_FillRectangle@X2 X2 `Cuc  1 p 1 28 ]
 [v GLCD_FillRectangle@Y2 Y2 `Cuc  1 p 1 29 ]
 [v GLCD_FillRectangle@Color Color `E5705  1 p 1 30 ]
-"595
-[v GLCD_FillRectangle@X1 X1 `Cuc  1 a 1 31 ]
 "596
+[v GLCD_FillRectangle@X1 X1 `Cuc  1 a 1 31 ]
+"597
 } 0
-"476
+"477
 [v _GLCD_DrawRectangle GLCD_DrawRectangle `(v  1 e 1 0 ]
 {
 [v GLCD_DrawRectangle@X1 X1 `Cuc  1 a 1 wreg ]
@@ -2000,24 +2000,24 @@ state_idle 2
 [v GLCD_DrawRectangle@X2 X2 `Cuc  1 p 1 33 ]
 [v GLCD_DrawRectangle@Y2 Y2 `Cuc  1 p 1 34 ]
 [v GLCD_DrawRectangle@Color Color `E5705  1 p 1 35 ]
-"478
+"479
 [v GLCD_DrawRectangle@X1 X1 `Cuc  1 a 1 36 ]
-"486
+"487
 } 0
-"1255
+"1257
 [v _GLCD_DrawVLine GLCD_DrawVLine `(v  1 s 1 GLCD_DrawVLine ]
 {
 [v GLCD_DrawVLine@Y1 Y1 `uc  1 a 1 wreg ]
-"1258
+"1260
 [v GLCD_DrawVLine@t t `uc  1 a 1 30 ]
-"1255
+"1257
 [v GLCD_DrawVLine@Y1 Y1 `uc  1 a 1 wreg ]
 [v GLCD_DrawVLine@Y2 Y2 `uc  1 p 1 27 ]
 [v GLCD_DrawVLine@X X `Cuc  1 p 1 28 ]
 [v GLCD_DrawVLine@Color Color `E5705  1 p 1 29 ]
-"1257
+"1259
 [v GLCD_DrawVLine@Y1 Y1 `uc  1 a 1 31 ]
-"1261
+"1263
 } 0
 "248
 [v _GLCD_SetPixels GLCD_SetPixels `(v  1 e 1 0 ]
@@ -2041,20 +2041,20 @@ state_idle 2
 [v GLCD_SetPixels@X1 X1 `Cuc  1 a 1 23 ]
 "309
 } 0
-"1243
+"1245
 [v _GLCD_DrawHLine GLCD_DrawHLine `(v  1 s 1 GLCD_DrawHLine ]
 {
 [v GLCD_DrawHLine@X1 X1 `uc  1 a 1 wreg ]
-"1246
+"1248
 [v GLCD_DrawHLine@t t `uc  1 a 1 15 ]
-"1243
+"1245
 [v GLCD_DrawHLine@X1 X1 `uc  1 a 1 wreg ]
 [v GLCD_DrawHLine@X2 X2 `uc  1 p 1 12 ]
 [v GLCD_DrawHLine@Y Y `Cuc  1 p 1 13 ]
 [v GLCD_DrawHLine@Color Color `E5705  1 p 1 14 ]
-"1245
+"1247
 [v GLCD_DrawHLine@X1 X1 `uc  1 a 1 16 ]
-"1253
+"1255
 } 0
 "228
 [v _GLCD_SetPixel GLCD_SetPixel `(v  1 e 1 0 ]
@@ -2069,16 +2069,16 @@ state_idle 2
 [v GLCD_SetPixel@X X `Cuc  1 a 1 10 ]
 "246
 } 0
-"1167
+"1169
 [v _GLCD_BufferWrite GLCD_BufferWrite `(v  1 s 1 GLCD_BufferWrite ]
 {
 [v GLCD_BufferWrite@X X `Cuc  1 a 1 wreg ]
 [v GLCD_BufferWrite@X X `Cuc  1 a 1 wreg ]
 [v GLCD_BufferWrite@Y Y `Cuc  1 p 1 0 ]
 [v GLCD_BufferWrite@Data Data `Cuc  1 p 1 1 ]
-"1170
+"1172
 [v GLCD_BufferWrite@X X `Cuc  1 a 1 5 ]
-"1171
+"1173
 } 0
 "124
 [v _GLCD_Render GLCD_Render `(v  1 e 1 0 ]
@@ -2088,17 +2088,17 @@ state_idle 2
 [v GLCD_Render@j j `uc  1 a 1 20 ]
 "135
 } 0
-"1226
+"1228
 [v ___GLCD_GotoY __GLCD_GotoY `(v  1 s 1 __GLCD_GotoY ]
 {
 [v ___GLCD_GotoY@Y Y `Cuc  1 a 1 wreg ]
-"1230
+"1232
 [v ___GLCD_GotoY@cmd cmd `uc  1 a 1 8 ]
-"1226
-[v ___GLCD_GotoY@Y Y `Cuc  1 a 1 wreg ]
 "1228
+[v ___GLCD_GotoY@Y Y `Cuc  1 a 1 wreg ]
+"1230
 [v ___GLCD_GotoY@Y Y `Cuc  1 a 1 9 ]
-"1241
+"1243
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -2123,28 +2123,28 @@ state_idle 2
 [v GLCD_SendData@Data Data `Cuc  1 a 1 19 ]
 "80
 } 0
-"1208
+"1210
 [v ___GLCD_GotoX __GLCD_GotoX `(v  1 s 1 __GLCD_GotoX ]
 {
 [v ___GLCD_GotoX@X X `Cuc  1 a 1 wreg ]
-"1212
+"1214
 [v ___GLCD_GotoX@chip chip `uc  1 a 1 12 ]
 [v ___GLCD_GotoX@cmd cmd `uc  1 a 1 11 ]
-"1208
-[v ___GLCD_GotoX@X X `Cuc  1 a 1 wreg ]
 "1210
+[v ___GLCD_GotoX@X X `Cuc  1 a 1 wreg ]
+"1212
 [v ___GLCD_GotoX@X X `Cuc  1 a 1 13 ]
-"1224
+"1226
 } 0
-"1173
+"1175
 [v _GLCD_BufferRead GLCD_BufferRead `(uc  1 s 1 GLCD_BufferRead ]
 {
 [v GLCD_BufferRead@X X `Cuc  1 a 1 wreg ]
 [v GLCD_BufferRead@X X `Cuc  1 a 1 wreg ]
 [v GLCD_BufferRead@Y Y `Cuc  1 p 1 0 ]
-"1176
+"1178
 [v GLCD_BufferRead@X X `Cuc  1 a 1 4 ]
-"1177
+"1179
 } 0
 "141 C:\Projects\MultiChem-Battery-Tester\firmware\battery-tester.X\button.c
 [v _Button_Update Button_Update `(v  1 e 1 0 ]
@@ -2252,42 +2252,42 @@ state_idle 2
 [v GLCD_SendCommand@Command Command `Cuc  1 a 1 6 ]
 "53
 } 0
-"1134
+"1136
 [v _GLCD_WaitBusy GLCD_WaitBusy `(v  1 s 1 GLCD_WaitBusy ]
 {
 [v GLCD_WaitBusy@Chip Chip `E5692  1 a 1 wreg ]
-"1136
+"1138
 [v GLCD_WaitBusy@status status `uc  1 a 1 4 ]
-"1134
+"1136
 [v GLCD_WaitBusy@Chip Chip `E5692  1 a 1 wreg ]
 [v GLCD_WaitBusy@Chip Chip `E5692  1 a 1 3 ]
-"1165
+"1167
 } 0
-"1179
+"1181
 [v _GLCD_SelectChip GLCD_SelectChip `(v  1 s 1 GLCD_SelectChip ]
 {
 [v GLCD_SelectChip@Chip Chip `E5692  1 a 1 wreg ]
-"1181
+"1183
 [v GLCD_SelectChip@off off `uc  1 a 1 1 ]
-"1179
+"1181
 [v GLCD_SelectChip@Chip Chip `E5692  1 a 1 wreg ]
-"1185
+"1187
 [v GLCD_SelectChip@Chip Chip `E5692  1 a 1 0 ]
-"1206
+"1208
 } 0
-"1120
+"1122
 [v _GLCD_Send GLCD_Send `(v  1 s 1 GLCD_Send ]
 {
 [v GLCD_Send@Data Data `Cuc  1 a 1 wreg ]
 [v GLCD_Send@Data Data `Cuc  1 a 1 wreg ]
-"1123
+"1125
 [v GLCD_Send@Data Data `Cuc  1 a 1 0 ]
-"1132
+"1134
 } 0
-"1263
+"1265
 [v _Pulse_En Pulse_En `T(v  1 s 1 Pulse_En ]
 {
-"1269
+"1271
 } 0
 "201
 [v _GLCD_GotoXY GLCD_GotoXY `(v  1 e 1 0 ]

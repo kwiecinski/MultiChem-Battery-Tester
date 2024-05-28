@@ -2,14 +2,14 @@ Microchip MPLAB XC8 Compiler V2.40
 
 Linker command line:
 
--W9 \
+\
   --edf=C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\dat\20230817221043_en.msgs \
   -cn -h+dist/default/production\battery-tester.X.production.sym \
   --cmf=dist/default/production\battery-tester.X.production.cmf -z \
-  -Q18F67J50 -oC:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.4 \
+  -Q18F67J50 -oC:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.4 \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/battery-tester.X.production.map \
-  --md=C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.dat -E1 \
+  --md=C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFF7h -ACONST=00h-01FFF7h \
   -ASMALLCONST=01000h-010FFhx495,01FF00h-01FFF7h \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFF7h -ACOMRAM=01h-05Fh \
@@ -29,7 +29,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o \
+  C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o \
   dist/default/production\battery-tester.X.production.o 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Machine type is 18F67J50
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\LPC-user\AppData\Local\Temp\xcAs1nc.o
+C:\Users\LPC-user\AppData\Local\Temp\xcAs4rc.o
                 config                            1FFF8    1FFF8        6        0       4
                 init                                 7A       7A        4        4       0
                 reset_vec                             0        0        4        0       0
@@ -668,10 +668,10 @@ _ButtonUp                                                text125       1B4AC
 _Button_EventGet                                         text127       1B076
 _Button_Event_Reset                                      text126       1AC18
 _Button_Init                                             text139       17210
-_Button_Init$1988                                        cstackCOMRAM  00007
-_Button_Init$1989                                        cstackCOMRAM  00009
-_Button_Init$1990                                        cstackCOMRAM  0000B
-_Button_Init$2000                                        cstackCOMRAM  0000D
+_Button_Init$1983                                        cstackCOMRAM  00007
+_Button_Init$1984                                        cstackCOMRAM  00009
+_Button_Init$1985                                        cstackCOMRAM  0000B
+_Button_Init$1995                                        cstackCOMRAM  0000D
 _Button_Update                                           text118       15DA2
 _CCP3CONbits                                             (abs)         00FB1
 _CCPR3L                                                  (abs)         00FB2
@@ -1617,7 +1617,7 @@ _counter_test                                            bssBANK2      002E4
 _dbuf                                                    bssBANK0      00091
 _delay_ms                                                text13        1B0AE
 _dtoa                                                    text85        161C2
-_dtoa$5211                                               cstackCOMRAM  00030
+_dtoa$5206                                               cstackCOMRAM  00030
 _flags                                                   bssBANK0      00088
 _fputc                                                   text88        1978E
 _fputs                                                   text87        1AE16
@@ -1627,7 +1627,7 @@ _isalpha                                                 text81        1B006
 _isdigit                                                 text96        1B28E
 _islower                                                 text79        1B236
 _isspace                                                 text95        1AD48
-_isspace$5288                                            cstackCOMRAM  00005
+_isspace$5283                                            cstackCOMRAM  00005
 _isupper                                                 text80        1B262
 _main                                                    text0         17866
 _measurement_data_sample_timer                           bssBANK0      00076
@@ -1642,7 +1642,7 @@ _printf                                                  text32        1B30E
 _putch                                                   text89        1B558
 _read_bytes                                              text35        1AC68
 _read_parameters_from_flash                              text8         13DEE
-_read_parameters_from_flash$5831                         cstackBANK1   00190
+_read_parameters_from_flash$5826                         cstackBANK1   00190
 _represent_value_in_binary                               text21        1A8DC
 _save_param_to_table                                     text30        1A440
 _save_parameters_to_flash                                text17        13704
@@ -1669,7 +1669,7 @@ _width                                                   bssBANK0      0007E
 _write_byte                                              text20        1AE5A
 _write_byte_table_auto_address_increment                 text18        1991C
 _xtoa                                                    text77        16DE4
-_xtoa$5229                                               cstackCOMRAM  00031
+_xtoa$5224                                               cstackCOMRAM  00031
 abs@a                                                    cstackCOMRAM  00013
 atoi@n                                                   cstackCOMRAM  00026
 atoi@neg                                                 cstackCOMRAM  00024

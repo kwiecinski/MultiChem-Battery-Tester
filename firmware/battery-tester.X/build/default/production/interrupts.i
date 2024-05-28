@@ -9257,7 +9257,7 @@ extern volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_t
 
 
 
-void Init_Timer0();
+void Init_Timer0(void);
 # 2 "interrupts.c" 2
 
 
@@ -9268,7 +9268,7 @@ volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_timer;
 
 
 
-void Init_Timer0()
+void Init_Timer0(void)
 {
 
     T0CONbits.TMR0ON = 1;

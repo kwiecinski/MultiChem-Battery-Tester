@@ -9434,7 +9434,7 @@ extern volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_t
 
 
 
-void Init_Timer0();
+void Init_Timer0(void);
 # 29 "button.c" 2
 
 # 1 "./button.h" 1
@@ -9459,7 +9459,7 @@ typedef enum {
 
 
 
-typedef uint8_t (*port_read_cb_t)();
+typedef uint8_t (*port_read_cb_t)(void);
 
 
 

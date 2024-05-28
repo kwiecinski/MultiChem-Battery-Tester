@@ -34,8 +34,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./button.h: 214: void Button_Init(void);
 [v _Button_Init `(v ~T0 @X0 0 ef ]
 "46 ./interrupts.h
-[; ;./interrupts.h: 46: void Init_Timer0();
-[v _Init_Timer0 `(v ~T0 @X0 0 e? ]
+[; ;./interrupts.h: 46: void Init_Timer0(void);
+[v _Init_Timer0 `(v ~T0 @X0 0 ef ]
 "15 ./MMSP.h
 [; ;./MMSP.h: 15: void setSPI_Interface(void);
 [v _setSPI_Interface `(v ~T0 @X0 0 ef ]

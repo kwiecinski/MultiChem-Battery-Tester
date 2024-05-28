@@ -987,10 +987,10 @@ void Menu(BattParameters *bat_param)
                     
                     if(Button_EventGet(RIGHT_SW))
                     {
-                        bat_param->charge_current_2_percent=bat_param->charge_current_2_percent+val;
+                        bat_param->charge_current_2_percent=bat_param->charge_current_2_percent+(uint8_t)val;
                     }else if(Button_EventGet(LEFT_SW))
                     {
-                        bat_param->charge_current_2_percent=bat_param->charge_current_2_percent-val;
+                        bat_param->charge_current_2_percent=bat_param->charge_current_2_percent-(uint8_t)val;
                     }
 
                     if(bat_param->charge_current_2_percent<MIN_PRECENT_CHARGE_VAL)
@@ -1127,10 +1127,10 @@ void Menu(BattParameters *bat_param)
                     
                     if(Button_EventGet(RIGHT_SW))
                     {
-                        bat_param->charge_current_3_percent=bat_param->charge_current_3_percent+val;
+                        bat_param->charge_current_3_percent=bat_param->charge_current_3_percent+(uint8_t)val;
                     }else if(Button_EventGet(LEFT_SW))
                     {
-                        bat_param->charge_current_3_percent=bat_param->charge_current_3_percent-val;
+                        bat_param->charge_current_3_percent=bat_param->charge_current_3_percent-(uint8_t)val;
                     }
 
                     if(bat_param->charge_current_3_percent<MIN_PRECENT_CHARGE_VAL)

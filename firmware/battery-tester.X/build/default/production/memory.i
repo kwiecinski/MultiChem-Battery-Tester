@@ -9509,7 +9509,7 @@ extern volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_t
 
 
 
-void Init_Timer0();
+void Init_Timer0(void);
 # 7 "memory.c" 2
 
 # 1 "./SST25VF.h" 1

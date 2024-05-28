@@ -17104,8 +17104,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 989:                     {
 {
 "990
-[; ;menu_navigation.c: 990:                         bat_param->charge_current_2_percent=bat_param->charge_current_2_percent+val;
-[e = . *U _bat_param 13 -> + -> . *U _bat_param 13 `ui -> _val `ui `uc ]
+[; ;menu_navigation.c: 990:                         bat_param->charge_current_2_percent=bat_param->charge_current_2_percent+(uint8_t)val;
+[e = . *U _bat_param 13 -> + -> . *U _bat_param 13 `i -> -> _val `uc `i `uc ]
 "991
 [; ;menu_navigation.c: 991:                     }else if(Button_EventGet(LEFT_SW))
 }
@@ -17116,8 +17116,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 992:                     {
 {
 "993
-[; ;menu_navigation.c: 993:                         bat_param->charge_current_2_percent=bat_param->charge_current_2_percent-val;
-[e = . *U _bat_param 13 -> - -> . *U _bat_param 13 `ui -> _val `ui `uc ]
+[; ;menu_navigation.c: 993:                         bat_param->charge_current_2_percent=bat_param->charge_current_2_percent-(uint8_t)val;
+[e = . *U _bat_param 13 -> - -> . *U _bat_param 13 `i -> -> _val `uc `i `uc ]
 "994
 [; ;menu_navigation.c: 994:                     }
 }
@@ -17577,8 +17577,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 1129:                     {
 {
 "1130
-[; ;menu_navigation.c: 1130:                         bat_param->charge_current_3_percent=bat_param->charge_current_3_percent+val;
-[e = . *U _bat_param 14 -> + -> . *U _bat_param 14 `ui -> _val `ui `uc ]
+[; ;menu_navigation.c: 1130:                         bat_param->charge_current_3_percent=bat_param->charge_current_3_percent+(uint8_t)val;
+[e = . *U _bat_param 14 -> + -> . *U _bat_param 14 `i -> -> _val `uc `i `uc ]
 "1131
 [; ;menu_navigation.c: 1131:                     }else if(Button_EventGet(LEFT_SW))
 }
@@ -17589,8 +17589,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;menu_navigation.c: 1132:                     {
 {
 "1133
-[; ;menu_navigation.c: 1133:                         bat_param->charge_current_3_percent=bat_param->charge_current_3_percent-val;
-[e = . *U _bat_param 14 -> - -> . *U _bat_param 14 `ui -> _val `ui `uc ]
+[; ;menu_navigation.c: 1133:                         bat_param->charge_current_3_percent=bat_param->charge_current_3_percent-(uint8_t)val;
+[e = . *U _bat_param 14 -> - -> . *U _bat_param 14 `i -> -> _val `uc `i `uc ]
 "1134
 [; ;menu_navigation.c: 1134:                     }
 }

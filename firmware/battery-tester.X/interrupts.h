@@ -43,7 +43,7 @@ extern volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_t
 //extern volatile uint8_t  
 
 
-void Init_Timer0();
+void Init_Timer0(void);
 
 
 

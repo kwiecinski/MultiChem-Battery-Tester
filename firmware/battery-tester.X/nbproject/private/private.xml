@@ -37,15 +37,13 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/SST25VF.c</file>
+            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/button.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_navigation.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/menu_definitions.h</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/interrupts.c</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/main.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/SST25VF.h</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/LCD-KS0108/KS0108.c</file>
-            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/interrupts.h</file>
+            <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/button.h</file>
             <file>file:/C:/Projects/MultiChem-Battery-Tester/firmware/battery-tester.X/memory.h</file>
         </group>
     </open-files>

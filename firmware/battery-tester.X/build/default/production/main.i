@@ -9717,7 +9717,7 @@ typedef enum {
 
 
 
-typedef uint8_t (*port_read_cb_t)();
+typedef uint8_t (*port_read_cb_t)(void);
 
 
 
@@ -9884,7 +9884,7 @@ extern volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_t
 
 
 
-void Init_Timer0();
+void Init_Timer0(void);
 # 18 "main.c" 2
 
 # 1 "./SST25VF.h" 1

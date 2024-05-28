@@ -15,6 +15,6 @@ void setPWMDutyCycle(unsigned int pwm_dutycycle)
     uint16_t CCPR3L_DC3B_val = (uint16_t)((pwm_dutycycle_period * 100) / pwm_period);
 
     
-    CCPR3L = (CCPR3L_DC3B_val >> 2);
+    CCPR3L = (unsigned char)(CCPR3L_DC3B_val >> 2);
     CCP3CONbits.DC3B = (CCPR3L_DC3B_val & 0x03);   
 }

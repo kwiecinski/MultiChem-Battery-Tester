@@ -33,9 +33,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9501
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 9501: extern volatile unsigned char TXREG2 __attribute__((address(0xFA9)));
 [v _TXREG2 `Vuc ~T0 @X0 0 e@4009 ]
-"27 peripherials/UART.c
-[; ;peripherials/UART.c: 27:         printf("%x | ",*(tab+i));
-[v _printf `(i ~T0 @X0 0 e? ]
+"105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "54 C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h
 [; ;C:/Users/LPC-user/.mchp_packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc\pic18f67j50.h: 54: __asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
@@ -804,17 +804,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "6
 [; ;peripherials/UART.c: 6:     while (!TXSTA2bits.TRMT);
-[e $U 629  ]
-[e :U 630 ]
-[e :U 629 ]
-[e $ ! != -> . . _TXSTA2bits 0 1 `i -> 0 `i 630  ]
+[e $U 631  ]
+[e :U 632 ]
 [e :U 631 ]
+[e $ ! != -> . . _TXSTA2bits 0 1 `i -> 0 `i 632  ]
+[e :U 633 ]
 "7
 [; ;peripherials/UART.c: 7:     TXREG2 = data;
 [e = _TXREG2 -> _data `uc ]
 "8
 [; ;peripherials/UART.c: 8: }
-[e :UE 628 ]
+[e :UE 630 ]
 }
 "10
 [; ;peripherials/UART.c: 10: void putch(char txData)
@@ -834,7 +834,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _UART_SendChar (1 _txData ]
 "13
 [; ;peripherials/UART.c: 13: }
-[e :UE 632 ]
+[e :UE 634 ]
 }
 "15
 [; ;peripherials/UART.c: 15: void UART_SendString(const char *string)
@@ -851,8 +851,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "17
 [; ;peripherials/UART.c: 17:     while (*string)
-[e $U 634  ]
-[e :U 635 ]
+[e $U 636  ]
+[e :U 637 ]
 "18
 [; ;peripherials/UART.c: 18:     {
 {
@@ -862,14 +862,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20
 [; ;peripherials/UART.c: 20:     }
 }
-[e :U 634 ]
+[e :U 636 ]
 "17
 [; ;peripherials/UART.c: 17:     while (*string)
-[e $ != -> *U _string `i -> 0 `i 635  ]
-[e :U 636 ]
+[e $ != -> *U _string `i -> 0 `i 637  ]
+[e :U 638 ]
 "21
 [; ;peripherials/UART.c: 21: }
-[e :UE 633 ]
+[e :UE 635 ]
 }
 "23
 [; ;peripherials/UART.c: 23: void print_tab(uint8_t *tab, uint8_t lenght)
@@ -890,25 +890,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 641  ]
-[e :U 638 ]
+[e $U 643  ]
+[e :U 640 ]
 "26
 [; ;peripherials/UART.c: 26:     {
 {
 "27
 [; ;peripherials/UART.c: 27:         printf("%x | ",*(tab+i));
-[e ( _printf , :s 1C -> *U + _tab * -> -> _i `i `x -> -> # *U _tab `i `x `i ]
+[e ( _printf , (. :s 1C -> *U + _tab * -> -> _i `i `x -> -> # *U _tab `i `x `i ]
 "28
 [; ;peripherials/UART.c: 28:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
+[e :U 643 ]
+[e $ < -> _i `i -> _lenght `i 640  ]
 [e :U 641 ]
-[e $ < -> _i `i -> _lenght `i 638  ]
-[e :U 639 ]
 }
 "29
 [; ;peripherials/UART.c: 29: }
-[e :UE 637 ]
+[e :UE 639 ]
 }
 "31
 [; ;peripherials/UART.c: 31: void print_data_tab(uint8_t *tab, uint8_t lenght)
@@ -929,25 +929,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 646  ]
-[e :U 643 ]
+[e $U 648  ]
+[e :U 645 ]
 "34
 [; ;peripherials/UART.c: 34:     {
 {
 "35
 [; ;peripherials/UART.c: 35:         printf("%d: %d \r\n",i,*(tab+i));
-[e ( _printf , , :s 2C -> _i `i -> *U + _tab * -> -> _i `i `x -> -> # *U _tab `i `x `i ]
+[e ( _printf , , (. :s 2C -> _i `i -> *U + _tab * -> -> _i `i `x -> -> # *U _tab `i `x `i ]
 "36
 [; ;peripherials/UART.c: 36:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
+[e :U 648 ]
+[e $ < -> _i `i -> _lenght `i 645  ]
 [e :U 646 ]
-[e $ < -> _i `i -> _lenght `i 643  ]
-[e :U 644 ]
 }
 "37
 [; ;peripherials/UART.c: 37: }
-[e :UE 642 ]
+[e :UE 644 ]
 }
+[p f _printf 12583040 ]
 [a 1C 37 120 32 124 32 0 ]
 [a 2C 37 100 58 32 37 100 32 13 10 0 ]

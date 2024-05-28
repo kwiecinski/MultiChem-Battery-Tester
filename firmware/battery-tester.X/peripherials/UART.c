@@ -1,5 +1,5 @@
 #include <xc.h>
-
+#include <stdio.h>
 
 void UART_SendChar(char data) 
 {
