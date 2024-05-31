@@ -47,12 +47,13 @@
 
 void batState(uint8_t state, uint8_t  battery_number)
 {
+    /*
         switch(battery_number)
         {
             case battery_1:      GLCD_GotoXY(35,2);  break;
             case battery_2:      GLCD_GotoXY(102,2); break;
         }
-    
+    */
         switch(state)
         {
             case state_charging:     GLCD_PrintString("CHRG"); break;
@@ -444,7 +445,7 @@ void SetMaxTime (BattParameters *bat_param, uint8_t set_mode)
 /*-----------------------------------------------------------------------------*/
 void TempDisplay (BattParameters *bat_param)
 { 
-    sprintf(bat_param->text, "Temp:%02uC", bat_param->bat_actual_temp);
+    sprintf(bat_param->text, "T:%02uC", bat_param->bat_actual_temp);
     GLCD_PrintString(bat_param->text); 
 }
 
@@ -454,7 +455,7 @@ void MemoryDisplay (BattParameters *bat_param)
     sprintf(bat_param->text, "BAT:%02d", bat_param->bat_id);
     GLCD_PrintString(bat_param->text); 
     GLCD_GotoXY(73, 54);
-    sprintf(bat_param->text,"CYC:%02d/%02d", bat_param->current_memory_cycle, bat_param->max_memory_cycle);
+    sprintf(bat_param->text,"CYC:%02d/%02d", bat_param->current_measurment_cycle, bat_param->max_memory_cycle);
     GLCD_PrintString(bat_param->text); 
 }
 
@@ -576,14 +577,15 @@ void SingleBat_Menu(BattParameters *bat_param)
 {
     GLCD_Clear();
  
-    
+    GLCD_DrawRectangle(0, 0, 26, 10, GLCD_Black);
+    GLCD_GotoXY(2, 2);
     GLCD_SetFont(Font5x8, 5, 8, GLCD_Merge, GLCD_Non_Inverted);
     batState(state_idle, battery_1);
    
 
-    GLCD_GotoXY(2, 2);
-    GLCD_PrintString("BAT 1");
-    GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
+    //GLCD_GotoXY(2, 2);
+    //GLCD_PrintString("BAT 1");
+    //GLCD_DrawRectangle(0, 0, 31, 10, GLCD_Black);
  
     GLCD_GotoXY(0, 13);
     VoltageDisplay(bat_param);
@@ -595,7 +597,7 @@ void SingleBat_Menu(BattParameters *bat_param)
     CycleDisplay(bat_param);
     GLCD_GotoXY(74, 0);
     TimeDisplay(bat_param);
-    GLCD_GotoXY(78, 31);
+    GLCD_GotoXY(98, 13);
     TempDisplay(bat_param);
 
     MemoryDisplay(bat_param);

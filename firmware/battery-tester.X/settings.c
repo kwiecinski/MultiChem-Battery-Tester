@@ -1,8 +1,26 @@
     
 #include <xc.h>
 #include <stdio.h>
+#include "menu_definitions.h"
+#include "memory.h"
 #include "main.h"
+#include "settings.h"
 
+void init_settings_ptr(BattParameters *bat_param)
+{
+     if(bat_param->bat_chem==liion)
+    {   
+        bat_param->settings_ptr = bat_param->liion_settings_ptr;   
+    
+    }else if(bat_param->bat_chem==pb)
+    {
+        bat_param->settings_ptr = bat_param->pb_settings_ptr;
+         
+    }else if(bat_param->bat_chem==nimh)
+    {
+        bat_param->settings_ptr = bat_param->nimh_settings_ptr;
+    }
+}
 
 void setupUART(void)
 {

@@ -17,8 +17,6 @@
 #define LOG_MEASURMENT 0
 #define INIT_LOG_MEASURMENT 1
 
-#
-
 // ERASE PARAMETERS-------------------------------------------------------------
 #define PARAMETER_4KB_SECTOR_ERASE_ADDRESS_1        0x0
 #define PARAMETER_4KB_SECTOR_ERASE_ADDRESS_2        0x1000
@@ -47,10 +45,6 @@
 #define MEASURMENT_DATA_SIZE                                   4096
 // -----------------------------------------------------------------------------
 
-
-uint16_t check_current_measurment_offset(void);
-uint16_t check_current_temp_offset(void);
-
 // BYTE POSITIONS IN FLASH-----------------------------------------------------
 #define BAT_ID              0
 #define SAMPLING_TIME       1
@@ -68,6 +62,12 @@ uint16_t check_current_temp_offset(void);
 #define CYCLE_TYPE_DISCHARGING_BIT_POS  1
 #define COMPLETE_CYCLE_BIT_POS          2
 
+
+uint8_t check_wear_leveling_buffer_value(uint16_t addr, uint8_t lenght);
+uint16_t check_measurment_next_addr(void);
+uint16_t check_temperature_next_addr(void);
+
+
 /*
 * 0               bat id	
 * 1               sampling time	
@@ -81,16 +81,12 @@ uint16_t check_current_temp_offset(void);
 
 uint8_t calculate_measurment_sampling_time (BattParameters *bat_param)
 {
-    
-    return (bat_param->set_max_time/100*60+bat_param->set_max_time%100)*60/(MEASURMENT_DATA_SIZE/2);
-    
+    return (bat_param->set_max_time/100*60+bat_param->set_max_time%100)*60/(MEASURMENT_DATA_SIZE/2);  
 }
 
 uint8_t calculate_temp_sampling_time (BattParameters *bat_param)
-{
-    
-    return (bat_param->set_max_time/100*60+bat_param->set_max_time%100)*60/TEMP_DATA_SIZE;
-    
+{ 
+    return (bat_param->set_max_time/100*60+bat_param->set_max_time%100)*60/TEMP_DATA_SIZE;   
 }
 
 void save_measurment_start_header_to_flash(BattParameters *bat_param, uint8_t charger_state)
@@ -113,7 +109,7 @@ void save_measurment_start_header_to_flash(BattParameters *bat_param, uint8_t ch
     param_tab[SET_CURRENT_LSB_POS] = (uint8_t)(bat_param->batt_set_current & 0xFF); 
     param_tab[SET_VOLTAGE_MSB_POS] = (uint8_t)(bat_param->batt_set_voltage >> 8) & 0xFF; 
     param_tab[SET_VOLTAGE_LSB_POS] = (uint8_t)(bat_param->batt_set_voltage & 0xFF);
-     write_byte_table_auto_address_increment(check_current_measurment_offset(), &param_tab[0], sizeof(param_tab));
+    write_byte_table_auto_address_increment(check_measurment_next_addr(), &param_tab[0], sizeof(param_tab));
 }
 
 void save_measurment_end_header_to_flash(BattParameters *bat_param)
@@ -141,57 +137,46 @@ void save_measurment_end_header_to_flash(BattParameters *bat_param)
      }
      
      param_tab[MAX_TEMP] = bat_param->bat_actual_max_temp;
-     write_byte_table_auto_address_increment(check_current_measurment_offset(), &param_tab[0], sizeof(param_tab));
-     
+     write_byte_table_auto_address_increment(check_measurment_next_addr(), &param_tab[0], sizeof(param_tab));
 }
 
-void save_measurment_data_to_flash(BattParameters *bat_param, uint8_t init)
+void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memory, uint8_t init)
 {
-    static uint8_t  temp_pos,  measured_data[4], measured_temp[16], 
-                    measurment_sampling_time,temp_sampling_time;
-    static uint16_t data_pos;
-    static uint32_t memory_offset_temp, memory_offset_data;
-
     if(init == INIT_LOG_MEASURMENT)
     {
-          measurment_sampling_time = calculate_measurment_sampling_time(bat_param);
-          temp_sampling_time = calculate_temp_sampling_time(bat_param);
-          memory_offset_temp = check_current_temp_offset();
-          memory_offset_data = check_current_measurment_offset();
-          memset(&measured_data[0], 0xFF, sizeof(measured_data));  
-          data_pos=0;
-          temp_pos=0;
+          memory->measurment_sampling_time = calculate_measurment_sampling_time(bat_param);
+          memory->temp_sampling_time = calculate_temp_sampling_time(bat_param);
+          memory->memory_offset_temp = check_temperature_next_addr();
+          memory->memory_offset_data = check_measurment_next_addr();
+          memset(&memory->measured_data[0], 0xFF, sizeof(memory->measured_data));  
+          memory->data_pos=0;
+          memory->temp_pos=0;
     }else if(init == LOG_MEASURMENT)
     {
-        if(measurement_data_sample_timer >= measurment_sampling_time*1000)  
+        if(measurement_data_sample_timer >= memory->measurment_sampling_time*1000)  
         {
-            measured_data[data_pos] = (uint8_t)(bat_param->batt_actual_voltage >> 8) & 0xFF; 
-            measured_data[data_pos+1] = (uint8_t)(bat_param->batt_actual_voltage & 0xFF); 
-            measured_data[data_pos+2] = (uint8_t)(bat_param->batt_actual_current >> 8) & 0xFF; 
-            measured_data[data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
+            memory->measured_data[memory->data_pos] = (uint8_t)(bat_param->batt_actual_voltage >> 8) & 0xFF; 
+            memory->measured_data[memory->data_pos+1] = (uint8_t)(bat_param->batt_actual_voltage & 0xFF); 
+            memory->measured_data[memory->data_pos+2] = (uint8_t)(bat_param->batt_actual_current >> 8) & 0xFF; 
+           memory-> measured_data[memory->data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
             
           
-            printf("Write to flash, parameter address: %u  \n\r", check_current_measurment_offset());
-            write_byte_table_auto_address_increment(memory_offset_data+data_pos, &measured_data[0], sizeof(measured_data));
-            data_pos = 0;
-            memset(&measured_data[0], 0xFF, sizeof(measured_data));
+            printf("Write to flash, parameter address: %u  \n\r", check_measurment_next_addr());
+            write_byte_table_auto_address_increment(memory->memory_offset_data+memory->data_pos, &(memory->measured_data[0]), sizeof(memory->measured_data));
+            memory->data_pos = 0;
+            memset(&(memory->measured_data[0]), 0xFF, sizeof(memory->measured_data));
 
-            data_pos = data_pos +4;  
+            memory->data_pos = memory->data_pos +4;  
 
         }
-        if(temp_data_sample_timer >= temp_sampling_time*1000)  
+        if(temp_data_sample_timer >= memory->temp_sampling_time*1000)  
         {
-            write_byte(memory_offset_temp+temp_pos,bat_param->bat_actual_temp);
-            temp_pos++;
+            write_byte(memory->memory_offset_temp + memory->temp_pos,bat_param->bat_actual_temp);
+            memory->temp_pos++;
         }
-    
-    }
-    
- 
-    
-    
+    } 
 }
-uint8_t check_parameters_offset_position(uint16_t addr, uint8_t lenght);
+
 
 void memory_and_cycle_positions(BattParameters *bat_param)
 {
@@ -200,9 +185,9 @@ void memory_and_cycle_positions(BattParameters *bat_param)
     
     
     bat_param->max_memory_cycle = WEAR_LEVELING_MEASUREMENT_DATA_CYCLES;
-    bat_param->current_memory_cycle = check_parameters_offset_position(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH); 
+    bat_param->current_measurment_cycle = check_wear_leveling_buffer_value(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH); 
     
-    offset = check_current_measurment_offset();
+    offset = check_measurment_next_addr();
     if(offset == MEASURMENT_START_ADDR)
     {
         bat_param->bat_id = 1;
@@ -210,10 +195,8 @@ void memory_and_cycle_positions(BattParameters *bat_param)
     {
          //to read bat_id need to read heder of previous cycle so i need to do offset-MEASURMENT_DATA_SIZE
          read_bytes(offset-MEASURMENT_DATA_SIZE, &param_tab[0], sizeof(param_tab));        
-         bat_param->bat_id = param_tab[BAT_ID]+1;
-         
+         bat_param->bat_id = param_tab[BAT_ID]+1;     
     }
-    
 }
 
 void represent_value_in_binary(uint8_t value);
@@ -249,7 +232,7 @@ void measurment_erase(void)
  * @brief Checks the current offset position.
  * @return The calculated current offset position.
  */
-uint8_t check_parameters_offset_position(uint16_t addr, uint8_t lenght)
+uint8_t check_wear_leveling_buffer_value(uint16_t addr, uint8_t lenght)
 {
     uint8_t current_param_address[4], zero_bit_count;
     int8_t i, j;
@@ -277,20 +260,20 @@ uint8_t check_parameters_offset_position(uint16_t addr, uint8_t lenght)
  * @brief Checks the current parameter offset.
  * @return The calculated current parameter offset.
  */
-uint16_t check_current_param_offset(void)
+uint16_t check_param_next_addr(void)
 { 
-    return (check_parameters_offset_position(WEAR_LEVELING_PARAM_START_ADDR, WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH) * PARAMETERS_DATA_SIZE + PARAMETER_START_ADDR);
+    return (check_wear_leveling_buffer_value(WEAR_LEVELING_PARAM_START_ADDR, WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH) * PARAMETERS_DATA_SIZE + PARAMETER_START_ADDR);
 }
 
 
-uint16_t check_current_measurment_offset(void)
+uint16_t check_measurment_next_addr(void)
 { 
-    return (check_parameters_offset_position(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH) * MEASURMENT_DATA_SIZE + MEASURMENT_START_ADDR);
+    return (check_wear_leveling_buffer_value(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH) * MEASURMENT_DATA_SIZE + MEASURMENT_START_ADDR);
 }
 
-uint16_t check_current_temp_offset(void)
+uint16_t check_temperature_next_addr(void)
 { 
-    return (check_parameters_offset_position(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH) * TEMP_DATA_SIZE + TEMP_START_ADDR);
+    return (check_wear_leveling_buffer_value(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH) * TEMP_DATA_SIZE + TEMP_START_ADDR);
 }
 /*
  * @brief Saves parameter to flash memory.
@@ -310,7 +293,7 @@ void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
     {
         addr = WEAR_LEVELING_PARAM_START_ADDR;
         lenght = WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH;
-        if (check_parameters_offset_position(WEAR_LEVELING_PARAM_START_ADDR, WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH) >= WEAR_LEVELING_PARAM_CYCLES)
+        if (check_wear_leveling_buffer_value(WEAR_LEVELING_PARAM_START_ADDR, WEAR_LEVELING_PARAM_CYCLES_BYTES_LENGTH) >= WEAR_LEVELING_PARAM_CYCLES)
         {
             parameter_erase();
             printf("CLEAR PARAMETER MEMORY! \n\r");
@@ -322,14 +305,13 @@ void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
         addr = WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR;
         lenght = WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH;
         
-        if (check_parameters_offset_position(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH) >= WEAR_LEVELING_MEASUREMENT_DATA_CYCLES)
+        if (check_wear_leveling_buffer_value(WEAR_LEVELING_MEASUREMENT_DATA_START_ADDR, WEAR_LEVELING_MEASUREMENT_DATA_CYCLES_BYTES_LENGTH) >= WEAR_LEVELING_MEASUREMENT_DATA_CYCLES)
         {
             measurment_erase();
             printf("CLEAR MEASURMENT MEMORY! \n\r");
             return;
         }
     }
-    
     
     
     read_bytes(addr, &current_param_address[0], lenght);
@@ -385,7 +367,7 @@ void represent_value_in_binary(uint8_t value)
  * @param parameter_position: The position of the parameter in the table.
  * @param param_tab: The table where the parameter data will be saved.
  */
-void save_param_to_table(uint16_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
+void save_parameters_to_table(uint16_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
     for (uint8_t j = 0; j < length; j++)
     {
@@ -394,7 +376,7 @@ void save_param_to_table(uint16_t data, uint8_t length, uint8_t *parameter_posit
     *parameter_position = *parameter_position + length;
 }  
 
- uint16_t save_table_to_param(uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
+ uint16_t save_table_to_parameters(uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
     uint16_t data=0;
     
@@ -422,13 +404,11 @@ void save_parameters_to_flash(BattParameters *bat_param)
     switch_between_battery_types(bat_param, 0);
     
     parameter_position = 0;
-    save_param_to_table(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
-    save_param_to_table(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
-
-    
+    save_parameters_to_table(bat_param->batt_capacitance_cycle1, sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
+    save_parameters_to_table(bat_param->batt_capacitance_cycle2, sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
+    save_parameters_to_table(bat_param->batt_capacitance_cycle3, sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
+    save_parameters_to_table(bat_param->batt_capacitance_cycle4, sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
+    save_parameters_to_table(bat_param->bat_chem, sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
     
     for(uint8_t i=0; i<3;i++)
     {
@@ -438,39 +418,38 @@ void save_parameters_to_flash(BattParameters *bat_param)
             case 2:  bat_param->settings_ptr = bat_param->pb_settings_ptr; break;
             case 3:  bat_param->settings_ptr = bat_param->nimh_settings_ptr; break;
         }
-        
-        
-        save_param_to_table(bat_param->settings_ptr->cell_count, sizeof(bat_param->settings_ptr->cell_count), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->selected_mode, sizeof(bat_param->settings_ptr->selected_mode), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->set_cycle, sizeof(bat_param->settings_ptr->set_cycle), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->batt_set_voltage, sizeof(bat_param->settings_ptr->batt_set_voltage), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->batt_set_min_discharge_voltage, sizeof(bat_param->settings_ptr->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->batt_set_trickle_voltage, sizeof(bat_param->settings_ptr->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->batt_set_trickle_current, sizeof(bat_param->settings_ptr->batt_set_trickle_current), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->set_max_time, sizeof(bat_param->settings_ptr->set_max_time), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->batt_max_temp, sizeof(bat_param->settings_ptr->batt_max_temp), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->charge_current_1, sizeof(bat_param->settings_ptr->charge_current_1), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->discharge_current_1, sizeof(bat_param->settings_ptr->discharge_current_1), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->charge_current_2, sizeof(bat_param->settings_ptr->charge_current_2), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->charge_current_2_percent, sizeof(bat_param->settings_ptr->charge_current_2_percent), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->charge_current_3, sizeof(bat_param->settings_ptr->charge_current_3), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->charge_current_3_percent, sizeof(bat_param->settings_ptr->charge_current_3_percent), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->charge_current_4, sizeof(bat_param->settings_ptr->charge_current_4), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->charge_current_4_percent, sizeof(bat_param->settings_ptr->charge_current_4_percent), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->discharge_current_2, sizeof(bat_param->settings_ptr->discharge_current_2), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->discharge_current_2_percent, sizeof(bat_param->settings_ptr->discharge_current_2_percent), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->discharge_current_3, sizeof(bat_param->settings_ptr->discharge_current_3), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->discharge_current_3_percent, sizeof(bat_param->settings_ptr->discharge_current_3_percent), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->discharge_current_4, sizeof(bat_param->settings_ptr->discharge_current_4), &parameter_position, &param_tab[0]);
-        save_param_to_table(bat_param->settings_ptr->discharge_current_4_percent, sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
+
+        save_parameters_to_table(bat_param->settings_ptr->cell_count, sizeof(bat_param->settings_ptr->cell_count), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->selected_mode, sizeof(bat_param->settings_ptr->selected_mode), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->set_cycle, sizeof(bat_param->settings_ptr->set_cycle), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->batt_set_voltage, sizeof(bat_param->settings_ptr->batt_set_voltage), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->batt_set_min_discharge_voltage, sizeof(bat_param->settings_ptr->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->batt_set_trickle_voltage, sizeof(bat_param->settings_ptr->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->batt_set_trickle_current, sizeof(bat_param->settings_ptr->batt_set_trickle_current), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->set_max_time, sizeof(bat_param->settings_ptr->set_max_time), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->batt_max_temp, sizeof(bat_param->settings_ptr->batt_max_temp), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->charge_current_1, sizeof(bat_param->settings_ptr->charge_current_1), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->discharge_current_1, sizeof(bat_param->settings_ptr->discharge_current_1), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->charge_current_2, sizeof(bat_param->settings_ptr->charge_current_2), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->charge_current_2_percent, sizeof(bat_param->settings_ptr->charge_current_2_percent), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->charge_current_3, sizeof(bat_param->settings_ptr->charge_current_3), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->charge_current_3_percent, sizeof(bat_param->settings_ptr->charge_current_3_percent), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->charge_current_4, sizeof(bat_param->settings_ptr->charge_current_4), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->charge_current_4_percent, sizeof(bat_param->settings_ptr->charge_current_4_percent), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->discharge_current_2, sizeof(bat_param->settings_ptr->discharge_current_2), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->discharge_current_2_percent, sizeof(bat_param->settings_ptr->discharge_current_2_percent), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->discharge_current_3, sizeof(bat_param->settings_ptr->discharge_current_3), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->discharge_current_3_percent, sizeof(bat_param->settings_ptr->discharge_current_3_percent), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->discharge_current_4, sizeof(bat_param->settings_ptr->discharge_current_4), &parameter_position, &param_tab[0]);
+        save_parameters_to_table(bat_param->settings_ptr->discharge_current_4_percent, sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
     }
     
     printf("Write table: \n\r");
     print_data_tab(&param_tab[0], parameter_position);
     
     update_wear_leveling_static_buffer(UPDATE_PARAMETERS);
-    printf("Write to flash, parameter address: %u  \n\r", check_current_param_offset());
-    write_byte_table_auto_address_increment(check_current_param_offset(), &param_tab[0], parameter_position);
+    printf("Write to flash, parameter address: %u  \n\r", check_param_next_addr());
+    write_byte_table_auto_address_increment(check_param_next_addr(), &param_tab[0], parameter_position);
   
 }
 
@@ -479,21 +458,17 @@ void read_parameters_from_flash(BattParameters *bat_param)
 {
     uint8_t param_tab[144], parameter_position;
 
-    read_bytes(check_current_param_offset(), &param_tab[0], sizeof(param_tab));
-   
+    read_bytes(check_param_next_addr(), &param_tab[0], sizeof(param_tab));
 
-    
-    printf("Parameter addr read:%u \r\n", check_current_param_offset());
+    printf("Parameter addr read:%u \r\n", check_param_next_addr());
     
     parameter_position = 0;
-    bat_param->batt_capacitance_cycle1 = save_table_to_param(sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
-    bat_param->batt_capacitance_cycle2 = save_table_to_param(sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
-    bat_param->batt_capacitance_cycle3 = save_table_to_param(sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
-    bat_param->batt_capacitance_cycle4 = save_table_to_param(sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
-    bat_param->bat_chem = (uint8_t)save_table_to_param(sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
-
-    
-    
+    bat_param->batt_capacitance_cycle1 = save_table_to_parameters(sizeof(bat_param->batt_capacitance_cycle1), &parameter_position, &param_tab[0]);
+    bat_param->batt_capacitance_cycle2 = save_table_to_parameters(sizeof(bat_param->batt_capacitance_cycle2), &parameter_position, &param_tab[0]);
+    bat_param->batt_capacitance_cycle3 = save_table_to_parameters(sizeof(bat_param->batt_capacitance_cycle3), &parameter_position, &param_tab[0]);
+    bat_param->batt_capacitance_cycle4 = save_table_to_parameters(sizeof(bat_param->batt_capacitance_cycle4), &parameter_position, &param_tab[0]);
+    bat_param->bat_chem = (uint8_t)save_table_to_parameters(sizeof(bat_param->bat_chem), &parameter_position, &param_tab[0]);
+ 
     for(uint8_t i=0; i<3;i++)
     {
         switch(i)
@@ -502,36 +477,32 @@ void read_parameters_from_flash(BattParameters *bat_param)
             case 2:  bat_param->settings_ptr = bat_param->pb_settings_ptr; break;
             case 3:  bat_param->settings_ptr = bat_param->nimh_settings_ptr; break;
         }
-        
-        
-        bat_param->settings_ptr->cell_count = (uint8_t)save_table_to_param(sizeof(bat_param->settings_ptr->cell_count), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->selected_mode = (uint8_t)save_table_to_param(sizeof(bat_param->settings_ptr->selected_mode), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->set_cycle = (uint8_t)save_table_to_param(sizeof(bat_param->settings_ptr->set_cycle), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->batt_set_voltage = save_table_to_param(sizeof(bat_param->settings_ptr->batt_set_voltage), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->batt_set_min_discharge_voltage = save_table_to_param(sizeof(bat_param->settings_ptr->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->batt_set_trickle_voltage = save_table_to_param(sizeof(bat_param->settings_ptr->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->batt_set_trickle_current = save_table_to_param(sizeof(bat_param->settings_ptr->batt_set_trickle_current), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->set_max_time = save_table_to_param(sizeof(bat_param->settings_ptr->set_max_time), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->batt_max_temp = (uint8_t)save_table_to_param(sizeof(bat_param->settings_ptr->batt_max_temp), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->charge_current_1 = save_table_to_param(sizeof(bat_param->settings_ptr->charge_current_1), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->discharge_current_1 = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_1), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->charge_current_2 = save_table_to_param(sizeof(bat_param->settings_ptr->charge_current_2), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->charge_current_2_percent = (uint8_t)save_table_to_param(sizeof(bat_param->settings_ptr->charge_current_2_percent), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->charge_current_3 = save_table_to_param(sizeof(bat_param->settings_ptr->charge_current_3), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->charge_current_3_percent = (uint8_t)save_table_to_param(sizeof(bat_param->settings_ptr->charge_current_3_percent), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->charge_current_4 = save_table_to_param(sizeof(bat_param->settings_ptr->charge_current_4), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->charge_current_4_percent = (uint8_t)save_table_to_param(sizeof(bat_param->settings_ptr->charge_current_4_percent), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->discharge_current_2 = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_2), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->discharge_current_2_percent = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_2_percent), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->discharge_current_3 = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_3), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->discharge_current_3_percent = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_3_percent), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->discharge_current_4 = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_4), &parameter_position, &param_tab[0]);
-        bat_param->settings_ptr->discharge_current_4_percent = save_table_to_param(sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
-    }
   
-    
-   
-    
+        bat_param->settings_ptr->cell_count = (uint8_t)save_table_to_parameters(sizeof(bat_param->settings_ptr->cell_count), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->selected_mode = (uint8_t)save_table_to_parameters(sizeof(bat_param->settings_ptr->selected_mode), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->set_cycle = (uint8_t)save_table_to_parameters(sizeof(bat_param->settings_ptr->set_cycle), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->batt_set_voltage = save_table_to_parameters(sizeof(bat_param->settings_ptr->batt_set_voltage), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->batt_set_min_discharge_voltage = save_table_to_parameters(sizeof(bat_param->settings_ptr->batt_set_min_discharge_voltage), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->batt_set_trickle_voltage = save_table_to_parameters(sizeof(bat_param->settings_ptr->batt_set_trickle_voltage), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->batt_set_trickle_current = save_table_to_parameters(sizeof(bat_param->settings_ptr->batt_set_trickle_current), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->set_max_time = save_table_to_parameters(sizeof(bat_param->settings_ptr->set_max_time), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->batt_max_temp = (uint8_t)save_table_to_parameters(sizeof(bat_param->settings_ptr->batt_max_temp), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->charge_current_1 = save_table_to_parameters(sizeof(bat_param->settings_ptr->charge_current_1), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->discharge_current_1 = save_table_to_parameters(sizeof(bat_param->settings_ptr->discharge_current_1), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->charge_current_2 = save_table_to_parameters(sizeof(bat_param->settings_ptr->charge_current_2), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->charge_current_2_percent = (uint8_t)save_table_to_parameters(sizeof(bat_param->settings_ptr->charge_current_2_percent), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->charge_current_3 = save_table_to_parameters(sizeof(bat_param->settings_ptr->charge_current_3), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->charge_current_3_percent = (uint8_t)save_table_to_parameters(sizeof(bat_param->settings_ptr->charge_current_3_percent), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->charge_current_4 = save_table_to_parameters(sizeof(bat_param->settings_ptr->charge_current_4), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->charge_current_4_percent = (uint8_t)save_table_to_parameters(sizeof(bat_param->settings_ptr->charge_current_4_percent), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->discharge_current_2 = save_table_to_parameters(sizeof(bat_param->settings_ptr->discharge_current_2), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->discharge_current_2_percent = save_table_to_parameters(sizeof(bat_param->settings_ptr->discharge_current_2_percent), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->discharge_current_3 = save_table_to_parameters(sizeof(bat_param->settings_ptr->discharge_current_3), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->discharge_current_3_percent = save_table_to_parameters(sizeof(bat_param->settings_ptr->discharge_current_3_percent), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->discharge_current_4 = save_table_to_parameters(sizeof(bat_param->settings_ptr->discharge_current_4), &parameter_position, &param_tab[0]);
+        bat_param->settings_ptr->discharge_current_4_percent = save_table_to_parameters(sizeof(bat_param->settings_ptr->discharge_current_4_percent), &parameter_position, &param_tab[0]);
+    }
+
     printf("Read table: \n\r");
     print_data_tab(&param_tab[0], parameter_position);
     bat_param->settings_ptr = bat_param->pb_settings_ptr; 
@@ -545,8 +516,7 @@ void read_parameters_from_flash(BattParameters *bat_param)
    // parameter_position=0;
    // param_tab[0]=0x45;
    // param_tab[1]=0xa3;
-    //  printf("test: %x \r\n",  save_table_to_param(2, &parameter_position, &param_tab[0]));
-   
+   //  printf("test: %x \r\n",  save_table_to_param(2, &parameter_position, &param_tab[0])); 
 }
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param)
@@ -607,3 +577,115 @@ void check_if_any_changes_in_parameters(BattParameters *bat_param)
     save_param_to_table(bat_param->nimh_settings->discharge_current_4_percent, sizeof(bat_param->nimh_settings->discharge_current_4_percent), &parameter_position, &param_tab[0]);
 
  */
+
+
+/*
+* 0               bat id	
+* 1               sampling time	
+* 2             whole cycle flag, cycle type (chg, disc)	
+* 3,4            measured capacitance (2bytes)	
+* 5,6            set current (2bytes)	
+* 7,8            set voltage(2bytes)	
+* 9               max temp	
+* 10 to 4095 	  measurment data	
+*/
+void read_measurment_data_from_flash(BattParameters *bat_param)
+{
+    uint32_t measurment_addr, temperature_addr, addr,i;
+    uint8_t data_tab[10];
+    
+    measurment_addr = check_measurment_next_addr();
+    temperature_addr = check_temperature_next_addr();
+    
+    if(bat_param->current_measurment_cycle == 1)
+    {
+        printf("Empty Memory \r\n");
+    }else
+    {
+        addr = MEASURMENT_START_ADDR;
+        
+        read_bytes(addr, &data_tab[0], sizeof(data_tab));
+        printf("Battery ID: %02d",data_tab[BAT_ID]);
+        printf("Sampling time: %02d",data_tab[SAMPLING_TIME]);
+
+        if ((data_tab[DONE_CYCLE_TYPE] & (1 << CYCLE_TYPE_CHARGING_BIT_POS)) == 0) 
+        {
+            printf("Cycle type: charging\r\n");
+        }
+
+        if ((data_tab[DONE_CYCLE_TYPE] & (1 << CYCLE_TYPE_DISCHARGING_BIT_POS)) == 0) 
+        {
+            printf("Cycle type: discharging\r\n");
+        } 
+
+        // Sprawdzenie bitu COMPLETE_CYCLE_BIT_POS
+        if ((data_tab[DONE_CYCLE_TYPE] & (1 << COMPLETE_CYCLE_BIT_POS)) == 0) 
+        {
+            printf("Complete cycle: true\r\n");
+        } else 
+        {
+            printf("Complete cycle: false\r\n");
+        }
+        
+        if(((data_tab[CAPACITANCE_MSB_POS] << 8) | CAPACITANCE_LSB_POS) == 0xFFFF)
+        {
+             printf("Measured capacitance: fail\r\n");
+        }else
+        {
+            printf("Measured capacitance: %umAh\r\n", ((data_tab[CAPACITANCE_MSB_POS] << 8) | CAPACITANCE_LSB_POS));
+        }
+        
+        printf("Set current: %umA\r\n", ((data_tab[SET_CURRENT_MSB_POS] << 8) | SET_CURRENT_LSB_POS));
+        printf("Set voltage: %uV\r\n", ((data_tab[SET_VOLTAGE_MSB_POS] << 8) | SET_VOLTAGE_LSB_POS));
+        
+        if(data_tab[MAX_TEMP] == 0xFF)
+        {
+            printf("Max temp: fail\r\n"); 
+        }else
+        {
+            printf("Max temp: %uC\r\n",data_tab[MAX_TEMP]);
+        }
+        printf("Voltage data:\r\n");
+        
+        for (i=addr+MAX_TEMP+1; i>=addr+MEASURMENT_DATA_SIZE; i=i+4)
+        {
+            read_bytes(i, &data_tab[0], 2);
+            if(((data_tab[0] << 8) | data_tab[1]) == 0xFFFF)
+            {
+                printf("Voltage data: END\r\n");
+                break;
+            }
+            printf("%u\r\n", ((data_tab[0] << 8) | data_tab[1]));
+        }
+        
+        printf("Current data:\r\n");
+
+        for (i=addr+MAX_TEMP+3; i>=addr+MEASURMENT_DATA_SIZE; i=i+4)
+        {
+            read_bytes(i, &data_tab[0], 2);
+            if(((data_tab[0] << 8) | data_tab[1]) == 0xFFFF)
+            {
+                printf("Current data: END\r\n");
+                break;
+            }
+            printf("%u\r\n", ((data_tab[0] << 8) | data_tab[1]));
+        }
+        
+        addr = TEMP_START_ADDR;
+        printf("Temp data:\r\n");
+        
+        // TODO temperature data print
+        /*
+        for (i=addr+MAX_TEMP+3; i>=addr+MEASURMENT_DATA_SIZE; i=i+4)
+        {
+            read_bytes(i, &data_tab[0], 2);
+            printf("%u\r\n", ((data_tab[0] << 8) | data_tab[1]));
+        }
+         * */
+    }
+    
+    
+    
+    bat_param->current_measurment_cycle;
+    bat_param->bat_id; 
+}

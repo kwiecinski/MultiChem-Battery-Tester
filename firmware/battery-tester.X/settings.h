@@ -10,6 +10,7 @@ void setupClock(void);
 void setupPorts(void);
 void setupInterrupts(void);
 void setupPWM(void);
+void init_settings_ptr(BattParameters *bat_param);
 
 void delay_ms(unsigned int milliseconds);
 

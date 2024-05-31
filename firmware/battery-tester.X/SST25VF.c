@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "main.h"
 #include "MMSP.h"
+#include "memory.h"
 #include "settings.h"
 
 #define		READ_ID					0X90
