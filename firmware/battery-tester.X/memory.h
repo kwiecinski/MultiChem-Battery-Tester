@@ -2,6 +2,12 @@
 #define	XC_MEMORY_H
 
 
+#include "menu_definitions.h"
+
+
+#define LOG_MEASURMENT 0
+#define INIT_LOG_MEASURMENT 1
+
 typedef struct 
 {
      uint8_t  temp_pos,  measured_data[4], measured_temp[16], 

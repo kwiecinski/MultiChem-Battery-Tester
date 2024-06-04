@@ -19,6 +19,7 @@
 #include "SST25VF.h"
 #include "MMSP.h"
 #include "memory.h"
+#include "measurements.h"
 
 void main(void) 
 {   
@@ -56,7 +57,9 @@ void main(void)
     memory_and_cycle_positions(&bat_param);
 
     SingleBat_Menu(&bat_param);
-   
+    measurements(&bat_param);
+    
+    
     while (1) 
     {
         Menu(&bat_param);

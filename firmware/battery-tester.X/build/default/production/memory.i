@@ -9489,48 +9489,10 @@ void print_data_tab(uint8_t *tab, uint8_t lenght);
 
 
 
+# 1 "./memory.h" 1
 
 
 
-
-void setupUART(void);
-void setupClock(void);
-void setupPorts(void);
-void setupInterrupts(void);
-void setupPWM(void);
-void init_settings_ptr(BattParameters *bat_param);
-
-void delay_ms(unsigned int milliseconds);
-# 6 "memory.c" 2
-
-# 1 "./interrupts.h" 1
-# 41 "./interrupts.h"
-extern volatile uint16_t button_counter, counter_test;
-extern volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_timer;
-
-
-
-void Init_Timer0(void);
-# 7 "memory.c" 2
-
-# 1 "./SST25VF.h" 1
-# 40 "./SST25VF.h"
-void block_erase(uint32_t add, uint8_t block_type);
-void sector_erase(uint32_t add);
-void chip_erase(void);
-void write_byte(uint32_t add, uint8_t data);
-void sst25vf_init_enable_write(void);
-void read_bytes(uint32_t add, uint8_t *data, uint8_t length);
-void read_id_jedec(void);
-void read_id(void);
-void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length);
-# 8 "memory.c" 2
-
-# 1 "./MMSP.h" 1
-# 15 "./MMSP.h"
-void setSPI_Interface(void);
-uint8_t SPI_Exchange(uint8_t data);
-# 9 "memory.c" 2
 
 # 1 "./menu_definitions.h" 1
 # 15 "./menu_definitions.h"
@@ -9664,9 +9626,9 @@ void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
 void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
 void MemoryDisplay (BattParameters *bat_param);
-# 10 "memory.c" 2
+# 5 "./memory.h" 2
 
-# 1 "./memory.h" 1
+
 
 
 
@@ -9689,12 +9651,52 @@ void save_measurment_start_header_to_flash(BattParameters *bat_param, uint8_t ch
 void save_measurment_end_header_to_flash(BattParameters *bat_param);
 void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memory, uint8_t init);
 void read_measurment_data_from_flash(BattParameters *bat_param);
-# 11 "memory.c" 2
-# 66 "memory.c"
+# 4 "./settings.h" 2
+
+
+void setupUART(void);
+void setupClock(void);
+void setupPorts(void);
+void setupInterrupts(void);
+void setupPWM(void);
+void init_settings_ptr(BattParameters *bat_param);
+
+void delay_ms(unsigned int milliseconds);
+# 6 "memory.c" 2
+
+# 1 "./interrupts.h" 1
+# 41 "./interrupts.h"
+extern volatile uint16_t button_counter, counter_test;
+extern volatile uint32_t time, measurement_data_sample_timer, temp_data_sample_timer;
+
+
+
+void Init_Timer0(void);
+# 7 "memory.c" 2
+
+# 1 "./SST25VF.h" 1
+# 40 "./SST25VF.h"
+void block_erase(uint32_t add, uint8_t block_type);
+void sector_erase(uint32_t add);
+void chip_erase(void);
+void write_byte(uint32_t add, uint8_t data);
+void sst25vf_init_enable_write(void);
+void read_bytes(uint32_t add, uint8_t *data, uint8_t length);
+void read_id_jedec(void);
+void read_id(void);
+void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_t length);
+# 8 "memory.c" 2
+
+# 1 "./MMSP.h" 1
+# 15 "./MMSP.h"
+void setSPI_Interface(void);
+uint8_t SPI_Exchange(uint8_t data);
+# 9 "memory.c" 2
+# 65 "memory.c"
 uint8_t check_wear_leveling_buffer_value(uint16_t addr, uint8_t lenght);
 uint16_t check_measurment_next_addr(void);
 uint16_t check_temperature_next_addr(void);
-# 82 "memory.c"
+# 81 "memory.c"
 uint8_t calculate_measurment_sampling_time (BattParameters *bat_param)
 {
     return (bat_param->set_max_time/100*60+bat_param->set_max_time%100)*60/(4096/2);
@@ -9774,7 +9776,7 @@ void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memor
             memory->measured_data[memory->data_pos] = (uint8_t)(bat_param->batt_actual_voltage >> 8) & 0xFF;
             memory->measured_data[memory->data_pos+1] = (uint8_t)(bat_param->batt_actual_voltage & 0xFF);
             memory->measured_data[memory->data_pos+2] = (uint8_t)(bat_param->batt_actual_current >> 8) & 0xFF;
-           memory-> measured_data[memory->data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
+            memory-> measured_data[memory->data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
 
 
             printf("Write to flash, parameter address: %u  \n\r", check_measurment_next_addr());
@@ -9891,7 +9893,7 @@ uint16_t check_temperature_next_addr(void)
 {
     return (check_wear_leveling_buffer_value(0x4000, 4) * 264 + 0x2007);
 }
-# 286 "memory.c"
+# 285 "memory.c"
 void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
 {
     uint8_t current_param_address[4],lenght;
@@ -9967,7 +9969,7 @@ void represent_value_in_binary(uint8_t value)
     }
      printf(" ");
 }
-# 370 "memory.c"
+# 369 "memory.c"
 void save_parameters_to_table(uint16_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
     for (uint8_t j = 0; j < length; j++)
@@ -10108,7 +10110,7 @@ void read_parameters_from_flash(BattParameters *bat_param)
     print_data_tab(&param_tab[0], parameter_position);
     bat_param->settings_ptr = bat_param->pb_settings_ptr;
     printf("batt_pb_cycle: %u \r\n", bat_param->settings_ptr->set_cycle);
-# 520 "memory.c"
+# 519 "memory.c"
 }
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param)
@@ -10117,7 +10119,7 @@ void check_if_any_changes_in_parameters(BattParameters *bat_param)
     save_parameters_to_flash(bat_param);
 
 }
-# 592 "memory.c"
+# 591 "memory.c"
 void read_measurment_data_from_flash(BattParameters *bat_param)
 {
     uint32_t measurment_addr, temperature_addr, addr,i;
@@ -10202,7 +10204,7 @@ void read_measurment_data_from_flash(BattParameters *bat_param)
 
         addr = 0x2007;
         printf("Temp data:\r\n");
-# 685 "memory.c"
+# 684 "memory.c"
     }
 
 

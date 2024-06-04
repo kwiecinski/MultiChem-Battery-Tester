@@ -6,7 +6,7 @@
 
 
 
-
+void measurements(BattParameters *bat_param);
 
 
 

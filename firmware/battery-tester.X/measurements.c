@@ -39,12 +39,20 @@ void generate_values(int *voltage, int *current, int *temp)
 }
 
 
-void measurements(void)
+void measurements(BattParameters *bat_param)
 {
     int voltage, current, temp;
+    memory_data memory;
+    save_measurment_start_header_to_flash(bat_param, charging);
+    save_measurment_data_to_flash(bat_param,&memory, INIT_LOG_MEASURMENT);
     for (int i = 0; i < MAX_CALLS; i++) 
     {
-        generate_values(&voltage, &current, &temp);
-        //printf("Call %d: Voltage = %d, Current = %d, Temp = %d\n", i, voltage, current, temp);
-    } 
+        generate_values(&bat_param->batt_actual_voltage, &bat_param->batt_actual_current, &bat_param->bat_actual_temp);
+        save_measurment_data_to_flash(bat_param, &memory, LOG_MEASURMENT);
+    }
+    
+    save_measurment_end_header_to_flash(bat_param);
+    
+    printf("Read data to serial \r\n");
+    read_measurment_data_from_flash(bat_param);
 }

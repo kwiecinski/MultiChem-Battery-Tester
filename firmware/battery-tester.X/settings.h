@@ -1,9 +1,7 @@
 #ifndef SETTINGS_H
 #define	SETTINGS_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
+#include "memory.h"
 
 void setupUART(void);
 void setupClock(void);
@@ -19,9 +17,6 @@ void delay_ms(unsigned int milliseconds);
  
 
 
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	
 

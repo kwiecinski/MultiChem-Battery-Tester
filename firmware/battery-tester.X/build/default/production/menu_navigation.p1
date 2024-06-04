@@ -121,8 +121,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121
 [; ;./menu_definitions.h: 121: void Options2_Menu(BattParameters *bat_param);
 [v _Options2_Menu `(v ~T0 @X0 0 ef1`*S633 ]
-"15 ./memory.h
-[; ;./memory.h: 15: void check_if_any_changes_in_parameters(BattParameters *bat_param);
+"21 ./memory.h
+[; ;./memory.h: 21: void check_if_any_changes_in_parameters(BattParameters *bat_param);
 [v _check_if_any_changes_in_parameters `(v ~T0 @X0 0 ef1`*S633 ]
 "119 ./menu_definitions.h
 [; ;./menu_definitions.h: 119: void SingleBat_Menu(BattParameters *bat_param);

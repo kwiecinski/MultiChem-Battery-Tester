@@ -9530,10 +9530,7 @@ void MemoryDisplay (BattParameters *bat_param);
 # 4 "settings.c" 2
 
 # 1 "./memory.h" 1
-
-
-
-
+# 11 "./memory.h"
 typedef struct
 {
      uint8_t temp_pos, measured_data[4], measured_temp[16],
@@ -9580,8 +9577,6 @@ void read_measurment_data_from_flash(BattParameters *bat_param);
 # 6 "settings.c" 2
 
 # 1 "./settings.h" 1
-
-
 
 
 

@@ -9542,19 +9542,10 @@ void print_data_tab(uint8_t *tab, uint8_t lenght);
 
 
 
+# 1 "./memory.h" 1
 
 
 
-
-void setupUART(void);
-void setupClock(void);
-void setupPorts(void);
-void setupInterrupts(void);
-void setupPWM(void);
-void init_settings_ptr(BattParameters *bat_param);
-
-void delay_ms(unsigned int milliseconds);
-# 13 "main.c" 2
 
 # 1 "./menu_definitions.h" 1
 # 15 "./menu_definitions.h"
@@ -9688,7 +9679,44 @@ void SetDischargingCurrent_3(BattParameters *batparam_ptr, uint8_t set_mode);
 void SetDischargingCurrent_4(BattParameters *batparam_ptr, uint8_t set_mode);
 void switch_between_battery_types(BattParameters *bat_param, uint8_t init);
 void MemoryDisplay (BattParameters *bat_param);
-# 14 "main.c" 2
+# 5 "./memory.h" 2
+
+
+
+
+
+
+typedef struct
+{
+     uint8_t temp_pos, measured_data[4], measured_temp[16],
+                    measurment_sampling_time,temp_sampling_time;
+     uint16_t data_pos;
+     uint32_t memory_offset_temp, memory_offset_data;
+
+}memory_data;
+
+void memory_and_cycle_positions(BattParameters *bat_param);
+void check_if_any_changes_in_parameters(BattParameters *bat_param);
+void read_parameters_from_flash(BattParameters *bat_param);
+void save_parameters_to_flash(BattParameters *bat_param);
+
+void save_measurment_start_header_to_flash(BattParameters *bat_param, uint8_t charger_state);
+void save_measurment_end_header_to_flash(BattParameters *bat_param);
+void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memory, uint8_t init);
+void read_measurment_data_from_flash(BattParameters *bat_param);
+# 4 "./settings.h" 2
+
+
+void setupUART(void);
+void setupClock(void);
+void setupPorts(void);
+void setupInterrupts(void);
+void setupPWM(void);
+void init_settings_ptr(BattParameters *bat_param);
+
+void delay_ms(unsigned int milliseconds);
+# 13 "main.c" 2
+
 
 # 1 "./menu_navigation.h" 1
 # 40 "./menu_navigation.h"
@@ -9907,30 +9935,18 @@ void setSPI_Interface(void);
 uint8_t SPI_Exchange(uint8_t data);
 # 20 "main.c" 2
 
-# 1 "./memory.h" 1
+
+# 1 "./measurements.h" 1
 
 
 
 
-typedef struct
-{
-     uint8_t temp_pos, measured_data[4], measured_temp[16],
-                    measurment_sampling_time,temp_sampling_time;
-     uint16_t data_pos;
-     uint32_t memory_offset_temp, memory_offset_data;
 
-}memory_data;
 
-void memory_and_cycle_positions(BattParameters *bat_param);
-void check_if_any_changes_in_parameters(BattParameters *bat_param);
-void read_parameters_from_flash(BattParameters *bat_param);
-void save_parameters_to_flash(BattParameters *bat_param);
 
-void save_measurment_start_header_to_flash(BattParameters *bat_param, uint8_t charger_state);
-void save_measurment_end_header_to_flash(BattParameters *bat_param);
-void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memory, uint8_t init);
-void read_measurment_data_from_flash(BattParameters *bat_param);
-# 21 "main.c" 2
+
+void measurements(BattParameters *bat_param);
+# 22 "main.c" 2
 
 
 void main(void)
@@ -9969,6 +9985,8 @@ void main(void)
     memory_and_cycle_positions(&bat_param);
 
     SingleBat_Menu(&bat_param);
+    measurements(&bat_param);
+
 
     while (1)
     {

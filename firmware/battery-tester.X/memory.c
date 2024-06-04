@@ -14,8 +14,7 @@
 #define LENGTH      1
 #define UPDATE_PARAMETERS 0
 #define UPDATE_MEASURMENT 1
-#define LOG_MEASURMENT 0
-#define INIT_LOG_MEASURMENT 1
+
 
 // ERASE PARAMETERS-------------------------------------------------------------
 #define PARAMETER_4KB_SECTOR_ERASE_ADDRESS_1        0x0
@@ -158,7 +157,7 @@ void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memor
             memory->measured_data[memory->data_pos] = (uint8_t)(bat_param->batt_actual_voltage >> 8) & 0xFF; 
             memory->measured_data[memory->data_pos+1] = (uint8_t)(bat_param->batt_actual_voltage & 0xFF); 
             memory->measured_data[memory->data_pos+2] = (uint8_t)(bat_param->batt_actual_current >> 8) & 0xFF; 
-           memory-> measured_data[memory->data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
+            memory-> measured_data[memory->data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
             
           
             printf("Write to flash, parameter address: %u  \n\r", check_measurment_next_addr());
@@ -655,7 +654,7 @@ void read_measurment_data_from_flash(BattParameters *bat_param)
                 printf("Voltage data: END\r\n");
                 break;
             }
-            printf("%u\r\n", ((data_tab[0] << 8) | data_tab[1]));
+            printf("%u\r\n", ((data_tab[0] << 8) | data_tab[1]));           //print data do console
         }
         
         printf("Current data:\r\n");

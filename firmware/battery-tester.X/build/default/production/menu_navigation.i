@@ -10037,10 +10037,7 @@ void Button_ShortRelease(buttons btnCode);
 # 10 "menu_navigation.c" 2
 
 # 1 "./memory.h" 1
-
-
-
-
+# 11 "./memory.h"
 typedef struct
 {
      uint8_t temp_pos, measured_data[4], measured_temp[16],
