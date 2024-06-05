@@ -7,6 +7,8 @@
 
 #define LOG_MEASURMENT 0
 #define INIT_LOG_MEASURMENT 1
+#define UPDATE_PARAMETERS 0
+#define UPDATE_MEASURMENT 1
 
 typedef struct 
 {
@@ -26,7 +28,7 @@ void save_measurment_start_header_to_flash(BattParameters *bat_param, uint8_t ch
 void save_measurment_end_header_to_flash(BattParameters *bat_param);
 void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memory, uint8_t init);
 void read_measurment_data_from_flash(BattParameters *bat_param);
-
-
+void update_wear_leveling_static_buffer(uint8_t wear_leveling_type);
+uint16_t check_measurment_next_addr(void);
 
 #endif	

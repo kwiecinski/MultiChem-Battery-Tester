@@ -25,7 +25,9 @@ void print_tab(uint8_t *tab, uint8_t lenght)
     for(uint8_t i=0; i<lenght; i++)
     {
         printf("%x | ",*(tab+i));
+        
     }
+     printf("\n\r");
 }
 
 void print_data_tab(uint8_t *tab, uint8_t lenght)

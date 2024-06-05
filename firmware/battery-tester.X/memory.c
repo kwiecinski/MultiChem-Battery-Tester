@@ -12,8 +12,7 @@
 
 #define ADDRESS     0
 #define LENGTH      1
-#define UPDATE_PARAMETERS 0
-#define UPDATE_MEASURMENT 1
+
 
 
 // ERASE PARAMETERS-------------------------------------------------------------
@@ -152,20 +151,23 @@ void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memor
           memory->temp_pos=0;
     }else if(init == LOG_MEASURMENT)
     {
-        if(measurement_data_sample_timer >= memory->measurment_sampling_time*1000)  
+        //if(measurement_data_sample_timer >= memory->measurment_sampling_time*1000)  
+        if(1)
         {
             memory->measured_data[memory->data_pos] = (uint8_t)(bat_param->batt_actual_voltage >> 8) & 0xFF; 
             memory->measured_data[memory->data_pos+1] = (uint8_t)(bat_param->batt_actual_voltage & 0xFF); 
             memory->measured_data[memory->data_pos+2] = (uint8_t)(bat_param->batt_actual_current >> 8) & 0xFF; 
-            memory-> measured_data[memory->data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
+            memory->measured_data[memory->data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
             
           
-            printf("Write to flash, parameter address: %u  \n\r", check_measurment_next_addr());
+            printf("Write parameter address: %lu  \n\r", (memory->memory_offset_data + memory->data_pos));
             write_byte_table_auto_address_increment(memory->memory_offset_data+memory->data_pos, &(memory->measured_data[0]), sizeof(memory->measured_data));
             memory->data_pos = 0;
             memset(&(memory->measured_data[0]), 0xFF, sizeof(memory->measured_data));
 
-            memory->data_pos = memory->data_pos +4;  
+            memory->data_pos = memory->data_pos + 4;  
+            
+            
 
         }
         if(temp_data_sample_timer >= memory->temp_sampling_time*1000)  
@@ -315,7 +317,7 @@ void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
     
     read_bytes(addr, &current_param_address[0], lenght);
     
-    printf("current_param_address tab: \r\n");
+    printf("wear leveling buffer status before update: \r\n");
     print_tab(&current_param_address[0],sizeof(current_param_address));
     printf("\r\n");
     
@@ -334,8 +336,10 @@ void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
             {
                 // Found bit 1, change it to 0
                 current_param_address[i] &= ~(1 << j);
-                printf("i:%d j:%d\r\n",i,j);
-                  print_tab(&current_param_address[0],sizeof(current_param_address));
+                
+                printf("wear leveling buffer status after update: \r\n");
+                print_tab(&current_param_address[0],sizeof(current_param_address));
+                
                 write_byte(addr + (uint32_t)i, current_param_address[i]);    // save new offset position to flash
               
                  
@@ -604,8 +608,8 @@ void read_measurment_data_from_flash(BattParameters *bat_param)
         addr = MEASURMENT_START_ADDR;
         
         read_bytes(addr, &data_tab[0], sizeof(data_tab));
-        printf("Battery ID: %02d",data_tab[BAT_ID]);
-        printf("Sampling time: %02d",data_tab[SAMPLING_TIME]);
+        printf("Battery ID: %02d\r\n",data_tab[BAT_ID]);
+        printf("Sampling time: %02dms\r\n",data_tab[SAMPLING_TIME]);
 
         if ((data_tab[DONE_CYCLE_TYPE] & (1 << CYCLE_TYPE_CHARGING_BIT_POS)) == 0) 
         {
@@ -646,7 +650,7 @@ void read_measurment_data_from_flash(BattParameters *bat_param)
         }
         printf("Voltage data:\r\n");
         
-        for (i=addr+MAX_TEMP+1; i>=addr+MEASURMENT_DATA_SIZE; i=i+4)
+        for (i=addr+MAX_TEMP+1; i<=addr+100; i=i+4)
         {
             read_bytes(i, &data_tab[0], 2);
             if(((data_tab[0] << 8) | data_tab[1]) == 0xFFFF)
@@ -659,7 +663,7 @@ void read_measurment_data_from_flash(BattParameters *bat_param)
         
         printf("Current data:\r\n");
 
-        for (i=addr+MAX_TEMP+3; i>=addr+MEASURMENT_DATA_SIZE; i=i+4)
+        for (i=addr+MAX_TEMP+3; i<=addr+100; i=i+4)
         {
             read_bytes(i, &data_tab[0], 2);
             if(((data_tab[0] << 8) | data_tab[1]) == 0xFFFF)

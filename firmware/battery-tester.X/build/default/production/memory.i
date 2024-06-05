@@ -9633,6 +9633,8 @@ void MemoryDisplay (BattParameters *bat_param);
 
 
 
+
+
 typedef struct
 {
      uint8_t temp_pos, measured_data[4], measured_temp[16],
@@ -9651,6 +9653,8 @@ void save_measurment_start_header_to_flash(BattParameters *bat_param, uint8_t ch
 void save_measurment_end_header_to_flash(BattParameters *bat_param);
 void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memory, uint8_t init);
 void read_measurment_data_from_flash(BattParameters *bat_param);
+void update_wear_leveling_static_buffer(uint8_t wear_leveling_type);
+uint16_t check_measurment_next_addr(void);
 # 4 "./settings.h" 2
 
 
@@ -9692,11 +9696,11 @@ void write_byte_table_auto_address_increment(uint32_t add, uint8_t *data, uint8_
 void setSPI_Interface(void);
 uint8_t SPI_Exchange(uint8_t data);
 # 9 "memory.c" 2
-# 65 "memory.c"
+# 64 "memory.c"
 uint8_t check_wear_leveling_buffer_value(uint16_t addr, uint8_t lenght);
 uint16_t check_measurment_next_addr(void);
 uint16_t check_temperature_next_addr(void);
-# 81 "memory.c"
+# 80 "memory.c"
 uint8_t calculate_measurment_sampling_time (BattParameters *bat_param)
 {
     return (bat_param->set_max_time/100*60+bat_param->set_max_time%100)*60/(4096/2);
@@ -9771,20 +9775,23 @@ void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memor
           memory->temp_pos=0;
     }else if(init == 0)
     {
-        if(measurement_data_sample_timer >= memory->measurment_sampling_time*1000)
+
+        if(1)
         {
             memory->measured_data[memory->data_pos] = (uint8_t)(bat_param->batt_actual_voltage >> 8) & 0xFF;
             memory->measured_data[memory->data_pos+1] = (uint8_t)(bat_param->batt_actual_voltage & 0xFF);
             memory->measured_data[memory->data_pos+2] = (uint8_t)(bat_param->batt_actual_current >> 8) & 0xFF;
-            memory-> measured_data[memory->data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
+            memory->measured_data[memory->data_pos+3] = (uint8_t)(bat_param->batt_actual_current & 0xFF);
 
 
-            printf("Write to flash, parameter address: %u  \n\r", check_measurment_next_addr());
+            printf("Write parameter address: %lu  \n\r", memory->memory_offset_data+memory->data_pos);
             write_byte_table_auto_address_increment(memory->memory_offset_data+memory->data_pos, &(memory->measured_data[0]), sizeof(memory->measured_data));
             memory->data_pos = 0;
             memset(&(memory->measured_data[0]), 0xFF, sizeof(memory->measured_data));
 
             memory->data_pos = memory->data_pos +4;
+
+
 
         }
         if(temp_data_sample_timer >= memory->temp_sampling_time*1000)
@@ -9893,7 +9900,7 @@ uint16_t check_temperature_next_addr(void)
 {
     return (check_wear_leveling_buffer_value(0x4000, 4) * 264 + 0x2007);
 }
-# 285 "memory.c"
+# 287 "memory.c"
 void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
 {
     uint8_t current_param_address[4],lenght;
@@ -9927,7 +9934,7 @@ void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
 
     read_bytes(addr, &current_param_address[0], lenght);
 
-    printf("current_param_address tab: \r\n");
+    printf("wear leveling buffer status before update: \r\n");
     print_tab(&current_param_address[0],sizeof(current_param_address));
     printf("\r\n");
 
@@ -9946,8 +9953,10 @@ void update_wear_leveling_static_buffer(uint8_t wear_leveling_type)
             {
 
                 current_param_address[i] &= ~(1 << j);
-                printf("i:%d j:%d\r\n",i,j);
-                  print_tab(&current_param_address[0],sizeof(current_param_address));
+
+                printf("wear leveling buffer status after update: \r\n");
+                print_tab(&current_param_address[0],sizeof(current_param_address));
+
                 write_byte(addr + (uint32_t)i, current_param_address[i]);
 
 
@@ -9969,7 +9978,7 @@ void represent_value_in_binary(uint8_t value)
     }
      printf(" ");
 }
-# 369 "memory.c"
+# 373 "memory.c"
 void save_parameters_to_table(uint16_t data, uint8_t length, uint8_t *parameter_position, uint8_t *param_tab)
 {
     for (uint8_t j = 0; j < length; j++)
@@ -10110,7 +10119,7 @@ void read_parameters_from_flash(BattParameters *bat_param)
     print_data_tab(&param_tab[0], parameter_position);
     bat_param->settings_ptr = bat_param->pb_settings_ptr;
     printf("batt_pb_cycle: %u \r\n", bat_param->settings_ptr->set_cycle);
-# 519 "memory.c"
+# 523 "memory.c"
 }
 
 void check_if_any_changes_in_parameters(BattParameters *bat_param)
@@ -10119,7 +10128,7 @@ void check_if_any_changes_in_parameters(BattParameters *bat_param)
     save_parameters_to_flash(bat_param);
 
 }
-# 591 "memory.c"
+# 595 "memory.c"
 void read_measurment_data_from_flash(BattParameters *bat_param)
 {
     uint32_t measurment_addr, temperature_addr, addr,i;
@@ -10136,8 +10145,8 @@ void read_measurment_data_from_flash(BattParameters *bat_param)
         addr = 0x4000;
 
         read_bytes(addr, &data_tab[0], sizeof(data_tab));
-        printf("Battery ID: %02d",data_tab[0]);
-        printf("Sampling time: %02d",data_tab[1]);
+        printf("Battery ID: %02d\r\n",data_tab[0]);
+        printf("Sampling time: %02dms\r\n",data_tab[1]);
 
         if ((data_tab[2] & (1 << 0)) == 0)
         {
@@ -10178,7 +10187,7 @@ void read_measurment_data_from_flash(BattParameters *bat_param)
         }
         printf("Voltage data:\r\n");
 
-        for (i=addr+9 +1; i>=addr+4096; i=i+4)
+        for (i=addr+9 +1; i<=addr+100; i=i+4)
         {
             read_bytes(i, &data_tab[0], 2);
             if(((data_tab[0] << 8) | data_tab[1]) == 0xFFFF)
@@ -10191,7 +10200,7 @@ void read_measurment_data_from_flash(BattParameters *bat_param)
 
         printf("Current data:\r\n");
 
-        for (i=addr+9 +3; i>=addr+4096; i=i+4)
+        for (i=addr+9 +3; i<=addr+100; i=i+4)
         {
             read_bytes(i, &data_tab[0], 2);
             if(((data_tab[0] << 8) | data_tab[1]) == 0xFFFF)
@@ -10204,7 +10213,7 @@ void read_measurment_data_from_flash(BattParameters *bat_param)
 
         addr = 0x2007;
         printf("Temp data:\r\n");
-# 684 "memory.c"
+# 688 "memory.c"
     }
 
 

@@ -898,57 +898,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27
 [; ;peripherials/UART.c: 27:         printf("%x | ",*(tab+i));
 [e ( _printf , (. :s 1C -> *U + _tab * -> -> _i `i `x -> -> # *U _tab `i `x `i ]
-"28
-[; ;peripherials/UART.c: 28:     }
+"29
+[; ;peripherials/UART.c: 29:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 643 ]
 [e $ < -> _i `i -> _lenght `i 640  ]
 [e :U 641 ]
 }
-"29
-[; ;peripherials/UART.c: 29: }
+"30
+[; ;peripherials/UART.c: 30:      printf("\n\r");
+[e ( _printf :s 2C ]
+"31
+[; ;peripherials/UART.c: 31: }
 [e :UE 639 ]
 }
-"31
-[; ;peripherials/UART.c: 31: void print_data_tab(uint8_t *tab, uint8_t lenght)
+"33
+[; ;peripherials/UART.c: 33: void print_data_tab(uint8_t *tab, uint8_t lenght)
 [v _print_data_tab `(v ~T0 @X0 1 ef2`*uc`uc ]
-"32
-[; ;peripherials/UART.c: 32: {
+"34
+[; ;peripherials/UART.c: 34: {
 {
 [e :U _print_data_tab ]
-"31
-[; ;peripherials/UART.c: 31: void print_data_tab(uint8_t *tab, uint8_t lenght)
+"33
+[; ;peripherials/UART.c: 33: void print_data_tab(uint8_t *tab, uint8_t lenght)
 [v _tab `*uc ~T0 @X0 1 r1 ]
 [v _lenght `uc ~T0 @X0 1 r2 ]
-"32
-[; ;peripherials/UART.c: 32: {
+"34
+[; ;peripherials/UART.c: 34: {
 [f ]
-"33
-[; ;peripherials/UART.c: 33:     for(uint8_t i=0; i<lenght; i++)
+"35
+[; ;peripherials/UART.c: 35:     for(uint8_t i=0; i<lenght; i++)
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 648  ]
 [e :U 645 ]
-"34
-[; ;peripherials/UART.c: 34:     {
-{
-"35
-[; ;peripherials/UART.c: 35:         printf("%d: %d \r\n",i,*(tab+i));
-[e ( _printf , , (. :s 2C -> _i `i -> *U + _tab * -> -> _i `i `x -> -> # *U _tab `i `x `i ]
 "36
-[; ;peripherials/UART.c: 36:     }
+[; ;peripherials/UART.c: 36:     {
+{
+"37
+[; ;peripherials/UART.c: 37:         printf("%d: %d \r\n",i,*(tab+i));
+[e ( _printf , , (. :s 3C -> _i `i -> *U + _tab * -> -> _i `i `x -> -> # *U _tab `i `x `i ]
+"38
+[; ;peripherials/UART.c: 38:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 648 ]
 [e $ < -> _i `i -> _lenght `i 645  ]
 [e :U 646 ]
 }
-"37
-[; ;peripherials/UART.c: 37: }
+"39
+[; ;peripherials/UART.c: 39: }
 [e :UE 644 ]
 }
 [p f _printf 12583040 ]
 [a 1C 37 120 32 124 32 0 ]
-[a 2C 37 100 58 32 37 100 32 13 10 0 ]
+[a 2C 10 13 0 ]
+[a 3C 37 100 58 32 37 100 32 13 10 0 ]

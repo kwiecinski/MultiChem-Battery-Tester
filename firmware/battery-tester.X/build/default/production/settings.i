@@ -9530,7 +9530,7 @@ void MemoryDisplay (BattParameters *bat_param);
 # 4 "settings.c" 2
 
 # 1 "./memory.h" 1
-# 11 "./memory.h"
+# 13 "./memory.h"
 typedef struct
 {
      uint8_t temp_pos, measured_data[4], measured_temp[16],
@@ -9549,6 +9549,8 @@ void save_measurment_start_header_to_flash(BattParameters *bat_param, uint8_t ch
 void save_measurment_end_header_to_flash(BattParameters *bat_param);
 void save_measurment_data_to_flash(BattParameters *bat_param, memory_data *memory, uint8_t init);
 void read_measurment_data_from_flash(BattParameters *bat_param);
+void update_wear_leveling_static_buffer(uint8_t wear_leveling_type);
+uint16_t check_measurment_next_addr(void);
 # 5 "settings.c" 2
 
 # 1 "./main.h" 1
