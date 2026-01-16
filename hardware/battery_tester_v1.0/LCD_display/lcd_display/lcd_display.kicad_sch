@@ -1,0 +1,56 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "65ff9657-6a89-401d-bbff-e12d17983abd")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 37.592 26.67)
+		(size 28.194 26.924)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a7c53ce0-962f-4511-8932-6142772468b2")
+		(property "Sheetname" "128x64 LCD DISPLAY"
+			(at 37.592 25.9584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "20pin_lcd_display.kicad_sch"
+			(at 37.592 54.1786 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "lcd_display"
+				(path "/65ff9657-6a89-401d-bbff-e12d17983abd"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
