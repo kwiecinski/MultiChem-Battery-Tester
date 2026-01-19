@@ -6,6 +6,48 @@
 	(paper "A4")
 	(lib_symbols)
 	(sheet
+		(at 84.074 25.908)
+		(size 34.29 31.242)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "53ac76e3-0d67-40ee-bed7-569f439677f2")
+		(property "Sheetname" "Current Source"
+			(at 84.074 25.1964 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "current_source.kicad_sch"
+			(at 84.074 57.7346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "battery_tester_v1.0"
+				(path "/3840e110-92c0-43e0-a480-527208a59562"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
 		(at 34.29 25.908)
 		(size 34.036 31.242)
 		(exclude_from_sim no)

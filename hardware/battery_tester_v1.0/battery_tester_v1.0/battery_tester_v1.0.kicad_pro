@@ -416,6 +416,10 @@
     [
       "958c128e-86a5-4c13-93ba-3ea4b432e077",
       "Microcontroller"
+    ],
+    [
+      "53ac76e3-0d67-40ee-bed7-569f439677f2",
+      "Current Source"
     ]
   ],
   "text_variables": {}
