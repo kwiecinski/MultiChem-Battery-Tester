@@ -63,7 +63,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "958c128e-86a5-4c13-93ba-3ea4b432e077")
-		(property "Sheetname" "Microcontroller"
+		(property "Sheetname" "microcontroller"
 			(at 34.29 25.1964 0)
 			(effects
 				(font
