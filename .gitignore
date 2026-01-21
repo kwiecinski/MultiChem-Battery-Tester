@@ -1,3 +1,5 @@
 /firmware/battery-tester.X/build/
 /firmware/battery-tester.X/dist/
 
+/hardware/battery_tester_v1.0/LCD_display/lcd_display/lcd_display-backups
+/hardware/battery_tester_v1.0/LCD_display/lcd_display/production
