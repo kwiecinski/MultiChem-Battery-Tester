@@ -616,11 +616,15 @@
     ],
     [
       "958c128e-86a5-4c13-93ba-3ea4b432e077",
-      "microcontroller"
+      "Microcontroller"
     ],
     [
       "53ac76e3-0d67-40ee-bed7-569f439677f2",
       "Current Source"
+    ],
+    [
+      "0f3fbe58-762e-4697-b881-7b2d4c0f1534",
+      "Charger"
     ]
   ],
   "text_variables": {}
