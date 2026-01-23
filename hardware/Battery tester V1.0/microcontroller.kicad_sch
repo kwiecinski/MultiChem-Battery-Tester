@@ -1434,6 +1434,167 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:C_Polarized"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Polarized"
+				(at 0.635 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Polarized capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "CP_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_Polarized_0_1"
+				(rectangle
+					(start -2.286 0.508)
+					(end 2.286 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 2.286) (xy -0.762 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.794) (xy -1.27 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.286 -0.508)
+					(end -2.286 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "C_Polarized_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:R"
 			(pin_numbers
 				(hide yes)
@@ -1943,6 +2104,234 @@
 						)
 					)
 					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Regulator_SwitchedCapacitor:LMC7660"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -6.604 11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LMC7660"
+				(at 0 11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at -66.04 30.48 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lmc7660.pdf"
+				(at -66.04 30.48 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Voltage converter from +1.5V to +10V to +1.5V to +10V, SO-8/DIP-8"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Voltage converter"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LMC7660_0_1"
+				(rectangle
+					(start -7.62 10.16)
+					(end 7.62 -10.16)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "LMC7660_1_1"
+				(pin power_in line
+					(at -10.16 7.62 0)
+					(length 2.54)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -10.16 0 0)
+					(length 2.54)
+					(name "OSC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -10.16 -5.08 0)
+					(length 2.54)
+					(name "LV"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -7.62 5.08 0)
+					(length 2.54)
+					(hide yes)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -12.7 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 10.16 7.62 180)
+					(length 2.54)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 10.16 2.54 180)
+					(length 2.54)
+					(name "CAP+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 10.16 -7.62 180)
+					(length 2.54)
+					(name "CAP-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3717,6 +4106,107 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:-5V"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "-5V"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"-5V\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "-5V_0_0"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "-5V_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 1.27) (xy 0.762 1.27) (xy 0 2.54) (xy -0.762 1.27) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers
@@ -4031,6 +4521,16 @@
 		)
 		(uuid "9c432485-f3c9-4b1c-b481-32cfefa431e4")
 	)
+	(text "-5V CHARGE PUMP"
+		(exclude_from_sim no)
+		(at 65.786 275.336 0)
+		(effects
+			(font
+				(size 3 3)
+			)
+		)
+		(uuid "c5879585-d641-4cb0-bd1f-3b0757d47f98")
+	)
 	(text "PROGRAMMING\nINTERFACE"
 		(exclude_from_sim no)
 		(at 355.346 196.088 0)
@@ -4085,6 +4585,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2a671c79-2823-4e0e-8e54-03c2c93a8b42")
+	)
+	(junction
+		(at 62.23 257.81)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2f09fb0a-b45e-48c5-b88a-e3358d21ca95")
 	)
 	(junction
 		(at 351.79 66.04)
@@ -4183,6 +4689,12 @@
 		(uuid "b7beb63f-35d8-4a82-b30a-66d8035f2837")
 	)
 	(junction
+		(at 87.63 236.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b9062d09-7296-46df-87cd-c5e1959f764d")
+	)
+	(junction
 		(at 293.37 172.72)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4217,6 +4729,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f685fddb-feb2-43e3-8a8c-5917ab3bd6c2")
+	)
+	(junction
+		(at 40.64 236.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fe5ac5aa-95b0-442c-8826-9d510069a5dc")
 	)
 	(junction
 		(at 241.3 219.71)
@@ -4306,6 +4824,16 @@
 	)
 	(wire
 		(pts
+			(xy 87.63 236.22) (xy 87.63 242.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09a9814c-d892-4c52-b964-f0a48e564d5e")
+	)
+	(wire
+		(pts
 			(xy 375.92 140.97) (xy 379.73 140.97)
 		)
 		(stroke
@@ -4326,6 +4854,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 241.3) (xy 74.93 242.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d2219f3-5481-4d69-a43e-70a86d55752e")
+	)
+	(wire
+		(pts
 			(xy 257.81 207.01) (xy 257.81 209.55)
 		)
 		(stroke
@@ -4333,6 +4871,16 @@
 			(type default)
 		)
 		(uuid "0d320ac3-29f1-430a-8ea2-49c1cbfd6842")
+	)
+	(wire
+		(pts
+			(xy 87.63 257.81) (xy 87.63 250.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1076dd0a-0a85-455c-85f5-8e102ad977c5")
 	)
 	(wire
 		(pts
@@ -4373,6 +4921,16 @@
 			(type default)
 		)
 		(uuid "1dbbf3c5-1c1d-4dd2-b72a-06fceeaaf90d")
+	)
+	(wire
+		(pts
+			(xy 62.23 260.35) (xy 62.23 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21f9c4a9-64c4-4b8c-9026-a38ac67f659c")
 	)
 	(wire
 		(pts
@@ -4586,6 +5144,26 @@
 	)
 	(wire
 		(pts
+			(xy 72.39 241.3) (xy 74.93 241.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e1505f4-0bab-4b84-8b9d-9ddcd9a5cc09")
+	)
+	(wire
+		(pts
+			(xy 62.23 257.81) (xy 40.64 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f37b3ff-7ca5-40bf-9ad9-e76f3dd0b615")
+	)
+	(wire
+		(pts
 			(xy 378.46 215.9) (xy 378.46 219.71)
 		)
 		(stroke
@@ -4603,6 +5181,16 @@
 			(type default)
 		)
 		(uuid "53d45da7-937c-491a-b20c-7934a6abe3b4")
+	)
+	(wire
+		(pts
+			(xy 40.64 257.81) (xy 40.64 245.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "542b5212-51c7-4499-bf6c-c612b6be23f3")
 	)
 	(wire
 		(pts
@@ -4643,6 +5231,16 @@
 			(type default)
 		)
 		(uuid "588b15df-391b-4c85-ac8a-ff98c25c0d86")
+	)
+	(wire
+		(pts
+			(xy 87.63 236.22) (xy 87.63 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c4a47f7-2695-4eda-89a1-290655027867")
 	)
 	(wire
 		(pts
@@ -4816,6 +5414,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 236.22) (xy 40.64 231.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f309267-5fc1-4aad-8eeb-1fc82519b068")
+	)
+	(wire
+		(pts
 			(xy 281.94 161.29) (xy 283.21 161.29)
 		)
 		(stroke
@@ -4823,6 +5431,16 @@
 			(type default)
 		)
 		(uuid "71b620b0-44f0-4b95-a0df-70114b6c877d")
+	)
+	(wire
+		(pts
+			(xy 62.23 257.81) (xy 87.63 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7209461b-c7c9-4e76-accf-7a672b0d4d45")
 	)
 	(wire
 		(pts
@@ -4896,6 +5514,16 @@
 	)
 	(wire
 		(pts
+			(xy 72.39 236.22) (xy 87.63 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84bde00a-bf64-4fad-a0be-d949b97b14f1")
+	)
+	(wire
+		(pts
 			(xy 375.92 224.79) (xy 379.73 224.79)
 		)
 		(stroke
@@ -4903,6 +5531,36 @@
 			(type default)
 		)
 		(uuid "863fefca-84ee-4797-9609-da916184aaa3")
+	)
+	(wire
+		(pts
+			(xy 76.2 143.51) (xy 87.63 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "870aaae9-b7c6-4302-b742-d1331a333c2c")
+	)
+	(wire
+		(pts
+			(xy 62.23 257.81) (xy 62.23 256.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8739877d-540a-47cf-8b6f-d8c241736c27")
+	)
+	(wire
+		(pts
+			(xy 72.39 251.46) (xy 74.93 251.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "882c5d45-59b2-4707-af17-fc0226deac59")
 	)
 	(wire
 		(pts
@@ -5096,6 +5754,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 237.49) (xy 40.64 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afb1ea6d-67a4-4685-a37b-f46f7a4ffc6d")
+	)
+	(wire
+		(pts
 			(xy 372.11 39.37) (xy 367.03 39.37)
 		)
 		(stroke
@@ -5203,6 +5871,16 @@
 			(type default)
 		)
 		(uuid "b98ebc2a-feb4-46fb-a65b-b35a5ec1f61a")
+	)
+	(wire
+		(pts
+			(xy 40.64 236.22) (xy 52.07 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bbfe0a36-f38a-406e-8b1a-3f7a57fb8233")
 	)
 	(wire
 		(pts
@@ -5523,6 +6201,16 @@
 			(type default)
 		)
 		(uuid "f218d036-96fa-4b87-b3de-4da640d5a415")
+	)
+	(wire
+		(pts
+			(xy 74.93 250.19) (xy 74.93 251.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f24fd785-d800-4197-b2ff-d4d96c9693c3")
 	)
 	(wire
 		(pts
@@ -6312,6 +7000,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "CHRG_DISCH_MODE"
+		(shape input)
+		(at 76.2 143.51 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7b574b8a-13c8-4f2a-9bd1-5f4c5180d052")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 55.2534 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -7745,6 +8455,72 @@
 			(project "battery_tester_v1.0"
 				(path "/3840e110-92c0-43e0-a480-527208a59562/958c128e-86a5-4c13-93ba-3ea4b432e077"
 					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-5V")
+		(at 87.63 229.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "206f3c13-5d81-4f87-9a9c-faf088f28346")
+		(property "Reference" "#PWR043"
+			(at 87.63 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "-5V"
+			(at 87.63 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"-5V\""
+			(at 87.63 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a092d30e-f111-4824-8eec-44f8278f2539")
+		)
+		(instances
+			(project "battery_tester_v1.0"
+				(path "/3840e110-92c0-43e0-a480-527208a59562/958c128e-86a5-4c13-93ba-3ea4b432e077"
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -9326,6 +10102,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 74.93 246.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "713beea6-9a45-4b53-8245-6a54ea44b561")
+		(property "Reference" "C22"
+			(at 78.74 244.2209 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10u"
+			(at 78.74 246.7609 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T"
+			(at 75.8952 250.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 74.93 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor"
+			(at 74.93 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a67daabf-7de1-4da2-ae1b-f450986738ab")
+		)
+		(pin "1"
+			(uuid "e4ddf3bd-a8bd-4620-b0d8-f985158a7735")
+		)
+		(instances
+			(project "battery_tester_v1.0"
+				(path "/3840e110-92c0-43e0-a480-527208a59562/958c128e-86a5-4c13-93ba-3ea4b432e077"
+					(reference "C22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 313.69 209.55 90)
 		(unit 1)
@@ -10364,6 +11210,146 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 40.64 241.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bad61f0e-d559-466b-935d-85cd30570008")
+		(property "Reference" "C21"
+			(at 44.45 239.1409 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10u"
+			(at 44.45 241.6809 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T"
+			(at 41.6052 245.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 40.64 241.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor"
+			(at 40.64 241.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "bc91984b-d091-444f-872a-3ddfa2a9f924")
+		)
+		(pin "1"
+			(uuid "ddf349c8-77f0-4f16-a3d2-710830314231")
+		)
+		(instances
+			(project "battery_tester_v1.0"
+				(path "/3840e110-92c0-43e0-a480-527208a59562/958c128e-86a5-4c13-93ba-3ea4b432e077"
+					(reference "C21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 87.63 246.38 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c31b16fb-d803-4b24-b9a4-f4a161298a9e")
+		(property "Reference" "C23"
+			(at 91.44 245.9989 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10u"
+			(at 91.44 248.5389 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T"
+			(at 86.6648 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 87.63 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor"
+			(at 87.63 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "287c94c8-cf84-4c0a-9b32-a0f8af639dd6")
+		)
+		(pin "1"
+			(uuid "be9f2ccc-6f5a-4eff-867e-fe4f3b38a1ed")
+		)
+		(instances
+			(project "battery_tester_v1.0"
+				(path "/3840e110-92c0-43e0-a480-527208a59562/958c128e-86a5-4c13-93ba-3ea4b432e077"
+					(reference "C23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 191.77 97.79 0)
 		(mirror y)
@@ -10797,6 +11783,92 @@
 		)
 	)
 	(symbol
+		(lib_id "Regulator_SwitchedCapacitor:LMC7660")
+		(at 62.23 243.84 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ed18dc27-dc77-4895-9dc2-bce7402bae75")
+		(property "Reference" "U8"
+			(at 62.23 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LMC7660"
+			(at 62.23 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at -3.81 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lmc7660.pdf"
+			(at -3.81 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Voltage converter from +1.5V to +10V to +1.5V to +10V, SO-8/DIP-8"
+			(at 62.23 243.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "8"
+			(uuid "eca1fc4d-3194-486c-b1c5-804cc5fd305d")
+		)
+		(pin "7"
+			(uuid "6c38dd95-63a7-4886-8160-e679b70913b4")
+		)
+		(pin "6"
+			(uuid "c020ee60-489c-48f7-a3c4-ae28cca8a7e7")
+		)
+		(pin "1"
+			(uuid "60be61cb-4583-4b79-bbed-bbb77ffbeae1")
+		)
+		(pin "3"
+			(uuid "cb3e3a87-abfd-43bd-8104-0e75d1ee65d7")
+		)
+		(pin "5"
+			(uuid "b1304684-3904-48e5-a687-9205a4c665e3")
+		)
+		(pin "2"
+			(uuid "50a6895c-e4f6-4391-994c-bb4d135de31f")
+		)
+		(pin "4"
+			(uuid "e43efdb5-46fc-44a7-b9d3-db0d2ac81322")
+		)
+		(instances
+			(project "battery_tester_v1.0"
+				(path "/3840e110-92c0-43e0-a480-527208a59562/958c128e-86a5-4c13-93ba-3ea4b432e077"
+					(reference "U8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 378.46 212.09 180)
 		(unit 1)
@@ -10938,6 +12010,72 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 62.23 260.35 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f583f5bc-5084-42d1-b145-a4381a852b19")
+		(property "Reference" "#PWR042"
+			(at 62.23 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "DGND"
+			(at 62.23 265.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 62.23 260.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 62.23 260.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 62.23 260.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3e0cb6b4-4ada-4774-8c90-b4e4a991a85c")
+		)
+		(instances
+			(project "battery_tester_v1.0"
+				(path "/3840e110-92c0-43e0-a480-527208a59562/958c128e-86a5-4c13-93ba-3ea4b432e077"
+					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 102.87 205.74 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11063,6 +12201,72 @@
 			(project "battery_tester_v1.0"
 				(path "/3840e110-92c0-43e0-a480-527208a59562/958c128e-86a5-4c13-93ba-3ea4b432e077"
 					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 40.64 231.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fdea183b-13c7-42c8-827f-0d2e022581ce")
+		(property "Reference" "#PWR041"
+			(at 40.64 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 40.64 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 40.64 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 40.64 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d1f6d03e-f373-4e6a-b8b9-52fb7fdd66b2")
+		)
+		(instances
+			(project "battery_tester_v1.0"
+				(path "/3840e110-92c0-43e0-a480-527208a59562/958c128e-86a5-4c13-93ba-3ea4b432e077"
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
